@@ -86,7 +86,7 @@ function _addVersionsMenu(version_data) {
                      + download_label + "</a></dd>";
     }
   }
-  var github_project_url = getGithubProjectUrl();
+  var github_project_url = 'https://github.com/molinfo-vienna/CDPKit';
   if (github_project_url !== null && github_project_url.length > 0){
     var inner_html = inner_html +
           "<dt>On Github</dt>"
