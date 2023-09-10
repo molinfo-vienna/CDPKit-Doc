@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDPL Python Tutorial &mdash; CDPKit 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/docs-versions-menu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. CDPL Python Tutorial" href="cdpl_python_tutorial.html" />
+    <link rel="prev" title="Installing CDPKit" href="../installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+            <a href="../index.html">
+            <img src="../_static/Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CDPL Python Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html">1. CDPL Python Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#molecular-conformation-and-generation">2. Molecular Conformation and Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-generation-and-processing">3. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-atom-and-bond-properties">4. Calculation of Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-molecule-and-pharmacophore-descriptors">5. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#force-field-calculations">6. Force Field Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#substructure-searching-and-matching">7. Substructure Searching and Matching</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_api_doc.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>CDPL Python Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cdpl_python_tutorial/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cdpl-python-tutorial">
+<h1>CDPL Python Tutorial<a class="headerlink" href="#cdpl-python-tutorial" title="Permalink to this heading"></a></h1>
+<p>Welcome to the “Getting Started with CDPKit using Python” tutorial! If you’re familiar with cheminformatics libraries like RDKit, you’ll find that CDPKit offers a unique set of tools and functionalities that can take your computational drug design projects to new heights.</p>
+<p>CDPKit, or Computational Drug Property Toolkit, is a powerful open-source library crafted for advanced drug discovery applications. Whether you’re a researcher, a student, or an industry professional, this tutorial aims to introduce the basic concepts and functionalities of CDPKit, enabling you to harness its full potential.</p>
+<p>In the subsequent sections, we’ll walk you through the foundational concepts and dive into practical applications with hands-on examples.
+By the end, you’ll be well-equipped to incorporate CDPKit into your workflow and start crafting effective drug design solutions using Python.</p>
+<p>So, grab a coffee (or tea) and let’s embark on this exciting journey into the realm of computational drug design with CDPKit!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html">1. CDPL Python Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#reading-molecules-from-an-input-file">1.1. Reading Molecules from an Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#retrieving-mdl-structure-data-from-sd-files">1.2. Retrieving MDL Structure Data from SD Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#writing-molecules-to-an-output-file">1.3. Writing Molecules to an Output File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#extracting-atom-environments-from-molecules-and-extract-smiles-strings-for-the-environments">1.4. Extracting Atom Environments from Molecules and extract SMILES strings for the environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#chembl-molecule-standardization-and-parent-structure-extraction">1.5. ChEMBL Molecule Standardization and Parent Structure Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#protonation-of-functional-groups">1.6. Protonation of Functional Groups</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#molecular-conformation-and-generation">2. Molecular Conformation and Generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#generating-low-energy-3d-conformations">2.1. Generating low-energy 3D Conformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#generating-conformation-ensembles">2.2. Generating Conformation Ensembles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-generation-and-processing">3. Pharmacophore Generation and Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#ligand-based-pharmacophore-generation-using-conformations">3.1. Ligand-based Pharmacophore Generation using Conformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#d-ligand-based-pharmacophore-generation-for-a-set-of-conformations">3.2. 3D Ligand-based Pharmacophore Generation for a set of Conformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#aligne-ligand-based-pharmacophores-for-a-set-of-conformations">3.3. Aligne Ligand-based Pharmacophores for a set of Conformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-features-and-feature-types">3.4. Pharmacophore Features and Feature Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#d-structure-based-pharmacophore-generation">3.5. 3D Structure-based Pharmacophore Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-atom-and-bond-properties">4. Calculation of Atom and Bond Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-atomic-properties">4.1. Calculation of Atomic Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-connectivity-properties">4.2. Calculation of Connectivity Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-molecule-and-pharmacophore-descriptors">5. Calculation of Molecule and Pharmacophore Descriptors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#extended-connectivity-fingerprints-ecfps">5.1. Extended Connectivity Fingerprints (ECFPs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#fame-atom-environment-fingerprints">5.2. FAME Atom Environment Fingerprints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#force-field-calculations">6. Force Field Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#mmff94-atom-charges-calculation">6.1. MMFF94 Atom Charges Calculation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#substructure-searching-and-matching">7. Substructure Searching and Matching</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#filtering-molecules-based-on-a-smarts-pattern">7.1. Filtering Molecules Based on a SMARTS Pattern</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../installation.html" class="btn btn-neutral float-left" title="Installing CDPKit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cdpl_python_tutorial.html" class="btn btn-neutral float-right" title="1. CDPL Python Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
