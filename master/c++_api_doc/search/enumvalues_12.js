@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['tartrate_5fstereo_5fcleared_14452',['TARTRATE_STEREO_CLEARED',['../classCDPL_1_1Chem_1_1ChEMBLStandardizer.html#a5f8b722453d07f26dcaac5833fc2ea55ae8ad32ab9a0a7012767488dd14fbd4a8',1,'CDPL::Chem::ChEMBLStandardizer']]],
-  ['title_14453',['TITLE',['../classCDPL_1_1Biomol_1_1PDBData.html#a879b9969591bf17e3215af28f8ccac37a40b3f4d21d5b41f53338067c35124f8f',1,'CDPL::Biomol::PDBData']]],
-  ['topologically_5funique_14454',['TOPOLOGICALLY_UNIQUE',['../classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7a86b5ce5d3759df9c81edb28caa732a0d',1,'CDPL::Chem::TautomerGenerator']]],
-  ['total_5fhyd_14455',['TOTAL_HYD',['../classCDPL_1_1GRAIL_1_1GRAILDescriptorCalculator.html#add653858e278339a0c3eff891cdf62e3a3083695a82fc686f1c457f8e71adb4a2',1,'CDPL::GRAIL::GRAILDescriptorCalculator']]],
-  ['tpsa_14456',['TPSA',['../classCDPL_1_1GRAIL_1_1GRAILDescriptorCalculator.html#add653858e278339a0c3eff891cdf62e3a3ebf1af75761e01db7da68f54772ef00',1,'CDPL::GRAIL::GRAILDescriptorCalculator']]],
-  ['turn_14457',['TURN',['../classCDPL_1_1Biomol_1_1PDBData.html#a879b9969591bf17e3215af28f8ccac37a0cc5e1b35f024b6427847715121c0245',1,'CDPL::Biomol::PDBData']]]
+  ['tartrate_5fstereo_5fcleared_14458',['TARTRATE_STEREO_CLEARED',['../classCDPL_1_1Chem_1_1ChEMBLStandardizer.html#a5f8b722453d07f26dcaac5833fc2ea55ae8ad32ab9a0a7012767488dd14fbd4a8',1,'CDPL::Chem::ChEMBLStandardizer']]],
+  ['title_14459',['TITLE',['../classCDPL_1_1Biomol_1_1PDBData.html#a879b9969591bf17e3215af28f8ccac37a40b3f4d21d5b41f53338067c35124f8f',1,'CDPL::Biomol::PDBData']]],
+  ['topologically_5funique_14460',['TOPOLOGICALLY_UNIQUE',['../classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7a86b5ce5d3759df9c81edb28caa732a0d',1,'CDPL::Chem::TautomerGenerator']]],
+  ['total_5fhyd_14461',['TOTAL_HYD',['../classCDPL_1_1GRAIL_1_1GRAILDescriptorCalculator.html#add653858e278339a0c3eff891cdf62e3a3083695a82fc686f1c457f8e71adb4a2',1,'CDPL::GRAIL::GRAILDescriptorCalculator']]],
+  ['tpsa_14462',['TPSA',['../classCDPL_1_1GRAIL_1_1GRAILDescriptorCalculator.html#add653858e278339a0c3eff891cdf62e3a3ebf1af75761e01db7da68f54772ef00',1,'CDPL::GRAIL::GRAILDescriptorCalculator']]],
+  ['turn_14463',['TURN',['../classCDPL_1_1Biomol_1_1PDBData.html#a879b9969591bf17e3215af28f8ccac37a0cc5e1b35f024b6427847715121c0245',1,'CDPL::Biomol::PDBData']]]
 ];
