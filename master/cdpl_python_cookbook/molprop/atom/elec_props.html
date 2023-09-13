@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.1.4. Partial Charges and other Electronic Properties &mdash; CDPKit 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script src="../../../_static/docs-versions-menu.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4.1.5. Physicochemical Properties" href="physchem_props.html" />
+    <link rel="prev" title="4.1.3. Classification Properties" href="class_props.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+            <a href="../../../index.html">
+            <img src="../../../_static/Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../chem/index.html">1. Processing of Chemical Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../biomol/index.html">3. Processing of Biological Macromolecules</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">4. Calculation of Molecule, Atom and Bond Properties</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4.1. Atomic Properties</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="con_props.html">4.1.1. Connectivity Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="elem_props.html">4.1.2. Chemical Element Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="class_props.html">4.1.3. Classification Properties</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.1.4. Partial Charges and other Electronic Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physchem_props.html">4.1.5. Physicochemical Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">5. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">6. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">7. Force Field Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">CDPL Python Cookbook</a> &raquo;</li>
+          <li><a href="../index.html"><span class="section-number">4. </span>Calculation of Molecule, Atom and Bond Properties</a> &raquo;</li>
+          <li><a href="index.html"><span class="section-number">4.1. </span>Atomic Properties</a> &raquo;</li>
+      <li><span class="section-number">4.1.4. </span>Partial Charges and other Electronic Properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/cdpl_python_cookbook/molprop/atom/elec_props.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="partial-charges-and-other-electronic-properties">
+<h1><span class="section-number">4.1.4. </span>Partial Charges and other Electronic Properties<a class="headerlink" href="#partial-charges-and-other-electronic-properties" title="Permalink to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">CDPL.MolProp</span> <span class="k">as</span> <span class="nn">MolProp</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># outputs the corresponding properties of each atom of the provided molecule</span>
+<span class="linenos"> 6</span><span class="k">def</span> <span class="nf">outputProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 7</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># calculate implicit hydrogen counts and set corresponding property for all atoms</span>
+<span class="linenos"> 8</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># perceive atom hybridization states and set corresponding property for all atoms</span>
+<span class="linenos"> 9</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                <span class="c1"># perceive smallest set of smallest rings and store as Chem.MolecularGraph property</span>
+<span class="linenos">10</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                <span class="c1"># perceive cycles and set corresponding atom and bond properties</span>
+<span class="linenos">11</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>         <span class="c1"># perceive aromaticity and set corresponding atom and bond properties</span>
+<span class="linenos">12</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceivePiElectronSystems</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>   <span class="c1"># perceive pi electron systems and store info as Chem.MolecularGraph property</span>
+<span class="linenos">13</span>                                                 <span class="c1"># (required for MHMO calculations)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span>    <span class="c1"># calculate sigma charges and electronegativities using the PEOE method and store values as atom properties</span>
+<span class="linenos">16</span>    <span class="c1"># (prerequisite for MHMO calculations)</span>
+<span class="linenos">17</span>    <span class="n">MolProp</span><span class="o">.</span><span class="n">calcPEOEProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="c1"># calculate pi charges, electronegativities and other properties by a modified Hueckel MO method and store values as properties</span>
+<span class="linenos">20</span>    <span class="n">MolProp</span><span class="o">.</span><span class="n">calcMHMOProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">21</span>                
+<span class="linenos">22</span>    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+<span class="linenos">23</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Atom #</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">getIndex</span><span class="p">()))</span>
+<span class="linenos">24</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Sigma charge: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">getPEOESigmaCharge</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">25</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Pi charge: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">getMHMOPiCharge</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">26</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Total partial charge: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">calcTotalPartialCharge</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">27</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Lone-pair electronegativity: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">calcLonePairElectronegativity</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">mol</span><span class="p">)))</span>
+<span class="linenos">28</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Pi electronegativity: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">calcPiElectronegativity</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">mol</span><span class="p">)))</span>
+<span class="linenos">29</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Sigma electronegativity: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">getPEOESigmaElectronegativity</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">30</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Exerted inductive effect: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">calcInductiveEffect</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">mol</span><span class="p">)))</span>
+<span class="linenos">31</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Free valence electron count: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">calcFreeValenceElectronCount</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">mol</span><span class="p">)))</span>
+<span class="linenos">32</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Valence electron count: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">calcValenceElectronCount</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">33</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/3f8709e89b31fbf51660a0d718354d04/molprop_atom_elec_props.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="class_props.html" class="btn btn-neutral float-left" title="4.1.3. Classification Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="physchem_props.html" class="btn btn-neutral float-right" title="4.1.5. Physicochemical Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

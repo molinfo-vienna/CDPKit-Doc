@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.3.1. Retrieving Feature Properties &mdash; CDPKit 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script src="../../../_static/docs-versions-menu.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.3.2. Molecule to Reference Pharmacophore Alignment" href="mol_align.html" />
+    <link rel="prev" title="2.3. Processing" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+            <a href="../../../index.html">
+            <img src="../../../_static/Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../chem/index.html">1. Processing of Chemical Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">2. Pharmacophore Generation and Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../io/index.html">2.1. Input and Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../generation/index.html">2.2. Generation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2.3. Processing</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.3.1. Retrieving Feature Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mol_align.html">2.3.2. Molecule to Reference Pharmacophore Alignment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../biomol/index.html">3. Processing of Biological Macromolecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../molprop/index.html">4. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">5. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">6. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">7. Force Field Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">CDPL Python Cookbook</a> &raquo;</li>
+          <li><a href="../index.html"><span class="section-number">2. </span>Pharmacophore Generation and Processing</a> &raquo;</li>
+          <li><a href="index.html"><span class="section-number">2.3. </span>Processing</a> &raquo;</li>
+      <li><span class="section-number">2.3.1. </span>Retrieving Feature Properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/cdpl_python_cookbook/pharm/processing/ftr_props.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="retrieving-feature-properties">
+<h1><span class="section-number">2.3.1. </span>Retrieving Feature Properties<a class="headerlink" href="#retrieving-feature-properties" title="Permalink to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># outputs all (available) properties of the features stored in the given feature container</span>
+<span class="linenos"> 6</span><span class="k">def</span> <span class="nf">outputFeatureProps</span><span class="p">(</span><span class="n">ph4</span><span class="p">:</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureContainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
+<span class="linenos"> 7</span>    <span class="n">ftr_type_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">UNKNOWN</span>               <span class="p">:</span> <span class="s1">&#39;UNKNOWN&#39;</span><span class="p">,</span>
+<span class="linenos"> 8</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">HYDROPHOBIC</span>           <span class="p">:</span> <span class="s1">&#39;HYDROPHOBIC&#39;</span><span class="p">,</span>
+<span class="linenos"> 9</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">AROMATIC</span>              <span class="p">:</span> <span class="s1">&#39;AROMATIC&#39;</span><span class="p">,</span>
+<span class="linenos">10</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">NEGATIVE_IONIZABLE</span>    <span class="p">:</span> <span class="s1">&#39;NEGATIVE_IONIZABLE&#39;</span><span class="p">,</span>
+<span class="linenos">11</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">POSITIVE_IONIZABLE</span>    <span class="p">:</span> <span class="s1">&#39;POSITIVE_IONIZABLE&#39;</span><span class="p">,</span>
+<span class="linenos">12</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">H_BOND_DONOR</span>          <span class="p">:</span> <span class="s1">&#39;H_BOND_DONOR&#39;</span><span class="p">,</span>
+<span class="linenos">13</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">H_BOND_ACCEPTOR</span>       <span class="p">:</span> <span class="s1">&#39;H_BOND_ACCEPTOR&#39;</span><span class="p">,</span>
+<span class="linenos">14</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">HALOGEN_BOND_DONOR</span>    <span class="p">:</span> <span class="s1">&#39;HALOGEN_BOND_DONOR&#39;</span><span class="p">,</span>
+<span class="linenos">15</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">HALOGEN_BOND_ACCEPTOR</span> <span class="p">:</span> <span class="s1">&#39;HALOGEN_BOND_ACCEPTOR&#39;</span><span class="p">,</span>
+<span class="linenos">16</span>                     <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">EXCLUSION_VOLUME</span>      <span class="p">:</span> <span class="s1">&#39;EXCLUSION_VOLUME&#39;</span> <span class="p">}</span>
+<span class="linenos">17</span>  
+<span class="linenos">18</span>    <span class="n">geom_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureGeometry</span><span class="o">.</span><span class="n">UNDEF</span>   <span class="p">:</span> <span class="s1">&#39;UNDEF&#39;</span><span class="p">,</span>
+<span class="linenos">19</span>                 <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureGeometry</span><span class="o">.</span><span class="n">SPHERE</span>  <span class="p">:</span> <span class="s1">&#39;SPHERE&#39;</span><span class="p">,</span>
+<span class="linenos">20</span>                 <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureGeometry</span><span class="o">.</span><span class="n">VECTOR</span>  <span class="p">:</span> <span class="s1">&#39;VECTOR&#39;</span><span class="p">,</span>
+<span class="linenos">21</span>                 <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureGeometry</span><span class="o">.</span><span class="n">PLANE</span>   <span class="p">:</span> <span class="s1">&#39;PLANE&#39;</span> <span class="p">}</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Composition of pharmacophore </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">:&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">ph4</span><span class="p">))</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ph4</span><span class="p">)):</span>
+<span class="linenos">26</span>        <span class="n">ftr</span> <span class="o">=</span> <span class="n">ph4</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="linenos">27</span>
+<span class="linenos">28</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - Feature #</span><span class="si">%s</span><span class="s1">:&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos">29</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Type: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ftr_type_str</span><span class="p">[</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ftr</span><span class="p">)])</span>
+<span class="linenos">30</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Geometry: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">geom_str</span><span class="p">[</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getGeometry</span><span class="p">(</span><span class="n">ftr</span><span class="p">)])</span>
+<span class="linenos">31</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Tolerance: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getTolerance</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">32</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Weight: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getWeight</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">33</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Optional: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getOptionalFlag</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">34</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Disabled: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getDisabledFlag</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">35</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Length: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getLength</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">36</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Hydrophobicity: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getHydrophobicity</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">37</span>
+<span class="linenos">38</span>        <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">has3DCoordinates</span><span class="p">(</span><span class="n">ftr</span><span class="p">):</span>         <span class="c1"># Pharm.Feature derives from Chem.Entity3D - therefore a function from the Chem package is used here!</span>
+<span class="linenos">39</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Position: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Chem</span><span class="o">.</span><span class="n">get3DCoordinates</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+<span class="linenos">40</span> 
+<span class="linenos">41</span>        <span class="k">if</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">hasOrientation</span><span class="p">(</span><span class="n">ftr</span><span class="p">):</span>
+<span class="linenos">42</span>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  - Orientation: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getOrientation</span><span class="p">(</span><span class="n">ftr</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/d1746cb36133f5822c12235cd16e5a44/pharm_print_ph4_ftrs.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="2.3. Processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mol_align.html" class="btn btn-neutral float-right" title="2.3.2. Molecule to Reference Pharmacophore Alignment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
