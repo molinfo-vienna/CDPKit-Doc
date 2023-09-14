@@ -130,12 +130,12 @@ Using CDPKit, you can easily read and write molecules from various file formats,
 <p class="admonition-title">Note</p>
 <p>The CDF format is a binary format that can be used to store molecules and their associated metadata and is CDPKit’s native file format.</p>
 </div>
-<p>The <a class="reference external" href="https://cdpkit.org/master/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> is versatile and can interpret different types of formats (SDF, SMILES, MOL, MOL2, CDF, etc.),
+<p>The <a class="reference external" href="../python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> is versatile and can interpret different types of formats (SDF, SMILES, MOL, MOL2, CDF, etc.),
 eliminating the need to call a specific reader for each format.
 Here is a simple example of how to read molecules from an input file:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The module <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> provides functionality for the processing of chemical data.</p>
+<p>The module <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> provides functionality for the processing of chemical data.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 
@@ -420,7 +420,7 @@ Protonation states influence a molecule’s charge, conformation, and reactivity
 enzymatic reactions, and more.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The method <a class="reference external" href="https://cdpkit.org/master/python_api_doc/classCDPL_1_1Chem_1_1ProtonationStateStandardizer.html">Chem.ProtonationStateStandardizer.standardize</a>
+<p>The method <a class="reference external" href="../python_api_doc/classCDPL_1_1Chem_1_1ProtonationStateStandardizer.html">Chem.ProtonationStateStandardizer.standardize</a>
 implements the protonation state generation algorithm.</p>
 </div>
 <p>In the following code snippet we will show how to protonate/deprotonate functional groups of a molecule for a given pH value and ionic strength.</p>
@@ -466,13 +466,11 @@ implements the protonation state generation algorithm.</p>
 <p>Molecular conformation refers to the spatial arrangement of atoms in a molecule. Each distinct spatial arrangement is a unique conformation.
 In the realm of cheminformatics and molecular modeling, the ability to generate and analyze different conformations of a molecule is crucial.
 This is especially important in drug design, where the biological activity of a molecule can be highly dependent on its conformation.</p>
-<p>One of the notable conformation generation tools included in the CDPKit is <cite>CONFORGE</cite>. For a detailed understanding of its methodology and applications:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.researchsquare.com/article/rs-1597257/v1">CONFORGE Publication</a></p></li>
-</ul>
+<p>One of the notable conformation generation tools included in the CDPKit is <cite>CONFORGE</cite>. For details on its implementation, uses, and performance
+see <span id="id1">[<a class="reference internal" href="../bibliography.html#id5" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The module CDPL.ConfGen provides functionality for the generation of conformation ensembles.</p>
+<p>The module CDPL.ConfGen provides functionality for the generation of conformation ensembles in own scripts.</p>
 </div>
 <section id="generating-low-energy-3d-conformations">
 <h2><span class="section-number">2.1. </span>Generating low-energy 3D Conformations<a class="headerlink" href="#generating-low-energy-3d-conformations" title="Permalink to this heading"></a></h2>
@@ -580,7 +578,7 @@ This is especially important in drug design, where the biological activity of a 
 <p>Sometimes, it’s beneficial to generate multiple conformations for a molecule to capture its flexibility and understand its preferred orientations in
 various environments.</p>
 <p>The function generate_conformation_ensembles() generates a conformation ensemble for a given molecule using the provided initialized
-<a class="reference external" href="https://cdpkit.org/master/python_api_doc/classCDPL_1_1ConfGen_1_1ConformerGenerator.html">ConfGen.ConformerGenerator instance</a>.
+<a class="reference external" href="../python_api_doc/classCDPL_1_1ConfGen_1_1ConformerGenerator.html">ConfGen.ConformerGenerator instance</a>.
 The flags min_rmsd, e_window, and max_confs are used to control the output conformer ensemble size and the conformation quality.
 They can be set at the beginning of the example script to the desired values.</p>
 <p>Here’s how to generate conformation ensembles for a molecule:</p>
@@ -695,7 +693,7 @@ The pharmacophore concept is widely used in drug design and cheminformatics to u
 interactions between ligands and their biological targets.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The module <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1Pharm.html">CDPL.Pharm</a> provides functionality for the generation and processing of pharmacophore models.
+<p>The module <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1Pharm.html">CDPL.Pharm</a> provides functionality for the generation and processing of pharmacophore models.
 The possible pharmacophore input fotats are <cite>PML</cite> or <cite>CDF</cite>.</p>
 </div>
 <section id="ligand-based-pharmacophore-generation-using-conformations">
@@ -1257,7 +1255,7 @@ the calculation of implicit hydrogen counts, atom hybridization states, smallest
 cycles, aromaticity, and H-bond donor and acceptor atom types.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The following example requires the CDPL.Chem and <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1MolProp.html">CDPL.MolProp</a></p>
+<p>The following example requires the CDPL.Chem and <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1MolProp.html">CDPL.MolProp</a></p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1515,7 +1513,7 @@ used for various cheminformatics tasks, such as:</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The CDPKit moduls <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1Descr.html">CDPL.Descr</a> and <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1Util.html">CDPL.Util</a> provide a convenient way to calculate various molecular descriptors.</p>
+<p>The CDPKit moduls <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1Descr.html">CDPL.Descr</a> and <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1Util.html">CDPL.Util</a> provide a convenient way to calculate various molecular descriptors.</p>
 </div>
 <section id="extended-connectivity-fingerprints-ecfps">
 <h2><span class="section-number">5.1. </span>Extended Connectivity Fingerprints (ECFPs)<a class="headerlink" href="#extended-connectivity-fingerprints-ecfps" title="Permalink to this heading"></a></h2>
@@ -1695,7 +1693,7 @@ Their detailed representation can capture nuances that more generic fingerprints
 <p>The following code snippet calculates and outputs the MMFF94 charges of the atoms for a given list of molecules:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The CDPKit moduls <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1ForceField.html">CDPL.ForceField</a> and <a class="reference external" href="https://cdpkit.org/master/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> provide a convenient way to calculate the MMFF94 charges of the atoms for a given molecule.</p>
+<p>The CDPKit moduls <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1ForceField.html">CDPL.ForceField</a> and <a class="reference external" href="../python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> provide a convenient way to calculate the MMFF94 charges of the atoms for a given molecule.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 <span class="kn">import</span> <span class="nn">CDPL.ForceField</span> <span class="k">as</span> <span class="nn">ForceField</span>
