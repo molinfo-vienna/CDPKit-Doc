@@ -52,6 +52,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#build-environment-setup">Build environment setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#build-system-configuration">Build system configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#compilation">Compilation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-of-html-documentation">Build of HTML documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation-of-the-generated-binaries">Installation of the generated binaries</a></li>
 </ul>
 </li>
@@ -110,10 +111,9 @@ only want to develop or run Python software that uses CDPL functionality.</p></l
 </ul>
 <section id="install-official-binary-release">
 <span id="install-official-release"></span><h2>Install official binary release<a class="headerlink" href="#install-official-binary-release" title="Permalink to this heading"></a></h2>
-<p>Installers for macOS (DMG-file, Apple Silicon processors only), Linux x86_64 (self-extracting archive) and Windows 10 (graphical installer
+<p>Installers for macOS (DMG-file, <em>Apple Silicon</em> processors only), Linux x86_64 (self-extracting archive) and Windows 10 (graphical installer
 based on <a class="reference external" href="https://nsis.sourceforge.io/Download">NSIS</a>) can be downloaded from the <a class="reference external" href="https://github.com/molinfo-vienna/CDPKit/releases">Releases</a>
-page of the <a class="reference external" href="https://github.com/molinfo-vienna/CDPKit">CDPKit GitHub repository</a>. These installer packages will provide everything CDPKit has to offer
-which comprises:</p>
+page of the <a class="reference external" href="https://github.com/molinfo-vienna/CDPKit">CDPKit GitHub repository</a>. These installer packages will provide everything CDPKit has to offer:</p>
 <ul class="simple">
 <li><p>Command line tools and GUI-based applications</p></li>
 <li><p>CDPL binaries for dynamic linking</p></li>
@@ -123,11 +123,11 @@ which comprises:</p>
 <li><p>CDPL Python examples</p></li>
 <li><p>Offline CDPKit documentation</p></li>
 </ul>
-<p>The installers incorporate and install all external dependencies of CDPKit. Thus, after finishing the installation process, no additional
-software packages need to be installed.</p>
+<p>The installers provide all external dependencies of CDPKit. Thus, after finishing the installation process, no additional
+software packages have to be installed and CDPKit will be ready for use.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>After the installation process has finished, the <strong>PATH</strong> environment variable needs to be edited to include the full path to the <code class="file docutils literal notranslate"><span class="pre">Bin</span></code> folder
+<p>After the installation process the <strong>PATH</strong> environment variable needs to be edited to include the full path to the <code class="file docutils literal notranslate"><span class="pre">Bin</span></code> folder
 below the CDPKit installation directory. Furthermore, to enable the use of the CDPL Python bindings, the <strong>PYTHONPATH</strong> environment variable
 must include the full path to the corresponding <code class="file docutils literal notranslate"><span class="pre">Python</span></code> subfolder.</p>
 </div>
@@ -136,14 +136,14 @@ must include the full path to the corresponding <code class="file docutils liter
 <span id="install-from-source"></span><h2>Installation from source<a class="headerlink" href="#installation-from-source" title="Permalink to this heading"></a></h2>
 <section id="build-requirements">
 <h3>Build requirements<a class="headerlink" href="#build-requirements" title="Permalink to this heading"></a></h3>
-<p>Compilation of the CDPKit source code requires a properly set up build environment. This includes a C++ compiler toolchain that supports the C++11 standard,
+<p>Compilation of the CDPKit sources requires a properly set up build environment. This includes a C++ compiler toolchain that supports the C++11 standard,
 the <a class="reference external" href="https://cmake.org/">CMake</a> makefile generator, and the development version of several software libraries. The following table provides a complete
 list of the CDPKit build requirements and dependencies:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 19%" />
-<col style="width: 9%" />
-<col style="width: 72%" />
+<col style="width: 10%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Build requirement</p></th>
@@ -157,7 +157,8 @@ list of the CDPKit build requirements and dependencies:</p>
 <li></li>
 </ul>
 </td>
-<td><p>mandatory, tested: <strong class="program">gcc</strong> V4.8+, <strong class="program">Apple Clang</strong> V12.0+ , and <strong class="program">MSVC</strong> V1930+</p></td>
+<td><p>mandatory (tested compilers are: <strong class="program">gcc</strong> V4.8+, <strong class="program">Apple Clang</strong> V12.0+ , and
+<strong class="program">MSVC</strong> V1930+)</p></td>
 </tr>
 <tr class="row-odd"><td><p>cmake</p></td>
 <td><p>3.17+</p></td>
@@ -179,31 +180,35 @@ list of the CDPKit build requirements and dependencies:</p>
 <td><p>3.6+</p></td>
 <td><p>optional, required for building CDPL Python bindings</p></td>
 </tr>
-<tr class="row-even"><td><p>Qt5-devel</p></td>
+<tr class="row-even"><td><p>NumPy</p></td>
+<td><p>1.17+</p></td>
+<td><p>optional, recommended to be installed for CDPL Python NumPy-conversion features</p></td>
+</tr>
+<tr class="row-odd"><td><p>Qt5-devel</p></td>
 <td><p>5.6+</p></td>
 <td><p>optional, required for building Qt rendering backend and GUI application</p></td>
 </tr>
-<tr class="row-odd"><td><p>cairo-devel</p></td>
+<tr class="row-even"><td><p>cairo-devel</p></td>
 <td><p>1.14+</p></td>
 <td><p>optional, required for building cairo rendering backend</p></td>
 </tr>
-<tr class="row-even"><td><p>sphinx-build</p></td>
+<tr class="row-odd"><td><p>Sphinx</p></td>
 <td><p>4.5+</p></td>
 <td><p>optional, required for generating CDPKit documentation pages</p></td>
 </tr>
-<tr class="row-odd"><td><p>sphinx-rtd-theme</p></td>
+<tr class="row-even"><td><p>sphinx-rtd-theme</p></td>
 <td><p>1.0.0+</p></td>
 <td><p>optional, required for generating CDPKit documentation pages</p></td>
 </tr>
-<tr class="row-even"><td><p>sphinx-inline-tabs</p></td>
+<tr class="row-odd"><td><p>sphinx-inline-tabs</p></td>
 <td><p>2021.4.11b8+</p></td>
 <td><p>optional, required for generating CDPKit documentation pages</p></td>
 </tr>
-<tr class="row-odd"><td><p>sphinxcontrib-bibtex</p></td>
+<tr class="row-even"><td><p>sphinxcontrib-bibtex</p></td>
 <td><p>2.5.5+</p></td>
 <td><p>optional, required for generating CDPKit documentation pages</p></td>
 </tr>
-<tr class="row-even"><td><p>doxygen</p></td>
+<tr class="row-odd"><td><p>Doxygen</p></td>
 <td><p>1.8.5+</p></td>
 <td><p>optional, required for generating C++ and Python API documentation</p></td>
 </tr>
@@ -218,16 +223,24 @@ list of the CDPKit build requirements and dependencies:</p>
 <p>On macOS (<em>Big Sur</em> is the minimum supported version) the recommended way to install everything that is needed for a successful build
 is to use the <a class="reference external" href="https://brew.sh/index">Homebrew</a> package manager.</p>
 <p class="rubric">Windows</p>
-<p>On Windows (8/10/11) the fastest way to get started is to set up a <strong class="program">MinGW</strong> build environment by installing packages
-from the <a class="reference external" href="https://www.msys2.org/">MSYS2</a> software distribution. However, a major flaw here is that the built CDPL Python bindings
+<p>On Windows (8/10/11) the easiest way to get started is to set up a <strong class="program">MinGW</strong> build environment by installing packages
+from the <a class="reference external" href="https://www.msys2.org/">MSYS2</a> software distribution. However, the downside heare is that the built CDPL Python bindings
 will only work with the Python interpreter shipped by MSYS2.
-In order to make the CDPL Python bindings work with an official Python distribution obtained from <a class="reference external" href="https://www.python.org">https://www.python.org</a>, a CDPKit build by means
-of Microsoft’s Visual C++ compiler (<strong class="program">MSVC</strong>) toolchain is required.</p>
-<hr class="docutils" />
-<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and all listed extensions can be installed via the Python package installer <strong class="program">pip</strong>.</p>
+In order to make the CDPL Python bindings work with an official Python distribution obtained from <a class="reference external" href="https://www.python.org">https://www.python.org</a>, a build using
+Microsoft’s Visual C++ compiler (<strong class="program">MSVC</strong>) toolchain is required.</p>
+<p>Recommended sources for the software packages listed above are:</p>
+<ul class="simple">
+<li><p><em>MSVC</em>: <a class="reference external" href="https://visualstudio.microsoft.com/vs/features/cplusplus/">https://visualstudio.microsoft.com/vs/features/cplusplus/</a></p></li>
+<li><p><em>CMake</em>: <a class="reference external" href="https://cmake.org/download/">https://cmake.org/download/</a></p></li>
+<li><p><em>Python</em>: <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></p></li>
+<li><p><em>Qt5</em>: <a class="reference external" href="https://www.qt.io/download">https://www.qt.io/download</a></p></li>
+<li><p><em>boost</em>: <a class="reference external" href="https://sourceforge.net/projects/boost/files/boost-binaries/">https://sourceforge.net/projects/boost/files/boost-binaries/</a></p></li>
+<li><p><em>cairo</em>: <a class="reference external" href="https://github.com/preshing/cairo-windows">https://github.com/preshing/cairo-windows</a></p></li>
+<li><p><em>Doxygen</em>: <a class="reference external" href="https://www.doxygen.nl/download.html">https://www.doxygen.nl/download.html</a></p></li>
+</ul>
 </section>
 <section id="build-system-configuration">
-<h3>Build system configuration<a class="headerlink" href="#build-system-configuration" title="Permalink to this heading"></a></h3>
+<span id="build-system-config"></span><h3>Build system configuration<a class="headerlink" href="#build-system-configuration" title="Permalink to this heading"></a></h3>
 <p>The configuration and generation of the build system files is performed by the command <strong class="command">cmake</strong>.
 In the following <code class="file docutils literal notranslate"><span class="pre">&lt;BUILD-DIR&gt;</span></code> refers to the directory that will contain the CDPKit build ouput and <code class="file docutils literal notranslate"><span class="pre">&lt;SOURCE-DIR&gt;</span></code> is the directory
 providing the CDPKit source code.
@@ -236,7 +249,7 @@ as C++ compiler) or utilizes the <strong class="program">MSVC</strong> toolset.<
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Linux and macOS</label><div class="tab-content docutils container">
 <p>Open a terminal and execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir &lt;BUILD-DIR&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir &lt;BUILD-DIR&gt;
 $ <span class="nb">cd</span> &lt;BUILD-DIR&gt;
 $ cmake &lt;SOURCE-DIR&gt;
 </pre></div>
@@ -244,7 +257,7 @@ $ cmake &lt;SOURCE-DIR&gt;
 </div>
 <input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Windows/MinGW</label><div class="tab-content docutils container">
 <p>Open a <a class="reference external" href="https://www.msys2.org/docs/terminals">MSYS2 MinGW 64-bit</a> command prompt and execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mkdir &lt;BUILD-DIR&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir &lt;BUILD-DIR&gt;
 $ <span class="nb">cd</span> &lt;BUILD-DIR&gt;
 $ cmake &lt;SOURCE-DIR&gt; -G <span class="s2">&quot;MinGW Makefiles&quot;</span>
 </pre></div>
@@ -253,9 +266,9 @@ $ cmake &lt;SOURCE-DIR&gt; -G <span class="s2">&quot;MinGW Makefiles&quot;</span
 <input class="tab-input" id="tab-set--0-input--3" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--3">Windows/MSVC</label><div class="tab-content docutils container">
 <p>Open a <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-170">x64 Native Tools Command Promp</a> via the
 Windows start menu and execute:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; mkdir &lt;BUILD-DIR&gt;</span>
-<span class="go">&gt; cd &lt;BUILD-DIR&gt;</span>
-<span class="go">&gt; cmake &lt;SOURCE-DIR&gt; -G &quot;NMake Makefiles&quot;</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; mkdir &lt;BUILD-DIR&gt;
+&gt; <span class="nb">cd</span> &lt;BUILD-DIR&gt;
+&gt; cmake &lt;SOURCE-DIR&gt; -DCMAKE_PREFIX_PATH<span class="o">=</span>/path/to/Qt/installation/subdir/msvc&lt;VER&gt;_64 -DCAIRO_LIBRARIES<span class="o">=</span>/path/to/cairo/cairo.lib -DCAIRO_INCLUDE_DIR<span class="o">=</span>/path/to/cairo/include -G <span class="s2">&quot;NMake Makefiles&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -273,45 +286,77 @@ Windows start menu and execute:</p>
 <h3>Compilation<a class="headerlink" href="#compilation" title="Permalink to this heading"></a></h3>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Linux and macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Windows/MinGW</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mingw32-make
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mingw32-make
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--1-input--3" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--3">Windows/MSVC</label><div class="tab-content docutils container">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; nmake</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; nmake
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="installation-of-the-generated-binaries">
-<h3>Installation of the generated binaries<a class="headerlink" href="#installation-of-the-generated-binaries" title="Permalink to this heading"></a></h3>
-<p>After a successful build</p>
+<section id="build-of-html-documentation">
+<h3>Build of HTML documentation<a class="headerlink" href="#build-of-html-documentation" title="Permalink to this heading"></a></h3>
+<p>This step is optional and needs to be carried out only if a build of offline HTML documentation pages
+is desired. If they should be installed together with the compiled binaries then this step must be
+executed before carrying out the installation procedure described in the next section.
+For a successful build of the documentation, the command <strong class="command">sphinx-build</strong> and all Sphinx extensions listet in
+<a class="reference internal" href="#build-requirements">Build requirements</a> have to be installed. Furthermore, for generating CDPL C++ and Python API-documentation,
+the program <strong class="program">Doxygen</strong> must be available.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and all listed extensions can be installed via the Python package installer <strong class="program">pip</strong>.</p>
+</div>
+<p>If all prerequisites are fulfilled</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Linux and macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$  make install
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ make doc
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--2-input--2" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--2">Windows/MinGW</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mingw32-make install
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mingw32-make doc
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--2-input--3" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--3">Windows/MSVC</label><div class="tab-content docutils container">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; nmake install</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; nmake doc
+</pre></div>
+</div>
+</div>
+</div>
+<p>should successfully build the CDPKit documentation pages which can then be found in <code class="file docutils literal notranslate"><span class="pre">&lt;BUILD-DIR&gt;/Doc/html</span></code>.</p>
+</section>
+<section id="installation-of-the-generated-binaries">
+<h3>Installation of the generated binaries<a class="headerlink" href="#installation-of-the-generated-binaries" title="Permalink to this heading"></a></h3>
+<p>If the previous steps proceeded without errors</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Linux and macOS</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$  make install
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--2" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--2">Windows/MinGW</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mingw32-make install
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--3-input--3" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--3">Windows/MSVC</label><div class="tab-content docutils container">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>&gt; nmake install
 </pre></div>
 </div>
 </div>
 </div>
 <p>will install CDPKit in a platform specific default directory (Linux: <code class="file docutils literal notranslate"><span class="pre">/opt</span></code>, macOS: <code class="file docutils literal notranslate"><span class="pre">/Users/Shared</span></code>, and
 Windows: <code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span></code>). A different installation location can be specified by the argument
-<em>-DCMAKE_INSTALL_PREFIX=&lt;INSTALL-DIR&gt;</em> on the <strong class="program">cmake</strong> command line (see above).</p>
+<em>-DCMAKE_INSTALL_PREFIX=&lt;INSTALL-DIR&gt;</em> on the <strong class="program">cmake</strong> command line (see <a class="reference internal" href="#build-system-config"><span class="std std-ref">above</span></a>).</p>
 </section>
 </section>
 <section id="installation-via-pip-cdpl-python-bindings-only">
@@ -338,11 +383,11 @@ Windows: <code class="file docutils literal notranslate"><span class="pre">C:\Pr
 <section id="installing-cdpl-python-bindings-via-pip">
 <h3>Installing CDPL Python bindings via <strong class="program">pip</strong><a class="headerlink" href="#installing-cdpl-python-bindings-via-pip" title="Permalink to this heading"></a></h3>
 <p>To install directly from the GitHub repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$  pip install git+https://github.com/molinfo-vienna/CDPKit.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$  pip install git+https://github.com/molinfo-vienna/CDPKit.git
 </pre></div>
 </div>
 <p>Alternatively, to install from a local directory containing the CDPKit sources, navigate to the CDPKit source code folder and run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$  pip install .
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$  pip install .
 </pre></div>
 </div>
 </section>
