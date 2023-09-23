@@ -67,7 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="applications/index.html">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
@@ -97,22 +97,22 @@
            <div itemprop="articleBody">
              
   <section id="installing-cdpkit">
-<span id="cdpkit-installation"></span><h1>Installing CDPKit<a class="headerlink" href="#installing-cdpkit" title="Permalink to this heading"></a></h1>
+<h1>Installing CDPKit<a class="headerlink" href="#installing-cdpkit" title="Permalink to this heading"></a></h1>
 <p id="index-0">CDPKit can be installed in different ways:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#install-via-package"><span class="std std-ref">By means of an official binary installer package</span></a>. This
+<li><p><a class="reference internal" href="#installation-via-installer-package"><span class="std std-ref">By means of an official binary installer package</span></a>. This
 is the best approach for most users. It will provide a full-featured stable CDPKit version
 and pre-built installers are available for most platforms.</p></li>
-<li><p><a class="reference internal" href="#install-from-source"><span class="std std-ref">Build and install from source</span></a>. This is the best option for users who want the
+<li><p><a class="reference internal" href="#installation-from-source"><span class="std std-ref">Build and install from source</span></a>. This is the best option for users who want the
 latest-and-greatest features and aren’t afraid of compiling C++ code and/or run brand-new software.
 This is also needed for users who run an operating system version for which no installer has been
 provided and for users who wish to contribute to the project.</p></li>
-<li><p><a class="reference internal" href="#install-via-pip"><span class="std std-ref">Installation via pip</span></a>.
+<li><p><a class="reference internal" href="#installation-using-pip"><span class="std std-ref">Installation via pip</span></a>.
 <strong class="program">pip</strong> will only install the CDPL Python bindings. This is the best option for users who
 only want to develop or run Python software that uses CDPL functionality.</p></li>
 </ul>
 <section id="installation-via-installer-package">
-<span id="install-via-package"></span><h2>Installation via installer package<a class="headerlink" href="#installation-via-installer-package" title="Permalink to this heading"></a></h2>
+<span id="id1"></span><h2>Installation via installer package<a class="headerlink" href="#installation-via-installer-package" title="Permalink to this heading"></a></h2>
 <p>Installers for macOS (DMG-file, <em>Apple Silicon</em> processors only), Linux x86_64 (self-extracting archive) and Windows 10 (graphical installer
 based on <a class="reference external" href="https://nsis.sourceforge.io/Download">NSIS</a>) can be downloaded from the <a class="reference external" href="https://github.com/molinfo-vienna/CDPKit/releases">Releases</a>
 page of the <a class="reference external" href="https://github.com/molinfo-vienna/CDPKit">CDPKit GitHub repository</a>. These installer packages will provide everything CDPKit has to offer:</p>
@@ -135,7 +135,7 @@ must include the full path to the corresponding <code class="file docutils liter
 </div>
 </section>
 <section id="installation-from-source">
-<span id="install-from-source"></span><h2>Installation from source<a class="headerlink" href="#installation-from-source" title="Permalink to this heading"></a></h2>
+<span id="id2"></span><h2>Installation from source<a class="headerlink" href="#installation-from-source" title="Permalink to this heading"></a></h2>
 <section id="build-requirements">
 <h3>Build requirements<a class="headerlink" href="#build-requirements" title="Permalink to this heading"></a></h3>
 <p>Compilation of the CDPKit sources requires a properly set up build environment. This includes a C++ compiler toolchain that supports the C++11 standard,
@@ -154,7 +154,7 @@ list of the CDPKit build requirements and dependencies:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>C++11 compliant compiler <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p></td>
+<tr class="row-even"><td><p>C++11 compliant compiler <a class="footnote-reference brackets" href="#id4" id="id3">1</a></p></td>
 <td><p>-</p></td>
 <td><p>mandatory</p></td>
 </tr>
@@ -217,7 +217,7 @@ list of the CDPKit build requirements and dependencies:</p>
 </tbody>
 </table>
 <dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
 <dd><p>Known to work: <strong class="program">gcc</strong> V4.8+, <strong class="program">Apple Clang</strong> V12.0+ , and <strong class="program">MSVC</strong> V1930+</p>
 </dd>
 </dl>
@@ -247,7 +247,7 @@ Microsoft’s Visual C++ compiler (<strong class="program">MSVC</strong>) toolch
 </ul>
 </section>
 <section id="build-system-configuration">
-<span id="build-system-config"></span><h3>Build system configuration<a class="headerlink" href="#build-system-configuration" title="Permalink to this heading"></a></h3>
+<h3>Build system configuration<a class="headerlink" href="#build-system-configuration" title="Permalink to this heading"></a></h3>
 <p>The configuration and generation of the build system files is performed by the command <strong class="command">cmake</strong>.
 In the following <code class="file docutils literal notranslate"><span class="pre">&lt;BUILD-DIR&gt;</span></code> refers to the directory that will contain the CDPKit build ouput and <code class="file docutils literal notranslate"><span class="pre">&lt;SOURCE-DIR&gt;</span></code>
 refers to the directory hosting the CDPKit source tree.
@@ -365,11 +365,11 @@ the program <a class="reference external" href="https://www.doxygen.nl">Doxygen<
 </div>
 <p>will install CDPKit in a platform specific default directory (Linux: <code class="file docutils literal notranslate"><span class="pre">/opt</span></code>, macOS: <code class="file docutils literal notranslate"><span class="pre">/Users/Shared</span></code>, and
 Windows: <code class="file docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span></code>). A different installation location can be specified by the argument
-<em>-DCMAKE_INSTALL_PREFIX=&lt;INSTALL-DIR&gt;</em> on the <strong class="program">cmake</strong> command line (see <a class="reference internal" href="#build-system-config"><span class="std std-ref">above</span></a>).</p>
+<em>-DCMAKE_INSTALL_PREFIX=&lt;INSTALL-DIR&gt;</em> on the <strong class="program">cmake</strong> command line (see <a class="reference internal" href="#build-system-configuration">Build system configuration</a>).</p>
 </section>
 </section>
 <section id="installation-using-pip">
-<span id="install-via-pip"></span><span id="index-1"></span><h2>Installation using <strong class="program">pip</strong><a class="headerlink" href="#installation-using-pip" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><span id="id5"></span><h2>Installation using <strong class="program">pip</strong><a class="headerlink" href="#installation-using-pip" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong class="program">pip</strong> will only install the CDPL Python bindings. This is the recommended option for users who
@@ -388,7 +388,7 @@ the CDPKit sources is attempted. This will only proceed without errors if a prop
 </section>
 <section id="installation-via-a-build-of-the-sources">
 <h3>Installation via a build of the sources<a class="headerlink" href="#installation-via-a-build-of-the-sources" title="Permalink to this heading"></a></h3>
-<p>For a successful build of the CDPL Python bindings the information given in section <a class="reference internal" href="#installation-from-source">Installation from source</a> also applies
+<p>For a successful build of the CDPL Python bindings the information given in section <a class="reference internal" href="#id2">Installation from source</a> also applies
 here. However, since a full-featured CDPKit build is not required the list of requirements is a bit shorter:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -434,7 +434,8 @@ here. However, since a full-featured CDPKit build is not required the list of re
 </tbody>
 </table>
 <p class="rubric">Option 1: Build the CDPKit sources deposited on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a></p>
-<p>This will be done automatically if no pre-built binary package is available (see previous section) but can also be enforced by:</p>
+<p>This will be done automatically if no pre-built binary package is available (see previous section) or can be enforced
+by specifying the argument <em>–no-binary :all:</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install cpkit --no-binary :all:
 </pre></div>
 </div>

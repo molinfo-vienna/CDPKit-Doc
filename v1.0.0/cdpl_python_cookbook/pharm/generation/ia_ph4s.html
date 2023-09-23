@@ -61,14 +61,13 @@
 <li class="toctree-l3"><a class="reference internal" href="../processing/index.html">2.3. Processing</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../biomol/index.html">3. Processing of Biological Macromolecules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../molprop/index.html">4. Calculation of Molecule, Atom and Bond Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">5. Calculation of Molecule and Pharmacophore Descriptors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">6. 3D Structure and Conformer Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">7. Force Field Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">6. Force Field Calculations</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
@@ -102,175 +101,181 @@
              
   <section id="ligand-receptor-interaction-pharmacophores">
 <h1><span class="section-number">2.2.2. </span>Ligand-Receptor Interaction Pharmacophores<a class="headerlink" href="#ligand-receptor-interaction-pharmacophores" title="Permalink to this heading"></a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
-<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">CDPL.MolProp</span> <span class="k">as</span> <span class="nn">MolProp</span>
-<span class="linenos">  3</span>
-<span class="linenos">  4</span>    
-<span class="linenos">  5</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos">  6</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates pharmacophores describing the interactions between a given receptor structure and a set of ligand molecules.&#39;</span><span class="p">)</span>
-<span class="linenos">  7</span>
-<span class="linenos">  8</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
-<span class="linenos">  9</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;receptor_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 10</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 11</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 12</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Receptor structure input file (*.mol2, *.pdb, *.mmtf)&#39;</span><span class="p">)</span>
-<span class="linenos"> 13</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span>
-<span class="linenos"> 14</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;ligands_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 15</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 16</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 17</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Ligand structure input file (*.sdf, *.mol2, *.cdf)&#39;</span><span class="p">)</span>
-<span class="linenos"> 18</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos"> 19</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 20</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 21</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 22</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Pharmacophore output file (*.pml, *.cdf)&#39;</span><span class="p">)</span>
-<span class="linenos"> 23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
-<span class="linenos"> 24</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;strip_res_list&#39;</span><span class="p">,</span>
-<span class="linenos"> 25</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 26</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;three-letter code(s)&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 27</span>                        <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
-<span class="linenos"> 28</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whitespace separated list of PDB three-letter codes specifying residues to remove from the receptor structure (e.g. an existing ligand)&#39;</span><span class="p">)</span>
-<span class="linenos"> 29</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
-<span class="linenos"> 30</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos">  3</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos">  6</span><span class="kn">import</span> <span class="nn">CDPL.Biomol</span> <span class="k">as</span> <span class="nn">Biomol</span>
+<span class="linenos">  7</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
+<span class="linenos">  8</span><span class="kn">import</span> <span class="nn">CDPL.MolProp</span> <span class="k">as</span> <span class="nn">MolProp</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span>    
+<span class="linenos"> 11</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 12</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates pharmacophores describing the interactions between a given receptor structure and a set of ligand molecules.&#39;</span><span class="p">)</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
+<span class="linenos"> 15</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;receptor_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 16</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 17</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 18</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Receptor structure input file (*.mol2, *.pdb, *.mmtf)&#39;</span><span class="p">)</span>
+<span class="linenos"> 19</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span>
+<span class="linenos"> 20</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;ligands_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 21</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 22</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 23</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Ligand structure input file (*.sdf, *.mol2, *.cdf)&#39;</span><span class="p">)</span>
+<span class="linenos"> 24</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 25</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 26</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 27</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 28</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Pharmacophore output file (*.pml, *.cdf)&#39;</span><span class="p">)</span>
+<span class="linenos"> 29</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
+<span class="linenos"> 30</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;strip_res_list&#39;</span><span class="p">,</span>
 <span class="linenos"> 31</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 32</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos"> 33</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 34</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos"> 35</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
-<span class="linenos"> 36</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;gen_x_vols&#39;</span><span class="p">,</span>
+<span class="linenos"> 32</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;three-letter code(s)&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 33</span>                        <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+<span class="linenos"> 34</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whitespace separated list of PDB three-letter codes specifying residues to remove from the receptor structure (e.g. an existing ligand)&#39;</span><span class="p">)</span>
+<span class="linenos"> 35</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
+<span class="linenos"> 36</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
 <span class="linenos"> 37</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="linenos"> 38</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
 <span class="linenos"> 39</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 40</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Generate exclusion volumes (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos"> 41</span>
-<span class="linenos"> 42</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span><span class="c1"># reads and preprocesses the specified receptor structure</span>
-<span class="linenos"> 45</span><span class="k">def</span> <span class="nf">readAndPrepareReceptorStructure</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">:</span>
-<span class="linenos"> 46</span>    <span class="c1"># create reader for receptor structure (format specified by file extension)</span>
-<span class="linenos"> 47</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">receptor_file</span><span class="p">)</span> 
-<span class="linenos"> 48</span>    
-<span class="linenos"> 49</span>    <span class="n">sup_fmts</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Chem</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">MOL2</span><span class="p">,</span>
-<span class="linenos"> 50</span>                 <span class="n">Biomol</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">PDB</span><span class="p">,</span>
-<span class="linenos"> 51</span>                 <span class="n">Biomol</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">MMTF</span> <span class="p">]</span>
-<span class="linenos"> 52</span>                        
-<span class="linenos"> 53</span>    <span class="k">if</span> <span class="n">reader</span><span class="o">.</span><span class="n">getDataFormat</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sup_fmts</span><span class="p">:</span>   <span class="c1"># check if the format is supported by this script </span>
-<span class="linenos"> 54</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: receptor input file format </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> not supported&#39;</span> <span class="o">%</span> <span class="n">name_and_ext</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="linenos"> 55</span>
-<span class="linenos"> 56</span>    <span class="n">rec_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>    <span class="c1"># create an instance of the default implementation of the</span>
-<span class="linenos"> 57</span>                                      <span class="c1"># Chem.Molecule interface that will store the receptor struct.</span>
-<span class="linenos"> 58</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 59</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">):</span>  <span class="c1"># read receptor structure</span>
-<span class="linenos"> 60</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading receptor structure failed&#39;</span><span class="p">)</span>
+<span class="linenos"> 40</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 41</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
+<span class="linenos"> 42</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;gen_x_vols&#39;</span><span class="p">,</span>
+<span class="linenos"> 43</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 44</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 45</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 46</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Generate exclusion volumes (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span><span class="c1"># reads and preprocesses the specified receptor structure</span>
+<span class="linenos"> 51</span><span class="k">def</span> <span class="nf">readAndPrepareReceptorStructure</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">:</span>
+<span class="linenos"> 52</span>    <span class="c1"># create reader for receptor structure (format specified by file extension)</span>
+<span class="linenos"> 53</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">receptor_file</span><span class="p">)</span> 
+<span class="linenos"> 54</span>    
+<span class="linenos"> 55</span>    <span class="n">sup_fmts</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Chem</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">MOL2</span><span class="p">,</span>
+<span class="linenos"> 56</span>                 <span class="n">Biomol</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">PDB</span><span class="p">,</span>
+<span class="linenos"> 57</span>                 <span class="n">Biomol</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">MMTF</span> <span class="p">]</span>
+<span class="linenos"> 58</span>                        
+<span class="linenos"> 59</span>    <span class="k">if</span> <span class="n">reader</span><span class="o">.</span><span class="n">getDataFormat</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sup_fmts</span><span class="p">:</span>   <span class="c1"># check if the format is supported by this script </span>
+<span class="linenos"> 60</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: receptor input file format </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> not supported&#39;</span> <span class="o">%</span> <span class="n">name_and_ext</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="linenos"> 61</span>
-<span class="linenos"> 62</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos"> 63</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading receptor structure failed:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>            
-<span class="linenos"> 64</span>
-<span class="linenos"> 65</span>    <span class="c1"># preprocess the receptor structure (removal of residues and</span>
-<span class="linenos"> 66</span>    <span class="c1"># calculation of properties required by the pharm. generation procedure)</span>
-<span class="linenos"> 67</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 68</span>        <span class="c1"># if structure comes from an MOL2 file, convert MOL2 residue data into PDB-style data</span>
-<span class="linenos"> 69</span>        <span class="k">if</span> <span class="n">reader</span><span class="o">.</span><span class="n">getDataFormat</span><span class="p">()</span> <span class="o">==</span> <span class="n">Chem</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">MOL2</span><span class="p">:</span> 
-<span class="linenos"> 70</span>            <span class="n">Biomol</span><span class="o">.</span><span class="n">convertMOL2ToPDBResidueInfo</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="linenos"> 71</span>
-<span class="linenos"> 72</span>        <span class="n">rem_atoms</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="linenos"> 73</span>
-<span class="linenos"> 74</span>        <span class="c1"># delete atoms belonging to residues that should be stripped</span>
-<span class="linenos"> 75</span>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">strip_res_list</span><span class="p">:</span>            
-<span class="linenos"> 76</span>            <span class="n">atoms_to_rem</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Fragment</span><span class="p">()</span> <span class="c1"># will store the atoms to delete</span>
-<span class="linenos"> 77</span>            <span class="n">res_to_strip</span> <span class="o">=</span> <span class="p">{</span> <span class="n">tlc</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">tlc</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">strip_res_list</span> <span class="p">}</span>
-<span class="linenos"> 78</span>        
-<span class="linenos"> 79</span>            <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">rec_mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>     <span class="c1"># identify and note atoms belonging to the stripped residues</span>
-<span class="linenos"> 80</span>                <span class="k">if</span> <span class="n">Biomol</span><span class="o">.</span><span class="n">getResidueCode</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">res_to_strip</span><span class="p">:</span>
-<span class="linenos"> 81</span>                    <span class="n">atoms_to_rem</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
-<span class="linenos"> 82</span>
-<span class="linenos"> 83</span>            <span class="k">if</span> <span class="n">atoms_to_rem</span><span class="o">.</span><span class="n">numAtoms</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos"> 84</span>                <span class="n">rec_mol</span> <span class="o">-=</span> <span class="n">atoms_to_rem</span>    <span class="c1"># delete atoms from the receptor structure</span>
-<span class="linenos"> 85</span>                <span class="n">rem_atoms</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos"> 86</span>
-<span class="linenos"> 87</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos"> 88</span>                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;! Removed </span><span class="si">%s</span><span class="s1"> atoms from the receptor structure&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">atoms_to_rem</span><span class="o">.</span><span class="n">numAtoms</span><span class="p">))</span>
-<span class="linenos"> 89</span>
-<span class="linenos"> 90</span>        <span class="c1"># prepares the receptor structure for pharmacophore generation</span>
-<span class="linenos"> 91</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">)</span>
-<span class="linenos"> 92</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">)</span>
-<span class="linenos"> 93</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">);</span>
-<span class="linenos"> 94</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">);</span>
-<span class="linenos"> 95</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">);</span>
-<span class="linenos"> 96</span>
-<span class="linenos"> 97</span>        <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">):</span>                    <span class="c1"># make implicit hydrogens (if any) explicit</span>
-<span class="linenos"> 98</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">calcHydrogen3DCoordinates</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">)</span>               <span class="c1"># calculate 3D coordinates for the added expl. hydrogens</span>
-<span class="linenos"> 99</span>            <span class="n">Biomol</span><span class="o">.</span><span class="n">setHydrogenResidueSequenceInfo</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># set residue information for the added expl. hydrogens</span>
-<span class="linenos">100</span>
-<span class="linenos">101</span>        <span class="n">MolProp</span><span class="o">.</span><span class="n">calcAtomHydrophobicities</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>          <span class="c1"># calculate atom hydrophobicity values (needed for hydrophobic</span>
-<span class="linenos">102</span>                                                                  <span class="c1"># pharm. feature generation)</span>
-<span class="linenos">103</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">104</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of receptor structure failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>            
-<span class="linenos">105</span>
-<span class="linenos">106</span>    <span class="k">return</span> <span class="n">rec_mol</span>
-<span class="linenos">107</span>
-<span class="linenos">108</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">109</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
-<span class="linenos">110</span>
-<span class="linenos">111</span>    <span class="n">rec_mol</span> <span class="o">=</span> <span class="n">readAndPrepareReceptorStructure</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>          <span class="c1"># read and preprocess the receptor structure</span>
-<span class="linenos">112</span>    <span class="n">lig_reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">ligands_file</span><span class="p">)</span>      <span class="c1"># create reader for the ligand input file (format specified by file extension)</span>
-<span class="linenos">113</span>    <span class="n">ph4_writer</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureContainerWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> <span class="c1"># create writer for the generated pharmacophores (format specified by file extension)</span>
-<span class="linenos">114</span> 
-<span class="linenos">115</span>    <span class="n">lig_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>          <span class="c1"># create an instance of the default implementation of the</span>
-<span class="linenos">116</span>                                            <span class="c1"># Chem.Molecule interface that will store the ligand structures</span>
-<span class="linenos">117</span>    <span class="n">ia_ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>     <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore</span>
-<span class="linenos">118</span>                                            <span class="c1"># interface that will store the generated pharmacophores</span>
-<span class="linenos">119</span>
-<span class="linenos">120</span>    <span class="n">ph4_gen</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">InteractionPharmacophoreGenerator</span><span class="p">()</span> <span class="c1"># create an instance of the pharmacophore generator</span>
-<span class="linenos">121</span>
-<span class="linenos">122</span>    <span class="n">ph4_gen</span><span class="o">.</span><span class="n">addExclusionVolumes</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gen_x_vols</span><span class="p">)</span>        <span class="c1"># specify whether to generate exclusion volume spheres </span>
-<span class="linenos">123</span>                                                        <span class="c1"># on pharm. feature atoms of interacting residues</span>
-<span class="linenos">124</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">125</span>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">126</span>
-<span class="linenos">127</span>        <span class="c1"># read and process ligand molecules one after the other until the end of input has been reached (or a severe error occurs)</span>
-<span class="linenos">128</span>        <span class="k">while</span> <span class="n">lig_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">):</span>
-<span class="linenos">129</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># compose a simple ligand identifier for messages</span>
-<span class="linenos">130</span>
-<span class="linenos">131</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="linenos">132</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
-<span class="linenos">133</span>            <span class="k">else</span><span class="p">:</span>
-<span class="linenos">134</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="linenos">135</span>
-<span class="linenos">136</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">137</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Generating interaction pharmacophore of molecule </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos">138</span>
-<span class="linenos">139</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">140</span>                <span class="n">Pharm</span><span class="o">.</span><span class="n">prepareForPharmacophoreGeneration</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">)</span> <span class="c1"># make ligand ready for pharm. generation</span>
+<span class="linenos"> 62</span>    <span class="n">rec_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>    <span class="c1"># create an instance of the default implementation of the</span>
+<span class="linenos"> 63</span>                                      <span class="c1"># Chem.Molecule interface that will store the receptor struct.</span>
+<span class="linenos"> 64</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 65</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">):</span>  <span class="c1"># read receptor structure</span>
+<span class="linenos"> 66</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading receptor structure failed&#39;</span><span class="p">)</span>
+<span class="linenos"> 67</span>
+<span class="linenos"> 68</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos"> 69</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading receptor structure failed:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>            
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span>    <span class="c1"># preprocess the receptor structure (removal of residues and</span>
+<span class="linenos"> 72</span>    <span class="c1"># calculation of properties required by the pharm. generation procedure)</span>
+<span class="linenos"> 73</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 74</span>        <span class="c1"># if structure comes from an MOL2 file, convert MOL2 residue data into PDB-style data</span>
+<span class="linenos"> 75</span>        <span class="k">if</span> <span class="n">reader</span><span class="o">.</span><span class="n">getDataFormat</span><span class="p">()</span> <span class="o">==</span> <span class="n">Chem</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">MOL2</span><span class="p">:</span> 
+<span class="linenos"> 76</span>            <span class="n">Biomol</span><span class="o">.</span><span class="n">convertMOL2ToPDBResidueInfo</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span>        <span class="n">rem_atoms</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span>        <span class="c1"># delete atoms belonging to residues that should be stripped</span>
+<span class="linenos"> 81</span>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">strip_res_list</span><span class="p">:</span>            
+<span class="linenos"> 82</span>            <span class="n">atoms_to_rem</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Fragment</span><span class="p">()</span> <span class="c1"># will store the atoms to delete</span>
+<span class="linenos"> 83</span>            <span class="n">res_to_strip</span> <span class="o">=</span> <span class="p">{</span> <span class="n">tlc</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">tlc</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">strip_res_list</span> <span class="p">}</span>
+<span class="linenos"> 84</span>        
+<span class="linenos"> 85</span>            <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">rec_mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>     <span class="c1"># identify and note atoms belonging to the stripped residues</span>
+<span class="linenos"> 86</span>                <span class="k">if</span> <span class="n">Biomol</span><span class="o">.</span><span class="n">getResidueCode</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="n">res_to_strip</span><span class="p">:</span>
+<span class="linenos"> 87</span>                    <span class="n">atoms_to_rem</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>            <span class="k">if</span> <span class="n">atoms_to_rem</span><span class="o">.</span><span class="n">numAtoms</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 90</span>                <span class="n">rec_mol</span> <span class="o">-=</span> <span class="n">atoms_to_rem</span>    <span class="c1"># delete atoms from the receptor structure</span>
+<span class="linenos"> 91</span>                <span class="n">rem_atoms</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos"> 92</span>
+<span class="linenos"> 93</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos"> 94</span>                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;! Removed </span><span class="si">%s</span><span class="s1"> atoms from the receptor structure&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">atoms_to_rem</span><span class="o">.</span><span class="n">numAtoms</span><span class="p">))</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span>        <span class="c1"># prepares the receptor structure for pharmacophore generation</span>
+<span class="linenos"> 97</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">)</span>
+<span class="linenos"> 98</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">)</span>
+<span class="linenos"> 99</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">);</span>
+<span class="linenos">100</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">);</span>
+<span class="linenos">101</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="n">rem_atoms</span><span class="p">);</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span>        <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">):</span>                    <span class="c1"># make implicit hydrogens (if any) explicit</span>
+<span class="linenos">104</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">calcHydrogen3DCoordinates</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">)</span>               <span class="c1"># calculate 3D coordinates for the added expl. hydrogens</span>
+<span class="linenos">105</span>            <span class="n">Biomol</span><span class="o">.</span><span class="n">setHydrogenResidueSequenceInfo</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># set residue information for the added expl. hydrogens</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span>        <span class="n">MolProp</span><span class="o">.</span><span class="n">calcAtomHydrophobicities</span><span class="p">(</span><span class="n">rec_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>          <span class="c1"># calculate atom hydrophobicity values (needed for hydrophobic</span>
+<span class="linenos">108</span>                                                                  <span class="c1"># pharm. feature generation)</span>
+<span class="linenos">109</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">110</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of receptor structure failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>            
+<span class="linenos">111</span>
+<span class="linenos">112</span>    <span class="k">return</span> <span class="n">rec_mol</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">115</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos">116</span>
+<span class="linenos">117</span>    <span class="n">rec_mol</span> <span class="o">=</span> <span class="n">readAndPrepareReceptorStructure</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>          <span class="c1"># read and preprocess the receptor structure</span>
+<span class="linenos">118</span>    <span class="n">lig_reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">ligands_file</span><span class="p">)</span>      <span class="c1"># create reader for the ligand input file (format specified by file extension)</span>
+<span class="linenos">119</span>    <span class="n">ph4_writer</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureContainerWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> <span class="c1"># create writer for the generated pharmacophores (format specified by file extension)</span>
+<span class="linenos">120</span> 
+<span class="linenos">121</span>    <span class="n">lig_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>          <span class="c1"># create an instance of the default implementation of the</span>
+<span class="linenos">122</span>                                            <span class="c1"># Chem.Molecule interface that will store the ligand structures</span>
+<span class="linenos">123</span>    <span class="n">ia_ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>     <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore</span>
+<span class="linenos">124</span>                                            <span class="c1"># interface that will store the generated pharmacophores</span>
+<span class="linenos">125</span>
+<span class="linenos">126</span>    <span class="n">ph4_gen</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">InteractionPharmacophoreGenerator</span><span class="p">()</span> <span class="c1"># create an instance of the pharmacophore generator</span>
+<span class="linenos">127</span>
+<span class="linenos">128</span>    <span class="n">ph4_gen</span><span class="o">.</span><span class="n">addExclusionVolumes</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gen_x_vols</span><span class="p">)</span>        <span class="c1"># specify whether to generate exclusion volume spheres </span>
+<span class="linenos">129</span>                                                        <span class="c1"># on pharm. feature atoms of interacting residues</span>
+<span class="linenos">130</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">131</span>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span>        <span class="c1"># read and process ligand molecules one after the other until the end of input has been reached (or a severe error occurs)</span>
+<span class="linenos">134</span>        <span class="k">while</span> <span class="n">lig_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">):</span>
+<span class="linenos">135</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># compose a simple ligand identifier for messages</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">138</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
+<span class="linenos">139</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">140</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 <span class="linenos">141</span>
-<span class="linenos">142</span>                <span class="n">ph4_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">,</span> <span class="n">rec_mol</span><span class="p">,</span> <span class="n">ia_ph4</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># generate the pharmacophore (True = extract ligand environment residues on-the-fly)</span>
-<span class="linenos">143</span>
-<span class="linenos">144</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">145</span>                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Generated </span><span class="si">%s</span><span class="s1"> features: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ia_ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="p">),</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">generateFeatureTypeHistogramString</span><span class="p">(</span><span class="n">ia_ph4</span><span class="p">)))</span>
-<span class="linenos">146</span>                
-<span class="linenos">147</span>                <span class="k">try</span><span class="p">:</span>
-<span class="linenos">148</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">ph4_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ia_ph4</span><span class="p">):</span> <span class="c1"># output pharmacophore</span>
-<span class="linenos">149</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing interaction pharmacophore of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">150</span>
-<span class="linenos">151</span>                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>               <span class="c1"># handle exception raised in case of severe write errors</span>
-<span class="linenos">152</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing interaction pharmacophore of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">153</span>                
-<span class="linenos">154</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>                   <span class="c1"># handle exception raised in case of severe processing errors</span>
-<span class="linenos">155</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: interaction pharmacophore generation for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">142</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">143</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Generating interaction pharmacophore of molecule </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">144</span>
+<span class="linenos">145</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">146</span>                <span class="n">Pharm</span><span class="o">.</span><span class="n">prepareForPharmacophoreGeneration</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">)</span> <span class="c1"># make ligand ready for pharm. generation</span>
+<span class="linenos">147</span>
+<span class="linenos">148</span>                <span class="n">ph4_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">lig_mol</span><span class="p">,</span> <span class="n">rec_mol</span><span class="p">,</span> <span class="n">ia_ph4</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># generate the pharmacophore (True = extract ligand environment residues on-the-fly)</span>
+<span class="linenos">149</span>
+<span class="linenos">150</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">151</span>                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Generated </span><span class="si">%s</span><span class="s1"> features: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ia_ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="p">),</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">generateFeatureTypeHistogramString</span><span class="p">(</span><span class="n">ia_ph4</span><span class="p">)))</span>
+<span class="linenos">152</span>                
+<span class="linenos">153</span>                <span class="k">try</span><span class="p">:</span>
+<span class="linenos">154</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">ph4_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ia_ph4</span><span class="p">):</span> <span class="c1"># output pharmacophore</span>
+<span class="linenos">155</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing interaction pharmacophore of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
 <span class="linenos">156</span>
-<span class="linenos">157</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">158</span>            
-<span class="linenos">159</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>                           <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">160</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">161</span>
-<span class="linenos">162</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">163</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
-<span class="linenos">164</span>
-<span class="linenos">165</span>    <span class="n">ph4_writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">166</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">167</span>        
-<span class="linenos">168</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">169</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">157</span>                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>               <span class="c1"># handle exception raised in case of severe write errors</span>
+<span class="linenos">158</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing interaction pharmacophore of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">159</span>                
+<span class="linenos">160</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>                   <span class="c1"># handle exception raised in case of severe processing errors</span>
+<span class="linenos">161</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: interaction pharmacophore generation for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">162</span>
+<span class="linenos">163</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">164</span>            
+<span class="linenos">165</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>                           <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">166</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">167</span>
+<span class="linenos">168</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">169</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done!&#39;</span><span class="p">)</span>
+<span class="linenos">170</span>
+<span class="linenos">171</span>    <span class="n">ph4_writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">172</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">173</span>        
+<span class="linenos">174</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">175</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../../_downloads/7c8e838c7e5f0a440fe6499014be6dc3/pharm_gen_ia_ph4s.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
