@@ -126,15 +126,14 @@
 <h1><span class="section-number">1. </span>Molecular Input/Output<a class="headerlink" href="#molecular-input-output" title="Permalink to this heading"></a></h1>
 <section id="reading-molecules-from-an-input-file">
 <h2><span class="section-number">1.1. </span>Reading molecules from an input file<a class="headerlink" href="#reading-molecules-from-an-input-file" title="Permalink to this heading"></a></h2>
-<p>To kick off your cheminformatics journey, you’ll frequently need to read or write molecular data from a variety of file formats.
-Using CDPKit, you can easily read and write molecules saved in various file formats, including <em>SDF</em>, <em>SMILES</em>, <em>MOL</em>, <em>MOL2</em>, <em>CDF</em>, and others.</p>
+<p>A frequent task in cheminformatics is to read molecular data from files in different formats.
+For this purpose, the CDPL provides data readers for various file formats including <em>SDF</em>, <em>SMILES</em>, <em>MOL</em>, <em>MOL2</em>, <em>CDF</em>, and others.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The CDF format is a binary format and CDPKit’s native file format that can be used to store molecules/pharmacophores and their associated metadata
-in a space and processing time efficient manner.</p>
+<p>The CDF format is a binary format and CDPKit’s native file format that can be used to store molecule, reaction, and pharmacophore data in a space and processing time efficient manner.</p>
 </div>
 <p>The class <a class="reference external" href="../cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> is rather versatile and can read molecules stored in
-different formats (SDF, SMILES, MOL, MOL2, CDF, etc.) thus eliminating the need to call a specific reader for each format.
+any of the supported formats (SDF, SMILES, MOL, MOL2, CDF, etc.) thus eliminating the need to instantiate a format-specific reader implementation.
 Here is a simple example of how to read molecules from an input file:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -178,13 +177,13 @@ Here is a simple example of how to read molecules from an input file:</p>
 </section>
 <section id="retrieving-structure-data-from-mdl-sd-files">
 <h2><span class="section-number">1.2. </span>Retrieving structure data from MDL SD-files<a class="headerlink" href="#retrieving-structure-data-from-mdl-sd-files" title="Permalink to this heading"></a></h2>
-<p>Sometimes, one might want to read the data associated with a molecule in an SD-file. With CDPKit this can be done easily as shown
+<p>Analyzing the data associated with a molecule in an SD-file can be done as shown
 in the following example:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can either use Chem.MoleculeReader to read the structure data of each molecule in an SD file or
-use the specific reader like e.g. Chem.FileSDFMoleculeReader to read the structure data of each molecule in an SD file.
-The convenient way is to use Chem.MoleculeReader.</p>
+<p>You can either use <a class="reference external" href="../cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a>
+or use the format-specific reader <a class="reference external" href="../cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FileSDFMoleculeReader.html">Chem.FileSDFMoleculeReader</a>
+molecules from an SD-file. Usually, the more convenient and flexible way to read molecule data is to use Chem.MoleculeReader.</p>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 
@@ -236,12 +235,13 @@ The convenient way is to use Chem.MoleculeReader.</p>
 <h2><span class="section-number">1.3. </span>Writing molecules to an output file<a class="headerlink" href="#writing-molecules-to-an-output-file" title="Permalink to this heading"></a></h2>
 <p>Once you’ve processed or analyzed your molecules, you may want to save them to an output file.
 In the constructor of the class <a class="reference external" href="../cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">Chem.MolecularGraphWriter</a> the format of the output
-file is determined by its file extension, making it easy to save your molecules in formats such as SDF, MOL, MOL2, CDF, and others.</p>
+file is determined by its file extension, making it easy to save molecules in different formats such as SDF, MOL, MOL2, CDF, and others without having to write
+format-specific code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Ensure that the file extension you provide matches the standard desired output format. For instance, use <cite>.sdf</cite> for Structure-Data Files, <cite>.mol</cite> for MDL Molfiles, and so on.</p>
+<p>Ensure that the file extension you provide matches the standard desired output format. For instance, use <cite>.sdf</cite> for MDL Structure-Data Files, <cite>.mol</cite> for MDL Molfiles, and so on.</p>
 </div>
-<p>Here’s a simple example of how to write a list of molecules to an output file:</p>
+<p>Here’s a simple example of how a list of molecules can be written to an output file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 
 <span class="k">def</span> <span class="nf">molsToFiles</span><span class="p">(</span><span class="n">mols</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">],</span> <span class="n">output_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -271,9 +271,9 @@ file is determined by its file extension, making it easy to save your molecules 
 </section>
 <section id="description-of-structural-atom-environments-as-smiles-strings">
 <h2><span class="section-number">1.4. </span>Description of structural atom environments as SMILES strings<a class="headerlink" href="#description-of-structural-atom-environments-as-smiles-strings" title="Permalink to this heading"></a></h2>
-<p>For the extaction of local chemical environments of atoms in a molecular graph CDPKit provides the utility function
+<p>For the extraction of the local chemical environment of an atom in a molecular graph the CDPL provides the utility function
 <a class="reference external" href="../cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a342acefab39f6928df4c67c2d86c209a">Chem.getEnvironment</a>.
-Fur further processing they can, e.g., be output as SMILES strings as shown in the following example.</p>
+Fur further processing extracted environments can, e.g., be output as SMILES strings as shown in the following example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 
 <span class="k">def</span> <span class="nf">printAtomEnv</span><span class="p">(</span><span class="n">mols</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -316,9 +316,8 @@ Fur further processing they can, e.g., be output as SMILES strings as shown in t
 </section>
 <section id="chembl-molecule-standardization-and-parent-structure-extraction">
 <h2><span class="section-number">1.5. </span>ChEMBL molecule standardization and parent structure extraction<a class="headerlink" href="#chembl-molecule-standardization-and-parent-structure-extraction" title="Permalink to this heading"></a></h2>
-<p>CDPKit provides a convenient way to standardize molecules using its implementaion of the ChEMBL standardization pipeline <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="A. Patrícia Bento, Anne Hersey, Eloy Félix, Greg Landrum, Anna Gaulton, Francis Atkinson, Louisa J. Bellis, Marleen De Veij, and Andrew R. Leach. An open source chemical structure curation pipeline using rdkit. Journal of Cheminformatics, 12(1):51, Sep 2020. URL: https://doi.org/10.1186/s13321-020-00456-1, doi:10.1186/s13321-020-00456-1.">13</a>]</span>.
-This process ensures that molecules are represented in a consistent and standardized manner, which might be of high relevance
-for downstream processing steps.</p>
+<p>The CDPL provides a convenient way to standardize molecules using its implementaion of the ChEMBL standardization pipeline <span id="id2">[<a class="reference internal" href="../bibliography.html#id3" title="A. Patrícia Bento, Anne Hersey, Eloy Félix, Greg Landrum, Anna Gaulton, Francis Atkinson, Louisa J. Bellis, Marleen De Veij, and Andrew R. Leach. An open source chemical structure curation pipeline using rdkit. Journal of Cheminformatics, 12(1):51, Sep 2020. URL: https://doi.org/10.1186/s13321-020-00456-1, doi:10.1186/s13321-020-00456-1.">13</a>]</span>.
+This process ensures that molecules will be represented in a consistent and standardized manner when they enter downstream processing steps.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 
 <span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="n">chembl_proc</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">ChEMBLStandardizer</span><span class="p">,</span> <span class="n">in_mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">out_mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">proc_excluded</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">extract_parent</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Chem</span><span class="o">.</span><span class="n">ChEMBLStandardizer</span><span class="o">.</span><span class="n">ChangeFlags</span><span class="p">:</span>
@@ -430,12 +429,13 @@ for downstream processing steps.</p>
 <h2><span class="section-number">1.6. </span>Standardization/prediction of protonation states<a class="headerlink" href="#standardization-prediction-of-protonation-states" title="Permalink to this heading"></a></h2>
 <p>In the realm of computational chemistry and molecular modeling, understanding and predicting the behavior of molecules
 often hinges on the finer details. One such critical detail is the protonation state of the functional groups in a molecule.
-Protonation states dictate formal charges of atoms and have an impact molecular structure and reactivity and, as a consequence,
-play a vital role in processes like drug binding, enzymatic reactions, and many more.</p>
+Protonation states dictate formal charges of atoms and have an impact on molecular 3D structure and reactivity. Knowing the
+pre-dominant protonation states of functional groups under certain condition is therefore vital for methods predicting
+drug binding, enzymatic reactions, etc.</p>
 <p>The class <a class="reference external" href="../cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1ProtonationStateStandardizer.html">Chem.ProtonationStateStandardizer</a>
-implements several protonation state generation flavors.
-In the following code snippet we will show how to generate protonation/formal charge states of acidic and basic function groups
-likely at physiological conditions.</p>
+implements several protonation state generation algorithms.
+The following code snippet shows how to generate protonation/formal charge states of acidic/basic functional groups that are likely
+to occur under physiological conditions.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 
 <span class="n">mols</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span> <span class="n">of</span> <span class="n">BasicMolecules</span><span class="p">]</span>  <span class="c1"># Example list of BasicMolecules</span>
@@ -476,10 +476,10 @@ bonds. While any two arrangements of atoms in a molecule that differ by rotation
 conformations that correspond to local minima on the potential energy surface are specifically called conformational isomers or conformers.</p>
 <p>In the realm of cheminformatics and molecular modeling many methods and algorithms require 3D structures or even whole
 conformer ensembles as input.
-For a seamless integration with such methods CDPKit provides functionality in package <a class="reference external" href="../cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.ConfGen</a> that allows
+For a seamless integration with such methods CDPKit provides functionality in package <a class="reference external" href="../cdpl_api_doc/python_api_doc/namespaceCDPL_1_1ConfGen.html">CDPL.ConfGen</a> that allows
 to generate both single low-energy 3D structures and diverse conformer ensembles solely from connection table information.
 The high-quality conformer ensemble generation tool included in CDPKit is called <em>CONFORGE</em>. For details on its implementation and performance
-see <span id="id2">[<a class="reference internal" href="../bibliography.html#id9" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span>.</p>
+see <span id="id3">[<a class="reference internal" href="../bibliography.html#id9" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span>.</p>
 <section id="generating-single-low-energy-3d-structures">
 <h2><span class="section-number">2.1. </span>Generating single low-energy 3D structures<a class="headerlink" href="#generating-single-low-energy-3d-structures" title="Permalink to this heading"></a></h2>
 <p>Here’s how you can generate a single low-energy 3D structure for a molecule:</p>
@@ -580,7 +580,7 @@ see <span id="id2">[<a class="reference internal" href="../bibliography.html#id9
 <h2><span class="section-number">2.2. </span>Generating conformer ensembles<a class="headerlink" href="#generating-conformer-ensembles" title="Permalink to this heading"></a></h2>
 <p>For some applications it is necessary to generate multiple conformations for a molecule, e.g. to assess its flexibility or investigate binding
 capabilities towards a particular target receptor.</p>
-<p>The function <code class="docutils literal notranslate"><span class="pre">generate_conformation_ensembles()</span></code> generates a conformer ensemble for a given molecule using the an initialized
+<p>The function <code class="docutils literal notranslate"><span class="pre">generate_conformation_ensembles()</span></code> generates a conformer ensemble for a given molecule using an
 instance of class <a class="reference external" href="../cdpl_api_doc/python_api_doc/classCDPL_1_1ConfGen_1_1ConformerGenerator.html">ConfGen.ConformerGenerator</a>.
 The parameters <em>min_rmsd</em>, <em>e_window</em>, and <em>max_confs</em> are used to control the generated conformer ensemble’s diversity, energy and size.
 They can be initialized at the beginning of the example script with the desired values.</p>
@@ -698,7 +698,7 @@ CDPKit’s native <em>CDF</em> format.</p>
 <section id="pharmacophore-generation-for-single-conformer-molecules">
 <h2><span class="section-number">3.1. </span>Pharmacophore generation for single-conformer molecules<a class="headerlink" href="#pharmacophore-generation-for-single-conformer-molecules" title="Permalink to this heading"></a></h2>
 <p>The following example script generates a pharmacophore model for each input molecule
-and outputs the pharmacophore data to a PML file.</p>
+and outputs the pharmacophore data in PML format.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 <span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
 
@@ -830,7 +830,7 @@ conformer index.</p>
 <section id="generating-ligand-receptor-interaction-pharmacophores">
 <h2><span class="section-number">3.3. </span>Generating ligand-receptor interaction pharmacophores<a class="headerlink" href="#generating-ligand-receptor-interaction-pharmacophores" title="Permalink to this heading"></a></h2>
 <p>The following example shows how to generate 3D pharmacophore models that describe observed interactions between
-a molecule and surrounding residues in a receptor’s binding site.
+a molecule and proximal binding site residues.
 The script also demonstrates how to read and preprocess biological macromolecules.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -971,7 +971,7 @@ The script also demonstrates how to read and preprocess biological macromolecule
 <p>The function <code class="docutils literal notranslate"><span class="pre">readRefPharmacophore()</span></code> reads the reference pharmacophore from a specified file.
 The function <code class="docutils literal notranslate"><span class="pre">genPharmacophore()</span></code> generates and returns the pharmacophore of a molecule.
 The function <code class="docutils literal notranslate"><span class="pre">clearFeatureOrientations()</span></code> removes feature orientation information and sets the feature geometry to <code class="docutils literal notranslate"><span class="pre">Pharm.FeatureGeometry.SPHERE</span></code>.</p>
-<p>The following variables control the alignment process and reported results:</p>
+<p>The following variables control the alignment process and the reported results:</p>
 <ul class="simple">
 <li><p><em>pos_only</em>: Controls whether only the position of features is considered during alignment</p></li>
 <li><p><em>min_pose_rmsd</em>: Controls the minimum required RMSD between two consecutively output molecule alignment poses</p></li>
@@ -1159,7 +1159,7 @@ The function <code class="docutils literal notranslate"><span class="pre">clearF
 <h2><span class="section-number">3.5. </span>Retrieving information about pharmacophores and features<a class="headerlink" href="#retrieving-information-about-pharmacophores-and-features" title="Permalink to this heading"></a></h2>
 <p>The script below demonstrates how to retrieve basic properties of pharmacophore features.
 The function <code class="docutils literal notranslate"><span class="pre">print_pharmacophore_properties()</span></code> outputs all (available) properties of the features stored
-in the given feature container. Predefined properties are the feature type, geometry, tolerance, weight, and
+in the given feature container. Built-in feature properties are feature type, geometry, tolerance, weight, and
 hydrophobicity.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 <span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
@@ -1236,7 +1236,7 @@ hydrophobicity.</p>
 </section>
 <section id="calculation-of-atom-properties">
 <h1><span class="section-number">4. </span>Calculation of Atom Properties<a class="headerlink" href="#calculation-of-atom-properties" title="Permalink to this heading"></a></h1>
-<p>CDPKit provides a wide panel of pre-defined atom and bond properties. All of these properties can be retrieved and set/calculated
+<p>The CDPL provides a wide panel of pre-defined atom and bond properties. All of these properties can be retrieved and set/calculated
 by corresponding function calls as demonstrated in the following example scripts.</p>
 <section id="calculation-of-atom-classification-properties">
 <h2><span class="section-number">4.1. </span>Calculation of atom classification properties<a class="headerlink" href="#calculation-of-atom-classification-properties" title="Permalink to this heading"></a></h2>
@@ -1401,8 +1401,7 @@ the atoms in a molecular graph.</p>
 <h2><span class="section-number">4.2. </span>Calculation of connectivity properties<a class="headerlink" href="#calculation-of-connectivity-properties" title="Permalink to this heading"></a></h2>
 <p>The code snippet below shows to calculate various atom properties that depend on their connectivity to other atoms of
 the molecular graph such as the number of connected carbon atoms, heteroatoms, halogens, heavy atoms, chain atoms,
-ring atoms, aromatic atoms, incident bonds, and incident single bonds as well as valency, coordination geometry, and sizes of
-containing rings.</p>
+ring atoms, aromatic atoms, and many more.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -1503,7 +1502,7 @@ of various well-known molecule descriptors and fingerprints.</p>
 </div>
 <section id="extended-connectivity-fingerprints-ecfps">
 <h2><span class="section-number">5.1. </span>Extended connectivity fingerprints (ECFPs)<a class="headerlink" href="#extended-connectivity-fingerprints-ecfps" title="Permalink to this heading"></a></h2>
-<p>Morgan circular fingerprints, also known as extended connectivity fingerprints (ECFPs) <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="David Rogers and Mathew Hahn. Extended-connectivity fingerprints. Journal of Chemical Information and Modeling, 50(5):742-754, 2010. PMID: 20426451. URL: https://doi.org/10.1021/ci100050t, arXiv:https://doi.org/10.1021/ci100050t, doi:10.1021/ci100050t.">3</a>]</span>,
+<p>Morgan circular fingerprints, also known as extended connectivity fingerprints (ECFPs) <span id="id5">[<a class="reference internal" href="../bibliography.html#id8" title="David Rogers and Mathew Hahn. Extended-connectivity fingerprints. Journal of Chemical Information and Modeling, 50(5):742-754, 2010. PMID: 20426451. URL: https://doi.org/10.1021/ci100050t, arXiv:https://doi.org/10.1021/ci100050t, doi:10.1021/ci100050t.">3</a>]</span>,
 are a type of structural fingerprint that encodes the local chemical environment of each atom in a
 molecule as a particular bit in a bitset. They are widely used in cheminformatics for various tasks, such as similarity searching,
 virtual screening, and machine learning.</p>
@@ -1593,7 +1592,7 @@ The ECFP generation process can be influenced by the following parameters:</p>
 <h2><span class="section-number">5.2. </span>FAME atom environment fingerprints<a class="headerlink" href="#fame-atom-environment-fingerprints" title="Permalink to this heading"></a></h2>
 <p>This type of fingerprint encodes the local environment of individual atoms up to a configurable maximum bond-path length.
 The descriptor was developed for the classification of atoms in the well-known site of metabolism prediction
-software <em>FAME</em> <span id="id5">[<a class="reference internal" href="../bibliography.html#id2" title="Martin Šícho, Conrad Stork, Angelica Mazzolari, Christina de Bruyn Kops, Alessandro Pedretti, Bernard Testa, Giulio Vistoli, Daniel Svozil, and Johannes Kirchmair. Fame 3: predicting the sites of metabolism in synthetic compounds and natural products for phase 1 and phase 2 metabolic enzymes. Journal of Chemical Information and Modeling, 59(8):3400-3412, 2019. PMID: 31361490. URL: https://doi.org/10.1021/acs.jcim.9b00376, arXiv:https://doi.org/10.1021/acs.jcim.9b00376, doi:10.1021/acs.jcim.9b00376.">14</a>]</span>.</p>
+software <em>FAME</em> <span id="id6">[<a class="reference internal" href="../bibliography.html#id2" title="Martin Šícho, Conrad Stork, Angelica Mazzolari, Christina de Bruyn Kops, Alessandro Pedretti, Bernard Testa, Giulio Vistoli, Daniel Svozil, and Johannes Kirchmair. Fame 3: predicting the sites of metabolism in synthetic compounds and natural products for phase 1 and phase 2 metabolic enzymes. Journal of Chemical Information and Modeling, 59(8):3400-3412, 2019. PMID: 31361490. URL: https://doi.org/10.1021/acs.jcim.9b00376, arXiv:https://doi.org/10.1021/acs.jcim.9b00376, doi:10.1021/acs.jcim.9b00376.">14</a>]</span>.</p>
 <p>The following code snippet calculates and outputs the FAME descriptor for each atom of the provided molecules with
 the parameter <em>radius</em> specifying the max. atom environment radius in number of bonds (default: 2).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
@@ -1666,7 +1665,7 @@ the parameter <em>radius</em> specifying the max. atom environment radius in num
 Since they allow for a computationally inexpensive, but nevertheless relatively accurate calculation of the potential energy of a system of atoms,
 they are essential for many tasks in the field of molecular modeling such as conformer generation and molecular dynamics (MD) simulations.
 One of the widely recognized force fields is the <em>Merck Molecular Force Field</em> (MMFF94)
-<span id="id6">[<a class="reference internal" href="../bibliography.html#id7" title="Thomas A. Halgren. Merck molecular force field. i. basis, form, scope, parameterization, and performance of mmff94. Journal of Computational Chemistry, 17(5-6):490-519, 1996. URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291096-987X%28199604%2917%3A5/6%3C490%3A%3AAID-JCC1%3E3.0.CO%3B2-P, arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/%28SICI%291096-987X%28199604%2917%3A5/6%3C490%3A%3AAID-JCC1%3E3.0.CO%3B2-P, doi:https://doi.org/10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1&gt;3.0.CO;2-P.">6</a>]</span> which has been designed to be applicable to a
+<span id="id7">[<a class="reference internal" href="../bibliography.html#id7" title="Thomas A. Halgren. Merck molecular force field. i. basis, form, scope, parameterization, and performance of mmff94. Journal of Computational Chemistry, 17(5-6):490-519, 1996. URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/%28SICI%291096-987X%28199604%2917%3A5/6%3C490%3A%3AAID-JCC1%3E3.0.CO%3B2-P, arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/%28SICI%291096-987X%28199604%2917%3A5/6%3C490%3A%3AAID-JCC1%3E3.0.CO%3B2-P, doi:https://doi.org/10.1002/(SICI)1096-987X(199604)17:5/6&lt;490::AID-JCC1&gt;3.0.CO;2-P.">6</a>]</span> which has been designed to be applicable to a
 broad range of organic molecules and thus found widespread use.</p>
 <section id="calculation-of-mmff94-atom-charges">
 <h2><span class="section-number">6.1. </span>Calculation of MMFF94 atom charges<a class="headerlink" href="#calculation-of-mmff94-atom-charges" title="Permalink to this heading"></a></h2>
