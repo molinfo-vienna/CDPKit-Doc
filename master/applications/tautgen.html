@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tautgen &mdash; CDPKit 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://cdpkit.org/v1.0.1/applications/tautgen.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/tabs.js"></script>
+        <script src="../_static/docs-versions-menu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ChOX" href="chox.html" />
+    <link rel="prev" title="genfraglib" href="genfraglib.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+            <a href="../index.html">
+            <img src="../_static/Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="psdscreen.html">psdscreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdcreate.html">psdcreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdmerge.html">psdmerge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdinfo.html">psdinfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapescreen.html">shapescreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structgen.html">structgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="confgen.html">confgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genfraglib.html">genfraglib</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tautgen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-options">Mandatory options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-options">Other options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chox.html">ChOX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">CDPKit Applications</a> &raquo;</li>
+      <li>tautgen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/applications/tautgen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tautgen">
+<h1>tautgen<a class="headerlink" href="#tautgen" title="Permalink to this heading"></a></h1>
+<p>Performs tautomer generation/standardization for a set of input molecules.</p>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><p><strong class="program">tautgen</strong> [-hVvptsdz] [-c arg] [-l arg] [-m arg] [-I arg] [-O arg] [-n arg] [–keto-enol] [–imine-enamine] [–nitroso-oxime] [–amide-imidic-acid] [–lactam-lactim] [–ketene-ynol] [–nitro-aci] [–phosphinic-acid] [–sulfenic-acid] [–generic-h13-shift] [–generic-h15-shift] -i arg [arg]… -o arg</p>
+</div></blockquote>
+</section>
+<section id="mandatory-options">
+<h2>Mandatory options<a class="headerlink" href="#mandatory-options" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><p>-i [ –input ] arg</p>
+<blockquote>
+<div><p>Specifies one or more input file(s) with molecules for which tautomers have to be
+generated.</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES String (.smi)</p></li>
+<li><p>Daylight SMARTS String (.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>-o [ –output ] arg</p>
+<blockquote>
+<div><p>Specifies the output file where the generated tautomers will be stored.</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES String (.smi)</p></li>
+<li><p>Daylight SMARTS String (.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><p>-h [ –help ] [=arg(=SHORT)]</p>
+<blockquote>
+<div><p>Print help message and exit (ABOUT, USAGE, SHORT, ALL or ‘name of option’, default:
+SHORT).</p>
+</div></blockquote>
+<p>-V [ –version ]</p>
+<blockquote>
+<div><p>Print version information and exit.</p>
+</div></blockquote>
+<p>-v [ –verbosity ] [=arg(=VERBOSE)]</p>
+<blockquote>
+<div><p>Verbosity level of information output (QUIET, ERROR, INFO, VERBOSE, DEBUG, default:
+INFO).</p>
+</div></blockquote>
+<p>-c [ –config ] arg</p>
+<blockquote>
+<div><p>Use file with program options.</p>
+</div></blockquote>
+<p>-l [ –log-file ] arg</p>
+<blockquote>
+<div><p>Redirect text-output to file.</p>
+</div></blockquote>
+<p>-p [ –progress ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Show progress bar (default: true).</p>
+</div></blockquote>
+<p>-m [ –mode ] arg</p>
+<blockquote>
+<div><p>Tautomer generation mode (STANDARDIZE, TOP_UNIQUE, GEO_UNIQUE, EXHAUSTIVE default:
+TOP_UNIQUE).</p>
+</div></blockquote>
+<p>-t [ –num-threads ] [=arg(=4)]</p>
+<blockquote>
+<div><p>Number of parallel execution threads (default: no multithreading, implicit value:
+4 threads, must be &gt;= 0, 0 disables multithreading).</p>
+</div></blockquote>
+<p>-I [ –input-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the format of the input file(s) by providing one of
+the supported file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file(s) (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-O [ –output-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the output format by providing one of the supported
+file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-s [ –regard-stereo ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Consider stereochemistry in topological duplicate detection (default: true).</p>
+</div></blockquote>
+<p>-d [ –regard-iso ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Whether or not isotope information matters in topological duplicate detection (default:
+true).</p>
+</div></blockquote>
+<p>-z [ –neutralize ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Neutralize molecule before generating tautomers (default: false).</p>
+</div></blockquote>
+<p>-n [ –max-num-tautomers ] arg</p>
+<blockquote>
+<div><p>Maximum number of output tautomers for each molecule (default: 0, must be &gt;= 0,
+0 disables limit).</p>
+</div></blockquote>
+<p class="attribution">—keto-enol [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable keto &lt;-&gt; enol tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—imine-enamine [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable imine &lt;-&gt; enamine tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—nitroso-oxime [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable nitroso &lt;-&gt; oxime tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—amide-imidic-acid [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable amide &lt;-&gt; imidic acid tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—lactam-lactim [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable lactam &lt;-&gt; lactim tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—ketene-ynol [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable ketene &lt;-&gt; ynol form tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—nitro-aci [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable nitro &lt;-&gt; aci form tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—phosphinic-acid [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable phosphinic acid tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—sulfenic-acid [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable sulfenic acid tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—generic-h13-shift [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable generic hydrogen 1 &lt;-&gt; 3 shift tautomerization (default: true).</p>
+</div></blockquote>
+<p class="attribution">—generic-h15-shift [=arg(=1)]</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Enable generic hydrogen 1 &lt;-&gt; 5 shift tautomerization (default: true).</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="genfraglib.html" class="btn btn-neutral float-left" title="genfraglib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chox.html" class="btn btn-neutral float-right" title="ChOX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

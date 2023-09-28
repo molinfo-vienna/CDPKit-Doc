@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.1.3. Classification properties &mdash; CDPKit 1.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://cdpkit.org/v1.0.1/cdpl_python_cookbook/molprop/atom/class_props.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/tabs.js"></script>
+        <script src="../../../_static/docs-versions-menu.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3.1.4. Partial charges and other electronic properties" href="elec_props.html" />
+    <link rel="prev" title="3.1.2. Chemical element properties" href="elem_props.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+            <a href="../../../index.html">
+            <img src="../../../_static/Logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../chem/index.html">1. Processing of Chemical Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">3. Calculation of Molecule, Atom and Bond Properties</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3.1. Atomic properties</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="con_props.html">3.1.1. Connectivity properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="elem_props.html">3.1.2. Chemical element properties</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.1.3. Classification properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="elec_props.html">3.1.4. Partial charges and other electronic properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="physchem_props.html">3.1.5. Physicochemical properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">6. Force Field Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">CDPL Python Cookbook</a> &raquo;</li>
+          <li><a href="../index.html"><span class="section-number">3. </span>Calculation of Molecule, Atom and Bond Properties</a> &raquo;</li>
+          <li><a href="index.html"><span class="section-number">3.1. </span>Atomic properties</a> &raquo;</li>
+      <li><span class="section-number">3.1.3. </span>Classification properties</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/cdpl_python_cookbook/molprop/atom/class_props.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="classification-properties">
+<h1><span class="section-number">3.1.3. </span>Classification properties<a class="headerlink" href="#classification-properties" title="Permalink to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.MolProp</span> <span class="k">as</span> <span class="nn">MolProp</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="c1"># outputs the corresponding properties of each atom of the provided molecular graph</span>
+<span class="linenos">  9</span><span class="k">def</span> <span class="nf">outputProperties</span><span class="p">(</span><span class="n">molgraph</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 10</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># calculate implicit hydrogen counts and set corresponding property for all atoms</span>
+<span class="linenos"> 11</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># perceive atom hybridization states and set corresponding property for all atoms</span>
+<span class="linenos"> 12</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                <span class="c1"># perceive smallest set of smallest rings and store as Chem.MolecularGraph property</span>
+<span class="linenos"> 13</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                <span class="c1"># perceive cycles and set corresponding atom and bond properties</span>
+<span class="linenos"> 14</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>         <span class="c1"># perceive aromaticity and set corresponding atom and bond properties</span>
+<span class="linenos"> 15</span>    <span class="n">MolProp</span><span class="o">.</span><span class="n">perceiveHBondDonorAtomTypes</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># perceive H-bond donor atom types and set corresponding atom properties</span>
+<span class="linenos"> 16</span>    <span class="n">MolProp</span><span class="o">.</span><span class="n">perceiveHBondAcceptorAtomTypes</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># perceive H-bond acceptor atom types and set corresponding atom properties</span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span>    <span class="n">hba_type_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">UNDEF</span>                   <span class="p">:</span> <span class="s1">&#39;UNDEF&#39;</span><span class="p">,</span>
+<span class="linenos"> 19</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">NONE</span>                    <span class="p">:</span> <span class="s1">&#39;NONE&#39;</span><span class="p">,</span>
+<span class="linenos"> 20</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_H2O</span>                   <span class="p">:</span> <span class="s1">&#39;O_H2O&#39;</span><span class="p">,</span>
+<span class="linenos"> 21</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_UREA</span>                  <span class="p">:</span> <span class="s1">&#39;O_UREA&#39;</span><span class="p">,</span>
+<span class="linenos"> 22</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_BARBITURIC_ACID</span>       <span class="p">:</span> <span class="s1">&#39;O_BARBITURIC_ACID&#39;</span><span class="p">,</span>
+<span class="linenos"> 23</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_URIC_ACID</span>             <span class="p">:</span> <span class="s1">&#39;O_URIC_ACID&#39;</span><span class="p">,</span>
+<span class="linenos"> 24</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_ETHER</span>                 <span class="p">:</span> <span class="s1">&#39;O_ETHER&#39;</span><span class="p">,</span>
+<span class="linenos"> 25</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_AMIDE</span>                 <span class="p">:</span> <span class="s1">&#39;O_AMIDE&#39;</span><span class="p">,</span>
+<span class="linenos"> 26</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_N_OXIDE</span>               <span class="p">:</span> <span class="s1">&#39;O_N_OXIDE&#39;</span><span class="p">,</span>
+<span class="linenos"> 27</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_ACID</span>                  <span class="p">:</span> <span class="s1">&#39;O_ACID&#39;</span><span class="p">,</span>
+<span class="linenos"> 28</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_ESTER</span>                 <span class="p">:</span> <span class="s1">&#39;O_ESTER&#39;</span><span class="p">,</span>
+<span class="linenos"> 29</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_SULFOXIDE</span>             <span class="p">:</span> <span class="s1">&#39;O_SULFOXIDE&#39;</span><span class="p">,</span>
+<span class="linenos"> 30</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_NITRO</span>                 <span class="p">:</span> <span class="s1">&#39;O_NITRO&#39;</span><span class="p">,</span>
+<span class="linenos"> 31</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_SELEN_OXIDE</span>           <span class="p">:</span> <span class="s1">&#39;O_SELEN_OXIDE&#39;</span><span class="p">,</span>
+<span class="linenos"> 32</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_ALDEHYD</span>               <span class="p">:</span> <span class="s1">&#39;O_ALDEHYD&#39;</span><span class="p">,</span>
+<span class="linenos"> 33</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_KETONE</span>                <span class="p">:</span> <span class="s1">&#39;O_KETONE&#39;</span><span class="p">,</span>
+<span class="linenos"> 34</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">O_ALCOHOL</span>               <span class="p">:</span> <span class="s1">&#39;O_ALCOHOL&#39;</span><span class="p">,</span>
+<span class="linenos"> 35</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_NH3</span>                   <span class="p">:</span> <span class="s1">&#39;N_NH3&#39;</span><span class="p">,</span>
+<span class="linenos"> 36</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_DIAMINE</span>               <span class="p">:</span> <span class="s1">&#39;N_DIAMINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 37</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_MONO_DI_NITRO_ANILINE</span> <span class="p">:</span> <span class="s1">&#39;N_MONO_DI_NITRO_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 38</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_TRI_NITRO_ANILINE</span>     <span class="p">:</span> <span class="s1">&#39;N_TRI_NITRO_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 39</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_HALOGENO_ANILINE</span>      <span class="p">:</span> <span class="s1">&#39;N_HALOGENO_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 40</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_ANILINE</span>               <span class="p">:</span> <span class="s1">&#39;N_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 41</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_NITRILE</span>               <span class="p">:</span> <span class="s1">&#39;N_NITRILE&#39;</span><span class="p">,</span>
+<span class="linenos"> 42</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_AZOLE</span>                 <span class="p">:</span> <span class="s1">&#39;N_AZOLE&#39;</span><span class="p">,</span>
+<span class="linenos"> 43</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_AMINE</span>                 <span class="p">:</span> <span class="s1">&#39;N_AMINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 44</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_AMIDINE</span>               <span class="p">:</span> <span class="s1">&#39;N_AMIDINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 45</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_AZO</span>                   <span class="p">:</span> <span class="s1">&#39;N_AZO&#39;</span><span class="p">,</span>
+<span class="linenos"> 46</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_AZINE</span>                 <span class="p">:</span> <span class="s1">&#39;N_AZINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 47</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_DIAZINE</span>               <span class="p">:</span> <span class="s1">&#39;N_DIAZINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 48</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">N_IMINE</span>                 <span class="p">:</span> <span class="s1">&#39;N_IMINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 49</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">S_SULFIDE</span>               <span class="p">:</span> <span class="s1">&#39;S_SULFIDE&#39;</span><span class="p">,</span>
+<span class="linenos"> 50</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">S_THIOUREA</span>              <span class="p">:</span> <span class="s1">&#39;S_THIOUREA&#39;</span><span class="p">,</span>
+<span class="linenos"> 51</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">P_MONO_DI_PHOSPHINE</span>     <span class="p">:</span> <span class="s1">&#39;P_MONO_DI_PHOSPHINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 52</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondAcceptorAtomType</span><span class="o">.</span><span class="n">P_TRI_PHOSPHINE</span>         <span class="p">:</span> <span class="s1">&#39;P_TRI_PHOSPHINE&#39;</span> <span class="p">}</span>
+<span class="linenos"> 53</span>
+<span class="linenos"> 54</span>    <span class="n">hbd_type_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">UNDEF</span>                       <span class="p">:</span> <span class="s1">&#39;UNDEF&#39;</span><span class="p">,</span>
+<span class="linenos"> 55</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">NONE</span>                        <span class="p">:</span> <span class="s1">&#39;NONE&#39;</span><span class="p">,</span>
+<span class="linenos"> 56</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">I_HI</span>                        <span class="p">:</span> <span class="s1">&#39;I_HI&#39;</span><span class="p">,</span>
+<span class="linenos"> 57</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">BR_HBR</span>                      <span class="p">:</span> <span class="s1">&#39;BR_HBR&#39;</span><span class="p">,</span>
+<span class="linenos"> 58</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">CL_HCL</span>                      <span class="p">:</span> <span class="s1">&#39;CL_HCL&#39;</span><span class="p">,</span>
+<span class="linenos"> 59</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">S_HSCN</span>                      <span class="p">:</span> <span class="s1">&#39;S_HSCN&#39;</span><span class="p">,</span>
+<span class="linenos"> 60</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">F_HF</span>                        <span class="p">:</span> <span class="s1">&#39;F_HF&#39;</span><span class="p">,</span>
+<span class="linenos"> 61</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">H_H2</span>                        <span class="p">:</span> <span class="s1">&#39;H_H2&#39;</span><span class="p">,</span>
+<span class="linenos"> 62</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">C_HCN</span>                       <span class="p">:</span> <span class="s1">&#39;C_HCN&#39;</span><span class="p">,</span>
+<span class="linenos"> 63</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">C_ETHINE</span>                    <span class="p">:</span> <span class="s1">&#39;C_ETHINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 64</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_HN3</span>                       <span class="p">:</span> <span class="s1">&#39;N_HN3&#39;</span><span class="p">,</span>
+<span class="linenos"> 65</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_NH3</span>                       <span class="p">:</span> <span class="s1">&#39;N_NH3&#39;</span><span class="p">,</span>
+<span class="linenos"> 66</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_NH4</span>                       <span class="p">:</span> <span class="s1">&#39;N_NH4&#39;</span><span class="p">,</span>
+<span class="linenos"> 67</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_AMINE</span>                     <span class="p">:</span> <span class="s1">&#39;N_AMINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 68</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_AMINIUM</span>                   <span class="p">:</span> <span class="s1">&#39;N_AMINIUM&#39;</span><span class="p">,</span>
+<span class="linenos"> 69</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_ANILINE</span>                   <span class="p">:</span> <span class="s1">&#39;N_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 70</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_MONO_DI_NITRO_ANILINE</span>     <span class="p">:</span> <span class="s1">&#39;N_MONO_DI_NITRO_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 71</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_TRI_NITRO_ANILINE</span>         <span class="p">:</span> <span class="s1">&#39;N_TRI_NITRO_ANILINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 72</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_PYRROLE</span>                   <span class="p">:</span> <span class="s1">&#39;N_PYRROLE&#39;</span><span class="p">,</span>
+<span class="linenos"> 73</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_AMIDE</span>                     <span class="p">:</span> <span class="s1">&#39;N_AMIDE&#39;</span><span class="p">,</span>
+<span class="linenos"> 74</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_IMINE</span>                     <span class="p">:</span> <span class="s1">&#39;N_IMINE&#39;</span><span class="p">,</span>
+<span class="linenos"> 75</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">N_IMINIUM</span>                   <span class="p">:</span> <span class="s1">&#39;N_IMINIUM&#39;</span><span class="p">,</span>
+<span class="linenos"> 76</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">S_H2S</span>                       <span class="p">:</span> <span class="s1">&#39;S_H2S&#39;</span><span class="p">,</span>
+<span class="linenos"> 77</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">S_HS</span>                        <span class="p">:</span> <span class="s1">&#39;S_HS&#39;</span><span class="p">,</span>
+<span class="linenos"> 78</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">S_THIOL</span>                     <span class="p">:</span> <span class="s1">&#39;S_THIOL&#39;</span><span class="p">,</span>
+<span class="linenos"> 79</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H3PO4</span>                     <span class="p">:</span> <span class="s1">&#39;O_H3PO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 80</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H2CO3</span>                     <span class="p">:</span> <span class="s1">&#39;O_H2CO3&#39;</span><span class="p">,</span>
+<span class="linenos"> 81</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HCO3</span>                      <span class="p">:</span> <span class="s1">&#39;O_HCO3&#39;</span><span class="p">,</span>
+<span class="linenos"> 82</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H2O2</span>                      <span class="p">:</span> <span class="s1">&#39;O_H2O2&#39;</span><span class="p">,</span>
+<span class="linenos"> 83</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H2O</span>                       <span class="p">:</span> <span class="s1">&#39;O_H2O&#39;</span><span class="p">,</span>
+<span class="linenos"> 84</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_CF3SO3H</span>                   <span class="p">:</span> <span class="s1">&#39;O_CF3SO3H&#39;</span><span class="p">,</span>
+<span class="linenos"> 85</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HCLO4</span>                     <span class="p">:</span> <span class="s1">&#39;O_HCLO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 86</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H2SO4</span>                     <span class="p">:</span> <span class="s1">&#39;O_H2SO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 87</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HNO3</span>                      <span class="p">:</span> <span class="s1">&#39;O_HNO3&#39;</span><span class="p">,</span>
+<span class="linenos"> 88</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HSO4</span>                      <span class="p">:</span> <span class="s1">&#39;O_HSO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 89</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HNO2</span>                      <span class="p">:</span> <span class="s1">&#39;O_HNO2&#39;</span><span class="p">,</span>
+<span class="linenos"> 90</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_NH2OH</span>                     <span class="p">:</span> <span class="s1">&#39;O_NH2OH&#39;</span><span class="p">,</span>
+<span class="linenos"> 91</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H2PO4</span>                     <span class="p">:</span> <span class="s1">&#39;O_H2PO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 92</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H3BO3</span>                     <span class="p">:</span> <span class="s1">&#39;O_H3BO3&#39;</span><span class="p">,</span>
+<span class="linenos"> 93</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H4SIO4</span>                    <span class="p">:</span> <span class="s1">&#39;O_H4SIO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 94</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HPO4</span>                      <span class="p">:</span> <span class="s1">&#39;O_HPO4&#39;</span><span class="p">,</span>
+<span class="linenos"> 95</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_H2BO3</span>                     <span class="p">:</span> <span class="s1">&#39;O_H2BO3&#39;</span><span class="p">,</span>
+<span class="linenos"> 96</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HO</span>                        <span class="p">:</span> <span class="s1">&#39;O_HO&#39;</span><span class="p">,</span>
+<span class="linenos"> 97</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_SULFONIC_ACID</span>             <span class="p">:</span> <span class="s1">&#39;O_SULFONIC_ACID&#39;</span><span class="p">,</span>
+<span class="linenos"> 98</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_MONO_DI_NITRO_PHENOL</span>      <span class="p">:</span> <span class="s1">&#39;O_MONO_DI_NITRO_PHENOL&#39;</span><span class="p">,</span>
+<span class="linenos"> 99</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HALOGENO_ALCOHOL</span>          <span class="p">:</span> <span class="s1">&#39;O_HALOGENO_ALCOHOL&#39;</span><span class="p">,</span>
+<span class="linenos">100</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_ALCOHOL</span>                   <span class="p">:</span> <span class="s1">&#39;O_ALCOHOL&#39;</span><span class="p">,</span>
+<span class="linenos">101</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_TRI_NITRO_PHENOL</span>          <span class="p">:</span> <span class="s1">&#39;O_TRI_NITRO_PHENOL&#39;</span><span class="p">,</span>
+<span class="linenos">102</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HALOGENO_PHENOL</span>           <span class="p">:</span> <span class="s1">&#39;O_HALOGENO_PHENOL&#39;</span><span class="p">,</span>
+<span class="linenos">103</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_PHENOL</span>                    <span class="p">:</span> <span class="s1">&#39;O_PHENOL&#39;</span><span class="p">,</span>
+<span class="linenos">104</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_CARBOXYLIC_ACID</span>           <span class="p">:</span> <span class="s1">&#39;O_CARBOXYLIC_ACID&#39;</span><span class="p">,</span>
+<span class="linenos">105</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_HALOGENO_CARBOXYCLIC_ACID</span> <span class="p">:</span> <span class="s1">&#39;O_HALOGENO_CARBOXYCLIC_ACID&#39;</span><span class="p">,</span>
+<span class="linenos">106</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_ENOL</span>                      <span class="p">:</span> <span class="s1">&#39;O_ENOL&#39;</span><span class="p">,</span>
+<span class="linenos">107</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_OXIME</span>                     <span class="p">:</span> <span class="s1">&#39;O_OXIME&#39;</span><span class="p">,</span>
+<span class="linenos">108</span>                     <span class="n">MolProp</span><span class="o">.</span><span class="n">HBondDonorAtomType</span><span class="o">.</span><span class="n">O_CL5_PHENOL</span>                <span class="p">:</span> <span class="s1">&#39;O_CL5_PHENOL&#39;</span> <span class="p">}</span>
+<span class="linenos">109</span>    
+<span class="linenos">110</span>    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">molgraph</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+<span class="linenos">111</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Atom #</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">molgraph</span><span class="o">.</span><span class="n">getAtomIndex</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">112</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is std. hydrogen: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isOrdinaryHydrogen</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">)))</span>
+<span class="linenos">113</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is heavy atom: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isHeavy</span><span class="p">(</span><span class="n">atom</span><span class="p">)))</span>
+<span class="linenos">114</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is unsaturated: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isUnsaturated</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">)))</span>
+<span class="linenos">115</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is H-bond acceptor: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isHBondAcceptor</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">)))</span>
+<span class="linenos">116</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">H-bond acceptor type: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">hba_type_str</span><span class="p">[</span><span class="n">MolProp</span><span class="o">.</span><span class="n">getHBondAcceptorType</span><span class="p">(</span><span class="n">atom</span><span class="p">)])</span>
+<span class="linenos">117</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is H-bond donor: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isHBondDonor</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">)))</span>
+<span class="linenos">118</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">H-bond donor type: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">hbd_type_str</span><span class="p">[</span><span class="n">MolProp</span><span class="o">.</span><span class="n">getHBondDonorType</span><span class="p">(</span><span class="n">atom</span><span class="p">)])</span>
+<span class="linenos">119</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is carbonyl carbon: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isCarbonylLikeAtom</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)))</span>
+<span class="linenos">120</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is amide carbon: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isAmideCenterAtom</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)))</span>
+<span class="linenos">121</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is amide nitrogen: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isAmideNitrogen</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)))</span>
+<span class="linenos">122</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is invertible nitrogen: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isInvertibleNitrogen</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">)))</span>
+<span class="linenos">123</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">Is planar nitrogen: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">MolProp</span><span class="o">.</span><span class="n">isPlanarNitrogen</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">molgraph</span><span class="p">)))</span>
+<span class="linenos">124</span>        
+<span class="linenos">125</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">126</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">127</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> &lt;input mol. file&gt;&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">128</span>
+<span class="linenos">129</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">130</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+<span class="linenos">131</span>  
+<span class="linenos">132</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos">133</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">134</span>    
+<span class="linenos">135</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos">136</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">137</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos">138</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">139</span>                <span class="n">outputProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos">140</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">141</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">142</span>                
+<span class="linenos">143</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">144</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">145</span>
+<span class="linenos">146</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">147</span>        
+<span class="linenos">148</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">149</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/3964b512ffc7860657d108d60dd04365/molprop_atom_class_props.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="elem_props.html" class="btn btn-neutral float-left" title="3.1.2. Chemical element properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="elec_props.html" class="btn btn-neutral float-right" title="3.1.4. Partial charges and other electronic properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
