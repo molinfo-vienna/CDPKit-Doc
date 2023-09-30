@@ -68,6 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
@@ -281,10 +282,10 @@ Windows start menu and execute:</p>
 </div>
 </div>
 <p>If <strong class="command">cmake</strong> is executed as shown above the default build type will be <code class="docutils literal notranslate"><span class="pre">Release</span></code>. Configuring for a different build type can be achieved via the argument
-<em>-DCMAKE_BUILD_TYPE=&lt;BUILD-TYPE&gt;</em> on the cmake command line. Possible values of <code class="docutils literal notranslate"><span class="pre">&lt;BUILD-TYPE&gt;</span></code> are:</p>
+<em>-DCMAKE_BUILD_TYPE=&lt;BUILD-TYPE&gt;</em> on the <strong class="command">cmake</strong> command line. Possible values of <code class="docutils literal notranslate"><span class="pre">&lt;BUILD-TYPE&gt;</span></code> are:</p>
 <ul class="simple">
 <li><p>Debug</p></li>
-<li><p>Release</p></li>
+<li><p>Releasex</p></li>
 <li><p>RelWithDebInfo</p></li>
 <li><p>MinSizeRel</p></li>
 </ul>
@@ -383,12 +384,12 @@ can be installed by issuing the following command in a terminal session:</p>
 </pre></div>
 </div>
 <p>If no <a class="reference external" href="https://packaging.python.org/en/latest/specifications/binary-distribution-format/#binary-distribution-format">wheel</a> file
-for the platform (defined by OS, processor architecture and Python version) the command was executed on is available an on-the-fly build of
+for the platform (defined by OS, processor architecture and Python version) the command was executed on is available, an on-the-fly build of
 the CDPKit sources is attempted. This will only proceed without errors if a proper build environment has been set up (see next section).</p>
 </section>
 <section id="installation-via-a-build-of-the-sources">
 <h3>Installation via a build of the sources<a class="headerlink" href="#installation-via-a-build-of-the-sources" title="Permalink to this heading"></a></h3>
-<p>For a successful build of the CDPL Python bindings the information given in section <a class="reference internal" href="#id2">Installation from source</a> also applies
+<p>For a successful build of the CDPL Python bindings the information provided in section <a class="reference internal" href="#id2">Installation from source</a> applies also
 here. However, since a full-featured CDPKit build is not required the list of requirements is a bit shorter:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -435,7 +436,7 @@ here. However, since a full-featured CDPKit build is not required the list of re
 </table>
 <p class="rubric">Option 1: Build the CDPKit sources deposited on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a></p>
 <p>This will be done automatically if no pre-built binary package is available (see previous section) or can be enforced
-by specifying the argument <em>–no-binary :all:</em>:</p>
+by adding the argument <em>–no-binary :all:</em>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ pip install cpkit --no-binary :all:
 </pre></div>
 </div>
