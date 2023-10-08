@@ -77,6 +77,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classCDPL_1_1Chem_1_1Molecule-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">CDPL::Chem::Molecule Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -113,6 +115,8 @@ Public Types</h2></td></tr>
 <tr class="memitem:afd02e3105ec015a6ccc5000791ee5178"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondContainer::BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#afd02e3105ec015a6ccc5000791ee5178">BondIterator</a></td></tr>
 <tr class="memdesc:afd02e3105ec015a6ccc5000791ee5178"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the bonds of the molecule.  <a href="classCDPL_1_1Chem_1_1Molecule.html#afd02e3105ec015a6ccc5000791ee5178">More...</a><br /></td></tr>
 <tr class="separator:afd02e3105ec015a6ccc5000791ee5178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff372d6f9322433ddf602e340160121"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">CopyPostprocessingFunction</a></td></tr>
+<tr class="separator:acff372d6f9322433ddf602e340160121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1MolecularGraph"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1MolecularGraph')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></td></tr>
 <tr class="memitem:a3665294513798bda9b0389054c808581 inherit pub_types_classCDPL_1_1Chem_1_1MolecularGraph"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">SharedPointer</a></td></tr>
 <tr class="memdesc:a3665294513798bda9b0389054c808581 inherit pub_types_classCDPL_1_1Chem_1_1MolecularGraph"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MolecularGraph</code> instances.  <a href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">More...</a><br /></td></tr>
@@ -430,8 +434,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2faea4b1bb96c5696757a990a5f42711 inherit pub_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to itself.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#a2faea4b1bb96c5696757a990a5f42711">More...</a><br /></td></tr>
 <tr class="separator:a2faea4b1bb96c5696757a990a5f42711 inherit pub_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ac40ab5307fdcd4ada153f5102d16eb88"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#ac40ab5307fdcd4ada153f5102d16eb88">registerCopyPostprocessingFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">CopyPostprocessingFunction</a> &amp;func)</td></tr>
+<tr class="separator:ac40ab5307fdcd4ada153f5102d16eb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae5a96aeff796ddcb3f8ab570be0352fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#ae5a96aeff796ddcb3f8ab570be0352fb">invokeCopyPostprocessingFunctions</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;src_molgraph)</td></tr>
+<tr class="separator:ae5a96aeff796ddcb3f8ab570be0352fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Chem_1_1MolecularGraph')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></td></tr>
 <tr class="memitem:adf57d010f784ef81699912e64c7455f4 inherit pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#adf57d010f784ef81699912e64c7455f4">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
 <tr class="memdesc:adf57d010f784ef81699912e64c7455f4 inherit pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="classCDPL_1_1Chem_1_1MolecularGraph.html#adf57d010f784ef81699912e64c7455f4">More...</a><br /></td></tr>
@@ -551,6 +562,20 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A mutable random access iterator used to iterate over the bonds of the molecule. </p>
+
+</div>
+</div>
+<a id="acff372d6f9322433ddf602e340160121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff372d6f9322433ddf602e340160121">&#9670;&nbsp;</a></span>CopyPostprocessingFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::function&lt;void(<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a>&amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;)&gt; <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">CDPL::Chem::Molecule::CopyPostprocessingFunction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1657,6 +1682,58 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
+
+</div>
+</div>
+<a id="ac40ab5307fdcd4ada153f5102d16eb88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac40ab5307fdcd4ada153f5102d16eb88">&#9670;&nbsp;</a></span>registerCopyPostprocessingFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CDPL::Chem::Molecule::registerCopyPostprocessingFunction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">CopyPostprocessingFunction</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5a96aeff796ddcb3f8ab570be0352fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5a96aeff796ddcb3f8ab570be0352fb">&#9670;&nbsp;</a></span>invokeCopyPostprocessingFunctions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDPL::Chem::Molecule::invokeCopyPostprocessingFunctions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;&#160;</td>
+          <td class="paramname"><em>src_molgraph</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
