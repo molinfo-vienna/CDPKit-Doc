@@ -456,7 +456,7 @@ be written to the specified output file.</p>
 <span class="linenos">234</span>    <span class="c1"># create instances of the default implementation of the Chem.Molecule interface for the input and output molecules</span>
 <span class="linenos">235</span>    <span class="n">in_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
 <span class="linenos">236</span>
-<span class="linenos">237</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">237</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos">238</span>    <span class="n">num_changed</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos">239</span>    <span class="n">num_disc</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos">240</span>    
@@ -467,9 +467,9 @@ be written to the specified output file.</p>
 <span class="linenos">245</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">in_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
 <span class="linenos">246</span>
 <span class="linenos">247</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="linenos">248</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
+<span class="linenos">248</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
 <span class="linenos">249</span>            <span class="k">else</span><span class="p">:</span>
-<span class="linenos">250</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos">250</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 <span class="linenos">251</span>            
 <span class="linenos">252</span>            <span class="k">try</span><span class="p">:</span>
 <span class="linenos">253</span>                <span class="c1"># process input molecule</span>

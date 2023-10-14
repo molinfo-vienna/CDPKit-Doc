@@ -98,139 +98,138 @@
   <section id="single-low-energy-3d-structures">
 <h1><span class="section-number">5.1. </span>Single Low-energy 3D Structures<a class="headerlink" href="#single-low-energy-3d-structures" title="Permalink to this heading"></a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">os</span>
-<span class="linenos">  3</span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="linenos">  4</span>
-<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
-<span class="linenos">  6</span><span class="kn">import</span> <span class="nn">CDPL.ConfGen</span> <span class="k">as</span> <span class="nn">ConfGen</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.ConfGen</span> <span class="k">as</span> <span class="nn">ConfGen</span>
+<span class="linenos">  6</span>
 <span class="linenos">  7</span>
-<span class="linenos">  8</span>
-<span class="linenos">  9</span><span class="c1"># generates a low-energy 3D structure of the argument molecule using</span>
-<span class="linenos"> 10</span><span class="c1"># the provided initialized ConfGen.StructureGenerator instance</span>
-<span class="linenos"> 11</span><span class="k">def</span> <span class="nf">gen3DStructure</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">struct_gen</span><span class="p">:</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">StructureGenerator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="linenos"> 12</span>    <span class="c1"># prepare the molecule for 3D structure generation</span>
-<span class="linenos"> 13</span>    <span class="n">ConfGen</span><span class="o">.</span><span class="n">prepareForConformerGeneration</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> 
-<span class="linenos"> 14</span>
-<span class="linenos"> 15</span>    <span class="c1"># generate the 3D structure</span>
-<span class="linenos"> 16</span>    <span class="n">status</span> <span class="o">=</span> <span class="n">struct_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>             
-<span class="linenos"> 17</span>    
-<span class="linenos"> 18</span>    <span class="c1"># if sucessful, store the generated conformer ensemble as</span>
-<span class="linenos"> 19</span>    <span class="c1"># per atom 3D coordinates arrays (= the way conformers are represented in CDPKit)</span>
-<span class="linenos"> 20</span>    <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
-<span class="linenos"> 21</span>        <span class="n">struct_gen</span><span class="o">.</span><span class="n">setCoordinates</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>                
-<span class="linenos"> 22</span>        
-<span class="linenos"> 23</span>    <span class="c1"># return status code</span>
-<span class="linenos"> 24</span>    <span class="k">return</span> <span class="n">status</span>
-<span class="linenos"> 25</span>
-<span class="linenos"> 26</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos"> 27</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
-<span class="linenos"> 28</span>    
-<span class="linenos"> 29</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
-<span class="linenos"> 30</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
-<span class="linenos"> 31</span>
-<span class="linenos"> 32</span>    <span class="c1"># create writer for the generated 3D structures (format specified by file extension)</span>
-<span class="linenos"> 33</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
-<span class="linenos"> 34</span>
-<span class="linenos"> 35</span>    <span class="c1"># export only a single 3D structure (in case of multi-conf. input molecules)</span>
-<span class="linenos"> 36</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setMultiConfExportParameter</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos"> 37</span>    
-<span class="linenos"> 38</span>    <span class="c1"># create and initialize an instance of the class ConfGen.StructureGenerator which will</span>
-<span class="linenos"> 39</span>    <span class="c1"># perform the actual 3D structure generation work</span>
-<span class="linenos"> 40</span>    <span class="n">struct_gen</span> <span class="o">=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">StructureGenerator</span><span class="p">()</span>
-<span class="linenos"> 41</span>
-<span class="linenos"> 42</span>    <span class="n">struct_gen</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">max_time</span> <span class="o">*</span> <span class="mi">1000</span> <span class="c1"># apply the -t argument</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span>    <span class="c1"># dictionary mapping status codes to human readable strings</span>
-<span class="linenos"> 45</span>    <span class="n">status_to_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">UNINITIALIZED</span>                  <span class="p">:</span> <span class="s1">&#39;uninitialized&#39;</span><span class="p">,</span>
-<span class="linenos"> 46</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">TIMEOUT</span>                        <span class="p">:</span> <span class="s1">&#39;max. processing time exceeded&#39;</span><span class="p">,</span>
-<span class="linenos"> 47</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">ABORTED</span>                        <span class="p">:</span> <span class="s1">&#39;aborted&#39;</span><span class="p">,</span>
-<span class="linenos"> 48</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FORCEFIELD_SETUP_FAILED</span>        <span class="p">:</span> <span class="s1">&#39;force field setup failed&#39;</span><span class="p">,</span>
-<span class="linenos"> 49</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FORCEFIELD_MINIMIZATION_FAILED</span> <span class="p">:</span> <span class="s1">&#39;force field structure refinement failed&#39;</span><span class="p">,</span>
-<span class="linenos"> 50</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_LIBRARY_NOT_SET</span>       <span class="p">:</span> <span class="s1">&#39;fragment library not available&#39;</span><span class="p">,</span>
-<span class="linenos"> 51</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_CONF_GEN_FAILED</span>       <span class="p">:</span> <span class="s1">&#39;fragment conformer generation failed&#39;</span><span class="p">,</span>
-<span class="linenos"> 52</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_CONF_GEN_TIMEOUT</span>      <span class="p">:</span> <span class="s1">&#39;fragment conformer generation timeout&#39;</span><span class="p">,</span>
-<span class="linenos"> 53</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_ALREADY_PROCESSED</span>     <span class="p">:</span> <span class="s1">&#39;fragment already processed&#39;</span><span class="p">,</span>
-<span class="linenos"> 54</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">TORSION_DRIVING_FAILED</span>         <span class="p">:</span> <span class="s1">&#39;torsion driving failed&#39;</span><span class="p">,</span>
-<span class="linenos"> 55</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">CONF_GEN_FAILED</span>                <span class="p">:</span> <span class="s1">&#39;conformer generation failed&#39;</span> <span class="p">}</span>
-<span class="linenos"> 56</span>    
-<span class="linenos"> 57</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
-<span class="linenos"> 58</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
-<span class="linenos"> 59</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos"> 60</span>    
-<span class="linenos"> 61</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
-<span class="linenos"> 62</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 63</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-<span class="linenos"> 64</span>            <span class="c1"># compose a simple molecule identifier</span>
-<span class="linenos"> 65</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
-<span class="linenos"> 66</span>
-<span class="linenos"> 67</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="linenos"> 68</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
-<span class="linenos"> 69</span>            <span class="k">else</span><span class="p">:</span>
-<span class="linenos"> 70</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="linenos"> 71</span>
-<span class="linenos"> 72</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos"> 73</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Generating 3D structure of molecule </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos"> 74</span>
-<span class="linenos"> 75</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 76</span>                <span class="c1"># generate 3D structure of the read molecule</span>
-<span class="linenos"> 77</span>                <span class="n">status</span> <span class="o">=</span> <span class="n">gen3DStructure</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">struct_gen</span><span class="p">)</span> 
-<span class="linenos"> 78</span>
-<span class="linenos"> 79</span>                <span class="c1"># check for severe error reported by status code</span>
-<span class="linenos"> 80</span>                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
-<span class="linenos"> 81</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos"> 82</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: 3D structure generation for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">]))</span>
-<span class="linenos"> 83</span>                    <span class="k">else</span><span class="p">:</span>
-<span class="linenos"> 84</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; 3D structure generation failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">])</span>
-<span class="linenos"> 85</span>                <span class="k">else</span><span class="p">:</span> 
-<span class="linenos"> 86</span>                    <span class="c1"># enforce the output of 3D coordinates in case of MDL file formats</span>
-<span class="linenos"> 87</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setMDLDimensionality</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="linenos"> 88</span>
-<span class="linenos"> 89</span>                    <span class="c1"># output the generated 3D structure                    </span>
-<span class="linenos"> 90</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
-<span class="linenos"> 91</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing 3D structure of molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos"> 92</span>                        
-<span class="linenos"> 93</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos"> 94</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: 3D structure generation or output for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos"> 95</span>
-<span class="linenos"> 96</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos"> 97</span>                
-<span class="linenos"> 98</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos"> 99</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">100</span>
-<span class="linenos">101</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">102</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">103</span>        
-<span class="linenos">104</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos">105</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates conformer ensembles for the given input molecules.&#39;</span><span class="p">)</span>
-<span class="linenos">106</span>
-<span class="linenos">107</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
-<span class="linenos">108</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
-<span class="linenos">109</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">110</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">111</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
-<span class="linenos">112</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos">113</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos">114</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">115</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">116</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Conformer ensemble output file&#39;</span><span class="p">)</span>
-<span class="linenos">117</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span>
-<span class="linenos">118</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_time&#39;</span><span class="p">,</span>
-<span class="linenos">119</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">120</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;int&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">121</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-<span class="linenos">122</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
-<span class="linenos">123</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Max. allowed molecule processing time (default: 3600 sec)&#39;</span><span class="p">)</span>
-<span class="linenos">124</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
-<span class="linenos">125</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
-<span class="linenos">126</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">127</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">128</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">129</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">130</span>    
-<span class="linenos">131</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos">132</span>
-<span class="linenos">133</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">134</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">  8</span><span class="c1"># generates a low-energy 3D structure of the argument molecule using</span>
+<span class="linenos">  9</span><span class="c1"># the provided initialized ConfGen.StructureGenerator instance</span>
+<span class="linenos"> 10</span><span class="k">def</span> <span class="nf">gen3DStructure</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">struct_gen</span><span class="p">:</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">StructureGenerator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos"> 11</span>    <span class="c1"># prepare the molecule for 3D structure generation</span>
+<span class="linenos"> 12</span>    <span class="n">ConfGen</span><span class="o">.</span><span class="n">prepareForConformerGeneration</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> 
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span>    <span class="c1"># generate the 3D structure</span>
+<span class="linenos"> 15</span>    <span class="n">status</span> <span class="o">=</span> <span class="n">struct_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>             
+<span class="linenos"> 16</span>    
+<span class="linenos"> 17</span>    <span class="c1"># if sucessful, store the generated conformer ensemble as</span>
+<span class="linenos"> 18</span>    <span class="c1"># per atom 3D coordinates arrays (= the way conformers are represented in CDPKit)</span>
+<span class="linenos"> 19</span>    <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
+<span class="linenos"> 20</span>        <span class="n">struct_gen</span><span class="o">.</span><span class="n">setCoordinates</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>                
+<span class="linenos"> 21</span>        
+<span class="linenos"> 22</span>    <span class="c1"># return status code</span>
+<span class="linenos"> 23</span>    <span class="k">return</span> <span class="n">status</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 26</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos"> 27</span>    
+<span class="linenos"> 28</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos"> 29</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span>    <span class="c1"># create writer for the generated 3D structures (format specified by file extension)</span>
+<span class="linenos"> 32</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span>    <span class="c1"># export only a single 3D structure (in case of multi-conf. input molecules)</span>
+<span class="linenos"> 35</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setMultiConfExportParameter</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 36</span>    
+<span class="linenos"> 37</span>    <span class="c1"># create and initialize an instance of the class ConfGen.StructureGenerator which will</span>
+<span class="linenos"> 38</span>    <span class="c1"># perform the actual 3D structure generation work</span>
+<span class="linenos"> 39</span>    <span class="n">struct_gen</span> <span class="o">=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">StructureGenerator</span><span class="p">()</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span>    <span class="n">struct_gen</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">max_time</span> <span class="o">*</span> <span class="mi">1000</span> <span class="c1"># apply the -t argument</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span>    <span class="c1"># dictionary mapping status codes to human readable strings</span>
+<span class="linenos"> 44</span>    <span class="n">status_to_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">UNINITIALIZED</span>                  <span class="p">:</span> <span class="s1">&#39;uninitialized&#39;</span><span class="p">,</span>
+<span class="linenos"> 45</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">TIMEOUT</span>                        <span class="p">:</span> <span class="s1">&#39;max. processing time exceeded&#39;</span><span class="p">,</span>
+<span class="linenos"> 46</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">ABORTED</span>                        <span class="p">:</span> <span class="s1">&#39;aborted&#39;</span><span class="p">,</span>
+<span class="linenos"> 47</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FORCEFIELD_SETUP_FAILED</span>        <span class="p">:</span> <span class="s1">&#39;force field setup failed&#39;</span><span class="p">,</span>
+<span class="linenos"> 48</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FORCEFIELD_MINIMIZATION_FAILED</span> <span class="p">:</span> <span class="s1">&#39;force field structure refinement failed&#39;</span><span class="p">,</span>
+<span class="linenos"> 49</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_LIBRARY_NOT_SET</span>       <span class="p">:</span> <span class="s1">&#39;fragment library not available&#39;</span><span class="p">,</span>
+<span class="linenos"> 50</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_CONF_GEN_FAILED</span>       <span class="p">:</span> <span class="s1">&#39;fragment conformer generation failed&#39;</span><span class="p">,</span>
+<span class="linenos"> 51</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_CONF_GEN_TIMEOUT</span>      <span class="p">:</span> <span class="s1">&#39;fragment conformer generation timeout&#39;</span><span class="p">,</span>
+<span class="linenos"> 52</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FRAGMENT_ALREADY_PROCESSED</span>     <span class="p">:</span> <span class="s1">&#39;fragment already processed&#39;</span><span class="p">,</span>
+<span class="linenos"> 53</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">TORSION_DRIVING_FAILED</span>         <span class="p">:</span> <span class="s1">&#39;torsion driving failed&#39;</span><span class="p">,</span>
+<span class="linenos"> 54</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">CONF_GEN_FAILED</span>                <span class="p">:</span> <span class="s1">&#39;conformer generation failed&#39;</span> <span class="p">}</span>
+<span class="linenos"> 55</span>    
+<span class="linenos"> 56</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos"> 57</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos"> 58</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 59</span>    
+<span class="linenos"> 60</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos"> 61</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 62</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos"> 63</span>            <span class="c1"># compose a simple molecule identifier</span>
+<span class="linenos"> 64</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos"> 67</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
+<span class="linenos"> 68</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 69</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos"> 72</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Generating 3D structure of molecule </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos"> 73</span>
+<span class="linenos"> 74</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 75</span>                <span class="c1"># generate 3D structure of the read molecule</span>
+<span class="linenos"> 76</span>                <span class="n">status</span> <span class="o">=</span> <span class="n">gen3DStructure</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">struct_gen</span><span class="p">)</span> 
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span>                <span class="c1"># check for severe error reported by status code</span>
+<span class="linenos"> 79</span>                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
+<span class="linenos"> 80</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos"> 81</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: 3D structure generation for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">]))</span>
+<span class="linenos"> 82</span>                    <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 83</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; 3D structure generation failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">])</span>
+<span class="linenos"> 84</span>                <span class="k">else</span><span class="p">:</span> 
+<span class="linenos"> 85</span>                    <span class="c1"># enforce the output of 3D coordinates in case of MDL file formats</span>
+<span class="linenos"> 86</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setMDLDimensionality</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos"> 87</span>
+<span class="linenos"> 88</span>                    <span class="c1"># output the generated 3D structure                    </span>
+<span class="linenos"> 89</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
+<span class="linenos"> 90</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing 3D structure of molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos"> 91</span>                        
+<span class="linenos"> 92</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos"> 93</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: 3D structure generation or output for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 96</span>                
+<span class="linenos"> 97</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos"> 98</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">101</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">102</span>        
+<span class="linenos">103</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos">104</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates conformer ensembles for the given input molecules.&#39;</span><span class="p">)</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos">107</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos">108</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">109</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">110</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
+<span class="linenos">111</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos">112</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos">113</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">114</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">115</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Conformer ensemble output file&#39;</span><span class="p">)</span>
+<span class="linenos">116</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span>
+<span class="linenos">117</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_time&#39;</span><span class="p">,</span>
+<span class="linenos">118</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">119</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;int&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">120</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+<span class="linenos">121</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+<span class="linenos">122</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Max. allowed molecule processing time (default: 3600 sec)&#39;</span><span class="p">)</span>
+<span class="linenos">123</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
+<span class="linenos">124</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
+<span class="linenos">125</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">126</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">127</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">128</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">129</span>    
+<span class="linenos">130</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">133</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../_downloads/293bb787ee2248bd1508d201269adbf4/gen_3d_structs.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>

@@ -105,55 +105,54 @@
   <section id="retrieval-and-processing-of-mdl-sd-file-structure-data">
 <h1><span class="section-number">1.1.1.2. </span>Retrieval and Processing of MDL SD-File Structure Data<a class="headerlink" href="#retrieval-and-processing-of-mdl-sd-file-structure-data" title="Permalink to this heading"></a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">os</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos"> 4</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="c1"># retrieves and prints the MDL structure data of the given molecule</span>
-<span class="linenos"> 8</span><span class="k">def</span> <span class="nf">printStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
-<span class="linenos"> 9</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">Chem</span><span class="o">.</span><span class="n">hasStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>        <span class="c1"># is a structure data property available?</span>
-<span class="linenos">10</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: no structure data available for molecule </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
-<span class="linenos">11</span>        <span class="k">return</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span>    <span class="n">struct_data</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>  <span class="c1"># retrieve structure data</span>
-<span class="linenos">14</span>    
-<span class="linenos">15</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Structure data (</span><span class="si">%s</span><span class="s1"> entries) of molecule </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">struct_data</span><span class="p">)),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)))</span>
-<span class="linenos">16</span>
-<span class="linenos">17</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">18</span>    
-<span class="linenos">19</span>    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">struct_data</span><span class="p">:</span>                 <span class="c1"># iterate of structure data entries consisting of a header line and the actual data</span>
-<span class="linenos">20</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----- Entry </span><span class="si">%s</span><span class="s1"> -----&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="linenos">21</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Header: &#39;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
-<span class="linenos">22</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data: &#39;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<span class="linenos">23</span>
-<span class="linenos">24</span>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">25</span>    
-<span class="linenos">26</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">27</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="linenos">28</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> &lt;input SD-file&gt;&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="linenos">29</span>
-<span class="linenos">30</span>    <span class="c1"># create reader for MDL SD-files</span>
-<span class="linenos">31</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">FileSDFMoleculeReader</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="linenos">32</span>    
-<span class="linenos">33</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
-<span class="linenos">34</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
-<span class="linenos">35</span>    
-<span class="linenos">36</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
-<span class="linenos">37</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">38</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span> 
-<span class="linenos">39</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">40</span>                <span class="n">printStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-<span class="linenos">41</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">42</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">43</span>                
-<span class="linenos">44</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">45</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">46</span>
-<span class="linenos">47</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">48</span>        
-<span class="linenos">49</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">50</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="c1"># retrieves and prints the MDL structure data of the given molecule</span>
+<span class="linenos"> 7</span><span class="k">def</span> <span class="nf">printStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
+<span class="linenos"> 8</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">Chem</span><span class="o">.</span><span class="n">hasStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>        <span class="c1"># is a structure data property available?</span>
+<span class="linenos"> 9</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: no structure data available for molecule </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+<span class="linenos">10</span>        <span class="k">return</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>    <span class="n">struct_data</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>  <span class="c1"># retrieve structure data</span>
+<span class="linenos">13</span>    
+<span class="linenos">14</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Structure data (</span><span class="si">%s</span><span class="s1"> entries) of molecule </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">struct_data</span><span class="p">)),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)))</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">17</span>    
+<span class="linenos">18</span>    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">struct_data</span><span class="p">:</span>                 <span class="c1"># iterate of structure data entries consisting of a header line and the actual data</span>
+<span class="linenos">19</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;----- Entry </span><span class="si">%s</span><span class="s1"> -----&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos">20</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Header: &#39;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+<span class="linenos">21</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data: &#39;</span> <span class="o">+</span> <span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">24</span>    
+<span class="linenos">25</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">26</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">27</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> &lt;input SD-file&gt;&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>    <span class="c1"># create reader for MDL SD-files</span>
+<span class="linenos">30</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">FileSDFMoleculeReader</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">31</span>    
+<span class="linenos">32</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos">33</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">34</span>    
+<span class="linenos">35</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos">36</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">37</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span> 
+<span class="linenos">38</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">39</span>                <span class="n">printStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos">40</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">41</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">42</span>                
+<span class="linenos">43</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">44</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">47</span>        
+<span class="linenos">48</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">49</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../../../_downloads/02ce0398ab1a81d1511afaa606d94bee/sd_proc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>

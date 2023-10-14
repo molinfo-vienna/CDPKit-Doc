@@ -103,40 +103,39 @@
   <section id="sequential-input">
 <h1><span class="section-number">2.1.1. </span>Sequential Input<a class="headerlink" href="#sequential-input" title="Permalink to this heading"></a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">os</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
+<span class="linenos"> 4</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="c1"># function called for each read pharmacophore</span>
-<span class="linenos"> 8</span><span class="k">def</span> <span class="nf">procPharmacophore</span><span class="p">(</span><span class="n">ph4</span><span class="p">:</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">Pharmacophore</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
-<span class="linenos"> 9</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Read pharmacophore </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> comprising </span><span class="si">%s</span><span class="s1"> features&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">ph4</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="p">)))</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">12</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="linenos">13</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> &lt;input pharm. file&gt;&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span>    <span class="c1"># create reader for input pharmacophores (format specified by file extension)</span>
-<span class="linenos">16</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">PharmacophoreReader</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
-<span class="linenos">17</span> 
-<span class="linenos">18</span>    <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore interface</span>
-<span class="linenos">19</span>    <span class="n">ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>
-<span class="linenos">20</span>    
-<span class="linenos">21</span>    <span class="c1"># read and process pharmacophores one after the other until the end of input has been reached</span>
-<span class="linenos">22</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">23</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ph4</span><span class="p">):</span> 
-<span class="linenos">24</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">25</span>                <span class="n">procPharmacophore</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>
-<span class="linenos">26</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">27</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">28</span>                
-<span class="linenos">29</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">30</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">31</span>
-<span class="linenos">32</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">33</span>        
-<span class="linenos">34</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">35</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos"> 6</span><span class="c1"># function called for each read pharmacophore</span>
+<span class="linenos"> 7</span><span class="k">def</span> <span class="nf">procPharmacophore</span><span class="p">(</span><span class="n">ph4</span><span class="p">:</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">Pharmacophore</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
+<span class="linenos"> 8</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Read pharmacophore </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> comprising </span><span class="si">%s</span><span class="s1"> features&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">ph4</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="p">)))</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">11</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">12</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> &lt;input pharm. file&gt;&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="c1"># create reader for input pharmacophores (format specified by file extension)</span>
+<span class="linenos">15</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">PharmacophoreReader</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+<span class="linenos">16</span> 
+<span class="linenos">17</span>    <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore interface</span>
+<span class="linenos">18</span>    <span class="n">ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>
+<span class="linenos">19</span>    
+<span class="linenos">20</span>    <span class="c1"># read and process pharmacophores one after the other until the end of input has been reached</span>
+<span class="linenos">21</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ph4</span><span class="p">):</span> 
+<span class="linenos">23</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">24</span>                <span class="n">procPharmacophore</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>
+<span class="linenos">25</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">26</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">27</span>                
+<span class="linenos">28</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">29</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">32</span>        
+<span class="linenos">33</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">34</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../../_downloads/49351cbf494903a3abace75eca006e3b/seq_ph4_input.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
