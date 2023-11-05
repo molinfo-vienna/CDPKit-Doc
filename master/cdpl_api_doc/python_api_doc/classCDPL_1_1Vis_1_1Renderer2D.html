@@ -148,6 +148,15 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7cab69eee5ab0263a7c1ba0b265b53ea"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a7cab69eee5ab0263a7c1ba0b265b53ea">drawText</a> (float x, float y, str txt)</td></tr>
 <tr class="memdesc:a7cab69eee5ab0263a7c1ba0b265b53ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the specified text at the position <em>(x, y)</em>.  <a href="classCDPL_1_1Vis_1_1Renderer2D.html#a7cab69eee5ab0263a7c1ba0b265b53ea">More...</a><br /></td></tr>
 <tr class="separator:a7cab69eee5ab0263a7c1ba0b265b53ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b85a6cd784ec4dbcdcbe7f286a6da87"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a5b85a6cd784ec4dbcdcbe7f286a6da87">drawPath</a> (<a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> path)</td></tr>
+<tr class="memdesc:a5b85a6cd784ec4dbcdcbe7f286a6da87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the given path.  <a href="classCDPL_1_1Vis_1_1Renderer2D.html#a5b85a6cd784ec4dbcdcbe7f286a6da87">More...</a><br /></td></tr>
+<tr class="separator:a5b85a6cd784ec4dbcdcbe7f286a6da87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacfb7431f63202a1086c9d170f688ed3"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#aacfb7431f63202a1086c9d170f688ed3">setClipPath</a> (<a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> path)</td></tr>
+<tr class="separator:aacfb7431f63202a1086c9d170f688ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b68d8862e48e2111758b78fba328645"><td class="memItemLeft" align="right" valign="top"><a id="a3b68d8862e48e2111758b78fba328645"></a>
+None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a3b68d8862e48e2111758b78fba328645">clearClipPath</a> ()</td></tr>
+<tr class="memdesc:a3b68d8862e48e2111758b78fba328645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables clipping. <br /></td></tr>
+<tr class="separator:a3b68d8862e48e2111758b78fba328645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -164,8 +173,10 @@ Properties</h2></td></tr>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a864cd5e01bb1cf492f04cb4210a20f5a" title="Draws the sequence of disjoint line segments defined by points.">drawLineSegments()</a> for drawing a set of disjoint line segments</li>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a6f23888b4b75b83e933f8610e8129c98" title="Draws the polygon defined by points.">drawPolygon()</a> for drawing polygons</li>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#ae88206b23de6412af5babdfe62eb58d9" title="Draws an axis aligned rectangle of the specified width and height whose upper-left corner is located ...">drawRectangle()</a> for drawing axis aligned rectangles</li>
+<li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a5b85a6cd784ec4dbcdcbe7f286a6da87" title="Draws the given path.">drawPath()</a> for drawing arbitrary shapes</li>
 <li>and <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a7cab69eee5ab0263a7c1ba0b265b53ea" title="Draws the specified text at the position (x, y).">drawText()</a> for drawing text</li>
 </ul>
+<p>Drawing operations can be clipped to arbitrary shapes defined by a <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html" title="Provides a container for painting operations, enabling arbitrary graphical shapes to be constructed a...">Vis.Path2D</a> object. A new clip region is set by calling the method <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#aacfb7431f63202a1086c9d170f688ed3">setClipPath()</a> and disabled by calling <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a3b68d8862e48e2111758b78fba328645" title="Disables clipping.">clearClipPath()</a>.</p>
 <p>Coordinates of points that define the geometry of graphical primitives are normally directly mapped to the coordinate system of the drawing device (e.g. an off-screen image buffer). This 1:1 mapping can be changed by applying affine transformations to the input coordinates.</p>
 <p>Affine coordinate transformations can be specified by calling the methods:</p><ul>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a73111f2fd6bbdf5dc4b30549d0cf5c9f" title="Sets the applied affine transformation matrix to xform.">setTransform()</a></li>
@@ -719,6 +730,58 @@ Properties</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a2529ddcec2c75d60826da6e6e4c57f5b" title="Sets the pen to be used in subsequent drawing operations.">setPen()</a>, <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a2e0d245128349ee29e964da778df65eb" title="Sets the font to be used in subsequent text drawing operations.">setFont()</a> </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Vis_1_1QtBackend_1_1QtRenderer2D.html#ab1d4609a21e49eedaac3f9e014e11bb5">CDPL.Vis.QtBackend.QtRenderer2D</a>, and <a class="el" href="classCDPL_1_1Vis_1_1CairoBackend_1_1CairoRenderer2D.html#a47863bd187feccec21724b265eb809c1">CDPL.Vis.CairoBackend.CairoRenderer2D</a>.</p>
+
+</div>
+</div>
+<a id="a5b85a6cd784ec4dbcdcbe7f286a6da87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b85a6cd784ec4dbcdcbe7f286a6da87">&#9670;&nbsp;</a></span>drawPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Vis.Renderer2D.drawPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a>&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draws the given path. </p>
+<p>The path is filled as specified by the current brush and the outline will be drawn as specified by the current pen.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The path to draw.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a2529ddcec2c75d60826da6e6e4c57f5b" title="Sets the pen to be used in subsequent drawing operations.">setPen()</a>, <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#ac9e41e920386762129377ce82251ae90" title="Sets the brush to be used in subsequent drawing operations.">setBrush()</a> </dd></dl>
+
+</div>
+</div>
+<a id="aacfb7431f63202a1086c9d170f688ed3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfb7431f63202a1086c9d170f688ed3">&#9670;&nbsp;</a></span>setClipPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Vis.Renderer2D.setClipPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a>&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

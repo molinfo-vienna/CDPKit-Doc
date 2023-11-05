@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Specifies a Path in 2D space constructed from arcs and lines.  
+<p>Provides a container for painting operations, enabling arbitrary graphical shapes to be constructed and reused.  
  <a href="classCDPL_1_1Vis_1_1Path2D.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Path2D_8hpp_source.html">Path2D.hpp</a>&gt;</code></p>
@@ -104,70 +104,101 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aeb742c8585abdbaba36a1c2726b61a79a1714f2e59bacc67bf40b51888369c23e">WINDING</a>
 <br />
  }</td></tr>
+<tr class="memdesc:aeb742c8585abdbaba36a1c2726b61a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies which method to use for filling closed shapes described by the <code>Path2D</code> object.  <a href="classCDPL_1_1Vis_1_1Path2D.html#aeb742c8585abdbaba36a1c2726b61a79">More...</a><br /></td></tr>
 <tr class="separator:aeb742c8585abdbaba36a1c2726b61a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acd0294c352d7091f823287122543d6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#acd0294c352d7091f823287122543d6ae">Path2D</a> ()</td></tr>
-<tr class="memdesc:acd0294c352d7091f823287122543d6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty path.  <a href="classCDPL_1_1Vis_1_1Path2D.html#acd0294c352d7091f823287122543d6ae">More...</a><br /></td></tr>
+<tr class="memdesc:acd0294c352d7091f823287122543d6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>Path2D</code> instance.  <a href="classCDPL_1_1Vis_1_1Path2D.html#acd0294c352d7091f823287122543d6ae">More...</a><br /></td></tr>
 <tr class="separator:acd0294c352d7091f823287122543d6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe8359ada6e9be9a4f59c8690bac59db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abe8359ada6e9be9a4f59c8690bac59db">Path2D</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;path)</td></tr>
-<tr class="memdesc:abe8359ada6e9be9a4f59c8690bac59db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of <em>path</em>.  <a href="classCDPL_1_1Vis_1_1Path2D.html#abe8359ada6e9be9a4f59c8690bac59db">More...</a><br /></td></tr>
+<tr class="memdesc:abe8359ada6e9be9a4f59c8690bac59db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code>Path2D</code> instance <em>path</em>.  <a href="classCDPL_1_1Vis_1_1Path2D.html#abe8359ada6e9be9a4f59c8690bac59db">More...</a><br /></td></tr>
 <tr class="separator:abe8359ada6e9be9a4f59c8690bac59db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dfc4af12e59f7d3ec1e89df58ffa84e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a7dfc4af12e59f7d3ec1e89df58ffa84e">~Path2D</a> ()</td></tr>
 <tr class="memdesc:a7dfc4af12e59f7d3ec1e89df58ffa84e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a7dfc4af12e59f7d3ec1e89df58ffa84e">More...</a><br /></td></tr>
 <tr class="separator:a7dfc4af12e59f7d3ec1e89df58ffa84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ca91ebffb05e42400fc29b775e626cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a1ca91ebffb05e42400fc29b775e626cf">isEmpty</a> () const</td></tr>
+<tr class="memdesc:a1ca91ebffb05e42400fc29b775e626cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <code>Path2D</code> instance does not contain any elements.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a1ca91ebffb05e42400fc29b775e626cf">More...</a><br /></td></tr>
 <tr class="separator:a1ca91ebffb05e42400fc29b775e626cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab197256f4a5d7181a13980c4b456eb01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ab197256f4a5d7181a13980c4b456eb01">hasDrawingElements</a> () const</td></tr>
+<tr class="memdesc:ab197256f4a5d7181a13980c4b456eb01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <code>Path2D</code> instance contains any elements representing drawing operations (lines and arcs).  <a href="classCDPL_1_1Vis_1_1Path2D.html#ab197256f4a5d7181a13980c4b456eb01">More...</a><br /></td></tr>
 <tr class="separator:ab197256f4a5d7181a13980c4b456eb01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8d39007b7c1e803a1b8781a12a78032"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aa8d39007b7c1e803a1b8781a12a78032">clear</a> ()</td></tr>
+<tr class="memdesc:aa8d39007b7c1e803a1b8781a12a78032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all path elements added so far and sets the fill rule to its default.  <a href="classCDPL_1_1Vis_1_1Path2D.html#aa8d39007b7c1e803a1b8781a12a78032">More...</a><br /></td></tr>
 <tr class="separator:aa8d39007b7c1e803a1b8781a12a78032"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac88400458dc371dfc93bd3a7b9cb67ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ac88400458dc371dfc93bd3a7b9cb67ee">setFillRule</a> (<a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aeb742c8585abdbaba36a1c2726b61a79">FillRule</a> rule)</td></tr>
+<tr class="memdesc:ac88400458dc371dfc93bd3a7b9cb67ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fill rule of the path to the specified value.  <a href="classCDPL_1_1Vis_1_1Path2D.html#ac88400458dc371dfc93bd3a7b9cb67ee">More...</a><br /></td></tr>
 <tr class="separator:ac88400458dc371dfc93bd3a7b9cb67ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cb120d71f6a220f47617424bb31d676"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aeb742c8585abdbaba36a1c2726b61a79">FillRule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a6cb120d71f6a220f47617424bb31d676">getFillRule</a> () const</td></tr>
+<tr class="memdesc:a6cb120d71f6a220f47617424bb31d676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently set fill rule.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a6cb120d71f6a220f47617424bb31d676">More...</a><br /></td></tr>
 <tr class="separator:a6cb120d71f6a220f47617424bb31d676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9742db8824dff145a6c9077f1db202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202">moveTo</a> (<a class="el" href="classdouble.html">double</a> x, <a class="el" href="classdouble.html">double</a> y)</td></tr>
+<tr class="memdesc:abf9742db8824dff145a6c9077f1db202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current position to <em>(x, y)</em> and starts a new subpath, implicitly closing the previous path.  <a href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202">More...</a><br /></td></tr>
 <tr class="separator:abf9742db8824dff145a6c9077f1db202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3df3ed8bd515f62c120924aa08aa66f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a3df3ed8bd515f62c120924aa08aa66f9">moveTo</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;pos)</td></tr>
+<tr class="memdesc:a3df3ed8bd515f62c120924aa08aa66f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the current position to <em>pos</em> and starts a new subpath, implicitly closing the previous path.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a3df3ed8bd515f62c120924aa08aa66f9">More...</a><br /></td></tr>
 <tr class="separator:a3df3ed8bd515f62c120924aa08aa66f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e4929f4b224c5a4466ff970c646d1c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a2e4929f4b224c5a4466ff970c646d1c5">arc</a> (<a class="el" href="classdouble.html">double</a> cx, <a class="el" href="classdouble.html">double</a> cy, <a class="el" href="classdouble.html">double</a> rx, <a class="el" href="classdouble.html">double</a> ry, <a class="el" href="classdouble.html">double</a> start_ang, <a class="el" href="classdouble.html">double</a> sweep)</td></tr>
+<tr class="memdesc:a2e4929f4b224c5a4466ff970c646d1c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an elliptical arc centered at <em>(cx, cy)</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a2e4929f4b224c5a4466ff970c646d1c5">More...</a><br /></td></tr>
 <tr class="separator:a2e4929f4b224c5a4466ff970c646d1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f011a6f46eafd1ac050b090eaa090e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ac2f011a6f46eafd1ac050b090eaa090e">arc</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;ctr, <a class="el" href="classdouble.html">double</a> rx, <a class="el" href="classdouble.html">double</a> ry, <a class="el" href="classdouble.html">double</a> start_ang, <a class="el" href="classdouble.html">double</a> sweep)</td></tr>
+<tr class="memdesc:ac2f011a6f46eafd1ac050b090eaa090e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an elliptical arc centered at <em>ctr</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise.  <a href="classCDPL_1_1Vis_1_1Path2D.html#ac2f011a6f46eafd1ac050b090eaa090e">More...</a><br /></td></tr>
 <tr class="separator:ac2f011a6f46eafd1ac050b090eaa090e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54c0956da5e785a753faa535fdf235bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a54c0956da5e785a753faa535fdf235bc">arcTo</a> (<a class="el" href="classdouble.html">double</a> cx, <a class="el" href="classdouble.html">double</a> cy, <a class="el" href="classdouble.html">double</a> rx, <a class="el" href="classdouble.html">double</a> ry, <a class="el" href="classdouble.html">double</a> start_ang, <a class="el" href="classdouble.html">double</a> sweep)</td></tr>
+<tr class="memdesc:a54c0956da5e785a753faa535fdf235bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an elliptical arc centered at <em>(cx, cy)</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a54c0956da5e785a753faa535fdf235bc">More...</a><br /></td></tr>
 <tr class="separator:a54c0956da5e785a753faa535fdf235bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab364c9d50e9cb8983ccafe8d49bf714d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ab364c9d50e9cb8983ccafe8d49bf714d">arcTo</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;ctr, <a class="el" href="classdouble.html">double</a> rx, <a class="el" href="classdouble.html">double</a> ry, <a class="el" href="classdouble.html">double</a> start_ang, <a class="el" href="classdouble.html">double</a> sweep)</td></tr>
+<tr class="memdesc:ab364c9d50e9cb8983ccafe8d49bf714d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an elliptical arc centered at <em>ctr</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise.  <a href="classCDPL_1_1Vis_1_1Path2D.html#ab364c9d50e9cb8983ccafe8d49bf714d">More...</a><br /></td></tr>
 <tr class="separator:ab364c9d50e9cb8983ccafe8d49bf714d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac198d0f81fa621e0a02511bcd28953d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aac198d0f81fa621e0a02511bcd28953d">lineTo</a> (<a class="el" href="classdouble.html">double</a> x, <a class="el" href="classdouble.html">double</a> y)</td></tr>
+<tr class="memdesc:aac198d0f81fa621e0a02511bcd28953d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a straight line from the current position to the point <em>(x, y)</em>.  <a href="classCDPL_1_1Vis_1_1Path2D.html#aac198d0f81fa621e0a02511bcd28953d">More...</a><br /></td></tr>
 <tr class="separator:aac198d0f81fa621e0a02511bcd28953d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaef07281739dd3a510d867153eba566d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aaef07281739dd3a510d867153eba566d">lineTo</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;pos)</td></tr>
+<tr class="memdesc:aaef07281739dd3a510d867153eba566d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a straight line from the current position to the point <em>(x, y)</em>.  <a href="classCDPL_1_1Vis_1_1Path2D.html#aaef07281739dd3a510d867153eba566d">More...</a><br /></td></tr>
 <tr class="separator:aaef07281739dd3a510d867153eba566d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4efea0442cbb9b9048fdcd4ec28400c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1">closePath</a> ()</td></tr>
+<tr class="memdesc:a4efea0442cbb9b9048fdcd4ec28400c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting a new path.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1">More...</a><br /></td></tr>
 <tr class="separator:a4efea0442cbb9b9048fdcd4ec28400c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdc96d9fa865062a2f82d5e3916d9ca5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#afdc96d9fa865062a2f82d5e3916d9ca5">addEllipse</a> (<a class="el" href="classdouble.html">double</a> x, <a class="el" href="classdouble.html">double</a> y, <a class="el" href="classdouble.html">double</a> width, <a class="el" href="classdouble.html">double</a> height)</td></tr>
+<tr class="memdesc:afdc96d9fa865062a2f82d5e3916d9ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an ellipse positioned at <em>(x, y)</em> with the specified width and height, and adds it to this path as a closed subpath.  <a href="classCDPL_1_1Vis_1_1Path2D.html#afdc96d9fa865062a2f82d5e3916d9ca5">More...</a><br /></td></tr>
 <tr class="separator:afdc96d9fa865062a2f82d5e3916d9ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1df79a1bf994b0dd5dae3d38875a61ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a1df79a1bf994b0dd5dae3d38875a61ae">addEllipse</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;pos, <a class="el" href="classdouble.html">double</a> width, <a class="el" href="classdouble.html">double</a> height)</td></tr>
+<tr class="memdesc:a1df79a1bf994b0dd5dae3d38875a61ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an ellipse positioned at <em>pos</em> with the specified width and height, and adds it to this path as a closed subpath.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a1df79a1bf994b0dd5dae3d38875a61ae">More...</a><br /></td></tr>
 <tr class="separator:a1df79a1bf994b0dd5dae3d38875a61ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3be2daf2f33cbea247df59638fa1ff5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a3be2daf2f33cbea247df59638fa1ff5d">addRectangle</a> (<a class="el" href="classdouble.html">double</a> x, <a class="el" href="classdouble.html">double</a> y, <a class="el" href="classdouble.html">double</a> width, <a class="el" href="classdouble.html">double</a> height)</td></tr>
+<tr class="memdesc:a3be2daf2f33cbea247df59638fa1ff5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a rectangle positioned at <em>(x, y)</em> with the specified width and height, and adds it to this path as a closed subpath.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a3be2daf2f33cbea247df59638fa1ff5d">More...</a><br /></td></tr>
 <tr class="separator:a3be2daf2f33cbea247df59638fa1ff5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa358e11a7b05707f287bd2c8106ab2b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aa358e11a7b05707f287bd2c8106ab2b8">addRectangle</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;pos, <a class="el" href="classdouble.html">double</a> width, <a class="el" href="classdouble.html">double</a> height)</td></tr>
+<tr class="memdesc:aa358e11a7b05707f287bd2c8106ab2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a rectangle positioned at <em>pos</em> with the specified width and height, and adds it to this path as a closed subpath.  <a href="classCDPL_1_1Vis_1_1Path2D.html#aa358e11a7b05707f287bd2c8106ab2b8">More...</a><br /></td></tr>
 <tr class="separator:aa358e11a7b05707f287bd2c8106ab2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad661170c148c6a9e2cb97be7b6d499b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ad661170c148c6a9e2cb97be7b6d499b6">getBounds</a> (<a class="el" href="classCDPL_1_1Vis_1_1Rectangle2D.html">Rectangle2D</a> &amp;bounds) const</td></tr>
+<tr class="memdesc:ad661170c148c6a9e2cb97be7b6d499b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the axis-aligned bounding box of the path.  <a href="classCDPL_1_1Vis_1_1Path2D.html#ad661170c148c6a9e2cb97be7b6d499b6">More...</a><br /></td></tr>
 <tr class="separator:ad661170c148c6a9e2cb97be7b6d499b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfa76f85db0baf0ae65438bd60f05070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#adfa76f85db0baf0ae65438bd60f05070">convert</a> (<a class="el" href="classCDPL_1_1Vis_1_1Path2DConverter.html">Path2DConverter</a> &amp;conv) const</td></tr>
+<tr class="memdesc:adfa76f85db0baf0ae65438bd60f05070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over the stored path elements and calls the corresponding method of <em>conv</em> for each visited element.  <a href="classCDPL_1_1Vis_1_1Path2D.html#adfa76f85db0baf0ae65438bd60f05070">More...</a><br /></td></tr>
 <tr class="separator:adfa76f85db0baf0ae65438bd60f05070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc4a6528a5c540b167cd28c6268efc13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#acc4a6528a5c540b167cd28c6268efc13">operator==</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;path) const</td></tr>
+<tr class="memdesc:acc4a6528a5c540b167cd28c6268efc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <a href="classCDPL_1_1Vis_1_1Path2D.html#acc4a6528a5c540b167cd28c6268efc13">More...</a><br /></td></tr>
 <tr class="separator:acc4a6528a5c540b167cd28c6268efc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c7014f5e9d1e04dac1e121aa367caeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a6c7014f5e9d1e04dac1e121aa367caeb">operator!=</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;path) const</td></tr>
+<tr class="memdesc:a6c7014f5e9d1e04dac1e121aa367caeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-equality comparison operator.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a6c7014f5e9d1e04dac1e121aa367caeb">More...</a><br /></td></tr>
 <tr class="separator:a6c7014f5e9d1e04dac1e121aa367caeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d3da69d32a57c5b356829e5bce8b5e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a1d3da69d32a57c5b356829e5bce8b5e6">operator+=</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;path)</td></tr>
+<tr class="memdesc:a1d3da69d32a57c5b356829e5bce8b5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the elements stored in the <code>Path2D</code> instance <em>path</em> to this path.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a1d3da69d32a57c5b356829e5bce8b5e6">More...</a><br /></td></tr>
 <tr class="separator:a1d3da69d32a57c5b356829e5bce8b5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01379cbb2bab51a1c0739ded1632e7b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a01379cbb2bab51a1c0739ded1632e7b1">operator=</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;path)</td></tr>
+<tr class="memdesc:a01379cbb2bab51a1c0739ded1632e7b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="classCDPL_1_1Vis_1_1Path2D.html#a01379cbb2bab51a1c0739ded1632e7b1">More...</a><br /></td></tr>
 <tr class="separator:a01379cbb2bab51a1c0739ded1632e7b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Specifies a Path in 2D space constructed from arcs and lines. </p>
+<div class="textblock"><p>Provides a container for painting operations, enabling arbitrary graphical shapes to be constructed and reused. </p>
+<p>A path consits of a number of graphical building blocks, such as rectangles, ellipses, lines and arcs. Building blocks can be joined to form closed subpaths, for example a rounded rectangle, or they can exist independently as unclosed subpaths, such as lines and curves. A closed path has coinciding start and end points.</p>
+<p><code>Path2D</code> objects can be used for filling, outlining, and clipping. The main advantage over a sequence of basic drawing operations is that complex shapes need to be created only once and can be stored for repeated later uses.</p>
+<p>A <code>Path2D</code> object can be constructed as an empty path, or as a copy of another <code>Path2D</code> instance. Once created, lines and curves can be added to the path using the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aac198d0f81fa621e0a02511bcd28953d" title="Adds a straight line from the current position to the point (x, y).">lineTo()</a>, <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a54c0956da5e785a753faa535fdf235bc" title="Creates an elliptical arc centered at (cx, cy) with ellipse radii rx and ry beginning at the angle st...">arcTo()</a> and <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a2e4929f4b224c5a4466ff970c646d1c5" title="Creates an elliptical arc centered at (cx, cy) with ellipse radii rx and ry beginning at the angle st...">arc()</a> functions. The lines and curves stretch from the current position to the position passed as argument. The current position is always the end point of the last drawing operation. Use the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a> method to move the current position without adding a component. The <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a> method implicitly starts a new subpath, and closes the previous one. Another way of starting a new subpath is to call the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1" title="Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting ...">closePath()</a> method which closes the current path by adding a line from the current position back to the path's start position. The <code>Path2D</code> class also provides convenience methods for the generation of common shapes: <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#afdc96d9fa865062a2f82d5e3916d9ca5" title="Creates an ellipse positioned at (x, y) with the specified width and height, and adds it to this path...">addEllipse()</a> and <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a3be2daf2f33cbea247df59638fa1ff5d" title="Creates a rectangle positioned at (x, y) with the specified width and height, and adds it to this pat...">addRectangle()</a>. The generation of these shapes is implemented by executing a sequence of appropriate <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a>, <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aac198d0f81fa621e0a02511bcd28953d" title="Adds a straight line from the current position to the point (x, y).">lineTo()</a> and <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a54c0956da5e785a753faa535fdf235bc" title="Creates an elliptical arc centered at (cx, cy) with ellipse radii rx and ry beginning at the angle st...">arcTo()</a> calls. The axis-aligned bounding box of a path constructed in this way can be calculated by the method <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ad661170c148c6a9e2cb97be7b6d499b6" title="Calculates the axis-aligned bounding box of the path.">getBounds()</a>.</p>
+<p>Whether or not a <code>Path2D</code> object contains any elements can be queried by the method <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a1ca91ebffb05e42400fc29b775e626cf" title="Tells whether the Path2D instance does not contain any elements.">isEmpty()</a>. Whether the path also features visual elements (lines and arcs) can be queried by the method <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ab197256f4a5d7181a13980c4b456eb01" title="Tells whether the Path2D instance contains any elements representing drawing operations (lines and ar...">hasDrawingElements()</a>. The method <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aa8d39007b7c1e803a1b8781a12a78032" title="Deletes all path elements added so far and sets the fill rule to its default.">clear()</a> deletes all elements added so far and sets the default fill rule (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ac88400458dc371dfc93bd3a7b9cb67ee" title="Sets the fill rule of the path to the specified value.">setFillRule()</a> and <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a6cb120d71f6a220f47617424bb31d676" title="Returns the currently set fill rule.">getFillRule()</a>).</p>
+<p>Elements added to a <code>Path2D</code> object cannot inspected directly. For path analysis and rendering the method <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#adfa76f85db0baf0ae65438bd60f05070" title="Iterates over the stored path elements and calls the corresponding method of conv for each visited el...">convert()</a> is available which calls element type specific methods on a provided instance of a class implementing the <a class="el" href="classCDPL_1_1Vis_1_1Path2DConverter.html" title="Provides an interface for classes that implement the conversion of Vis::Path2D objects into rendering...">Vis::Path2DConverter</a> interface.</p>
+<dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="aeb742c8585abdbaba36a1c2726b61a79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb742c8585abdbaba36a1c2726b61a79">&#9670;&nbsp;</a></span>FillRule</h2>
@@ -180,9 +211,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies which method to use for filling closed shapes described by the <code>Path2D</code> object. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aeb742c8585abdbaba36a1c2726b61a79acc9d68b1a5126062124a9c8b435ca1a1"></a>EVEN_ODD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aeb742c8585abdbaba36a1c2726b61a79a1714f2e59bacc67bf40b51888369c23e"></a>WINDING&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aeb742c8585abdbaba36a1c2726b61a79acc9d68b1a5126062124a9c8b435ca1a1"></a>EVEN_ODD&#160;</td><td class="fielddoc"><p>Specifies that the path has to be filled using the odd even fill rule. </p>
+<p>With this rule, the question whether a point is inside the shape can be answered by the following method: Draw a horizontal line from the point to a location outside the shape, and count the number of intersections. If the number of intersections is an odd number, the point is inside the shape. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aeb742c8585abdbaba36a1c2726b61a79a1714f2e59bacc67bf40b51888369c23e"></a>WINDING&#160;</td><td class="fielddoc"><p>Specifies that the path has to be filled using the non-zero winding rule. </p>
+<p>With this rule, the question whether a point is inside the shape can be answered by the following method: Draw a horizontal line from the point to a location outside the shape. Determine whether the direction of the line at each intersection point is up or down. The winding number is determined by summing the direction of each intersection. If the number is non-zero, the point is inside the shape. </p>
+</td></tr>
 </table>
 
 </div>
@@ -203,7 +240,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an empty path. </p>
+<p>Constructs an empty <code>Path2D</code> instance. </p>
 
 </div>
 </div>
@@ -223,10 +260,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a copy of <em>path</em>. </p>
+<p>Constructs a copy of the <code>Path2D</code> instance <em>path</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The <code><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html" title="Specifies a Path in 2D space constructed from arcs and lines.">Path2D</a></code> instance to copy. </td></tr>
+    <tr><td class="paramname">path</td><td>The <code>Path2D</code> instance to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -276,6 +313,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Tells whether the <code>Path2D</code> instance does not contain any elements. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> is no elements have been added to the <code>Path2D</code> instance so far, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="ab197256f4a5d7181a13980c4b456eb01"></a>
@@ -293,6 +333,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Tells whether the <code>Path2D</code> instance contains any elements representing drawing operations (lines and arcs). </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the <code>Path2D</code> instance contains any visual elements, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="aa8d39007b7c1e803a1b8781a12a78032"></a>
@@ -309,6 +352,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deletes all path elements added so far and sets the fill rule to its default. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#ac88400458dc371dfc93bd3a7b9cb67ee" title="Sets the fill rule of the path to the specified value.">setFillRule()</a> </dd></dl>
 
 </div>
 </div>
@@ -328,6 +374,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the fill rule of the path to the specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rule</td><td>The new fill rule. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The default fill rule is <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#aeb742c8585abdbaba36a1c2726b61a79acc9d68b1a5126062124a9c8b435ca1a1" title="Specifies that the path has to be filled using the odd even fill rule.">Path2D::EVEN_ODD</a>. </dd></dl>
+
 </div>
 </div>
 <a id="a6cb120d71f6a220f47617424bb31d676"></a>
@@ -344,6 +399,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently set fill rule. </p>
+<dl class="section return"><dt>Returns</dt><dd>The currently set fill rule. </dd></dl>
 
 </div>
 </div>
@@ -373,6 +431,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the current position to <em>(x, y)</em> and starts a new subpath, implicitly closing the previous path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Specifies the x-coordinate of the new position. </td></tr>
+    <tr><td class="paramname">y</td><td>Specifies the y-coordinate of the new position. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3df3ed8bd515f62c120924aa08aa66f9"></a>
@@ -390,6 +457,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the current position to <em>pos</em> and starts a new subpath, implicitly closing the previous path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>A 2D vector specifying the new position. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -443,6 +518,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an elliptical arc centered at <em>(cx, cy)</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise. </p>
+<p>Angles are specified in degrees. Counter-clockwise arcs can be specified using negative angles. After the arc has been added, the current position is the end point of the arc. To draw a line back to the first point, use the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1" title="Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting ...">closePath()</a> method.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cx</td><td>The x-coordinate of the ellipse center. </td></tr>
+    <tr><td class="paramname">cy</td><td>The y-coordinate of the ellipse center. </td></tr>
+    <tr><td class="paramname">rx</td><td>The x-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">ry</td><td>The y-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">start_ang</td><td>The start angle of the arg in degrees. </td></tr>
+    <tr><td class="paramname">sweep</td><td>The length of the arg in degrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The method first performs a <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a> call with the starting point of the arc as argument and thus avoids an implicit line being drawn from the current position to the arc's starting position (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a54c0956da5e785a753faa535fdf235bc" title="Creates an elliptical arc centered at (cx, cy) with ellipse radii rx and ry beginning at the angle st...">arcTo()</a>). </dd></dl>
+
 </div>
 </div>
 <a id="ac2f011a6f46eafd1ac050b090eaa090e"></a>
@@ -488,6 +578,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates an elliptical arc centered at <em>ctr</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise. </p>
+<p>Angles are specified in degrees. Counter-clockwise arcs can be specified using negative angles. After the arc has been added, the current position is the end point of the arc. To draw a line back to the first point, use the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1" title="Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting ...">closePath()</a> method.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctr</td><td>A 2D vector specifying the ellipse center. </td></tr>
+    <tr><td class="paramname">rx</td><td>The x-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">ry</td><td>The y-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">start_ang</td><td>The start angle of the arg in degrees. </td></tr>
+    <tr><td class="paramname">sweep</td><td>The length of the arg in degrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The method first performs a <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a> call with the starting point of the arc as argument and thus avoids an implicit line being drawn from the current position to the arc's starting position (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a54c0956da5e785a753faa535fdf235bc" title="Creates an elliptical arc centered at (cx, cy) with ellipse radii rx and ry beginning at the angle st...">arcTo()</a>). </dd></dl>
 
 </div>
 </div>
@@ -541,6 +645,22 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an elliptical arc centered at <em>(cx, cy)</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise. </p>
+<p>Angles are specified in degrees. Counter-clockwise arcs can be specified using negative angles. After the arc has been added, the current position is the end point of the arc. To draw a line back to the first point, use the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1" title="Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting ...">closePath()</a> method. <br  />
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cx</td><td>The x-coordinate of the ellipse center. </td></tr>
+    <tr><td class="paramname">cy</td><td>The y-coordinate of the ellipse center. </td></tr>
+    <tr><td class="paramname">rx</td><td>The x-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">ry</td><td>The y-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">start_ang</td><td>The start angle of the arg in degrees. </td></tr>
+    <tr><td class="paramname">sweep</td><td>The length of the arg in degrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The method implicitly connects the starting point of the arc to the current position if they are not already connected. The rendering result is undefined if no subpath starting point has been specified (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a>)! </dd></dl>
+
 </div>
 </div>
 <a id="ab364c9d50e9cb8983ccafe8d49bf714d"></a>
@@ -587,6 +707,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an elliptical arc centered at <em>ctr</em> with ellipse radii <em>rx</em> and <em>ry</em> beginning at the angle <em>start_ang</em> and extending <em>sweep</em> degrees clockwise. </p>
+<p>Angles are specified in degrees. Counter-clockwise arcs can be specified using negative angles. After the arc has been added, the current position is the end point of the arc. To draw a line back to the first point, use the <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#a4efea0442cbb9b9048fdcd4ec28400c1" title="Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting ...">closePath()</a> method.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctr</td><td>A 2D vector specifying the ellipse center. </td></tr>
+    <tr><td class="paramname">rx</td><td>The x-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">ry</td><td>The y-radius of the ellipse. </td></tr>
+    <tr><td class="paramname">start_ang</td><td>The start angle of the arg in degrees. </td></tr>
+    <tr><td class="paramname">sweep</td><td>The length of the arg in degrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The method implicitly connects the starting point of the arc to the current position if they are not already connected. The rendering result is undefined if no subpath starting point has been specified (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a>)! </dd></dl>
+
 </div>
 </div>
 <a id="aac198d0f81fa621e0a02511bcd28953d"></a>
@@ -615,6 +749,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a straight line from the current position to the point <em>(x, y)</em>. </p>
+<p>After the line is drawn, the current position is updated to be at the end point of the line.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Specifies the x-coordinate of the line's end point. </td></tr>
+    <tr><td class="paramname">y</td><td>Specifies the y-coordinate of the line's end point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The rendering result is undefined if no subpath starting point has been specified (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a>)! </dd></dl>
+
 </div>
 </div>
 <a id="aaef07281739dd3a510d867153eba566d"></a>
@@ -633,6 +778,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a straight line from the current position to the point <em>(x, y)</em>. </p>
+<p>After the line is drawn, the current position is updated to be at the end point of the line.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>A 2D vector specifying the line end point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The rendering result is undefined if no subpath starting point has been specified (see <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html#abf9742db8824dff145a6c9077f1db202" title="Sets the current position to (x, y) and starts a new subpath, implicitly closing the previous path.">moveTo()</a>)! </dd></dl>
+
 </div>
 </div>
 <a id="a4efea0442cbb9b9048fdcd4ec28400c1"></a>
@@ -649,6 +804,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Closes the current subpath by drawing a line to the beginning of the subpath, automatically starting a new path. </p>
+<p>A call to this methods has no effect if the current subpath does not contain any elements.</p>
+<dl class="section note"><dt>Note</dt><dd>After closing the subpath the current point is undefined! </dd></dl>
 
 </div>
 </div>
@@ -690,6 +849,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an ellipse positioned at <em>(x, y)</em> with the specified width and height, and adds it to this path as a closed subpath. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x-coordinate of the ellipse center. </td></tr>
+    <tr><td class="paramname">y</td><td>The y-coordinate of the ellipse center. </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the ellipse. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the ellipse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1df79a1bf994b0dd5dae3d38875a61ae"></a>
@@ -723,6 +893,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates an ellipse positioned at <em>pos</em> with the specified width and height, and adds it to this path as a closed subpath. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>A 2D vector specifying the ellipse center. </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the ellipse. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the ellipse. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -764,6 +944,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a rectangle positioned at <em>(x, y)</em> with the specified width and height, and adds it to this path as a closed subpath. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The x-coordinate of the top-left corner. </td></tr>
+    <tr><td class="paramname">y</td><td>The y-coordinate of the top-left corner. </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the rectangle. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the rectangle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa358e11a7b05707f287bd2c8106ab2b8"></a>
@@ -798,6 +989,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a rectangle positioned at <em>pos</em> with the specified width and height, and adds it to this path as a closed subpath. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>A 2D vector specifying the top-left corner. </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the rectangle. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the rectangle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad661170c148c6a9e2cb97be7b6d499b6"></a>
@@ -815,6 +1016,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculates the axis-aligned bounding box of the path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bounds</td><td>The <a class="el" href="classCDPL_1_1Vis_1_1Rectangle2D.html" title="Specifies an axis aligned rectangular area in 2D space.">Vis::Rectangle2D</a> instance storing the calculated bounding box. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -834,6 +1043,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Iterates over the stored path elements and calls the corresponding method of <em>conv</em> for each visited element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conv</td><td>An instance of a class implementing the <a class="el" href="classCDPL_1_1Vis_1_1Path2DConverter.html" title="Provides an interface for classes that implement the conversion of Vis::Path2D objects into rendering...">Vis::Path2DConverter</a> interface. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="acc4a6528a5c540b167cd28c6268efc13"></a>
@@ -851,6 +1068,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Equality comparison operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The <code>Path2D</code> instance to compare with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if this path is equal to <em>path</em>, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -870,6 +1096,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Non-equality comparison operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The <code>Path2D</code> instance to compare with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if this path is not equal to <em>path</em>, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a1d3da69d32a57c5b356829e5bce8b5e6"></a>
@@ -888,6 +1123,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Appends the elements stored in the <code>Path2D</code> instance <em>path</em> to this path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The <code>Path2D</code> instance providing the elements to append. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
+
 </div>
 </div>
 <a id="a01379cbb2bab51a1c0739ded1632e7b1"></a>
@@ -905,6 +1149,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The <code>Path2D</code> instance to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 
 </div>
 </div>
