@@ -5,7 +5,7 @@ var searchData=
   ['ta_13659',['Ta',['../namespaceCDPL_1_1Chem_1_1AtomType.html#a88e732bab642c486b0c14032e2a28156',1,'CDPL::Chem::AtomType']]],
   ['ta_5f3_5f5_13660',['Ta_3_5',['../namespaceCDPL_1_1ForceField_1_1UFFAtomType.html#abf08a2ab88b41cd306a178d2a20000a0',1,'CDPL::ForceField::UFFAtomType']]],
   ['target_5ffeature_5ftype_13661',['TARGET_FEATURE_TYPE',['../namespaceCDPL_1_1GRAIL_1_1AttributedGridProperty.html#ac6c1aef50c30f7761f08ff9ea16a034a',1,'CDPL::GRAIL::AttributedGridProperty::TARGET_FEATURE_TYPE()'],['../namespaceCDPL_1_1GRAIL_1_1AttributedGridPropertyDefault.html#a91a63880639a480549b90cb5e09ed798',1,'CDPL::GRAIL::AttributedGridPropertyDefault::TARGET_FEATURE_TYPE()']]],
-  ['tb_13662',['Tb',['../namespaceCDPL_1_1Chem_1_1AtomType.html#a9a3e0fee9582fb1c8e4da087232f06d0',1,'CDPL::Chem::AtomType']]],
+  ['tb_13662',['Tb',['../namespaceCDPL_1_1Chem_1_1AtomType.html#a9a3e0fee9582fb1c8e4da087232f06d0',1,'CDPL::Chem::AtomType::Tb()'],['../namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#ab405a94f89155162abbba20f62802d53',1,'CDPL::Chem::AtomConfiguration::TB()']]],
   ['tb_5f6_5f3_13663',['Tb_6_3',['../namespaceCDPL_1_1ForceField_1_1UFFAtomType.html#ae67e3f1ab40acb53ae4be877ce339a29',1,'CDPL::ForceField::UFFAtomType']]],
   ['tc_13664',['Tc',['../namespaceCDPL_1_1Chem_1_1AtomType.html#ad34b2ea7509a29c770fc48432f29ba31',1,'CDPL::Chem::AtomType']]],
   ['tc_5f6_5f5_13665',['Tc_6_5',['../namespaceCDPL_1_1ForceField_1_1UFFAtomType.html#a6755a78ae36b60e0f5e44ff162d4ab26',1,'CDPL::ForceField::UFFAtomType']]],

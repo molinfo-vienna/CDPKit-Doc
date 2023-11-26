@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['r_3672',['R',['../classCDPL_1_1Chem_1_1AtomConfiguration.html#aba764bd01cf9b7ed7ab17a16a5c96b14',1,'CDPL::Chem::AtomConfiguration']]],
+  ['r_3672',['r',['../classCDPL_1_1Chem_1_1AtomConfiguration.html#a6f2049d6464172d69ab3ea3270cc7923',1,'CDPL.Chem.AtomConfiguration.r()'],['../classCDPL_1_1Chem_1_1AtomConfiguration.html#aba764bd01cf9b7ed7ab17a16a5c96b14',1,'CDPL.Chem.AtomConfiguration.R()']]],
   ['ra_3673',['Ra',['../classCDPL_1_1Chem_1_1AtomType.html#a91e5ea335495b2825bcb430ede7e4ea1',1,'CDPL::Chem::AtomType']]],
   ['radical_5felectron_5fdot_5fsize_3674',['RADICAL_ELECTRON_DOT_SIZE',['../classCDPL_1_1Vis_1_1AtomProperty.html#a8618fb9206a9e9a2c956f910a9c55a96',1,'CDPL.Vis.AtomProperty.RADICAL_ELECTRON_DOT_SIZE()'],['../classCDPL_1_1Vis_1_1ControlParameter.html#a4604f4d892ed6a7669fa0348e2db267d',1,'CDPL.Vis.ControlParameter.RADICAL_ELECTRON_DOT_SIZE()'],['../classCDPL_1_1Vis_1_1ControlParameterDefault.html#a868e937612f71be4c0f49fdba760496e',1,'CDPL.Vis.ControlParameterDefault.RADICAL_ELECTRON_DOT_SIZE()'],['../classCDPL_1_1Vis_1_1MolecularGraphProperty.html#a1dc906fa98e48da35b015bfabe4ae774',1,'CDPL.Vis.MolecularGraphProperty.RADICAL_ELECTRON_DOT_SIZE()']]],
   ['radicaltype_3675',['RadicalType',['../classCDPL_1_1Chem_1_1RadicalType.html',1,'CDPL::Chem']]],
