@@ -131,17 +131,17 @@ $(function() {
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> M&gt;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> jacobiRotate(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a67f485a6f4ccda87f79010ada0ab4e36">M</a>&amp; a, <span class="keyword">typename</span> M::SizeType i, <span class="keyword">typename</span> M::SizeType j,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> jacobiRotate(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a5de5188d7be5bcdbdce75585952ae2e2">M</a>&amp; a, <span class="keyword">typename</span> M::SizeType i, <span class="keyword">typename</span> M::SizeType j,</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                      <span class="keyword">typename</span> M::SizeType k, <span class="keyword">typename</span> M::SizeType l,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                      <span class="keyword">typename</span> M::ValueType tau, <span class="keyword">typename</span> M::ValueType <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a>)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                      <span class="keyword">typename</span> M::ValueType tau, <span class="keyword">typename</span> M::ValueType <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a>)</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> M::ValueType ValueType;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        ValueType g = a(i, j);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        ValueType h = a(k, l);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        a(i, j) = g - <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a> * (h + g * tau);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        a(k, l) = h + <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a> * (g - h * tau);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        a(i, j) = g - <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a> * (h + g * tau);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        a(k, l) = h + <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a> * (g - h * tau);</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// namespace</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
@@ -210,8 +210,8 @@ $(function() {
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    ValueType c   = 1 / <a class="code" href="structCDPL_1_1Math_1_1TypeTraits.html">TypeTraits&lt;ValueType&gt;::sqrt</a>(1 + t * t);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    ValueType <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a>   = t * c;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    ValueType tau = <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a> / (1 + c);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    ValueType <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a>   = t * c;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    ValueType tau = <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a> / (1 + c);</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    h             = t * a()(ip, iq);</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                    z(ip) -= h;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    z(iq) += h;</div>
@@ -220,16 +220,16 @@ $(function() {
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                    a()(ip, iq) = ValueType();</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    <span class="keywordflow">for</span> (SizeType j = 0; j &lt; ip; j++) <span class="comment">// Case of rotations 1 &lt; j &lt; p.</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                        jacobiRotate(a(), j, ip, j, iq, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                        jacobiRotate(a(), j, ip, j, iq, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a>);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                    <span class="keywordflow">for</span> (SizeType j = ip + 1; j &lt; iq; j++) <span class="comment">// Case of rotations p &lt; j &lt; q.</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                        jacobiRotate(a(), ip, j, j, iq, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a>);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                        jacobiRotate(a(), ip, j, j, iq, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a>);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                    <span class="keywordflow">for</span> (SizeType j = iq + 1; j &lt; n; j++) <span class="comment">// Case of rotations q &lt; j &lt; n.</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                        jacobiRotate(a(), ip, j, iq, j, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                        jacobiRotate(a(), ip, j, iq, j, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a>);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    <span class="keywordflow">for</span> (SizeType j = 0; j &lt; n; j++)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                        jacobiRotate(v(), j, ip, j, iq, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">s</a>);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                        jacobiRotate(v(), j, ip, j, iq, tau, <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">s</a>);</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                }</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            }</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
@@ -253,16 +253,16 @@ $(function() {
 <div class="ttc" id="aCheck_8hpp_html_a0858f497561590846d530a6e6f2894fb"><div class="ttname"><a href="Check_8hpp.html#a0858f497561590846d530a6e6f2894fb">CDPL_MATH_CHECK</a></div><div class="ttdeci">#define CDPL_MATH_CHECK(expr, msg, e)</div><div class="ttdef"><b>Definition:</b> Check.hpp:36</div></div>
 <div class="ttc" id="astructCDPL_1_1Math_1_1CommonType_html"><div class="ttname"><a href="structCDPL_1_1Math_1_1CommonType.html">CDPL::Math::CommonType</a></div><div class="ttdef"><b>Definition:</b> CommonType.hpp:41</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1SizeError_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1SizeError.html">CDPL::Base::SizeError</a></div><div class="ttdoc">Thrown to indicate that the size of a (multidimensional) array is not correct.</div><div class="ttdef"><b>Definition:</b> Base/Exceptions.hpp:133</div></div>
+<div class="ttc" id="anamespaceCDPL_1_1Chem_1_1AtomType_html_a5de5188d7be5bcdbdce75585952ae2e2"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1AtomType.html#a5de5188d7be5bcdbdce75585952ae2e2">CDPL::Chem::AtomType::M</a></div><div class="ttdeci">const unsigned int M</div><div class="ttdoc">A generic type that covers any element that is a metal.</div><div class="ttdef"><b>Definition:</b> AtomType.hpp:637</div></div>
 <div class="ttc" id="aTypeTraits_8hpp_html"><div class="ttname"><a href="TypeTraits_8hpp.html">TypeTraits.hpp</a></div><div class="ttdoc">Definition of type traits.</div></div>
 <div class="ttc" id="aBase_2Exceptions_8hpp_html"><div class="ttname"><a href="Base_2Exceptions_8hpp.html">Exceptions.hpp</a></div><div class="ttdoc">Definition of exception classes.</div></div>
+<div class="ttc" id="anamespaceCDPL_1_1Chem_1_1CIPDescriptor_html_a0010dc0b63d503b956a58e9d1ef8c3ec"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a0010dc0b63d503b956a58e9d1ef8c3ec">CDPL::Chem::CIPDescriptor::s</a></div><div class="ttdeci">const unsigned int s</div><div class="ttdoc">Specifies that the stereocenter has s configuration.</div><div class="ttdef"><b>Definition:</b> CIPDescriptor.hpp:80</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Math_1_1IdentityMatrix_html"><div class="ttname"><a href="classCDPL_1_1Math_1_1IdentityMatrix.html">CDPL::Math::IdentityMatrix</a></div><div class="ttdef"><b>Definition:</b> Matrix.hpp:1607</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Math_html_a74bbf0c8e2845ad736ace26b3e76bce5"><div class="ttname"><a href="namespaceCDPL_1_1Math.html#a74bbf0c8e2845ad736ace26b3e76bce5">CDPL::Math::jacobiDiagonalize</a></div><div class="ttdeci">bool jacobiDiagonalize(MatrixExpression&lt; M1 &gt; &amp;a, VectorExpression&lt; V &gt; &amp;d, MatrixExpression&lt; M2 &gt; &amp;v, std::size_t max_iter=50)</div><div class="ttdoc">Computes all eigenvalues and eigenvectors of a real symmetric matrix an using Jacobi's algorithm [WJA...</div><div class="ttdef"><b>Definition:</b> JacobiDiagonalization.hpp:94</div></div>
-<div class="ttc" id="anamespaceCDPL_1_1Chem_1_1AtomConfiguration_html_a72118ea6f5852e475b1253ec32e4dcdb"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a72118ea6f5852e475b1253ec32e4dcdb">CDPL::Chem::AtomConfiguration::s</a></div><div class="ttdeci">const unsigned int s</div><div class="ttdoc">Specifies that the atom has s configuration.</div><div class="ttdef"><b>Definition:</b> AtomConfiguration.hpp:79</div></div>
 <div class="ttc" id="aMatrix_8hpp_html"><div class="ttname"><a href="Matrix_8hpp.html">Matrix.hpp</a></div><div class="ttdoc">Definition of matrix data types.</div></div>
 <div class="ttc" id="astructCDPL_1_1Math_1_1VectorTemporaryTraits_html_a7fc2b4bfb4e2142ca78b4e0f83e867b9"><div class="ttname"><a href="structCDPL_1_1Math_1_1VectorTemporaryTraits.html#a7fc2b4bfb4e2142ca78b4e0f83e867b9">CDPL::Math::VectorTemporaryTraits::Type</a></div><div class="ttdeci">V::VectorTemporaryType Type</div><div class="ttdef"><b>Definition:</b> TypeTraits.hpp:181</div></div>
 <div class="ttc" id="aVector_8hpp_html"><div class="ttname"><a href="Vector_8hpp.html">Vector.hpp</a></div><div class="ttdoc">Definition of vector data types.</div></div>
-<div class="ttc" id="anamespaceCDPL_1_1Chem_1_1AtomConfiguration_html_a67f485a6f4ccda87f79010ada0ab4e36"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a67f485a6f4ccda87f79010ada0ab4e36">CDPL::Chem::AtomConfiguration::M</a></div><div class="ttdeci">const unsigned int M</div><div class="ttdoc">Specifies that the atom has M configuration.</div><div class="ttdef"><b>Definition:</b> AtomConfiguration.hpp:89</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
