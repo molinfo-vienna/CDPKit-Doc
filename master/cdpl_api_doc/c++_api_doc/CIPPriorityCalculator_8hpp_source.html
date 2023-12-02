@@ -106,123 +106,111 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Chem_2APIPrefix_8hpp.html">CDPL/Chem/APIPrefix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Array_8hpp.html">CDPL/Util/Array.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ObjectStack_8hpp.html">CDPL/Util/ObjectStack.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Chem_2APIPrefix_8hpp.html">CDPL/Chem/APIPrefix.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Array_8hpp.html">CDPL/Util/Array.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ObjectStack_8hpp.html">CDPL/Util/ObjectStack.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">namespace </span>Chem</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">class </span>MolecularGraph;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">class </span>Atom;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">   54</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#af4f4825c70d9f02ec9f345eab5867b56">   58</a></span>&#160;            <span class="keyword">typedef</span> std::function&lt;std::size_t(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>&amp;)&gt; <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#af4f4825c70d9f02ec9f345eab5867b56">ImplicitHydrogenCountFunction</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a93e03d875697e80c58168470afa56394">   63</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a93e03d875697e80c58168470afa56394">CIPPriorityCalculator</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ab0116bf5c060a53698051c15afd55914">   73</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ab0116bf5c060a53698051c15afd55914">CIPPriorityCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; priorities);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a90ffa920f9a9a8d34a44b667afdbe791">   75</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a90ffa920f9a9a8d34a44b667afdbe791">setImplicitHydrogenCountFunction</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#af4f4825c70d9f02ec9f345eab5867b56">ImplicitHydrogenCountFunction</a>&amp; func);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a21ab7cc05bb24b2ebbc0b9c36da35cad">   77</a></span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#af4f4825c70d9f02ec9f345eab5867b56">ImplicitHydrogenCountFunction</a>&amp; <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a21ab7cc05bb24b2ebbc0b9c36da35cad">getImplicitHydrogenCountFunction</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ad053ccc5a8746ece42e39b374fd6bf94">   86</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ad053ccc5a8746ece42e39b374fd6bf94">calculate</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; priorities);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">namespace </span>Chem</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">class </span>MolecularGraph;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">class </span>Atom;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">   53</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a93e03d875697e80c58168470afa56394">   60</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a93e03d875697e80c58168470afa56394">CIPPriorityCalculator</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ab0116bf5c060a53698051c15afd55914">   70</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ab0116bf5c060a53698051c15afd55914">CIPPriorityCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; priorities);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ad053ccc5a8746ece42e39b374fd6bf94">   79</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ad053ccc5a8746ece42e39b374fd6bf94">calculate</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; priorities);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">class </span>AtomNode;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>&amp;);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>&amp;);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">class </span>AtomNode;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordtype">void</span> determinePriorities(<a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>&amp;);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            AtomNode* allocNode(std::size_t <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a98651367385b2bf1feeed34c047b6c35">p</a>);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CIPPriorityCalculator</a>&amp;);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;AtomNode*&gt; NodeList;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordtype">void</span> determinePriorities(<a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keyword">class </span>AtomNode</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            {</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            AtomNode* allocNode(std::size_t <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a98651367385b2bf1feeed34c047b6c35">p</a>);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;AtomNode*&gt; NodeList;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keyword">class </span>AtomNode</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;              <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordtype">void</span> addNbrNode(AtomNode*);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordtype">void</span> setNewPriority(std::size_t);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;              <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordtype">void</span> updateNbrList();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                <span class="keywordtype">void</span> updatePriority();</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordtype">void</span> addNbrNode(AtomNode*);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordtype">void</span> setPriority(std::size_t <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a98651367385b2bf1feeed34c047b6c35">p</a>);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordtype">void</span> setNewPriority(std::size_t);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                std::size_t getPriority() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordtype">void</span> updateNbrList();</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordtype">void</span> updatePriority();</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html">  112</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html">LessCmpFunc</a></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                {</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordtype">void</span> setPriority(std::size_t <a class="code" href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a98651367385b2bf1feeed34c047b6c35">p</a>);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                std::size_t getPriority() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html">  119</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html">LessCmpFunc</a></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html#a1b2cb8eea7c828793b7e94f6b8a0902b">  122</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html#a1b2cb8eea7c828793b7e94f6b8a0902b">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                };</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html">  125</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html">PriorityLessCmpFunc</a></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html#ae3e818a4940fd71be13a0a3f99d7e2ee">  128</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html#ae3e818a4940fd71be13a0a3f99d7e2ee">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                };</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html">  131</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html">PriorityGreaterCmpFunc</a></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html#a8145ec3866f0bf224ccb1c43b0e29fa7">  134</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html#a8145ec3866f0bf224ccb1c43b0e29fa7">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                };</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;              <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                std::size_t priority;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                std::size_t newPriority;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                NodeList    nbrNodes;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            };</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;AtomNode&gt;</a> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">NodeCache</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html#a1b2cb8eea7c828793b7e94f6b8a0902b">  115</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html#a1b2cb8eea7c828793b7e94f6b8a0902b">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html">  118</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html">PriorityLessCmpFunc</a></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html#ae3e818a4940fd71be13a0a3f99d7e2ee">  121</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html#ae3e818a4940fd71be13a0a3f99d7e2ee">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                };</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html">  124</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html">PriorityGreaterCmpFunc</a></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html#a8145ec3866f0bf224ccb1c43b0e29fa7">  127</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html#a8145ec3866f0bf224ccb1c43b0e29fa7">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                };</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;              <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                std::size_t priority;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                std::size_t newPriority;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                NodeList    nbrNodes;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            };</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;AtomNode&gt;</a> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">NodeCache</a>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">NodeCache</a> nodeCache;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            NodeList  expAtomNodes;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            NodeList  atomNodes;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        };</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    } <span class="comment">// namespace Chem</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;} <span class="comment">// namespace CDPL</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">NodeCache</a>                     nodeCache;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            NodeList                      expAtomNodes;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            NodeList                      atomNodes;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#af4f4825c70d9f02ec9f345eab5867b56">ImplicitHydrogenCountFunction</a> implHCountFunc;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        };</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    } <span class="comment">// namespace Chem</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif // CDPL_CHEM_CIPPRIORITYCALCULATOR_HPP</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#endif // CDPL_CHEM_CIPPRIORITYCALCULATOR_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceCDPL_1_1Chem_1_1CIPDescriptor_html_a98651367385b2bf1feeed34c047b6c35"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a98651367385b2bf1feeed34c047b6c35">CDPL::Chem::CIPDescriptor::p</a></div><div class="ttdeci">const unsigned int p</div><div class="ttdoc">Specifies that the stereocenter has p configuration.</div><div class="ttdef"><b>Definition:</b> CIPDescriptor.hpp:120</div></div>
 <div class="ttc" id="aObjectStack_8hpp_html"><div class="ttname"><a href="ObjectStack_8hpp.html">ObjectStack.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Util::ObjectStack.</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1CIPPriorityCalculator_html_a90ffa920f9a9a8d34a44b667afdbe791"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a90ffa920f9a9a8d34a44b667afdbe791">CDPL::Chem::CIPPriorityCalculator::setImplicitHydrogenCountFunction</a></div><div class="ttdeci">void setImplicitHydrogenCountFunction(const ImplicitHydrogenCountFunction &amp;func)</div></div>
 <div class="ttc" id="aChem_2APIPrefix_8hpp_html"><div class="ttname"><a href="Chem_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_CHEM_API.</div></div>
 <div class="ttc" id="aChem_2APIPrefix_8hpp_html_addd1f8801b15c51c9417a3eff3212ade"><div class="ttname"><a href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a></div><div class="ttdeci">#define CDPL_CHEM_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1Atom_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1Atom.html">CDPL::Chem::Atom</a></div><div class="ttdoc">Atom.</div><div class="ttdef"><b>Definition:</b> Atom.hpp:52</div></div>
 <div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc_html_ae3e818a4940fd71be13a0a3f99d7e2ee"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html#ae3e818a4940fd71be13a0a3f99d7e2ee">CDPL::Chem::CIPPriorityCalculator::AtomNode::PriorityLessCmpFunc::operator()</a></div><div class="ttdeci">bool operator()(const AtomNode *, const AtomNode *) const</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1MolecularGraph_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></div><div class="ttdoc">MolecularGraph.</div><div class="ttdef"><b>Definition:</b> MolecularGraph.hpp:52</div></div>
 <div class="ttc" id="aArray_8hpp_html"><div class="ttname"><a href="Array_8hpp.html">Array.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Util::Array.</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1CIPPriorityCalculator_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CDPL::Chem::CIPPriorityCalculator</a></div><div class="ttdoc">CIPPriorityCalculator.</div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:55</div></div>
+<div class="ttc" id="aclassCDPL_1_1Chem_1_1CIPPriorityCalculator_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html">CDPL::Chem::CIPPriorityCalculator</a></div><div class="ttdoc">CIPPriorityCalculator.</div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:54</div></div>
 <div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc_html_a1b2cb8eea7c828793b7e94f6b8a0902b"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html#a1b2cb8eea7c828793b7e94f6b8a0902b">CDPL::Chem::CIPPriorityCalculator::AtomNode::LessCmpFunc::operator()</a></div><div class="ttdeci">bool operator()(const AtomNode *, const AtomNode *) const</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1CIPPriorityCalculator_html_a21ab7cc05bb24b2ebbc0b9c36da35cad"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#a21ab7cc05bb24b2ebbc0b9c36da35cad">CDPL::Chem::CIPPriorityCalculator::getImplicitHydrogenCountFunction</a></div><div class="ttdeci">const ImplicitHydrogenCountFunction &amp; getImplicitHydrogenCountFunction()</div></div>
-<div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html">CDPL::Chem::CIPPriorityCalculator::AtomNode::PriorityGreaterCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:132</div></div>
-<div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html">CDPL::Chem::CIPPriorityCalculator::AtomNode::PriorityLessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:126</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1CIPPriorityCalculator_html_af4f4825c70d9f02ec9f345eab5867b56"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#af4f4825c70d9f02ec9f345eab5867b56">CDPL::Chem::CIPPriorityCalculator::ImplicitHydrogenCountFunction</a></div><div class="ttdeci">std::function&lt; std::size_t(const Atom &amp;)&gt; ImplicitHydrogenCountFunction</div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:58</div></div>
+<div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html">CDPL::Chem::CIPPriorityCalculator::AtomNode::PriorityGreaterCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:125</div></div>
+<div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityLessCmpFunc.html">CDPL::Chem::CIPPriorityCalculator::AtomNode::PriorityLessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:119</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Util_html_a17c1eaf53b02c92754d13f7ed8e61c61"><div class="ttname"><a href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">CDPL::Util::STArray</a></div><div class="ttdeci">Array&lt; std::size_t &gt; STArray</div><div class="ttdoc">An array of unsigned integers of type std::size_t.</div><div class="ttdef"><b>Definition:</b> Array.hpp:567</div></div>
-<div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html">CDPL::Chem::CIPPriorityCalculator::AtomNode::LessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:120</div></div>
+<div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1LessCmpFunc.html">CDPL::Chem::CIPPriorityCalculator::AtomNode::LessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CIPPriorityCalculator.hpp:113</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CIPPriorityCalculator_html_ad053ccc5a8746ece42e39b374fd6bf94"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CIPPriorityCalculator.html#ad053ccc5a8746ece42e39b374fd6bf94">CDPL::Chem::CIPPriorityCalculator::calculate</a></div><div class="ttdeci">void calculate(const MolecularGraph &amp;molgraph, Util::STArray &amp;priorities)</div><div class="ttdoc">Calculates the topological CIP priorities of the atoms in the molecular graph molgraph.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Util_1_1ObjectStack_html"><div class="ttname"><a href="classCDPL_1_1Util_1_1ObjectStack.html">CDPL::Util::ObjectStack&lt; AtomNode &gt;</a></div></div>
 <div class="ttc" id="astructCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc_html_a8145ec3866f0bf224ccb1c43b0e29fa7"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CIPPriorityCalculator_1_1AtomNode_1_1PriorityGreaterCmpFunc.html#a8145ec3866f0bf224ccb1c43b0e29fa7">CDPL::Chem::CIPPriorityCalculator::AtomNode::PriorityGreaterCmpFunc::operator()</a></div><div class="ttdeci">bool operator()(const AtomNode *, const AtomNode *) const</div></div>
