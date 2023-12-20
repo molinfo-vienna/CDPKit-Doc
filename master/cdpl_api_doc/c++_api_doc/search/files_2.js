@@ -82,7 +82,7 @@ var searchData=
   ['check_2ehpp_8474',['Check.hpp',['../Check_8hpp.html',1,'']]],
   ['chem_2ehpp_8475',['Chem.hpp',['../Chem_8hpp.html',1,'']]],
   ['chemblstandardizer_2ehpp_8476',['ChEMBLStandardizer.hpp',['../ChEMBLStandardizer_8hpp.html',1,'']]],
-  ['cipconfigurationlabeller_2ehpp_8477',['CIPConfigurationLabeller.hpp',['../CIPConfigurationLabeller_8hpp.html',1,'']]],
+  ['cipconfigurationlabeler_2ehpp_8477',['CIPConfigurationLabeler.hpp',['../CIPConfigurationLabeler_8hpp.html',1,'']]],
   ['cipdescriptor_2ehpp_8478',['CIPDescriptor.hpp',['../CIPDescriptor_8hpp.html',1,'']]],
   ['cipprioritycalculator_2ehpp_8479',['CIPPriorityCalculator.hpp',['../CIPPriorityCalculator_8hpp.html',1,'']]],
   ['circularfingerprintgenerator_2ehpp_8480',['CircularFingerprintGenerator.hpp',['../CircularFingerprintGenerator_8hpp.html',1,'']]],

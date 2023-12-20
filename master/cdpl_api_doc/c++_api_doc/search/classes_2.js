@@ -25,7 +25,7 @@ var searchData=
   ['cdfreactionwriter_7241',['CDFReactionWriter',['../classCDPL_1_1Chem_1_1CDFReactionWriter.html',1,'CDPL::Chem']]],
   ['cflmoleculereader_7242',['CFLMoleculeReader',['../classCDPL_1_1ConfGen_1_1CFLMoleculeReader.html',1,'CDPL::ConfGen']]],
   ['chemblstandardizer_7243',['ChEMBLStandardizer',['../classCDPL_1_1Chem_1_1ChEMBLStandardizer.html',1,'CDPL::Chem']]],
-  ['cipconfigurationlabeller_7244',['CIPConfigurationLabeller',['../classCDPL_1_1Chem_1_1CIPConfigurationLabeller.html',1,'CDPL::Chem']]],
+  ['cipconfigurationlabeler_7244',['CIPConfigurationLabeler',['../classCDPL_1_1Chem_1_1CIPConfigurationLabeler.html',1,'CDPL::Chem']]],
   ['cipprioritycalculator_7245',['CIPPriorityCalculator',['../classCDPL_1_1Chem_1_1CIPPriorityCalculator.html',1,'CDPL::Chem']]],
   ['circularfingerprintgenerator_7246',['CircularFingerprintGenerator',['../classCDPL_1_1Descr_1_1CircularFingerprintGenerator.html',1,'CDPL::Descr']]],
   ['clippathprimitive2d_7247',['ClipPathPrimitive2D',['../classCDPL_1_1Vis_1_1ClipPathPrimitive2D.html',1,'CDPL::Vis']]],
