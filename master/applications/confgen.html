@@ -108,6 +108,155 @@ Details regarding the implementation and performance of CONFORGE can be found in
 <p>Built-in torsion rules are based on the torsion library V3.0 developed by the
 University of Hamburg, Center for Bioinformatics, Hamburg, Germany and F. Hoffmann-La-Roche Ltd., Basel, Switzerland
 <span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="Christin Schärfer, Tanja Schulz-Gasch, Hans-Christian Ehrlich, Wolfgang Guba, Matthias Rarey, and Martin Stahl. Torsion angle preferences in druglike chemical space: a comprehensive guide. Journal of Medicinal Chemistry, 56(5):2016-2028, 2013. PMID: 23379567. URL: https://doi.org/10.1021/jm3016816, arXiv:https://doi.org/10.1021/jm3016816, doi:10.1021/jm3016816.">11</a>]</span><span id="id3">[<a class="reference internal" href="../bibliography.html#id5" title="Wolfgang Guba, Agnes Meyder, Matthias Rarey, and Jérôme Hert. Torsion library reloaded: a new version of expert-derived smarts rules for assessing conformations of small molecules. Journal of Chemical Information and Modeling, 56(1):1-5, 2016. PMID: 26679290. URL: https://doi.org/10.1021/acs.jcim.5b00522, arXiv:https://doi.org/10.1021/acs.jcim.5b00522, doi:10.1021/acs.jcim.5b00522.">12</a>]</span><span id="id4">[<a class="reference internal" href="../bibliography.html#id12" title="Patrick Penner, Wolfgang Guba, Robert Schmidt, Agnes Meyder, Martin Stahl, and Matthias Rarey. The torsion library: semiautomated improvement of torsion rules with smartscompare. Journal of Chemical Information and Modeling, 62(7):1644-1653, 2022. PMID: 35318851. URL: https://doi.org/10.1021/acs.jcim.2c00043, arXiv:https://doi.org/10.1021/acs.jcim.2c00043, doi:10.1021/acs.jcim.2c00043.">13</a>]</span>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><strong>Generator</strong></p></td>
+<td colspan="4"><p><strong>Maximum ensemble size 50</strong></p></td>
+<td colspan="4"><p><strong>Maximum ensemble size 250</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>mean</strong></p></td>
+<td><p><strong>median</strong></p></td>
+<td><p><strong>min</strong></p></td>
+<td><p><strong>max</strong></p></td>
+<td><p><strong>mean</strong></p></td>
+<td><p><strong>median</strong></p></td>
+<td><p><strong>min</strong></p></td>
+<td><p><strong>max</strong></p></td>
+</tr>
+<tr class="row-odd"><td colspan="9"><p><strong>RMSD (Å)</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>0.67</p></td>
+<td><p>0.49</p></td>
+<td><p>0.03</p></td>
+<td><p>3.92</p></td>
+<td><p>0.55</p></td>
+<td><p>0.41</p></td>
+<td><p>0.03</p></td>
+<td><p>3.67</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>0.68</p></td>
+<td><p>0.55</p></td>
+<td><p>0.04</p></td>
+<td><p>3.14</p></td>
+<td><p>0.61</p></td>
+<td><p>0.52</p></td>
+<td><p>0.04</p></td>
+<td><p>2.79</p></td>
+</tr>
+<tr class="row-even"><td><p>Best Value from other Generators</p></td>
+<td><p>0.67</p></td>
+<td><p>0.51</p></td>
+<td><p>0.02</p></td>
+<td><p>3.26</p></td>
+<td><p>0.57</p></td>
+<td><p>0.46</p></td>
+<td><p>0.02</p></td>
+<td><p>2.93</p></td>
+</tr>
+<tr class="row-odd"><td colspan="9"><p><strong>Ensemble Size</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>39</p></td>
+<td><p>50</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>149</p></td>
+<td><p>214</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>83</p></td>
+<td><p>30</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Best Value from other Generators</p></td>
+<td><p>21</p></td>
+<td><p>19</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>71</p></td>
+<td><p>32</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td colspan="9"><p><strong>Processing Time</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>0.16</p></td>
+<td><p>0.02</p></td>
+<td><p>0.00</p></td>
+<td><p>14.3</p></td>
+<td><p>0.33</p></td>
+<td><p>0.07</p></td>
+<td><p>0.00</p></td>
+<td><p>16.08</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>0.09</p></td>
+<td><p>0.01</p></td>
+<td><p>0.00</p></td>
+<td><p>19.79</p></td>
+<td><p>0.21</p></td>
+<td><p>0.01</p></td>
+<td><p>0.00</p></td>
+<td><p>19.94</p></td>
+</tr>
+<tr class="row-even"><td><p>Best Value from other Generators</p></td>
+<td><p>0.53</p></td>
+<td><p>0.17</p></td>
+<td><p>0.00</p></td>
+<td><p>30.98</p></td>
+<td><p>0.65</p></td>
+<td><p>0.27</p></td>
+<td><p>0.00</p></td>
+<td><p>31.13</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 32%" />
+<col style="width: 32%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>Generator</strong></p></td>
+<td><p><strong>Maximum ensemble size 50</strong></p></td>
+<td><p><strong>Maximum ensemble size 250</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>00:08:56</p></td>
+<td><p>00:20:06</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>00:05:21</p></td>
+<td><p>00:12:49</p></td>
+</tr>
+<tr class="row-even"><td><p>Best Value from other Generators</p></td>
+<td><p>00:26:07</p></td>
+<td><p>00:33:44</p></td>
+</tr>
+</tbody>
+</table>
 <section id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this heading"></a></h2>
 <blockquote>
@@ -130,7 +279,7 @@ be generated.</p>
 <li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
 <li><p>Native CDPL-Format (.cdf)</p></li>
 <li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (<a href="#id5"><span class="problematic" id="id6">*</span></a>.xyz)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
 <li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
 <li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
 <li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
@@ -153,7 +302,7 @@ be generated.</p>
 <li><p>MDL Molfile (.mol)</p></li>
 <li><p>Native CDPL-Format (.cdf)</p></li>
 <li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (<a href="#id7"><span class="problematic" id="id8">*</span></a>.xyz)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
 <li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
 <li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
 <li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
@@ -208,7 +357,7 @@ INFO).</p>
 <li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
 <li><p>Native CDPL-Format (.cdf)</p></li>
 <li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (<a href="#id9"><span class="problematic" id="id10">*</span></a>.xyz)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
 <li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
 <li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
 <li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
