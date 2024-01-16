@@ -18,7 +18,7 @@
     jax: ["input/TeX","output/NativeMML"],
 });
 </script>
-<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -215,390 +215,365 @@ $(function() {
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="comment">// Implementation</span></div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;{</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keyword">namespace </span>ForceField</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    {</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keyword">namespace </span>Detail</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        {</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector, <span class="keyword">typename</span> FuncType&gt;</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            ValueType calcMMFF94InteractionGradient(Iter&amp; beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad, <span class="keyword">const</span> FuncType&amp; func)</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            {</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                ValueType e = ValueType();</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                <span class="keywordflow">for</span> (; beg != end; ++beg)</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                    e += func(*beg, coords, grad);</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                <span class="keywordflow">return</span> e;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            }</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        } <span class="comment">// namespace Detail</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8464801fa6f59ef8dcd1824446bcff6">CDPL::ForceField::calcMMFF94BondStretchingGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;{</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94BondStretchingInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;                                                                &amp;calcMMFF94BondStretchingGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;}</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8464801fa6f59ef8dcd1824446bcff6">CDPL::ForceField::calcMMFF94BondStretchingGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;{</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94BondStretchingInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                                                          &amp;calcMMFF94BondStretchingGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;}</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8464801fa6f59ef8dcd1824446bcff6">CDPL::ForceField::calcMMFF94BondStretchingGradient</a>(<span class="keyword">const</span> MMFF94BondStretchingInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;{</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keywordflow">return</span> calcMMFF94BondStretchingGradient&lt;ValueType&gt;(coords[iaction.getAtom1Index()], coords[iaction.getAtom2Index()], grad[iaction.getAtom1Index()],</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                                                       grad[iaction.getAtom2Index()], iaction.getForceConstant(), iaction.getReferenceLength());</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;}</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; </div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8464801fa6f59ef8dcd1824446bcff6">CDPL::ForceField::calcMMFF94BondStretchingGradient</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos, GradVec&amp; atom1_grad, GradVec&amp; atom2_grad,</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                                                             <span class="keyword">const</span> ValueType&amp; force_const, <span class="keyword">const</span> ValueType&amp; ref_length)</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;{</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    ValueType dist_atom1_grad[3];</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    ValueType dist_atom2_grad[3];</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    ValueType dr_ij   = calcDistanceDerivatives&lt;ValueType&gt;(atom1_pos, atom2_pos, dist_atom1_grad, dist_atom2_grad) - ref_length;</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    ValueType dr_ij_2 = dr_ij * dr_ij;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160; </div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    ValueType grad_fact = (ValueType(167.92125 * 4) * dr_ij_2 * dr_ij - ValueType(215.89875 * 2) * dr_ij_2 + ValueType(143.9325) * dr_ij) * force_const;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    Detail::scaleAddVector(dist_atom1_grad, grad_fact, atom1_grad);</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    Detail::scaleAddVector(dist_atom2_grad, grad_fact, atom2_grad);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    ValueType e_b = ValueType(143.9325 * 0.5) * force_const * dr_ij_2 * (1 - 2 * dr_ij + 28 * dr_ij_2 / 12);</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8464801fa6f59ef8dcd1824446bcff6">CDPL::ForceField::calcMMFF94BondStretchingGradient</a>(<span class="keyword">const</span> MMFF94BondStretchingInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;{</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordflow">return</span> calcMMFF94BondStretchingGradient&lt;ValueType&gt;(coords[iaction.getAtom1Index()], coords[iaction.getAtom2Index()], grad[iaction.getAtom1Index()],</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                                                       grad[iaction.getAtom2Index()], iaction.getForceConstant(), iaction.getReferenceLength());</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;}</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8464801fa6f59ef8dcd1824446bcff6">CDPL::ForceField::calcMMFF94BondStretchingGradient</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos, GradVec&amp; atom1_grad, GradVec&amp; atom2_grad,</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                                                             <span class="keyword">const</span> ValueType&amp; force_const, <span class="keyword">const</span> ValueType&amp; ref_length)</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;{</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    ValueType dist_atom1_grad[3];</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    ValueType dist_atom2_grad[3];</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    ValueType dr_ij   = calcDistanceDerivatives&lt;ValueType&gt;(atom1_pos, atom2_pos, dist_atom1_grad, dist_atom2_grad) - ref_length;</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    ValueType dr_ij_2 = dr_ij * dr_ij;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; </div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    ValueType grad_fact = (ValueType(167.92125 * 4) * dr_ij_2 * dr_ij - ValueType(215.89875 * 2) * dr_ij_2 + ValueType(143.9325) * dr_ij) * force_const;</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    Detail::scaleAddVector(dist_atom1_grad, grad_fact, atom1_grad);</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    Detail::scaleAddVector(dist_atom2_grad, grad_fact, atom2_grad);</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    ValueType e_b = ValueType(143.9325 * 0.5) * force_const * dr_ij_2 * (1 - 2 * dr_ij + 28 * dr_ij_2 / 12);</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordflow">return</span> e_b;</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;}</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a70027a3edda3355aa7a7b53d340948f4">CDPL::ForceField::calcMMFF94AngleBendingGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;{</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94AngleBendingInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                                                                &amp;calcMMFF94AngleBendingGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;}</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a70027a3edda3355aa7a7b53d340948f4">CDPL::ForceField::calcMMFF94AngleBendingGradient</a>(<span class="keyword">const</span> MMFF94AngleBendingInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;{</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    <span class="keywordflow">return</span> calcMMFF94AngleBendingGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtomIndex()],</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                                                     coords[iaction.getTerminalAtom2Index()], grad[iaction.getTerminalAtom1Index()],</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;                                                     grad[iaction.getCenterAtomIndex()], grad[iaction.getTerminalAtom2Index()], iaction.isLinearAngle(),</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                                                     iaction.getForceConstant(), iaction.getReferenceAngle());</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;}</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a70027a3edda3355aa7a7b53d340948f4">CDPL::ForceField::calcMMFF94AngleBendingGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                                                           GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom_grad, GradVec&amp; term_atom2_grad, <span class="keywordtype">bool</span> linear,</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                                                           <span class="keyword">const</span> ValueType&amp; force_const, <span class="keyword">const</span> ValueType&amp; ref_angle)</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;{</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    ValueType ac_term1_grad[3];</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    ValueType ac_ctr_grad[3];</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    ValueType ac_term2_grad[3];</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160; </div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    ValueType a_ijk_cos = calcBondAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, ac_term1_grad, ac_ctr_grad, ac_term2_grad);</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    ValueType grad_fact = ValueType(1);</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    ValueType e_a       = ValueType(0);</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160; </div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    <span class="keywordflow">if</span> (linear) {</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        grad_fact = ValueType(143.9325) * force_const;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        e_a       = ValueType(143.9325) * force_const * (1 + a_ijk_cos);</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="keywordflow">return</span> e_b;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;}</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a70027a3edda3355aa7a7b53d340948f4">CDPL::ForceField::calcMMFF94AngleBendingGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;{</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94AngleBendingInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                                                          &amp;calcMMFF94AngleBendingGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;}</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160; </div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a70027a3edda3355aa7a7b53d340948f4">CDPL::ForceField::calcMMFF94AngleBendingGradient</a>(<span class="keyword">const</span> MMFF94AngleBendingInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;{</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="keywordflow">return</span> calcMMFF94AngleBendingGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtomIndex()],</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;                                                     coords[iaction.getTerminalAtom2Index()], grad[iaction.getTerminalAtom1Index()],</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                                                     grad[iaction.getCenterAtomIndex()], grad[iaction.getTerminalAtom2Index()], iaction.isLinearAngle(),</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                                                     iaction.getForceConstant(), iaction.getReferenceAngle());</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;}</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a70027a3edda3355aa7a7b53d340948f4">CDPL::ForceField::calcMMFF94AngleBendingGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                                                           GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom_grad, GradVec&amp; term_atom2_grad, <span class="keywordtype">bool</span> linear,</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                                                           <span class="keyword">const</span> ValueType&amp; force_const, <span class="keyword">const</span> ValueType&amp; ref_angle)</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;{</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    ValueType ac_term1_grad[3];</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    ValueType ac_ctr_grad[3];</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    ValueType ac_term2_grad[3];</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    ValueType a_ijk_cos = calcBondAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, ac_term1_grad, ac_ctr_grad, ac_term2_grad);</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    ValueType grad_fact = ValueType(1);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    ValueType e_a       = ValueType(0);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keywordflow">if</span> (linear) {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        grad_fact = ValueType(143.9325) * force_const;</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        e_a       = ValueType(143.9325) * force_const * (1 + a_ijk_cos);</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        ValueType a_ijk_cos_2 = a_ijk_cos * a_ijk_cos;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        ValueType a_ijk       = std::acos(a_ijk_cos);</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        ValueType div         = std::sqrt(1 - a_ijk_cos_2);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            div = ValueType(0.0000001);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        grad_fact = force_const / div *</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                    (a_ijk * (ValueType(86.58992538) * a_ijk - ValueType(143.9313616)) -</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                     ref_angle * (ValueType(3.022558594) * a_ijk - ValueType(0.02637679965) * ref_angle - ValueType(2.512076157)));</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        ValueType da_ijk = a_ijk * ValueType(180 / M_PI) - ref_angle;</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160; </div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        e_a = ValueType(0.043844 * 0.5) * force_const * da_ijk * da_ijk * (1 - ValueType(0.007) * da_ijk);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    Detail::scaleAddVector(ac_term1_grad, grad_fact, term_atom1_grad);</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    Detail::scaleAddVector(ac_ctr_grad, grad_fact, ctr_atom_grad);</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    Detail::scaleAddVector(ac_term2_grad, grad_fact, term_atom2_grad);</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    <span class="keywordflow">return</span> e_a;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;}</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        ValueType a_ijk_cos_2 = a_ijk_cos * a_ijk_cos;</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        ValueType a_ijk       = std::acos(a_ijk_cos);</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        ValueType div         = std::sqrt(1 - a_ijk_cos_2);</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160; </div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            div = ValueType(0.0000001);</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        grad_fact = force_const / div *</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                    (a_ijk * (ValueType(86.58992538) * a_ijk - ValueType(143.9313616)) -</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                     ref_angle * (ValueType(3.022558594) * a_ijk - ValueType(0.02637679965) * ref_angle - ValueType(2.512076157)));</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        ValueType da_ijk = a_ijk * ValueType(180 / M_PI) - ref_angle;</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        e_a = ValueType(0.043844 * 0.5) * force_const * da_ijk * da_ijk * (1 - ValueType(0.007) * da_ijk);</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    }</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160; </div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    Detail::scaleAddVector(ac_term1_grad, grad_fact, term_atom1_grad);</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    Detail::scaleAddVector(ac_ctr_grad, grad_fact, ctr_atom_grad);</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    Detail::scaleAddVector(ac_term2_grad, grad_fact, term_atom2_grad);</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    <span class="keywordflow">return</span> e_a;</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;}</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160; </div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#aa2ee00a51c0c1394fa605ac647cd3821">CDPL::ForceField::calcMMFF94StretchBendGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;{</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94StretchBendInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                                                                &amp;calcMMFF94StretchBendGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;}</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#aa2ee00a51c0c1394fa605ac647cd3821">CDPL::ForceField::calcMMFF94StretchBendGradient</a>(<span class="keyword">const</span> MMFF94StretchBendInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;{</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keywordflow">return</span> calcMMFF94StretchBendGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtomIndex()],</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                                                    coords[iaction.getTerminalAtom2Index()], grad[iaction.getTerminalAtom1Index()],</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                                                    grad[iaction.getCenterAtomIndex()], grad[iaction.getTerminalAtom2Index()], iaction.getIJKForceConstant(),</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                                                    iaction.getKJIForceConstant(), iaction.getReferenceAngle(), iaction.getReferenceLength1(),</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                                                    iaction.getReferenceLength2());</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;}</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#aa2ee00a51c0c1394fa605ac647cd3821">CDPL::ForceField::calcMMFF94StretchBendGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                                                          GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom_grad, GradVec&amp; term_atom2_grad,</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                                                          <span class="keyword">const</span> ValueType&amp; ijk_force_const, <span class="keyword">const</span> ValueType&amp; kji_force_const, <span class="keyword">const</span> ValueType&amp; ref_angle,</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                                                          <span class="keyword">const</span> ValueType&amp; ref_length1, <span class="keyword">const</span> ValueType&amp; ref_length2)</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;{</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    ValueType ac_term1_grad[3];</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    ValueType ac_ctr_grad[3];</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    ValueType ac_term2_grad[3];</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#aa2ee00a51c0c1394fa605ac647cd3821">CDPL::ForceField::calcMMFF94StretchBendGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;{</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94StretchBendInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                                                          &amp;calcMMFF94StretchBendGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;}</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160; </div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#aa2ee00a51c0c1394fa605ac647cd3821">CDPL::ForceField::calcMMFF94StretchBendGradient</a>(<span class="keyword">const</span> MMFF94StretchBendInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;{</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    <span class="keywordflow">return</span> calcMMFF94StretchBendGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtomIndex()],</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                                                    coords[iaction.getTerminalAtom2Index()], grad[iaction.getTerminalAtom1Index()],</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                                                    grad[iaction.getCenterAtomIndex()], grad[iaction.getTerminalAtom2Index()], iaction.getIJKForceConstant(),</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                                                    iaction.getKJIForceConstant(), iaction.getReferenceAngle(), iaction.getReferenceLength1(),</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                                                    iaction.getReferenceLength2());</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;}</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#aa2ee00a51c0c1394fa605ac647cd3821">CDPL::ForceField::calcMMFF94StretchBendGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                                                          GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom_grad, GradVec&amp; term_atom2_grad,</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                                                          <span class="keyword">const</span> ValueType&amp; ijk_force_const, <span class="keyword">const</span> ValueType&amp; kji_force_const, <span class="keyword">const</span> ValueType&amp; ref_angle,</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                                                          <span class="keyword">const</span> ValueType&amp; ref_length1, <span class="keyword">const</span> ValueType&amp; ref_length2)</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;{</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    ValueType ac_term1_grad[3];</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    ValueType ac_ctr_grad[3];</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    ValueType ac_term2_grad[3];</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    ValueType dist_term1_grad[3];</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    ValueType dist_ctr_grad1[3];</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    ValueType dist_ctr_grad2[3];</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    ValueType dist_term2_grad[3];</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    ValueType r_ij        = calcDistanceDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, dist_term1_grad, dist_ctr_grad1);</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    ValueType r_kj        = calcDistanceDerivatives&lt;ValueType&gt;(term_atom2_pos, ctr_atom_pos, dist_term2_grad, dist_ctr_grad2);</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    ValueType a_ijk_cos   = calcBondAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, ac_term1_grad, ac_ctr_grad, ac_term2_grad);</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    ValueType a_ijk_cos_2 = a_ijk_cos * a_ijk_cos;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    ValueType a_ijk       = std::acos(a_ijk_cos);</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; </div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    ValueType dr_ij  = r_ij - ref_length1;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    ValueType dr_kj  = r_kj - ref_length2;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    ValueType da_ijk = a_ijk * ValueType(180 / M_PI) - ref_angle;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    ValueType div    = std::sqrt(1 - a_ijk_cos_2);</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; </div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        div = ValueType(0.0000001);</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    ValueType a_ijk_grad_fact = ValueType(-180 * 2.5121 / M_PI) / div * (dr_ij * ijk_force_const + dr_kj * kji_force_const);</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    ValueType r_ij_grad_fact = ValueType(2.5121) * da_ijk * ijk_force_const;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    ValueType r_kj_grad_fact = ValueType(2.5121) * da_ijk * kji_force_const;</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    ValueType dist_term1_grad[3];</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    ValueType dist_ctr_grad1[3];</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    ValueType dist_ctr_grad2[3];</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    ValueType dist_term2_grad[3];</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    ValueType r_ij        = calcDistanceDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, dist_term1_grad, dist_ctr_grad1);</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    ValueType r_kj        = calcDistanceDerivatives&lt;ValueType&gt;(term_atom2_pos, ctr_atom_pos, dist_term2_grad, dist_ctr_grad2);</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    ValueType a_ijk_cos   = calcBondAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, ac_term1_grad, ac_ctr_grad, ac_term2_grad);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    ValueType a_ijk_cos_2 = a_ijk_cos * a_ijk_cos;</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    ValueType a_ijk       = std::acos(a_ijk_cos);</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    ValueType dr_ij  = r_ij - ref_length1;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    ValueType dr_kj  = r_kj - ref_length2;</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    ValueType da_ijk = a_ijk * ValueType(180 / M_PI) - ref_angle;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    ValueType div    = std::sqrt(1 - a_ijk_cos_2);</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    Detail::scaleAddVector(dist_term1_grad, r_ij_grad_fact, term_atom1_grad);</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    Detail::scaleAddVector(ac_term1_grad, a_ijk_grad_fact, term_atom1_grad);</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160; </div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    Detail::scaleAddVector(dist_term2_grad, r_kj_grad_fact, term_atom2_grad);</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    Detail::scaleAddVector(ac_term2_grad, a_ijk_grad_fact, term_atom2_grad);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160; </div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    Detail::scaleAddVector(dist_ctr_grad1, r_ij_grad_fact, ctr_atom_grad);</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    Detail::scaleAddVector(dist_ctr_grad2, r_kj_grad_fact, ctr_atom_grad);</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    Detail::scaleAddVector(ac_ctr_grad, a_ijk_grad_fact, ctr_atom_grad);</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    ValueType e_ab = r_ij_grad_fact * dr_ij + r_kj_grad_fact * dr_kj;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160; </div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordflow">return</span> e_ab;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;}</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
 <div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        div = ValueType(0.0000001);</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    ValueType a_ijk_grad_fact = ValueType(-180 * 2.5121 / M_PI) / div * (dr_ij * ijk_force_const + dr_kj * kji_force_const);</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    ValueType r_ij_grad_fact = ValueType(2.5121) * da_ijk * ijk_force_const;</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    ValueType r_kj_grad_fact = ValueType(2.5121) * da_ijk * kji_force_const;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a09433f5c2109699fa52180e00120d463">CDPL::ForceField::calcMMFF94OutOfPlaneBendingGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;{</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94OutOfPlaneBendingInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;                                                          &amp;calcMMFF94OutOfPlaneBendingGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;}</div>
 <div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160; </div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    Detail::scaleAddVector(dist_term1_grad, r_ij_grad_fact, term_atom1_grad);</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    Detail::scaleAddVector(ac_term1_grad, a_ijk_grad_fact, term_atom1_grad);</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160; </div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    Detail::scaleAddVector(dist_term2_grad, r_kj_grad_fact, term_atom2_grad);</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    Detail::scaleAddVector(ac_term2_grad, a_ijk_grad_fact, term_atom2_grad);</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    Detail::scaleAddVector(dist_ctr_grad1, r_ij_grad_fact, ctr_atom_grad);</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    Detail::scaleAddVector(dist_ctr_grad2, r_kj_grad_fact, ctr_atom_grad);</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    Detail::scaleAddVector(ac_ctr_grad, a_ijk_grad_fact, ctr_atom_grad);</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a09433f5c2109699fa52180e00120d463">CDPL::ForceField::calcMMFF94OutOfPlaneBendingGradient</a>(<span class="keyword">const</span> MMFF94OutOfPlaneBendingInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;{</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    <span class="keywordflow">return</span> calcMMFF94OutOfPlaneBendingGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtomIndex()],</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                                                          coords[iaction.getTerminalAtom2Index()], coords[iaction.getOutOfPlaneAtomIndex()],</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                                                          grad[iaction.getTerminalAtom1Index()], grad[iaction.getCenterAtomIndex()],</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;                                                          grad[iaction.getTerminalAtom2Index()], grad[iaction.getOutOfPlaneAtomIndex()],</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                                                          iaction.getForceConstant());</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;}</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    ValueType e_ab = r_ij_grad_fact * dr_ij + r_kj_grad_fact * dr_kj;</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <span class="keywordflow">return</span> e_ab;</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;}</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a09433f5c2109699fa52180e00120d463">CDPL::ForceField::calcMMFF94OutOfPlaneBendingGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;{</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94OutOfPlaneBendingInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;,</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                                                                                      GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                                                                &amp;calcMMFF94OutOfPlaneBendingGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;}</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a09433f5c2109699fa52180e00120d463">CDPL::ForceField::calcMMFF94OutOfPlaneBendingGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                                                                <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos, GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom_grad,</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                                                                GradVec&amp; term_atom2_grad, GradVec&amp; oop_atom_grad, <span class="keyword">const</span> ValueType&amp; force_const)</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;{</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    ValueType ac_term1_grad[3];</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    ValueType ac_term2_grad[3];</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    ValueType ac_ctr_grad[3];</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    ValueType ac_oop_grad[3];</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    ValueType chi_ijkl_cos = calcOutOfPlaneAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, oop_atom_pos, ac_term1_grad,</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                                                                          ac_ctr_grad, ac_term2_grad, ac_oop_grad);</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    ValueType chi_ijkl     = ValueType(M_PI * 0.5) - std::acos(chi_ijkl_cos);</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    ValueType div          = std::sqrt(1 - chi_ijkl_cos * chi_ijkl_cos);</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a09433f5c2109699fa52180e00120d463">CDPL::ForceField::calcMMFF94OutOfPlaneBendingGradient</a>(<span class="keyword">const</span> MMFF94OutOfPlaneBendingInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;{</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    <span class="keywordflow">return</span> calcMMFF94OutOfPlaneBendingGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtomIndex()],</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                                                          coords[iaction.getTerminalAtom2Index()], coords[iaction.getOutOfPlaneAtomIndex()],</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;                                                          grad[iaction.getTerminalAtom1Index()], grad[iaction.getCenterAtomIndex()],</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;                                                          grad[iaction.getTerminalAtom2Index()], grad[iaction.getOutOfPlaneAtomIndex()],</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;                                                          iaction.getForceConstant());</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;}</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        div = ValueType(0.0000001);</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; </div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    ValueType grad_fact = ValueType(0.043844 * 180 * 180) / div * ValueType(1 / (M_PI * M_PI)) * force_const * chi_ijkl;</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    Detail::scaleAddVector(ac_term1_grad, grad_fact, term_atom1_grad);</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    Detail::scaleAddVector(ac_ctr_grad, grad_fact, ctr_atom_grad);</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    Detail::scaleAddVector(ac_term2_grad, grad_fact, term_atom2_grad);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    Detail::scaleAddVector(ac_oop_grad, grad_fact, oop_atom_grad);</div>
 <div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; </div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a09433f5c2109699fa52180e00120d463">CDPL::ForceField::calcMMFF94OutOfPlaneBendingGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;                                                                <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos, GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom_grad,</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;                                                                GradVec&amp; term_atom2_grad, GradVec&amp; oop_atom_grad, <span class="keyword">const</span> ValueType&amp; force_const)</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;{</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    ValueType ac_term1_grad[3];</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    ValueType ac_term2_grad[3];</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    ValueType ac_ctr_grad[3];</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    ValueType ac_oop_grad[3];</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    ValueType chi_ijkl_cos = calcOutOfPlaneAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, oop_atom_pos, ac_term1_grad,</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;                                                                          ac_ctr_grad, ac_term2_grad, ac_oop_grad);</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    ValueType chi_ijkl     = ValueType(M_PI * 0.5) - std::acos(chi_ijkl_cos);</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    ValueType div          = std::sqrt(1 - chi_ijkl_cos * chi_ijkl_cos);</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;        div = ValueType(0.0000001);</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160; </div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    ValueType grad_fact = ValueType(0.043844 * 180 * 180) / div * ValueType(1 / (M_PI * M_PI)) * force_const * chi_ijkl;</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    Detail::scaleAddVector(ac_term1_grad, grad_fact, term_atom1_grad);</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    Detail::scaleAddVector(ac_ctr_grad, grad_fact, ctr_atom_grad);</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    Detail::scaleAddVector(ac_term2_grad, grad_fact, term_atom2_grad);</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    Detail::scaleAddVector(ac_oop_grad, grad_fact, oop_atom_grad);</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    chi_ijkl *= ValueType(180 / M_PI);</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    ValueType e_oop = ValueType(0.5 * 0.043844) * force_const * chi_ijkl * chi_ijkl;</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160; </div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keywordflow">return</span> e_oop;</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;}</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; </div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ac16f50e9c328541438e1c99d1379be81">CDPL::ForceField::calcMMFF94TorsionGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;{</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94TorsionInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                                                                &amp;calcMMFF94TorsionGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;}</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; </div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ac16f50e9c328541438e1c99d1379be81">CDPL::ForceField::calcMMFF94TorsionGradient</a>(<span class="keyword">const</span> MMFF94TorsionInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;{</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordflow">return</span> calcMMFF94TorsionGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtom1Index()],</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;                                                coords[iaction.getCenterAtom2Index()], coords[iaction.getTerminalAtom2Index()],</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                                                grad[iaction.getTerminalAtom1Index()], grad[iaction.getCenterAtom1Index()], grad[iaction.getCenterAtom2Index()],</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;                                                grad[iaction.getTerminalAtom2Index()], iaction.getTorsionParameter1(), iaction.getTorsionParameter2(),</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                                                iaction.getTorsionParameter3());</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;}</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160; </div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;ValueType</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<a class="code" href="namespaceCDPL_1_1ForceField.html#ac16f50e9c328541438e1c99d1379be81">CDPL::ForceField::calcMMFF94TorsionGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom2_pos,</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                                            <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom1_grad, GradVec&amp; ctr_atom2_grad,</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                                            GradVec&amp; term_atom2_grad, <span class="keyword">const</span> ValueType&amp; tor_param1, <span class="keyword">const</span> ValueType&amp; tor_param2, <span class="keyword">const</span> ValueType&amp; tor_param3)</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;{</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    ValueType ac_term1_grad[3];</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    ValueType ac_ctr1_grad[3];</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    ValueType ac_ctr2_grad[3];</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    ValueType ac_term2_grad[3];</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160; </div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    ValueType phi_cos   = calcDihedralAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom1_pos, ctr_atom2_pos, term_atom2_pos, ac_term1_grad, ac_ctr1_grad,</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;                                                                   ac_ctr2_grad, ac_term2_grad);</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    ValueType phi       = std::acos(phi_cos);</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    ValueType phi_cos_2 = phi_cos * phi_cos;</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    ValueType div       = std::sqrt(1 - phi_cos_2);</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    chi_ijkl *= ValueType(180 / M_PI);</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    ValueType e_oop = ValueType(0.5 * 0.043844) * force_const * chi_ijkl * chi_ijkl;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordflow">return</span> e_oop;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;}</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; </div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ac16f50e9c328541438e1c99d1379be81">CDPL::ForceField::calcMMFF94TorsionGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;{</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94TorsionInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                                                          &amp;calcMMFF94TorsionGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;}</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160; </div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ac16f50e9c328541438e1c99d1379be81">CDPL::ForceField::calcMMFF94TorsionGradient</a>(<span class="keyword">const</span> MMFF94TorsionInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;{</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    <span class="keywordflow">return</span> calcMMFF94TorsionGradient&lt;ValueType&gt;(coords[iaction.getTerminalAtom1Index()], coords[iaction.getCenterAtom1Index()],</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                                                coords[iaction.getCenterAtom2Index()], coords[iaction.getTerminalAtom2Index()],</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;                                                grad[iaction.getTerminalAtom1Index()], grad[iaction.getCenterAtom1Index()], grad[iaction.getCenterAtom2Index()],</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;                                                grad[iaction.getTerminalAtom2Index()], iaction.getTorsionParameter1(), iaction.getTorsionParameter2(),</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;                                                iaction.getTorsionParameter3());</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;}</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;ValueType</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<a class="code" href="namespaceCDPL_1_1ForceField.html#ac16f50e9c328541438e1c99d1379be81">CDPL::ForceField::calcMMFF94TorsionGradient</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom2_pos,</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                                            <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, GradVec&amp; term_atom1_grad, GradVec&amp; ctr_atom1_grad, GradVec&amp; ctr_atom2_grad,</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                                            GradVec&amp; term_atom2_grad, <span class="keyword">const</span> ValueType&amp; tor_param1, <span class="keyword">const</span> ValueType&amp; tor_param2, <span class="keyword">const</span> ValueType&amp; tor_param3)</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;{</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    ValueType ac_term1_grad[3];</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    ValueType ac_ctr1_grad[3];</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    ValueType ac_ctr2_grad[3];</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    ValueType ac_term2_grad[3];</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; </div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    ValueType phi_cos   = calcDihedralAngleCosDerivatives&lt;ValueType&gt;(term_atom1_pos, ctr_atom1_pos, ctr_atom2_pos, term_atom2_pos, ac_term1_grad, ac_ctr1_grad,</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                                                                   ac_ctr2_grad, ac_term2_grad);</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    ValueType phi       = std::acos(phi_cos);</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    ValueType phi_cos_2 = phi_cos * phi_cos;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    ValueType div       = std::sqrt(1 - phi_cos_2);</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        div = ValueType(0.0000001);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160; </div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    ValueType grad_fact =</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        ValueType(-1) / div * (tor_param2 * std::sin(2 * phi) - ValueType(0.5) * tor_param1 * std::sin(phi) - ValueType(1.5) * tor_param3 * std::sin(3 * phi));</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160; </div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    Detail::scaleAddVector(ac_term1_grad, grad_fact, term_atom1_grad);</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    Detail::scaleAddVector(ac_ctr1_grad, grad_fact, ctr_atom1_grad);</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    Detail::scaleAddVector(ac_ctr2_grad, grad_fact, ctr_atom2_grad);</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    Detail::scaleAddVector(ac_term2_grad, grad_fact, term_atom2_grad);</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160; </div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    ValueType e_t = ValueType(0.5) * (tor_param1 * (1 + phi_cos) + tor_param2 * (1 - std::cos(2 * phi)) + tor_param3 * (1 + std::cos(3 * phi)));</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordflow">return</span> e_t;</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;}</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160; </div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a397916aba28d2a4982f441d7a6ea8a7a">CDPL::ForceField::calcMMFF94ElectrostaticGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;{</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94ElectrostaticInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                                                          &amp;calcMMFF94ElectrostaticGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;}</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160; </div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="keywordflow">if</span> (div &lt; ValueType(0.0000001))</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        div = ValueType(0.0000001);</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160; </div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    ValueType grad_fact =</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        ValueType(-1) / div * (tor_param2 * std::sin(2 * phi) - ValueType(0.5) * tor_param1 * std::sin(phi) - ValueType(1.5) * tor_param3 * std::sin(3 * phi));</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160; </div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    Detail::scaleAddVector(ac_term1_grad, grad_fact, term_atom1_grad);</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    Detail::scaleAddVector(ac_ctr1_grad, grad_fact, ctr_atom1_grad);</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    Detail::scaleAddVector(ac_ctr2_grad, grad_fact, ctr_atom2_grad);</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    Detail::scaleAddVector(ac_term2_grad, grad_fact, term_atom2_grad);</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    ValueType e_t = ValueType(0.5) * (tor_param1 * (1 + phi_cos) + tor_param2 * (1 - std::cos(2 * phi)) + tor_param3 * (1 + std::cos(3 * phi)));</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160; </div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    <span class="keywordflow">return</span> e_t;</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;}</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a397916aba28d2a4982f441d7a6ea8a7a">CDPL::ForceField::calcMMFF94ElectrostaticGradient</a>(<span class="keyword">const</span> MMFF94ElectrostaticInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;{</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="keywordflow">return</span> calcMMFF94ElectrostaticGradient&lt;ValueType&gt;(coords[iaction.getAtom1Index()], coords[iaction.getAtom2Index()], grad[iaction.getAtom1Index()],</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                                                      grad[iaction.getAtom2Index()], iaction.getAtom1Charge(), iaction.getAtom2Charge(),</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                                                      iaction.getScalingFactor(), iaction.getDielectricConstant(), iaction.getDistanceExponent());</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;}</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160; </div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a397916aba28d2a4982f441d7a6ea8a7a">CDPL::ForceField::calcMMFF94ElectrostaticGradient</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos, GradVec&amp; atom1_grad, GradVec&amp; atom2_grad,</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                                                            <span class="keyword">const</span> ValueType&amp; atom1_chg, <span class="keyword">const</span> ValueType&amp; atom2_chg, <span class="keyword">const</span> ValueType&amp; scale_fact,</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                                                            <span class="keyword">const</span> ValueType&amp; de_const, <span class="keyword">const</span> ValueType&amp; dist_expo)</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;{</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    ValueType dist_atom1_grad[3];</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    ValueType dist_atom2_grad[3];</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160; </div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a397916aba28d2a4982f441d7a6ea8a7a">CDPL::ForceField::calcMMFF94ElectrostaticGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;{</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94ElectrostaticInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                                                                &amp;calcMMFF94ElectrostaticGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;}</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160; </div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a397916aba28d2a4982f441d7a6ea8a7a">CDPL::ForceField::calcMMFF94ElectrostaticGradient</a>(<span class="keyword">const</span> MMFF94ElectrostaticInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;{</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    <span class="keywordflow">return</span> calcMMFF94ElectrostaticGradient&lt;ValueType&gt;(coords[iaction.getAtom1Index()], coords[iaction.getAtom2Index()], grad[iaction.getAtom1Index()],</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                                                      grad[iaction.getAtom2Index()], iaction.getAtom1Charge(), iaction.getAtom2Charge(),</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                                                      iaction.getScalingFactor(), iaction.getDielectricConstant(), iaction.getDistanceExponent());</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;}</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    ValueType r_ij = calcDistanceDerivatives&lt;ValueType&gt;(atom1_pos, atom2_pos, dist_atom1_grad, dist_atom2_grad);</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160; </div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    ValueType tmp1 = r_ij + ValueType(0.05);</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    ValueType tmp2 = std::pow(tmp1, dist_expo);</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    ValueType tmp3 = scale_fact * atom1_chg * atom2_chg / (de_const * tmp2);</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160; </div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    ValueType grad_fact = ValueType(-332.0716) * dist_expo * tmp3 / tmp1;</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160; </div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    Detail::scaleAddVector(dist_atom1_grad, grad_fact, atom1_grad);</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;    Detail::scaleAddVector(dist_atom2_grad, grad_fact, atom2_grad);</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160; </div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    <span class="keywordtype">double</span> e_q = ValueType(332.0716) * tmp3;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160; </div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    <span class="keywordflow">return</span> e_q;</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;}</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160; </div>
 <div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160; </div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a397916aba28d2a4982f441d7a6ea8a7a">CDPL::ForceField::calcMMFF94ElectrostaticGradient</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos, GradVec&amp; atom1_grad, GradVec&amp; atom2_grad,</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                                                            <span class="keyword">const</span> ValueType&amp; atom1_chg, <span class="keyword">const</span> ValueType&amp; atom2_chg, <span class="keyword">const</span> ValueType&amp; scale_fact,</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;                                                            <span class="keyword">const</span> ValueType&amp; de_const, <span class="keyword">const</span> ValueType&amp; dist_expo)</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;{</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    ValueType dist_atom1_grad[3];</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    ValueType dist_atom2_grad[3];</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3aa7a0c46a1de37be70fcf91491227f6">CDPL::ForceField::calcMMFF94VanDerWaalsGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;{</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    <span class="keywordflow">return</span> Detail::calcInteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;                                                      <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94VanDerWaalsInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;                                                          &amp;calcMMFF94VanDerWaalsGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;}</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    ValueType r_ij = calcDistanceDerivatives&lt;ValueType&gt;(atom1_pos, atom2_pos, dist_atom1_grad, dist_atom2_grad);</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160; </div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    ValueType tmp1 = r_ij + ValueType(0.05);</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    ValueType tmp2 = std::pow(tmp1, dist_expo);</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    ValueType tmp3 = scale_fact * atom1_chg * atom2_chg / (de_const * tmp2);</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160; </div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    ValueType grad_fact = ValueType(-332.0716) * dist_expo * tmp3 / tmp1;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160; </div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    Detail::scaleAddVector(dist_atom1_grad, grad_fact, atom1_grad);</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    Detail::scaleAddVector(dist_atom2_grad, grad_fact, atom2_grad);</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160; </div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    <span class="keywordtype">double</span> e_q = ValueType(332.0716) * tmp3;</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    <span class="keywordflow">return</span> e_q;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;}</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160; </div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3aa7a0c46a1de37be70fcf91491227f6">CDPL::ForceField::calcMMFF94VanDerWaalsGradient</a>(Iter beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;{</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    <span class="keywordflow">return</span> Detail::calcMMFF94InteractionGradient&lt;ValueType&gt;(beg, end, coords, grad,</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                                                            <span class="keyword">static_cast&lt;</span>ValueType (*)(<span class="keyword">const </span>MMFF94VanDerWaalsInteraction&amp;, <span class="keyword">const </span>CoordsArray&amp;, GradVector&amp;)<span class="keyword">&gt;</span>(</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;                                                                &amp;calcMMFF94VanDerWaalsGradient&lt;ValueType, CoordsArray, GradVector&gt;));</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;}</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3aa7a0c46a1de37be70fcf91491227f6">CDPL::ForceField::calcMMFF94VanDerWaalsGradient</a>(<span class="keyword">const</span> MMFF94VanDerWaalsInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;{</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordflow">return</span> calcMMFF94VanDerWaalsGradient&lt;ValueType&gt;(coords[iaction.getAtom1Index()], coords[iaction.getAtom2Index()], grad[iaction.getAtom1Index()],</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;                                                    grad[iaction.getAtom2Index()], iaction.getEIJ(), iaction.getRIJ(), iaction.getRIJPow7());</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;}</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160; </div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3aa7a0c46a1de37be70fcf91491227f6">CDPL::ForceField::calcMMFF94VanDerWaalsGradient</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos, GradVec&amp; atom1_grad, GradVec&amp; atom2_grad,</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                                                          <span class="keyword">const</span> ValueType&amp; e_IJ, <span class="keyword">const</span> ValueType&amp; r_IJ, <span class="keyword">const</span> ValueType&amp; r_IJ_7)</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;{</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    ValueType dist_atom1_grad[3];</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;    ValueType dist_atom2_grad[3];</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    ValueType r_ij   = calcDistanceDerivatives&lt;ValueType&gt;(atom1_pos, atom2_pos, dist_atom1_grad, dist_atom2_grad);</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    ValueType r_ij_2 = r_ij * r_ij;</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    ValueType r_ij_6 = r_ij_2 * r_ij_2 * r_ij_2;</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    ValueType r_ij_7 = r_ij_6 * r_ij;</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160; </div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    ValueType tmp1   = r_ij + ValueType(0.07) * r_IJ;</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    ValueType tmp1_2 = tmp1 * tmp1;</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    ValueType tmp1_4 = tmp1_2 * tmp1_2;</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160; </div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    ValueType tmp2 = r_ij_7 + ValueType(0.12) * r_IJ_7;</div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3aa7a0c46a1de37be70fcf91491227f6">CDPL::ForceField::calcMMFF94VanDerWaalsGradient</a>(<span class="keyword">const</span> MMFF94VanDerWaalsInteraction&amp; iaction, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;{</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    <span class="keywordflow">return</span> calcMMFF94VanDerWaalsGradient&lt;ValueType&gt;(coords[iaction.getAtom1Index()], coords[iaction.getAtom2Index()], grad[iaction.getAtom1Index()],</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;                                                    grad[iaction.getAtom2Index()], iaction.getEIJ(), iaction.getRIJ(), iaction.getRIJPow7());</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;}</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160; </div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3aa7a0c46a1de37be70fcf91491227f6">CDPL::ForceField::calcMMFF94VanDerWaalsGradient</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos, GradVec&amp; atom1_grad, GradVec&amp; atom2_grad,</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;                                                          <span class="keyword">const</span> ValueType&amp; e_IJ, <span class="keyword">const</span> ValueType&amp; r_IJ, <span class="keyword">const</span> ValueType&amp; r_IJ_7)</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;{</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    ValueType dist_atom1_grad[3];</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    ValueType dist_atom2_grad[3];</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; </div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    ValueType r_ij   = calcDistanceDerivatives&lt;ValueType&gt;(atom1_pos, atom2_pos, dist_atom1_grad, dist_atom2_grad);</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    ValueType r_ij_2 = r_ij * r_ij;</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    ValueType r_ij_6 = r_ij_2 * r_ij_2 * r_ij_2;</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    ValueType r_ij_7 = r_ij_6 * r_ij;</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160; </div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    ValueType tmp1   = r_ij + ValueType(0.07) * r_IJ;</div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    ValueType tmp1_2 = tmp1 * tmp1;</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    ValueType tmp1_4 = tmp1_2 * tmp1_2;</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    ValueType tmp2 = r_ij_7 + ValueType(0.12) * r_IJ_7;</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; </div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    ValueType tmp3   = ValueType(1.07) * r_IJ / (r_ij + ValueType(0.07) * r_IJ);</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;    ValueType tmp3_2 = tmp3 * tmp3;</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    ValueType tmp3_7 = tmp3_2 * tmp3_2 * tmp3_2 * tmp3;</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160; </div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;    ValueType grad_fact = -r_IJ_7 * e_IJ / (tmp1_4 * tmp1_4 * tmp2 * tmp2) *</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                          (ValueType(-22.48094067) * r_ij_7 * r_ij_7 + ValueType(19.78322779) * r_ij_7 * r_IJ_7 +</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                           ValueType(0.8812528743) * r_ij_6 * r_IJ_7 * r_IJ + ValueType(1.186993667) * r_IJ_7 * r_IJ_7);</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; </div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    Detail::scaleAddVector(dist_atom1_grad, grad_fact, atom1_grad);</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    Detail::scaleAddVector(dist_atom2_grad, grad_fact, atom2_grad);</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160; </div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    ValueType e_vdw = e_IJ * tmp3_7 * (ValueType(1.12) * r_IJ_7 / tmp2 - 2);</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160; </div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keywordflow">return</span> e_vdw;</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;}</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160; </div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;<span class="comment">// \endcond</span></div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160; </div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="preprocessor">#endif // CDPL_FORCEFIELD_MMFF94GRADIENTFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    ValueType tmp3   = ValueType(1.07) * r_IJ / (r_ij + ValueType(0.07) * r_IJ);</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;    ValueType tmp3_2 = tmp3 * tmp3;</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;    ValueType tmp3_7 = tmp3_2 * tmp3_2 * tmp3_2 * tmp3;</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160; </div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    ValueType grad_fact = -r_IJ_7 * e_IJ / (tmp1_4 * tmp1_4 * tmp2 * tmp2) *</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;                          (ValueType(-22.48094067) * r_ij_7 * r_ij_7 + ValueType(19.78322779) * r_ij_7 * r_IJ_7 +</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;                           ValueType(0.8812528743) * r_ij_6 * r_IJ_7 * r_IJ + ValueType(1.186993667) * r_IJ_7 * r_IJ_7);</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160; </div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    Detail::scaleAddVector(dist_atom1_grad, grad_fact, atom1_grad);</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    Detail::scaleAddVector(dist_atom2_grad, grad_fact, atom2_grad);</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; </div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    ValueType e_vdw = e_IJ * tmp3_7 * (ValueType(1.12) * r_IJ_7 / tmp2 - 2);</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160; </div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    <span class="keywordflow">return</span> e_vdw;</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;}</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160; </div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment">// \endcond</span></div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="preprocessor">#endif // CDPL_FORCEFIELD_MMFF94GRADIENTFUNCTIONS_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aMMFF94OutOfPlaneBendingInteraction_8hpp_html"><div class="ttname"><a href="MMFF94OutOfPlaneBendingInteraction_8hpp.html">MMFF94OutOfPlaneBendingInteraction.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94OutOfPlaneBendingInteraction.</div></div>
 <div class="ttc" id="aMMFF94ElectrostaticInteraction_8hpp_html"><div class="ttname"><a href="MMFF94ElectrostaticInteraction_8hpp.html">MMFF94ElectrostaticInteraction.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94ElectrostaticInteraction.</div></div>

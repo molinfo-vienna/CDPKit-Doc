@@ -18,7 +18,7 @@
     jax: ["input/TeX","output/NativeMML"],
 });
 </script>
-<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -110,6 +110,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1Error.html">Error</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html">GradientVectorTraits</a></td></tr>
@@ -204,6 +206,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:ad8a2a9aca2dd5953ad1fd2709f0717a4"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Util_1_1Array.html">Util::Array</a>&lt; <a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#ad8a2a9aca2dd5953ad1fd2709f0717a4">ElasticPotentialData</a></td></tr>
+<tr class="separator:ad8a2a9aca2dd5953ad1fd2709f0717a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc88ed1c43aa1f0c02d4e9aabe3706ba"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#afc88ed1c43aa1f0c02d4e9aabe3706ba">InteractionFilterFunction2</a></td></tr>
 <tr class="separator:afc88ed1c43aa1f0c02d4e9aabe3706ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c4e9451c5b421066c55ac067d743f1"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#aa8c4e9451c5b421066c55ac067d743f1">InteractionFilterFunction3</a></td></tr>
@@ -287,6 +291,26 @@ Functions</h2></td></tr>
 <tr class="separator:a2c56f6aafe42486f02afb3a44446e847"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab796176eb8c24f745a8b3a0b56de2429"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ForceField_2APIPrefix_8hpp.html#a50b9c973ab0f3bba2f059e01d2985eeb">CDPL_FORCEFIELD_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#ab796176eb8c24f745a8b3a0b56de2429">hasMMFF94TypeIndex</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Chem::Bond</a> &amp;bond)</td></tr>
 <tr class="separator:ab796176eb8c24f745a8b3a0b56de2429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a095fb8bf3d3496b1a952aa3a33c20afc"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename Iter , typename CoordsArray &gt; </td></tr>
+<tr class="memitem:a095fb8bf3d3496b1a952aa3a33c20afc"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#a095fb8bf3d3496b1a952aa3a33c20afc">calcElasticPotentialEnergy</a> (Iter beg, const Iter &amp;end, const CoordsArray &amp;coords)</td></tr>
+<tr class="separator:a095fb8bf3d3496b1a952aa3a33c20afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ceb4cf8351d82c87a0a72aa939105f2"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename CoordsArray &gt; </td></tr>
+<tr class="memitem:a5ceb4cf8351d82c87a0a72aa939105f2"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#a5ceb4cf8351d82c87a0a72aa939105f2">calcElasticPotentialEnergy</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a> &amp;pot, const CoordsArray &amp;coords)</td></tr>
+<tr class="separator:a5ceb4cf8351d82c87a0a72aa939105f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc3faeb59f29c1cae0cdcbe224b89f2"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename CoordsVec &gt; </td></tr>
+<tr class="memitem:afbc3faeb59f29c1cae0cdcbe224b89f2"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#afbc3faeb59f29c1cae0cdcbe224b89f2">calcElasticPotentialEnergy</a> (const CoordsVec &amp;atom1_pos, const CoordsVec &amp;atom2_pos, const ValueType &amp;force_const, const ValueType &amp;ref_length)</td></tr>
+<tr class="memdesc:afbc3faeb59f29c1cae0cdcbe224b89f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the energy \( E_{ij} \) of an elastic potential applied on a pair of atoms <em>i-j</em>.  <a href="namespaceCDPL_1_1ForceField.html#afbc3faeb59f29c1cae0cdcbe224b89f2">More...</a><br /></td></tr>
+<tr class="separator:afbc3faeb59f29c1cae0cdcbe224b89f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b02df0f4292a1f7d92128c4dbac31be"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename Iter , typename CoordsArray , typename GradVector &gt; </td></tr>
+<tr class="memitem:a4b02df0f4292a1f7d92128c4dbac31be"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#a4b02df0f4292a1f7d92128c4dbac31be">calcElasticPotentialGradient</a> (Iter beg, const Iter &amp;end, const CoordsArray &amp;coords, GradVector &amp;grad)</td></tr>
+<tr class="separator:a4b02df0f4292a1f7d92128c4dbac31be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1e63b442f1df7cb8276beff81a14218"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename CoordsArray , typename GradVector &gt; </td></tr>
+<tr class="memitem:aa1e63b442f1df7cb8276beff81a14218"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#aa1e63b442f1df7cb8276beff81a14218">calcElasticPotentialGradient</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a> &amp;pot, const CoordsArray &amp;coords, GradVector &amp;grad)</td></tr>
+<tr class="separator:aa1e63b442f1df7cb8276beff81a14218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a6a1abb2e1e29771831b0363605b53a"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename CoordsVec , typename GradVec &gt; </td></tr>
+<tr class="memitem:a7a6a1abb2e1e29771831b0363605b53a"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#a7a6a1abb2e1e29771831b0363605b53a">calcElasticPotentialGradient</a> (const CoordsVec &amp;atom1_pos, const CoordsVec &amp;atom2_pos, GradVec &amp;atom1_grad, GradVec &amp;atom2_grad, const ValueType &amp;force_const, const ValueType &amp;ref_length)</td></tr>
+<tr class="memdesc:a7a6a1abb2e1e29771831b0363605b53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the elastic potential energy gradient \( \nabla E_{ij} \) for a pair of atoms <em>i-j</em>.  <a href="namespaceCDPL_1_1ForceField.html#a7a6a1abb2e1e29771831b0363605b53a">More...</a><br /></td></tr>
+<tr class="separator:a7a6a1abb2e1e29771831b0363605b53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b9afc2145d8ca89494c7e47efea37d6"><td class="memTemplParams" colspan="2">template&lt;typename ValueType , typename Iter , typename CoordsArray &gt; </td></tr>
 <tr class="memitem:a8b9afc2145d8ca89494c7e47efea37d6"><td class="memTemplItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ForceField.html#a8b9afc2145d8ca89494c7e47efea37d6">calcMMFF94BondStretchingEnergy</a> (Iter beg, const Iter &amp;end, const CoordsArray &amp;coords)</td></tr>
 <tr class="separator:a8b9afc2145d8ca89494c7e47efea37d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -537,6 +561,20 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains classes and functions related to molecular force fields. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="ad8a2a9aca2dd5953ad1fd2709f0717a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a2a9aca2dd5953ad1fd2709f0717a4">&#9670;&nbsp;</a></span>ElasticPotentialData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classCDPL_1_1Util_1_1Array.html">Util::Array</a>&lt;<a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a>&gt; <a class="el" href="namespaceCDPL_1_1ForceField.html#ad8a2a9aca2dd5953ad1fd2709f0717a4">CDPL::ForceField::ElasticPotentialData</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afc88ed1c43aa1f0c02d4e9aabe3706ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc88ed1c43aa1f0c02d4e9aabe3706ba">&#9670;&nbsp;</a></span>InteractionFilterFunction2</h2>
 
@@ -1209,6 +1247,293 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a095fb8bf3d3496b1a952aa3a33c20afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a095fb8bf3d3496b1a952aa3a33c20afc">&#9670;&nbsp;</a></span>calcElasticPotentialEnergy() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename Iter , typename CoordsArray &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueType CDPL::ForceField::calcElasticPotentialEnergy </td>
+          <td>(</td>
+          <td class="paramtype">Iter&#160;</td>
+          <td class="paramname"><em>beg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Iter &amp;&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordsArray &amp;&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ceb4cf8351d82c87a0a72aa939105f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ceb4cf8351d82c87a0a72aa939105f2">&#9670;&nbsp;</a></span>calcElasticPotentialEnergy() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename CoordsArray &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueType CDPL::ForceField::calcElasticPotentialEnergy </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a> &amp;&#160;</td>
+          <td class="paramname"><em>pot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordsArray &amp;&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbc3faeb59f29c1cae0cdcbe224b89f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc3faeb59f29c1cae0cdcbe224b89f2">&#9670;&nbsp;</a></span>calcElasticPotentialEnergy() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename CoordsVec &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueType CDPL::ForceField::calcElasticPotentialEnergy </td>
+          <td>(</td>
+          <td class="paramtype">const CoordsVec &amp;&#160;</td>
+          <td class="paramname"><em>atom1_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordsVec &amp;&#160;</td>
+          <td class="paramname"><em>atom2_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueType &amp;&#160;</td>
+          <td class="paramname"><em>force_const</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueType &amp;&#160;</td>
+          <td class="paramname"><em>ref_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the energy \( E_{ij} \) of an elastic potential applied on a pair of atoms <em>i-j</em>. </p>
+<p>\( E_{ij} = \frac{k_{ij}}{2} \: \Delta r_{ij}^2 \)</p>
+<p>where<br  />
+ \( k_{ij} \) = the force constant of the elastic potential.<br  />
+ \( \Delta r_{ij} \) = \( r_{ij} - r_{ij}^0 \), the difference between actual and reference distance of the atoms <em>i</em> and <em>j</em>.<br  />
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom1_pos</td><td>The position of atom <em>i</em>. </td></tr>
+    <tr><td class="paramname">atom2_pos</td><td>The position of atom <em>j</em>. </td></tr>
+    <tr><td class="paramname">force_const</td><td>The force constant \( k_{ij} \). </td></tr>
+    <tr><td class="paramname">ref_length</td><td>The reference distance \( r_{ij}^0 \). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The calculated elastic potential energy \( E_{ij} \). </dd></dl>
+
+</div>
+</div>
+<a id="a4b02df0f4292a1f7d92128c4dbac31be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b02df0f4292a1f7d92128c4dbac31be">&#9670;&nbsp;</a></span>calcElasticPotentialGradient() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename Iter , typename CoordsArray , typename GradVector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueType CDPL::ForceField::calcElasticPotentialGradient </td>
+          <td>(</td>
+          <td class="paramtype">Iter&#160;</td>
+          <td class="paramname"><em>beg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Iter &amp;&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordsArray &amp;&#160;</td>
+          <td class="paramname"><em>coords</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GradVector &amp;&#160;</td>
+          <td class="paramname"><em>grad</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1e63b442f1df7cb8276beff81a14218"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1e63b442f1df7cb8276beff81a14218">&#9670;&nbsp;</a></span>calcElasticPotentialGradient() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename CoordsArray , typename GradVector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueType CDPL::ForceField::calcElasticPotentialGradient </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a> &amp;&#160;</td>
+          <td class="paramname"><em>pot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordsArray &amp;&#160;</td>
+          <td class="paramname"><em>coords</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GradVector &amp;&#160;</td>
+          <td class="paramname"><em>grad</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a6a1abb2e1e29771831b0363605b53a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a6a1abb2e1e29771831b0363605b53a">&#9670;&nbsp;</a></span>calcElasticPotentialGradient() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType , typename CoordsVec , typename GradVec &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueType CDPL::ForceField::calcElasticPotentialGradient </td>
+          <td>(</td>
+          <td class="paramtype">const CoordsVec &amp;&#160;</td>
+          <td class="paramname"><em>atom1_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CoordsVec &amp;&#160;</td>
+          <td class="paramname"><em>atom2_pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GradVec &amp;&#160;</td>
+          <td class="paramname"><em>atom1_grad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GradVec &amp;&#160;</td>
+          <td class="paramname"><em>atom2_grad</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueType &amp;&#160;</td>
+          <td class="paramname"><em>force_const</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueType &amp;&#160;</td>
+          <td class="paramname"><em>ref_length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the elastic potential energy gradient \( \nabla E_{ij} \) for a pair of atoms <em>i-j</em>. </p>
+<p>Energy function:<br  />
+</p>
+<p>\( E_{ij} = \frac{k_{ij}}{2} \: \Delta r_{ij}^2 \)</p>
+<p>The partial derivatives with respect to the atom coordinates \( \vec{p_x} \) are calculated by:<br  />
+</p>
+<p>\( \frac{\partial E_{ij}}{\partial \vec{p_x}} = \frac{\partial E_{ij}}{\partial \Delta r_{ij}} \: \frac{\partial \Delta r_{ij}}{\partial \vec{p_x}} \)<br  />
+</p>
+<p>\( \frac{\partial E_{ij}}{\partial \Delta r_{ij}} = \Delta r_{ij} \: k_{ij} \)<br  />
+</p>
+<p>for the calculation of the partial derivatives \( \frac{\partial \Delta r_{ij}}{\partial \vec{p_x}} \) see <a class="el" href="namespaceCDPL_1_1ForceField.html#afdf8e8f71ad6524a368ad5cbd03f32bf" title="Calculates the partial derivatives  of the distance  between two atoms i and j.">calcDistanceDerivatives()</a>.</p>
+<p>where<br  />
+ \( k_{ij} \) = the force constant of the elastic potential.<br  />
+ \( \Delta r_{ij} \) = \( r_{ij} - r_{ij}^0 \), the difference between actual and reference distance of the atoms <em>i</em> and <em>j</em>.<br  />
+ \( \vec{p_x} \) = coordinates of the atoms <em>i</em> and <em>j</em>.<br  />
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom1_pos</td><td>The position \( \vec{p_i} \) of atom <em>i</em>. </td></tr>
+    <tr><td class="paramname">atom2_pos</td><td>The position \( \vec{p_j} \) of atom <em>j</em>. </td></tr>
+    <tr><td class="paramname">atom1_grad</td><td>The output variable storing the accumulated energy gradient contributions for atom <em>i</em>. </td></tr>
+    <tr><td class="paramname">atom2_grad</td><td>The output variable storing the accumulated energy gradient contributions for atom <em>j</em>. </td></tr>
+    <tr><td class="paramname">force_const</td><td>The force constant \( k_{ij} \). </td></tr>
+    <tr><td class="paramname">ref_length</td><td>The reference distance \( r_{ij}^0 \). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The calculated elastic potential energy \( E_{ij} \). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The calculated partial energy derivative (see above) for an atom gets <em>added</em> to the corresponding output variable! </dd></dl>
 
 </div>
 </div>

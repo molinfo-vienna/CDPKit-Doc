@@ -18,7 +18,7 @@
     jax: ["input/TeX","output/NativeMML"],
 });
 </script>
-<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -168,8 +168,11 @@ $(function() {
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MMFF94OutOfPlaneBendingParameterTable_8hpp.html">CDPL/ForceField/MMFF94OutOfPlaneBendingParameterTable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MMFF94TorsionParameterTable_8hpp.html">CDPL/ForceField/MMFF94TorsionParameterTable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="MMFF94VanDerWaalsParameterTable_8hpp.html">CDPL/ForceField/MMFF94VanDerWaalsParameterTable.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif // CDPL_FORCEFIELD_HPP</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ElasticPotential_8hpp.html">CDPL/ForceField/ElasticPotential.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ElasticPotentialData_8hpp.html">CDPL/ForceField/ElasticPotentialData.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ElasticPotentialFunctions_8hpp.html">CDPL/ForceField/ElasticPotentialFunctions.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // CDPL_FORCEFIELD_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aMMFF94BondChargeIncrementTable_8hpp_html"><div class="ttname"><a href="MMFF94BondChargeIncrementTable_8hpp.html">MMFF94BondChargeIncrementTable.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94BondChargeIncrementTable.</div></div>
 <div class="ttc" id="aMMFF94InteractionParameterizer_8hpp_html"><div class="ttname"><a href="MMFF94InteractionParameterizer_8hpp.html">MMFF94InteractionParameterizer.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94InteractionParameterizer.</div></div>
@@ -188,7 +191,7 @@ $(function() {
 <div class="ttc" id="aMMFF94SymbolicToNumericAtomTypeMap_8hpp_html"><div class="ttname"><a href="MMFF94SymbolicToNumericAtomTypeMap_8hpp.html">MMFF94SymbolicToNumericAtomTypeMap.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94SymbolicToNumericAtomTypeMap.</div></div>
 <div class="ttc" id="aForceField_2UtilityFunctions_8hpp_html"><div class="ttname"><a href="ForceField_2UtilityFunctions_8hpp.html">UtilityFunctions.hpp</a></div><div class="ttdoc">Utility functions used in the calculation of force field energies and gradients.</div></div>
 <div class="ttc" id="aMMFF94ChargeCalculator_8hpp_html"><div class="ttname"><a href="MMFF94ChargeCalculator_8hpp.html">MMFF94ChargeCalculator.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94ChargeCalculator.</div></div>
-<div class="ttc" id="aMMFF94GradientFunctions_8hpp_html"><div class="ttname"><a href="MMFF94GradientFunctions_8hpp.html">MMFF94GradientFunctions.hpp</a></div><div class="ttdoc">Functions for the calculation of MMFF94 interaction energies.</div></div>
+<div class="ttc" id="aMMFF94GradientFunctions_8hpp_html"><div class="ttname"><a href="MMFF94GradientFunctions_8hpp.html">MMFF94GradientFunctions.hpp</a></div><div class="ttdoc">Functions for the calculation of MMFF94 interaction energy gradients.</div></div>
 <div class="ttc" id="aMMFF94VanDerWaalsInteractionParameterizer_8hpp_html"><div class="ttname"><a href="MMFF94VanDerWaalsInteractionParameterizer_8hpp.html">MMFF94VanDerWaalsInteractionParameterizer.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94VanDerWaalsInteractionParameterizer.</div></div>
 <div class="ttc" id="aMMFF94OutOfPlaneBendingInteractionData_8hpp_html"><div class="ttname"><a href="MMFF94OutOfPlaneBendingInteractionData_8hpp.html">MMFF94OutOfPlaneBendingInteractionData.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94OutOfPlaneBendingInteractionData.</div></div>
 <div class="ttc" id="aInteractionFilterFunctions_8hpp_html"><div class="ttname"><a href="InteractionFilterFunctions_8hpp.html">InteractionFilterFunctions.hpp</a></div><div class="ttdoc">Type definition of generic wrapper classes for storing user-defined interaction filtering functions.</div></div>
@@ -225,16 +228,19 @@ $(function() {
 <div class="ttc" id="aMMFF94AtomTypePropertyTable_8hpp_html"><div class="ttname"><a href="MMFF94AtomTypePropertyTable_8hpp.html">MMFF94AtomTypePropertyTable.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94AtomTypePropertyTable.</div></div>
 <div class="ttc" id="aMMFF94AngleBendingInteractionParameterizer_8hpp_html"><div class="ttname"><a href="MMFF94AngleBendingInteractionParameterizer_8hpp.html">MMFF94AngleBendingInteractionParameterizer.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94AngleBendingInteractionParameterizer.</div></div>
 <div class="ttc" id="aMMFF94TorsionParameterTable_8hpp_html"><div class="ttname"><a href="MMFF94TorsionParameterTable_8hpp.html">MMFF94TorsionParameterTable.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94TorsionParameterTable.</div></div>
+<div class="ttc" id="aElasticPotentialFunctions_8hpp_html"><div class="ttname"><a href="ElasticPotentialFunctions_8hpp.html">ElasticPotentialFunctions.hpp</a></div><div class="ttdoc">Functions for the calculation of force fieldelastic potential energies and gradients.</div></div>
 <div class="ttc" id="aUFFAtomType_8hpp_html"><div class="ttname"><a href="UFFAtomType_8hpp.html">UFFAtomType.hpp</a></div><div class="ttdoc">Definition of constants in namespace CDPL::ForceField::UFFAtomType.</div></div>
 <div class="ttc" id="aMMFF94EnergyCalculator_8hpp_html"><div class="ttname"><a href="MMFF94EnergyCalculator_8hpp.html">MMFF94EnergyCalculator.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94EnergyCalculator.</div></div>
 <div class="ttc" id="aInteractionType_8hpp_html"><div class="ttname"><a href="InteractionType_8hpp.html">InteractionType.hpp</a></div><div class="ttdoc">Definition of constants in namespace CDPL::ForceField::InteractionType.</div></div>
 <div class="ttc" id="aGradientVectorTraits_8hpp_html"><div class="ttname"><a href="GradientVectorTraits_8hpp.html">GradientVectorTraits.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::GradientVectorTraits.</div></div>
 <div class="ttc" id="aUFFAtomTypePropertyTable_8hpp_html"><div class="ttname"><a href="UFFAtomTypePropertyTable_8hpp.html">UFFAtomTypePropertyTable.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::UFFAtomTypePropertyTable.</div></div>
 <div class="ttc" id="aMMFF94AngleBendingInteraction_8hpp_html"><div class="ttname"><a href="MMFF94AngleBendingInteraction_8hpp.html">MMFF94AngleBendingInteraction.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94AngleBendingInteraction.</div></div>
+<div class="ttc" id="aElasticPotential_8hpp_html"><div class="ttname"><a href="ElasticPotential_8hpp.html">ElasticPotential.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::ElasticPotential.</div></div>
 <div class="ttc" id="aMMFF94PropertyFunctions_8hpp_html"><div class="ttname"><a href="MMFF94PropertyFunctions_8hpp.html">MMFF94PropertyFunctions.hpp</a></div><div class="ttdoc">Type definition of generic wrapper classes for storing user-defined functions for the retrieval of MM...</div></div>
 <div class="ttc" id="aMMFF94FormalAtomChargeDefinitionTable_8hpp_html"><div class="ttname"><a href="MMFF94FormalAtomChargeDefinitionTable_8hpp.html">MMFF94FormalAtomChargeDefinitionTable.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94FormalAtomChargeDefinitionTable.</div></div>
 <div class="ttc" id="aForceField_2BondFunctions_8hpp_html"><div class="ttname"><a href="ForceField_2BondFunctions_8hpp.html">BondFunctions.hpp</a></div><div class="ttdoc">Declaration of functions that operate on Chem::Bond instances.</div></div>
 <div class="ttc" id="aMMFF94InteractionData_8hpp_html"><div class="ttname"><a href="MMFF94InteractionData_8hpp.html">MMFF94InteractionData.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::MMFF94InteractionData.</div></div>
+<div class="ttc" id="aElasticPotentialData_8hpp_html"><div class="ttname"><a href="ElasticPotentialData_8hpp.html">ElasticPotentialData.hpp</a></div><div class="ttdoc">Definition of the class CDPL::ForceField::ElasticPotentialData.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
