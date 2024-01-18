@@ -1357,7 +1357,7 @@ template&lt;typename ValueType , typename CoordsVec &gt; </div>
 </div><div class="memdoc">
 
 <p>Calculates the energy \( E_{ij} \) of an elastic potential applied on a pair of atoms <em>i-j</em>. </p>
-<p>\( E_{ij} = \frac{k_{ij}}{2} \: \Delta r_{ij}^2 \)</p>
+<p>\( E_{ij} = k_{ij} \: \Delta r_{ij}^2 \)</p>
 <p>where<br  />
  \( k_{ij} \) = the force constant of the elastic potential.<br  />
  \( \Delta r_{ij} \) = \( r_{ij} - r_{ij}^0 \), the difference between actual and reference distance of the atoms <em>i</em> and <em>j</em>.<br  />
@@ -1508,12 +1508,12 @@ template&lt;typename ValueType , typename CoordsVec , typename GradVec &gt; </di
 <p>Calculates the elastic potential energy gradient \( \nabla E_{ij} \) for a pair of atoms <em>i-j</em>. </p>
 <p>Energy function:<br  />
 </p>
-<p>\( E_{ij} = \frac{k_{ij}}{2} \: \Delta r_{ij}^2 \)</p>
+<p>\( E_{ij} = k_{ij} \: \Delta r_{ij}^2 \)</p>
 <p>The partial derivatives with respect to the atom coordinates \( \vec{p_x} \) are calculated by:<br  />
 </p>
 <p>\( \frac{\partial E_{ij}}{\partial \vec{p_x}} = \frac{\partial E_{ij}}{\partial \Delta r_{ij}} \: \frac{\partial \Delta r_{ij}}{\partial \vec{p_x}} \)<br  />
 </p>
-<p>\( \frac{\partial E_{ij}}{\partial \Delta r_{ij}} = \Delta r_{ij} \: k_{ij} \)<br  />
+<p>\( \frac{\partial E_{ij}}{\partial \Delta r_{ij}} = 2 \: \Delta r_{ij} \: k_{ij} \)<br  />
 </p>
 <p>for the calculation of the partial derivatives \( \frac{\partial \Delta r_{ij}}{\partial \vec{p_x}} \) see <a class="el" href="namespaceCDPL_1_1ForceField.html#afdf8e8f71ad6524a368ad5cbd03f32bf" title="Calculates the partial derivatives  of the distance  between two atoms i and j.">calcDistanceDerivatives()</a>.</p>
 <p>where<br  />
