@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['m_3294',['M',['../classCDPL_1_1Chem_1_1AtomType.html#a4920a36f33fe13e815479cf3fced8ee4',1,'CDPL.Chem.AtomType.M()'],['../classCDPL_1_1Chem_1_1CIPDescriptor.html#a2d03cf24571f43d74bbc1d3d53375245',1,'CDPL.Chem.CIPDescriptor.M()'],['../classCDPL_1_1Chem_1_1CIPDescriptor.html#aec65392a4fe44869612aeae074f3914a',1,'CDPL.Chem.CIPDescriptor.m()']]],
+  ['m_3294',['m',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#aec65392a4fe44869612aeae074f3914a',1,'CDPL.Chem.CIPDescriptor.m()'],['../classCDPL_1_1Chem_1_1AtomType.html#a4920a36f33fe13e815479cf3fced8ee4',1,'CDPL.Chem.AtomType.M()'],['../classCDPL_1_1Chem_1_1CIPDescriptor.html#a2d03cf24571f43d74bbc1d3d53375245',1,'CDPL.Chem.CIPDescriptor.M()']]],
   ['magenta_3295',['MAGENTA',['../classCDPL_1_1Vis_1_1Color.html#ae01002e1fbf8ba74ecde77065bbde522',1,'CDPL::Vis::Color']]],
   ['makehydrogencomplete_3296',['makeHydrogenComplete',['../namespaceCDPL_1_1Chem.html#a5d4964a7766cee7fb630a76403d12c27',1,'CDPL::Chem']]],
   ['makehydrogendeplete_3297',['makeHydrogenDeplete',['../namespaceCDPL_1_1Chem.html#abd60d5c641d7ab837fb551af7a28f9db',1,'CDPL.Chem.makeHydrogenDeplete(Fragment frag)'],['../namespaceCDPL_1_1Chem.html#a3d35c8169e703efb56a29db3d61102b5',1,'CDPL.Chem.makeHydrogenDeplete(Molecule mol, bool corr_impl_h_count=True)']]],
