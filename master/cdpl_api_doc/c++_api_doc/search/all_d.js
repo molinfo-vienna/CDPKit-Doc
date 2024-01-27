@@ -8,7 +8,7 @@ var searchData=
   ['bondfunctions_2ehpp_4160',['BondFunctions.hpp',['../MolProp_2BondFunctions_8hpp.html',1,'']]],
   ['bondproperty_2ehpp_4161',['BondProperty.hpp',['../MolProp_2BondProperty_8hpp.html',1,'']]],
   ['grid_2ehpp_4162',['Grid.hpp',['../Math_2Grid_8hpp.html',1,'']]],
-  ['m_4163',['M',['../namespaceCDPL_1_1Chem_1_1AtomType.html#a5de5188d7be5bcdbdce75585952ae2e2',1,'CDPL::Chem::AtomType::M()'],['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#aa375986ecb8ebe245a2d2a023b80fa4c',1,'CDPL::Chem::CIPDescriptor::M()'],['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a39114fa9e5526d4c90cade1ff456e47d',1,'CDPL::Chem::CIPDescriptor::m()']]],
+  ['m_4163',['m',['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a39114fa9e5526d4c90cade1ff456e47d',1,'CDPL::Chem::CIPDescriptor::m()'],['../namespaceCDPL_1_1Chem_1_1AtomType.html#a5de5188d7be5bcdbdce75585952ae2e2',1,'CDPL::Chem::AtomType::M()'],['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#aa375986ecb8ebe245a2d2a023b80fa4c',1,'CDPL::Chem::CIPDescriptor::M()']]],
   ['magenta_4164',['MAGENTA',['../classCDPL_1_1Vis_1_1Color.html#ad7ce0e76925674af77b506245b24d47e',1,'CDPL::Vis::Color']]],
   ['mainpage_2edoc_4165',['Mainpage.doc',['../Mainpage_8doc.html',1,'']]],
   ['makehydrogencomplete_4166',['makeHydrogenComplete',['../namespaceCDPL_1_1Chem.html#ae4f3ba95eccda66c435edba94949fe57',1,'CDPL::Chem']]],
