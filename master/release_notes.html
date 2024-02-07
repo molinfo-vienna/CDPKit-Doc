@@ -53,7 +53,8 @@
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#release-v1-0-0">Release v1.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-v1-1-0">Release V1.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-v1-0-0">Release V1.0.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
@@ -86,11 +87,101 @@
            <div itemprop="articleBody">
              
   <section id="release-notes">
-<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+<section id="release-v1-1-0">
+<h2>Release V1.1.0<a class="headerlink" href="#release-v1-1-0" title="Permalink to this heading"></a></h2>
+<p>Changes since V1.0.0:</p>
+<p class="rubric">New Functionality and Features</p>
+<ul class="simple">
+<li><p>The tool <a class="reference internal" href="applications/tautgen.html"><span class="doc">tautgen</span></a> provides two new tautomer generation modes <code class="docutils literal notranslate"><span class="pre">BEST_SCORING</span></code> and <code class="docutils literal notranslate"><span class="pre">BEST_SCORING_UNIQUE</span></code>
+(the new default mode) for generating only the chemically most reasonable tautomers</p></li>
+<li><p>New option in class <em>Chem::TautomerGenerator</em> that allows to suppress the output of generated tautomers
+which represent just a different resonance structure of a previously reported tautomeric form</p></li>
+<li><p>New <a class="reference internal" href="applications/structgen.html"><span class="doc">structgen</span></a> feature that allows to enforce a particular 3D structure for defined parts of the input molecules</p></li>
+<li><p>New <a class="reference internal" href="applications/confgen.html"><span class="doc">confgen</span></a> feature that allows to specify substructures of the input molecules that
+shall adopt a particular conformation which is then kept ‘fixed’ during conformer generation
+(more information and examples can be found <a class="reference internal" href="applications/confgen.html#confgen-notes-v1-1"><span class="std std-ref">here</span></a>)</p></li>
+<li><p>Conformer generator settings now allow to specify rotatable bond count dependent values for RMSD threshold, energy window and
+max. output ensemble size</p></li>
+<li><p>The pharmacophore screening application <a class="reference internal" href="applications/psdscreen.html"><span class="doc">psdscreen</span></a> provides a new option <em>–unique-hits</em>
+which enforces that a database molecule matched by multiple query pharmacophores is saved only once to the output hit list</p></li>
+<li><p>New Python example script for database preparation</p></li>
+<li><p>New Python example script demonstrating how the torsion driving functionality can be used for conformer sampling</p></li>
+<li><p>The visual molecule and reaction data inspection tool <a class="reference internal" href="applications/chox.html"><span class="doc">ChOX</span></a> now allows to display atom and bond configuration labels</p></li>
+<li><p>The 2D molecule structure rendering code (implemented by class <em>Vis::StructureView2D</em>) now
+allows to display atom and bond configuration labels</p></li>
+<li><p>Full implementation of the CIP sequence rule stack for the correct labeling of atom and bond stereocenters (new class <em>Chem::CIPConfigurationLabeler</em>)</p></li>
+<li><p>Support for reading/writing molecular structures in XYZ format (classes <em>Chem::XYZMoleculeReader</em> and <em>Chem::XYZMolecularGraphWriter</em>)</p></li>
+<li><p>New command line application <a class="reference internal" href="applications/isogen.html"><span class="doc">isogen</span></a> for the enumeration of R/S and E/Z stereoisomers of molecules</p></li>
+<li><p>New class <em>Chem::StereoisomerGenerator</em> for the exhaustive enumeration of R/S and E/Z stereoisomers</p></li>
+<li><p>New 2D drawing primitives (classes <em>Vis::Path2D</em> and <em>Vis::PathPrimitive2D</em>) and support for clipping operations (class <em>Vis::ClipPathPrimitive2D</em>)</p></li>
+<li><p>New class <em>Chem::BemisMurckoAnalyzer</em> for the extraction of Bemis-Murcko scaffolds</p></li>
+<li><p>New functions for the alignment conformers</p></li>
+<li><p>New utility functions <em>Chem::calcBasicProperties()</em> that ease the recurring task of initializing <em>Chem::MolecularGraph</em>
+and <em>Chem::Reaction</em> instances for further processing</p></li>
+</ul>
+<p class="rubric">Improvements</p>
+<ul class="simple">
+<li><p>Overhaul of the tautomer generation code for increased efficiency and flexibility</p></li>
+<li><p>The output conformer ensemble compilation process now strives for higher energetic diversity among the picked conformers which, on average,
+leads to higher accuracy in the reproduction of experimental structures (benchmarking results can be found <a class="reference internal" href="applications/confgen.html#confgen-notes-v1-1"><span class="std std-ref">here</span></a>)</p></li>
+<li><p>Update of the torsion library used for systematic conformer generation (more information can be found <a class="reference internal" href="applications/confgen.html#confgen-notes-v1-1"><span class="std std-ref">here</span></a>)</p></li>
+<li><p>Systematic conformer sampling speed optimizations</p></li>
+<li><p>Reduction of the memory footprint of the conformer generation procedure which could become unacceptably large
+under some circumstances</p></li>
+<li><p>Documentation updates and corrections</p></li>
+<li><p>Refactoring of stereochemistry related code</p></li>
+<li><p>Cleanup of the CDPL Python bindings code</p></li>
+<li><p>When deep copying <em>Chem::Reaction</em> or <em>Chem::Molecule</em> instances, values of properties referencing atoms and/or bonds (e.g. stereodescriptors, SSSR)
+now get automatically translated to values referencing the corresponding atoms/bonds of the copying target</p></li>
+<li><p>Cleanup of CDPL C++ header files</p></li>
+<li><p>Added support for building CDPL Python bindings <strong class="program">pip</strong> installer wheel files under Windows</p></li>
+<li><p>Added support for building manylinux2014 compliant CDPL Python bindings <strong class="program">pip</strong> installer wheel files</p></li>
+<li><p>Build system cleanup</p></li>
+</ul>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fixed bugs in classes <em>Chem::MaxCommonAtomSubstructureSearch</em> and <em>Chem::MaxCommonBondSubstructureSearch</em> that led to a
+loss of expected matches</p></li>
+<li><p>Fix for a bug in the SMARTS parser that lead to the storage of wrong bond directions</p></li>
+<li><p>Bond direction specifications (up/down) in SMILES and SMARTS strings are now correctly interpreted</p></li>
+<li><p>Fixed a bug that may lead to the generation of conformers with wrong geometries at exocyclic double bonds</p></li>
+<li><p>Fixed a bug in the <a class="reference internal" href="applications/shapescreen.html"><span class="doc">shapescreen</span></a> tool that lead to the calculation of erroneous similarity scores
+when option <em>–score-only</em> was set</p></li>
+<li><p>Fix for a minor bug that affected the indentation of SD-file property entries</p></li>
+<li><p>Function overload resolution order fixes in the <em>CDPL.Math</em> Python package</p></li>
+<li><p>Prevented the throwing of exceptions when the env. variable <strong>LC_ALL</strong> has not been initialized</p></li>
+</ul>
+<p class="rubric">API Changes</p>
+<ul class="simple">
+<li><p>New getter/setter method pair in class <em>Chem::TautomerGenerator</em> for suppressing the output of generated tautomers
+which represent just a different resonance structure of a previously reported tautomer</p></li>
+<li><p>Data structures with names <em>ForceField::MMFF94XXXInteractionData</em> were renamed into <em>ForceField::MMFF94XXXInteractionList</em>
+(XXX = force field interaction type)</p></li>
+<li><p>New class <em>ForceField::ElasticPotential</em> plus elastic potential energy and gradient calculation functions</p></li>
+<li><p>New class <em>Chem::CIPConfigurationLabeler</em> for the labeling of atom and bond stereocenters</p></li>
+<li><p>New class <em>Chem::StereoisomerGenerator</em> for the exhaustive enumeration of R/S and E/Z stereoisomers</p></li>
+<li><p>New classes <em>Chem::XYZMoleculeReader</em> and <em>Chem::XYZMolecularGraphWriter</em> implementing reading and writing
+of molecule data in XYZ format</p></li>
+<li><p>New 2D drawing primitives (classes <em>Vis::Path2D</em> and <em>Vis::PathPrimitive2D</em>) and support for clipping operations
+(class <em>Vis::ClipPathPrimitive2D</em>)</p></li>
+<li><p>New class <em>Chem::BemisMurckoAnalyzer</em> for the extraction of Bemis-Murcko scaffolds</p></li>
+<li><p>New <em>CDPL::Chem</em> functions for the alignment conformers</p></li>
+<li><p>Python exports of <em>Util::Map</em> and <em>Util::MultiMap</em> do not provide the properties <em>keys</em>, <em>values</em>, and <em>entries</em> anymore.
+They were replaced by the corresponding methods <em>keys()</em>, <em>values()</em> and <em>items()</em></p></li>
+<li><p>The <em>MolProp::getAtomCount()</em> function has been extended by a <em>strict</em> argument which, if set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, instructs
+the accounting procedure to regard the meaning of generic atom types (e.g. any halogen)</p></li>
+<li><p>New utility functions <em>Chem::calcBasicProperties()</em> for a more comfortable initialization of <em>Chem::MolecularGraph</em>
+and <em>Chem::Reaction instances</em> for further processing</p></li>
+<li><p>Code in class <em>GRAIL::GRAILDescriptorCalculator</em> now calculates a shorter GRAIL descriptor (35 elements) with
+not further subdivided H-bond donor/acceptor feature types</p></li>
+<li><p>Class <em>GRAIL::GRAILDescriptorCalculator</em> was renamed into <em>GRAIL::GRAILXDescriptorCalculator</em></p></li>
+</ul>
+</section>
 <section id="release-v1-0-0">
-<h2>Release v1.0.0<a class="headerlink" href="#release-v1-0-0" title="Permalink to this heading"></a></h2>
+<h2>Release V1.0.0<a class="headerlink" href="#release-v1-0-0" title="Permalink to this heading"></a></h2>
 <blockquote>
-<div><p><strong>Initial release</strong></p>
+<div><p><strong>- Initial release -</strong></p>
 </div></blockquote>
 </section>
 </section>
