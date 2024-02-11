@@ -494,15 +494,15 @@ template molecule file (default: false). [since V1.1]</p>
 from the torsion library V3.0 developed at the University of Hamburg, Center for Bioinformatics <span id="id5">[<a class="reference internal" href="../bibliography.html#id13" title="Patrick Penner, Wolfgang Guba, Robert Schmidt, Agnes Meyder, Martin Stahl, and Matthias Rarey. The torsion library: semiautomated improvement of torsion rules with smartscompare. Journal of Chemical Information and Modeling, 62(7):1644-1653, 2022. PMID: 35318851. URL: https://doi.org/10.1021/acs.jcim.2c00043, arXiv:https://doi.org/10.1021/acs.jcim.2c00043, doi:10.1021/acs.jcim.2c00043.">14</a>]</span>.
 The new torsion library offers significant improvements over its predecessor which originate in corrections
 of torsion library entry matching orders and a higher number of analyzed high quality X-ray structures.
-Furthermore, the output conformer picking procedure has been refined and now results in not only structurally but also
+Furthermore, the output conformer picking procedure has been refined and now results in not only structurally, but also
 energetically more diverse conformer ensembles.
 Together these changes increase the average accuracy in the reproduction of experimental structure considerably (at the cost of slightly larger
 output ensembles and higher processing times for some settings). In order to quantify the accuracy improvements the <em>Platinum Diverse Dataset</em> benchmarks
 described in <span id="id6">[<a class="reference internal" href="../bibliography.html#id10" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span> were re-run and the obtained results put in comparison with the ones published for
 <strong>CONFORGE V1.0</strong>. The following tables show that the achieved accuracy improvements can be significant, especially when <strong class="program">confgen</strong>
 is run with default settings:</p>
-<table class="docutils align-default" id="id13">
-<caption><span class="caption-text"><strong>Table 1</strong>. Conformer Generation Performance Comparison for the Platinum Diverse Dataset</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text"><strong>Table 1</strong>. Conformer Generation Performance Comparison for the Platinum Diverse Dataset</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 9%" />
@@ -688,8 +688,8 @@ is run with default settings:</p>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id14">
-<caption><span class="caption-text"><strong>Table 2</strong>. Total Program Execution Times and Molecule Processing Failures recorded for the Platinum Diverse Dataset</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text"><strong>Table 2</strong>. Total Program Execution Times and Molecule Processing Failures recorded for the Platinum Diverse Dataset</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 37%" />
 <col style="width: 32%" />
@@ -724,8 +724,8 @@ is run with default settings:</p>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default" id="id15">
-<caption><span class="caption-text"><strong>Table 3</strong>. Percentiles of Platinum Diverse Dataset Structures Successfully Reproduced below Specified RMSD Thresholds (0.5–2.0 Å)</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text"><strong>Table 3</strong>. Percentiles of Platinum Diverse Dataset Structures Successfully Reproduced below Specified RMSD Thresholds (0.5–2.0 Å)</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 27%" />
 <col style="width: 9%" />
@@ -817,48 +817,53 @@ Values were taken from the corresponding tables published in <span id="id12">[<a
 <h3>New features<a class="headerlink" href="#new-features" title="Permalink to this heading"></a></h3>
 <p class="rubric">Energy window, RMSD and max. output ensemble size as a function of rotatable bond count</p>
 <p>It is now possible to specífy multiple values for energy window (option <em>–e-window</em>), RMSD threshold (option <em>–rmsd</em>) and max. output ensemble
-size (option <em>–max-num-out_confs</em>) settings where the value in effect depends on the rotatable bond count of the currently processed input molecule.
+size (option <em>–max-num-out_confs</em>). Which of the specified values takes effect depends on the rotatable bond count of the
+currently processed input molecule.
 Rotatable bond count dependent settings are specified as a list of pairs <em>RBC1 SV1 RBC2 SV2…</em> where RBC denotes the rotatable bond count and SV the
 value that applies if the  rotatable bond count of the processed molecule is <em>&lt;= RBC</em>. The settings value associated with the lowest RBC that fulfills
 the latter condition takes precedence. If the rotatable bond count of the processed molecule is outside any defined range then the settings value
 associated with the highest RBC will be used.</p>
 <p><strong>Example:</strong> <em>5 50 10 100 12 200</em></p>
-<p>Here, a rotatable bond count of <em>6</em> would lead to the selection of the value <em>100</em>. Rotatable bond counts &lt;= <em>5</em> result in the value <em>50</em> and any bond counts &gt; <em>10</em> in
-the selection of the value <em>200</em>.</p>
+<p>In this example a rotatable bond count of <em>6</em> leads to the selection of the value <em>100</em>. Rotatable bond counts &lt;= <em>5</em> result in the value <em>50</em> and any rot. bond count &gt; <em>10</em>
+in the value <em>200</em>.</p>
 <p class="rubric">Support for ‘fixed’ substructures</p>
-<p>Starting with version 1.1 <strong class="program">confgen</strong> supports the specification of input molecule substructures that shall be kept ‘fixed’ during the
-conformer generation process. Fixed substructure atom 3D coordinates can be supplied via a template molecule file (option <em>–fixed-substr</em>) or are
+<p>Starting with version 1.1 <strong class="program">confgen</strong> supports the specification of substructures that have to be kept ‘fixed’ during
+conformer generation. Fixed substructure atom 3D coordinates can be supplied via a template molecule file (option <em>–fixed-substr</em>) or are
 taken from the processed input molecules. For a maximum of flexibility SMARTS patterns can be specified (<em>–fixed-substr-ptn</em> option) that allow
-for a more accurate description of the substructures to keep rigid. Available algorithms for finding matches between the input molecules
+for a detailed and accurate description of the substructures to keep fixed. Available algorithms for finding matches between the input molecules
 and the specified substructure are standard substructure searching (the default) and maximum common substructure searching (MCSS, enabled by option
 <em>–fixed-substr-mcss</em>). Further options control the number of considered fixed substructure matches (option <em>–fixed-substr-max-matches</em>), the minimum
 matched substructure size (if MCSS is enabled, option <em>–fixed-substr-min-atoms</em>) and whether the generated conformers shall be aligned on
 fixed substructure input atom positions (option <em>–fixed-substr-align</em>, by default conformers are not aligned!).</p>
 <p><strong>Example:</strong></p>
 <p>Generation of a conformer ensemble for <a class="reference download internal" download="" href="../_downloads/8c409411cf1aa0a2036ec9ef3fa78e15/erythromycin.smi"><code class="xref download docutils literal notranslate"><span class="pre">Erythromycin</span></code></a> where the maximum common substructure with
-<a class="reference download internal" download="" href="../_downloads/433a2114cca5af8ebf28b0cb7fd1437c/1p9x_B_TEL.sdf"><code class="xref download docutils literal notranslate"><span class="pre">Telithromycin</span></code></a> is kept rigid using fixed substructure atom 3D coordinates of the bound-state Telithromycin
-conformation found in complex <a class="reference external" href="https://www.rcsb.org/structure/1P9X">1P9X</a>.</p>
-<figure class="align-center" id="id16">
-<a class="reference internal image-reference" href="../_images/erythromycin.svg"><img alt="Erythromycin" height="315" src="../_images/erythromycin.svg" width="305" /></a>
-<figcaption>
-<p><span class="caption-text">Erythromycin</span><a class="headerlink" href="#id16" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id17">
-<a class="reference internal image-reference" href="../_images/telithromycin.png"><img alt="Bound-state conformation of Telithromycin extracted from `1P9X &lt;https://www.rcsb.org/structure/1P9X&gt;`_" src="../_images/telithromycin.png" style="width: 493.0px; height: 275.5px;" /></a>
-<figcaption>
-<p><span class="caption-text">Bound-state conformation of Telithromycin extracted from 1P9X</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
+<a class="reference download internal" download="" href="../_downloads/433a2114cca5af8ebf28b0cb7fd1437c/1p9x_B_TEL.sdf"><code class="xref download docutils literal notranslate"><span class="pre">Telithromycin</span></code></a> is kept rigid and atom 3D coordinates of the bound-state Telithromycin
+conformation in the complex <a class="reference external" href="https://www.rcsb.org/structure/1P9X">1P9X</a> define the fixed atom positions.</p>
+<table class="docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Erythromycin:</p></td>
+<td><p>Bound-state conformation of Telithromycin in the complex <a class="reference external" href="https://www.rcsb.org/structure/1P9X">1P9X</a>:</p></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="../_images/erythromycin.svg"><img alt="Erythromycin" class="align-center" height="315" src="../_images/erythromycin.svg" width="305" /></a>
+</td>
+<td><a class="reference internal image-reference" href="../_images/telithromycin.png"><img alt="Bound-state conformation of Telithromycin in the complex `1P9X &lt;https://www.rcsb.org/structure/1P9X&gt;`_:" class="align-center" src="../_images/telithromycin.png" style="width: 512.72px; height: 286.52px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
 <p>Executing</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ confgen -i erythromycin.smi -o tel_ery_confs.sdf -n <span class="m">50</span> -j 1p9x_B_TEL.sdf -a -U
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ confgen -i erythromycin.smi -o tel_ery_confs.sdf -m stochastic -n <span class="m">50</span> -j 1p9x_B_TEL.sdf -a -U
 </pre></div>
 </div>
 <p>will generate the following conformer ensemble:</p>
-<figure class="align-center" id="id18">
-<a class="reference internal image-reference" href="../_images/tel_ery_confs.png"><img alt="Conformations of Erythromycin generated with a fixed substructure derived from Telithromycin" src="../_images/tel_ery_confs.png" style="width: 439.5px; height: 354.25px;" /></a>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../_images/tel_ery_confs.png"><img alt="Conformations of Erythromycin generated with a fixed substructure derived from Telithromycin (shown for reference in green)" src="../_images/tel_ery_confs.png" style="width: 45%;" /></a>
 <figcaption>
-<p><span class="caption-text">Conformations of Erythromycin generated with a fixed substructure derived from Telithromycin (green)</span><a class="headerlink" href="#id18" title="Permalink to this image"></a></p>
+<p><span class="caption-text">Conformations of Erythromycin generated with a fixed substructure derived from Telithromycin (shown for reference in green)</span><a class="headerlink" href="#id17" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>
