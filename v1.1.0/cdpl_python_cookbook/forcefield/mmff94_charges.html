@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.1. MMFF94 Atom Charges &mdash; CDPKit 1.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/v1.1.0/cdpl_python_cookbook/forcefield/mmff94_charges.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/tabs.js"></script>
+        <script src="../../_static/docs-versions-menu.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CDPL API Documentation" href="../../cdpl_api_doc/index.html" />
+    <link rel="prev" title="6. Force Field Calculations" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../applications/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chem/index.html">1. Processing of Chemical Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">6. Force Field Calculations</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.1. MMFF94 Atom Charges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">CDPL Python Cookbook</a> &raquo;</li>
+          <li><a href="index.html"><span class="section-number">6. </span>Force Field Calculations</a> &raquo;</li>
+      <li><span class="section-number">6.1. </span>MMFF94 Atom Charges</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/cdpl_python_cookbook/forcefield/mmff94_charges.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mmff94-atom-charges">
+<h1><span class="section-number">6.1. </span>MMFF94 Atom Charges<a class="headerlink" href="#mmff94-atom-charges" title="Permalink to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos"> 4</span><span class="kn">import</span> <span class="nn">CDPL.ForceField</span> <span class="k">as</span> <span class="nn">ForceField</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># calculates and outputs the MMFF94 charges of the atoms of the provided molecular graph</span>
+<span class="linenos"> 8</span><span class="k">def</span> <span class="nf">calcAndOutputCharges</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 9</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># calculate implicit hydrogen counts and set corresponding property for all atoms</span>
+<span class="linenos">10</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>               <span class="c1"># make all implicit hydrogens explicit</span>
+<span class="linenos">11</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># perceive atom hybridization states and set corresponding property for all atoms</span>
+<span class="linenos">12</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                <span class="c1"># perceive smallest set of smallest rings and store as Chem.MolecularGraph property</span>
+<span class="linenos">13</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                <span class="c1"># perceive cycles and set corresponding atom and bond properties</span>
+<span class="linenos">14</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>         <span class="c1"># perceive aromaticity and set corresponding atom and bond properties</span>
+<span class="linenos">15</span>  
+<span class="linenos">16</span>    <span class="n">ForceField</span><span class="o">.</span><span class="n">perceiveMMFF94AromaticRings</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>        <span class="c1"># perceive aromatic rings according to the MMFF94 aroamticity model and store data as Chem.MolecularGraph property</span>
+<span class="linenos">17</span>    <span class="n">ForceField</span><span class="o">.</span><span class="n">assignMMFF94AtomTypes</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># perceive MMFF94 atom types (tolerant mode) set corresponding property for all atoms</span>
+<span class="linenos">18</span>    <span class="n">ForceField</span><span class="o">.</span><span class="n">assignMMFF94BondTypeIndices</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># perceive MMFF94 bond types (tolerant mode) set corresponding property for all bonds</span>
+<span class="linenos">19</span>    <span class="n">ForceField</span><span class="o">.</span><span class="n">calcMMFF94AtomCharges</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># calculate MMFF94 atom charges (tolerant mode) set corresponding property for all atoms</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- MMFF94 partial charges&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>    
+<span class="linenos">23</span>    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Atom #</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">getIndex</span><span class="p">()),</span> <span class="nb">str</span><span class="p">(</span><span class="n">ForceField</span><span class="o">.</span><span class="n">getMMFF94Charge</span><span class="p">(</span><span class="n">atom</span><span class="p">))))</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">27</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">28</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Usage: </span><span class="si">%s</span><span class="s1"> &lt;input mol. file&gt;&#39;</span> <span class="o">%</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">31</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+<span class="linenos">32</span> 
+<span class="linenos">33</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos">34</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">35</span>    
+<span class="linenos">36</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos">37</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">38</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos">39</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">40</span>                <span class="n">calcAndOutputCharges</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos">41</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">42</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">43</span>                
+<span class="linenos">44</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">45</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">48</span>        
+<span class="linenos">49</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">50</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../_downloads/f8559cb44f76214f758a5a8605c57aba/calc_mmff94_charges.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="6. Force Field Calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../cdpl_api_doc/index.html" class="btn btn-neutral float-right" title="CDPL API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
