@@ -106,71 +106,67 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ForceField_2APIPrefix_8hpp.html">CDPL/ForceField/APIPrefix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">namespace </span>ForceField</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">         * \since 1.1</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">   46</a></span>&#160;        <span class="keyword">class </span><a class="code" href="ForceField_2APIPrefix_8hpp.html#a50b9c973ab0f3bba2f059e01d2985eeb">CDPL_FORCEFIELD_API</a> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">   50</a></span>&#160;            <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">ElasticPotential</a>(std::size_t atom1_idx, std::size_t atom2_idx, <span class="keywordtype">double</span> force_const, <span class="keywordtype">double</span> ref_length):</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                atom1Idx(atom1_idx), atom2Idx(atom2_idx), forceConst(force_const), refLength(ref_length) {}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">   53</a></span>&#160;            std::size_t <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">getAtom1Index</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">            </span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">return</span> atom1Idx;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">   58</a></span>&#160;            std::size_t <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">getAtom2Index</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">            </span>{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">return</span> atom2Idx;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">   63</a></span>&#160;            <span class="keywordtype">double</span> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">getForceConstant</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">            </span>{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keywordflow">return</span> forceConst;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ad9d3bbc7e75acbbc9acc9c28acb2b2dc">   68</a></span>&#160;            <span class="keywordtype">double</span> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ad9d3bbc7e75acbbc9acc9c28acb2b2dc">getReferenceLength</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">            </span>{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> refLength;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ae414f4c8d35bef424fbbb9049c86a3c7">   73</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ae414f4c8d35bef424fbbb9049c86a3c7">setReferenceLength</a>(<span class="keywordtype">double</span> <a class="code" href="namespaceCDPL_1_1Math.html#a4d339ff993a2452283e6f9b6d76880b7">length</a>)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                refLength = <a class="code" href="namespaceCDPL_1_1Math.html#a4d339ff993a2452283e6f9b6d76880b7">length</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            std::size_t  atom1Idx;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::size_t  atom2Idx;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordtype">double</span>       forceConst;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordtype">double</span>       refLength;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        };</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif // CDPL_FORCEFIELD_ELASTICPOTENTIAL_HPP</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">namespace </span>ForceField</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">         * \since 1.1</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">   44</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">   48</a></span>&#160;            <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">ElasticPotential</a>(std::size_t atom1_idx, std::size_t atom2_idx, <span class="keywordtype">double</span> force_const, <span class="keywordtype">double</span> ref_length):</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                atom1Idx(atom1_idx), atom2Idx(atom2_idx), forceConst(force_const), refLength(ref_length) {}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">   51</a></span>&#160;            std::size_t <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">getAtom1Index</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">            </span>{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">return</span> atom1Idx;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">   56</a></span>&#160;            std::size_t <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">getAtom2Index</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">            </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">return</span> atom2Idx;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">   61</a></span>&#160;            <span class="keywordtype">double</span> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">getForceConstant</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">            </span>{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">return</span> forceConst;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ad9d3bbc7e75acbbc9acc9c28acb2b2dc">   66</a></span>&#160;            <span class="keywordtype">double</span> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ad9d3bbc7e75acbbc9acc9c28acb2b2dc">getReferenceLength</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">            </span>{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> refLength;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ae414f4c8d35bef424fbbb9049c86a3c7">   71</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ae414f4c8d35bef424fbbb9049c86a3c7">setReferenceLength</a>(<span class="keywordtype">double</span> <a class="code" href="namespaceCDPL_1_1Math.html#a4d339ff993a2452283e6f9b6d76880b7">length</a>)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                refLength = <a class="code" href="namespaceCDPL_1_1Math.html#a4d339ff993a2452283e6f9b6d76880b7">length</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            std::size_t  atom1Idx;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            std::size_t  atom2Idx;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">double</span>       forceConst;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">double</span>       refLength;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif // CDPL_FORCEFIELD_ELASTICPOTENTIAL_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aForceField_2APIPrefix_8hpp_html"><div class="ttname"><a href="ForceField_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_FORCEFIELD_API.</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_a3668d166274a49c329839d525ddb7115"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">CDPL::ForceField::ElasticPotential::ElasticPotential</a></div><div class="ttdeci">ElasticPotential(std::size_t atom1_idx, std::size_t atom2_idx, double force_const, double ref_length)</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:50</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html">CDPL::ForceField::ElasticPotential</a></div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:47</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_a9495ea417c631fa2d2f67e66f0bf29e1"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">CDPL::ForceField::ElasticPotential::getAtom1Index</a></div><div class="ttdeci">std::size_t getAtom1Index() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:53</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_ae414f4c8d35bef424fbbb9049c86a3c7"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ae414f4c8d35bef424fbbb9049c86a3c7">CDPL::ForceField::ElasticPotential::setReferenceLength</a></div><div class="ttdeci">void setReferenceLength(double length)</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:73</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_aaf7c98d06305d580927197161fa9eda6"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">CDPL::ForceField::ElasticPotential::getForceConstant</a></div><div class="ttdeci">double getForceConstant() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:63</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_a3668d166274a49c329839d525ddb7115"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">CDPL::ForceField::ElasticPotential::ElasticPotential</a></div><div class="ttdeci">ElasticPotential(std::size_t atom1_idx, std::size_t atom2_idx, double force_const, double ref_length)</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:48</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html">CDPL::ForceField::ElasticPotential</a></div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:45</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_a9495ea417c631fa2d2f67e66f0bf29e1"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">CDPL::ForceField::ElasticPotential::getAtom1Index</a></div><div class="ttdeci">std::size_t getAtom1Index() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:51</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_ae414f4c8d35bef424fbbb9049c86a3c7"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ae414f4c8d35bef424fbbb9049c86a3c7">CDPL::ForceField::ElasticPotential::setReferenceLength</a></div><div class="ttdeci">void setReferenceLength(double length)</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:71</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_aaf7c98d06305d580927197161fa9eda6"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">CDPL::ForceField::ElasticPotential::getForceConstant</a></div><div class="ttdeci">double getForceConstant() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:61</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_ad9d3bbc7e75acbbc9acc9c28acb2b2dc"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ad9d3bbc7e75acbbc9acc9c28acb2b2dc">CDPL::ForceField::ElasticPotential::getReferenceLength</a></div><div class="ttdeci">double getReferenceLength() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:68</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_a7233d21621b93e54ae343239a206ea90"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">CDPL::ForceField::ElasticPotential::getAtom2Index</a></div><div class="ttdeci">std::size_t getAtom2Index() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:58</div></div>
-<div class="ttc" id="aForceField_2APIPrefix_8hpp_html_a50b9c973ab0f3bba2f059e01d2985eeb"><div class="ttname"><a href="ForceField_2APIPrefix_8hpp.html#a50b9c973ab0f3bba2f059e01d2985eeb">CDPL_FORCEFIELD_API</a></div><div class="ttdeci">#define CDPL_FORCEFIELD_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_ad9d3bbc7e75acbbc9acc9c28acb2b2dc"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#ad9d3bbc7e75acbbc9acc9c28acb2b2dc">CDPL::ForceField::ElasticPotential::getReferenceLength</a></div><div class="ttdeci">double getReferenceLength() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:66</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1ElasticPotential_html_a7233d21621b93e54ae343239a206ea90"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">CDPL::ForceField::ElasticPotential::getAtom2Index</a></div><div class="ttdeci">std::size_t getAtom2Index() const</div><div class="ttdef"><b>Definition:</b> ElasticPotential.hpp:56</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Math_html_a4d339ff993a2452283e6f9b6d76880b7"><div class="ttname"><a href="namespaceCDPL_1_1Math.html#a4d339ff993a2452283e6f9b6d76880b7">CDPL::Math::length</a></div><div class="ttdeci">VectorNorm2&lt; E &gt;::ResultType length(const VectorExpression&lt; E &gt; &amp;e)</div><div class="ttdef"><b>Definition:</b> VectorExpression.hpp:553</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
