@@ -4,13 +4,13 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes &mdash; CDPKit 1.2.0 documentation</title>
+  <title>Release Notes &mdash; CDPKit 1.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.svg"/>
-    <link rel="canonical" href="https://cdpkit.org/v1.2.0/release_notes.html" />
+    <link rel="canonical" href="https://cdpkit.org/v1.1.1/release_notes.html" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-v1-1-1">Release V1.1.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-1-0">Release V1.1.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-0-0">Release V1.0.0</a></li>
 </ul>
@@ -88,9 +89,27 @@
              
   <section id="release-notes">
 <span id="index-0"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading"></a></h1>
+<section id="release-v1-1-1">
+<h2>Release V1.1.1<a class="headerlink" href="#release-v1-1-1" title="Permalink to this heading"></a></h2>
+<p class="rubric">Improvements</p>
+<ul class="simple">
+<li><p>Significantly improved the generation of 2D coordinates for macrocyclic structures</p></li>
+</ul>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fixed an issue with the generatinon of conformers under application of a fixed substructure template where the generated
+conformers sometimes displayed the mirror image of the specified 3D template structure</p></li>
+<li><p>The command line tools <a class="reference internal" href="applications/structgen.html"><span class="doc">structgen</span></a> and <a class="reference internal" href="applications/confgen.html"><span class="doc">confgen</span></a> erroneously
+used the already reserved letter <strong>p</strong> as shortcut for the option <em>–fixed-substr-min-atoms</em>. The new shortcut is <strong>~</strong></p></li>
+</ul>
+<p class="rubric">Miscellaneous Changes</p>
+<ul class="simple">
+<li><p>Rewrote code that uses the boost filesystem library to use C++17 equivalents</p></li>
+<li><p>Compiling CDPKit now requires a compiler with C++17 support</p></li>
+</ul>
+</section>
 <section id="release-v1-1-0">
 <h2>Release V1.1.0<a class="headerlink" href="#release-v1-1-0" title="Permalink to this heading"></a></h2>
-<p>Changes since V1.0.0:</p>
 <p class="rubric">New Functionality and Features</p>
 <ul class="simple">
 <li><p>The tool <a class="reference internal" href="applications/tautgen.html"><span class="doc">tautgen</span></a> provides two new tautomer generation modes <code class="docutils literal notranslate"><span class="pre">BEST_SCORING</span></code> and <code class="docutils literal notranslate"><span class="pre">BEST_SCORING_UNIQUE</span></code>
