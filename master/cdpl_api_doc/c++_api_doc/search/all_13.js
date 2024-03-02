@@ -834,7 +834,7 @@ var searchData=
   ['singleconformersearch_6437',['singleConformerSearch',['../classCDPL_1_1Shape_1_1ScreeningSettings.html#aa87cafe80ff334fb91f8b791772cf528',1,'CDPL::Shape::ScreeningSettings::singleConformerSearch(bool single_conf)'],['../classCDPL_1_1Shape_1_1ScreeningSettings.html#aaae8c3b5047e922ce76b47ba96882778',1,'CDPL::Shape::ScreeningSettings::singleConformerSearch() const']]],
   ['singlet_6438',['SINGLET',['../namespaceCDPL_1_1Chem_1_1RadicalType.html#a990102ed6642a787e923bca48556e769',1,'CDPL::Chem::RadicalType']]],
   ['site_6439',['SITE',['../classCDPL_1_1Biomol_1_1PDBData.html#a879b9969591bf17e3215af28f8ccac37a16b21716fd15aff88da1ade3fe008dd3',1,'CDPL::Biomol::PDBData']]],
-  ['size_6440',['size',['../classCDPL_1_1Util_1_1Array.html#a0a76813757a9362d296a9229ef60b963',1,'CDPL::Util::Array::size()'],['../classCDPL_1_1Math_1_1CVector.html#a12e25d3d963e5c49bf1e8638fb2ee54b',1,'CDPL::Math::CVector::Size()']]],
+  ['size_6440',['Size',['../classCDPL_1_1Math_1_1CVector.html#a12e25d3d963e5c49bf1e8638fb2ee54b',1,'CDPL::Math::CVector::Size()'],['../classCDPL_1_1Util_1_1Array.html#a0a76813757a9362d296a9229ef60b963',1,'CDPL::Util::Array::size()']]],
   ['size1_6441',['Size1',['../classCDPL_1_1Math_1_1CMatrix.html#a79eca0fe4cdf00e54392ac1f0a2a7514',1,'CDPL::Math::CMatrix']]],
   ['size2_6442',['Size2',['../classCDPL_1_1Math_1_1CMatrix.html#aefec4a6e04b1b6b73f3ef1b59d136050',1,'CDPL::Math::CMatrix']]],
   ['size_5fadjustment_6443',['SIZE_ADJUSTMENT',['../namespaceCDPL_1_1Vis_1_1ControlParameter.html#a6d1620c6b9fff6d61ab6eaad8b4cfae8',1,'CDPL::Vis::ControlParameter::SIZE_ADJUSTMENT()'],['../namespaceCDPL_1_1Vis_1_1ControlParameterDefault.html#ae1e22ec46699fe7dab09f346975dd453',1,'CDPL::Vis::ControlParameterDefault::SIZE_ADJUSTMENT()']]],
