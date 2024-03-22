@@ -428,174 +428,174 @@ be written to the specified output file.</p>
 <span class="linenos">205</span>        <span class="n">atom_type_counts</span><span class="p">[</span><span class="n">atom_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 <span class="linenos">206</span>            
 <span class="linenos">207</span>    <span class="k">return</span> <span class="n">atom_type_counts</span>
-<span class="linenos">208</span>
-<span class="linenos">209</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">210</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span> <span class="c1"># process command line arguments</span>
+<span class="linenos">208</span>                                
+<span class="linenos">209</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos">210</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Strips compounds that fulfill particular user-defined criteria from a molecule database&#39;</span><span class="p">)</span>
 <span class="linenos">211</span>
-<span class="linenos">212</span>    <span class="c1"># convert specified lists of chem. element/gen. type symbols into a corresponding list of</span>
-<span class="linenos">213</span>    <span class="c1"># numeric atom types (defined in Chem.Atomtype)</span>
-<span class="linenos">214</span>    <span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span>  <span class="o">=</span> <span class="n">parseElementList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span><span class="p">)</span>
-<span class="linenos">215</span>    <span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span> <span class="o">=</span> <span class="n">parseElementList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span><span class="p">)</span>
-<span class="linenos">216</span>
-<span class="linenos">217</span>    <span class="c1"># convert specified comma separated lists of chem. element (or generic type) symbol/count pairs (sep. by colon) into</span>
-<span class="linenos">218</span>    <span class="c1"># corresponding dictionaries mapping numeric atom types (defined in Chem.AtomType) to integers</span>
-<span class="linenos">219</span>    <span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span> <span class="o">=</span> <span class="n">parseElementCountList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span><span class="p">)</span>
-<span class="linenos">220</span>    <span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span> <span class="o">=</span> <span class="n">parseElementCountList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span><span class="p">)</span>
-<span class="linenos">221</span>    
-<span class="linenos">222</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
-<span class="linenos">223</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
-<span class="linenos">224</span>
-<span class="linenos">225</span>    <span class="c1"># create writer for molecules passing the checks (format specified by file extension)</span>
-<span class="linenos">226</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
-<span class="linenos">227</span>
-<span class="linenos">228</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">disc_file</span><span class="p">:</span>
-<span class="linenos">229</span>        <span class="c1"># create writer for sorted out molecules (format specified by file extension)</span>
-<span class="linenos">230</span>        <span class="n">disc_writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">disc_file</span><span class="p">)</span> 
-<span class="linenos">231</span>    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">232</span>        <span class="n">disc_writer</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="linenos">233</span>        
-<span class="linenos">234</span>    <span class="c1"># create instances of the default implementation of the Chem.Molecule interface for the input and output molecules</span>
-<span class="linenos">235</span>    <span class="n">in_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
-<span class="linenos">236</span>
-<span class="linenos">237</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">238</span>    <span class="n">num_changed</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">239</span>    <span class="n">num_disc</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos">240</span>    
-<span class="linenos">241</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">242</span>        <span class="c1"># read and process molecules one after the other until the end of input has been reached (or a severe error occurs)</span>
-<span class="linenos">243</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">in_mol</span><span class="p">):</span>
-<span class="linenos">244</span>            <span class="c1"># compose a molecule identifier</span>
-<span class="linenos">245</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">in_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
-<span class="linenos">246</span>
-<span class="linenos">247</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="linenos">248</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
-<span class="linenos">249</span>            <span class="k">else</span><span class="p">:</span>
-<span class="linenos">250</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="linenos">251</span>            
-<span class="linenos">252</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">253</span>                <span class="c1"># process input molecule</span>
-<span class="linenos">254</span>                <span class="n">out_mol</span><span class="p">,</span> <span class="n">log_msg</span> <span class="o">=</span> <span class="n">processMolecule</span><span class="p">(</span><span class="n">in_mol</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> 
-<span class="linenos">255</span>                
-<span class="linenos">256</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">out_mol</span><span class="p">:</span>         <span class="c1"># check whether the molecule has been sorted out</span>
-<span class="linenos">257</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">log_msg</span><span class="p">:</span>
-<span class="linenos">258</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: discarded, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">))</span>
-<span class="linenos">259</span>
-<span class="linenos">260</span>                    <span class="n">num_disc</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">261</span>                        
-<span class="linenos">262</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">disc_writer</span><span class="p">:</span> <span class="c1"># check whether discarded molecules should be saved to a separate file</span>
-<span class="linenos">263</span>                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">264</span>                        <span class="k">continue</span>
-<span class="linenos">265</span>
-<span class="linenos">266</span>                    <span class="c1"># write discarded molecule to the specified target file</span>
-<span class="linenos">267</span>                    <span class="n">out_mol</span> <span class="o">=</span> <span class="n">in_mol</span>
-<span class="linenos">268</span>                    <span class="n">out_mol_writer</span> <span class="o">=</span> <span class="n">disc_writer</span>
-<span class="linenos">269</span>                <span class="k">else</span><span class="p">:</span>
-<span class="linenos">270</span>                    <span class="k">if</span> <span class="n">log_msg</span><span class="p">:</span>
-<span class="linenos">271</span>                        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">:</span>
-<span class="linenos">272</span>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">))</span>
-<span class="linenos">273</span>                            
-<span class="linenos">274</span>                        <span class="n">num_changed</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">275</span>                    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">276</span>                        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-<span class="linenos">277</span>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: left unchanged&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos">278</span>
-<span class="linenos">279</span>                    <span class="c1"># molecule passed all checks and needs to be written to the regular output file</span>
-<span class="linenos">280</span>                    <span class="n">out_mol_writer</span> <span class="o">=</span> <span class="n">writer</span>
-<span class="linenos">281</span>                    
-<span class="linenos">282</span>                <span class="k">try</span><span class="p">:</span>
-<span class="linenos">283</span>                    <span class="c1"># calculate (if not already present) some basic properties of the output molecule</span>
-<span class="linenos">284</span>                    <span class="c1"># that might be required for writing (output format dependent)</span>
-<span class="linenos">285</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">286</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">287</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">288</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">289</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">290</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveComponents</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">291</span>                              
-<span class="linenos">292</span>                    <span class="c1"># output molecule</span>
-<span class="linenos">293</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">out_mol_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out_mol</span><span class="p">):</span>
-<span class="linenos">294</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">295</span>
-<span class="linenos">296</span>                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
-<span class="linenos">297</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">298</span>
-<span class="linenos">299</span>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">300</span>                
-<span class="linenos">301</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe processing errors</span>
-<span class="linenos">302</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">303</span>                
-<span class="linenos">304</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">305</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">306</span>
-<span class="linenos">307</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">308</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Summary:&#39;</span><span class="p">)</span>
-<span class="linenos">309</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> molecules processed&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="linenos">310</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> modified &#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_changed</span><span class="p">))</span>
-<span class="linenos">311</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> discarded&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_disc</span><span class="p">))</span>
-<span class="linenos">312</span>        
-<span class="linenos">313</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">314</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">315</span>                                
-<span class="linenos">316</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos">317</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Strips compounds that fulfill particular user-defined criteria from a molecule database&#39;</span><span class="p">)</span>
-<span class="linenos">318</span>
-<span class="linenos">319</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
-<span class="linenos">320</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
-<span class="linenos">321</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">322</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">323</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input molecule file&#39;</span><span class="p">)</span>
-<span class="linenos">324</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos">325</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos">326</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">327</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">328</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output molecule file&#39;</span><span class="p">)</span>
-<span class="linenos">329</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span>
-<span class="linenos">330</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;disc_file&#39;</span><span class="p">,</span>
-<span class="linenos">331</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">332</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">333</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Discarded molecule output file&#39;</span><span class="p">)</span>
-<span class="linenos">334</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
-<span class="linenos">335</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;strip_comps&#39;</span><span class="p">,</span>
-<span class="linenos">336</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">337</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">338</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">339</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keep only the largest molecule component (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">340</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
-<span class="linenos">341</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_charges&#39;</span><span class="p">,</span>
-<span class="linenos">342</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">343</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">344</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">345</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimize number of charged atoms (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">346</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
-<span class="linenos">347</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;excluded_elements&#39;</span><span class="p">,</span>
-<span class="linenos">348</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">349</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element list&gt;&quot;</span><span class="p">,</span>
-<span class="linenos">350</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of excluded chem. elements (default: no elements are excluded)&#39;</span><span class="p">)</span>
-<span class="linenos">351</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span>
-<span class="linenos">352</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;allowed_elements&#39;</span><span class="p">,</span>
-<span class="linenos">353</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">354</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element list&gt;&quot;</span><span class="p">,</span>
-<span class="linenos">355</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of allowed chem. elements (default: all elements are allowed)&#39;</span><span class="p">)</span>
-<span class="linenos">356</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
-<span class="linenos">357</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_atom_counts&#39;</span><span class="p">,</span>
-<span class="linenos">358</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">359</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element count list&gt;&quot;</span><span class="p">,</span>
-<span class="linenos">360</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimum chem. element specific atom counts (default: no count limits)&#39;</span><span class="p">)</span>
-<span class="linenos">361</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-M&#39;</span><span class="p">,</span>
-<span class="linenos">362</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_atom_counts&#39;</span><span class="p">,</span>
-<span class="linenos">363</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">364</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element count list&gt;&quot;</span><span class="p">,</span>
-<span class="linenos">365</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Maximum chem. element specific atom counts (default: no count limits)&#39;</span><span class="p">)</span>
-<span class="linenos">366</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span>
-<span class="linenos">367</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;verb_level&#39;</span><span class="p">,</span>
-<span class="linenos">368</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">369</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;0|1|2|3&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">370</span>                        <span class="n">choices</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<span class="linenos">371</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="linenos">372</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Verbosity level (default: 1; 0 -&gt; no console output, 1 -&gt; print summary, 2 -&gt; verbose, 3 -&gt; extra verbose)&#39;</span><span class="p">,</span>
-<span class="linenos">373</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<span class="linenos">374</span>
-<span class="linenos">375</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">212</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos">213</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos">214</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">215</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">216</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input molecule file&#39;</span><span class="p">)</span>
+<span class="linenos">217</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos">218</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos">219</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">220</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">221</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output molecule file&#39;</span><span class="p">)</span>
+<span class="linenos">222</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span>
+<span class="linenos">223</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;disc_file&#39;</span><span class="p">,</span>
+<span class="linenos">224</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">225</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">226</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Discarded molecule output file&#39;</span><span class="p">)</span>
+<span class="linenos">227</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
+<span class="linenos">228</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;strip_comps&#39;</span><span class="p">,</span>
+<span class="linenos">229</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">230</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">231</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">232</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keep only the largest molecule component (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">233</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+<span class="linenos">234</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_charges&#39;</span><span class="p">,</span>
+<span class="linenos">235</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">236</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">237</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">238</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimize number of charged atoms (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">239</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
+<span class="linenos">240</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;excluded_elements&#39;</span><span class="p">,</span>
+<span class="linenos">241</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">242</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">243</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of excluded chem. elements (default: no elements are excluded)&#39;</span><span class="p">)</span>
+<span class="linenos">244</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span>
+<span class="linenos">245</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;allowed_elements&#39;</span><span class="p">,</span>
+<span class="linenos">246</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">247</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">248</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of allowed chem. elements (default: all elements are allowed)&#39;</span><span class="p">)</span>
+<span class="linenos">249</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
+<span class="linenos">250</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_atom_counts&#39;</span><span class="p">,</span>
+<span class="linenos">251</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">252</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element count list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">253</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimum chem. element specific atom counts (default: no count limits)&#39;</span><span class="p">)</span>
+<span class="linenos">254</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-M&#39;</span><span class="p">,</span>
+<span class="linenos">255</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_atom_counts&#39;</span><span class="p">,</span>
+<span class="linenos">256</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">257</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element count list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">258</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Maximum chem. element specific atom counts (default: no count limits)&#39;</span><span class="p">)</span>
+<span class="linenos">259</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span>
+<span class="linenos">260</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;verb_level&#39;</span><span class="p">,</span>
+<span class="linenos">261</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">262</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;0|1|2|3&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">263</span>                        <span class="n">choices</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span class="linenos">264</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">265</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Verbosity level (default: 1; 0 -&gt; no console output, 1 -&gt; print summary, 2 -&gt; verbose, 3 -&gt; extra verbose)&#39;</span><span class="p">,</span>
+<span class="linenos">266</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">267</span>
+<span class="linenos">268</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">269</span>
+<span class="linenos">270</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">271</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span> <span class="c1"># process command line arguments</span>
+<span class="linenos">272</span>
+<span class="linenos">273</span>    <span class="c1"># convert specified lists of chem. element/gen. type symbols into a corresponding list of</span>
+<span class="linenos">274</span>    <span class="c1"># numeric atom types (defined in Chem.Atomtype)</span>
+<span class="linenos">275</span>    <span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span>  <span class="o">=</span> <span class="n">parseElementList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span><span class="p">)</span>
+<span class="linenos">276</span>    <span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span> <span class="o">=</span> <span class="n">parseElementList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span><span class="p">)</span>
+<span class="linenos">277</span>
+<span class="linenos">278</span>    <span class="c1"># convert specified comma separated lists of chem. element (or generic type) symbol/count pairs (sep. by colon) into</span>
+<span class="linenos">279</span>    <span class="c1"># corresponding dictionaries mapping numeric atom types (defined in Chem.AtomType) to integers</span>
+<span class="linenos">280</span>    <span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span> <span class="o">=</span> <span class="n">parseElementCountList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span><span class="p">)</span>
+<span class="linenos">281</span>    <span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span> <span class="o">=</span> <span class="n">parseElementCountList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span><span class="p">)</span>
+<span class="linenos">282</span>    
+<span class="linenos">283</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">284</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos">285</span>
+<span class="linenos">286</span>    <span class="c1"># create writer for molecules passing the checks (format specified by file extension)</span>
+<span class="linenos">287</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos">288</span>
+<span class="linenos">289</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">disc_file</span><span class="p">:</span>
+<span class="linenos">290</span>        <span class="c1"># create writer for sorted out molecules (format specified by file extension)</span>
+<span class="linenos">291</span>        <span class="n">disc_writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">disc_file</span><span class="p">)</span> 
+<span class="linenos">292</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">293</span>        <span class="n">disc_writer</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">294</span>        
+<span class="linenos">295</span>    <span class="c1"># create instances of the default implementation of the Chem.Molecule interface for the input and output molecules</span>
+<span class="linenos">296</span>    <span class="n">in_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">297</span>
+<span class="linenos">298</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">299</span>    <span class="n">num_changed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">300</span>    <span class="n">num_disc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">301</span>    
+<span class="linenos">302</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">303</span>        <span class="c1"># read and process molecules one after the other until the end of input has been reached (or a severe error occurs)</span>
+<span class="linenos">304</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">in_mol</span><span class="p">):</span>
+<span class="linenos">305</span>            <span class="c1"># compose a molecule identifier</span>
+<span class="linenos">306</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">in_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">307</span>
+<span class="linenos">308</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">309</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
+<span class="linenos">310</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">311</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">312</span>            
+<span class="linenos">313</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">314</span>                <span class="c1"># process input molecule</span>
+<span class="linenos">315</span>                <span class="n">out_mol</span><span class="p">,</span> <span class="n">log_msg</span> <span class="o">=</span> <span class="n">processMolecule</span><span class="p">(</span><span class="n">in_mol</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> 
+<span class="linenos">316</span>                
+<span class="linenos">317</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">out_mol</span><span class="p">:</span>         <span class="c1"># check whether the molecule has been sorted out</span>
+<span class="linenos">318</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">log_msg</span><span class="p">:</span>
+<span class="linenos">319</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: discarded, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">))</span>
+<span class="linenos">320</span>
+<span class="linenos">321</span>                    <span class="n">num_disc</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">322</span>                        
+<span class="linenos">323</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">disc_writer</span><span class="p">:</span> <span class="c1"># check whether discarded molecules should be saved to a separate file</span>
+<span class="linenos">324</span>                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">325</span>                        <span class="k">continue</span>
+<span class="linenos">326</span>
+<span class="linenos">327</span>                    <span class="c1"># write discarded molecule to the specified target file</span>
+<span class="linenos">328</span>                    <span class="n">out_mol</span> <span class="o">=</span> <span class="n">in_mol</span>
+<span class="linenos">329</span>                    <span class="n">out_mol_writer</span> <span class="o">=</span> <span class="n">disc_writer</span>
+<span class="linenos">330</span>                <span class="k">else</span><span class="p">:</span>
+<span class="linenos">331</span>                    <span class="k">if</span> <span class="n">log_msg</span><span class="p">:</span>
+<span class="linenos">332</span>                        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">:</span>
+<span class="linenos">333</span>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">))</span>
+<span class="linenos">334</span>                            
+<span class="linenos">335</span>                        <span class="n">num_changed</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">336</span>                    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">337</span>                        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">338</span>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: left unchanged&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">339</span>
+<span class="linenos">340</span>                    <span class="c1"># molecule passed all checks and needs to be written to the regular output file</span>
+<span class="linenos">341</span>                    <span class="n">out_mol_writer</span> <span class="o">=</span> <span class="n">writer</span>
+<span class="linenos">342</span>                    
+<span class="linenos">343</span>                <span class="k">try</span><span class="p">:</span>
+<span class="linenos">344</span>                    <span class="c1"># calculate (if not already present) some basic properties of the output molecule</span>
+<span class="linenos">345</span>                    <span class="c1"># that might be required for writing (output format dependent)</span>
+<span class="linenos">346</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">347</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">348</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">349</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">350</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">351</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveComponents</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">352</span>                              
+<span class="linenos">353</span>                    <span class="c1"># output molecule</span>
+<span class="linenos">354</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">out_mol_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out_mol</span><span class="p">):</span>
+<span class="linenos">355</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">356</span>
+<span class="linenos">357</span>                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
+<span class="linenos">358</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">359</span>
+<span class="linenos">360</span>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">361</span>                
+<span class="linenos">362</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe processing errors</span>
+<span class="linenos">363</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">364</span>                
+<span class="linenos">365</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">366</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">367</span>
+<span class="linenos">368</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">369</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Summary:&#39;</span><span class="p">)</span>
+<span class="linenos">370</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> molecules processed&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos">371</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> modified &#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_changed</span><span class="p">))</span>
+<span class="linenos">372</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> discarded&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_disc</span><span class="p">))</span>
+<span class="linenos">373</span>        
+<span class="linenos">374</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">375</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="linenos">376</span>
 <span class="linenos">377</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 <span class="linenos">378</span>    <span class="n">main</span><span class="p">()</span>
