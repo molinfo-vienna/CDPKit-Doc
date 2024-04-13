@@ -2,7 +2,7 @@ var searchData=
 [
   ['b_234',['B',['../classCDPL_1_1Chem_1_1AtomType.html#a60822f20d3205aadb39e3bf1a5ba18c4',1,'CDPL::Chem::AtomType']]],
   ['ba_235',['Ba',['../classCDPL_1_1Chem_1_1AtomType.html#a6598de2bb01247d4cd4ecd71676825cc',1,'CDPL::Chem::AtomType']]],
-  ['background_5fcolor_236',['BACKGROUND_COLOR',['../classCDPL_1_1Vis_1_1ControlParameter.html#a942d659b8b6866b3c68ad1fcd9a79374',1,'CDPL.Vis.ControlParameter.BACKGROUND_COLOR()'],['../classCDPL_1_1Vis_1_1ControlParameterDefault.html#ad149da2305c87e13b765d3479b541178',1,'CDPL.Vis.ControlParameterDefault.BACKGROUND_COLOR()']]],
+  ['background_5fbrush_236',['BACKGROUND_BRUSH',['../classCDPL_1_1Vis_1_1ControlParameter.html#afcd2b2665fb54444b424b095e69c96ad',1,'CDPL.Vis.ControlParameter.BACKGROUND_BRUSH()'],['../classCDPL_1_1Vis_1_1ControlParameterDefault.html#afe8aba4e145d07fc7ca1a21f69720c36',1,'CDPL.Vis.ControlParameterDefault.BACKGROUND_BRUSH()']]],
   ['badcast_237',['BadCast',['../classCDPL_1_1Base_1_1BadCast.html',1,'CDPL::Base']]],
   ['basicatom_238',['BasicAtom',['../classCDPL_1_1Chem_1_1BasicAtom.html',1,'CDPL::Chem']]],
   ['basicbond_239',['BasicBond',['../classCDPL_1_1Chem_1_1BasicBond.html',1,'CDPL::Chem']]],
