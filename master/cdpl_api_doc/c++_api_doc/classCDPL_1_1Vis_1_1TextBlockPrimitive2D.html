@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A graphics primitive representing a block of styled text that comprises multiple lines.  
+<p>A graphics primitive representing a block of styled text.  
  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TextBlockPrimitive2D_8hpp_source.html">TextBlockPrimitive2D.hpp</a>&gt;</code></p>
@@ -125,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac118baec82405e30f30336aff94dea7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the block's text content.  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#ac118baec82405e30f30336aff94dea7d">More...</a><br /></td></tr>
 <tr class="separator:ac118baec82405e30f30336aff94dea7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5079618602ba2ff184652528a700201f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a5079618602ba2ff184652528a700201f">hasText</a> () const</td></tr>
-<tr class="memdesc:a5079618602ba2ff184652528a700201f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the text block has any renderable text.  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a5079618602ba2ff184652528a700201f">More...</a><br /></td></tr>
+<tr class="memdesc:a5079618602ba2ff184652528a700201f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the text block has any visible text (includes whitespace).  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a5079618602ba2ff184652528a700201f">More...</a><br /></td></tr>
 <tr class="separator:a5079618602ba2ff184652528a700201f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae37b0633194c15d59002bb2d88c7a416"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#ae37b0633194c15d59002bb2d88c7a416">setPosition</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a86e9df8c9ff61d5726c8de43cc61940e">Math::Vector2D</a> &amp;pos)</td></tr>
 <tr class="memdesc:ae37b0633194c15d59002bb2d88c7a416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the text block in 2D space.  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#ae37b0633194c15d59002bb2d88c7a416">More...</a><br /></td></tr>
@@ -161,6 +161,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5453647f2822799d752e14e561360e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the active line spacing value.  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a5453647f2822799d752e14e561360e39">More...</a><br /></td></tr>
 <tr class="separator:a5453647f2822799d752e14e561360e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a924877c29a47698af65216dfaaa9f197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a924877c29a47698af65216dfaaa9f197">layout</a> (<a class="el" href="classCDPL_1_1Vis_1_1FontMetrics.html">FontMetrics</a> &amp;font_metrics)</td></tr>
+<tr class="memdesc:a924877c29a47698af65216dfaaa9f197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a layout of the text for the currently specified font using the provided <a class="el" href="classCDPL_1_1Vis_1_1FontMetrics.html" title="An interface class with methods that provide information about the metrics of a font.">Vis::FontMetrics</a> instance <em>font_metrics</em>.  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a924877c29a47698af65216dfaaa9f197">More...</a><br /></td></tr>
 <tr class="separator:a924877c29a47698af65216dfaaa9f197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ce024c7fea800ac2e3cadc0675e2164"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1GraphicsPrimitive2D.html#a8d6904e2fc2931d7be58682cae7e0e91">GraphicsPrimitive2D::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a7ce024c7fea800ac2e3cadc0675e2164">clone</a> () const</td></tr>
 <tr class="memdesc:a7ce024c7fea800ac2e3cadc0675e2164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a dynamically allocated copy of the graphics primitive.  <a href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a7ce024c7fea800ac2e3cadc0675e2164">More...</a><br /></td></tr>
@@ -174,7 +175,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a79611b823320f118c98d1170bb089d69 inherit pub_methods_classCDPL_1_1Vis_1_1GraphicsPrimitive2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A graphics primitive representing a block of styled text that comprises multiple lines. </p>
+<div class="textblock"><p>A graphics primitive representing a block of styled text. </p>
+<p>Class <code>TextBlockPrimitive2D</code> is smiliar to <a class="el" href="classCDPL_1_1Vis_1_1TextLabelPrimitive2D.html" title="A graphics primitive representing a text label.">Vis::TextLabelPrimitive2D</a> but way more versatile. <code>TextBlockPrimitive2D</code> can store/render text that spans multiple lines with configurable line spacing (see <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a84d2f8224b4e8d60f1158e242d41f9f1" title="Sets the line spacing value.">setLineSpacing()</a>) and alignment (see <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a89f451ee4a0ad437c836e2f54f04ac9d" title="Specifies the way lines should be horizontally aligned.">setAlignment()</a>), and supports changing text color and various attributes like font weight and slant for individual text portions. Furthermore, text fragments can be rendered sub/super-scripted, under- and overlined as well as striked out. This is achieved by using an XML-based syntax where a portion of text to be rendered in a particular style is enclosed in specific start and end tags. More information on the syntax, the supported styling tags and their meaning can be found in the documentation of the method <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a294caaf622cf648c9ee9dc5c383413e3" title="Specifies the block&#39;s text content.">setText()</a>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5b19cb8c033d5f0ab82aaf8308c54e75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b19cb8c033d5f0ab82aaf8308c54e75">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -266,9 +268,39 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies the block's text content. </p>
+<p><a class="el" href="classCDPL_1_1Vis_1_1Color.html" title="Specifies a color in terms of its red, green and blue components and an alpha-channel for transparenc...">Color</a>, font attributes and style of individual text fragments can be controlled by enclosing the concerned piece of text in specific XML tags. The following tags are supported:</p>
+<table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
+<tr bgcolor="#DDDDDD" align="center" valign="middle">
+<th>Tag </th><th>Effect/Description  </th></tr>
+<tr>
+<td>&lt;br/&gt; </td><td>Line break  </td></tr>
+<tr>
+<td>&lt;b&gt; </td><td>Boldfaced text  </td></tr>
+<tr>
+<td>&lt;i&gt; </td><td>Italicized text  </td></tr>
+<tr>
+<td>&lt;o&gt; </td><td>Overlined text  </td></tr>
+<tr>
+<td>&lt;u&gt; </td><td>Underlined text  </td></tr>
+<tr>
+<td>&lt;s&gt; </td><td>Striked-out text  </td></tr>
+<tr>
+<td>&lt;sub&gt; </td><td>Subscripted text  </td></tr>
+<tr>
+<td>&lt;sup&gt; </td><td>Superscripted text  </td></tr>
+<tr>
+<td>&lt;color&gt; </td><td>Text color; supports the attributes <em>r</em>, <em>g</em>, <em>b</em> and <em>a</em> with a value in the range [0.0, 1.0]; default component values are <em>r=0</em>, <em>b=0</em>, <em>g=0</em> and <em>a=1</em>   </td></tr>
+</table>
+<p>Newline characters <code>\n</code> are regarded and interpreted as such. Tab characters <code>\t</code> are replaced by a single whitespace character. Any other special characters are deleted. The supported tags listed above are all optional. Plain ASCII text will thus be rendered using the set font (see <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#aa597f3a4cf181b8085ab584b8ba7aa64" title="Sets the font used for text rendering.">setFont()</a>) and color (see <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#ac94b82a08c089db58ba0257d1ce597ea" title="Sets the pen defining the default text color.">setPen()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">text</td><td>The text content of the block. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a></td><td>if XML parsing of the specified text failed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -329,8 +361,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether the text block has any renderable text. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there is renderable text and <code>false</code> otherwise. </dd></dl>
+<p>Tells whether the text block has any visible text (includes whitespace). </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there is any visible text and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -489,6 +521,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Calling this method invalidates the current layout (see <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a924877c29a47698af65216dfaaa9f197" title="Performs a layout of the text for the currently specified font using the provided Vis::FontMetrics in...">layout()</a>). </dd></dl>
 
 </div>
 </div>
@@ -529,7 +562,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies the way lines should be horizontally aligned. </p>
-<p>Possible values are defined in namespace <a class="el" href="namespaceCDPL_1_1Vis_1_1Alignment.html" title="Provides flags that are used to specify the 2D alignment of graphical objects within a bounded rectan...">Vis::Alignment</a>.</p>
+<p>Possible horizontal alignment values are defined in namespace <a class="el" href="namespaceCDPL_1_1Vis_1_1Alignment.html" title="Provides flags that are used to specify the 2D alignment of graphical objects within a bounded rectan...">Vis::Alignment</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">alignment</td><td>The horizontal text alignment specification. </td></tr>
@@ -555,7 +588,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the active horizontal text alignment specification. </p>
-<p>Possible values are defined in namespace <a class="el" href="namespaceCDPL_1_1Vis_1_1Alignment.html" title="Provides flags that are used to specify the 2D alignment of graphical objects within a bounded rectan...">Vis::Alignment</a>.</p>
+<p>Possible horizontal alignment values are defined in namespace <a class="el" href="namespaceCDPL_1_1Vis_1_1Alignment.html" title="Provides flags that are used to specify the 2D alignment of graphical objects within a bounded rectan...">Vis::Alignment</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>The current horizontal text alignment specification. </dd></dl>
 
 </div>
@@ -577,7 +610,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the line spacing value. </p>
-<p>The final base line spacing is the product of the specified line spacing and the font height returned by the method <a class="el" href="classCDPL_1_1Vis_1_1FontMetrics.html#ab2058bcce6773311a958f63cabc2fd87" title="Returns the height of the font.">FontMetrics::getHeight()</a> for the set font.</p>
+<p>The final base line spacing is the product of the specified line spacing and the font height returned by the method <a class="el" href="classCDPL_1_1Vis_1_1FontMetrics.html#ab2058bcce6773311a958f63cabc2fd87" title="Returns the height of the font.">Vis::FontMetrics::getHeight()</a> for the set font.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">spacing</td><td>The desired line spacing. </td></tr>
@@ -622,6 +655,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Performs a layout of the text for the currently specified font using the provided <a class="el" href="classCDPL_1_1Vis_1_1FontMetrics.html" title="An interface class with methods that provide information about the metrics of a font.">Vis::FontMetrics</a> instance <em>font_metrics</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font_metrics</td><td>An instance of a class implementing the <a class="el" href="classCDPL_1_1Vis_1_1FontMetrics.html" title="An interface class with methods that provide information about the metrics of a font.">Vis::FontMetrics</a> interface. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method must be called before the text is rendered by calling the method <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a5b22b4bdd3e110a9b9b41ad6aa8a2e2f" title="Visualizes the graphics primitive by means of the Renderer2D instance renderer.">render()</a>. The methods <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#a294caaf622cf648c9ee9dc5c383413e3" title="Specifies the block&#39;s text content.">setText()</a> or <a class="el" href="classCDPL_1_1Vis_1_1TextBlockPrimitive2D.html#aa597f3a4cf181b8085ab584b8ba7aa64" title="Sets the font used for text rendering.">setFont()</a> invalidate the text layout. </dd></dl>
 
 </div>
 </div>
