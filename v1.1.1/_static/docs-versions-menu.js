@@ -23,7 +23,7 @@ function _addVersionsMenu(version_data) {
   var root_url = getRootUrl();
   var current_url = document.URL;
   var current_folder = getGhPagesCurrentFolder();
-  if (current_folder === undefined) return;
+  if (current_folder === undefined) current_folder = '.';
   var current_version = version_data["labels"][current_folder];
   var menu = document.createElement('div');
   menu.setAttribute('class', 'rst-versions');
