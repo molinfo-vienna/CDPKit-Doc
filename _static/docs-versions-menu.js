@@ -49,7 +49,7 @@ function _addVersionsMenu(version_data) {
                        + "'>" + current_version + "</a></dd></strong>";
     } else {
       var inner_html = inner_html + "<dd><a href='"
-                       + current_url.replace(current_folder, folder)
+                       + root_url + "/" + folder + "/index.html"
                        + "'>" + version_data["labels"][folder] + "</a></dd>";
     }
   }
