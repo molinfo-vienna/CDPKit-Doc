@@ -159,9 +159,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abf98070a998de400ee717a84c47ee198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ComponentSet.html#abf98070a998de400ee717a84c47ee198">ComponentSet</a> ()</td></tr>
 <tr class="memdesc:abf98070a998de400ee717a84c47ee198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>ComponentSet</code> instance.  <a href="classCDPL_1_1Chem_1_1ComponentSet.html#abf98070a998de400ee717a84c47ee198">More...</a><br /></td></tr>
 <tr class="separator:abf98070a998de400ee717a84c47ee198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c1db1ef41bb0e103a7c11a99f048ab5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ComponentSet.html#a6c1db1ef41bb0e103a7c11a99f048ab5">ComponentSet</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a6c1db1ef41bb0e103a7c11a99f048ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>ComponentSet</code> instance that contains the componenents of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1ComponentSet.html#a6c1db1ef41bb0e103a7c11a99f048ab5">More...</a><br /></td></tr>
-<tr class="separator:a6c1db1ef41bb0e103a7c11a99f048ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00266a2a4428deaf3f8dbbbc06408a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ComponentSet.html#aa00266a2a4428deaf3f8dbbbc06408a6">ComponentSet</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, std::size_t min_atom_idx=0)</td></tr>
+<tr class="memdesc:aa00266a2a4428deaf3f8dbbbc06408a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>ComponentSet</code> instance that contains the componenents of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1ComponentSet.html#aa00266a2a4428deaf3f8dbbbc06408a6">More...</a><br /></td></tr>
+<tr class="separator:aa00266a2a4428deaf3f8dbbbc06408a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8742d4d4b7240f31fa4115f93a148ba2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ComponentSet.html#a8742d4d4b7240f31fa4115f93a148ba2">perceive</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, std::size_t min_atom_idx=0)</td></tr>
 <tr class="memdesc:a8742d4d4b7240f31fa4115f93a148ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of components by the components of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1ComponentSet.html#a8742d4d4b7240f31fa4115f93a148ba2">More...</a><br /></td></tr>
 <tr class="separator:a8742d4d4b7240f31fa4115f93a148ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -489,8 +489,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a6c1db1ef41bb0e103a7c11a99f048ab5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c1db1ef41bb0e103a7c11a99f048ab5">&#9670;&nbsp;</a></span>ComponentSet() <span class="overload">[2/2]</span></h2>
+<a id="aa00266a2a4428deaf3f8dbbbc06408a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00266a2a4428deaf3f8dbbbc06408a6">&#9670;&nbsp;</a></span>ComponentSet() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,8 +499,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">CDPL::Chem::ComponentSet::ComponentSet </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;&#160;</td>
-          <td class="paramname"><em>molgraph</em></td><td>)</td>
+          <td class="paramname"><em>molgraph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>min_atom_idx</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -509,6 +519,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to perceive the components. </td></tr>
+    <tr><td class="paramname">min_atom_idx</td><td>The min. index of atoms in <em>molgraph</em> to be considered for component perception (since 1.2). </td></tr>
   </table>
   </dd>
 </dl>
@@ -546,7 +557,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to perceive the components. </td></tr>
-    <tr><td class="paramname">min_atom_idx</td><td>The min. index of atoms to be considered for component perception (since 1.2). </td></tr>
+    <tr><td class="paramname">min_atom_idx</td><td>The min. index of atoms in <em>molgraph</em> to be considered for component perception (since 1.2). </td></tr>
   </table>
   </dd>
 </dl>
