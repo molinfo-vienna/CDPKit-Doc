@@ -131,62 +131,61 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">close</a>();</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">operator</span> <span class="keyword">const</span> <span class="keywordtype">void</span>*() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">operator!</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            std::fstream stream;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            std::string  fileName;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            WriterImpl   writer;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    } <span class="comment">// namespace Util</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">operator!</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            std::fstream stream;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            std::string  fileName;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            WriterImpl   writer;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        };</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    } <span class="comment">// namespace Util</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// Implementation</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a7873761363c1fa7fd7d1b30b12b6b4bf">   77</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a7873761363c1fa7fd7d1b30b12b6b4bf">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::FileDataWriter</a>(<span class="keyword">const</span> std::string&amp; file_name, std::ios_base::openmode mode):</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    stream(file_name.c_str(), mode), fileName(file_name), writer(stream)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    writer.setParent(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    writer.registerIOCallback(std::bind(&amp;<a class="code" href="classCDPL_1_1Base_1_1DataIOBase.html#ae8c75207da90e41e06a082b634d6ad94">Base::DataIOBase::invokeIOCallbacks</a>, <span class="keyword">this</span>, std::placeholders::_2));</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;</a>&amp;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">   86</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::write</a>(<span class="keyword">const</span> DataType&amp; obj)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        writer.<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">write</a>(obj);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCDPL_1_1Base_1_1IOError.html">Base::IOError</a>(<span class="stringliteral">&quot;FileDataWriter: while writing file &#39;&quot;</span> + fileName + <span class="stringliteral">&quot;&#39;: &quot;</span> + e.what());</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">   99</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::close</a>()</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    writer.close();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    stream.close();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a4728b675c93d0e82d8ef389d37974775">  106</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::operator</a> <span class="keyword">const</span> <span class="keywordtype">void</span>*() <span class="keyword">const</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> writer.operator <span class="keyword">const</span> <span class="keywordtype">void</span>*();</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">  112</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::operator!</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> writer.operator!();</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_UTIL_FILEDATAWRITER_HPP</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">// Implementation</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a7873761363c1fa7fd7d1b30b12b6b4bf">   76</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a7873761363c1fa7fd7d1b30b12b6b4bf">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::FileDataWriter</a>(<span class="keyword">const</span> std::string&amp; file_name, std::ios_base::openmode mode):</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    stream(file_name.c_str(), mode), fileName(file_name), writer(stream)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    writer.setParent(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    writer.registerIOCallback(std::bind(&amp;<a class="code" href="classCDPL_1_1Base_1_1DataIOBase.html#ae8c75207da90e41e06a082b634d6ad94">Base::DataIOBase::invokeIOCallbacks</a>, <span class="keyword">this</span>, std::placeholders::_2));</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;</a>&amp;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">   85</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::write</a>(<span class="keyword">const</span> DataType&amp; obj)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        writer.<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">write</a>(obj);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">throw</span> <a class="code" href="classCDPL_1_1Base_1_1IOError.html">Base::IOError</a>(<span class="stringliteral">&quot;FileDataWriter: while writing file &#39;&quot;</span> + fileName + <span class="stringliteral">&quot;&#39;: &quot;</span> + e.what());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">   98</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::close</a>()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    writer.close();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    stream.close();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#a4728b675c93d0e82d8ef389d37974775">  105</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::operator</a> <span class="keyword">const</span> <span class="keywordtype">void</span>*() <span class="keyword">const</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> writer.operator <span class="keyword">const</span> <span class="keywordtype">void</span>*();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> WriterImpl, <span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">  111</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">CDPL::Util::FileDataWriter&lt;WriterImpl, DataType&gt;::operator!</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> writer.operator!();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_UTIL_FILEDATAWRITER_HPP</span></div>
 <div class="ttc" id="aBase_2Exceptions_8hpp_html"><div class="ttname"><a href="Base_2Exceptions_8hpp.html">Exceptions.hpp</a></div><div class="ttdoc">Definition of exception classes.</div></div>
 <div class="ttc" id="aDataWriter_8hpp_html"><div class="ttname"><a href="DataWriter_8hpp.html">DataWriter.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Base::DataWriter.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1DataIOBase_html_ae8c75207da90e41e06a082b634d6ad94"><div class="ttname"><a href="classCDPL_1_1Base_1_1DataIOBase.html#ae8c75207da90e41e06a082b634d6ad94">CDPL::Base::DataIOBase::invokeIOCallbacks</a></div><div class="ttdeci">void invokeIOCallbacks(double progress) const</div><div class="ttdoc">Invokes all registered I/O callback functions with the argument *this.</div></div>
@@ -194,10 +193,10 @@ $(function() {
 <div class="ttc" id="aclassCDPL_1_1Base_1_1DataWriter_html_a8e95bfc74f86c11207ed5f8dd3fb5f69"><div class="ttname"><a href="classCDPL_1_1Base_1_1DataWriter.html#a8e95bfc74f86c11207ed5f8dd3fb5f69">CDPL::Base::DataWriter&lt; typename WriterImpl::DataType &gt;::DataType</a></div><div class="ttdeci">typename WriterImpl::DataType DataType</div><div class="ttdoc">The type of the written data objects.</div><div class="ttdef"><b>Definition:</b> DataWriter.hpp:74</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1IOError_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1IOError.html">CDPL::Base::IOError</a></div><div class="ttdoc">Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...</div><div class="ttdef"><b>Definition:</b> Base/Exceptions.hpp:250</div></div>
 <div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html">CDPL::Util::FileDataWriter</a></div><div class="ttdoc">FileDataWriter.</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:51</div></div>
-<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_a7873761363c1fa7fd7d1b30b12b6b4bf"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#a7873761363c1fa7fd7d1b30b12b6b4bf">CDPL::Util::FileDataWriter::FileDataWriter</a></div><div class="ttdeci">FileDataWriter(const std::string &amp;file_name, std::ios_base::openmode mode=std::ios_base::in|std::ios_base::out|std::ios_base::trunc|std::ios_base::binary)</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:77</div></div>
-<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_a9030874949481b11a61c90eec00757c0"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">CDPL::Util::FileDataWriter::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Writes format dependent data (if required) to mark the end of output.</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:99</div></div>
-<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_a993f689b3abdef6f4ec604f0b33f5d4b"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">CDPL::Util::FileDataWriter::write</a></div><div class="ttdeci">FileDataWriter &amp; write(const DataType &amp;obj)</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:86</div></div>
-<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_aba9d6403a1e1cb3c097467845d4f6ec1"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">CDPL::Util::FileDataWriter::operator!</a></div><div class="ttdeci">bool operator!() const</div><div class="ttdoc">Tells whether the writer is in a bad state.</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:112</div></div>
+<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_a7873761363c1fa7fd7d1b30b12b6b4bf"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#a7873761363c1fa7fd7d1b30b12b6b4bf">CDPL::Util::FileDataWriter::FileDataWriter</a></div><div class="ttdeci">FileDataWriter(const std::string &amp;file_name, std::ios_base::openmode mode=std::ios_base::in|std::ios_base::out|std::ios_base::trunc|std::ios_base::binary)</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:76</div></div>
+<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_a9030874949481b11a61c90eec00757c0"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#a9030874949481b11a61c90eec00757c0">CDPL::Util::FileDataWriter::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Writes format dependent data (if required) to mark the end of output.</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:98</div></div>
+<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_a993f689b3abdef6f4ec604f0b33f5d4b"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#a993f689b3abdef6f4ec604f0b33f5d4b">CDPL::Util::FileDataWriter::write</a></div><div class="ttdeci">FileDataWriter &amp; write(const DataType &amp;obj)</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:85</div></div>
+<div class="ttc" id="aclassCDPL_1_1Util_1_1FileDataWriter_html_aba9d6403a1e1cb3c097467845d4f6ec1"><div class="ttname"><a href="classCDPL_1_1Util_1_1FileDataWriter.html#aba9d6403a1e1cb3c097467845d4f6ec1">CDPL::Util::FileDataWriter::operator!</a></div><div class="ttdeci">bool operator!() const</div><div class="ttdoc">Tells whether the writer is in a bad state.</div><div class="ttdef"><b>Definition:</b> FileDataWriter.hpp:111</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
