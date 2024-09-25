@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Chemical Data Processing Library C++ API - Version 1.2.0: BuildInfo.hpp Source File</title>
+<title>Chemical Data Processing Library C++ API - Version 1.2.0: MMCIFDataProcessingFunction.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,20 +70,20 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_13e5b888d4d8e2bc4637fdf598186b4c.html">CDPL</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_13e5b888d4d8e2bc4637fdf598186b4c.html">CDPL</a></li><li class="navelem"><a class="el" href="dir_c3d01f90f61dda2cb9d0391b1b68a0df.html">Biomol</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">BuildInfo.hpp</div>  </div>
+<div class="title">MMCIFDataProcessingFunction.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="BuildInfo_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* </span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * BuildInfo.hpp </span></div>
+<a href="MMCIFDataProcessingFunction_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* </span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * MMCIFDataProcessingFunction.hpp </span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * This file is part of the Chemical Data Processing Toolkit</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2003-2008 Thomas Seidel &lt;thomas.seidel@chemit.at&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Copyright (C) 2003 Thomas Seidel &lt;thomas.seidel@univie.ac.at&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * This library is free software; you can redistribute it and/or</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * modify it under the terms of the GNU Lesser General Public</span></div>
@@ -101,18 +101,35 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * Boston, MA 02111-1307, USA.</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef CDPL_BUILDINFO_HPP</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define CDPL_BUILDINFO_HPP</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef CDPL_BIOMOL_MMCIFDATAPROCESSINGFUNCTION_HPP</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define CDPL_BIOMOL_MMCIFDATAPROCESSINGFUNCTION_HPP</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="BuildInfo_8hpp.html#a7c9312e46cb391b8c84937e706e2ab07">   35</a></span>&#160;<span class="preprocessor">#define CDPL_COMPILER_ID      &quot;GNU&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="BuildInfo_8hpp.html#a6c91ceea2264944b2368eb3eaa5ed8ac">   40</a></span>&#160;<span class="preprocessor">#define CDPL_COMPILER_VERSION &quot;11.4.1&quot;</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="BuildInfo_8hpp.html#a51e57b678c884de89185798ef6128d94">   45</a></span>&#160;<span class="preprocessor">#define CDPL_BUILD_SYSTEM     &quot;Linux-5.14.0-427.22.1.el9_4.x86_64&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">namespace </span>Chem</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">class </span>MolecularGraph;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">namespace </span>Biomol</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="BuildInfo_8hpp.html#ad86a4e1cf8fdd8816ac991f89da6e44a">   50</a></span>&#160;<span class="preprocessor">#define CDPL_BUILD_TIME        202409251132</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_BUILDINFO_HPP</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">class </span>MMCIFData;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">   52</a></span>&#160;        <span class="keyword">typedef</span> std::function&lt;void(<a class="code" href="classCDPL_1_1Biomol_1_1MMCIFData.html">Biomol::MMCIFData</a>&amp;, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp;)&gt; <a class="code" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">MMCIFDataProcessingFunction</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    } <span class="comment">// namespace Biomol</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_BIOMOL_MMCIFDATAPROCESSINGFUNCTION_HPP</span></div>
+<div class="ttc" id="aclassCDPL_1_1Biomol_1_1MMCIFData_html"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1MMCIFData.html">CDPL::Biomol::MMCIFData</a></div><div class="ttdoc">A data structure for the storage of imported MMCIF data (see [MMCIF]).</div><div class="ttdef"><b>Definition:</b> MMCIFData.hpp:54</div></div>
+<div class="ttc" id="aclassCDPL_1_1Chem_1_1MolecularGraph_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></div><div class="ttdoc">MolecularGraph.</div><div class="ttdef"><b>Definition:</b> MolecularGraph.hpp:52</div></div>
+<div class="ttc" id="anamespaceCDPL_1_1Biomol_html_a58e3da25639e39171a650f3f1490c4a1"><div class="ttname"><a href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">CDPL::Biomol::MMCIFDataProcessingFunction</a></div><div class="ttdeci">std::function&lt; void(Biomol::MMCIFData &amp;, const Chem::MolecularGraph &amp;)&gt; MMCIFDataProcessingFunction</div><div class="ttdoc">A generic wrapper class used to store a user-defined function for the processing of Biomol::MMCIFData...</div><div class="ttdef"><b>Definition:</b> MMCIFDataProcessingFunction.hpp:47</div></div>
+<div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

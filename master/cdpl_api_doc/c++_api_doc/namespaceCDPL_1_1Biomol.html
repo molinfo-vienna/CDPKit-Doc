@@ -178,6 +178,9 @@ Typedefs</h2></td></tr>
 <tr class="separator:a748d49c9b6384e62586276664c207033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a121958dd3fd55b167f8abba20fe121b1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Util_1_1CompressedDataReader.html">Util::CompressedDataReader</a>&lt; <a class="el" href="classCDPL_1_1Biomol_1_1MMCIFMoleculeReader.html">MMCIFMoleculeReader</a>, <a class="el" href="namespaceCDPL_1_1Util.html#ab805686c758e582b432787731ae4dab6">Util::BZip2IStream</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a121958dd3fd55b167f8abba20fe121b1">MMCIFBZ2MoleculeReader</a></td></tr>
 <tr class="separator:a121958dd3fd55b167f8abba20fe121b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e3da25639e39171a650f3f1490c4a1"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Biomol_1_1MMCIFData.html">Biomol::MMCIFData</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">MMCIFDataProcessingFunction</a></td></tr>
+<tr class="memdesc:a58e3da25639e39171a650f3f1490c4a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic wrapper class used to store a user-defined function for the processing of <a class="el" href="classCDPL_1_1Biomol_1_1MMCIFData.html" title="A data structure for the storage of imported MMCIF data (see [MMCIF]).">Biomol::MMCIFData</a> instances.  <a href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">More...</a><br /></td></tr>
+<tr class="separator:a58e3da25639e39171a650f3f1490c4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74956813964c0bcb9f824f7104604f7d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html">Util::DefaultDataOutputHandler</a>&lt; <a class="el" href="namespaceCDPL_1_1Biomol.html#a60b6e1614d9e3f1a7f08120a3fb8147e">MMCIFGZMolecularGraphWriter</a>, <a class="el" href="namespaceCDPL_1_1Biomol_1_1DataFormat.html#a8f7cc4ae86ae289ef7fdb5bc15fbbd74">DataFormat::MMCIF_GZ</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a74956813964c0bcb9f824f7104604f7d">MMCIFGZMolecularGraphOutputHandler</a></td></tr>
 <tr class="memdesc:a74956813964c0bcb9f824f7104604f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A handler for the output of gzip-compressed molecular graph data in the <em>MMCIF</em> format.  <a href="namespaceCDPL_1_1Biomol.html#a74956813964c0bcb9f824f7104604f7d">More...</a><br /></td></tr>
 <tr class="separator:a74956813964c0bcb9f824f7104604f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -329,6 +332,14 @@ Functions</h2></td></tr>
 <tr class="separator:ae0cc41094d250b6573391bfb781a4c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ec5005205f05c49a0621d0d8eb2621"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a91ec5005205f05c49a0621d0d8eb2621">hasAltLocationID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom)</td></tr>
 <tr class="separator:a91ec5005205f05c49a0621d0d8eb2621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19283b2f91a205724548c34dee002505"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a19283b2f91a205724548c34dee002505">getEntityID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom)</td></tr>
+<tr class="separator:a19283b2f91a205724548c34dee002505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e2e751d430a5b0d7b9710500ce1d151"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a4e2e751d430a5b0d7b9710500ce1d151">setEntityID</a> (<a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom, const std::string &amp;id)</td></tr>
+<tr class="separator:a4e2e751d430a5b0d7b9710500ce1d151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9643e7bd1a10ced1554b5931e6f9cd23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a9643e7bd1a10ced1554b5931e6f9cd23">clearEntityID</a> (<a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom)</td></tr>
+<tr class="separator:a9643e7bd1a10ced1554b5931e6f9cd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3744336ab16397bc614a861ffda8cd39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a3744336ab16397bc614a861ffda8cd39">hasEntityID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom)</td></tr>
+<tr class="separator:a3744336ab16397bc614a861ffda8cd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dd38bd8f444f8220f4d578fe890e5a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a1dd38bd8f444f8220f4d578fe890e5a0">getModelNumber</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom)</td></tr>
 <tr class="separator:a1dd38bd8f444f8220f4d578fe890e5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a099285ed1ec673601c1c92d65b745382"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a099285ed1ec673601c1c92d65b745382">setModelNumber</a> (<a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom, std::size_t model_no)</td></tr>
@@ -561,6 +572,22 @@ Functions</h2></td></tr>
 <tr class="separator:a86ca71819268707b25831901c28b2803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d77137ab371cc23d1e130696d9b1e21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a9d77137ab371cc23d1e130696d9b1e21">clearMMCIFApplyDictBondOrdersParameter</a> (<a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
 <tr class="separator:a9d77137ab371cc23d1e130696d9b1e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3deb6e3ca2ddc17b356fa4ec1011c096"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a3deb6e3ca2ddc17b356fa4ec1011c096">getMMCIFOutputBiopolymersAsChemCompParameter</a> (const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
+<tr class="separator:a3deb6e3ca2ddc17b356fa4ec1011c096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a004864f6fd1116c660204d5780474d1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a004864f6fd1116c660204d5780474d1a">setMMCIFOutputBiopolymersAsChemCompParameter</a> (<a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr, <a class="el" href="classbool.html">bool</a> output)</td></tr>
+<tr class="separator:a004864f6fd1116c660204d5780474d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba1b075fe92b8583fe7b984b8fa097a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#adba1b075fe92b8583fe7b984b8fa097a">hasMMCIFOutputBiopolymersAsChemCompParameter</a> (const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
+<tr class="separator:adba1b075fe92b8583fe7b984b8fa097a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83937973319eb3a294c02e361578ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#ae83937973319eb3a294c02e361578ff7">clearMMCIFOutputBiopolymersAsChemCompParameter</a> (<a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
+<tr class="separator:ae83937973319eb3a294c02e361578ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aa72bf5558ec8d16452c168a6772f28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> const <a class="el" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">MMCIFDataProcessingFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a6aa72bf5558ec8d16452c168a6772f28">getMMCIFOutputDataPostprocFunctionParameter</a> (const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
+<tr class="separator:a6aa72bf5558ec8d16452c168a6772f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30289d4b5ed70973e8dda9658e7d46da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a30289d4b5ed70973e8dda9658e7d46da">setMMCIFOutputDataPostprocFunctionParameter</a> (<a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr, const <a class="el" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">MMCIFDataProcessingFunction</a> &amp;func)</td></tr>
+<tr class="separator:a30289d4b5ed70973e8dda9658e7d46da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eaad9ce36aca8e7e728f7f09df1cd14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a7eaad9ce36aca8e7e728f7f09df1cd14">hasMMCIFOutputDataPostprocFunctionParameter</a> (const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
+<tr class="separator:a7eaad9ce36aca8e7e728f7f09df1cd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3e77e0693fedb811bf7cc0978c33d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a5b3e77e0693fedb811bf7cc0978c33d3">clearMMCIFOutputDataPostprocFunctionParameter</a> (<a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;cntnr)</td></tr>
+<tr class="separator:a5b3e77e0693fedb811bf7cc0978c33d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52cd417a73c60c18a4a79b39d41dedf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#ac52cd417a73c60c18a4a79b39d41dedf">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classCDPL_1_1Biomol_1_1MMCIFData.html">MMCIFData</a> &amp;data)</td></tr>
 <tr class="separator:ac52cd417a73c60c18a4a79b39d41dedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06a5a17aabeb88e8d8690eca9d73ac73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Biomol.html#a06a5a17aabeb88e8d8690eca9d73ac73">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classCDPL_1_1Biomol_1_1MMCIFData_1_1Category.html">MMCIFData::Category</a> &amp;cat)</td></tr>
@@ -715,6 +742,22 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
+
+</div>
+</div>
+<a id="a58e3da25639e39171a650f3f1490c4a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e3da25639e39171a650f3f1490c4a1">&#9670;&nbsp;</a></span>MMCIFDataProcessingFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::function&lt;void(<a class="el" href="classCDPL_1_1Biomol_1_1MMCIFData.html">Biomol::MMCIFData</a>&amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp;)&gt; <a class="el" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">CDPL::Biomol::MMCIFDataProcessingFunction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A generic wrapper class used to store a user-defined function for the processing of <a class="el" href="classCDPL_1_1Biomol_1_1MMCIFData.html" title="A data structure for the storage of imported MMCIF data (see [MMCIF]).">Biomol::MMCIFData</a> instances. </p>
 
 </div>
 </div>
@@ -1931,6 +1974,89 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a> CDPL::Biomol::hasAltLocationID </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;&#160;</td>
+          <td class="paramname"><em>atom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19283b2f91a205724548c34dee002505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19283b2f91a205724548c34dee002505">&#9670;&nbsp;</a></span>getEntityID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> const std::string&amp; CDPL::Biomol::getEntityID </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;&#160;</td>
+          <td class="paramname"><em>atom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
+
+</div>
+</div>
+<a id="a4e2e751d430a5b0d7b9710500ce1d151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e2e751d430a5b0d7b9710500ce1d151">&#9670;&nbsp;</a></span>setEntityID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::setEntityID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;&#160;</td>
+          <td class="paramname"><em>atom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9643e7bd1a10ced1554b5931e6f9cd23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9643e7bd1a10ced1554b5931e6f9cd23">&#9670;&nbsp;</a></span>clearEntityID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::clearEntityID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;&#160;</td>
+          <td class="paramname"><em>atom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3744336ab16397bc614a861ffda8cd39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3744336ab16397bc614a861ffda8cd39">&#9670;&nbsp;</a></span>hasEntityID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a> CDPL::Biomol::hasEntityID </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;&#160;</td>
           <td class="paramname"><em>atom</em></td><td>)</td>
@@ -4402,6 +4528,172 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::clearMMCIFApplyDictBondOrdersParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3deb6e3ca2ddc17b356fa4ec1011c096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3deb6e3ca2ddc17b356fa4ec1011c096">&#9670;&nbsp;</a></span>getMMCIFOutputBiopolymersAsChemCompParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a> CDPL::Biomol::getMMCIFOutputBiopolymersAsChemCompParameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
+
+</div>
+</div>
+<a id="a004864f6fd1116c660204d5780474d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a004864f6fd1116c660204d5780474d1a">&#9670;&nbsp;</a></span>setMMCIFOutputBiopolymersAsChemCompParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::setMMCIFOutputBiopolymersAsChemCompParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classbool.html">bool</a>&#160;</td>
+          <td class="paramname"><em>output</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adba1b075fe92b8583fe7b984b8fa097a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba1b075fe92b8583fe7b984b8fa097a">&#9670;&nbsp;</a></span>hasMMCIFOutputBiopolymersAsChemCompParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a> CDPL::Biomol::hasMMCIFOutputBiopolymersAsChemCompParameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae83937973319eb3a294c02e361578ff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83937973319eb3a294c02e361578ff7">&#9670;&nbsp;</a></span>clearMMCIFOutputBiopolymersAsChemCompParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::clearMMCIFOutputBiopolymersAsChemCompParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6aa72bf5558ec8d16452c168a6772f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aa72bf5558ec8d16452c168a6772f28">&#9670;&nbsp;</a></span>getMMCIFOutputDataPostprocFunctionParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> const <a class="el" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">MMCIFDataProcessingFunction</a>&amp; CDPL::Biomol::getMMCIFOutputDataPostprocFunctionParameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
+
+</div>
+</div>
+<a id="a30289d4b5ed70973e8dda9658e7d46da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30289d4b5ed70973e8dda9658e7d46da">&#9670;&nbsp;</a></span>setMMCIFOutputDataPostprocFunctionParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::setMMCIFOutputDataPostprocFunctionParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceCDPL_1_1Biomol.html#a58e3da25639e39171a650f3f1490c4a1">MMCIFDataProcessingFunction</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7eaad9ce36aca8e7e728f7f09df1cd14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eaad9ce36aca8e7e728f7f09df1cd14">&#9670;&nbsp;</a></span>hasMMCIFOutputDataPostprocFunctionParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="el" href="classbool.html">bool</a> CDPL::Biomol::hasMMCIFOutputDataPostprocFunctionParameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
+          <td class="paramname"><em>cntnr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b3e77e0693fedb811bf7cc0978c33d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3e77e0693fedb811bf7cc0978c33d3">&#9670;&nbsp;</a></span>clearMMCIFOutputDataPostprocFunctionParameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> void CDPL::Biomol::clearMMCIFOutputDataPostprocFunctionParameter </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a> &amp;&#160;</td>
           <td class="paramname"><em>cntnr</em></td><td>)</td>
