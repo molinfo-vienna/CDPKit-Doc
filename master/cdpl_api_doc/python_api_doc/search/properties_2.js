@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['id_10749',['id',['../classCDPL_1_1Biomol_1_1MMCIFData.html#a5578dff58f4fd8e4a7404394703c568e',1,'CDPL::Biomol::MMCIFData']]],
-  ['incbridgeheadatoms_10750',['incBridgeheadAtoms',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0d84f64523faaa744ba5f97d0f355b7b',1,'CDPL::Chem::StereoisomerGenerator']]],
-  ['incinvnitrogens_10751',['incInvNitrogens',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0a71781136915b355ec3f6e99d5a3b7b',1,'CDPL::Chem::StereoisomerGenerator']]],
-  ['incringbonds_10752',['incRingBonds',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a55f710baac62579faa97b9154c727ecc',1,'CDPL::Chem::StereoisomerGenerator']]],
-  ['incspecifiedcenters_10753',['incSpecifiedCenters',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#aa72a2c899885540c160bf940c53761b6',1,'CDPL::Chem::StereoisomerGenerator']]],
-  ['incsymmetriccenters_10754',['incSymmetricCenters',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a960dcef8faabe66c1ff61ead66b5b2ee',1,'CDPL::Chem::StereoisomerGenerator']]]
+  ['id_10748',['id',['../classCDPL_1_1Biomol_1_1MMCIFData.html#a5578dff58f4fd8e4a7404394703c568e',1,'CDPL::Biomol::MMCIFData']]],
+  ['incbridgeheadatoms_10749',['incBridgeheadAtoms',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0d84f64523faaa744ba5f97d0f355b7b',1,'CDPL::Chem::StereoisomerGenerator']]],
+  ['incinvnitrogens_10750',['incInvNitrogens',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0a71781136915b355ec3f6e99d5a3b7b',1,'CDPL::Chem::StereoisomerGenerator']]],
+  ['incringbonds_10751',['incRingBonds',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a55f710baac62579faa97b9154c727ecc',1,'CDPL::Chem::StereoisomerGenerator']]],
+  ['incspecifiedcenters_10752',['incSpecifiedCenters',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#aa72a2c899885540c160bf940c53761b6',1,'CDPL::Chem::StereoisomerGenerator']]],
+  ['incsymmetriccenters_10753',['incSymmetricCenters',['../classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a960dcef8faabe66c1ff61ead66b5b2ee',1,'CDPL::Chem::StereoisomerGenerator']]]
 ];
