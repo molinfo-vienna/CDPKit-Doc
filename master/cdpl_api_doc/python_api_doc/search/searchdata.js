@@ -5,8 +5,7 @@ var indexSectionsWithContent =
   2: "c",
   3: "_abcdefghijklmnopqrstuvwx",
   4: "abcdefghijklmnopqrstuvwxyz",
-  5: "ehipr",
-  6: "gr"
+  5: "gr"
 };
 
 var indexSectionNames =
@@ -16,8 +15,7 @@ var indexSectionNames =
   2: "namespaces",
   3: "functions",
   4: "variables",
-  5: "properties",
-  6: "pages"
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -27,7 +25,6 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Functions",
   4: "Variables",
-  5: "Properties",
-  6: "Pages"
+  5: "Pages"
 };
 

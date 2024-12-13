@@ -156,5 +156,4 @@ var menudata={children:[
 {text:"w",url:"functions_vars_w.html#index_w"},
 {text:"x",url:"functions_vars_x.html#index_x"},
 {text:"y",url:"functions_vars_y.html#index_y"},
-{text:"z",url:"functions_vars_z.html#index_z"}]},
-{text:"Properties",url:"functions_prop.html"}]}]}]}
+{text:"z",url:"functions_vars_z.html#index_z"}]}]}]}]}
