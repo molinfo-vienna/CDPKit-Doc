@@ -119,110 +119,106 @@
 <span class="linenos">  8</span>
 <span class="linenos">  9</span><span class="c1"># generates the binary ECFP for the given molecule</span>
 <span class="linenos"> 10</span><span class="k">def</span> <span class="nf">genECFP</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">num_bits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">inc_hs</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">inc_config</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">:</span>
-<span class="linenos"> 11</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>        <span class="c1"># calculate implicit hydrogen counts (if not yet done)</span>
-<span class="linenos"> 12</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># perceive atom hybridization states and set corresponding property for all atoms</span>
-<span class="linenos"> 13</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                      <span class="c1"># perceive cycles and set corresponding atom and bond properties</span>
-<span class="linenos"> 14</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>                      <span class="c1"># perceive smallest set of smallest rings and store as Chem.MolecularGraph property</span>
-<span class="linenos"> 15</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>               <span class="c1"># perceive aromaticity and set corresponding atom and bond properties</span>
-<span class="linenos"> 16</span>    
-<span class="linenos"> 17</span>    <span class="n">ecfp_gen</span> <span class="o">=</span> <span class="n">Descr</span><span class="o">.</span><span class="n">CircularFingerprintGenerator</span><span class="p">()</span>    <span class="c1"># create ECFP generator instance</span>
-<span class="linenos"> 18</span>
-<span class="linenos"> 19</span>    <span class="k">if</span> <span class="n">inc_config</span><span class="p">:</span>
-<span class="linenos"> 20</span>        <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">includeChirality</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>                  <span class="c1"># allow atom chirality to have an impact on the ECFP generation</span>
-<span class="linenos"> 21</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcCIPPriorities</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>               <span class="c1"># calculate atom symmetry classes for chiral atom perception and set corresponding property for all atoms</span>
-<span class="linenos"> 22</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveAtomStereoCenters</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># perceive chiral atoms and set corresponding property for all atoms</span>
-<span class="linenos"> 23</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcAtomStereoDescriptors</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># calculate atom stereo descriptors and set corresponding property for all atoms</span>
-<span class="linenos"> 24</span>
-<span class="linenos"> 25</span>    <span class="k">if</span> <span class="n">inc_hs</span><span class="p">:</span>        
-<span class="linenos"> 26</span>        <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">includeHydrogens</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>                <span class="c1"># include explicit hydrogens in the ECFP generation</span>
-<span class="linenos"> 27</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>                 <span class="c1"># make any implicit hydrogens explicit</span>
-<span class="linenos"> 28</span>         
-<span class="linenos"> 29</span>    <span class="n">fp</span> <span class="o">=</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">()</span>                                 <span class="c1"># create fingerprint bitset</span>
-<span class="linenos"> 30</span>    <span class="n">fp</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">num_bits</span><span class="p">)</span>                                <span class="c1"># set desired fingerprint size</span>
+<span class="linenos"> 11</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>            <span class="c1"># calculate basic molecular properties (if not yet done)</span>
+<span class="linenos"> 12</span>   
+<span class="linenos"> 13</span>    <span class="n">ecfp_gen</span> <span class="o">=</span> <span class="n">Descr</span><span class="o">.</span><span class="n">CircularFingerprintGenerator</span><span class="p">()</span> <span class="c1"># create ECFP generator instance</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span>    <span class="k">if</span> <span class="n">inc_config</span><span class="p">:</span>
+<span class="linenos"> 16</span>        <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">includeChirality</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>                  <span class="c1"># allow atom chirality to have an impact on the ECFP generation</span>
+<span class="linenos"> 17</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcCIPPriorities</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>               <span class="c1"># calculate atom symmetry classes for chiral atom perception and set corresponding property for all atoms</span>
+<span class="linenos"> 18</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveAtomStereoCenters</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># perceive chiral atoms and set corresponding property for all atoms</span>
+<span class="linenos"> 19</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcAtomStereoDescriptors</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>       <span class="c1"># calculate atom stereo descriptors and set corresponding property for all atoms</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span>    <span class="k">if</span> <span class="n">inc_hs</span><span class="p">:</span>        
+<span class="linenos"> 22</span>        <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">includeHydrogens</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>                <span class="c1"># include explicit hydrogens in the ECFP generation</span>
+<span class="linenos"> 23</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>                 <span class="c1"># make any implicit hydrogens explicit</span>
+<span class="linenos"> 24</span>         
+<span class="linenos"> 25</span>    <span class="n">fp</span> <span class="o">=</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">()</span>                                 <span class="c1"># create fingerprint bitset</span>
+<span class="linenos"> 26</span>    <span class="n">fp</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">num_bits</span><span class="p">)</span>                                <span class="c1"># set desired fingerprint size</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span>    <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">setNumIterations</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>                  <span class="c1"># set num. iterations (=atom. env. radius)</span>
+<span class="linenos"> 29</span>    <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>                             <span class="c1"># extract chracteristic structural features</span>
+<span class="linenos"> 30</span>    <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">setFeatureBits</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>                        <span class="c1"># set bits associated with the extracted structural features</span>
 <span class="linenos"> 31</span>
-<span class="linenos"> 32</span>    <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">setNumIterations</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>                  <span class="c1"># set num. iterations (=atom. env. radius)</span>
-<span class="linenos"> 33</span>    <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>                             <span class="c1"># extract chracteristic structural features</span>
-<span class="linenos"> 34</span>    <span class="n">ecfp_gen</span><span class="o">.</span><span class="n">setFeatureBits</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>                        <span class="c1"># set bits associated with the extracted structural features</span>
-<span class="linenos"> 35</span>
-<span class="linenos"> 36</span>    <span class="c1"># if needed, fp could be converted into a numpy single precision float array as follows:</span>
-<span class="linenos"> 37</span>    <span class="c1"># fp = numpy.array(fp, dtype=numpy.float32)</span>
-<span class="linenos"> 38</span>    
-<span class="linenos"> 39</span>    <span class="k">return</span> <span class="n">fp</span>
-<span class="linenos"> 40</span>    
-<span class="linenos"> 41</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos"> 42</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates extended connectivity fingerprints (ECFPs) for given input molecules.&#39;</span><span class="p">)</span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
-<span class="linenos"> 45</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 46</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 47</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 48</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input molecule file&#39;</span><span class="p">)</span>
-<span class="linenos"> 49</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos"> 50</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 51</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 52</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 53</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;ECFP fingerprint output file&#39;</span><span class="p">)</span>
-<span class="linenos"> 54</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
-<span class="linenos"> 55</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;num_bits&#39;</span><span class="p">,</span>
-<span class="linenos"> 56</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 57</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;integer&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 58</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
-<span class="linenos"> 59</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Fingerprint size in bits (default: 1024)&#39;</span><span class="p">,</span>
-<span class="linenos"> 60</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<span class="linenos"> 61</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
-<span class="linenos"> 62</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span>
-<span class="linenos"> 63</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 64</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;integer&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 65</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<span class="linenos"> 66</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Max. atom environment radius in number of bonds (default: 2)&#39;</span><span class="p">,</span>
-<span class="linenos"> 67</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<span class="linenos"> 68</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span>
-<span class="linenos"> 69</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_hs&#39;</span><span class="p">,</span>
-<span class="linenos"> 70</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 71</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos"> 72</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 73</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not ignore hydrogens (by default, the fingerprint is generated for the H-deplete molecular graph)&#39;</span><span class="p">)</span>
-<span class="linenos"> 74</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
-<span class="linenos"> 75</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_config&#39;</span><span class="p">,</span>
-<span class="linenos"> 76</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 77</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos"> 78</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 79</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include atom chirality (by default, atom chirality is not considered)&#39;</span><span class="p">)</span>
-<span class="linenos"> 80</span>
-<span class="linenos"> 81</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos"> 82</span>    
-<span class="linenos"> 83</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos"> 84</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
-<span class="linenos"> 85</span>
-<span class="linenos"> 86</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
-<span class="linenos"> 87</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
-<span class="linenos"> 88</span>
-<span class="linenos"> 89</span>    <span class="c1"># open output file storing the generated fingerprints</span>
-<span class="linenos"> 90</span>    <span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="linenos"> 91</span>    
-<span class="linenos"> 92</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
-<span class="linenos"> 93</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
-<span class="linenos"> 94</span>
-<span class="linenos"> 95</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
-<span class="linenos"> 96</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 97</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-<span class="linenos"> 98</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos"> 99</span>                <span class="n">fp</span> <span class="o">=</span> <span class="n">genECFP</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">num_bits</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_hs</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_config</span><span class="p">)</span>
-<span class="linenos">100</span>
-<span class="linenos">101</span>                <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span>
-<span class="linenos">102</span>                <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="linenos">103</span>
-<span class="linenos">104</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">105</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">106</span>                
-<span class="linenos">107</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">108</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">109</span>
-<span class="linenos">110</span>    <span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">111</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">112</span>        
-<span class="linenos">113</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">114</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos"> 32</span>    <span class="c1"># if needed, fp could be converted into a numpy single precision float array as follows:</span>
+<span class="linenos"> 33</span>    <span class="c1"># fp = numpy.array(fp, dtype=numpy.float32)</span>
+<span class="linenos"> 34</span>    
+<span class="linenos"> 35</span>    <span class="k">return</span> <span class="n">fp</span>
+<span class="linenos"> 36</span>    
+<span class="linenos"> 37</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 38</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates extended connectivity fingerprints (ECFPs) for given input molecules.&#39;</span><span class="p">)</span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos"> 41</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 42</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 43</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 44</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input molecule file&#39;</span><span class="p">)</span>
+<span class="linenos"> 45</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 46</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 47</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 48</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 49</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;ECFP fingerprint output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 50</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
+<span class="linenos"> 51</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;num_bits&#39;</span><span class="p">,</span>
+<span class="linenos"> 52</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 53</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;integer&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 54</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+<span class="linenos"> 55</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Fingerprint size in bits (default: 1024)&#39;</span><span class="p">,</span>
+<span class="linenos"> 56</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 57</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
+<span class="linenos"> 58</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;radius&#39;</span><span class="p">,</span>
+<span class="linenos"> 59</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 60</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;integer&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 61</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 62</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Max. atom environment radius in number of bonds (default: 2)&#39;</span><span class="p">,</span>
+<span class="linenos"> 63</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos"> 64</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span>
+<span class="linenos"> 65</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_hs&#39;</span><span class="p">,</span>
+<span class="linenos"> 66</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 67</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 68</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 69</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not ignore hydrogens (by default, the fingerprint is generated for the H-deplete molecular graph)&#39;</span><span class="p">)</span>
+<span class="linenos"> 70</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+<span class="linenos"> 71</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_config&#39;</span><span class="p">,</span>
+<span class="linenos"> 72</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 73</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 74</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 75</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include atom chirality (by default, atom chirality is not considered)&#39;</span><span class="p">)</span>
+<span class="linenos"> 76</span>
+<span class="linenos"> 77</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 78</span>    
+<span class="linenos"> 79</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 80</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos"> 83</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos"> 84</span>
+<span class="linenos"> 85</span>    <span class="c1"># open output file storing the generated fingerprints</span>
+<span class="linenos"> 86</span>    <span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos"> 87</span>    
+<span class="linenos"> 88</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos"> 89</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos"> 92</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 93</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos"> 94</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 95</span>                <span class="n">fp</span> <span class="o">=</span> <span class="n">genECFP</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">num_bits</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">radius</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_hs</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_config</span><span class="p">)</span>
+<span class="linenos"> 96</span>
+<span class="linenos"> 97</span>                <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">fp</span><span class="p">))</span>
+<span class="linenos"> 98</span>                <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">101</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">102</span>                
+<span class="linenos">103</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">104</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span>    <span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">107</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">108</span>        
+<span class="linenos">109</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">110</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../../_downloads/88442f803cbcb335d5f30e2c7ea759ff/gen_ecfp.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>

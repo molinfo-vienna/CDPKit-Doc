@@ -100,12 +100,13 @@
 <h2>Release V1.2.0<a class="headerlink" href="#release-v1-2-0" title="Link to this heading"></a></h2>
 <p class="rubric">New Functionality and Features</p>
 <ul class="simple">
+<li><p>New utility functions for the manipulation of pharmacophore data</p></li>
 <li><p>New command line tool <a class="reference internal" href="applications/subsearch.html"><span class="doc">subsearch</span></a> for substructure searching on molecular data files with support
 for multiple query substructures and customizable logical expressions</p></li>
 <li><p>Added support for the I/O of molecular structure data in CML format</p></li>
 <li><p>Added support for the I/O of macromolecular structure data in mmCIF format</p></li>
 <li><p>New atom classification functions for the detection of bridgehead atoms and spirocenters in complex ring systems</p></li>
-<li><p>The residue database now allows to query residue parent structure information and residue single letter codes for a given three letter code</p></li>
+<li><p>The residue database now also provides parent structure and single letter code information for a query residue</p></li>
 <li><p>New class implementing substructure searching with multiple query substructures that can be combined by boolean expressions</p></li>
 <li><p>New class implementing the generation of variably sized hashed 2D and 3D pharmacophore fingerprints</p></li>
 <li><p>New class implementing the generation of 881 bit PubChem fingerprints</p></li>
@@ -141,6 +142,9 @@ specify a background fill pattern (see class <em>Vis::Brush</em>) for 2D structu
 </ul>
 <p class="rubric">Bug Fixes</p>
 <ul class="simple">
+<li><p>Fixed an issue concerning the calculation of pharmacophore fit scores that previously also considered mappings
+of multiple query features to the same target feature. Now, more correctly, the best score that could be calculated
+for all possible one-to-one feature mappings is reported.</p></li>
 <li><p>Fixed a bug in program <a class="reference internal" href="applications/chox.html"><span class="doc">ChOX</span></a> that prevented the successful saving of data in *.psd format</p></li>
 <li><p>Fixed the missing support for certain chemical element symbols in class <em>Chem::SMARTSMoleculeReader</em></p></li>
 <li><p>Fixed a bug in class <em>Math::RegularSpatialGrid</em> that caused an erroneous transformation of world to grid-local coordinates</p></li>
@@ -156,6 +160,11 @@ when saving data in an image output format</p></li>
 </ul>
 <p class="rubric">API Changes</p>
 <ul class="simple">
+<li><p>New setter/getter method pair <em>groupReferenceFeatures()/referenceFeaturesGrouped()</em> in class <em>Pharm::PharmacophoreFitScore</em> for controlling
+whether multiple directed features of the same type at the same position shall be considered as independent individual features or as different
+orientation options of a single feature</p></li>
+<li><p>New utility functions <em>Pharm::clearOrientations()</em>, <em>Pharm::removePositionalDuplicates()</em>, <em>Pharm::removeFeaturesWithType()</em>
+for the manipulation of pharmacophore data</p></li>
 <li><p>Unified the naming of control-parameters and associated functions in namespaces <em>Chem</em>, <em>Pharm</em>, <em>Grid</em>, and <em>Biomol</em></p></li>
 <li><p>Renamed function <em>MolProp::isCarbonylLikeAtom()</em> into <em>MolProp::isCarbonylLike()</em></p></li>
 <li><p>Renamed function <em>MolProp::isAmideCenterAtom()</em> into <em>MolProp::isAmideCenter()</em></p></li>
