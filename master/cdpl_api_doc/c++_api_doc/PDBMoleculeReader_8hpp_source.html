@@ -119,48 +119,52 @@ $(function() {
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">class </span>Molecule;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">namespace </span>Biomol</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">class </span>PDBDataReader;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">   56</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a> : <span class="keyword">public</span> <a class="code" href="classCDPL_1_1Util_1_1StreamDataReader.html">Util::StreamDataReader</a>&lt;Chem::Molecule, PDBMoleculeReader&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#a4cad15fb119d65774737767619ca4585">   65</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#a4cad15fb119d65774737767619ca4585">PDBMoleculeReader</a>(std::istream&amp; is);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#ad0d3a8689236509888cf46f5dbb5d395">   67</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#ad0d3a8689236509888cf46f5dbb5d395">PDBMoleculeReader</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#aaa9d583b9da7fed56304c88174e42b74">   72</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#aaa9d583b9da7fed56304c88174e42b74">~PDBMoleculeReader</a>();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#adb32a4d1d05a2f742305c507c7cdf389">   74</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&amp; <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#adb32a4d1d05a2f742305c507c7cdf389">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classCDPL_1_1Util_1_1StreamDataReader.html">Util::StreamDataReader</a>&lt;Chem::Molecule, <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&gt;;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="classbool.html">bool</a> readData(std::istream&amp;, Chem::Molecule&amp;, bool overwrite);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <a class="code" href="classbool.html">bool</a> skipData(std::istream&amp;);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="classbool.html">bool</a> moreData(std::istream&amp;);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>__declspec(dllimport) Base::DataReader&lt;Chem::Molecule&gt;;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">namespace </span>Biomol</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">class </span>PDBDataReader;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">   60</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a> <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a> : <span class="keyword">public</span> <a class="code" href="classCDPL_1_1Util_1_1StreamDataReader.html">Util::StreamDataReader&lt;Chem::Molecule, PDBMoleculeReader&gt;</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#a4cad15fb119d65774737767619ca4585">   69</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#a4cad15fb119d65774737767619ca4585">PDBMoleculeReader</a>(std::istream&amp; is);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#ad0d3a8689236509888cf46f5dbb5d395">   71</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#ad0d3a8689236509888cf46f5dbb5d395">PDBMoleculeReader</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#aaa9d583b9da7fed56304c88174e42b74">   76</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#aaa9d583b9da7fed56304c88174e42b74">~PDBMoleculeReader</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#adb32a4d1d05a2f742305c507c7cdf389">   78</a></span>&#160;            <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&amp; <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#adb32a4d1d05a2f742305c507c7cdf389">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">PDBMoleculeReader</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classCDPL_1_1Util_1_1StreamDataReader.html">Util::StreamDataReader&lt;Chem::Molecule, PDBMoleculeReader&gt;</a>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            typedef std::unique_ptr&lt;PDBDataReader&gt; PDBDataReaderPtr;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            PDBDataReaderPtr reader;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        };</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    } <span class="comment">// namespace Biomol</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_BIOMOL_PDBMOLECULEREADER_HPP</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">bool</span> readData(std::istream&amp;, <a class="code" href="classCDPL_1_1Chem_1_1Molecule.html">Chem::Molecule</a>&amp;, <span class="keywordtype">bool</span> overwrite);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">bool</span> skipData(std::istream&amp;);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordtype">bool</span> moreData(std::istream&amp;);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keyword">typedef</span> std::unique_ptr&lt;PDBDataReader&gt; PDBDataReaderPtr;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            PDBDataReaderPtr reader;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        };</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    } <span class="comment">// namespace Biomol</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_BIOMOL_PDBMOLECULEREADER_HPP</span></div>
 <div class="ttc" id="aBiomol_2APIPrefix_8hpp_html"><div class="ttname"><a href="Biomol_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_BIOMOL_API.</div></div>
 <div class="ttc" id="aBiomol_2APIPrefix_8hpp_html_abb16e9ef271d762132eb3fe77b5270b1"><div class="ttname"><a href="Biomol_2APIPrefix_8hpp.html#abb16e9ef271d762132eb3fe77b5270b1">CDPL_BIOMOL_API</a></div><div class="ttdeci">#define CDPL_BIOMOL_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
 <div class="ttc" id="aStreamDataReader_8hpp_html"><div class="ttname"><a href="StreamDataReader_8hpp.html">StreamDataReader.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Util::StreamDataReader.</div></div>
-<div class="ttc" id="aclassCDPL_1_1Biomol_1_1PDBMoleculeReader_html"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">CDPL::Biomol::PDBMoleculeReader</a></div><div class="ttdoc">A reader for molecule data in the Brookhaven Protein Data Bank (PDB) [PDB] format.</div><div class="ttdef"><b>Definition:</b> PDBMoleculeReader.hpp:57</div></div>
+<div class="ttc" id="aclassCDPL_1_1Biomol_1_1PDBMoleculeReader_html"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html">CDPL::Biomol::PDBMoleculeReader</a></div><div class="ttdoc">A reader for molecule data in the Brookhaven Protein Data Bank (PDB) [PDB] format.</div><div class="ttdef"><b>Definition:</b> PDBMoleculeReader.hpp:61</div></div>
 <div class="ttc" id="aclassCDPL_1_1Biomol_1_1PDBMoleculeReader_html_a4cad15fb119d65774737767619ca4585"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#a4cad15fb119d65774737767619ca4585">CDPL::Biomol::PDBMoleculeReader::PDBMoleculeReader</a></div><div class="ttdeci">PDBMoleculeReader(std::istream &amp;is)</div><div class="ttdoc">Constructs a PDBMoleculeReader instance that will read the molecule data from the input stream is.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Biomol_1_1PDBMoleculeReader_html_aaa9d583b9da7fed56304c88174e42b74"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#aaa9d583b9da7fed56304c88174e42b74">CDPL::Biomol::PDBMoleculeReader::~PDBMoleculeReader</a></div><div class="ttdeci">~PDBMoleculeReader()</div><div class="ttdoc">Destructor.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Biomol_1_1PDBMoleculeReader_html_ad0d3a8689236509888cf46f5dbb5d395"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#ad0d3a8689236509888cf46f5dbb5d395">CDPL::Biomol::PDBMoleculeReader::PDBMoleculeReader</a></div><div class="ttdeci">PDBMoleculeReader(const PDBMoleculeReader &amp;)=delete</div></div>
 <div class="ttc" id="aclassCDPL_1_1Biomol_1_1PDBMoleculeReader_html_adb32a4d1d05a2f742305c507c7cdf389"><div class="ttname"><a href="classCDPL_1_1Biomol_1_1PDBMoleculeReader.html#adb32a4d1d05a2f742305c507c7cdf389">CDPL::Biomol::PDBMoleculeReader::operator=</a></div><div class="ttdeci">PDBMoleculeReader &amp; operator=(const PDBMoleculeReader &amp;)=delete</div></div>
-<div class="ttc" id="aclassCDPL_1_1Util_1_1StreamDataReader_html"><div class="ttname"><a href="classCDPL_1_1Util_1_1StreamDataReader.html">CDPL::Util::StreamDataReader</a></div><div class="ttdoc">A helper class that implements Base::DataReader for std::istream based data readers.</div><div class="ttdef"><b>Definition:</b> StreamDataReader.hpp:73</div></div>
-<div class="ttc" id="aclassbool_html"><div class="ttname"><a href="classbool.html">bool</a></div></div>
+<div class="ttc" id="aclassCDPL_1_1Chem_1_1Molecule_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1Molecule.html">CDPL::Chem::Molecule</a></div><div class="ttdoc">Molecule.</div><div class="ttdef"><b>Definition:</b> Molecule.hpp:49</div></div>
+<div class="ttc" id="aclassCDPL_1_1Util_1_1StreamDataReader_html"><div class="ttname"><a href="classCDPL_1_1Util_1_1StreamDataReader.html">CDPL::Util::StreamDataReader&lt; Chem::Molecule, PDBMoleculeReader &gt;</a></div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
