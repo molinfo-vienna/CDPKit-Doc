@@ -27,7 +27,7 @@ import CDPL.Util as Util
 import CDPL.Pharm as Pharm
 
 
-# generates a binary pharmacophore fingerprint of the given molecule
+# generates the binary pharmacophore fingerprint of the given molecule
 def genPharmFingerprint(mol: Chem.Molecule, num_bits: int, bin_size: float, dim: int) -> Util.BitSet:
     Pharm.prepareForPharmacophoreGeneration(mol)  # prepare molecule for pharmacophore generation
 
@@ -38,10 +38,10 @@ def genPharmFingerprint(mol: Chem.Molecule, num_bits: int, bin_size: float, dim:
 
     fp_gen.setBinSize(bin_size) # set feature distance bin size
         
-    fp = Util.BitSet()       # create fingerprint bitset
-    fp.resize(num_bits)      # set desired fingerprint size
+    fp = Util.BitSet()          # create fingerprint bitset
+    fp.resize(num_bits)         # set desired fingerprint size
 
-    fp_gen.generate(mol, fp) # generate the fingerprint
+    fp_gen.generate(mol, fp)    # generate the fingerprint
 
     # if needed, fp could be converted into a numpy single precision float array as follows:
     # fp = numpy.array(fp, dtype=numpy.float32)
@@ -60,7 +60,7 @@ def parseArgs() -> argparse.Namespace:
                         dest='out_file',
                         required=True,
                         metavar='<file>',
-                        help='Pharmacophore fingerprint output file')
+                        help='Fingerprint output file')
     parser.add_argument('-n',
                         dest='num_bits',
                         required=False,

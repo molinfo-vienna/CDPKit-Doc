@@ -118,7 +118,7 @@
 <span class="linenos">  7</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
 <span class="linenos">  8</span>
 <span class="linenos">  9</span>
-<span class="linenos"> 10</span><span class="c1"># generates a binary pharmacophore fingerprint of the given molecule</span>
+<span class="linenos"> 10</span><span class="c1"># generates the binary pharmacophore fingerprint of the given molecule</span>
 <span class="linenos"> 11</span><span class="k">def</span> <span class="nf">genPharmFingerprint</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">num_bits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">:</span>
 <span class="linenos"> 12</span>    <span class="n">Pharm</span><span class="o">.</span><span class="n">prepareForPharmacophoreGeneration</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>  <span class="c1"># prepare molecule for pharmacophore generation</span>
 <span class="linenos"> 13</span>
@@ -129,10 +129,10 @@
 <span class="linenos"> 18</span>
 <span class="linenos"> 19</span>    <span class="n">fp_gen</span><span class="o">.</span><span class="n">setBinSize</span><span class="p">(</span><span class="n">bin_size</span><span class="p">)</span> <span class="c1"># set feature distance bin size</span>
 <span class="linenos"> 20</span>        
-<span class="linenos"> 21</span>    <span class="n">fp</span> <span class="o">=</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">()</span>       <span class="c1"># create fingerprint bitset</span>
-<span class="linenos"> 22</span>    <span class="n">fp</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">num_bits</span><span class="p">)</span>      <span class="c1"># set desired fingerprint size</span>
+<span class="linenos"> 21</span>    <span class="n">fp</span> <span class="o">=</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">()</span>          <span class="c1"># create fingerprint bitset</span>
+<span class="linenos"> 22</span>    <span class="n">fp</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">num_bits</span><span class="p">)</span>         <span class="c1"># set desired fingerprint size</span>
 <span class="linenos"> 23</span>
-<span class="linenos"> 24</span>    <span class="n">fp_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span> <span class="c1"># generate the fingerprint</span>
+<span class="linenos"> 24</span>    <span class="n">fp_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>    <span class="c1"># generate the fingerprint</span>
 <span class="linenos"> 25</span>
 <span class="linenos"> 26</span>    <span class="c1"># if needed, fp could be converted into a numpy single precision float array as follows:</span>
 <span class="linenos"> 27</span>    <span class="c1"># fp = numpy.array(fp, dtype=numpy.float32)</span>
@@ -151,7 +151,7 @@
 <span class="linenos"> 40</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
 <span class="linenos"> 41</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="linenos"> 42</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 43</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Pharmacophore fingerprint output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 43</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Fingerprint output file&#39;</span><span class="p">)</span>
 <span class="linenos"> 44</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
 <span class="linenos"> 45</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;num_bits&#39;</span><span class="p">,</span>
 <span class="linenos"> 46</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>

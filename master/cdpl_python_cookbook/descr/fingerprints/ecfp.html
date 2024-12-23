@@ -117,7 +117,7 @@
 <span class="linenos">  6</span><span class="kn">import</span> <span class="nn">CDPL.Util</span> <span class="k">as</span> <span class="nn">Util</span>
 <span class="linenos">  7</span>
 <span class="linenos">  8</span>
-<span class="linenos">  9</span><span class="c1"># generates the binary ECFP for the given molecule</span>
+<span class="linenos">  9</span><span class="c1"># generates the binary ECFP of the given molecule</span>
 <span class="linenos"> 10</span><span class="k">def</span> <span class="nf">genECFP</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">num_bits</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">inc_hs</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">inc_config</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Util</span><span class="o">.</span><span class="n">BitSet</span><span class="p">:</span>
 <span class="linenos"> 11</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>            <span class="c1"># calculate basic molecular properties (if not yet done)</span>
 <span class="linenos"> 12</span>   
@@ -157,7 +157,7 @@
 <span class="linenos"> 46</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
 <span class="linenos"> 47</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="linenos"> 48</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 49</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;ECFP fingerprint output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 49</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Fingerprint output file&#39;</span><span class="p">)</span>
 <span class="linenos"> 50</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
 <span class="linenos"> 51</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;num_bits&#39;</span><span class="p">,</span>
 <span class="linenos"> 52</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>

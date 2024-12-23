@@ -26,7 +26,7 @@ import CDPL.Descr as Descr
 import CDPL.Util as Util
 
 
-# generates the binary ECFP for the given molecule
+# generates the binary ECFP of the given molecule
 def genECFP(mol: Chem.Molecule, num_bits: int, radius: int, inc_hs: bool, inc_config: bool) -> Util.BitSet:
     Chem.calcBasicProperties(mol, False)            # calculate basic molecular properties (if not yet done)
    
@@ -66,7 +66,7 @@ def parseArgs() -> argparse.Namespace:
                         dest='out_file',
                         required=True,
                         metavar='<file>',
-                        help='ECFP fingerprint output file')
+                        help='Fingerprint output file')
     parser.add_argument('-n',
                         dest='num_bits',
                         required=False,
