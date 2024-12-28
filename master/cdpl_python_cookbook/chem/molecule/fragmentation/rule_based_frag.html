@@ -27,7 +27,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="1.1.3. Structure Standardization, Curation and Database Preparation" href="../standardization/index.html" />
+    <link rel="next" title="1.1.2.3. Bemis-Murcko Framework Analysis" href="bemis_murcko.html" />
     <link rel="prev" title="1.1.2.1. Extraction of Atom Environments" href="atom_env_extraction.html" /> 
 </head>
 
@@ -111,6 +111,46 @@
              
   <section id="rule-based-fragmentation">
 <h1><span class="section-number">1.1.2.2. </span>Rule-based Fragmentation<a class="headerlink" href="#rule-based-fragmentation" title="Link to this heading"></a></h1>
+<p>The script <em>gen_mol_frags.py</em> performs molecule fragmentation according to BRICS or RECAP rules.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_mol_frags.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; -r &lt;string&gt; [-v &lt;0|1|2&gt;] [-m] [-b] [-x]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Input molecule file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Fragment output file</p>
+</dd>
+<dt><kbd><span class="option">-r <var>&lt;string&gt;</var></span></kbd></dt>
+<dd><p>Fragmentation rule set (BRICS or RECAP)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-v <var>&lt;0|1|2&gt;</var></span></kbd></dt>
+<dd><p>Verbosity level (default: 1; 0 -&gt; no console output, 1 -&gt; verbose, 2 -&gt; extra verbose)</p>
+</dd>
+<dt><kbd><span class="option">-m</span></kbd></dt>
+<dd><p>Output the fragmented molecule before its fragments (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-b</span></kbd></dt>
+<dd><p>Include bonds that were split during fragmentation in the obtained fragments (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>Label atoms with atom mapping IDs (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>
@@ -147,7 +187,7 @@
 <span class="linenos"> 34</span>    <span class="k">return</span> <span class="n">msg</span>
 <span class="linenos"> 35</span>
 <span class="linenos"> 36</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos"> 37</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs molecule fragmentation using BRICS or RECAP rules&#39;</span><span class="p">)</span>
+<span class="linenos"> 37</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs molecule fragmentation using BRICS or RECAP rules.&#39;</span><span class="p">)</span>
 <span class="linenos"> 38</span>
 <span class="linenos"> 39</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
 <span class="linenos"> 40</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
@@ -297,7 +337,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="atom_env_extraction.html" class="btn btn-neutral float-left" title="1.1.2.1. Extraction of Atom Environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../standardization/index.html" class="btn btn-neutral float-right" title="1.1.3. Structure Standardization, Curation and Database Preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bemis_murcko.html" class="btn btn-neutral float-right" title="1.1.2.3. Bemis-Murcko Framework Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

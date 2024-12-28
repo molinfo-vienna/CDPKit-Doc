@@ -111,6 +111,38 @@
              
   <section id="testing-for-the-presence-of-substructures">
 <h1><span class="section-number">1.1.4.1. </span>Testing for the Presence of Substructures<a class="headerlink" href="#testing-for-the-presence-of-substructures" title="Link to this heading"></a></h1>
+<p>The script <em>substruct_filter.py</em> reads molecules from an input file and writes all molecules that match
+the specified SMARTS substructure pattern to the output file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>substruct_filter.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; -p &lt;SMARTS&gt; [-q]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule input file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule output file</p>
+</dd>
+<dt><kbd><span class="option">-p <var>&lt;SMARTS&gt;</var></span></kbd></dt>
+<dd><p>SMARTS pattern describing the substructure to search for</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos"> 3</span>

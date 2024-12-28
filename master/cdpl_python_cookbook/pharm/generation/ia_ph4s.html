@@ -110,6 +110,48 @@
              
   <section id="ligand-receptor-interaction-pharmacophores">
 <h1><span class="section-number">2.2.2. </span>Ligand-receptor Interaction Pharmacophores<a class="headerlink" href="#ligand-receptor-interaction-pharmacophores" title="Link to this heading"></a></h1>
+<p>The script <em>gen_ia_ph4s.py</em> generates pharmacophores describing the interactions between a given receptor structure and a set of
+provided ligand molecules.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_ia_ph4s.py</em> [-h] -r &lt;file&gt; -l &lt;file&gt; -o &lt;file&gt; [-s &lt;three-letter code&gt; [&lt;three-letter code&gt; …]] [-q] [-x]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-r <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Receptor structure input file (*.mol2, *.pdb, *.mmtf, *.cif, *.mmcif)</p>
+</dd>
+<dt><kbd><span class="option">-l <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Ligand structure input file (*.sdf, *.mol2, *.cdf)</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Pharmacophore output file (*.pml, *.cdf)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+</dl>
+<p><strong>-s &lt;three-letter code&gt; [&lt;three-letter code&gt; …]</strong></p>
+<blockquote>
+<div><p>Whitespace separated list of PDB three-letter codes specifying residues to
+remove from the receptor structure (e.g. an existing ligand)</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>Generate exclusion volumes (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>
@@ -201,7 +243,7 @@
 <span class="linenos"> 89</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
 <span class="linenos"> 90</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;strip_res_list&#39;</span><span class="p">,</span>
 <span class="linenos"> 91</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 92</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;three-letter code(s)&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 92</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;three-letter code&gt;&#39;</span><span class="p">,</span>
 <span class="linenos"> 93</span>                        <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
 <span class="linenos"> 94</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Whitespace separated list of PDB three-letter codes specifying residues to remove from the receptor structure (e.g. an existing ligand)&#39;</span><span class="p">)</span>
 <span class="linenos"> 95</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>

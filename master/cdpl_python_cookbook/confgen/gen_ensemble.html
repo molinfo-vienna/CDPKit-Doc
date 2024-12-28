@@ -105,6 +105,47 @@
              
   <section id="conformer-ensembles">
 <h1><span class="section-number">5.2. </span>Conformer Ensembles<a class="headerlink" href="#conformer-ensembles" title="Link to this heading"></a></h1>
+<p>The script <em>gen_confs.py</em> generates a conformer ensemble <span id="id1">[<a class="reference internal" href="../../bibliography.html#id10" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span> for each molecule read from
+the input file and writes the resulting ensembles to the specified output file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_confs.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-e &lt;float&gt;] [-r &lt;float&gt;] [-t &lt;int&gt;] [-n &lt;int&gt;] [-q]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule input file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Conformer ensemble output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-e <var>&lt;float&gt;</var></span></kbd></dt>
+<dd><p>Output conformer energy window (default: 20.0)</p>
+</dd>
+<dt><kbd><span class="option">-r <var>&lt;float&gt;</var></span></kbd></dt>
+<dd><p>Output conformer RMSD threshold (default: 0.5)</p>
+</dd>
+<dt><kbd><span class="option">-t <var>&lt;int&gt;</var></span></kbd></dt>
+<dd><p>Max. allowed molecule processing time (default: 3600 sec)</p>
+</dd>
+<dt><kbd><span class="option">-n <var>&lt;int&gt;</var></span></kbd></dt>
+<dd><p>Max. output ensemble size (default: 100)</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>

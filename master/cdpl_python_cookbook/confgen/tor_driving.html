@@ -105,6 +105,52 @@
              
   <section id="torsion-driving">
 <h1><span class="section-number">5.3. </span>Torsion Driving<a class="headerlink" href="#torsion-driving" title="Link to this heading"></a></h1>
+<p>The script <em>tor_drive.py</em> generates conformers for the molecules read from the input file by performing torsion
+driving on the provided 3D structure and writes the resulting conformer ensembles to the specified output file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>tor_drive.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-f &lt;SMARTS&gt;] [-e &lt;float&gt;] [-n &lt;int&gt;] [-a] [-r] [-q]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule input file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Conformer ensemble output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-f <var>&lt;SMARTS&gt;</var></span></kbd></dt>
+<dd><p>SMARTS pattern describing substructures that shall be kept fixed during torsion driving</p>
+</dd>
+<dt><kbd><span class="option">-e <var>&lt;float&gt;</var></span></kbd></dt>
+<dd><p>Output conformer energy window (default: 20.0)</p>
+</dd>
+<dt><kbd><span class="option">-n <var>&lt;int&gt;</var></span></kbd></dt>
+<dd><p>Max. output ensemble size (default: 100; if &lt;= 0 -&gt; no limit)</p>
+</dd>
+<dt><kbd><span class="option">-a</span></kbd></dt>
+<dd><p>Align generated conformers on the fixed part of the input structure (if specified) or
+on the whole structure (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-r</span></kbd></dt>
+<dd><p>Consider single bonds to terminal hetero atoms (= N, O, or S) as rotatable (default:
+false)</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>

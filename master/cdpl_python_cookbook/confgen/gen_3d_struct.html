@@ -105,6 +105,38 @@
              
   <section id="single-low-energy-3d-structures">
 <h1><span class="section-number">5.1. </span>Single Low-energy 3D Structures<a class="headerlink" href="#single-low-energy-3d-structures" title="Link to this heading"></a></h1>
+<p>The script <em>gen_3d_structs.py</em> generates a single low energy 3D stucture for each molecule read from
+the input file and writes the result to the specified output file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_3d_structs.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-t &lt;int&gt;] [-q]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule input file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Conformer ensemble output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-t <var>&lt;int&gt;</var></span></kbd></dt>
+<dd><p>Max. allowed molecule processing time (default: 3600 sec)</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>
@@ -130,7 +162,7 @@
 <span class="linenos"> 23</span>    <span class="k">return</span> <span class="n">status</span>
 <span class="linenos"> 24</span>        
 <span class="linenos"> 25</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos"> 26</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates conformer ensembles for the given input molecules.&#39;</span><span class="p">)</span>
+<span class="linenos"> 26</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates low energy 3D stuctures of the given input molecules.&#39;</span><span class="p">)</span>
 <span class="linenos"> 27</span>
 <span class="linenos"> 28</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
 <span class="linenos"> 29</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
