@@ -112,6 +112,45 @@
              
   <section id="extended-connectivity-fingerprints-ecfps">
 <h1><span class="section-number">4.1.1. </span>Extended Connectivity Fingerprints (ECFPs)<a class="headerlink" href="#extended-connectivity-fingerprints-ecfps" title="Link to this heading"></a></h1>
+<p>The script <em>gen_ecfp.py</em> generates extended connectivity fingerprints (ECFPs) of molecules
+read from the specified file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_ecfp.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-n &lt;integer&gt;] [-r &lt;integer&gt;] [-y] [-c]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Input molecule file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Fingerprint output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-n <var>&lt;integer&gt;</var></span></kbd></dt>
+<dd><p>Fingerprint size in bits (default: 1024)</p>
+</dd>
+<dt><kbd><span class="option">-r <var>&lt;integer&gt;</var></span></kbd></dt>
+<dd><p>Max. atom environment radius in number of bonds (default: 2)</p>
+</dd>
+<dt><kbd><span class="option">-y</span></kbd></dt>
+<dd><p>Do not ignore hydrogens (by default, the fingerprint is generated for the H-deplete
+molecular graph)</p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>Include atom chirality (by default, atom chirality is not considered)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>

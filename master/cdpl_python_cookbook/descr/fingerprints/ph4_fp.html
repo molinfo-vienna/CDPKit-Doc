@@ -112,6 +112,42 @@
              
   <section id="d-and-3d-pharmacophore-fingerprints">
 <h1><span class="section-number">4.1.6. </span>2D and 3D Pharmacophore Fingerprints<a class="headerlink" href="#d-and-3d-pharmacophore-fingerprints" title="Link to this heading"></a></h1>
+<p>The script <em>gen_ph4_fp.py</em> generates 2D or 3D pharmacophore fingerprints of molecules
+read from the specified file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_ph4_fp.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-n &lt;integer&gt;] [-d &lt;integer&gt;] [-b &lt;float&gt;]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Input molecule file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Fingerprint output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show this help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-n <var>&lt;integer&gt;</var></span></kbd></dt>
+<dd><p>Fingerprint size in bits (default: 4096)</p>
+</dd>
+<dt><kbd><span class="option">-d <var>&lt;integer&gt;</var></span></kbd></dt>
+<dd><p>Type of feature distances to consider: 2 -&gt; topological distance, 3 -&gt; 3D distance
+(default: 2)</p>
+</dd>
+<dt><kbd><span class="option">-b <var>&lt;float&gt;</var></span></kbd></dt>
+<dd><p>Feature distance bin size (default: 1.0)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>
