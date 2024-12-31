@@ -110,6 +110,52 @@
              
   <section id="molecule-to-reference-pharmacophore-alignment">
 <h1><span class="section-number">2.3.2. </span>Molecule to Reference Pharmacophore Alignment<a class="headerlink" href="#molecule-to-reference-pharmacophore-alignment" title="Link to this heading"></a></h1>
+<p>The script <em>align_mols_to_ph4.py</em> overlays a set of input molecules with a given reference pharmacophore and outputs
+the molecules in the calculated alignment pose(s).</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>align_mols_to_ph4.py</em> [-h] -r &lt;file&gt; -i &lt;file&gt; -o &lt;file&gt; [-n &lt;integer&gt;] [-x] [-d &lt;float&gt;] [-q] [-p]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-r <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Reference pharmacophore input file (*.pml, *.cdf)</p>
+</dd>
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule input file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Aligned molecule output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-n <var>&lt;integer&gt;</var></span></kbd></dt>
+<dd><p>Number of top-ranked alignment solutions to output per molecule (default: best
+alignment solution only)</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>Perform an exhaustive alignment search (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-d <var>&lt;float&gt;</var></span></kbd></dt>
+<dd><p>Minimum required RMSD between two consecutively output molecule alignment poses
+(default: 0.0)</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-p</span></kbd></dt>
+<dd><p>Ignore feature orientations, feature position matching only (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
 <span class="linenos">  3</span>
