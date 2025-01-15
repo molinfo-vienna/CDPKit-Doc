@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>confgen &mdash; CDPKit 1.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=bd7b91d8" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/v1.2.1/applications/confgen.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=ca842793"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/tabs.js?v=3ee01567"></script>
+        <script src="../_static/docs-versions-menu.js?v=bb46260f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="genfraglib" href="genfraglib.html" />
+    <link rel="prev" title="structgen" href="structgen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="psdscreen.html">psdscreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdcreate.html">psdcreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdmerge.html">psdmerge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdinfo.html">psdinfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapescreen.html">shapescreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsearch.html">subsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structgen.html">structgen</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">confgen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-options">Mandatory options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-options">Other options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes-on-release-v1-1">Notes on release V1.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="genfraglib.html">genfraglib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tautgen.html">tautgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isogen.html">isogen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chox.html">ChOX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">CDPKit Applications</a></li>
+      <li class="breadcrumb-item active">confgen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/applications/confgen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="confgen">
+<h1>confgen<a class="headerlink" href="#confgen" title="Link to this heading"></a></h1>
+<p>The program <strong class="program">confgen</strong> has been published under the name <strong>CONFORGE</strong> and generates high-quality
+conformer ensembles for a set of given input molecules.
+Details regarding the implementation and performance of CONFORGE can be found in <span id="id1">[<a class="reference internal" href="../bibliography.html#id10" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span>.</p>
+<p>Built-in torsion rules are based on the torsion library V3.0 developed by the
+University of Hamburg, Center for Bioinformatics, Hamburg, Germany and F. Hoffmann-La-Roche Ltd., Basel, Switzerland
+<span id="id2">[<a class="reference internal" href="../bibliography.html#id5" title="Christin Schärfer, Tanja Schulz-Gasch, Hans-Christian Ehrlich, Wolfgang Guba, Matthias Rarey, and Martin Stahl. Torsion angle preferences in druglike chemical space: a comprehensive guide. Journal of Medicinal Chemistry, 56(5):2016-2028, 2013. PMID: 23379567. URL: https://doi.org/10.1021/jm3016816, arXiv:https://doi.org/10.1021/jm3016816, doi:10.1021/jm3016816.">12</a>, <a class="reference internal" href="../bibliography.html#id6" title="Wolfgang Guba, Agnes Meyder, Matthias Rarey, and Jérôme Hert. Torsion library reloaded: a new version of expert-derived smarts rules for assessing conformations of small molecules. Journal of Chemical Information and Modeling, 56(1):1-5, 2016. PMID: 26679290. URL: https://doi.org/10.1021/acs.jcim.5b00522, arXiv:https://doi.org/10.1021/acs.jcim.5b00522, doi:10.1021/acs.jcim.5b00522.">13</a>, <a class="reference internal" href="../bibliography.html#id13" title="Patrick Penner, Wolfgang Guba, Robert Schmidt, Agnes Meyder, Martin Stahl, and Matthias Rarey. The torsion library: semiautomated improvement of torsion rules with smartscompare. Journal of Chemical Information and Modeling, 62(7):1644-1653, 2022. PMID: 35318851. URL: https://doi.org/10.1021/acs.jcim.2c00043, arXiv:https://doi.org/10.1021/acs.jcim.2c00043, doi:10.1021/acs.jcim.2c00043.">14</a>]</span>.</p>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p><strong class="program">confgen</strong> [-hVvptRHAuSszYMWUa^] [-c arg] [-l arg] [-f arg] [-C arg] [-m arg] [-e arg [arg]…] [-r arg [arg]…] [-n arg [arg]…] [-N arg] [-d arg] [-q arg] [-D arg] [-E arg] [-T arg] [-X arg] [-L arg] [-x arg] [-y arg] [-Z arg] [-P arg] [-w arg] [-k arg] [-K arg] [-B arg] [-b arg] [-g arg] [-G arg] [-I arg] [-O arg] [-F arg] [-j arg] [-J arg] [-~ arg] [-Q arg] -i arg [arg]… -o arg</p>
+</div></blockquote>
+</section>
+<section id="mandatory-options">
+<h2>Mandatory options<a class="headerlink" href="#mandatory-options" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>-i [ –input ] arg</p>
+<blockquote>
+<div><p>Specifies one or more input file(s) with molecules for which conformers have to
+be generated.</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES String (.smi)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
+<li><p>Chemical Markup Language Format (.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+<li><p>CDPL Conformer Generator Fragment Library Format (.cfl, .cdf)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>-o [ –output ] arg</p>
+<blockquote>
+<div><p>Specifies the output file where the generated conformers will be stored.</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
+<li><p>Chemical Markup Language Format (.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>-h [ –help ] [=arg(=SHORT)]</p>
+<blockquote>
+<div><p>Print help message and exit (ABOUT, USAGE, SHORT, ALL or ‘name of option’, default:
+SHORT).</p>
+</div></blockquote>
+<p>-V [ –version ]</p>
+<blockquote>
+<div><p>Print version information and exit.</p>
+</div></blockquote>
+<p>-v [ –verbosity ] [=arg(=VERBOSE)]</p>
+<blockquote>
+<div><p>Verbosity level of information output (QUIET, ERROR, INFO, VERBOSE, DEBUG, default:
+INFO).</p>
+</div></blockquote>
+<p>-c [ –config ] arg</p>
+<blockquote>
+<div><p>Use file with program options.</p>
+</div></blockquote>
+<p>-l [ –log-file ] arg</p>
+<blockquote>
+<div><p>Redirect text-output to file.</p>
+</div></blockquote>
+<p>-p [ –progress ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Show progress bar (default: true).</p>
+</div></blockquote>
+<p>-f [ –failed ] arg</p>
+<blockquote>
+<div><p>Specifies the output file for molecules where conformer generation failed.</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES String (.smi)</p></li>
+<li><p>Daylight SMARTS String (.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>-t [ –num-threads ] [=arg(=4)]</p>
+<blockquote>
+<div><p>Number of parallel execution threads (default: no multithreading, implicit value:
+number of CPUs, must be &gt;= 0, 0 disables multithreading).</p>
+</div></blockquote>
+<p>-C [ –conf-gen-preset ] arg</p>
+<blockquote>
+<div><p>Conformer generation preset to use (SMALL_SET_DIVERSE, MEDIUM_SET_DIVERSE, LARGE_SET_DIVERSE,
+SMALL_SET_DENSE, MEDIUM_SET_DENSE, LARGE_SET_DENSE, default: MEDIUM_SET_DIVERSE).</p>
+</div></blockquote>
+<p>-m [ –mode ] arg</p>
+<blockquote>
+<div><p>Conformer sampling mode (AUTO, STOCHASTIC, SYSTEMATIC, default: AUTO).</p>
+</div></blockquote>
+<p>-e [ –e-window ] arg</p>
+<blockquote>
+<div><p>Energy window for generated conformers. The energy window may be specified as a
+single constant value or [since V1.1] as a list of pairs RBC1 EW1 RBC2 EW2… where RBC
+denotes a rotatable bond count and EW the energy window that applies if the
+rotatable bond count of the processed molecule is &lt;= RBC (the EW value
+associated with the lowest RBC that fulfills the latter condition takes
+precedence). If the rotatable bond count of the processed molecule is
+outside any defined range then the EW value associated with the highest RBC
+will be used. (default: 15.0, energy window values must be &gt;= 0).</p>
+</div></blockquote>
+<p>-r [ –rmsd ] arg</p>
+<blockquote>
+<div><p>Minimum RMSD for output conformer selection. The RMSD may be specified as
+a single constant value or [since V1.1] as a list of pairs RBC1 RMSD1 RBC2 RMSD2… where
+RBC denotes a rotatable bond count and RMSD is the value that applies if the
+rotatable bond count of the processed molecule is &lt;= RBC (the RMSD value
+associated with the lowest RBC that fulfills the latter condition takes
+precedence). If the rotatable bond count of the processed molecule is
+outside any defined range then the RMSD value associated with the highest RBC
+will be used. (default: 0.5, RMSD values must be &gt;= 0, 0 disables RMSD
+checking).</p>
+</div></blockquote>
+<p>-n [ –max-num-out-confs ] arg</p>
+<blockquote>
+<div><p>Maximum number of output conformers per molecule. The max. number of output
+conformers may be specified as a single constant value or [since V1.1] as a list of pairs
+RBC1 MC1 RBC2 MC2… where RBC denotes a rotatable bond count and MC the max.
+number of conformers that applies if the rotatable bond count of the
+processed molecule is &lt;= RBC (the MC value associated with the lowest RBC
+that fulfills the latter condition takes precedence). If the rotatable
+bond count of the processed molecule is outside any defined range then the MC
+value associated with the highest RBC will be used. (default: 100, count
+values must be &gt;= 0, 0 disables limit).</p>
+</div></blockquote>
+<p>-N [ –nitrogen-enum-mode ] arg</p>
+<blockquote>
+<div><p>Invertible nitrogen enumeration mode (NONE, ALL, UNSPECIFIED, default: UNSPECIFIED).</p>
+</div></blockquote>
+<p>-R [ –enum-rings ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Enumerate ring conformers (only effective in systematic sampling mode, default:
+true).</p>
+</div></blockquote>
+<p>-H [ –sample-het-hydrogens ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Perform torsion sampling for hydrogens on hetero atoms (default: false).</p>
+</div></blockquote>
+<p>-A [ –tol-range-sampling ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Additionally generate conformers for angles at the boundaries of the first torsion
+angle tolerance range (only effective in systematic sampling mode, default: false).</p>
+</div></blockquote>
+<p>-u [ –include-input ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Add input 3D-structure to output conformer ensemble (default: false).</p>
+</div></blockquote>
+<p>-S [ –from-scratch ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Discard input 3D-coordinates and generate conformers from scratch (default: true).</p>
+</div></blockquote>
+<p>-d [ –systematic-search-force-field ] arg</p>
+<blockquote>
+<div><p>Search force field used in systematic sampling (MMFF94, MMFF94_NO_ESTAT, MMFF94S,
+MMFF94S_XOOP, MMFF94S_RTOR, MMFF94S_RTOR_XOOP, MMFF94S_NO_ESTAT, MMFF94S_XOOP_NO_ESTAT,
+MMFF94S_RTOR_NO_ESTAT, MMFF94S_RTOR_XOOP_NO_ESTAT, default: MMFF94S_RTOR_NO_ESTAT).</p>
+</div></blockquote>
+<p>-q [ –stochastic-search-force-field ] arg</p>
+<blockquote>
+<div><p>Search force field used in stochastic smapling (MMFF94, MMFF94_NO_ESTAT, MMFF94S,
+MMFF94S_XOOP, MMFF94S_RTOR, MMFF94S_RTOR_XOOP, MMFF94S_NO_ESTAT, MMFF94S_XOOP_NO_ESTAT,
+MMFF94S_RTOR_NO_ESTAT, MMFF94S_RTOR_XOOP_NO_ESTAT, default: MMFF94S_RTOR).</p>
+</div></blockquote>
+<p>-s [ –strict-param ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Perform strict MMFF94 parameterization (default: true).</p>
+</div></blockquote>
+<p>-D [ –dielectric-const ] arg</p>
+<blockquote>
+<div><p>Dielectric constant used for the calculation of electrostatic interaction energies
+(default: 80.0).</p>
+</div></blockquote>
+<p>-E [ –dist-exponent ] arg</p>
+<blockquote>
+<div><p>Distance exponent used for the calculation of electrostatic interaction energies
+(default: 1.0).</p>
+</div></blockquote>
+<p>-T [ –timeout ] arg</p>
+<blockquote>
+<div><p>Time in seconds after which molecule conformer generation will be stopped (default:
+3600 s, must be &gt;= 0, 0 disables timeout).</p>
+</div></blockquote>
+<p>-X [ –max-num-rot-bonds ] arg</p>
+<blockquote>
+<div><p>Maximum number of allowed rotatable bonds, exceeding this limit causes molecule
+conf. generation to fail (default: -1, negative values disable limit).</p>
+</div></blockquote>
+<p>-L [ –max-pool-size ] arg</p>
+<blockquote>
+<div><p>Puts an upper limit on the number of generated output conformer candidates (only
+effective in systematic sampling mode, default: 10000, must be &gt;= 0, 0 disables
+limit).</p>
+</div></blockquote>
+<p>-x [ –max-num-sampled-confs ] arg</p>
+<blockquote>
+<div><p>Maximum number of sampled conformers (only effective in stochastic sampling mode,
+default: 2000, must be &gt;= 0, 0 disables limit).</p>
+</div></blockquote>
+<p>-y [ –conv-check-cycle-size ] arg</p>
+<blockquote>
+<div><p>Minimum number of duplicate conformers that have to be generated in succession to
+consider convergence to be reached (only effective in stochastic sampling mode,
+default: 100, must be &gt; 0).</p>
+</div></blockquote>
+<p>-Z [ –mc-rot-bond-count-thresh ] arg</p>
+<blockquote>
+<div><p>Number of rotatable bonds in a ring above which stochastic sampling will be performed(only
+effective in sampling mode AUTO, default: 10, must be &gt; 0).</p>
+</div></blockquote>
+<p>-P [ –ref-tol ] arg</p>
+<blockquote>
+<div><p>Energy tolerance at which force field structure refinement stops (only effective
+in stochastic sampling mode, default: 0.001, must be &gt;= 0, 0 results in refinement
+until convergence).</p>
+</div></blockquote>
+<p>-w [ –max-ref-iter ] arg</p>
+<blockquote>
+<div><p>Maximum number of force field structure refinement iterations (only effective in
+stochastic sampling mode, default: 0, must be &gt;= 0, 0 disables limit).</p>
+</div></blockquote>
+<p>-k [ –add-tor-lib ] arg</p>
+<blockquote>
+<div><p>Torsion library to be used in addition to the built-in library (only effective in
+systematic sampling mode).</p>
+</div></blockquote>
+<p>-K [ –set-tor-lib ] arg</p>
+<blockquote>
+<div><p>Torsion library used as a replacement for the built-in library (only effective in
+systematic sampling mode).</p>
+</div></blockquote>
+<p>-B [ –frag-build-preset ] arg</p>
+<blockquote>
+<div><p>Fragment build preset to use (FAST, THOROUGH, only effective in systematic sampling
+mode, default: FAST).</p>
+</div></blockquote>
+<p>-b [ –build-force-field ] arg</p>
+<blockquote>
+<div><p>Fragment build force field (MMFF94, MMFF94_NO_ESTAT, MMFF94S, MMFF94S_XOOP, MMFF94S_RTOR,
+MMFF94S_RTOR_XOOP, MMFF94S_NO_ESTAT, MMFF94S_XOOP_NO_ESTAT, MMFF94S_RTOR_NO_ESTAT,
+MMFF94S_RTOR_XOOP_NO_ESTAT, only effective in systematic sampling mode, default:
+MMFF94S_RTOR_NO_ESTAT).</p>
+</div></blockquote>
+<p>-g [ –add-frag-lib ] arg</p>
+<blockquote>
+<div><p>Fragment library to be used in addition to the built-in library (only effective
+in systematic sampling mode).</p>
+</div></blockquote>
+<p>-G [ –set-frag-lib ] arg</p>
+<blockquote>
+<div><p>Fragment library used as a replacement for the built-in library (only effective
+in systematic sampling mode).</p>
+</div></blockquote>
+<p>-z [ –canonicalize ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Canonicalize input molecules (default: false).</p>
+</div></blockquote>
+<p>-Y [ –energy-sd-entry ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Output conformer energy in the structure data section of SD-files (default: false).</p>
+</div></blockquote>
+<p>-M [ –energy-comment ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Output conformer energy in the comment field (if supported by output format, default:
+false).</p>
+</div></blockquote>
+<p>-W [ –conf-idx-suffix ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Append conformer index to the title of multiconf. output molecules (default: false).</p>
+</div></blockquote>
+<p>-I [ –input-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the format of the input file(s) by providing one of
+the supported file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file(s) (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-O [ –output-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the output format by providing one of the supported
+file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file (because missing, misleading or not supported).
+Note that only storage formats make sense that allow to store atom 3D-coordinates!</p>
+</div></blockquote>
+<p>-F [ –failed-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the output format by providing one of the supported
+file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-j [ –fixed-substr ] arg</p>
+<blockquote>
+<div><p>Fixed substructure template molecule file. The given molecule can serve as
+source for fixed substructure atom 3D coordinates and also as query for
+finding fixed substructure matches in the processed input molecules if a
+SMARTS pattern has not been specified by option <em>–fixed-substr-ptn</em>. If the
+template molecule file does not provide atom 3D coordinates then the
+coordinates of matched input molecule atoms will be used (if 3D coordinates
+are not provided either way an error will be reported). [since V1.1]</p>
+</div></blockquote>
+<p>-J [ –fixed-substr-ptn ] arg</p>
+<blockquote>
+<div><p>SMARTS pattern for finding fixed substructure matches in the processed
+input molecules. If a template molecule file has been specified by option
+<em>–fixed-substr</em> then matching atoms of that molecule will serve as primary source for
+fixed atom 3D coordinates. Otherwise, the coordinates of matched input
+molecule atoms will be used (if 3D coordinates are not provided either way
+an error will be reported). [since V1.1]</p>
+</div></blockquote>
+<p>-U [ –fixed-substr-mcss ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Use maximum common substructure search to find fixed substructure matches
+(default: false, using reqular substructure searching). [since V1.1]</p>
+</div></blockquote>
+<p>-a [ –fixed-substr-align ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Align generated conformers on fixed substructure input atom positions (default: false). [since V1.1]</p>
+</div></blockquote>
+<p>-~ [ –fixed-substr-min-atoms ] arg</p>
+<blockquote>
+<div><p>The minimum required number of matched atoms when using maximum common
+substructure searching to find fixed substructure matches (default: 2). [since V1.1]</p>
+</div></blockquote>
+<p>-Q [ –fixed-substr-max-matches ] arg</p>
+<blockquote>
+<div><p>The maximum number of considered fixed substructure matches (default: 1, 0 disables limit). [since V1.1]</p>
+</div></blockquote>
+<p>-^ [ –fixed-substr-ignore-h ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Ignore hydrogens that are present in the specified fixed substructure
+template molecule file (default: false). [since V1.1]</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="notes-on-release-v1-1">
+<span id="confgen-notes-v1-1"></span><h2>Notes on release V1.1<a class="headerlink" href="#notes-on-release-v1-1" title="Link to this heading"></a></h2>
+<section id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Link to this heading"></a></h3>
+<p>For systematic conformer sampling <strong class="program">confgen V1.1</strong> uses a new torsion library that was derived
+from the torsion library V3.0 developed at the University of Hamburg, Center for Bioinformatics <span id="id3">[<a class="reference internal" href="../bibliography.html#id13" title="Patrick Penner, Wolfgang Guba, Robert Schmidt, Agnes Meyder, Martin Stahl, and Matthias Rarey. The torsion library: semiautomated improvement of torsion rules with smartscompare. Journal of Chemical Information and Modeling, 62(7):1644-1653, 2022. PMID: 35318851. URL: https://doi.org/10.1021/acs.jcim.2c00043, arXiv:https://doi.org/10.1021/acs.jcim.2c00043, doi:10.1021/acs.jcim.2c00043.">14</a>]</span>.
+The new torsion library offers significant improvements over its predecessor which originate in corrections
+of torsion library entry matching orders and a higher number of analyzed high quality X-ray structures.
+Furthermore, the output conformer picking procedure has been refined and now results in not only structurally, but also
+energetically more diverse conformer ensembles.
+Together these changes increase the average accuracy in the reproduction of experimental structure considerably (at the cost of slightly larger
+output ensembles and higher processing times for some settings). In order to quantify the accuracy improvements the <em>Platinum Diverse Dataset</em> benchmarks
+described in <span id="id4">[<a class="reference internal" href="../bibliography.html#id10" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span> were re-run and the obtained results put in comparison with the ones published for
+<strong>CONFORGE V1.0</strong>. The following tables show that the achieved accuracy improvements can be significant, especially when <strong class="program">confgen</strong>
+is run with default settings:</p>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text"><strong>Table 1</strong>. Conformer Generation Performance Comparison for the Platinum Diverse Dataset</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Generator <a class="footnote-reference brackets" href="#id8" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></th>
+<th class="head" colspan="4"><p>Maximum ensemble size 50</p></th>
+<th class="head" colspan="4"><p>Maximum ensemble size 250</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>mean</p></th>
+<th class="head"><p>median</p></th>
+<th class="head"><p>min</p></th>
+<th class="head"><p>max</p></th>
+<th class="head"><p>mean</p></th>
+<th class="head"><p>median</p></th>
+<th class="head"><p>min</p></th>
+<th class="head"><p>max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td colspan="9"><p><strong>RMSD (Å)</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>0.67</p></td>
+<td><p>0.49</p></td>
+<td><p>0.03</p></td>
+<td><p>3.92</p></td>
+<td><p>0.55</p></td>
+<td><p>0.41</p></td>
+<td><p>0.03</p></td>
+<td><p>3.67</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Best V1.1</em></p></td>
+<td><p><strong>0.61</strong></p></td>
+<td><p><strong>0.48</strong></p></td>
+<td><p>0.03</p></td>
+<td><p>3.90</p></td>
+<td><p><strong>0.52</strong></p></td>
+<td><p><strong>0.40</strong></p></td>
+<td><p>0.03</p></td>
+<td><p>3.61</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>0.68</p></td>
+<td><p>0.55</p></td>
+<td><p>0.04</p></td>
+<td><p><strong>3.14</strong></p></td>
+<td><p>0.61</p></td>
+<td><p>0.52</p></td>
+<td><p>0.04</p></td>
+<td><p><strong>2.79</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Default V1.1</em></p></td>
+<td><p>0.63</p></td>
+<td><p>0.52</p></td>
+<td><p>0.03</p></td>
+<td><p>3.70</p></td>
+<td><p>0.56</p></td>
+<td><p>0.48</p></td>
+<td><p>0.03</p></td>
+<td><p>3.70</p></td>
+</tr>
+<tr class="row-even"><td><p>Others</p></td>
+<td><p>0.67</p></td>
+<td><p>0.51</p></td>
+<td><p><strong>0.02</strong></p></td>
+<td><p>3.26</p></td>
+<td><p>0.57</p></td>
+<td><p>0.46</p></td>
+<td><p><strong>0.02</strong></p></td>
+<td><p>2.93</p></td>
+</tr>
+<tr class="row-odd"><td colspan="9"><p><strong>Ensemble Size</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>39</p></td>
+<td><p>50</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>149</p></td>
+<td><p>214</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Best V1.1</em></p></td>
+<td><p>40</p></td>
+<td><p>50</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>154</p></td>
+<td><p>250</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>29</p></td>
+<td><p>30</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>83</p></td>
+<td><p><strong>30</strong></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Default V1.1</em></p></td>
+<td><p>31</p></td>
+<td><p>37</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>92</p></td>
+<td><p>38</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Others</p></td>
+<td><p><strong>21</strong></p></td>
+<td><p><strong>19</strong></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p><strong>71</strong></p></td>
+<td><p>32</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td colspan="9"><p><strong>Processing Time</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>0.16</p></td>
+<td><p>0.02</p></td>
+<td><p>0.00</p></td>
+<td><p>14.3</p></td>
+<td><p>0.33</p></td>
+<td><p>0.07</p></td>
+<td><p>0.00</p></td>
+<td><p>16.08</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Best V1.1</em></p></td>
+<td><p>0.16</p></td>
+<td><p>0.02</p></td>
+<td><p>0.00</p></td>
+<td><p>12.98</p></td>
+<td><p>0.31</p></td>
+<td><p>0.09</p></td>
+<td><p>0.00</p></td>
+<td><p>26.46</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p><strong>0.09</strong></p></td>
+<td><p><strong>0.01</strong></p></td>
+<td><p>0.00</p></td>
+<td><p>19.79</p></td>
+<td><p><strong>0.21</strong></p></td>
+<td><p><strong>0.01</strong></p></td>
+<td><p>0.00</p></td>
+<td><p>19.94</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Default V1.1</em></p></td>
+<td><p><strong>0.09</strong></p></td>
+<td><p><strong>0.01</strong></p></td>
+<td><p>0.00</p></td>
+<td><p><strong>10.72</strong></p></td>
+<td><p>0.26</p></td>
+<td><p>0.02</p></td>
+<td><p>0.00</p></td>
+<td><p><strong>14.74</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Others</p></td>
+<td><p>0.53</p></td>
+<td><p>0.17</p></td>
+<td><p>0.00</p></td>
+<td><p>30.98</p></td>
+<td><p>0.65</p></td>
+<td><p>0.27</p></td>
+<td><p>0.00</p></td>
+<td><p>31.13</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text"><strong>Table 2</strong>. Total Program Execution Times and Molecule Processing Failures recorded for the Platinum Diverse Dataset</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Generator <a class="footnote-reference brackets" href="#id8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></th>
+<th class="head"><p>Maximum ensemble size 50</p></th>
+<th class="head"><p>Maximum ensemble size 250</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p>00:08:56</p></td>
+<td><p>00:20:06</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Best V1.1</em></p></td>
+<td><p>00:08:49</p></td>
+<td><p>00:19:30</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>00:05:21</p></td>
+<td><p><strong>00:12:49</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>CONFORGE Systematic Default V1.1</em></p></td>
+<td><p><strong>00:05:02</strong></p></td>
+<td><p>00:15:07</p></td>
+</tr>
+<tr class="row-even"><td><p>Others</p></td>
+<td><p>00:26:07</p></td>
+<td><p>00:33:44</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text"><strong>Table 3</strong>. Percentiles of Platinum Diverse Dataset Structures Successfully Reproduced below Specified RMSD Thresholds (0.5–2.0 Å)</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Generator <a class="footnote-reference brackets" href="#id8" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></th>
+<th class="head" colspan="4"><p>Maximum ensemble size 50</p></th>
+<th class="head" colspan="4"><p>Maximum ensemble size 250</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>0.5</p></th>
+<th class="head"><p>1.0</p></th>
+<th class="head"><p>1.5</p></th>
+<th class="head"><p>2.0</p></th>
+<th class="head"><p>0.5</p></th>
+<th class="head"><p>1.0</p></th>
+<th class="head"><p>1.5</p></th>
+<th class="head"><p>2.0</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>CONFORGE Systematic Best V1.0</p></td>
+<td><p><strong>51.6</strong></p></td>
+<td><p>79.2</p></td>
+<td><p>90.6</p></td>
+<td><p>96.4</p></td>
+<td><p>59.7</p></td>
+<td><p>86.8</p></td>
+<td><p>95.2</p></td>
+<td><p>98.4</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CONFORGE Systematic Best V1.1</em></p></td>
+<td><p>51.5</p></td>
+<td><p>83.3</p></td>
+<td><p>93.7</p></td>
+<td><p>98.3</p></td>
+<td><p><strong>61.3</strong></p></td>
+<td><p><strong>89.3</strong></p></td>
+<td><p>96.5</p></td>
+<td><p>99.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>CONFORGE Systematic Default V1.0</p></td>
+<td><p>44.6</p></td>
+<td><p>80.5</p></td>
+<td><p>92.7</p></td>
+<td><p>97.3</p></td>
+<td><p>47.5</p></td>
+<td><p>85.8</p></td>
+<td><p>95.8</p></td>
+<td><p>99.0</p></td>
+</tr>
+<tr class="row-even"><td><p><em>CONFORGE Systematic Default V1.1</em></p></td>
+<td><p>48.0</p></td>
+<td><p><strong>83.4</strong></p></td>
+<td><p><strong>95.4</strong></p></td>
+<td><p><strong>99.2</strong></p></td>
+<td><p>52.2</p></td>
+<td><p>89.0</p></td>
+<td><p><strong>97.8</strong></p></td>
+<td><p><strong>99.8</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Others</p></td>
+<td><p>49</p></td>
+<td><p>80.8</p></td>
+<td><p>93.2</p></td>
+<td><p>98.4</p></td>
+<td><p>56</p></td>
+<td><p>87</p></td>
+<td><p>96.5</p></td>
+<td><p>99.4</p></td>
+</tr>
+</tbody>
+</table>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id7">3</a>)</span>
+<p>Values for CONFORGE V1.0 variants were taken from the corresponding tables published in <span id="id9">[<a class="reference internal" href="../bibliography.html#id10" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span>.
+Cells of ‘Others’ rows show the value obtained for one of the competing generators (including Omega) that performed best in the correponding category.
+Values were taken from the corresponding tables published in <span id="id10">[<a class="reference internal" href="../bibliography.html#id10" title="Thomas Seidel, Christian Permann, Oliver Wieder, Stefan M. Kohlbacher, and Thierry Langer. High-quality conformer generation with conforge: algorithm and performance assessment. Journal of Chemical Information and Modeling, 0(0):null, 0. PMID: 37624145. URL: https://doi.org/10.1021/acs.jcim.3c00563, arXiv:https://doi.org/10.1021/acs.jcim.3c00563, doi:10.1021/acs.jcim.3c00563.">5</a>]</span>.</p>
+</aside>
+</aside>
+</section>
+<section id="new-features">
+<h3>New features<a class="headerlink" href="#new-features" title="Link to this heading"></a></h3>
+<p class="rubric">Energy window, RMSD and max. output ensemble size as a function of rotatable bond count</p>
+<p>It is now possible to specífy multiple values for energy window (option <em>–e-window</em>), RMSD threshold (option <em>–rmsd</em>) and max. output ensemble
+size (option <em>–max-num-out_confs</em>). Which of the specified values takes effect depends on the rotatable bond count of the
+currently processed input molecule.
+Rotatable bond count dependent settings are specified as a list of pairs <em>RBC1 SV1 RBC2 SV2…</em> where RBC denotes the rotatable bond count and SV the
+value that applies if the  rotatable bond count of the processed molecule is <em>&lt;= RBC</em>. The settings value associated with the lowest RBC that fulfills
+the latter condition takes precedence. If the rotatable bond count of the processed molecule is outside any defined range then the settings value
+associated with the highest RBC will be used.</p>
+<p><strong>Example:</strong> <em>5 50 10 100 12 200</em></p>
+<p>In this example a rotatable bond count of <em>6</em> leads to the selection of the value <em>100</em>. Rotatable bond counts &lt;= <em>5</em> result in the value <em>50</em> and any rot. bond count &gt; <em>10</em>
+in the value <em>200</em>.</p>
+<p class="rubric">Support for ‘fixed’ substructures</p>
+<p>Starting with version 1.1 <strong class="program">confgen</strong> supports the specification of substructures that have to be kept ‘fixed’ during
+conformer generation. Fixed substructure atom 3D coordinates can be supplied via a template molecule file (option <em>–fixed-substr</em>) or are
+taken from the processed input molecules. For a maximum of flexibility SMARTS patterns can be specified (<em>–fixed-substr-ptn</em> option) that allow
+for a detailed and accurate description of the substructures to keep fixed. Available algorithms for finding matches between the input molecules
+and the specified substructure are standard substructure searching (the default) and maximum common substructure searching (MCSS, enabled by option
+<em>–fixed-substr-mcss</em>). Further options control the number of considered fixed substructure matches (option <em>–fixed-substr-max-matches</em>), the minimum
+matched substructure size (if MCSS is enabled, option <em>–fixed-substr-min-atoms</em>) and whether the generated conformers shall be aligned on
+fixed substructure input atom positions (option <em>–fixed-substr-align</em>, by default conformers are not aligned!).</p>
+<p><strong>Example:</strong></p>
+<p>Generation of a conformer ensemble for <a class="reference download internal" download="" href="../_downloads/8c409411cf1aa0a2036ec9ef3fa78e15/erythromycin.smi"><code class="xref download docutils literal notranslate"><span class="pre">Erythromycin</span></code></a> where the maximum common substructure with
+<a class="reference download internal" download="" href="../_downloads/433a2114cca5af8ebf28b0cb7fd1437c/1p9x_B_TEL.sdf"><code class="xref download docutils literal notranslate"><span class="pre">Telithromycin</span></code></a> is kept rigid and atom 3D coordinates taken from the active conformation of Telithromycin
+in complex <a class="reference external" href="https://www.rcsb.org/structure/1P9X">1P9X</a> are used as fixed atom positions.</p>
+<table class="docutils align-default" style="width: 100%">
+<tbody>
+<tr class="row-odd"><td><p>Erythromycin:</p></td>
+<td><p>Bound-state conformation of Telithromycin in complex <a class="reference external" href="https://www.rcsb.org/structure/1P9X">1P9X</a>:</p></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal image-reference" href="../_images/erythromycin.svg"><img alt="Erythromycin" class="align-center" src="../_images/erythromycin.svg" style="width: 305.41px; height: 315.49px;" />
+</a>
+</td>
+<td><a class="reference internal image-reference" href="../_images/telithromycin.png"><img alt="Bound-state conformation of Telithromycin in complex `1P9X &lt;https://www.rcsb.org/structure/1P9X&gt;`_:" class="align-center" src="../_images/telithromycin.png" style="width: 512.72px; height: 286.52px;" />
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Executing</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>confgen<span class="w"> </span>-i<span class="w"> </span>erythromycin.smi<span class="w"> </span>-o<span class="w"> </span>tel_ery_confs.sdf<span class="w"> </span>-m<span class="w"> </span>stochastic<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span><span class="w"> </span>-j<span class="w"> </span>1p9x_B_TEL.sdf<span class="w"> </span>-a<span class="w"> </span>-U
+</pre></div>
+</div>
+<p>will generate the following conformer ensemble:</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../_images/tel_ery_confs.png"><img alt="Conformations of Erythromycin generated with a fixed substructure derived from Telithromycin (shown for reference in green)" src="../_images/tel_ery_confs.png" style="width: 45%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Conformations of Erythromycin generated with a fixed substructure derived from Telithromycin (shown for reference in green)</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="structgen.html" class="btn btn-neutral float-left" title="structgen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="genfraglib.html" class="btn btn-neutral float-right" title="genfraglib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

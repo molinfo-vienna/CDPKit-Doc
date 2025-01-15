@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.1.2.3. Bemis-Murcko Framework Analysis &mdash; CDPKit 1.2.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=bd7b91d8" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/v1.2.1/cdpl_python_cookbook/chem/molecule/fragmentation/bemis_murcko.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=ca842793"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+        <script src="../../../../_static/docs-versions-menu.js?v=bb46260f"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="1.1.3. Structure Standardization, Curation and Database Preparation" href="../standardization/index.html" />
+    <link rel="prev" title="1.1.2.2. Rule-based Fragmentation" href="rule_based_frag.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../applications/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">1. Processing of Chemical Data</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">1.1. Molecules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../io/index.html">1.1.1. Input and Output</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">1.1.2. Fragmentation and Extraction of Substructures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standardization/index.html">1.1.3. Structure Standardization, Curation and Database Preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../substruct_search/index.html">1.1.4. Substructure Search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forcefield/index.html">6. Force Field Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">CDPL Python Cookbook</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="section-number">1. </span>Processing of Chemical Data</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">1.1. </span>Molecules</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">1.1.2. </span>Fragmentation and Extraction of Substructures</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1.1.2.3. </span>Bemis-Murcko Framework Analysis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/cdpl_python_cookbook/chem/molecule/fragmentation/bemis_murcko.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bemis-murcko-framework-analysis">
+<h1><span class="section-number">1.1.2.3. </span>Bemis-Murcko Framework Analysis<a class="headerlink" href="#bemis-murcko-framework-analysis" title="Link to this heading"></a></h1>
+<p>The script <em>gen_bm_frags.py</em> analyzes the framework of input molecules according to the rules established by Bemis and
+Murcko <span id="id1">[<a class="reference internal" href="../../../../bibliography.html#id20" title="Guy W. Bemis and Mark A. Murcko. The properties of known drugs. 1. molecular frameworks. Journal of Medicinal Chemistry, 39(15):2887-2893, 1996. PMID: 8709122. URL: https://doi.org/10.1021/jm9602928, arXiv:https://doi.org/10.1021/jm9602928, doi:10.1021/jm9602928.">17</a>]</span>.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>gen_bm_frags.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-v] [-m] [-H] [-f &lt;true|false&gt;] [-r] [-s] [-l] [-x] [-c]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Input molecule file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Fragment output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-v</span></kbd></dt>
+<dd><p>Verbose output (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-m</span></kbd></dt>
+<dd><p>Output the input molecule before the resulting fragments (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-H</span></kbd></dt>
+<dd><p>Keep hydrogen atoms (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-f <var>&lt;true|false&gt;</var></span></kbd></dt>
+<dd><p>Output molecule frameworks (default: true)</p>
+</dd>
+<dt><kbd><span class="option">-r</span></kbd></dt>
+<dd><p>Output molecule ring systems (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-s</span></kbd></dt>
+<dd><p>Output molecule side chains (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-l</span></kbd></dt>
+<dd><p>Output ring system linkers (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>Label atoms with atom mapping IDs (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>Transform fragments into carbon skeletons (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span>    
+<span class="linenos">  7</span><span class="c1"># performs Bemis-Murcko framework analyis for a given input molecule</span>
+<span class="linenos">  8</span><span class="k">def</span> <span class="nf">bmAnalyze</span><span class="p">(</span><span class="n">molgraph</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraph</span><span class="p">,</span> <span class="n">keep_hs</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BemisMurckoAnalyzer</span><span class="p">:</span>
+<span class="linenos">  9</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">molgraph</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># calculate basic molecular properties (if not yet done)</span>
+<span class="linenos"> 10</span>    
+<span class="linenos"> 11</span>    <span class="c1"># create an instance of the class implementing the Bemis-Murcko analyis rules</span>
+<span class="linenos"> 12</span>    <span class="n">bm_analyzer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BemisMurckoAnalyzer</span><span class="p">()</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span>    <span class="c1"># apply -H option</span>
+<span class="linenos"> 15</span>    <span class="n">bm_analyzer</span><span class="o">.</span><span class="n">stripHydrogens</span><span class="p">(</span><span class="ow">not</span> <span class="n">keep_hs</span><span class="p">)</span>
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span>    <span class="c1"># perform analysis</span>
+<span class="linenos"> 18</span>    <span class="n">bm_analyzer</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">molgraph</span><span class="p">)</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span>    <span class="k">return</span> <span class="n">bm_analyzer</span>
+<span class="linenos"> 21</span>    
+<span class="linenos"> 22</span><span class="k">def</span> <span class="nf">getLogMessage</span><span class="p">(</span><span class="n">bm_analyzer</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BemisMurckoAnalyzer</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="linenos"> 23</span>    <span class="n">msg</span> <span class="o">=</span>  <span class="sa">f</span><span class="s1">&#39;- Molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos"> 24</span>    <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;  Frameworks:   </span><span class="si">{</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getFrameworks</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos"> 25</span>    <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;  Ring Systems: </span><span class="si">{</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getRingSystems</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos"> 26</span>    <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;  Linkers:      </span><span class="si">{</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getLinkers</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos"> 27</span>    <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;  Side Chains:  </span><span class="si">{</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getSideChains</span><span class="p">()</span><span class="o">.</span><span class="n">getSize</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="linenos"> 28</span>     
+<span class="linenos"> 29</span>    <span class="k">return</span> <span class="n">msg</span>
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 32</span>    <span class="k">def</span> <span class="nf">strtobool</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos"> 33</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="linenos"> 34</span>        
+<span class="linenos"> 35</span>        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;on&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">):</span>
+<span class="linenos"> 36</span>            <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos"> 37</span>        
+<span class="linenos"> 38</span>        <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos"> 39</span>    
+<span class="linenos"> 40</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Analyzes the framework of given input molecules according to the rules established by Bemis and Murcko.&#39;</span><span class="p">)</span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos"> 43</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 44</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 45</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 46</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input molecule file&#39;</span><span class="p">)</span>
+<span class="linenos"> 47</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 48</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 49</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 50</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 51</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Fragment output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 52</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span>
+<span class="linenos"> 53</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+<span class="linenos"> 54</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 55</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 56</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 57</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Verbose output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 58</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
+<span class="linenos"> 59</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_mol&#39;</span><span class="p">,</span>
+<span class="linenos"> 60</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 61</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 62</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 63</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output the input molecule before the resulting fragments (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 64</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-H&#39;</span><span class="p">,</span>
+<span class="linenos"> 65</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;keep_hs&#39;</span><span class="p">,</span>
+<span class="linenos"> 66</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 67</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 68</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 69</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keep hydrogen atoms (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 70</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span>
+<span class="linenos"> 71</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_fws&#39;</span><span class="p">,</span>
+<span class="linenos"> 72</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 73</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;true|false&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 74</span>                        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">bool</span><span class="p">(</span><span class="n">strtobool</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+<span class="linenos"> 75</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 76</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output molecule frameworks (default: true)&#39;</span><span class="p">)</span>
+<span class="linenos"> 77</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
+<span class="linenos"> 78</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_rsys&#39;</span><span class="p">,</span>
+<span class="linenos"> 79</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 80</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 81</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 82</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output molecule ring systems (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 83</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
+<span class="linenos"> 84</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_schns&#39;</span><span class="p">,</span>
+<span class="linenos"> 85</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 86</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 87</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 88</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output molecule side chains (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 89</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span>
+<span class="linenos"> 90</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_lnks&#39;</span><span class="p">,</span>
+<span class="linenos"> 91</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 92</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 93</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 94</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output ring system linkers (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 95</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
+<span class="linenos"> 96</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;atom_mpg&#39;</span><span class="p">,</span>
+<span class="linenos"> 97</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 98</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 99</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">100</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Label atoms with atom mapping IDs (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">101</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+<span class="linenos">102</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;carbonize&#39;</span><span class="p">,</span>
+<span class="linenos">103</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">104</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">105</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">106</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Transform fragments into carbon skeletons (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">107</span>   
+<span class="linenos">108</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span><span class="c1"># converts all atoms into carbons and equalizes other basic atom/bond properties</span>
+<span class="linenos">111</span><span class="k">def</span> <span class="nf">carbonize</span><span class="p">(</span><span class="n">molgraph</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraph</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">112</span>    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">molgraph</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+<span class="linenos">113</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setSymbol</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="linenos">114</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+<span class="linenos">115</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clearFormalCharge</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+<span class="linenos">116</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setImplicitHydrogenCount</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos">117</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlag</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">118</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setHybridizationState</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">)</span>
+<span class="linenos">119</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clearStereoDescriptor</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+<span class="linenos">120</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clear3DCoordinates</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+<span class="linenos">121</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clear3DCoordinatesArray</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span>    <span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">molgraph</span><span class="o">.</span><span class="n">bonds</span><span class="p">:</span>
+<span class="linenos">124</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">bond</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">125</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlag</span><span class="p">(</span><span class="n">bond</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">126</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clearStereoDescriptor</span><span class="p">(</span><span class="n">bond</span><span class="p">)</span>
+<span class="linenos">127</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">set2DStereoFlag</span><span class="p">(</span><span class="n">bond</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BondStereoFlag</span><span class="o">.</span><span class="n">PLAIN</span><span class="p">)</span>
+<span class="linenos">128</span>        
+<span class="linenos">129</span><span class="k">def</span> <span class="nf">outputFragments</span><span class="p">(</span><span class="n">frags</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">FragmentList</span><span class="p">,</span> <span class="n">writer</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">,</span> <span class="n">mol_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">frag_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">130</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frags</span><span class="p">)):</span>
+<span class="linenos">131</span>        <span class="n">frag</span> <span class="o">=</span> <span class="n">frags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="linenos">132</span>
+<span class="linenos">133</span>        <span class="c1"># set fragment name encoding the parent molecule and fragment number</span>
+<span class="linenos">134</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="n">frag</span><span class="p">,</span> <span class="n">mol_name</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">frag_type</span><span class="si">}</span><span class="s1">#</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="linenos">135</span>                        
+<span class="linenos">136</span>        <span class="c1"># calculate (if not present) some basic properties of the output fragments</span>
+<span class="linenos">137</span>        <span class="c1"># that might be required for writing (output format dependent)</span>
+<span class="linenos">138</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">frag</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">139</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveComponents</span><span class="p">(</span><span class="n">frag</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">142</span>            <span class="c1"># write fragment</span>
+<span class="linenos">143</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">frag</span><span class="p">):</span>
+<span class="linenos">144</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing fragment of molecule </span><span class="si">{mol_id}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
+<span class="linenos">145</span>
+<span class="linenos">146</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
+<span class="linenos">147</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing fragment of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+<span class="linenos">148</span>
+<span class="linenos">149</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">150</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span> <span class="c1"># process command line arguments</span>
+<span class="linenos">151</span>        
+<span class="linenos">152</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">153</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos">154</span>
+<span class="linenos">155</span>    <span class="c1"># create writer for output fragments (format specified by file extension)</span>
+<span class="linenos">156</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos">157</span>  
+<span class="linenos">158</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">atom_mpg</span><span class="p">:</span> <span class="c1"># enable atom mapping IDs for SMILES output</span>
+<span class="linenos">159</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setSMILESMolOutputAtomMappingIDParameter</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">160</span>
+<span class="linenos">161</span>    <span class="c1"># write canonical SMILES</span>
+<span class="linenos">162</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setSMILESOutputCanonicalFormParameter</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">163</span>    
+<span class="linenos">164</span>    <span class="c1"># create instances of the default implementation of the Chem.Molecule interface for the input molecule</span>
+<span class="linenos">165</span>    <span class="n">in_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">166</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">167</span>    
+<span class="linenos">168</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">169</span>        <span class="c1"># read and process molecules one after the other until the end of input has been reached (or a severe error occurs)</span>
+<span class="linenos">170</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">in_mol</span><span class="p">):</span>
+<span class="linenos">171</span>            <span class="c1"># compose a molecule identifier</span>
+<span class="linenos">172</span>            <span class="n">mol_name</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">in_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">173</span>
+<span class="linenos">174</span>            <span class="k">if</span> <span class="n">mol_name</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">175</span>                <span class="n">mol_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Mol#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="linenos">176</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span>  <span class="c1"># fallback if name is empty or not available</span>
+<span class="linenos">177</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">178</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">mol_name</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)&#39;</span>
+<span class="linenos">179</span>         
+<span class="linenos">180</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">181</span>                <span class="c1"># perform Bemis-Murcko analysis of in_mol</span>
+<span class="linenos">182</span>                <span class="n">bm_analyzer</span> <span class="o">=</span> <span class="n">bmAnalyze</span><span class="p">(</span><span class="n">in_mol</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">keep_hs</span><span class="p">)</span> 
+<span class="linenos">183</span>
+<span class="linenos">184</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+<span class="linenos">185</span>                    <span class="nb">print</span><span class="p">(</span><span class="n">getLogMessage</span><span class="p">(</span><span class="n">bm_analyzer</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">))</span>
+<span class="linenos">186</span>
+<span class="linenos">187</span>                <span class="c1"># label atoms with atom mapping IDs to see correspondences between fragment and parent molecule atoms</span>
+<span class="linenos">188</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">atom_mpg</span><span class="p">:</span> 
+<span class="linenos">189</span>                    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">in_mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+<span class="linenos">190</span>                        <span class="n">Chem</span><span class="o">.</span><span class="n">setAtomMappingID</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">atom</span><span class="o">.</span><span class="n">getIndex</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">191</span>
+<span class="linenos">192</span>                <span class="k">try</span><span class="p">:</span>
+<span class="linenos">193</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_mol</span><span class="p">:</span> <span class="c1"># write input molecule before the obtained fragments</span>
+<span class="linenos">194</span>                        <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">in_mol</span><span class="p">):</span>
+<span class="linenos">195</span>                            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
+<span class="linenos">196</span>
+<span class="linenos">197</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">carbonize</span><span class="p">:</span>  <span class="c1"># convert all atoms into carbons and equalize other basic atom/bond properties</span>
+<span class="linenos">198</span>                        <span class="n">carbonize</span><span class="p">(</span><span class="n">in_mol</span><span class="p">)</span>
+<span class="linenos">199</span>
+<span class="linenos">200</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_fws</span><span class="p">:</span>
+<span class="linenos">201</span>                        <span class="n">outputFragments</span><span class="p">(</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getFrameworks</span><span class="p">(),</span> <span class="n">writer</span><span class="p">,</span> <span class="n">mol_name</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="linenos">202</span>
+<span class="linenos">203</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_rsys</span><span class="p">:</span>
+<span class="linenos">204</span>                        <span class="n">outputFragments</span><span class="p">(</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getRingSystems</span><span class="p">(),</span> <span class="n">writer</span><span class="p">,</span> <span class="n">mol_name</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)</span>
+<span class="linenos">205</span>
+<span class="linenos">206</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_lnks</span><span class="p">:</span>
+<span class="linenos">207</span>                        <span class="n">outputFragments</span><span class="p">(</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getLinkers</span><span class="p">(),</span> <span class="n">writer</span><span class="p">,</span> <span class="n">mol_name</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="linenos">208</span>                     
+<span class="linenos">209</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_schns</span><span class="p">:</span>
+<span class="linenos">210</span>                        <span class="n">outputFragments</span><span class="p">(</span><span class="n">bm_analyzer</span><span class="o">.</span><span class="n">getSideChains</span><span class="p">(),</span> <span class="n">writer</span><span class="p">,</span> <span class="n">mol_name</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">)</span>
+<span class="linenos">211</span>                             
+<span class="linenos">212</span>                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
+<span class="linenos">213</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">214</span>                
+<span class="linenos">215</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe structure processing errors</span>
+<span class="linenos">216</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: processing of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">217</span>
+<span class="linenos">218</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">219</span>            
+<span class="linenos">220</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">221</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: reading of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">222</span>
+<span class="linenos">223</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">224</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">225</span>        
+<span class="linenos">226</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">227</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../../_downloads/ca8ebabbea88b87bda36dd8f62acfdde/gen_bm_frags.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rule_based_frag.html" class="btn btn-neutral float-left" title="1.1.2.2. Rule-based Fragmentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../standardization/index.html" class="btn btn-neutral float-right" title="1.1.3. Structure Standardization, Curation and Database Preparation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
