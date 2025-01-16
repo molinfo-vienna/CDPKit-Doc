@@ -105,374 +105,384 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define CDPL_BASE_ANY_HPP</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;new&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Base_2Exceptions_8hpp.html">CDPL/Base/Exceptions.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &lt;new&gt;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Base_2Exceptions_8hpp.html">CDPL/Base/Exceptions.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">namespace </span>Base</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html">   58</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a> final</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">   66</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>() noexcept : vtable(<span class="keywordtype">nullptr</span>) {}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a7bbbed1440de51af66f7b1194fae5027">   72</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#a7bbbed1440de51af66f7b1194fae5027">Any</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; rhs):</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                vtable(rhs.vtable)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">if</span> (!rhs.<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>())</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    rhs.vtable-&gt;copy(rhs.storage, this-&gt;storage);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a72de08a7aa4f38a4e762045bac995cc3">   86</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#a72de08a7aa4f38a4e762045bac995cc3">Any</a>(<a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp;&amp; rhs) noexcept : vtable(rhs.vtable)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">if</span> (!rhs.isEmpty()) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    rhs.vtable-&gt;move(rhs.storage, this-&gt;storage);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    rhs.vtable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a5efad209d4d470a30dd07d57beb33532">   99</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#a5efad209d4d470a30dd07d57beb33532">~Any</a>()</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">clear</a>();</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            template &lt;typename ValueType, typename = typename std::enable_if&lt;!std::is_same&lt;typename std::decay&lt;ValueType&gt;::type, <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&gt;::value&gt;::type&gt;</div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#adcc51561d900e6cea43d7f330642c3a4">  113</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#adcc51561d900e6cea43d7f330642c3a4">Any</a>(ValueType&amp;&amp; val)</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                static_assert(std::is_copy_constructible&lt;<span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type&gt;::value,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                              <span class="stringliteral">&quot;ValueType shall satisfy CopyConstructible requirements.&quot;</span>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                this-&gt;construct(std::forward&lt;ValueType&gt;(val));</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a61d4f25d70fe8159c00818798cc4acc9">  126</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a61d4f25d70fe8159c00818798cc4acc9">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; rhs)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>(rhs).swap(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#aa7a98a77a8a0cf71ae2643f7f787ed58">  140</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#aa7a98a77a8a0cf71ae2643f7f787ed58">operator=</a>(<a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp;&amp; rhs) noexcept</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            {</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>(std::move(rhs)).swap(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            template &lt;typename ValueType, typename = typename std::enable_if&lt;!std::is_same&lt;typename std::decay&lt;ValueType&gt;::type, <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&gt;::value&gt;::type&gt;</div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a638d82956e6536ffc280fd3931d3d401">  156</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a638d82956e6536ffc280fd3931d3d401">operator=</a>(ValueType&amp;&amp; val)</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                static_assert(std::is_copy_constructible&lt;<span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type&gt;::value,</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                              <span class="stringliteral">&quot;T shall satisfy CopyConstructible requirements.&quot;</span>);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>(std::forward&lt;ValueType&gt;(val)).swap(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">  169</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">clear</a>() noexcept</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>()) {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                    this-&gt;vtable-&gt;destroy(storage);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    this-&gt;vtable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            }</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">  182</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>() const noexcept</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <span class="keywordflow">return</span> (this-&gt;vtable == <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            }</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">  193</a></span>&#160;            <span class="keyword">const</span> std::type_info&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">getTypeID</a>() const noexcept</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="keywordflow">return</span> (<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>() ? <span class="keyword">typeid</span>(<span class="keywordtype">void</span>) : this-&gt;vtable-&gt;type());</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">  203</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(<a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; rhs) noexcept</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                <span class="keywordflow">if</span> (this-&gt;vtable != rhs.vtable) {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                    <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a> tmp(std::move(rhs));</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                    <span class="comment">// move from *this to rhs.</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                    rhs.vtable = this-&gt;vtable;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                    <span class="keywordflow">if</span> (this-&gt;vtable != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                        this-&gt;vtable-&gt;move(this-&gt;storage, rhs.storage);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                        <span class="comment">//this-&gt;vtable = nullptr; -- unneeded, see below</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                    }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                    <span class="comment">// move from tmp (previously rhs) to *this.</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    this-&gt;vtable = tmp.vtable;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                    <span class="keywordflow">if</span> (tmp.vtable != <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                        tmp.vtable-&gt;move(tmp.storage, this-&gt;storage);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                        tmp.vtable = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                    }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                } <span class="keywordflow">else</span> { <span class="comment">// same types</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                    <span class="keywordflow">if</span> (this-&gt;vtable != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                        this-&gt;vtable-&gt;swap(this-&gt;storage, rhs.storage);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            }</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">  237</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">getData</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">            </span>{</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>())</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCDPL_1_1Base_1_1BadCast.html">BadCast</a>(<span class="stringliteral">&quot;Any: empty&quot;</span>);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                <span class="keyword">using</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a> = <span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                <span class="keywordflow">if</span> (this-&gt;isTyped(<span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>)))</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                    <span class="keywordflow">return</span> *this-&gt;cast&lt;T&gt;();</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="classCDPL_1_1Base_1_1BadCast.html">BadCast</a>(std::string(<span class="stringliteral">&quot;Any: extraction of stored value of type &#39;&quot;</span>) + this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">getTypeID</a>().name() +</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                              std::string(<span class="stringliteral">&quot;&#39; as type &#39;&quot;</span>) + <span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>).name() + <span class="stringliteral">&quot;&#39; not possible&quot;</span>);</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            }</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a9c56c04ea7b175fff385a3dfa18d6550">  257</a></span>&#160;            <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code" href="classCDPL_1_1Base_1_1Any.html#a9c56c04ea7b175fff385a3dfa18d6550">getDataPointer</a>() const noexcept</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>())</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                <span class="keywordflow">return</span> this-&gt;vtable-&gt;data(this-&gt;storage);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            }</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <span class="comment">// Storage and Virtual Method Table</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="keyword">union </span>Storage</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keyword">using</span> StackStorageT = <span class="keyword">typename</span> std::aligned_storage&lt;2 * <span class="keyword">sizeof</span>(<span class="keywordtype">void</span>*), std::alignment_of&lt;void*&gt;::value&gt;::type;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <span class="keywordtype">void</span>*         dynamic;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                StackStorageT stack; <span class="comment">// 2 words for e.g. shared_ptr</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            };</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <span class="comment">// Base VTable specification.</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="keyword">struct </span>VTable</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            {</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                <span class="comment">// Note: The caller is responssible for doing .vtable = nullptr after destructful operations</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="comment">// such as destroy() and/or move().</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <span class="comment">// The type of the object this vtable is for.</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="keyword">const</span> std::type_info&amp; (*type)() noexcept;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                <span class="comment">// Destroys the object in the union.</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <span class="comment">// The state of the union after this call is unspecified, caller must ensure not to use src anymore.</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                void (*destroy)(Storage&amp;) noexcept;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                <span class="comment">// Copies the **inner** content of the src union into the yet unitialized dest union.</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                <span class="comment">// As such, both inner objects will have the same state, but on separate memory locations.</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                void (*copy)(<span class="keyword">const</span> Storage&amp; src, Storage&amp; dest);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                <span class="comment">// Moves the storage from src to the yet unitialized dest union.</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                <span class="comment">// The state of src after this call is unspecified, caller must ensure not to use src anymore.</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                void (*move)(Storage&amp; src, Storage&amp; dest) noexcept;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <span class="comment">// Exchanges the storage between lhs and rhs.</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                void (*<a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>)(Storage&amp; lhs, Storage&amp; rhs) noexcept;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">void</span>* (*data)(<span class="keyword">const</span> Storage&amp; storage)noexcept;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            };</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;            <span class="comment">// VTable for dynamically allocated storage.</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keyword">struct </span>VTableDynamic</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> std::type_info&amp; type() noexcept</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                {</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> destroy(Storage&amp; storage) noexcept</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                    <span class="comment">//assert(reinterpret_cast&lt;T*&gt;(storage.dynamic));</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                    <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(storage.dynamic);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                }</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> copy(<span class="keyword">const</span> Storage&amp; src, Storage&amp; dest)</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                    dest.dynamic = <span class="keyword">new</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(*<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(src.dynamic));</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                }</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> move(Storage&amp; src, Storage&amp; dest) noexcept</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                {</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                    dest.dynamic = src.dynamic;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                    src.dynamic  = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                }</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(Storage&amp; lhs, Storage&amp; rhs) noexcept</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                    <span class="comment">// just exchage the storage pointers.</span></div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                    std::swap(lhs.dynamic, rhs.dynamic);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                }</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span>* data(<span class="keyword">const</span> Storage&amp; storage) noexcept</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                    <span class="keywordflow">return</span> storage.dynamic;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                }</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            };</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            <span class="comment">// VTable for stack allocated storage.</span></div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            <span class="keyword">struct </span>VTableStack</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            {</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> std::type_info&amp; type() noexcept</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>);</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                }</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> destroy(Storage&amp; storage) noexcept</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                {</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                    <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(&amp;storage.stack)-&gt;~<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>();</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> copy(<span class="keyword">const</span> Storage&amp; src, Storage&amp; dest)</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                {</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                    <span class="keyword">new</span> (&amp;dest.stack) <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp;<span class="keyword">&gt;</span>(src.stack));</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                }</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> move(Storage&amp; src, Storage&amp; dest) noexcept</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                {</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                    <span class="comment">// one of the conditions for using VTableStack is a nothrow move constructor,</span></div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                    <span class="comment">// so this move constructor will never throw a exception.</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                    <span class="keyword">new</span> (&amp;dest.stack) <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(std::move(<span class="keyword">reinterpret_cast&lt;</span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp;<span class="keyword">&gt;</span>(src.stack)));</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                    destroy(src);</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                }</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(Storage&amp; lhs, Storage&amp; rhs) noexcept</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                {</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                    Storage tmp_storage;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;                    move(rhs, tmp_storage);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    move(lhs, rhs);</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    move(tmp_storage, lhs);</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                }</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span>* data(<span class="keyword">const</span> Storage&amp; storage) noexcept</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                {</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                    <span class="keywordflow">return</span> &amp;storage.stack;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                }</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            };</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            <span class="comment">// Whether the type T must be dynamically allocated or can be stored on the stack.</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keyword">struct </span>RequiresAlloc : std::integral_constant&lt;bool,</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                                                          !(std::is_nothrow_move_constructible&lt;T&gt;::value <span class="comment">// N4562 §6.3/3 [any.class]</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                                                            &amp;&amp; sizeof(T) &lt;= sizeof(Storage::stack) &amp;&amp; std::alignment_of&lt;T&gt;::value &lt;= std::alignment_of&lt;Storage::StackStorageT&gt;::value)&gt;</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            {};</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            <span class="comment">// Returns the pointer to the vtable of the type T.</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            template &lt;typename T&gt;</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            static VTable* getVTableForType()</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            {</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                using VTableType = typename std::conditional&lt;RequiresAlloc&lt;T&gt;::value, VTableDynamic&lt;T&gt;, VTableStack&lt;T&gt; &gt;::type;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                static VTable table = {</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                    VTableType::type,</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                    VTableType::destroy,</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                    VTableType::copy,</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                    VTableType::move,</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                    VTableType::swap,</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                    VTableType::data,</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                };</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                return &amp;table;</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;            }</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="comment">// Same effect as is_same(this-&gt;getTypeID(), t);</span></div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            bool isTyped(const std::type_info&amp; t) const</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            {</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                return (this-&gt;getTypeID() == t);</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            }</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <span class="comment">// Casts (with no type_info checks) the storage pointer as const T*.</span></div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            template &lt;typename T&gt;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            const T* cast() const noexcept</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            {</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                return RequiresAlloc&lt;T&gt;::value ? reinterpret_cast&lt;const T*&gt;(storage.dynamic) :</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                                                 reinterpret_cast&lt;const T*&gt;(&amp;storage.stack);</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            }</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            template &lt;typename ValueType, typename T&gt;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            typename std::enable_if&lt;RequiresAlloc&lt;T&gt;::value&gt;::type</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            doConstruct(ValueType&amp;&amp; value)</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            {</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                storage.dynamic = new T(std::forward&lt;ValueType&gt;(value));</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            }</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            template &lt;typename ValueType, typename T&gt;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            typename std::enable_if&lt;!RequiresAlloc&lt;T&gt;::value&gt;::type</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            doConstruct(ValueType&amp;&amp; value)</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            {</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;                new (&amp;storage.stack) T(std::forward&lt;ValueType&gt;(value));</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            }</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            <span class="comment">// Chooses between stack and dynamic allocation for the type decay_t&lt;ValueType&gt;,</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            <span class="comment">// assigns the correct vtable, and constructs the object on our storage.</span></div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            template &lt;typename ValueType&gt;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            void construct(ValueType&amp;&amp; value)</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            {</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                using T = typename std::decay&lt;ValueType&gt;::type;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                this-&gt;vtable = getVTableForType&lt;T&gt;();</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                doConstruct&lt;ValueType, T&gt;(std::forward&lt;ValueType&gt;(value));</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            }</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160; </div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            Storage storage; <span class="comment">// on offset(0) so no padding for align</span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            VTable* vtable;</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        };</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        template &lt;&gt;</div>
-<div class="line"><a name="l00455"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ac05f8bc2099bd48585a52f2aa4bb86b2">  455</a></span>&#160;        inline const <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">Any::getData</a>&lt;Any&gt;() const</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        {</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        }</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    } <span class="comment">// namespace Base</span></div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="keyword">namespace </span>std</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;{</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> swap(<a class="code" href="classCDPL_1_1Base_1_1Any.html">CDPL::Base::Any</a>&amp; lhs, <a class="code" href="classCDPL_1_1Base_1_1Any.html">CDPL::Base::Any</a>&amp; rhs) noexcept</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    {</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        lhs.swap(rhs);</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    }</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;} <span class="comment">// namespace std</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="comment">// \endcond</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_BASE_ANY_HPP</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">namespace </span>Base</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html">   59</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a> final</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">   67</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>() noexcept : vtable(<span class="keywordtype">nullptr</span>) {}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a7bbbed1440de51af66f7b1194fae5027">   73</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#a7bbbed1440de51af66f7b1194fae5027">Any</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; rhs):</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                vtable(rhs.vtable)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">if</span> (!rhs.<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>())</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    rhs.vtable-&gt;copy(rhs.storage, this-&gt;storage);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a72de08a7aa4f38a4e762045bac995cc3">   87</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#a72de08a7aa4f38a4e762045bac995cc3">Any</a>(<a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp;&amp; rhs) noexcept : vtable(rhs.vtable)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">if</span> (!rhs.isEmpty()) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    rhs.vtable-&gt;move(rhs.storage, this-&gt;storage);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    rhs.vtable = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a5efad209d4d470a30dd07d57beb33532">  100</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#a5efad209d4d470a30dd07d57beb33532">~Any</a>()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">clear</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            template &lt;typename ValueType, typename = typename std::enable_if&lt;!std::is_same&lt;typename std::decay&lt;ValueType&gt;::type, <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&gt;::value&gt;::type&gt;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#adcc51561d900e6cea43d7f330642c3a4">  114</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html#adcc51561d900e6cea43d7f330642c3a4">Any</a>(ValueType&amp;&amp; val)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                static_assert(std::is_copy_constructible&lt;<span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type&gt;::value,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                              <span class="stringliteral">&quot;ValueType shall satisfy CopyConstructible requirements.&quot;</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                this-&gt;construct(std::forward&lt;ValueType&gt;(val));</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a61d4f25d70fe8159c00818798cc4acc9">  127</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a61d4f25d70fe8159c00818798cc4acc9">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; rhs)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>(rhs).swap(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#aa7a98a77a8a0cf71ae2643f7f787ed58">  141</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#aa7a98a77a8a0cf71ae2643f7f787ed58">operator=</a>(<a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp;&amp; rhs) noexcept</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>(std::move(rhs)).swap(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            template &lt;typename ValueType, typename = typename std::enable_if&lt;!std::is_same&lt;typename std::decay&lt;ValueType&gt;::type, <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&gt;::value&gt;::type&gt;</div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a638d82956e6536ffc280fd3931d3d401">  157</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a638d82956e6536ffc280fd3931d3d401">operator=</a>(ValueType&amp;&amp; val)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                static_assert(std::is_copy_constructible&lt;<span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type&gt;::value,</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                              <span class="stringliteral">&quot;T shall satisfy CopyConstructible requirements.&quot;</span>);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">Any</a>(std::forward&lt;ValueType&gt;(val)).swap(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">  170</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">clear</a>() noexcept</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <span class="keywordflow">if</span> (!<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>()) {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    this-&gt;vtable-&gt;destroy(storage);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    this-&gt;vtable = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">  183</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>() const noexcept</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <span class="keywordflow">return</span> (this-&gt;vtable == <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            }</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">  194</a></span>&#160;            <span class="keyword">const</span> std::type_info&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">getTypeID</a>() const noexcept</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                <span class="keywordflow">return</span> (<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>() ? <span class="keyword">typeid</span>(<span class="keywordtype">void</span>) : this-&gt;vtable-&gt;type());</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">  204</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(<a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; rhs) noexcept</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <span class="keywordflow">if</span> (this-&gt;vtable != rhs.vtable) {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                    <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a> tmp(std::move(rhs));</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                    <span class="comment">// move from *this to rhs.</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                    rhs.vtable = this-&gt;vtable;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                    <span class="keywordflow">if</span> (this-&gt;vtable != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                        this-&gt;vtable-&gt;move(this-&gt;storage, rhs.storage);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                        <span class="comment">//this-&gt;vtable = nullptr; -- unneeded, see below</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                    }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                    <span class="comment">// move from tmp (previously rhs) to *this.</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                    this-&gt;vtable = tmp.vtable;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                    <span class="keywordflow">if</span> (tmp.vtable != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                        tmp.vtable-&gt;move(tmp.storage, this-&gt;storage);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                        tmp.vtable = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                    }</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                } <span class="keywordflow">else</span> { <span class="comment">// same types</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="keywordflow">if</span> (this-&gt;vtable != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                        this-&gt;vtable-&gt;swap(this-&gt;storage, rhs.storage);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">  238</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">getData</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keyword">            </span>{</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>())</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                    <span class="keywordflow">throw</span> <a class="code" href="classCDPL_1_1Base_1_1BadCast.html">BadCast</a>(<span class="stringliteral">&quot;Any: empty&quot;</span>);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                <span class="keyword">using</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a> = <span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                <span class="keywordflow">if</span> (this-&gt;isTyped(<span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>)))</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                    <span class="keywordflow">return</span> *this-&gt;cast&lt;T&gt;();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keywordflow">throw</span> <a class="code" href="classCDPL_1_1Base_1_1BadCast.html">BadCast</a>(std::string(<span class="stringliteral">&quot;Any: extraction of stored value of type &#39;&quot;</span>) + this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">getTypeID</a>().name() +</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                              std::string(<span class="stringliteral">&quot;&#39; as type &#39;&quot;</span>) + <span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>).name() + <span class="stringliteral">&quot;&#39; not possible&quot;</span>);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#a9c56c04ea7b175fff385a3dfa18d6550">  258</a></span>&#160;            <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code" href="classCDPL_1_1Base_1_1Any.html#a9c56c04ea7b175fff385a3dfa18d6550">getDataPointer</a>() const noexcept</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">isEmpty</a>())</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                <span class="keywordflow">return</span> this-&gt;vtable-&gt;data(this-&gt;storage);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="comment">// Storage and Virtual Method Table</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            <span class="keyword">union </span>Storage</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                <span class="keyword">using</span> StackStorageT = <span class="keyword">typename</span> std::aligned_storage&lt;2 * <span class="keyword">sizeof</span>(<span class="keywordtype">void</span>*), std::alignment_of&lt;void*&gt;::value&gt;::type;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="keywordtype">void</span>*         dynamic;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                StackStorageT stack; <span class="comment">// 2 words for e.g. shared_ptr</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            };</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="comment">// Base VTable specification.</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="keyword">struct </span>VTable</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="comment">// Note: The caller is responssible for doing .vtable = nullptr after destructful operations</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                <span class="comment">// such as destroy() and/or move().</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="comment">// The type of the object this vtable is for.</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                <span class="keyword">const</span> std::type_info&amp; (*type)() noexcept;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <span class="comment">// Destroys the object in the union.</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                <span class="comment">// The state of the union after this call is unspecified, caller must ensure not to use src anymore.</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                void (*destroy)(Storage&amp;) noexcept;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                <span class="comment">// Copies the **inner** content of the src union into the yet unitialized dest union.</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                <span class="comment">// As such, both inner objects will have the same state, but on separate memory locations.</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                void (*copy)(<span class="keyword">const</span> Storage&amp; src, Storage&amp; dest);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                <span class="comment">// Moves the storage from src to the yet unitialized dest union.</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                <span class="comment">// The state of src after this call is unspecified, caller must ensure not to use src anymore.</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                void (*move)(Storage&amp; src, Storage&amp; dest) noexcept;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                <span class="comment">// Exchanges the storage between lhs and rhs.</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                void (*<a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>)(Storage&amp; lhs, Storage&amp; rhs) noexcept;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">void</span>* (*data)(<span class="keyword">const</span> Storage&amp; storage)noexcept;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            };</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            <span class="comment">// VTable for dynamically allocated storage.</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keyword">struct </span>VTableDynamic</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> std::type_info&amp; type() noexcept</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> destroy(Storage&amp; storage) noexcept</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                    <span class="comment">//assert(reinterpret_cast&lt;T*&gt;(storage.dynamic));</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                    <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(storage.dynamic);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> copy(<span class="keyword">const</span> Storage&amp; src, Storage&amp; dest)</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                {</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;                    dest.dynamic = <span class="keyword">new</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(*<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(src.dynamic));</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> move(Storage&amp; src, Storage&amp; dest) noexcept</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                    dest.dynamic = src.dynamic;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                    src.dynamic  = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(Storage&amp; lhs, Storage&amp; rhs) noexcept</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                    <span class="comment">// just exchage the storage pointers.</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                    std::swap(lhs.dynamic, rhs.dynamic);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span>* data(<span class="keyword">const</span> Storage&amp; storage) noexcept</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;                {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;                    <span class="keywordflow">return</span> storage.dynamic;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                }</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            };</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="comment">// VTable for stack allocated storage.</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keyword">struct </span>VTableStack</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> std::type_info&amp; type() noexcept</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> destroy(Storage&amp; storage) noexcept</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                {</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                    <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(&amp;storage.stack)-&gt;~<a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>();</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> copy(<span class="keyword">const</span> Storage&amp; src, Storage&amp; dest)</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                    <span class="keyword">new</span> (&amp;dest.stack) <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp;<span class="keyword">&gt;</span>(src.stack));</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> move(Storage&amp; src, Storage&amp; dest) noexcept</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;                {</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;                    <span class="comment">// one of the conditions for using VTableStack is a nothrow move constructor,</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;                    <span class="comment">// so this move constructor will never throw a exception.</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                    <span class="keyword">new</span> (&amp;dest.stack) <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(std::move(<span class="keyword">reinterpret_cast&lt;</span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp;<span class="keyword">&gt;</span>(src.stack)));</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                    destroy(src);</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                }</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(Storage&amp; lhs, Storage&amp; rhs) noexcept</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                {</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;                    Storage tmp_storage;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;                    move(rhs, tmp_storage);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                    move(lhs, rhs);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                    move(tmp_storage, lhs);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span>* data(<span class="keyword">const</span> Storage&amp; storage) noexcept</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                {</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                    <span class="keywordflow">return</span> &amp;storage.stack;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            };</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            <span class="comment">// Whether the type T must be dynamically allocated or can be stored on the stack.</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            <span class="keyword">struct </span>RequiresAlloc : std::integral_constant&lt;bool,</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                                                          !(std::is_nothrow_move_constructible&lt;T&gt;::value <span class="comment">// N4562 §6.3/3 [any.class]</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                                                            &amp;&amp; sizeof(T) &lt;= sizeof(Storage::stack) &amp;&amp; std::alignment_of&lt;T&gt;::value &lt;= std::alignment_of&lt;Storage::StackStorageT&gt;::value)&gt;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            {};</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            <span class="comment">// Returns the pointer to the vtable of the type T.</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            template &lt;typename T&gt;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            static VTable* getVTableForType()</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            {</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                using VTableType = typename std::conditional&lt;RequiresAlloc&lt;T&gt;::value, VTableDynamic&lt;T&gt;, VTableStack&lt;T&gt; &gt;::type;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                static VTable table = {</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                    VTableType::type,</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                    VTableType::destroy,</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                    VTableType::copy,</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                    VTableType::move,</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                    VTableType::swap,</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                    VTableType::data,</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                };</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                return &amp;table;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;            }</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            <span class="comment">// Same effect as is_same(this-&gt;getTypeID(), t);</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            bool isTyped(const std::type_info&amp; t) const</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            {</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                if (&amp;this-&gt;getTypeID() == &amp;t)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;                    return true;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;                auto n1 = this-&gt;<a class="code" href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">getTypeID</a>().name();</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                auto n2 = t.name();</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;                if (n1 == n2)</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;                    return true;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;                </div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                return (std::strcmp(this-&gt;getTypeID().name(), t.name()) == 0);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            }</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;            <span class="comment">// Casts (with no type_info checks) the storage pointer as const T*.</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            template &lt;typename T&gt;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;            const <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>* cast() const noexcept</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            {</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                <span class="keywordflow">return</span> RequiresAlloc&lt;T&gt;::value ? <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(storage.dynamic) :</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                                                 <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>*<span class="keyword">&gt;</span>(&amp;storage.stack);</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            }</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            <span class="keyword">typename</span> std::enable_if&lt;RequiresAlloc&lt;T&gt;::value&gt;::type</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            doConstruct(ValueType&amp;&amp; value)</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            {</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                storage.dynamic = <span class="keyword">new</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(std::forward&lt;ValueType&gt;(value));</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            }</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <span class="keyword">typename</span> std::enable_if&lt;!RequiresAlloc&lt;T&gt;::value&gt;::type</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            doConstruct(ValueType&amp;&amp; value)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            {</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keyword">new</span> (&amp;storage.stack) <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>(std::forward&lt;ValueType&gt;(value));</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;            }</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; </div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            <span class="comment">// Chooses between stack and dynamic allocation for the type decay_t&lt;ValueType&gt;,</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            <span class="comment">// assigns the correct vtable, and constructs the object on our storage.</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            <span class="keywordtype">void</span> construct(ValueType&amp;&amp; value)</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;            {</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                <span class="keyword">using</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a> = <span class="keyword">typename</span> std::decay&lt;ValueType&gt;::type;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;                this-&gt;vtable = getVTableForType&lt;T&gt;();</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                doConstruct&lt;ValueType, T&gt;(std::forward&lt;ValueType&gt;(value));</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;            }</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            Storage storage; <span class="comment">// on offset(0) so no padding for align</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            VTable* vtable;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        };</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160; </div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00465"></a><span class="lineno"><a class="line" href="classCDPL_1_1Base_1_1Any.html#ac05f8bc2099bd48585a52f2aa4bb86b2">  465</a></span>&#160;        <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1Any.html">Any</a>&amp; Any::getData&lt;Any&gt;()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        }</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    } <span class="comment">// namespace Base</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160; </div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="keyword">namespace </span>std</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;{</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> swap(<a class="code" href="classCDPL_1_1Base_1_1Any.html">CDPL::Base::Any</a>&amp; lhs, <a class="code" href="classCDPL_1_1Base_1_1Any.html">CDPL::Base::Any</a>&amp; rhs) noexcept</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    {</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        lhs.<a class="code" href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">swap</a>(rhs);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;} <span class="comment">// namespace std</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">// \endcond</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_BASE_ANY_HPP</span></div>
 <div class="ttc" id="aBase_2Exceptions_8hpp_html"><div class="ttname"><a href="Base_2Exceptions_8hpp.html">Exceptions.hpp</a></div><div class="ttdoc">Definition of exception classes.</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html">CDPL::Base::Any</a></div><div class="ttdoc">A safe, type checked container for arbitrary data of variable type.</div><div class="ttdef"><b>Definition:</b> Any.hpp:59</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a2b9fa76d4fc1a3ef160c1bf323adf37a"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">CDPL::Base::Any::getData</a></div><div class="ttdeci">const ValueType &amp; getData() const</div><div class="ttdoc">Returns a const reference to the stored object of type ValueType, or *this if ValueType is Any.</div><div class="ttdef"><b>Definition:</b> Any.hpp:237</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a404da188f9391a9fe8cc2aa04ed11082"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">CDPL::Base::Any::swap</a></div><div class="ttdeci">void swap(Any &amp;rhs) noexcept</div><div class="ttdoc">Exchange the states of *this and rhs.</div><div class="ttdef"><b>Definition:</b> Any.hpp:203</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a5efad209d4d470a30dd07d57beb33532"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a5efad209d4d470a30dd07d57beb33532">CDPL::Base::Any::~Any</a></div><div class="ttdeci">~Any()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> Any.hpp:99</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a61d4f25d70fe8159c00818798cc4acc9"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a61d4f25d70fe8159c00818798cc4acc9">CDPL::Base::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(const Any &amp;rhs)</div><div class="ttdoc">Has the same effect as Any(rhs).swap(*this). No effects if an exception is thrown.</div><div class="ttdef"><b>Definition:</b> Any.hpp:126</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a638d82956e6536ffc280fd3931d3d401"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a638d82956e6536ffc280fd3931d3d401">CDPL::Base::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(ValueType &amp;&amp;val)</div><div class="ttdoc">Has the same effect as Any(std::forward&lt;ValueType&gt;(val)).swap(*this). No effect if a exception is thr...</div><div class="ttdef"><b>Definition:</b> Any.hpp:156</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a72de08a7aa4f38a4e762045bac995cc3"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a72de08a7aa4f38a4e762045bac995cc3">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any(Any &amp;&amp;rhs) noexcept</div><div class="ttdoc">Constructs an object of type Any with a state equivalent to the original state of rhs.</div><div class="ttdef"><b>Definition:</b> Any.hpp:86</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a7bbbed1440de51af66f7b1194fae5027"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a7bbbed1440de51af66f7b1194fae5027">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any(const Any &amp;rhs)</div><div class="ttdoc">Constructs an object of type Any with an equivalent state as rhs.</div><div class="ttdef"><b>Definition:</b> Any.hpp:72</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a7d2202d166196b246fcb869ce6f3d255"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">CDPL::Base::Any::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdoc">If not empty, destroys the contained object.</div><div class="ttdef"><b>Definition:</b> Any.hpp:169</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a9c56c04ea7b175fff385a3dfa18d6550"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a9c56c04ea7b175fff385a3dfa18d6550">CDPL::Base::Any::getDataPointer</a></div><div class="ttdeci">const void * getDataPointer() const noexcept</div><div class="ttdoc">Returns a raw pointer to the memory occupied by the stored data.</div><div class="ttdef"><b>Definition:</b> Any.hpp:257</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_aa7a98a77a8a0cf71ae2643f7f787ed58"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#aa7a98a77a8a0cf71ae2643f7f787ed58">CDPL::Base::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(Any &amp;&amp;rhs) noexcept</div><div class="ttdoc">Has the same effect as Any(std::move(rhs)).swap(*this).</div><div class="ttdef"><b>Definition:</b> Any.hpp:140</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_ab6333d8c9476f371a8b0ba2374924ae0"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">CDPL::Base::Any::getTypeID</a></div><div class="ttdeci">const std::type_info &amp; getTypeID() const noexcept</div><div class="ttdoc">Returns information about the type of the stored object.</div><div class="ttdef"><b>Definition:</b> Any.hpp:193</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_ad7fa7b77a15ecc3eb21b65a02fa1f39f"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any() noexcept</div><div class="ttdoc">Constructs an object of type Any with an empty state.</div><div class="ttdef"><b>Definition:</b> Any.hpp:66</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_ad9239e91ebb2613208d71bc3d2458e0e"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">CDPL::Base::Any::isEmpty</a></div><div class="ttdeci">bool isEmpty() const noexcept</div><div class="ttdoc">Tells whether the Any instance stores any data.</div><div class="ttdef"><b>Definition:</b> Any.hpp:182</div></div>
-<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_adcc51561d900e6cea43d7f330642c3a4"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#adcc51561d900e6cea43d7f330642c3a4">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any(ValueType &amp;&amp;val)</div><div class="ttdoc">Constructs an object of type Any that contains an object of type ValueType direct-initialized with st...</div><div class="ttdef"><b>Definition:</b> Any.hpp:113</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html">CDPL::Base::Any</a></div><div class="ttdoc">A safe, type checked container for arbitrary data of variable type.</div><div class="ttdef"><b>Definition:</b> Any.hpp:60</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a2b9fa76d4fc1a3ef160c1bf323adf37a"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a2b9fa76d4fc1a3ef160c1bf323adf37a">CDPL::Base::Any::getData</a></div><div class="ttdeci">const ValueType &amp; getData() const</div><div class="ttdoc">Returns a const reference to the stored object of type ValueType, or *this if ValueType is Any.</div><div class="ttdef"><b>Definition:</b> Any.hpp:238</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a404da188f9391a9fe8cc2aa04ed11082"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a404da188f9391a9fe8cc2aa04ed11082">CDPL::Base::Any::swap</a></div><div class="ttdeci">void swap(Any &amp;rhs) noexcept</div><div class="ttdoc">Exchange the states of *this and rhs.</div><div class="ttdef"><b>Definition:</b> Any.hpp:204</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a5efad209d4d470a30dd07d57beb33532"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a5efad209d4d470a30dd07d57beb33532">CDPL::Base::Any::~Any</a></div><div class="ttdeci">~Any()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> Any.hpp:100</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a61d4f25d70fe8159c00818798cc4acc9"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a61d4f25d70fe8159c00818798cc4acc9">CDPL::Base::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(const Any &amp;rhs)</div><div class="ttdoc">Has the same effect as Any(rhs).swap(*this). No effects if an exception is thrown.</div><div class="ttdef"><b>Definition:</b> Any.hpp:127</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a638d82956e6536ffc280fd3931d3d401"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a638d82956e6536ffc280fd3931d3d401">CDPL::Base::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(ValueType &amp;&amp;val)</div><div class="ttdoc">Has the same effect as Any(std::forward&lt;ValueType&gt;(val)).swap(*this). No effect if a exception is thr...</div><div class="ttdef"><b>Definition:</b> Any.hpp:157</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a72de08a7aa4f38a4e762045bac995cc3"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a72de08a7aa4f38a4e762045bac995cc3">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any(Any &amp;&amp;rhs) noexcept</div><div class="ttdoc">Constructs an object of type Any with a state equivalent to the original state of rhs.</div><div class="ttdef"><b>Definition:</b> Any.hpp:87</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a7bbbed1440de51af66f7b1194fae5027"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a7bbbed1440de51af66f7b1194fae5027">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any(const Any &amp;rhs)</div><div class="ttdoc">Constructs an object of type Any with an equivalent state as rhs.</div><div class="ttdef"><b>Definition:</b> Any.hpp:73</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a7d2202d166196b246fcb869ce6f3d255"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a7d2202d166196b246fcb869ce6f3d255">CDPL::Base::Any::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdoc">If not empty, destroys the contained object.</div><div class="ttdef"><b>Definition:</b> Any.hpp:170</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_a9c56c04ea7b175fff385a3dfa18d6550"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#a9c56c04ea7b175fff385a3dfa18d6550">CDPL::Base::Any::getDataPointer</a></div><div class="ttdeci">const void * getDataPointer() const noexcept</div><div class="ttdoc">Returns a raw pointer to the memory occupied by the stored data.</div><div class="ttdef"><b>Definition:</b> Any.hpp:258</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_aa7a98a77a8a0cf71ae2643f7f787ed58"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#aa7a98a77a8a0cf71ae2643f7f787ed58">CDPL::Base::Any::operator=</a></div><div class="ttdeci">Any &amp; operator=(Any &amp;&amp;rhs) noexcept</div><div class="ttdoc">Has the same effect as Any(std::move(rhs)).swap(*this).</div><div class="ttdef"><b>Definition:</b> Any.hpp:141</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_ab6333d8c9476f371a8b0ba2374924ae0"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#ab6333d8c9476f371a8b0ba2374924ae0">CDPL::Base::Any::getTypeID</a></div><div class="ttdeci">const std::type_info &amp; getTypeID() const noexcept</div><div class="ttdoc">Returns information about the type of the stored object.</div><div class="ttdef"><b>Definition:</b> Any.hpp:194</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_ad7fa7b77a15ecc3eb21b65a02fa1f39f"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#ad7fa7b77a15ecc3eb21b65a02fa1f39f">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any() noexcept</div><div class="ttdoc">Constructs an object of type Any with an empty state.</div><div class="ttdef"><b>Definition:</b> Any.hpp:67</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_ad9239e91ebb2613208d71bc3d2458e0e"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#ad9239e91ebb2613208d71bc3d2458e0e">CDPL::Base::Any::isEmpty</a></div><div class="ttdeci">bool isEmpty() const noexcept</div><div class="ttdoc">Tells whether the Any instance stores any data.</div><div class="ttdef"><b>Definition:</b> Any.hpp:183</div></div>
+<div class="ttc" id="aclassCDPL_1_1Base_1_1Any_html_adcc51561d900e6cea43d7f330642c3a4"><div class="ttname"><a href="classCDPL_1_1Base_1_1Any.html#adcc51561d900e6cea43d7f330642c3a4">CDPL::Base::Any::Any</a></div><div class="ttdeci">Any(ValueType &amp;&amp;val)</div><div class="ttdoc">Constructs an object of type Any that contains an object of type ValueType direct-initialized with st...</div><div class="ttdef"><b>Definition:</b> Any.hpp:114</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1BadCast_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1BadCast.html">CDPL::Base::BadCast</a></div><div class="ttdoc">Thrown to indicate that a cast or conversion from a given source type to a requested target type is n...</div><div class="ttdef"><b>Definition:</b> Base/Exceptions.hpp:191</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Chem_1_1AtomType_html_a8e13072ff426ad9f138437885c69f62d"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">CDPL::Chem::AtomType::T</a></div><div class="ttdeci">constexpr unsigned int T</div><div class="ttdoc">Specifies Hydrogen (Tritium).</div><div class="ttdef"><b>Definition:</b> AtomType.hpp:67</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
