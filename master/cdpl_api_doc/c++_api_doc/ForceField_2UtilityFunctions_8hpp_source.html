@@ -15,7 +15,7 @@
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js"],
-    jax: ["input/TeX","output/NativeMML"],
+    jax: ["input/TeX","output/SVG"],
 });
 </script>
 <script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
@@ -175,467 +175,467 @@ $(function() {
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                                                  GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom1_deriv,</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                                                  GradVec&amp; ctr_atom2_deriv, GradVec&amp; term_atom2_deriv);</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00478"></a><span class="lineno"><a class="line" href="namespaceCDPL_1_1ForceField.html#a3554dec0341adcb26a426bf2830c8ef9">  478</a></span>&#160;        ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3554dec0341adcb26a426bf2830c8ef9">calcOutOfPlaneAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                                                    <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos,</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                                                    GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom_deriv,</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                                                    GradVec&amp; term_atom2_deriv, GradVec&amp; oop_atom_deriv);</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="comment">// Implementation</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160; </div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;{</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="keyword">namespace </span>ForceField</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    {</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; </div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <span class="keyword">namespace </span>Detail</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        {</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> VecType3&gt;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;            <span class="keywordtype">void</span> addVectors(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> VecType2&amp; vec2, VecType3&amp; res)</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;            {</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                res[0] = vec2[0] + vec1[0];</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                res[1] = vec2[1] + vec1[1];</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                res[2] = vec2[2] + vec1[2];</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            }</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2&gt;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            <span class="keywordtype">void</span> subVectors(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> VecType1&amp; vec2, VecType2&amp; res)</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            {</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                res[0] = vec2[0] - vec1[0];</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;                res[1] = vec2[1] - vec1[1];</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;                res[2] = vec2[2] - vec1[2];</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            }</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> VecType&gt;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            ValueType calcDotProduct(<span class="keyword">const</span> VecType&amp; vec1, <span class="keyword">const</span> VecType&amp; vec2)</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            {</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;                <span class="keywordflow">return</span> (vec1[0] * vec2[0] + vec1[1] * vec2[1] + vec1[2] * vec2[2]);</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            }</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType, <span class="keyword">typename</span> ResVecType&gt;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;            <span class="keywordtype">void</span> calcCrossProduct(<span class="keyword">const</span> VecType&amp; vec1, <span class="keyword">const</span> VecType&amp; vec2, ResVecType&amp; cross_prod)</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            {</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;                cross_prod[0] = vec1[1] * vec2[2] - vec1[2] * vec2[1];</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                cross_prod[1] = vec1[2] * vec2[0] - vec1[0] * vec2[2];</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                cross_prod[2] = vec1[0] * vec2[1] - vec1[1] * vec2[0];</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            }</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2&gt;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            <span class="keywordtype">void</span> copyVector(<span class="keyword">const</span> VecType1&amp; vec1, VecType2&amp; vec2)</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;            {</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                vec2[0] = vec1[0];</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                vec2[1] = vec1[1];</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;                vec2[2] = vec1[2];</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            }</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160; </div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType&gt;</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;            <span class="keywordtype">void</span> negateVector(VecType&amp; <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>)</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            {</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0] = -<a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0];</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1] = -<a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1];</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2] = -<a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2];</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            }</div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2&gt;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;            <span class="keywordtype">void</span> negateCopyVector(<span class="keyword">const</span> VecType1&amp; vec1, VecType2&amp; vec2)</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            {</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                vec2[0] = -vec1[0];</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                vec2[1] = -vec1[1];</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                vec2[2] = -vec1[2];</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;            }</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;            <span class="keywordtype">void</span> scaleVector(VecType&amp; <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor)</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;            {</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0] *= factor;</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1] *= factor;</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2] *= factor;</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            }</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;            <span class="keywordtype">void</span> invScaleVector(VecType&amp; <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor)</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            {</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0] /= factor;</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1] /= factor;</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2] /= factor;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;            }</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;            <span class="keywordtype">void</span> scaleAddVector(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor, VecType2&amp; vec2)</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;            {</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                vec2[0] += vec1[0] * factor;</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;                vec2[1] += vec1[1] * factor;</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                vec2[2] += vec1[2] * factor;</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;            }</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <span class="keywordtype">void</span> scaleCopyVector(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor, VecType2&amp; vec2)</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;            {</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                vec2[0] = vec1[0] * factor;</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;                vec2[1] = vec1[1] * factor;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;                vec2[2] = vec1[2] * factor;</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            }</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;            <span class="keywordtype">void</span> invScaleCopyVector(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor, VecType2&amp; vec2)</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;            {</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                vec2[0] = vec1[0] / factor;</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;                vec2[1] = vec1[1] / factor;</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;                vec2[2] = vec1[2] / factor;</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            }</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            ValueType clampCosine(<span class="keyword">const</span> ValueType&amp; v)</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;            {</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;                <span class="keywordflow">if</span> (v &gt; ValueType(1))</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                    <span class="keywordflow">return</span> ValueType(1);</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;                <span class="keywordflow">if</span> (v &lt; ValueType(-1))</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                    <span class="keywordflow">return</span> ValueType(-1);</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160; </div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                <span class="keywordflow">return</span> v;</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            }</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> FuncType&gt;</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            ValueType accumInteractionEnergies(Iter&amp; beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, <span class="keyword">const</span> FuncType&amp; func)</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            {</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                ValueType e = ValueType();</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                <span class="keywordflow">for</span> (; beg != end; ++beg)</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                    e += func(*beg, coords);</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                <span class="keywordflow">return</span> e;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;            }</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160; </div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector, <span class="keyword">typename</span> FuncType&gt;</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;            ValueType calcInteractionGradient(Iter&amp; beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad, <span class="keyword">const</span> FuncType&amp; func)</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;            {</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                ValueType e = ValueType();</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160; </div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                <span class="keywordflow">for</span> (; beg != end; ++beg)</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                    e += func(*beg, coords, grad);</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;                <span class="keywordflow">return</span> e;</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            }</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        } <span class="comment">// namespace Detail</span></div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; </div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a2031c45e144722af485f54d812c8c5dc">CDPL::ForceField::calcSquaredDistance</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos)</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;{</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    ValueType pos_diff[3];</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00476"></a><span class="lineno"><a class="line" href="namespaceCDPL_1_1ForceField.html#a3554dec0341adcb26a426bf2830c8ef9">  476</a></span>&#160;        ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3554dec0341adcb26a426bf2830c8ef9">calcOutOfPlaneAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;                                                    <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos,</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                                                    GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom_deriv,</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                                                    GradVec&amp; term_atom2_deriv, GradVec&amp; oop_atom_deriv);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">// Implementation</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;{</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160; </div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keyword">namespace </span>ForceField</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    {</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="keyword">namespace </span>Detail</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        {</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> VecType3&gt;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;            <span class="keywordtype">void</span> addVectors(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> VecType2&amp; vec2, VecType3&amp; res)</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;            {</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                res[0] = vec2[0] + vec1[0];</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                res[1] = vec2[1] + vec1[1];</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                res[2] = vec2[2] + vec1[2];</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;            }</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; </div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2&gt;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;            <span class="keywordtype">void</span> subVectors(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> VecType1&amp; vec2, VecType2&amp; res)</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;            {</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                res[0] = vec2[0] - vec1[0];</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                res[1] = vec2[1] - vec1[1];</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                res[2] = vec2[2] - vec1[2];</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;            }</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> VecType&gt;</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            ValueType calcDotProduct(<span class="keyword">const</span> VecType&amp; vec1, <span class="keyword">const</span> VecType&amp; vec2)</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            {</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                <span class="keywordflow">return</span> (vec1[0] * vec2[0] + vec1[1] * vec2[1] + vec1[2] * vec2[2]);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;            }</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160; </div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType, <span class="keyword">typename</span> ResVecType&gt;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;            <span class="keywordtype">void</span> calcCrossProduct(<span class="keyword">const</span> VecType&amp; vec1, <span class="keyword">const</span> VecType&amp; vec2, ResVecType&amp; cross_prod)</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            {</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                cross_prod[0] = vec1[1] * vec2[2] - vec1[2] * vec2[1];</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;                cross_prod[1] = vec1[2] * vec2[0] - vec1[0] * vec2[2];</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;                cross_prod[2] = vec1[0] * vec2[1] - vec1[1] * vec2[0];</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;            }</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2&gt;</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            <span class="keywordtype">void</span> copyVector(<span class="keyword">const</span> VecType1&amp; vec1, VecType2&amp; vec2)</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            {</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;                vec2[0] = vec1[0];</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                vec2[1] = vec1[1];</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                vec2[2] = vec1[2];</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            }</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160; </div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType&gt;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;            <span class="keywordtype">void</span> negateVector(VecType&amp; <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>)</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;            {</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0] = -<a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0];</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1] = -<a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1];</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2] = -<a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2];</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            }</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160; </div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2&gt;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;            <span class="keywordtype">void</span> negateCopyVector(<span class="keyword">const</span> VecType1&amp; vec1, VecType2&amp; vec2)</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            {</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                vec2[0] = -vec1[0];</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                vec2[1] = -vec1[1];</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                vec2[2] = -vec1[2];</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;            }</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;            <span class="keywordtype">void</span> scaleVector(VecType&amp; <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor)</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;            {</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0] *= factor;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1] *= factor;</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2] *= factor;</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;            }</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;            <span class="keywordtype">void</span> invScaleVector(VecType&amp; <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor)</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            {</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[0] /= factor;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[1] /= factor;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                <a class="code" href="namespaceCDPL_1_1Math.html#a12848a6f8d67dd02bd1cd38182bac424">vec</a>[2] /= factor;</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            }</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160; </div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            <span class="keywordtype">void</span> scaleAddVector(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor, VecType2&amp; vec2)</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;            {</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;                vec2[0] += vec1[0] * factor;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                vec2[1] += vec1[1] * factor;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                vec2[2] += vec1[2] * factor;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            }</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;            <span class="keywordtype">void</span> scaleCopyVector(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor, VecType2&amp; vec2)</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;            {</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                vec2[0] = vec1[0] * factor;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;                vec2[1] = vec1[1] * factor;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;                vec2[2] = vec1[2] * factor;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;            }</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160; </div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VecType1, <span class="keyword">typename</span> VecType2, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;            <span class="keywordtype">void</span> invScaleCopyVector(<span class="keyword">const</span> VecType1&amp; vec1, <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; factor, VecType2&amp; vec2)</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            {</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;                vec2[0] = vec1[0] / factor;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;                vec2[1] = vec1[1] / factor;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;                vec2[2] = vec1[2] / factor;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            }</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            ValueType clampCosine(<span class="keyword">const</span> ValueType&amp; v)</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;            {</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;                <span class="keywordflow">if</span> (v &gt; ValueType(1))</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                    <span class="keywordflow">return</span> ValueType(1);</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160; </div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                <span class="keywordflow">if</span> (v &lt; ValueType(-1))</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                    <span class="keywordflow">return</span> ValueType(-1);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160; </div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                <span class="keywordflow">return</span> v;</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            }</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            </div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> FuncType&gt;</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            ValueType accumInteractionEnergies(Iter&amp; beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, <span class="keyword">const</span> FuncType&amp; func)</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            {</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                ValueType e = ValueType();</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160; </div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                <span class="keywordflow">for</span> (; beg != end; ++beg)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                    e += func(*beg, coords);</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160; </div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                <span class="keywordflow">return</span> e;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            }</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> Iter, <span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector, <span class="keyword">typename</span> FuncType&gt;</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            ValueType calcInteractionGradient(Iter&amp; beg, <span class="keyword">const</span> Iter&amp; end, <span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad, <span class="keyword">const</span> FuncType&amp; func)</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;            {</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                ValueType e = ValueType();</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                <span class="keywordflow">for</span> (; beg != end; ++beg)</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                    e += func(*beg, coords, grad);</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160; </div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;                <span class="keywordflow">return</span> e;</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;            }</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        } <span class="comment">// namespace Detail</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a2031c45e144722af485f54d812c8c5dc">CDPL::ForceField::calcSquaredDistance</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos)</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;{</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    ValueType pos_diff[3];</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    Detail::subVectors(atom1_pos, atom2_pos, pos_diff);</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160; </div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    Detail::subVectors(atom1_pos, atom2_pos, pos_diff);</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; </div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordflow">return</span> Detail::calcDotProduct&lt;ValueType&gt;(pos_diff, pos_diff);</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;}</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#acf709e001e5e421dd70fdb05779844c9">CDPL::ForceField::calcDistance</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos)</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;{</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    <span class="keywordflow">return</span> std::sqrt(calcSquaredDistance&lt;ValueType&gt;(atom1_pos, atom2_pos));</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;}</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a313569cddeb72b7aeb4a6072447e2b56">CDPL::ForceField::calcBondLengthsAndAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;                                                       ValueType&amp; bond_length1, ValueType&amp; bond_length2)</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;{</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    ValueType bond_vec1[3];</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    ValueType bond_vec2[3];</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160; </div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, bond_vec1);</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, bond_vec2);</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    bond_length1 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec1));</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    bond_length2 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec2, bond_vec2));</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; </div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec2) / (bond_length1 * bond_length2));</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;}</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a892e84e55698036f000fa76d3b872fb4">CDPL::ForceField::calcBondLengthsAndAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                                                    ValueType&amp; bond_length1, ValueType&amp; bond_length2)</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;{</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    <span class="keywordflow">return</span> std::acos(<a class="code" href="namespaceCDPL_1_1ForceField.html#a313569cddeb72b7aeb4a6072447e2b56">calcBondLengthsAndAngleCos</a>(term_atom1_pos, ctr_atom_pos, term_atom2_pos, bond_length1, bond_length2));</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;}</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160; </div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8e744b4b85b2fa228240c26388e4906">CDPL::ForceField::calcBondAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos)</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;{</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    ValueType bl1, bl2;</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceCDPL_1_1ForceField.html#a313569cddeb72b7aeb4a6072447e2b56">calcBondLengthsAndAngleCos</a>(term_atom1_pos, ctr_atom_pos, term_atom2_pos, bl1, bl2);</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;}</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8e744b4b85b2fa228240c26388e4906">CDPL::ForceField::calcBondAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;                                             <span class="keyword">const</span> ValueType&amp; r_ij, <span class="keyword">const</span> ValueType&amp; r_jk)</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;{</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    ValueType bond_vec1[3];</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    ValueType bond_vec2[3];</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; </div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, bond_vec1);</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, bond_vec2);</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec2) / (r_ij * r_jk));</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;}</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a2daf16aa3d333c0d6df1098a8619db1e">CDPL::ForceField::calcBondAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos)</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;{</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordflow">return</span> std::acos(calcBondAngleCos&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos));</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;}</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160; </div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a2daf16aa3d333c0d6df1098a8619db1e">CDPL::ForceField::calcBondAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;                                          <span class="keyword">const</span> ValueType&amp; r_ij, <span class="keyword">const</span> ValueType&amp; r_jk)</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;{</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keywordflow">return</span> std::acos(calcBondAngleCos&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, r_ij, r_jk));</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;}</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160; </div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a0092cfc7670328a57d32ee0da9672bac">CDPL::ForceField::calcOutOfPlaneAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                                                <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos)</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;{</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    ValueType term_bond1_vec[3];</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    ValueType term_bond2_vec[3];</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    ValueType oop_bond_vec[3];</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    ValueType plane_normal[3];</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, term_bond1_vec);</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, term_bond2_vec);</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    Detail::subVectors(ctr_atom_pos, oop_atom_pos, oop_bond_vec);</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, term_bond2_vec, plane_normal);</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160; </div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    ValueType pn_len      = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, plane_normal));</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    ValueType oop_bnd_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(oop_bond_vec, oop_bond_vec));</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    ValueType ang_cos     = Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, oop_bond_vec) / (pn_len * oop_bnd_len));</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160; </div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="keywordflow">return</span> (ValueType(M_PI * 0.5) - std::acos(ang_cos));</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;}</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160; </div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a0092cfc7670328a57d32ee0da9672bac">CDPL::ForceField::calcOutOfPlaneAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                                                <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos,</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                                                <span class="keyword">const</span> ValueType&amp; r_jl)</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;{</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    ValueType term_bond1_vec[3];</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    ValueType term_bond2_vec[3];</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    ValueType oop_bond_vec[3];</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    ValueType plane_normal[3];</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160; </div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, term_bond1_vec);</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, term_bond2_vec);</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    Detail::subVectors(ctr_atom_pos, oop_atom_pos, oop_bond_vec);</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, term_bond2_vec, plane_normal);</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160; </div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    ValueType pn_len  = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, plane_normal));</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    ValueType ang_cos = Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, oop_bond_vec) / (pn_len * r_jl));</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160; </div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    <span class="keywordflow">return</span> (ValueType(M_PI * 0.5) - std::acos(ang_cos));</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;}</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160; </div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3af7f2ef4dcc39b0b0db880b10970e1c">CDPL::ForceField::calcDihedralAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom1_pos,</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                                                 <span class="keyword">const</span> CoordsVec&amp; ctr_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos)</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;{</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    ValueType term_bond1_vec[3];</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    ValueType ctr_bond_vec[3];</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    ValueType term_bond2_vec[3];</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;    ValueType plane_normal1[3];</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    ValueType plane_normal2[3];</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160; </div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    Detail::subVectors(ctr_atom1_pos, term_atom1_pos, term_bond1_vec);</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    Detail::subVectors(ctr_atom1_pos, ctr_atom2_pos, ctr_bond_vec);</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    Detail::subVectors(term_atom2_pos, ctr_atom2_pos, term_bond2_vec);</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160; </div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, ctr_bond_vec, plane_normal1);</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, term_bond2_vec, plane_normal2);</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160; </div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    ValueType pn1_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal1));</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    ValueType pn2_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal2, plane_normal2));</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160; </div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal2) / (pn1_len * pn2_len));</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;}</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160; </div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#afdf8e8f71ad6524a368ad5cbd03f32bf">CDPL::ForceField::calcDistanceDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos,</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;                                                    GradVec&amp; atom1_deriv, GradVec&amp; atom2_deriv)</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;{</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    Detail::subVectors(atom1_pos, atom2_pos, atom1_deriv);</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;    <span class="keywordflow">return</span> Detail::calcDotProduct&lt;ValueType&gt;(pos_diff, pos_diff);</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;}</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#acf709e001e5e421dd70fdb05779844c9">CDPL::ForceField::calcDistance</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos)</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;{</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <span class="keywordflow">return</span> std::sqrt(calcSquaredDistance&lt;ValueType&gt;(atom1_pos, atom2_pos));</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;}</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; </div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a313569cddeb72b7aeb4a6072447e2b56">CDPL::ForceField::calcBondLengthsAndAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                                                       ValueType&amp; bond_length1, ValueType&amp; bond_length2)</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;{</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    ValueType bond_vec1[3];</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    ValueType bond_vec2[3];</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, bond_vec1);</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, bond_vec2);</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    bond_length1 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec1));</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    bond_length2 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec2, bond_vec2));</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160; </div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec2) / (bond_length1 * bond_length2));</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;}</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a892e84e55698036f000fa76d3b872fb4">CDPL::ForceField::calcBondLengthsAndAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;                                                    ValueType&amp; bond_length1, ValueType&amp; bond_length2)</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;{</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    <span class="keywordflow">return</span> std::acos(<a class="code" href="namespaceCDPL_1_1ForceField.html#a313569cddeb72b7aeb4a6072447e2b56">calcBondLengthsAndAngleCos</a>(term_atom1_pos, ctr_atom_pos, term_atom2_pos, bond_length1, bond_length2));</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;}</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8e744b4b85b2fa228240c26388e4906">CDPL::ForceField::calcBondAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos)</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;{</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    ValueType bl1, bl2;</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceCDPL_1_1ForceField.html#a313569cddeb72b7aeb4a6072447e2b56">calcBondLengthsAndAngleCos</a>(term_atom1_pos, ctr_atom_pos, term_atom2_pos, bl1, bl2);</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;}</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; </div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ad8e744b4b85b2fa228240c26388e4906">CDPL::ForceField::calcBondAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;                                             <span class="keyword">const</span> ValueType&amp; r_ij, <span class="keyword">const</span> ValueType&amp; r_jk)</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;{</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    ValueType bond_vec1[3];</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    ValueType bond_vec2[3];</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160; </div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, bond_vec1);</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, bond_vec2);</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec2) / (r_ij * r_jk));</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;}</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160; </div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a2daf16aa3d333c0d6df1098a8619db1e">CDPL::ForceField::calcBondAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;{</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordflow">return</span> std::acos(calcBondAngleCos&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos));</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;}</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160; </div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a2daf16aa3d333c0d6df1098a8619db1e">CDPL::ForceField::calcBondAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;                                          <span class="keyword">const</span> ValueType&amp; r_ij, <span class="keyword">const</span> ValueType&amp; r_jk)</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;{</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">return</span> std::acos(calcBondAngleCos&lt;ValueType&gt;(term_atom1_pos, ctr_atom_pos, term_atom2_pos, r_ij, r_jk));</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;}</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160; </div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a0092cfc7670328a57d32ee0da9672bac">CDPL::ForceField::calcOutOfPlaneAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                                                <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos)</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;{</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    ValueType term_bond1_vec[3];</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    ValueType term_bond2_vec[3];</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    ValueType oop_bond_vec[3];</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    ValueType plane_normal[3];</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160; </div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, term_bond1_vec);</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, term_bond2_vec);</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    Detail::subVectors(ctr_atom_pos, oop_atom_pos, oop_bond_vec);</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, term_bond2_vec, plane_normal);</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160; </div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    ValueType pn_len      = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, plane_normal));</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    ValueType oop_bnd_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(oop_bond_vec, oop_bond_vec));</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    ValueType ang_cos     = Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, oop_bond_vec) / (pn_len * oop_bnd_len));</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160; </div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="keywordflow">return</span> (ValueType(M_PI * 0.5) - std::acos(ang_cos));</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;}</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a0092cfc7670328a57d32ee0da9672bac">CDPL::ForceField::calcOutOfPlaneAngle</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                                                <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos,</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                                                <span class="keyword">const</span> ValueType&amp; r_jl)</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;{</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    ValueType term_bond1_vec[3];</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    ValueType term_bond2_vec[3];</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    ValueType oop_bond_vec[3];</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    ValueType plane_normal[3];</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160; </div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, term_bond1_vec);</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, term_bond2_vec);</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    Detail::subVectors(ctr_atom_pos, oop_atom_pos, oop_bond_vec);</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, term_bond2_vec, plane_normal);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    ValueType pn_len  = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, plane_normal));</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    ValueType ang_cos = Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal, oop_bond_vec) / (pn_len * r_jl));</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;    <span class="keywordflow">return</span> (ValueType(M_PI * 0.5) - std::acos(ang_cos));</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;}</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160; </div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec&gt;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3af7f2ef4dcc39b0b0db880b10970e1c">CDPL::ForceField::calcDihedralAngleCos</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom1_pos,</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                                                 <span class="keyword">const</span> CoordsVec&amp; ctr_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos)</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;{</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    ValueType term_bond1_vec[3];</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    ValueType ctr_bond_vec[3];</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    ValueType term_bond2_vec[3];</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    ValueType plane_normal1[3];</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;    ValueType plane_normal2[3];</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160; </div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;    Detail::subVectors(ctr_atom1_pos, term_atom1_pos, term_bond1_vec);</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;    Detail::subVectors(ctr_atom1_pos, ctr_atom2_pos, ctr_bond_vec);</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    Detail::subVectors(term_atom2_pos, ctr_atom2_pos, term_bond2_vec);</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, ctr_bond_vec, plane_normal1);</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, term_bond2_vec, plane_normal2);</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160; </div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    ValueType pn1_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal1));</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    ValueType pn2_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal2, plane_normal2));</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160; </div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal2) / (pn1_len * pn2_len));</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;}</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160; </div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#afdf8e8f71ad6524a368ad5cbd03f32bf">CDPL::ForceField::calcDistanceDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; atom1_pos, <span class="keyword">const</span> CoordsVec&amp; atom2_pos,</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;                                                    GradVec&amp; atom1_deriv, GradVec&amp; atom2_deriv)</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;{</div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    Detail::subVectors(atom1_pos, atom2_pos, atom1_deriv);</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160; </div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    ValueType dist = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(atom1_deriv, atom1_deriv));</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    ValueType dist = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(atom1_deriv, atom1_deriv));</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160; </div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    Detail::invScaleVector(atom1_deriv, -dist);</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    Detail::negateCopyVector(atom1_deriv, atom2_deriv);</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160; </div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    <span class="keywordflow">return</span> dist;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;}</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160; </div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ac5f876cf6018db19c197854f577adf96">CDPL::ForceField::calcBondAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;                                                        GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom_deriv, GradVec&amp; term_atom2_deriv)</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;{</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;    ValueType bond_vec1[3];</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;    ValueType bond_vec2[3];</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160; </div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, bond_vec1);</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, bond_vec2);</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160; </div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;    ValueType bond_length1 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec1));</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;    ValueType bond_length2 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec2, bond_vec2));</div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;    ValueType dot_prod = Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec2);</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    ValueType bl_prod  = bond_length1 * bond_length2;</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160; </div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    Detail::invScaleCopyVector(bond_vec2, bl_prod, term_atom1_deriv);</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;    Detail::scaleCopyVector(bond_vec1, dot_prod / (bond_length1 * bond_length1 * bl_prod), ctr_atom_deriv);</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom1_deriv, term_atom1_deriv);</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160; </div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    Detail::invScaleCopyVector(bond_vec1, bl_prod, term_atom2_deriv);</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    Detail::scaleCopyVector(bond_vec2, dot_prod / (bond_length2 * bond_length2 * bl_prod), ctr_atom_deriv);</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom2_deriv, term_atom2_deriv);</div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160; </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;    Detail::negateCopyVector(term_atom1_deriv, ctr_atom_deriv);</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    Detail::subVectors(term_atom2_deriv, ctr_atom_deriv, ctr_atom_deriv);</div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(dot_prod / bl_prod);</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;}</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160; </div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a16bc6ba6913e33df3ea40ee041e6b552">CDPL::ForceField::calcDihedralAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom1_pos,</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                                                            <span class="keyword">const</span> CoordsVec&amp; ctr_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                                                            GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom1_deriv,</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                                                            GradVec&amp; ctr_atom2_deriv, GradVec&amp; term_atom2_deriv)</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;{</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;    ValueType term_bond1_vec[3];</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    ValueType ctr_bond_vec[3];</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    ValueType term_bond2_vec[3];</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    ValueType term1_ctr2_vec[3];</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    ValueType plane_normal1[3];</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    ValueType plane_normal2[3];</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    Detail::subVectors(ctr_atom1_pos, term_atom1_pos, term_bond1_vec);</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    Detail::subVectors(ctr_atom1_pos, ctr_atom2_pos, ctr_bond_vec);</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;    Detail::subVectors(term_atom2_pos, ctr_atom2_pos, term_bond2_vec);</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    Detail::subVectors(ctr_atom2_pos, term_atom1_pos, term1_ctr2_vec);</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160; </div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, ctr_bond_vec, plane_normal1);</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, term_bond2_vec, plane_normal2);</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; </div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    ValueType pn1_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal1));</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    ValueType pn2_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal2, plane_normal2));</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160; </div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    Detail::invScaleVector(plane_normal1, pn1_len);</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    Detail::invScaleVector(plane_normal2, pn2_len);</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    Detail::invScaleVector(atom1_deriv, -dist);</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    Detail::negateCopyVector(atom1_deriv, atom2_deriv);</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    <span class="keywordflow">return</span> dist;</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;}</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160; </div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#ac5f876cf6018db19c197854f577adf96">CDPL::ForceField::calcBondAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;                                                        GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom_deriv, GradVec&amp; term_atom2_deriv)</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;{</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    ValueType bond_vec1[3];</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    ValueType bond_vec2[3];</div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160; </div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, bond_vec1);</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, bond_vec2);</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160; </div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    ValueType bond_length1 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec1));</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;    ValueType bond_length2 = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(bond_vec2, bond_vec2));</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160; </div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;    ValueType dot_prod = Detail::calcDotProduct&lt;ValueType&gt;(bond_vec1, bond_vec2);</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;    ValueType bl_prod  = bond_length1 * bond_length2;</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160; </div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;    Detail::invScaleCopyVector(bond_vec2, bl_prod, term_atom1_deriv);</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    Detail::scaleCopyVector(bond_vec1, dot_prod / (bond_length1 * bond_length1 * bl_prod), ctr_atom_deriv);</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom1_deriv, term_atom1_deriv);</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; </div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    Detail::invScaleCopyVector(bond_vec1, bl_prod, term_atom2_deriv);</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;    Detail::scaleCopyVector(bond_vec2, dot_prod / (bond_length2 * bond_length2 * bl_prod), ctr_atom_deriv);</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom2_deriv, term_atom2_deriv);</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    Detail::negateCopyVector(term_atom1_deriv, ctr_atom_deriv);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;    Detail::subVectors(term_atom2_deriv, ctr_atom_deriv, ctr_atom_deriv);</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;    <span class="keywordflow">return</span> Detail::clampCosine(dot_prod / bl_prod);</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;}</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160; </div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a16bc6ba6913e33df3ea40ee041e6b552">CDPL::ForceField::calcDihedralAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom1_pos,</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;                                                            <span class="keyword">const</span> CoordsVec&amp; ctr_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos,</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;                                                            GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom1_deriv,</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                                                            GradVec&amp; ctr_atom2_deriv, GradVec&amp; term_atom2_deriv)</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;{</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;    ValueType term_bond1_vec[3];</div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;    ValueType ctr_bond_vec[3];</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;    ValueType term_bond2_vec[3];</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    ValueType term1_ctr2_vec[3];</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    ValueType plane_normal1[3];</div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    ValueType plane_normal2[3];</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160; </div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    Detail::subVectors(ctr_atom1_pos, term_atom1_pos, term_bond1_vec);</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    Detail::subVectors(ctr_atom1_pos, ctr_atom2_pos, ctr_bond_vec);</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    Detail::subVectors(term_atom2_pos, ctr_atom2_pos, term_bond2_vec);</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    Detail::subVectors(ctr_atom2_pos, term_atom1_pos, term1_ctr2_vec);</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160; </div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, ctr_bond_vec, plane_normal1);</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, term_bond2_vec, plane_normal2);</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; </div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    ValueType pn1_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal1));</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    ValueType pn2_len = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal2, plane_normal2));</div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160; </div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    Detail::invScaleVector(plane_normal1, pn1_len);</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    Detail::invScaleVector(plane_normal2, pn2_len);</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160; </div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    ValueType ang_cos = Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal2));</div>
 <div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160; </div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    ValueType ang_cos = Detail::clampCosine(Detail::calcDotProduct&lt;ValueType&gt;(plane_normal1, plane_normal2));</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160; </div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    ValueType a[3];</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;    ValueType b[3];</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160; </div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;    Detail::scaleCopyVector(plane_normal1, -ang_cos, a);</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;    Detail::addVectors(a, plane_normal2, a);</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    Detail::invScaleVector(a, pn1_len);</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160; </div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    Detail::scaleCopyVector(plane_normal2, -ang_cos, b);</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    Detail::addVectors(b, plane_normal1, b);</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    Detail::invScaleVector(b, pn2_len);</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160; </div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, a, term_atom1_deriv);</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, b, term_atom2_deriv);</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160; </div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    Detail::calcCrossProduct(term1_ctr2_vec, a, ctr_atom1_deriv);</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    Detail::calcCrossProduct(term_bond2_vec, b, ctr_atom2_deriv);</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    ValueType a[3];</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    ValueType b[3];</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160; </div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;    Detail::scaleCopyVector(plane_normal1, -ang_cos, a);</div>
+<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;    Detail::addVectors(a, plane_normal2, a);</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;    Detail::invScaleVector(a, pn1_len);</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160; </div>
+<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    Detail::scaleCopyVector(plane_normal2, -ang_cos, b);</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    Detail::addVectors(b, plane_normal1, b);</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    Detail::invScaleVector(b, pn2_len);</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160; </div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, a, term_atom1_deriv);</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;    Detail::calcCrossProduct(ctr_bond_vec, b, term_atom2_deriv);</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160; </div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    Detail::calcCrossProduct(term1_ctr2_vec, a, ctr_atom1_deriv);</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    Detail::calcCrossProduct(term_bond2_vec, b, ctr_atom2_deriv);</div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160; </div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    Detail::subVectors(ctr_atom2_deriv, ctr_atom1_deriv, ctr_atom1_deriv);</div>
 <div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160; </div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    Detail::subVectors(ctr_atom2_deriv, ctr_atom1_deriv, ctr_atom1_deriv);</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160; </div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    Detail::addVectors(term_atom1_deriv, ctr_atom1_deriv, ctr_atom2_deriv);</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    Detail::addVectors(ctr_atom2_deriv, term_atom2_deriv, ctr_atom2_deriv);</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    Detail::negateVector(ctr_atom2_deriv);</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160; </div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <span class="keywordflow">return</span> ang_cos;</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;}</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160; </div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3554dec0341adcb26a426bf2830c8ef9">CDPL::ForceField::calcOutOfPlaneAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                                                              <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos,</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;                                                              GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom_deriv,</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;                                                              GradVec&amp; term_atom2_deriv, GradVec&amp; oop_atom_deriv)</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;{</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    ValueType term_bond1_vec[3];</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    ValueType term_bond2_vec[3];</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    ValueType oop_bond_vec[3];</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    ValueType term1_oop_vec[3];</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;    ValueType term2_oop_vec[3];</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    ValueType ijk_pn[3];</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160; </div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, term_bond1_vec);</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, term_bond2_vec);</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    Detail::subVectors(ctr_atom_pos, oop_atom_pos, oop_bond_vec);</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;    Detail::subVectors(term_atom2_pos, oop_atom_pos, term2_oop_vec);</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;    Detail::subVectors(term_atom1_pos, oop_atom_pos, term1_oop_vec);</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    Detail::addVectors(term_atom1_deriv, ctr_atom1_deriv, ctr_atom2_deriv);</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    Detail::addVectors(ctr_atom2_deriv, term_atom2_deriv, ctr_atom2_deriv);</div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    Detail::negateVector(ctr_atom2_deriv);</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160; </div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    <span class="keywordflow">return</span> ang_cos;</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;}</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160; </div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType, <span class="keyword">typename</span> CoordsVec, <span class="keyword">typename</span> GradVec&gt;</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;ValueType <a class="code" href="namespaceCDPL_1_1ForceField.html#a3554dec0341adcb26a426bf2830c8ef9">CDPL::ForceField::calcOutOfPlaneAngleCosDerivatives</a>(<span class="keyword">const</span> CoordsVec&amp; term_atom1_pos, <span class="keyword">const</span> CoordsVec&amp; ctr_atom_pos,</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;                                                              <span class="keyword">const</span> CoordsVec&amp; term_atom2_pos, <span class="keyword">const</span> CoordsVec&amp; oop_atom_pos,</div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;                                                              GradVec&amp; term_atom1_deriv, GradVec&amp; ctr_atom_deriv,</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;                                                              GradVec&amp; term_atom2_deriv, GradVec&amp; oop_atom_deriv)</div>
+<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;{</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    ValueType term_bond1_vec[3];</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;    ValueType term_bond2_vec[3];</div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;    ValueType oop_bond_vec[3];</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;    ValueType term1_oop_vec[3];</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;    ValueType term2_oop_vec[3];</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    ValueType ijk_pn[3];</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160; </div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom1_pos, term_bond1_vec);</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;    Detail::subVectors(ctr_atom_pos, term_atom2_pos, term_bond2_vec);</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;    Detail::subVectors(ctr_atom_pos, oop_atom_pos, oop_bond_vec);</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    Detail::subVectors(term_atom2_pos, oop_atom_pos, term2_oop_vec);</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;    Detail::subVectors(term_atom1_pos, oop_atom_pos, term1_oop_vec);</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160; </div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, term_bond2_vec, ijk_pn);</div>
 <div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160; </div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;    Detail::calcCrossProduct(term_bond1_vec, term_bond2_vec, ijk_pn);</div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160; </div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;    ValueType ijk_pn_len_2        = Detail::calcDotProduct&lt;ValueType&gt;(ijk_pn, ijk_pn);</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    ValueType ijk_pn_len          = std::sqrt(ijk_pn_len_2);</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    ValueType oop_bnd_len         = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(oop_bond_vec, oop_bond_vec));</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;    ValueType oop_ijk_pn_len_prod = ijk_pn_len * oop_bnd_len;</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;    ValueType oop_ijk_pn_dot_prod = Detail::calcDotProduct&lt;ValueType&gt;(ijk_pn, oop_bond_vec);</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    ValueType ang_cos             = Detail::clampCosine(oop_ijk_pn_dot_prod / oop_ijk_pn_len_prod);</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160; </div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;    ValueType kjl_pn[3];</div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;    ValueType lji_pn[3];</div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160; </div>
-<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;    Detail::calcCrossProduct(term_bond2_vec, oop_bond_vec, kjl_pn);</div>
-<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    Detail::calcCrossProduct(oop_bond_vec, term_bond1_vec, lji_pn);</div>
-<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160; </div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    ctr_atom_deriv[0] = ijk_pn[1] * -term_bond2_vec[2] + ijk_pn[2] * term_bond2_vec[1];</div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    ctr_atom_deriv[1] = ijk_pn[0] * term_bond2_vec[2] + ijk_pn[2] * -term_bond2_vec[0];</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;    ctr_atom_deriv[2] = ijk_pn[0] * -term_bond2_vec[1] + ijk_pn[1] * term_bond2_vec[0];</div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;    ValueType ijk_pn_len_2        = Detail::calcDotProduct&lt;ValueType&gt;(ijk_pn, ijk_pn);</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;    ValueType ijk_pn_len          = std::sqrt(ijk_pn_len_2);</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;    ValueType oop_bnd_len         = std::sqrt(Detail::calcDotProduct&lt;ValueType&gt;(oop_bond_vec, oop_bond_vec));</div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    ValueType oop_ijk_pn_len_prod = ijk_pn_len * oop_bnd_len;</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;    ValueType oop_ijk_pn_dot_prod = Detail::calcDotProduct&lt;ValueType&gt;(ijk_pn, oop_bond_vec);</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;    ValueType ang_cos             = Detail::clampCosine(oop_ijk_pn_dot_prod / oop_ijk_pn_len_prod);</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160; </div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    ValueType kjl_pn[3];</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;    ValueType lji_pn[3];</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160; </div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;    Detail::calcCrossProduct(term_bond2_vec, oop_bond_vec, kjl_pn);</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;    Detail::calcCrossProduct(oop_bond_vec, term_bond1_vec, lji_pn);</div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160; </div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;    ctr_atom_deriv[0] = ijk_pn[1] * -term_bond2_vec[2] + ijk_pn[2] * term_bond2_vec[1];</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    ctr_atom_deriv[1] = ijk_pn[0] * term_bond2_vec[2] + ijk_pn[2] * -term_bond2_vec[0];</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    ctr_atom_deriv[2] = ijk_pn[0] * -term_bond2_vec[1] + ijk_pn[1] * term_bond2_vec[0];</div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160; </div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;    Detail::scaleVector(ctr_atom_deriv, ang_cos / ijk_pn_len_2);</div>
 <div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160; </div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    Detail::scaleVector(ctr_atom_deriv, ang_cos / ijk_pn_len_2);</div>
-<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160; </div>
-<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;    Detail::invScaleCopyVector(kjl_pn, oop_ijk_pn_len_prod, term_atom1_deriv);</div>
-<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom1_deriv, term_atom1_deriv);</div>
-<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160; </div>
-<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;    ctr_atom_deriv[0] = ijk_pn[1] * term_bond1_vec[2] + ijk_pn[2] * -term_bond1_vec[1];</div>
-<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;    ctr_atom_deriv[1] = ijk_pn[0] * -term_bond1_vec[2] + ijk_pn[2] * term_bond1_vec[0];</div>
-<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    ctr_atom_deriv[2] = ijk_pn[0] * term_bond1_vec[1] + ijk_pn[1] * -term_bond1_vec[0];</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;    Detail::invScaleCopyVector(kjl_pn, oop_ijk_pn_len_prod, term_atom1_deriv);</div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom1_deriv, term_atom1_deriv);</div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160; </div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160;    ctr_atom_deriv[0] = ijk_pn[1] * term_bond1_vec[2] + ijk_pn[2] * -term_bond1_vec[1];</div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;    ctr_atom_deriv[1] = ijk_pn[0] * -term_bond1_vec[2] + ijk_pn[2] * term_bond1_vec[0];</div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160;    ctr_atom_deriv[2] = ijk_pn[0] * term_bond1_vec[1] + ijk_pn[1] * -term_bond1_vec[0];</div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160; </div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;    Detail::scaleVector(ctr_atom_deriv, ang_cos / ijk_pn_len_2);</div>
 <div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160; </div>
-<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    Detail::scaleVector(ctr_atom_deriv, ang_cos / ijk_pn_len_2);</div>
-<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160; </div>
-<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;    Detail::invScaleCopyVector(lji_pn, oop_ijk_pn_len_prod, term_atom2_deriv);</div>
-<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom2_deriv, term_atom2_deriv);</div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;    Detail::invScaleCopyVector(lji_pn, oop_ijk_pn_len_prod, term_atom2_deriv);</div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;    Detail::subVectors(ctr_atom_deriv, term_atom2_deriv, term_atom2_deriv);</div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160; </div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;    Detail::calcCrossProduct(term2_oop_vec, term1_oop_vec, ctr_atom_deriv);</div>
 <div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160; </div>
-<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    Detail::calcCrossProduct(term2_oop_vec, term1_oop_vec, ctr_atom_deriv);</div>
-<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160; </div>
-<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    Detail::scaleCopyVector(oop_bond_vec, oop_ijk_pn_dot_prod / (oop_bnd_len * oop_bnd_len), oop_atom_deriv);</div>
-<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    Detail::addVectors(oop_atom_deriv, lji_pn, oop_atom_deriv);</div>
-<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    Detail::addVectors(oop_atom_deriv, kjl_pn, oop_atom_deriv);</div>
-<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;    Detail::addVectors(oop_atom_deriv, ctr_atom_deriv, oop_atom_deriv);</div>
-<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;    Detail::invScaleVector(oop_atom_deriv, -oop_ijk_pn_len_prod);</div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160; </div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;    Detail::copyVector(term_atom1_deriv, ctr_atom_deriv);</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;    Detail::addVectors(term_atom2_deriv, ctr_atom_deriv, ctr_atom_deriv);</div>
-<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;    Detail::addVectors(oop_atom_deriv, ctr_atom_deriv, ctr_atom_deriv);</div>
-<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;    Detail::negateVector(ctr_atom_deriv);</div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160; </div>
-<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;    <span class="keywordflow">return</span> ang_cos;</div>
-<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;}</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160;    Detail::scaleCopyVector(oop_bond_vec, oop_ijk_pn_dot_prod / (oop_bnd_len * oop_bnd_len), oop_atom_deriv);</div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;    Detail::addVectors(oop_atom_deriv, lji_pn, oop_atom_deriv);</div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160;    Detail::addVectors(oop_atom_deriv, kjl_pn, oop_atom_deriv);</div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;    Detail::addVectors(oop_atom_deriv, ctr_atom_deriv, oop_atom_deriv);</div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;    Detail::invScaleVector(oop_atom_deriv, -oop_ijk_pn_len_prod);</div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160; </div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;    Detail::copyVector(term_atom1_deriv, ctr_atom_deriv);</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;    Detail::addVectors(term_atom2_deriv, ctr_atom_deriv, ctr_atom_deriv);</div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;    Detail::addVectors(oop_atom_deriv, ctr_atom_deriv, ctr_atom_deriv);</div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;    Detail::negateVector(ctr_atom_deriv);</div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160; </div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;    <span class="keywordflow">return</span> ang_cos;</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;}</div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160; </div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="comment">// \endcond</span></div>
 <div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160; </div>
-<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="comment">// \endcond</span></div>
-<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160; </div>
-<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_FORCEFIELD_UTILITYFUNCTIONS_HPP</span></div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_FORCEFIELD_UTILITYFUNCTIONS_HPP</span></div>
 <div class="ttc" id="aBitSet_8hpp_html"><div class="ttname"><a href="BitSet_8hpp.html">BitSet.hpp</a></div><div class="ttdoc">Definition of the type CDPL::Util::BitSet.</div></div>
 <div class="ttc" id="aForceField_2APIPrefix_8hpp_html"><div class="ttname"><a href="ForceField_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_FORCEFIELD_API.</div></div>
 <div class="ttc" id="aForceField_2APIPrefix_8hpp_html_a50b9c973ab0f3bba2f059e01d2985eeb"><div class="ttname"><a href="ForceField_2APIPrefix_8hpp.html#a50b9c973ab0f3bba2f059e01d2985eeb">CDPL_FORCEFIELD_API</a></div><div class="ttdeci">#define CDPL_FORCEFIELD_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
