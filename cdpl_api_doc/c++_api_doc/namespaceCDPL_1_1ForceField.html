@@ -15,7 +15,7 @@
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js"],
-    jax: ["input/TeX","output/NativeMML"],
+    jax: ["input/TeX","output/SVG"],
 });
 </script>
 <script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
@@ -5626,8 +5626,8 @@ template&lt;typename ValueType , typename CoordsVec , typename GradVec &gt; </di
  \( \cos(\omega_{ijk;l}) = \frac{\vec{n_{ijk}} \cdot \vec{v_{jl}}}{|\vec{n_{ijk}}| \: r_{jl}} \)<br  />
 </p>
 <p>where<br  />
- \( M_1 = \left| \begin{array}{ccc} 0 &amp; -\vec{v_{jk}}.z &amp; \vec{v_{jk}}.y \\ \vec{v_{jk}}.z &amp; 0 &amp; -\vec{v_{jk}}.x \\ -\vec{v_{jk}}.y &amp; \vec{v_{jk}}.x &amp; 0 \end{array} \right| \)<br  />
- \( M_2 = \left| \begin{array}{ccc} 0 &amp; \vec{v_{ji}}.z &amp; -\vec{v_{ji}}.y \\ -\vec{v_{ji}}.z &amp; 0 &amp; \vec{v_{ji}}.x \\ \vec{v_{ji}}.y &amp; -\vec{v_{ji}}.x &amp; 0 \end{array} \right| \)<br  />
+ \( M_1 = \begin{vmatrix} 0 &amp; -\vec{v_{jk}}.z &amp; \vec{v_{jk}}.y \\ \vec{v_{jk}}.z &amp; 0 &amp; -\vec{v_{jk}}.x \\ -\vec{v_{jk}}.y &amp; \vec{v_{jk}}.x &amp; 0 \end{vmatrix} \)<br  />
+ \( M_2 = \begin{vmatrix} 0 &amp; \vec{v_{ji}}.z &amp; -\vec{v_{ji}}.y \\ -\vec{v_{ji}}.z &amp; 0 &amp; \vec{v_{ji}}.x \\ \vec{v_{ji}}.y &amp; -\vec{v_{ji}}.x &amp; 0 \end{vmatrix} \)<br  />
  \( \vec{v_{ji}} = \vec{p_i} - \vec{p_j} \)<br  />
  \( \vec{v_{jk}} = \vec{p_k} - \vec{p_j} \)<br  />
  \( \vec{v_{jl}} = \vec{p_l} - \vec{p_j} \)<br  />
