@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['m_3611',['M',['../classCDPL_1_1Chem_1_1AtomType.html#a4920a36f33fe13e815479cf3fced8ee4',1,'CDPL.Chem.AtomType.M()'],['../classCDPL_1_1Chem_1_1CIPDescriptor.html#a2d03cf24571f43d74bbc1d3d53375245',1,'CDPL.Chem.CIPDescriptor.M()']]],
-  ['m_3612',['m',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#aec65392a4fe44869612aeae074f3914a',1,'CDPL::Chem::CIPDescriptor']]],
+  ['m_3611',['m',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#aec65392a4fe44869612aeae074f3914a',1,'CDPL::Chem::CIPDescriptor']]],
+  ['m_3612',['M',['../classCDPL_1_1Chem_1_1AtomType.html#a4920a36f33fe13e815479cf3fced8ee4',1,'CDPL.Chem.AtomType.M()'],['../classCDPL_1_1Chem_1_1CIPDescriptor.html#a2d03cf24571f43d74bbc1d3d53375245',1,'CDPL.Chem.CIPDescriptor.M()']]],
   ['maccsfingerprintgenerator_3613',['MACCSFingerprintGenerator',['../classCDPL_1_1Descr_1_1MACCSFingerprintGenerator.html',1,'CDPL::Descr']]],
   ['magenta_3614',['MAGENTA',['../classCDPL_1_1Vis_1_1Color.html#ae01002e1fbf8ba74ecde77065bbde522',1,'CDPL::Vis::Color']]],
   ['makehydrogencomplete_3615',['makeHydrogenComplete',['../namespaceCDPL_1_1Chem.html#a5d4964a7766cee7fb630a76403d12c27',1,'CDPL::Chem']]],
