@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>psdcreate &mdash; CDPKit 1.2.1 documentation</title>
+  <title>psdcreate &mdash; CDPKit 1.2.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=ca842793"></script>
+        <script src="../_static/documentation_options.js?v=fd7cadf9"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/tabs.js?v=3ee01567"></script>
@@ -115,7 +115,7 @@ files (see <a class="reference internal" href="psdscreen.html"><span class="doc"
 <section id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
 <blockquote>
-<div><p><strong class="program">psdcreate</strong> [-hVvpdts] [-c arg] [-l arg] [-m arg] [-I arg] [-T arg] -i arg [arg]… -o arg</p>
+<div><p><strong class="program">psdcreate</strong> [-hVvpdtS] [-c arg] [-l arg] [-s arg] [-e arg] [-m arg] [-I arg] [-T arg] -i arg [arg]… -o arg</p>
 </div></blockquote>
 </section>
 <section id="mandatory-options">
@@ -182,6 +182,15 @@ INFO).</p>
 <blockquote>
 <div><p>Show progress bar (default: true).</p>
 </div></blockquote>
+<p>-s [ –start-index ] arg (=0)</p>
+<blockquote>
+<div><p>Input start molecule index (zero-based, default: 0).</p>
+</div></blockquote>
+<p>-e [ –end-index ] arg (=0)</p>
+<blockquote>
+<div><p>Input end molecule index (zero-based and not included, default: number of input
+molecules).</p>
+</div></blockquote>
 <p>-m [ –mode ] arg</p>
 <blockquote>
 <div><p>Database creation mode (CREATE, APPEND, UPDATE, default: CREATE).</p>
@@ -207,7 +216,7 @@ Note that only storage formats make sense that allow to store atom 3D-coordinate
 <blockquote>
 <div><p>Temporary file directory (default: ‘/tmp’)</p>
 </div></blockquote>
-<p>-s [ –add-src-file-prop ] [=arg(=1)]</p>
+<p>-S [ –add-src-file-prop ] [=arg(=1)]</p>
 <blockquote>
 <div><p>Add a source-file property to output molecules (default: false).</p>
 </div></blockquote>

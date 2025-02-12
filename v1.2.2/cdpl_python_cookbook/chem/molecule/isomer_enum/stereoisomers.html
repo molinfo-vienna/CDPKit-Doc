@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.1.5.1. Enumeration of Stereoisomers &mdash; CDPKit 1.2.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=bd7b91d8" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/v1.2.2/cdpl_python_cookbook/chem/molecule/isomer_enum/stereoisomers.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=fd7cadf9"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+        <script src="../../../../_static/docs-versions-menu.js?v=bb46260f"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="2. Pharmacophore Generation and Processing" href="../../../pharm/index.html" />
+    <link rel="prev" title="1.1.5. Generation of Isomers" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../applications/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">1. Processing of Chemical Data</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">1.1. Molecules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../io/index.html">1.1.1. Input and Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fragmentation/index.html">1.1.2. Fragmentation and Extraction of Substructures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../standardization/index.html">1.1.3. Structure Standardization, Curation and Database Preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../substruct_search/index.html">1.1.4. Substructure Search</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">1.1.5. Generation of Isomers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forcefield/index.html">6. Force Field Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">CDPL Python Cookbook</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="section-number">1. </span>Processing of Chemical Data</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">1.1. </span>Molecules</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">1.1.5. </span>Generation of Isomers</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1.1.5.1. </span>Enumeration of Stereoisomers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/cdpl_python_cookbook/chem/molecule/isomer_enum/stereoisomers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enumeration-of-stereoisomers">
+<h1><span class="section-number">1.1.5.1. </span>Enumeration of Stereoisomers<a class="headerlink" href="#enumeration-of-stereoisomers" title="Link to this heading"></a></h1>
+<p>The script <em>enum_stereo.py</em> reads molecules from a given input file, enumerates all possible stereoisomers and writes the result to the specified output file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>enum_stereo.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-q]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Molecule input file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Stereoisomer output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-m <var>&lt;int&gt;</var></span></kbd></dt>
+<dd><p>Maximum number of output stereoisomers per molecule (default: 0, must be &gt;= 0, 0 disables limit)</p>
+</dd>
+<dt><kbd><span class="option">-a <var>&lt;true|false&gt;</var></span></kbd></dt>
+<dd><p>Enumerate configurations of atom stereocenters (default: true)</p>
+</dd>
+<dt><kbd><span class="option">-b <var>&lt;true|false&gt;</var></span></kbd></dt>
+<dd><p>Enumerate configurations of bond stereocenters (default: true)</p>
+</dd>
+<dt><kbd><span class="option">-s</span></kbd></dt>
+<dd><p>Include specified atom/bond stereocenters (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>Include atom/bond stereocenters with topological symmetry (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-n</span></kbd></dt>
+<dd><p>Include invertible nitrogen stereocenters (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-g</span></kbd></dt>
+<dd><p>Include bridgehead atom stereocenters (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-r</span></kbd></dt>
+<dd><p>Include ring bond stereocenters (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-R <var>&lt;int&gt;</var></span></kbd></dt>
+<dd><p>Minimum size of rings below which the configuration of member bonds shall not be
+altered (only effective if option -r has been specified; default: 8)</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="c1"># enumerates and outputs stereoisomers of the argument molecule using</span>
+<span class="linenos">  8</span><span class="c1"># the provided initialized Chem.StereoisomerGenerator instance</span>
+<span class="linenos">  9</span><span class="k">def</span> <span class="nf">enumStereoisomers</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">iso_gen</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">StereoisomerGenerator</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="linenos"> 10</span>                      <span class="n">writer</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos"> 11</span>
+<span class="linenos"> 12</span>    <span class="c1"># compute required atom, bond and molecule properties</span>
+<span class="linenos"> 13</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 14</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveAtomStereoCenters</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_inv_n</span><span class="p">,</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_inv_n</span><span class="p">)</span>
+<span class="linenos"> 15</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveBondStereoCenters</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">min_ring_size</span><span class="p">))</span>
+<span class="linenos"> 16</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcAtomStereoDescriptors</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 17</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBondStereoDescriptors</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 18</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcCIPPriorities</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 19</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveComponents</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 20</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setAtomSymbolsFromTypes</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span>    <span class="c1"># setup stereoisomer enumeration for the given molecule</span>
+<span class="linenos"> 23</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span>    <span class="n">num_gen_iso</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span>    <span class="c1"># save original molecule name</span>
+<span class="linenos"> 28</span>    <span class="n">mol_name</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> 
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span>    <span class="c1"># enumerate all stereoisomers until done</span>
+<span class="linenos"> 31</span>    <span class="k">while</span> <span class="n">args</span><span class="o">.</span><span class="n">max_num_iso</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num_gen_iso</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="n">max_num_iso</span><span class="p">:</span>
+<span class="linenos"> 32</span>        <span class="c1"># apply stereoisomer atom config. descriptors</span>
+<span class="linenos"> 33</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span><span class="p">):</span>
+<span class="linenos"> 34</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">setStereoDescriptor</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">iso_gen</span><span class="o">.</span><span class="n">atomDescriptors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span>        <span class="c1"># apply stereoisomer bond config. descriptors</span>
+<span class="linenos"> 37</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span><span class="p">):</span>
+<span class="linenos"> 38</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">setStereoDescriptor</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">bonds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">iso_gen</span><span class="o">.</span><span class="n">bondDescriptors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span>        <span class="n">num_gen_iso</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span>        <span class="c1"># append stereoisomer number suffix to molecule name</span>
+<span class="linenos"> 43</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">mol_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">num_gen_iso</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 44</span>
+<span class="linenos"> 45</span>        <span class="c1"># write stereoisomer to output file</span>
+<span class="linenos"> 46</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
+<span class="linenos"> 47</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: output of generated stereoisomer #</span><span class="si">{</span><span class="n">num_gen_iso</span><span class="si">}</span><span class="s1"> of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
+<span class="linenos"> 48</span>
+<span class="linenos"> 49</span>        <span class="c1"># generate next stereoisomer (if available)</span>
+<span class="linenos"> 50</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">iso_gen</span><span class="o">.</span><span class="n">generate</span><span class="p">():</span>
+<span class="linenos"> 51</span>            <span class="k">break</span>
+<span class="linenos"> 52</span>
+<span class="linenos"> 53</span>    <span class="k">return</span> <span class="n">num_gen_iso</span>
+<span class="linenos"> 54</span>                        
+<span class="linenos"> 55</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 56</span>    <span class="k">def</span> <span class="nf">strtobool</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos"> 57</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="linenos"> 58</span>        
+<span class="linenos"> 59</span>        <span class="k">if</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">):</span>
+<span class="linenos"> 60</span>            <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos"> 61</span>        
+<span class="linenos"> 62</span>        <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Enumerates stereoisomers of the given input molecules.&#39;</span><span class="p">)</span>
+<span class="linenos"> 65</span>
+<span class="linenos"> 66</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos"> 67</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 68</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 69</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 70</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
+<span class="linenos"> 71</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 72</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 73</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 74</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 75</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stereoisomer output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 76</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
+<span class="linenos"> 77</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_num_iso&#39;</span><span class="p">,</span>
+<span class="linenos"> 78</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 79</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;int&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 80</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+<span class="linenos"> 81</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 82</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Maximum number of output stereoisomers per molecule (default: 0, must be &gt;= 0, 0 disables limit)&#39;</span><span class="p">)</span>
+<span class="linenos"> 83</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span>
+<span class="linenos"> 84</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;enum_atom_cfg&#39;</span><span class="p">,</span>
+<span class="linenos"> 85</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 86</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;true|false&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 87</span>                        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">bool</span><span class="p">(</span><span class="n">strtobool</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+<span class="linenos"> 88</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 89</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Enumerate configurations of atom stereocenters (default: true)&#39;</span><span class="p">)</span>
+<span class="linenos"> 90</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span>
+<span class="linenos"> 91</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;enum_bond_cfg&#39;</span><span class="p">,</span>
+<span class="linenos"> 92</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 93</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;true|false&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 94</span>                        <span class="nb">type</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="nb">bool</span><span class="p">(</span><span class="n">strtobool</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
+<span class="linenos"> 95</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 96</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Enumerate configurations of bond stereocenters (default: true)&#39;</span><span class="p">)</span>
+<span class="linenos"> 97</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
+<span class="linenos"> 98</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_spec_ctrs&#39;</span><span class="p">,</span>
+<span class="linenos"> 99</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">100</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">101</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">102</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include specified atom/bond stereocenters (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">103</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
+<span class="linenos">104</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_sym_ctrs&#39;</span><span class="p">,</span>
+<span class="linenos">105</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">106</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">107</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">108</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include atom/bond stereocenters with topological symmetry (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">109</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
+<span class="linenos">110</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_inv_n&#39;</span><span class="p">,</span>
+<span class="linenos">111</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">112</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">113</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">114</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include invertible nitrogen stereocenters (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">115</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span>
+<span class="linenos">116</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_bh_atoms&#39;</span><span class="p">,</span>
+<span class="linenos">117</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">118</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">119</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">120</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include bridgehead atom stereocenters (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">121</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
+<span class="linenos">122</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;inc_ring_bonds&#39;</span><span class="p">,</span>
+<span class="linenos">123</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">124</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">125</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">126</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Include ring bond stereocenters (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">127</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-R&#39;</span><span class="p">,</span>
+<span class="linenos">128</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_ring_size&#39;</span><span class="p">,</span>
+<span class="linenos">129</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">130</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;int&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">131</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+<span class="linenos">132</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+<span class="linenos">133</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimum size of rings below which the configuration of member bonds shall not be</span><span class="se">\</span>
+<span class="linenos">134</span><span class="s1">                              altered (only effective if option -r is true; default: 8)&#39;</span><span class="p">)</span>
+<span class="linenos">135</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
+<span class="linenos">136</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
+<span class="linenos">137</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">138</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">139</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">140</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">141</span>    
+<span class="linenos">142</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">145</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos">146</span>    
+<span class="linenos">147</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">148</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos">149</span>
+<span class="linenos">150</span>    <span class="c1"># create writer for the generated stereoisomers (format specified by file extension)</span>
+<span class="linenos">151</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos">152</span>
+<span class="linenos">153</span>    <span class="c1"># create and initialize an instance of the class Chem.StereoisomerGenerator which</span>
+<span class="linenos">154</span>    <span class="c1"># will perform the actual stereoisomer enumeration work</span>
+<span class="linenos">155</span>    <span class="n">iso_gen</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">StereoisomerGenerator</span><span class="p">()</span>
+<span class="linenos">156</span>
+<span class="linenos">157</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">enumAtomConfig</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">enum_atom_cfg</span>      <span class="c1"># apply option -a</span>
+<span class="linenos">158</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">enumBondConfig</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">enum_atom_cfg</span>      <span class="c1"># apply option -b</span>
+<span class="linenos">159</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">incSpecifiedCenters</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_spec_ctrs</span> <span class="c1"># apply option -s</span>
+<span class="linenos">160</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">incSymmetricCenters</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_sym_ctrs</span>  <span class="c1"># apply option -x</span>
+<span class="linenos">161</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">incBridgeheadAtoms</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_bh_atoms</span>   <span class="c1"># apply option -g</span>
+<span class="linenos">162</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">incInvertibleNitrogens</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_inv_n</span>  <span class="c1"># apply option -n</span>
+<span class="linenos">163</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">incRingBonds</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">inc_ring_bonds</span>       <span class="c1"># apply option -r</span>
+<span class="linenos">164</span>    <span class="n">iso_gen</span><span class="o">.</span><span class="n">minRingSize</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">min_ring_size</span>         <span class="c1"># apply option -R</span>
+<span class="linenos">165</span>    
+<span class="linenos">166</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos">167</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">168</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">169</span>    
+<span class="linenos">170</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos">171</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">172</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos">173</span>            <span class="c1"># compose a simple molecule identifier</span>
+<span class="linenos">174</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">175</span>
+<span class="linenos">176</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">177</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
+<span class="linenos">178</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">179</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)&#39;</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">182</span>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Enumerating stereoisomers for molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
+<span class="linenos">183</span>
+<span class="linenos">184</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">185</span>                <span class="c1"># enumerate and output stereoisomers of the read molecule</span>
+<span class="linenos">186</span>                <span class="n">num_gen</span> <span class="o">=</span> <span class="n">enumStereoisomers</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">iso_gen</span><span class="p">,</span> <span class="n">mol_id</span><span class="p">,</span> <span class="n">writer</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> 
+<span class="linenos">187</span>
+<span class="linenos">188</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>  <span class="c1"># arrives here only if no severe error occurred</span>
+<span class="linenos">189</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Generated </span><span class="si">{</span><span class="n">num_gen</span><span class="si">}</span><span class="s1"> isomer(s)&#39;</span><span class="p">)</span>
+<span class="linenos">190</span>                        
+<span class="linenos">191</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">192</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: enumerating stereoisomers of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">193</span>
+<span class="linenos">194</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">195</span>                
+<span class="linenos">196</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">197</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">198</span>
+<span class="linenos">199</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">200</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">201</span>
+<span class="linenos">202</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">203</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../../_downloads/2759efe080672c4866bce6b9a7d0424f/enum_stereo.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="1.1.5. Generation of Isomers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../pharm/index.html" class="btn btn-neutral float-right" title="2. Pharmacophore Generation and Processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

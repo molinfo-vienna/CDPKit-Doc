@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release Notes &mdash; CDPKit 1.2.1 documentation</title>
+  <title>Release Notes &mdash; CDPKit 1.2.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
@@ -19,7 +19,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ca842793"></script>
+        <script src="_static/documentation_options.js?v=fd7cadf9"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/tabs.js?v=3ee01567"></script>
@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-v1-2-2">Release V1.2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-1">Release V1.2.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-0">Release V1.2.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-1-1">Release V1.1.1</a></li>
@@ -97,6 +98,38 @@
              
   <section id="release-notes">
 <span id="index-0"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading"></a></h1>
+<section id="release-v1-2-2">
+<h2>Release V1.2.2<a class="headerlink" href="#release-v1-2-2" title="Link to this heading"></a></h2>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fix for an issue leading to a segmentation fault during the parsing of partially invalid SMILES/SMARTS strings that occurs
+if a ring closure at a chiral atom cannot be completed due to either missing or erroneously placed closure bond numbers</p></li>
+<li><p>Fix for a bug in the command line tool <a class="reference internal" href="applications/structgen.html"><span class="doc">structgen</span></a> that led to process termination due
+to a <em>Base::ItemNotFound</em> exception which was thrown when the set time limit got exceeded without having generated a
+complete set of 3D atom coordinates</p></li>
+</ul>
+<p class="rubric">New Functionality and Features</p>
+<ul class="simple">
+<li><p>The command line tool <a class="reference internal" href="applications/psdcreate.html"><span class="doc">psdcreate</span></a> now offers the possibility to process only a subset of the input molecules
+which can be specified by means of a start (option <strong>-s</strong>) and an end molecule index (option <strong>-e</strong>)</p></li>
+<li><p>The command line tool <a class="reference internal" href="applications/psdscreen.html"><span class="doc">psdscreen</span></a> now offers a new option <strong>-r</strong> that allows to specify a report file in which
+sceening hit molecule information will be written as lines of tab-separated values (i.e., without any mol. structure data).
+The new option can be used in additon or instead of option <strong>-o</strong> which, as before, specifies an output file for saving
+aligned hit molecule structures</p></li>
+</ul>
+<p class="rubric">Improvements</p>
+<ul class="simple">
+<li><p>Reduction of RAM consumption when querying pharmacophore feature count data stored in *.psd files</p></li>
+<li><p>Reduction of pharmacophore screening database (PSD) file sizes by ~55% due to the introduction of
+more compact molecule/pharmacophore data storage formats</p></li>
+<li><p>Additional Python cookbook script demonstrating how to use the stereoisomer enumeration functionality</p></li>
+</ul>
+<p class="rubric">API Changes</p>
+<ul class="simple">
+<li><p>Added new setter/getter method pair <em>outputZeroBasedIndices(bool)/outputZeroBasedIndices()</em> to class <em>Pharm::FileScreeningHitCollector</em>
+that allows to control whether any indices (mol. index, conf. index, etc.) stored as SD-entries of output molecules shall be zero- or one-based</p></li>
+</ul>
+</section>
 <section id="release-v1-2-1">
 <h2>Release V1.2.1<a class="headerlink" href="#release-v1-2-1" title="Link to this heading"></a></h2>
 <p class="rubric">Bug Fixes</p>
