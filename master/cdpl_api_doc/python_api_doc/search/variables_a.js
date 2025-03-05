@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['k_10482',['K',['../classCDPL_1_1Chem_1_1AtomType.html#a07b9446932a1810f3e3eb29a92adefdc',1,'CDPL.Chem.AtomType.K()'],['../classCDPL_1_1Chem_1_1SybylAtomType.html#a0212b54eab596cb2038eb194e3a7b686',1,'CDPL.Chem.SybylAtomType.K()']]],
-  ['keywds_10483',['KEYWDS',['../classCDPL_1_1Biomol_1_1PDBData_1_1RecordType.html#a5c935bafe2b0d2b62cbd9a6c7a571f92',1,'CDPL::Biomol::PDBData::RecordType']]],
-  ['kr_10484',['Kr',['../classCDPL_1_1Chem_1_1AtomType.html#a113b2338a56f3d6881e532391fdb3451',1,'CDPL::Chem::AtomType']]]
+  ['jme_10481',['JME',['../classCDPL_1_1Chem_1_1DataFormat.html#aebabcccdb7e0474c44a0eedc268fc65d',1,'CDPL::Chem::DataFormat']]],
+  ['jme_5fseparate_5fcomponents_10482',['JME_SEPARATE_COMPONENTS',['../classCDPL_1_1Chem_1_1ControlParameter.html#a673236924f2e5955c065d08235f06f30',1,'CDPL.Chem.ControlParameter.JME_SEPARATE_COMPONENTS()'],['../classCDPL_1_1Chem_1_1ControlParameterDefault.html#a2e626ba5605afe14a54bd302af5dd447',1,'CDPL.Chem.ControlParameterDefault.JME_SEPARATE_COMPONENTS()']]],
+  ['jrnl_10483',['JRNL',['../classCDPL_1_1Biomol_1_1PDBData_1_1RecordType.html#a053295d571ed2f5025f5bb97885b9afc',1,'CDPL::Biomol::PDBData::RecordType']]]
 ];

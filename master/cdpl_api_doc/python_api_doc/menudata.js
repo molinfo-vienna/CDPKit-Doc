@@ -29,7 +29,8 @@ var menudata={children:[
 {text:"Packages",url:"namespaces.html"},
 {text:"Package Functions",url:"namespacemembers.html",children:[
 {text:"All",url:"namespacemembers.html",children:[
-{text:"a",url:"namespacemembers.html#index_a"},
+{text:"_",url:"namespacemembers.html#index__5F"},
+{text:"a",url:"namespacemembers_a.html#index_a"},
 {text:"c",url:"namespacemembers_c.html#index_c"},
 {text:"d",url:"namespacemembers_d.html#index_d"},
 {text:"e",url:"namespacemembers_e.html#index_e"},
@@ -71,7 +72,8 @@ var menudata={children:[
 {text:"s",url:"namespacemembers_func_s.html#index_s"},
 {text:"t",url:"namespacemembers_func_t.html#index_t"},
 {text:"u",url:"namespacemembers_func_u.html#index_u"},
-{text:"v",url:"namespacemembers_func_v.html#index_v"}]}]}]},
+{text:"v",url:"namespacemembers_func_v.html#index_v"}]},
+{text:"Variables",url:"namespacemembers_vars.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Class List",url:"annotated.html"},
 {text:"Class Index",url:"classes.html"},
