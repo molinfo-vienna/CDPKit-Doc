@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-v1-2-3">Release V1.2.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-2">Release V1.2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-1">Release V1.2.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-0">Release V1.2.0</a></li>
@@ -98,6 +99,30 @@
              
   <section id="release-notes">
 <span id="index-0"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading"></a></h1>
+<section id="release-v1-2-3">
+<h2>Release V1.2.3<a class="headerlink" href="#release-v1-2-3" title="Link to this heading"></a></h2>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fix for a <em>Base::ItemNotFound</em> exception thrown during the merging of temporary PSD files
+when running the command line tool <a class="reference internal" href="applications/psdcreate.html"><span class="doc">psdcreate</span></a> in multi-threaded mode</p></li>
+</ul>
+<p class="rubric">New Functionality and Features</p>
+<ul class="simple">
+<li><p>New feature of program <a class="reference internal" href="applications/chox.html"><span class="doc">ChOX</span></a> that allows to display structure/reaction data associated
+with the currently shown molecule/reaction records</p></li>
+<li><p>See section below</p></li>
+</ul>
+<p class="rubric">API Changes</p>
+<ul class="simple">
+<li><p>New control-parameters <em>Chem::MOL2_READ_PARTIAL_AS_FORMAL_CHARGES</em> and <em>Chem::MOL2_OUTPUT_FORMAL_CHARGES</em> plus
+associated setter/getter functions that allow to control whether formal instead of partial charges shall be read
+from/written to MOL2 files</p></li>
+<li><p>New class template <em>Descr::BulkSimilarityCalculator</em> for the calculation of multiple query &lt;-&gt; target descriptor
+similarities/distances in a single run</p></li>
+<li><p>Similarity and distance functions in namespace <em>Descr</em> are now also available as functor classes (e.g. <em>Descr::TanimotoSimilarity</em>)</p></li>
+<li><p>New similarity and distance functions supporting generic mathematical vectors</p></li>
+</ul>
+</section>
 <section id="release-v1-2-2">
 <h2>Release V1.2.2<a class="headerlink" href="#release-v1-2-2" title="Link to this heading"></a></h2>
 <p class="rubric">Bug Fixes</p>
