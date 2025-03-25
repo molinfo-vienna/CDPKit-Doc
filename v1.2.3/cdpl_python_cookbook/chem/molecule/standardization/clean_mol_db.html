@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.1.3.3. Database Cleaning &mdash; CDPKit 1.2.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=bd7b91d8" />
+
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/v1.2.3/cdpl_python_cookbook/chem/molecule/standardization/clean_mol_db.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/tabs.js?v=3ee01567"></script>
+        <script src="../../../../_static/docs-versions-menu.js?v=bb46260f"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="1.1.4. Substructure Search" href="../substruct_search/index.html" />
+    <link rel="prev" title="1.1.3.2. Generating Protonation States at Physiological pH" href="prot_phys_cond.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+
+          
+          
+          <a href="../../../../index.html">
+            
+              <img src="../../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../applications/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">1. Processing of Chemical Data</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">1.1. Molecules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../io/index.html">1.1.1. Input and Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../fragmentation/index.html">1.1.2. Fragmentation and Extraction of Substructures</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">1.1.3. Structure Standardization, Curation and Database Preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../substruct_search/index.html">1.1.4. Substructure Search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../isomer_enum/index.html">1.1.5. Generation of Isomers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forcefield/index.html">6. Force Field Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">CDPL Python Cookbook</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="section-number">1. </span>Processing of Chemical Data</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">1.1. </span>Molecules</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">1.1.3. </span>Structure Standardization, Curation and Database Preparation</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1.1.3.3. </span>Database Cleaning</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/cdpl_python_cookbook/chem/molecule/standardization/clean_mol_db.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="database-cleaning">
+<h1><span class="section-number">1.1.3.3. </span>Database Cleaning<a class="headerlink" href="#database-cleaning" title="Link to this heading"></a></h1>
+<p>The script <em>clean_mol_db.py</em> reads molecules from an input file, performs (optional) preprocessing,
+and then writes only those molecules that fulfill particular user-defined criteria to an output file.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>clean_mol_db.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-d &lt;file&gt;] [-s] [-c] [-x &lt;element list&gt;] [-a &lt;element list&gt;] [-m &lt;element count list&gt;] [-M &lt;element count list&gt;] [-v &lt;0|1|2|3&gt;]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Input molecule file</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Output molecule file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-d <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Discarded molecule output file</p>
+</dd>
+<dt><kbd><span class="option">-s</span></kbd></dt>
+<dd><p>Keep only the largest molecule component (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>Minimize the number of charged atoms (default: false) by
+protonation/deprotonation and charge equalization</p>
+</dd>
+<dt><kbd><span class="option">-x <var>&lt;element list&gt;</var></span></kbd></dt>
+<dd><p>List of excluded chem. elements (default: no elements are excluded)</p>
+</dd>
+<dt><kbd><span class="option">-a <var>&lt;element list&gt;</var></span></kbd></dt>
+<dd><p>List of allowed chem. elements (default: all elements are allowed)</p>
+</dd>
+<dt><kbd><span class="option">-m <var>&lt;element count list&gt;</var></span></kbd></dt>
+<dd><p>Minimum chem. element specific atom counts (default: no count limits)</p>
+</dd>
+<dt><kbd><span class="option">-M <var>&lt;element count list&gt;</var></span></kbd></dt>
+<dd><p>Maximum chem. element specific atom counts (default: no count limits)</p>
+</dd>
+<dt><kbd><span class="option">-v <var>&lt;0|1|2|3&gt;</var></span></kbd></dt>
+<dd><p>Verbosity level (default: 1; 0 -&gt; no console output,
+1 -&gt; print summary, 2 -&gt; verbose, 3 -&gt; extra verbose)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The options <em>-a</em> and <em>-x</em> both require a list of chemical elements as argument.
+Chemical element lists are specified in the form <em>&lt;S&gt;,…,&lt;S&gt;</em> where <em>&lt;S&gt;</em> is
+the symbol of a chemical element or generic atom type. Supported generic
+types are:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>M</p></td>
+<td><p>any metal</p></td>
+</tr>
+<tr class="row-odd"><td><p>MH</p></td>
+<td><p>any metal or hydrogen</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>any element except hydrogen</p></td>
+</tr>
+<tr class="row-odd"><td><p>AH</p></td>
+<td><p>any element</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>any element (equivalent to AH)</p></td>
+</tr>
+<tr class="row-odd"><td><p>X</p></td>
+<td><p>any halogen</p></td>
+</tr>
+<tr class="row-even"><td><p>XH</p></td>
+<td><p>any halogen or hydrogen</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q</p></td>
+<td><p>any element except hydrogen and carbon</p></td>
+</tr>
+<tr class="row-even"><td><p>QH</p></td>
+<td><p>any element except carbon</p></td>
+</tr>
+</tbody>
+</table>
+<p>The options <em>-m</em> and <em>-M</em> both require a list of chemical element counts as argument.
+Chemical element counts are specified in the form <em>&lt;S&gt;:&lt;N&gt;,…,&lt;S&gt;:&lt;N&gt;</em> where <em>&lt;S&gt;</em> is
+the symbol of a chemical element or generic atom type (see above) and <em>&lt;N&gt;</em> is
+the corresponding minimum or maximum count. If the count part is omitted and only <em>&lt;S&gt;</em>
+gets specified then the count is assumed to be <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p><strong>Example usage</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>clean_mol_db.py<span class="w"> </span>-i<span class="w"> </span>&lt;path/to/molecule/input/file&gt;<span class="w"> </span>-o<span class="w"> </span>&lt;path/to/molecule/output/file&gt;<span class="w"> </span>-a<span class="w"> </span>C,H,N,O,S,P,F,Cl,Br,I<span class="w"> </span>-m<span class="w"> </span>C,A:3<span class="w"> </span>-M<span class="w"> </span>F:9<span class="w"> </span>-c<span class="w"> </span>-s
+</pre></div>
+</div>
+<p>When executed as shown, the script will perform the following operations on each
+read input molecule (in the order listed):</p>
+<ol class="arabic simple">
+<li><p>Reduction of the number of charged atoms (if any and if possible)</p></li>
+<li><p>Removal of all but the largest molecular graph component (only if multi-comp. molecule)</p></li>
+<li><p>Check whether the chem. element of each atom of the working molecule (= result of prev. steps) is either C, H, N, O, S, P, F, Cl, Br, or I.</p></li>
+<li><p>Check whether the atom list of the working molecule contains at least one carbon and three heavy atoms</p></li>
+<li><p>Check whether the atom list of the working molecule contains not more than 9 fluorine atoms</p></li>
+</ol>
+<p>The first check that fails leads to a rejection of the molecule. Working molecules that pass all checks will
+be written to the specified output file.</p>
+<p><strong>Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.MolProp</span> <span class="k">as</span> <span class="nn">MolProp</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span>    
+<span class="linenos">  8</span><span class="c1"># performs a (optional) standardization of the argument molecule and then checks whether</span>
+<span class="linenos">  9</span><span class="c1"># it fulfills certain user-defined criteria for inclusion/exclusion</span>
+<span class="linenos"> 10</span><span class="k">def</span> <span class="nf">processMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span class="linenos"> 11</span>    <span class="n">chgs_mod</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">min_charges</span><span class="p">:</span>
+<span class="linenos"> 14</span>        <span class="c1"># will store the &#39;uncharged&#39; version of the argument mol</span>
+<span class="linenos"> 15</span>        <span class="n">res_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span> 
+<span class="linenos"> 16</span>
+<span class="linenos"> 17</span>        <span class="c1"># minimize the number of charged atoms using the corresponding functionality implemented</span>
+<span class="linenos"> 18</span>        <span class="c1"># in class Chem.ProtonationStateStandardizer</span>
+<span class="linenos"> 19</span>        <span class="n">chgs_mod</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">ProtonationStateStandardizer</span><span class="p">()</span><span class="o">.</span><span class="n">standardize</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">res_mol</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">ProtonationStateStandardizer</span><span class="o">.</span><span class="n">MIN_CHARGED_ATOM_COUNT</span><span class="p">)</span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span>        <span class="c1"># if changes were made then from now on use the &#39;uncharged&#39; molecule for further checks</span>
+<span class="linenos"> 22</span>        <span class="k">if</span> <span class="n">chgs_mod</span><span class="p">:</span>  
+<span class="linenos"> 23</span>            <span class="n">mol</span> <span class="o">=</span> <span class="n">res_mol</span>
+<span class="linenos"> 24</span>        
+<span class="linenos"> 25</span>    <span class="n">comps_strpd</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 26</span>    
+<span class="linenos"> 27</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">strip_comps</span><span class="p">:</span>
+<span class="linenos"> 28</span>        <span class="c1"># perceive components (if not done already)</span>
+<span class="linenos"> 29</span>        <span class="n">comps</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveComponents</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> 
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span>        <span class="c1"># find largest component (regarding heavy atom count) but only if multi-comp. molecule</span>
+<span class="linenos"> 32</span>        <span class="k">if</span> <span class="n">comps</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>    <span class="c1"># check if multi-comp. molecule</span>
+<span class="linenos"> 33</span>            <span class="n">lgst_comp</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 34</span>            <span class="n">lgst_comp_hvy_atom_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 35</span>
+<span class="linenos"> 36</span>            <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getComponents</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>                 <span class="c1"># for each component</span>
+<span class="linenos"> 37</span>                <span class="n">hvy_atom_count</span> <span class="o">=</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">getHeavyAtomCount</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span> <span class="c1"># calc. non-hydrogen atom count</span>
+<span class="linenos"> 38</span>
+<span class="linenos"> 39</span>                <span class="k">if</span> <span class="n">hvy_atom_count</span> <span class="o">&gt;</span> <span class="n">lgst_comp_hvy_atom_count</span><span class="p">:</span>    <span class="c1"># check if the largest comp. so far has been found</span>
+<span class="linenos"> 40</span>                    <span class="n">lgst_comp_hvy_atom_count</span> <span class="o">=</span> <span class="n">hvy_atom_count</span>    <span class="c1"># if so, store for later use</span>
+<span class="linenos"> 41</span>                    <span class="n">lgst_comp</span> <span class="o">=</span> <span class="n">comp</span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span>            <span class="c1"># if the input molecule has structure data then pass them on (for SDF output)</span>
+<span class="linenos"> 44</span>            <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">hasStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>                       
+<span class="linenos"> 45</span>                <span class="n">Chem</span><span class="o">.</span><span class="n">setStructureData</span><span class="p">(</span><span class="n">lgst_comp</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getStructureData</span><span class="p">(</span><span class="n">mol</span><span class="p">))</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span>            <span class="c1"># for further checks use only the identified largest component </span>
+<span class="linenos"> 48</span>            <span class="n">comps_strpd</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos"> 49</span>            <span class="n">mol</span> <span class="o">=</span> <span class="n">lgst_comp</span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span>    <span class="c1"># calc. implicit hydrogen counts (if not done already)</span>
+<span class="linenos"> 52</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 53</span>    
+<span class="linenos"> 54</span>    <span class="c1"># create instance of class MolProp.ElementHistogram for storing the per-element atom counts</span>
+<span class="linenos"> 55</span>    <span class="c1"># of the molecule (or its largest comp.)</span>
+<span class="linenos"> 56</span>    <span class="n">elem_histo</span> <span class="o">=</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">ElementHistogram</span><span class="p">()</span>              
+<span class="linenos"> 57</span>
+<span class="linenos"> 58</span>    <span class="c1"># get per-element atom counts</span>
+<span class="linenos"> 59</span>    <span class="n">MolProp</span><span class="o">.</span><span class="n">generateElementHistogram</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">elem_histo</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>    
+<span class="linenos"> 60</span>
+<span class="linenos"> 61</span>    <span class="c1"># check if the found chem. elements are all in the set of allowed elements (if specified)</span>
+<span class="linenos"> 62</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">checkAllowedElements</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span><span class="p">):</span>    
+<span class="linenos"> 63</span>        <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;prohibited element detected&#39;</span><span class="p">)</span>
+<span class="linenos"> 64</span>
+<span class="linenos"> 65</span>    <span class="c1"># check if none of the found chem. elements is in the set of excluded elements (if specified)</span>
+<span class="linenos"> 66</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">checkExcludedElements</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span><span class="p">):</span>
+<span class="linenos"> 67</span>        <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;prohibited element detected&#39;</span><span class="p">)</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span>    <span class="c1"># check if all specified minium chem. element atom counts are reached</span>
+<span class="linenos"> 70</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">checkMinAtomCounts</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span><span class="p">):</span>
+<span class="linenos"> 71</span>        <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;minimum atom counts not reached&#39;</span><span class="p">)</span>
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>    <span class="c1"># check if none of the specified maximum chem. element atom counts gets exceeded</span>
+<span class="linenos"> 74</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">checkMaxAtomCounts</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span><span class="p">):</span>
+<span class="linenos"> 75</span>        <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;maximum atom count exceeded&#39;</span><span class="p">)</span>
+<span class="linenos"> 76</span>
+<span class="linenos"> 77</span>    <span class="n">log_msg</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 78</span>    
+<span class="linenos"> 79</span>    <span class="k">if</span> <span class="n">chgs_mod</span><span class="p">:</span>
+<span class="linenos"> 80</span>        <span class="n">log_msg</span> <span class="o">=</span> <span class="s1">&#39;reduced charged atom count&#39;</span>
+<span class="linenos"> 81</span>
+<span class="linenos"> 82</span>    <span class="k">if</span> <span class="n">comps_strpd</span><span class="p">:</span>
+<span class="linenos"> 83</span>        <span class="k">if</span> <span class="n">log_msg</span><span class="p">:</span>
+<span class="linenos"> 84</span>            <span class="n">log_msg</span> <span class="o">+=</span> <span class="s1">&#39;, removed components&#39;</span>
+<span class="linenos"> 85</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 86</span>            <span class="n">log_msg</span> <span class="o">=</span> <span class="s1">&#39;removed components&#39;</span>
+<span class="linenos"> 87</span>            
+<span class="linenos"> 88</span>    <span class="k">return</span> <span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">)</span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="c1"># checks if all found chem. elements are in the set of allowed elements (if specified)</span>
+<span class="linenos"> 91</span><span class="k">def</span> <span class="nf">checkAllowedElements</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">:</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">ElementHistogram</span><span class="p">,</span> <span class="n">elem_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos"> 92</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">elem_list</span><span class="p">:</span>
+<span class="linenos"> 93</span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span>    <span class="k">for</span> <span class="n">atom_type</span> <span class="ow">in</span> <span class="n">elem_histo</span><span class="o">.</span><span class="n">getKeys</span><span class="p">():</span>
+<span class="linenos"> 96</span>        <span class="n">allowed</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 97</span>        
+<span class="linenos"> 98</span>        <span class="k">for</span> <span class="n">all_atom_type</span> <span class="ow">in</span> <span class="n">elem_list</span><span class="p">:</span>
+<span class="linenos"> 99</span>            <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">atomTypesMatch</span><span class="p">(</span><span class="n">all_atom_type</span><span class="p">,</span> <span class="n">atom_type</span><span class="p">):</span>
+<span class="linenos">100</span>                <span class="n">allowed</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">101</span>                <span class="k">break</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">allowed</span><span class="p">:</span>
+<span class="linenos">104</span>            <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">105</span>
+<span class="linenos">106</span>    <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="c1"># checks if none of the found chem. elements is in the set of excluded elements (if specified)</span>
+<span class="linenos">109</span><span class="k">def</span> <span class="nf">checkExcludedElements</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">:</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">ElementHistogram</span><span class="p">,</span> <span class="n">elem_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos">110</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">elem_list</span><span class="p">:</span>
+<span class="linenos">111</span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">112</span>
+<span class="linenos">113</span>    <span class="k">for</span> <span class="n">atom_type</span> <span class="ow">in</span> <span class="n">elem_histo</span><span class="o">.</span><span class="n">getKeys</span><span class="p">():</span>
+<span class="linenos">114</span>        <span class="k">for</span> <span class="n">x_atom_type</span> <span class="ow">in</span> <span class="n">elem_list</span><span class="p">:</span>
+<span class="linenos">115</span>            <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">atomTypesMatch</span><span class="p">(</span><span class="n">x_atom_type</span><span class="p">,</span> <span class="n">atom_type</span><span class="p">):</span>
+<span class="linenos">116</span>                <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span>    <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="c1"># return the total number of atoms matching the specified atom type (element or generic type)</span>
+<span class="linenos">121</span><span class="k">def</span> <span class="nf">getNumAtomsOfType</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">:</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">ElementHistogram</span><span class="p">,</span> <span class="n">qry_atom_type</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos">122</span>    <span class="n">tot_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">123</span>
+<span class="linenos">124</span>    <span class="k">for</span> <span class="n">atom_type</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">elem_histo</span><span class="o">.</span><span class="n">getEntries</span><span class="p">():</span>
+<span class="linenos">125</span>        <span class="c1"># check if the elem. histogram entry matches the specified atom type (element or generic type)</span>
+<span class="linenos">126</span>        <span class="c1"># if so, add the stored count the total count</span>
+<span class="linenos">127</span>        <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">atomTypesMatch</span><span class="p">(</span><span class="n">qry_atom_type</span><span class="p">,</span> <span class="n">atom_type</span><span class="p">):</span>  
+<span class="linenos">128</span>            <span class="n">tot_count</span> <span class="o">+=</span> <span class="n">count</span>
+<span class="linenos">129</span>
+<span class="linenos">130</span>    <span class="k">return</span> <span class="n">tot_count</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span><span class="c1"># checks if all the specified minium counts of atoms matching a particular element or</span>
+<span class="linenos">133</span><span class="c1"># generic type are reached</span>
+<span class="linenos">134</span><span class="k">def</span> <span class="nf">checkMinAtomCounts</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">:</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">ElementHistogram</span><span class="p">,</span> <span class="n">atom_counts</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos">135</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">atom_counts</span><span class="p">:</span>
+<span class="linenos">136</span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">137</span>    
+<span class="linenos">138</span>    <span class="k">for</span> <span class="n">atom_type</span><span class="p">,</span> <span class="n">min_count</span> <span class="ow">in</span> <span class="n">atom_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">139</span>        <span class="k">if</span> <span class="n">getNumAtomsOfType</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">,</span> <span class="n">atom_type</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_count</span><span class="p">:</span>
+<span class="linenos">140</span>            <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">141</span>
+<span class="linenos">142</span>    <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">143</span>
+<span class="linenos">144</span><span class="c1"># checks if none of the specified maximum counts of atoms matching a particular element or</span>
+<span class="linenos">145</span><span class="c1"># generic type gets exceeded</span>
+<span class="linenos">146</span><span class="k">def</span> <span class="nf">checkMaxAtomCounts</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">:</span> <span class="n">MolProp</span><span class="o">.</span><span class="n">ElementHistogram</span><span class="p">,</span> <span class="n">atom_counts</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="linenos">147</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">atom_counts</span><span class="p">:</span>
+<span class="linenos">148</span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">149</span>    
+<span class="linenos">150</span>    <span class="k">for</span> <span class="n">atom_type</span><span class="p">,</span> <span class="n">max_count</span> <span class="ow">in</span> <span class="n">atom_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">151</span>        <span class="k">if</span> <span class="n">getNumAtomsOfType</span><span class="p">(</span><span class="n">elem_histo</span><span class="p">,</span> <span class="n">atom_type</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
+<span class="linenos">152</span>            <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">153</span>
+<span class="linenos">154</span>    <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">155</span>
+<span class="linenos">156</span><span class="c1"># converts a comma separated list of chem. element/generic type symbols into a list of the</span>
+<span class="linenos">157</span><span class="c1"># corresponding numeric atom types defined in Chem.AtomType</span>
+<span class="linenos">158</span><span class="k">def</span> <span class="nf">parseElementList</span><span class="p">(</span><span class="n">elem_list</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="linenos">159</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">elem_list</span><span class="p">:</span>
+<span class="linenos">160</span>        <span class="k">return</span> <span class="p">[]</span>
+<span class="linenos">161</span>    
+<span class="linenos">162</span>    <span class="n">atom_types</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">163</span>    
+<span class="linenos">164</span>    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">elem_list</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+<span class="linenos">165</span>        <span class="n">elem</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos">166</span>        
+<span class="linenos">167</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">elem</span><span class="p">:</span> <span class="c1"># zero length?</span>
+<span class="linenos">168</span>            <span class="k">continue</span>
+<span class="linenos">169</span>        
+<span class="linenos">170</span>        <span class="n">atom_type</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomDictionary</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span>        <span class="k">if</span> <span class="n">atom_type</span> <span class="o">==</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">:</span>
+<span class="linenos">173</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: unknown chemical element/generic type </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">elem</span><span class="p">)</span>
+<span class="linenos">174</span>
+<span class="linenos">175</span>        <span class="n">atom_types</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom_type</span><span class="p">)</span>
+<span class="linenos">176</span>            
+<span class="linenos">177</span>    <span class="k">return</span> <span class="n">atom_types</span>
+<span class="linenos">178</span>
+<span class="linenos">179</span><span class="c1"># converts a comma separated list of chem. element (or generic type) symbol/count pairs (sep. by colon) into a dictionary</span>
+<span class="linenos">180</span><span class="c1"># mapping the corresponding numeric atom types (defined in Chem.AtomType) to an integer number</span>
+<span class="linenos">181</span><span class="k">def</span> <span class="nf">parseElementCountList</span><span class="p">(</span><span class="n">elem_count_list</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="linenos">182</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">elem_count_list</span><span class="p">:</span>
+<span class="linenos">183</span>        <span class="k">return</span> <span class="p">{}</span>
+<span class="linenos">184</span>    
+<span class="linenos">185</span>    <span class="n">atom_type_counts</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">186</span>    
+<span class="linenos">187</span>    <span class="k">for</span> <span class="n">elem_count</span> <span class="ow">in</span> <span class="n">elem_count_list</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+<span class="linenos">188</span>        <span class="n">elem_count</span> <span class="o">=</span> <span class="n">elem_count</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos">189</span>        
+<span class="linenos">190</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">elem_count</span><span class="p">:</span> <span class="c1"># zero length?</span>
+<span class="linenos">191</span>            <span class="k">continue</span>
+<span class="linenos">192</span>        
+<span class="linenos">193</span>        <span class="n">elem_count</span> <span class="o">=</span> <span class="n">elem_count</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="linenos">194</span>        <span class="n">elem_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="linenos">195</span>        <span class="n">atom_type</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomDictionary</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">elem_count</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">196</span>        
+<span class="linenos">197</span>        <span class="k">if</span> <span class="n">atom_type</span> <span class="o">==</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">:</span>
+<span class="linenos">198</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: unknown chemical element/generic type </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">elem_count</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">199</span>
+<span class="linenos">200</span>        <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">201</span>        
+<span class="linenos">202</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">elem_count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># has count spec.?</span>
+<span class="linenos">203</span>            <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">elem_count</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">204</span>            
+<span class="linenos">205</span>        <span class="n">atom_type_counts</span><span class="p">[</span><span class="n">atom_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+<span class="linenos">206</span>            
+<span class="linenos">207</span>    <span class="k">return</span> <span class="n">atom_type_counts</span>
+<span class="linenos">208</span>                                
+<span class="linenos">209</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos">210</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Strips compounds that fulfill particular user-defined criteria from a molecule database.&#39;</span><span class="p">)</span>
+<span class="linenos">211</span>
+<span class="linenos">212</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos">213</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos">214</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">215</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">216</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input molecule file&#39;</span><span class="p">)</span>
+<span class="linenos">217</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos">218</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos">219</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">220</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">221</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output molecule file&#39;</span><span class="p">)</span>
+<span class="linenos">222</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span>
+<span class="linenos">223</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;disc_file&#39;</span><span class="p">,</span>
+<span class="linenos">224</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">225</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">226</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Discarded molecule output file&#39;</span><span class="p">)</span>
+<span class="linenos">227</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span>
+<span class="linenos">228</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;strip_comps&#39;</span><span class="p">,</span>
+<span class="linenos">229</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">230</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">231</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">232</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keep only the largest molecule component (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">233</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+<span class="linenos">234</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_charges&#39;</span><span class="p">,</span>
+<span class="linenos">235</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">236</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">237</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">238</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimize number of charged atoms (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">239</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
+<span class="linenos">240</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;excluded_elements&#39;</span><span class="p">,</span>
+<span class="linenos">241</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">242</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">243</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of excluded chem. elements (default: no elements are excluded)&#39;</span><span class="p">)</span>
+<span class="linenos">244</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span>
+<span class="linenos">245</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;allowed_elements&#39;</span><span class="p">,</span>
+<span class="linenos">246</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">247</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">248</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;List of allowed chem. elements (default: all elements are allowed)&#39;</span><span class="p">)</span>
+<span class="linenos">249</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
+<span class="linenos">250</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;min_atom_counts&#39;</span><span class="p">,</span>
+<span class="linenos">251</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">252</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element count list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">253</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Minimum chem. element specific atom counts (default: no count limits)&#39;</span><span class="p">)</span>
+<span class="linenos">254</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-M&#39;</span><span class="p">,</span>
+<span class="linenos">255</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_atom_counts&#39;</span><span class="p">,</span>
+<span class="linenos">256</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">257</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s2">&quot;&lt;element count list&gt;&quot;</span><span class="p">,</span>
+<span class="linenos">258</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Maximum chem. element specific atom counts (default: no count limits)&#39;</span><span class="p">)</span>
+<span class="linenos">259</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span>
+<span class="linenos">260</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;verb_level&#39;</span><span class="p">,</span>
+<span class="linenos">261</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">262</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;0|1|2|3&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">263</span>                        <span class="n">choices</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span class="linenos">264</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos">265</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Verbosity level (default: 1; 0 -&gt; no console output, 1 -&gt; print summary, 2 -&gt; verbose, 3 -&gt; extra verbose)&#39;</span><span class="p">,</span>
+<span class="linenos">266</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">267</span>
+<span class="linenos">268</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">269</span>
+<span class="linenos">270</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">271</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span> <span class="c1"># process command line arguments</span>
+<span class="linenos">272</span>
+<span class="linenos">273</span>    <span class="c1"># convert specified lists of chem. element/gen. type symbols into a corresponding list of</span>
+<span class="linenos">274</span>    <span class="c1"># numeric atom types (defined in Chem.Atomtype)</span>
+<span class="linenos">275</span>    <span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span>  <span class="o">=</span> <span class="n">parseElementList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">allowed_elements</span><span class="p">)</span>
+<span class="linenos">276</span>    <span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span> <span class="o">=</span> <span class="n">parseElementList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">excluded_elements</span><span class="p">)</span>
+<span class="linenos">277</span>
+<span class="linenos">278</span>    <span class="c1"># convert specified comma separated lists of chem. element (or generic type) symbol/count pairs (sep. by colon) into</span>
+<span class="linenos">279</span>    <span class="c1"># corresponding dictionaries mapping numeric atom types (defined in Chem.AtomType) to integers</span>
+<span class="linenos">280</span>    <span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span> <span class="o">=</span> <span class="n">parseElementCountList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">min_atom_counts</span><span class="p">)</span>
+<span class="linenos">281</span>    <span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span> <span class="o">=</span> <span class="n">parseElementCountList</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">max_atom_counts</span><span class="p">)</span>
+<span class="linenos">282</span>    
+<span class="linenos">283</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">284</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos">285</span>
+<span class="linenos">286</span>    <span class="c1"># create writer for molecules passing the checks (format specified by file extension)</span>
+<span class="linenos">287</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos">288</span>
+<span class="linenos">289</span>    <span class="c1"># write canonical SMILES</span>
+<span class="linenos">290</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">setSMILESOutputCanonicalFormParameter</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">291</span>    
+<span class="linenos">292</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">disc_file</span><span class="p">:</span>
+<span class="linenos">293</span>        <span class="c1"># create writer for sorted out molecules (format specified by file extension)</span>
+<span class="linenos">294</span>        <span class="n">disc_writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">disc_file</span><span class="p">)</span>
+<span class="linenos">295</span>        <span class="c1"># write canonical SMILES</span>
+<span class="linenos">296</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setSMILESOutputCanonicalFormParameter</span><span class="p">(</span><span class="n">disc_writer</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">297</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">298</span>        <span class="n">disc_writer</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">299</span>        
+<span class="linenos">300</span>    <span class="c1"># create instances of the default implementation of the Chem.Molecule interface for the input and output molecules</span>
+<span class="linenos">301</span>    <span class="n">in_mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">302</span>
+<span class="linenos">303</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">304</span>    <span class="n">num_changed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">305</span>    <span class="n">num_disc</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">306</span>    
+<span class="linenos">307</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">308</span>        <span class="c1"># read and process molecules one after the other until the end of input has been reached (or a severe error occurs)</span>
+<span class="linenos">309</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">in_mol</span><span class="p">):</span>
+<span class="linenos">310</span>            <span class="c1"># compose a molecule identifier</span>
+<span class="linenos">311</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">in_mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">312</span>
+<span class="linenos">313</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">314</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># fallback if name is empty or not available</span>
+<span class="linenos">315</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">316</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos">317</span>            
+<span class="linenos">318</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">319</span>                <span class="c1"># process input molecule</span>
+<span class="linenos">320</span>                <span class="n">out_mol</span><span class="p">,</span> <span class="n">log_msg</span> <span class="o">=</span> <span class="n">processMolecule</span><span class="p">(</span><span class="n">in_mol</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> 
+<span class="linenos">321</span>                
+<span class="linenos">322</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">out_mol</span><span class="p">:</span>         <span class="c1"># check whether the molecule has been sorted out</span>
+<span class="linenos">323</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">log_msg</span><span class="p">:</span>
+<span class="linenos">324</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: discarded, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">))</span>
+<span class="linenos">325</span>
+<span class="linenos">326</span>                    <span class="n">num_disc</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">327</span>                        
+<span class="linenos">328</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">disc_writer</span><span class="p">:</span> <span class="c1"># check whether discarded molecules should be saved to a separate file</span>
+<span class="linenos">329</span>                        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">330</span>                        <span class="k">continue</span>
+<span class="linenos">331</span>
+<span class="linenos">332</span>                    <span class="c1"># write discarded molecule to the specified target file</span>
+<span class="linenos">333</span>                    <span class="n">out_mol</span> <span class="o">=</span> <span class="n">in_mol</span>
+<span class="linenos">334</span>                    <span class="n">out_mol_writer</span> <span class="o">=</span> <span class="n">disc_writer</span>
+<span class="linenos">335</span>                <span class="k">else</span><span class="p">:</span>
+<span class="linenos">336</span>                    <span class="k">if</span> <span class="n">log_msg</span><span class="p">:</span>
+<span class="linenos">337</span>                        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">:</span>
+<span class="linenos">338</span>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">log_msg</span><span class="p">))</span>
+<span class="linenos">339</span>                            
+<span class="linenos">340</span>                        <span class="n">num_changed</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">341</span>                    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">342</span>                        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="linenos">343</span>                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Molecule </span><span class="si">%s</span><span class="s1">: left unchanged&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">344</span>
+<span class="linenos">345</span>                    <span class="c1"># molecule passed all checks and needs to be written to the regular output file</span>
+<span class="linenos">346</span>                    <span class="n">out_mol_writer</span> <span class="o">=</span> <span class="n">writer</span>
+<span class="linenos">347</span>                    
+<span class="linenos">348</span>                <span class="k">try</span><span class="p">:</span>
+<span class="linenos">349</span>                    <span class="c1"># calculate (if not already present) some basic properties of the output molecule</span>
+<span class="linenos">350</span>                    <span class="c1"># that might be required for writing (output format dependent)</span>
+<span class="linenos">351</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">352</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">353</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">354</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">355</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">356</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveComponents</span><span class="p">(</span><span class="n">out_mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">357</span>                              
+<span class="linenos">358</span>                    <span class="c1"># output molecule</span>
+<span class="linenos">359</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">out_mol_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out_mol</span><span class="p">):</span>
+<span class="linenos">360</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">361</span>
+<span class="linenos">362</span>                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
+<span class="linenos">363</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">364</span>
+<span class="linenos">365</span>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">366</span>                
+<span class="linenos">367</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe processing errors</span>
+<span class="linenos">368</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">369</span>                
+<span class="linenos">370</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">371</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">372</span>
+<span class="linenos">373</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verb_level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">374</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Summary:&#39;</span><span class="p">)</span>
+<span class="linenos">375</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> molecules processed&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos">376</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> modified &#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_changed</span><span class="p">))</span>
+<span class="linenos">377</span>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - </span><span class="si">%s</span><span class="s1"> discarded&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_disc</span><span class="p">))</span>
+<span class="linenos">378</span>        
+<span class="linenos">379</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">380</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">381</span>
+<span class="linenos">382</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">383</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../../_downloads/fd2205d6e6c32fea9156aac8a780ef25/clean_mol_db.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="prot_phys_cond.html" class="btn btn-neutral float-left" title="1.1.3.2. Generating Protonation States at Physiological pH" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../substruct_search/index.html" class="btn btn-neutral float-right" title="1.1.4. Substructure Search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

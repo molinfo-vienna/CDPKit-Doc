@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>structgen &mdash; CDPKit 1.2.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=bd7b91d8" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/v1.2.3/applications/structgen.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/tabs.js?v=3ee01567"></script>
+        <script src="../_static/docs-versions-menu.js?v=bb46260f"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="confgen" href="confgen.html" />
+    <link rel="prev" title="subsearch" href="subsearch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="psdscreen.html">psdscreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdcreate.html">psdcreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdmerge.html">psdmerge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psdinfo.html">psdinfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapescreen.html">shapescreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsearch.html">subsearch</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">structgen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-options">Mandatory options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-options">Other options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="confgen.html">confgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genfraglib.html">genfraglib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tautgen.html">tautgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="isogen.html">isogen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chox.html">ChOX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">CDPKit Applications</a></li>
+      <li class="breadcrumb-item active">structgen</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/applications/structgen.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="structgen">
+<h1>structgen<a class="headerlink" href="#structgen" title="Link to this heading"></a></h1>
+<p>Performs 3D structure generation for a set of input molecules.</p>
+<p><strong class="program">structgen</strong> is similar to <strong class="program">confgen</strong> but has been designed for use-cases where
+a single reasonable low-energy 3D struture of a molecule is sufficient (which can be generated much
+faster than a diverse conformer ensemble).</p>
+<section id="synopsis">
+<h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p><strong class="program">structgen</strong> [-hVvptASszxUa^] [-c arg] [-l arg] [-f arg] [-m arg] [-d arg] [-q arg] [-D arg] [-E arg] [-T arg] [-Z arg] [-P arg] [-w arg] [-k arg] [-K arg] [-B arg] [-g arg] [-G arg] [-I arg] [-O arg] [-F arg] [-j arg] [-J arg] [-~ arg] [-Q arg] -i arg [arg]… -o arg</p>
+</div></blockquote>
+</section>
+<section id="mandatory-options">
+<h2>Mandatory options<a class="headerlink" href="#mandatory-options" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>-i [ –input ] arg</p>
+<blockquote>
+<div><p>Specifies one or more input file(s) with molecules for which conformers have to
+be generated.</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES String (.smi)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
+<li><p>Chemical Markup Language Format (.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+<li><p>CDPL Conformer Generator Fragment Library Format (.cfl, .cdf)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>-o [ –output ] arg</p>
+<blockquote>
+<div><p>Specifies the output file where the generated structures will be stored.</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
+<li><p>Chemical Markup Language Format (.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="other-options">
+<h2>Other options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>-h [ –help ] [=arg(=SHORT)]</p>
+<blockquote>
+<div><p>Print help message and exit (ABOUT, USAGE, SHORT, ALL or ‘name of option’, default:
+SHORT).</p>
+</div></blockquote>
+<p>-V [ –version ]</p>
+<blockquote>
+<div><p>Print version information and exit.</p>
+</div></blockquote>
+<p>-v [ –verbosity ] [=arg(=VERBOSE)]</p>
+<blockquote>
+<div><p>Verbosity level of information output (QUIET, ERROR, INFO, VERBOSE, DEBUG, default:
+INFO).</p>
+</div></blockquote>
+<p>-c [ –config ] arg</p>
+<blockquote>
+<div><p>Use file with program options.</p>
+</div></blockquote>
+<p>-l [ –log-file ] arg</p>
+<blockquote>
+<div><p>Redirect text-output to file.</p>
+</div></blockquote>
+<p>-p [ –progress ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Show progress bar (default: true).</p>
+</div></blockquote>
+<p>-f [ –failed ] arg</p>
+<blockquote>
+<div><p>Specifies the output file for molecules where structure generation failed.</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES String (.smi)</p></li>
+<li><p>Daylight SMARTS String (.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL-Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p>-t [ –num-threads ] [=arg(=4)]</p>
+<blockquote>
+<div><p>Number of parallel execution threads (default: no multithreading, implicit value:
+number of CPUs, must be &gt;= 0, 0 disables multithreading).</p>
+</div></blockquote>
+<p>-m [ –mode ] arg</p>
+<blockquote>
+<div><p>Structure generation method to use (AUTO, DG, FRAGMENT, default: AUTO).</p>
+</div></blockquote>
+<p>-A [ –tol-range-sampling ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Additionally generate conformers for angles at the boundaries of the first torsion
+angle tolerance range (only effective for fragment-based structure generation, default:
+true).</p>
+</div></blockquote>
+<p>-S [ –from-scratch ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Discard input 3D-coordinates and generate structures from scratch (default: true).</p>
+</div></blockquote>
+<p>-d [ –frag-force-field ] arg</p>
+<blockquote>
+<div><p>Force field used for fragment-based structure generation (MMFF94, MMFF94_NO_ESTAT,
+MMFF94S, MMFF94S_XOOP, MMFF94S_RTOR, MMFF94S_RTOR_XOOP, MMFF94S_NO_ESTAT, MMFF94S_XOOP_NO_ESTAT,
+MMFF94S_RTOR_NO_ESTAT, MMFF94S_RTOR_XOOP_NO_ESTAT, default: MMFF94S_RTOR_NO_ESTAT).</p>
+</div></blockquote>
+<p>-q [ –dg-force-field ] arg</p>
+<blockquote>
+<div><p>Force field used for DG-based structure generation (MMFF94, MMFF94_NO_ESTAT, MMFF94S,
+MMFF94S_XOOP, MMFF94S_RTOR, MMFF94S_RTOR_XOOP, MMFF94S_NO_ESTAT, MMFF94S_XOOP_NO_ESTAT,
+MMFF94S_RTOR_NO_ESTAT, MMFF94S_RTOR_XOOP_NO_ESTAT, default: MMFF94S).</p>
+</div></blockquote>
+<p>-s [ –strict-param ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Perform strict MMFF94 parameterization (default: true).</p>
+</div></blockquote>
+<p>-D [ –dielectric-const ] arg</p>
+<blockquote>
+<div><p>Dielectric constant used for the calculation of electrostatic interaction energies
+(default: 80.0).</p>
+</div></blockquote>
+<p>-E [ –dist-exponent ] arg</p>
+<blockquote>
+<div><p>Distance exponent used for the calculation of electrostatic interaction energies
+(default: 1.0).</p>
+</div></blockquote>
+<p>-T [ –timeout ] arg</p>
+<blockquote>
+<div><p>Time in seconds after which structure generation will be stopped (default: 1200
+s, must be &gt;= 0, 0 disables timeout).</p>
+</div></blockquote>
+<p>-Z [ –mc-rot-bond-count-thresh ] arg</p>
+<blockquote>
+<div><p>Number of rotatable bonds in a ring above which DG-based structure generation will
+be performed(only effective in generation mode AUTO, default: 10, must be &gt; 0).</p>
+</div></blockquote>
+<p>-P [ –ref-tol ] arg</p>
+<blockquote>
+<div><p>Energy tolerance at which force field structure refinement stops (only effective
+in DG-based structure generation, default: 0.001, must be &gt;= 0, 0 results in refinement
+until convergence).</p>
+</div></blockquote>
+<p>-w [ –max-ref-iter ] arg</p>
+<blockquote>
+<div><p>Maximum number of force field structure refinement iterations (only effective in
+DG-based structure generation, default: 0, must be &gt;= 0, 0 disables limit).</p>
+</div></blockquote>
+<p>-k [ –add-tor-lib ] arg</p>
+<blockquote>
+<div><p>Torsion library to be used in addition to the built-in library (only effective for
+fragment-based structure generation).</p>
+</div></blockquote>
+<p>-K [ –set-tor-lib ] arg</p>
+<blockquote>
+<div><p>Torsion library used as a replacement for the built-in library (only effective for
+fragment-based structure generation).</p>
+</div></blockquote>
+<p>-B [ –frag-build-preset ] arg</p>
+<blockquote>
+<div><p>Fragment build preset to use (FAST, THOROUGH, only effective for fragment-based
+structure generation, default: FAST).</p>
+</div></blockquote>
+<p>-g [ –add-frag-lib ] arg</p>
+<blockquote>
+<div><p>Fragment library to be used in addition to the built-in library (only effective
+for fragment-based structure generation).</p>
+</div></blockquote>
+<p>-G [ –set-frag-lib ] arg</p>
+<blockquote>
+<div><p>Fragment library used as a replacement for the built-in library (only effective
+for fragment-based structure generation).</p>
+</div></blockquote>
+<p>-z [ –canonicalize ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Canonicalize input molecules (default: false).</p>
+</div></blockquote>
+<p>-U [ –hard-timeout ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Specifies that exceeding the time limit shall be considered as an error and cause
+structure generation to fail (default: false).</p>
+</div></blockquote>
+<p>-I [ –input-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the format of the input file(s) by providing one of
+the supported file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file(s) (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-O [ –output-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the output format by providing one of the supported
+file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file (because missing, misleading or not supported).
+Note that only storage formats make sense that allow to store atom 3D-coordinates!</p>
+</div></blockquote>
+<p>-F [ –failed-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the output format by providing one of the supported
+file-extensions (without leading dot!) as argument.
+This option is useful when the format cannot be auto-detected from the actual extension
+of the file (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-j [ –fixed-substr ] arg</p>
+<blockquote>
+<div><p>Fixed substructure template molecule file. The given molecule can serve as
+source for fixed substructure atom 3D coordinates and also as query for
+finding fixed substructure matches in the processed input molecules if a
+SMARTS pattern has not been specified by option <em>–fixed-substr-ptn</em>. If the
+template molecule file does not provide atom 3D coordinates then the
+coordinates of matched input molecule atoms will be used (if 3D coordinates
+are not provided either way an error will be reported). [since V1.1]</p>
+</div></blockquote>
+<p>-J [ –fixed-substr-ptn ] arg</p>
+<blockquote>
+<div><p>SMARTS pattern for finding fixed substructure matches in the processed
+input molecules. If a template molecule file has been specified by option
+<em>–fixed-substr</em> then matching atoms of that molecule will serve as primary source for
+fixed atom 3D coordinates. Otherwise, the coordinates of matched input
+molecule atoms will be used (if 3D coordinates are not provided either way
+an error will be reported). [since V1.1]</p>
+</div></blockquote>
+<p>-U [ –fixed-substr-mcss ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Use maximum common substructure search to find fixed substructure matches
+(default: false, using reqular substructure searching). [since V1.1]</p>
+</div></blockquote>
+<p>-a [ –fixed-substr-align ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Align generated 3D structure on fixed substructure input atom positions (default: false). [since V1.1]</p>
+</div></blockquote>
+<p>-~ [ –fixed-substr-min-atoms ] arg</p>
+<blockquote>
+<div><p>The minimum required number of matched atoms when using maximum common
+substructure searching to find fixed substructure matches (default: 2). [since V1.1]</p>
+</div></blockquote>
+<p>-Q [ –fixed-substr-max-matches ] arg</p>
+<blockquote>
+<div><p>The maximum number of considered fixed substructure matches (default: 1, 0 disables limit). [since V1.1]</p>
+</div></blockquote>
+<p>-^ [ –fixed-substr-ignore-h ] [=arg(=1)]</p>
+<blockquote>
+<div><p>Ignore hydrogens that are present in the specified fixed substructure
+template molecule file (default: false). [since V1.1]</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="subsearch.html" class="btn btn-neutral float-left" title="subsearch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="confgen.html" class="btn btn-neutral float-right" title="confgen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
