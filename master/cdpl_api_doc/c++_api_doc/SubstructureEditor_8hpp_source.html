@@ -219,36 +219,37 @@ $(function() {
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                              <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; mask, <span class="keywordtype">bool</span> lbld_only, <span class="keywordtype">bool</span> init) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a>* getMappedAtomForID(<span class="keyword">const</span> AtomMapping&amp; mapping, std::size_t <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordtype">void</span> copyProperty(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; src_cntnr, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; tgt_cntnr, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1LookupKey.html">Base::LookupKey</a>&amp; key) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VT, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordtype">bool</span> copyPropertyWithChangeCheck(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; src_cntnr, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; tgt_cntnr, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1LookupKey.html">Base::LookupKey</a>&amp; key) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a>&amp; getMolGraph(<span class="keyword">const</span> Pattern&amp; ptn);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;Util::BitSet&gt;</a> BitSetCache;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Util::BitSet*&gt;      BitSetList;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Atom*&gt;              AtomArray;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keyword">typedef</span> std::unordered_set&lt;Atom*&gt;       AtomSet;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keyword">typedef</span> std::unordered_set&lt;Bond*&gt;       BondSet;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keyword">const</span> MolecularGraph*         molGraph;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            PatternList                   searchPatterns;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            PatternList                   excludePatterns;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> resultPattern;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            BitSetList                    excludeMatches;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            AtomArray                     resPtnAtomMapping;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            AtomSet                       hybStateUpdateAtoms;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            AtomSet                       configUpdateAtoms;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            BondSet                       configUpdateBonds;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            BitSetCache                   bitSetCache;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        };</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    } <span class="comment">// namespace Chem</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_CHEM_SUBSTRUCTUREEDITOR_HPP</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a>* getNeighbor(<span class="keyword">const</span> Atom* ctr_atom, <span class="keyword">const</span> Atom* excl_nbr) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordtype">void</span> copyProperty(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; src_cntnr, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; tgt_cntnr, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1LookupKey.html">Base::LookupKey</a>&amp; key) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VT, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordtype">bool</span> copyPropertyWithChangeCheck(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; src_cntnr, <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; tgt_cntnr, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1LookupKey.html">Base::LookupKey</a>&amp; key) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a>&amp; getMolGraph(<span class="keyword">const</span> Pattern&amp; ptn);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;Util::BitSet&gt;</a> BitSetCache;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Util::BitSet*&gt;      BitSetList;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Atom*&gt;              AtomArray;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keyword">typedef</span> std::unordered_set&lt;Atom*&gt;       AtomSet;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keyword">typedef</span> std::unordered_set&lt;Bond*&gt;       BondSet;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keyword">const</span> MolecularGraph*         molGraph;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            PatternList                   searchPatterns;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            PatternList                   excludePatterns;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> resultPattern;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            BitSetList                    excludeMatches;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            AtomArray                     resPtnAtomMapping;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            AtomSet                       hybStateUpdateAtoms;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            AtomSet                       configUpdateAtoms;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            BondSet                       configUpdateBonds;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            BitSetCache                   bitSetCache;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        };</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    } <span class="comment">// namespace Chem</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_CHEM_SUBSTRUCTUREEDITOR_HPP</span></div>
 <div class="ttc" id="aBitSet_8hpp_html"><div class="ttname"><a href="BitSet_8hpp.html">BitSet.hpp</a></div><div class="ttdoc">Definition of the type CDPL::Util::BitSet.</div></div>
 <div class="ttc" id="aChem_2APIPrefix_8hpp_html"><div class="ttname"><a href="Chem_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_CHEM_API.</div></div>
 <div class="ttc" id="aChem_2APIPrefix_8hpp_html_addd1f8801b15c51c9417a3eff3212ade"><div class="ttname"><a href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a></div><div class="ttdeci">#define CDPL_CHEM_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
