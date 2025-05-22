@@ -143,34 +143,36 @@ $(function() {
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordtype">void</span> markAtoms(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordtype">void</span> combineMarkedAtoms(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordtype">void</span> combineMarkedAtoms(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a>&amp; atom, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph, <a class="code" href="classCDPL_1_1Chem_1_1Fragment.html">Chem::Fragment</a>&amp; func_grp);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordtype">void</span> generateAndSetName(<a class="code" href="classCDPL_1_1Chem_1_1Fragment.html">Chem::Fragment</a>&amp; func_grp, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            std::size_t getEnvironmentCarbons(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a>&amp; atom, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Fragment.html">Chem::Fragment</a>&amp; func_grp,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                              <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordtype">void</span> createEnvironmentBonds(std::size_t atom_idx, std::size_t num_bonds, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> atom_type, <span class="keywordtype">bool</span> aromatic);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">char</span>* getClassName()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">            </span>{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;FunctionalGroupList&quot;</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;const Chem::Atom*&gt; AtomList;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>                       markedAtoms;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            std::ostringstream                 strStream;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1SMILESMolecularGraphWriter.html">Chem::SMILESMolecularGraphWriter</a>   smilesWriter;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1ProtonationStateStandardizer.html">Chem::ProtonationStateStandardizer</a> chargeStandardizer;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1BasicMolecule.html">Chem::BasicMolecule</a>                funcGroupMol;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1FragmentList.html#a5bd3d9394e0cbdcf07f3a87d4ea1a67b">Chem::FragmentList::SharedPointer</a>  funcGroupMolComps;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            AtomList                           envCarbons;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    } <span class="comment">// namespace MolProp</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_MOLPROP_FUNCTIONALGROUPLIST_HPP</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordtype">void</span> combineMarkedAtoms(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a>&amp; atom, <span class="keywordtype">bool</span> aromatic, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                    <a class="code" href="classCDPL_1_1Chem_1_1Fragment.html">Chem::Fragment</a>&amp; func_grp);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">void</span> generateAndSetName(<a class="code" href="classCDPL_1_1Chem_1_1Fragment.html">Chem::Fragment</a>&amp; func_grp, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::size_t getEnvironmentCarbons(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a>&amp; atom, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Fragment.html">Chem::Fragment</a>&amp; func_grp,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                              <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a>&amp; molgraph);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">void</span> createEnvironmentBonds(std::size_t atom_idx, std::size_t num_bonds, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> atom_type,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                        <span class="keywordtype">bool</span> aromatic);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">char</span>* getClassName()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">            </span>{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <span class="stringliteral">&quot;FunctionalGroupList&quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;const Chem::Atom*&gt; AtomList;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>                       markedAtoms;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            std::ostringstream                 strStream;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1SMILESMolecularGraphWriter.html">Chem::SMILESMolecularGraphWriter</a>   smilesWriter;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1ProtonationStateStandardizer.html">Chem::ProtonationStateStandardizer</a> chargeStandardizer;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1BasicMolecule.html">Chem::BasicMolecule</a>                funcGroupMol;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1FragmentList.html#a5bd3d9394e0cbdcf07f3a87d4ea1a67b">Chem::FragmentList::SharedPointer</a>  funcGroupMolComps;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            AtomList                           envCarbons;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        };</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    } <span class="comment">// namespace MolProp</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_MOLPROP_FUNCTIONALGROUPLIST_HPP</span></div>
 <div class="ttc" id="aBasicMolecule_8hpp_html"><div class="ttname"><a href="BasicMolecule_8hpp.html">BasicMolecule.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Chem::BasicMolecule.</div></div>
 <div class="ttc" id="aBitSet_8hpp_html"><div class="ttname"><a href="BitSet_8hpp.html">BitSet.hpp</a></div><div class="ttdoc">Definition of the type CDPL::Util::BitSet.</div></div>
 <div class="ttc" id="aFragmentList_8hpp_html"><div class="ttname"><a href="FragmentList_8hpp.html">FragmentList.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Chem::FragmentList.</div></div>
