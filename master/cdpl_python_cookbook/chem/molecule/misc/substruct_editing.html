@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.1.4.2. Rule-based Editing of Substructures &mdash; CDPKit 1.3.0.dev1 documentation</title>
+  <title>1.1.4.2. Editing of Substructures &mdash; CDPKit 1.3.0.dev1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
@@ -100,7 +100,7 @@
           <li class="breadcrumb-item"><a href="../../index.html"><span class="section-number">1. </span>Processing of Chemical Data</a></li>
           <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">1.1. </span>Molecules</a></li>
           <li class="breadcrumb-item"><a href="index.html"><span class="section-number">1.1.4. </span>Miscellaneous</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1.1.4.2. </span>Rule-based Editing of Substructures</li>
+      <li class="breadcrumb-item active"><span class="section-number">1.1.4.2. </span>Editing of Substructures</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/cdpl_python_cookbook/chem/molecule/misc/substruct_editing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,13 +110,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="rule-based-editing-of-substructures">
-<h1><span class="section-number">1.1.4.2. </span>Rule-based Editing of Substructures<a class="headerlink" href="#rule-based-editing-of-substructures" title="Link to this heading"></a></h1>
+  <section id="editing-of-substructures">
+<h1><span class="section-number">1.1.4.2. </span>Editing of Substructures<a class="headerlink" href="#editing-of-substructures" title="Link to this heading"></a></h1>
 <p>The script <em>edit_mols.py</em> performs modifications on the molecular graph of molecules read from a specified file according
 to a provided set of SMARTS/SMILES pattern-based substructure editing rules and writes the results to a given output file.</p>
 <p><strong>Synopsis</strong></p>
 <blockquote>
-<div><p><strong class="program">python</strong> <em>edit_mols.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; -p &lt;file/string&gt; [-m] [-q]</p>
+<div><p><strong class="program">python</strong> <em>edit_mols.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; -p &lt;file/string&gt; [-m] [-d] [-c] [-q]</p>
 </div></blockquote>
 <p><strong>Mandatory options</strong></p>
 <blockquote>
@@ -141,46 +141,104 @@ to a provided set of SMARTS/SMILES pattern-based substructure editing rules and 
 <dt><kbd><span class="option">-m</span></kbd></dt>
 <dd><p>Output input molecule before the resulting edited molecule (default: false)</p>
 </dd>
+<dt><kbd><span class="option">-d</span></kbd></dt>
+<dd><p>Remove ordinary explicit hydrogens (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-c</span></kbd></dt>
+<dd><p>Saturate free valences with explicit hydrogens (default: false)</p>
+</dd>
 <dt><kbd><span class="option">-q</span></kbd></dt>
 <dd><p>Disable progress output (default: false)</p>
 </dd>
 </dl>
 </div></blockquote>
-<p><strong>Examples</strong></p>
+<p>A molecular graph editing operation is specified via a string of one or more SMARTS patterns describing the substructures to edit, optional substructure exclude patterns and a SMILES
+string encoding the specific atom and bond modifications to perform. This string of patterns can be specified directly on the command line as value of option <em>-p</em>. Alternatively,
+the value may also be the path to a file which stores one set of patterns per line and thus allows to specify multiple distinct editing operations which will then be
+processed for each input molecule in turn.</p>
+<p>The sequence of whitespace-separated SMARTS/SMILES patterns must be formatted as follows (for examples see below):</p>
+<p><em>&lt;#Search Patterns&gt; &lt;SMARTS Pattern&gt; … &lt;#Exclude Patterns&gt; [&lt;SMARTS Pattern&gt; …] &lt;Editing Result SMILES&gt;</em></p>
+<p>In the substructure search pattern(s), any atoms to be edited and/or atoms connected by bonds to be modified must be labeled by a unique non-zero integer number (by means of a colon followed
+by the integer number at the end of the SMARTS atom specification). These numeric ids are used to establish an unambiguous mapping between the atoms/bonds of the search pattern
+and the SMILES string encoding the editing instructions.
+As mentioned above, the atom/bond editing operations are all specified by means of a simple SMILES string. For the purpose of substructure editing, the SMILES format has been extended by
+additional atom type and bond order symbols that allow to mark atom/bonds for deletion or act as a ‘do not change’ marker for atom type or bond order.</p>
+<p>Editing result SMILES strings have to be composed according to the following rules:</p>
+<ul class="simple">
+<li><p>Atoms of the molecule matching labeled search pattern atoms are referenced by their numeric id (likewise specified by means of a colon followed
+by the integer number at the end of the SMILES atom specification)</p></li>
+<li><p>A bond between two labeled atoms in the result SMILES string will be mapped to the bond of the molecule that matched the corresponding bond of the search pattern</p></li>
+<li><p>If such a bond of the molecule does not exist it will be created with the specified bond order</p></li>
+<li><p>A molecule bond connecting two atoms that match labeled search pattern atoms which is not occurring in the result SMILES string will be left unchanged</p></li>
+<li><p>A molecule atom matching a labeled search pattern atom which is not occurring in the result SMILES string will be left unchanged</p></li>
+<li><p>A labeled atom in the result SMILES string with a numeric id that does not occur in the search pattern will be created with specified properties (symbol, form. charge, isotope, chirality, …)</p></li>
+<li><p>Any unlabeled atoms in the result SMILES string will be created with the specified properties (symbol, form. charge, isotope, chirality, …)</p></li>
+<li><p>Bonds to/between unlabeled result SMILES string atoms will be created with the specified bond order</p></li>
+<li><p>For a mapped molecule atom only those properties (symbol, form. charge, isotope, chirality, …) that were specified for the corresponding result SMILES string atom will be modified</p></li>
+<li><p>The special result SMILES string atom type symbol <strong>x</strong> (only valid in brackets) results in the removal of the mapped molecule atom including any incident bonds</p></li>
+<li><p>The special result SMILES string atom type symbol <strong>~</strong> (only valid in brackets) indicates that the type of the mapped molecule atom shall be left unchanged</p></li>
+<li><p>The special result SMILES string bond order symbol <strong>x</strong> results in the removal of the mapped molecule bond</p></li>
+<li><p>The special result SMILES string bond order symbol <strong>~</strong> indicates that the order of the mapped molecule bond shall be left unchanged</p></li>
+</ul>
+<p><strong>Substructure editing examples</strong></p>
 <ul>
 <li><dl>
-<dt><em>Nitro group standardization</em></dt><dd><ul>
-<li><p>Search Pattern:  [#6][N:1](~[O:2])~[O:3]</p></li>
-<li><p>Exclude Pattern: [#6][N+](=[O+0])-[O-]</p></li>
-<li><p>Result Pattern:  [~+:1](-[~-:2])=[~+0:3]</p>
-<a class="reference internal image-reference" href="../../../../_images/mol_edit_nitro_std.svg"><img alt="Nitro standardization" src="../../../../_images/mol_edit_nitro_std.svg" style="width: 632.97px; height: 217.44px;" />
+<dt><em>Nitro group standardization</em></dt><dd><div class="line-block">
+<div class="line">Search pattern:  [#6][N:1](~[O:2])~[O:3]</div>
+<div class="line">Exclude pattern: [#6][N+](=[O+0])-[O-]</div>
+<div class="line">Result pattern:  [~+:1](-[~-:2])=[~+0:3]</div>
+</div>
+<p><strong>Command line example:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>edit_mols.py<span class="w"> </span>-i<span class="w"> </span>wrong_trinitro_benz.sdf<span class="w"> </span>-o<span class="w"> </span>corr_trinitro_benz.smi<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;1 [#6][N:1](~[O:2])~[O:3] 1 [#6][N+](=[O+0])-[O-] [~+:1](-[~-:2])=[~+0:3]&#39;</span><span class="w"> </span>-d
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../../_images/mol_edit_nitro_std.svg"><img alt="Nitro group standardization example" src="../../../../_images/mol_edit_nitro_std.svg" style="width: 473.90000000000003px; height: 169.12px;" />
 </a>
-</li>
-</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference download internal" download="" href="../../../../_downloads/09408614c45774892298a0612b771521/wrong_trinitro_benz.sdf"><code class="xref download docutils literal notranslate"><span class="pre">wrong_trinitro_benz.sdf</span></code></a></div>
+<div class="line"><a class="reference download internal" download="" href="../../../../_downloads/5e9fd40e85e82d54341680425aa70124/corr_trinitro_benz.smi"><code class="xref download docutils literal notranslate"><span class="pre">corr_trinitro_benz.smi</span></code></a></div>
+</div>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt><em>Use case 2</em></dt><dd><ul>
-<li><p>Search Pattern:</p></li>
-<li><p>Exclude Pattern:</p></li>
-<li><p>Result Pattern:</p>
-<a class="reference internal image-reference" href="../../../../_images/mol_edit_nitro_std.svg"><img alt="Nitro standardization" src="../../../../_images/mol_edit_nitro_std.svg" style="width: 632.97px; height: 217.44px;" />
+<dt><em>Oxidation of primary alcohols to carboxylic acids</em></dt><dd><div class="line-block">
+<div class="line">Search pattern:  [CD2^3:1]-[OD1]</div>
+<div class="line">Exclude pattern: -</div>
+<div class="line">Result pattern:  [~:1]=O</div>
+</div>
+<p><strong>Command line example:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>edit_mols.py<span class="w"> </span>-i<span class="w"> </span>3ccz_A_5HI.sdf<span class="w"> </span>-o<span class="w"> </span>3ccz_A_5HI_ox.sdf<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;1 [CX2^3:1][OX1] 0 [~:1]=O&#39;</span><span class="w"> </span>-d
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../../_images/mol_edit_coh_to_cooh.svg"><img alt="Primary alcohol oxidation example" src="../../../../_images/mol_edit_coh_to_cooh.svg" style="width: 987.8400000000001px; height: 262.29px;" />
 </a>
-</li>
-</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference download internal" download="" href="../../../../_downloads/93d1141333b552a91f39563b6c64994a/3ccz_A_5HI.sdf"><code class="xref download docutils literal notranslate"><span class="pre">3ccz_A_5HI.sdf</span></code></a></div>
+<div class="line"><a class="reference download internal" download="" href="../../../../_downloads/c0295fc06d7c8fdd140ab2951329179c/3ccz_A_5HI_ox.sdf"><code class="xref download docutils literal notranslate"><span class="pre">3ccz_A_5HI_ox.sdf</span></code></a></div>
+</div>
 </dd>
 </dl>
 </li>
 <li><dl>
-<dt><em>Use case 3</em></dt><dd><ul>
-<li><p>Search Pattern:</p></li>
-<li><p>Exclude Pattern:</p></li>
-<li><p>Result Pattern:</p>
-<a class="reference internal image-reference" href="../../../../_images/mol_edit_nitro_std.svg"><img alt="Nitro standardization" src="../../../../_images/mol_edit_nitro_std.svg" style="width: 632.97px; height: 217.44px;" />
+<dt><em>Amide cleavage</em></dt><dd><div class="line-block">
+<div class="line">Search pattern:  [#6]-[C:1](=O)-[N:2]</div>
+<div class="line">Exclude pattern: -</div>
+<div class="line">Result pattern:  [C:1](x[N:2])-O</div>
+</div>
+<p><strong>Command line example:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>edit_mols.py<span class="w"> </span>-i<span class="w"> </span>cyclosporine.smi<span class="w"> </span>-o<span class="w"> </span>cyclosporine_cleaved.smi<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;1 [#6]-[C:1](=O)-[N:2] 0 [C:1](x[N:2])-O&#39;</span><span class="w"> </span>-d
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../../_images/mol_edit_amide_clvg.svg"><img alt="Amide cleavage example" src="../../../../_images/mol_edit_amide_clvg.svg" style="width: 1278.6200000000001px; height: 422.80000000000007px;" />
 </a>
-</li>
-</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><a class="reference download internal" download="" href="../../../../_downloads/cca9d0868317b4044f297934d1c26fa4/cyclosporine.smi"><code class="xref download docutils literal notranslate"><span class="pre">cyclosporine.smi</span></code></a></div>
+<div class="line"><a class="reference download internal" download="" href="../../../../_downloads/f20907d2d1b54ef4b9d21f0641af6900/cyclosporine_cleaved.smi"><code class="xref download docutils literal notranslate"><span class="pre">cyclosporine_cleaved.smi</span></code></a></div>
+</div>
 </dd>
 </dl>
 </li>
@@ -196,164 +254,184 @@ to a provided set of SMARTS/SMILES pattern-based substructure editing rules and 
 <span class="linenos">  8</span><span class="c1"># exhaustively edits matching substructures of the argument molecule according to the </span>
 <span class="linenos">  9</span><span class="c1"># specified editing instructions using the provided list of initialized</span>
 <span class="linenos"> 10</span><span class="c1"># Chem.SubstructureEditor instances</span>
-<span class="linenos"> 11</span><span class="k">def</span> <span class="nf">editMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">ed_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="linenos"> 12</span>    <span class="c1"># fill free valences with explicit hydrogens</span>
-<span class="linenos"> 13</span>    <span class="n">added_hs</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>  
+<span class="linenos"> 11</span><span class="k">def</span> <span class="nf">editMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">:</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Molecule</span><span class="p">,</span> <span class="n">ed_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="linenos"> 12</span>    <span class="c1"># calculate several required properties</span>
+<span class="linenos"> 13</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">initSubstructureSearchTarget</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <span class="linenos"> 14</span>
-<span class="linenos"> 15</span>    <span class="c1"># if expl. hydrogens were added clear the molecular graph components property (if present) since it became invalid</span>
-<span class="linenos"> 16</span>    <span class="k">if</span> <span class="n">added_hs</span><span class="p">:</span>                               
-<span class="linenos"> 17</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clearComponents</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-<span class="linenos"> 18</span> 
-<span class="linenos"> 19</span>    <span class="n">num_edits</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="linenos"> 20</span>
-<span class="linenos"> 21</span>    <span class="c1"># perform the editing work via the provided Chem.SubstructureEditor instances</span>
-<span class="linenos"> 22</span>    <span class="k">for</span> <span class="n">editor</span> <span class="ow">in</span> <span class="n">ed_list</span><span class="p">:</span>
-<span class="linenos"> 23</span>        <span class="n">num_edits</span> <span class="o">+=</span> <span class="n">editor</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
-<span class="linenos"> 24</span>
-<span class="linenos"> 25</span>    <span class="c1"># if structural changes were made clear 2D and 3D atom coordinates since they became invalid</span>
-<span class="linenos"> 26</span>    <span class="k">if</span> <span class="n">num_edits</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">added_hs</span><span class="p">:</span>
-<span class="linenos"> 27</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setMDLDimensionality</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># for output in one of the MDL formats indicate that there are no atom coordinates present</span>
+<span class="linenos"> 15</span>    <span class="n">h_changes</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 16</span>    
+<span class="linenos"> 17</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">rem_h</span><span class="p">:</span>   <span class="c1"># remove ordinary (with standard form. charge, isotope, connectivity) hydrogens, if desired</span>
+<span class="linenos"> 18</span>        <span class="n">h_changes</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">makeOrdinaryHydrogenDeplete</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomPropertyFlag</span><span class="o">.</span><span class="n">ISOTOPE</span> <span class="o">|</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomPropertyFlag</span><span class="o">.</span><span class="n">FORMAL_CHARGE</span> <span class="o">|</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomPropertyFlag</span><span class="o">.</span><span class="n">EXPLICIT_BOND_COUNT</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 19</span>    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">add_h</span><span class="p">:</span> <span class="c1"># make hydrogen complete, if desired</span>
+<span class="linenos"> 20</span>        <span class="n">h_changes</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">makeHydrogenComplete</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span>    <span class="k">if</span> <span class="n">h_changes</span><span class="p">:</span>      <span class="c1"># if expl. hydrogen count has changed -&gt; recompute/invalidate dependent properties</span>
+<span class="linenos"> 23</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">clearComponents</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos"> 24</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcAtomStereoDescriptors</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 25</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">calcBondStereoDescriptors</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 26</span> 
+<span class="linenos"> 27</span>    <span class="n">num_edits</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="linenos"> 28</span>
-<span class="linenos"> 29</span>        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
-<span class="linenos"> 30</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">clear2DCoordinates</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>        <span class="c1"># delete 2D coordinates</span>
-<span class="linenos"> 31</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">clear3DCoordinates</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>        <span class="c1"># delete 3D coordinates</span>
-<span class="linenos"> 32</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">clear3DCoordinatesArray</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>   <span class="c1"># delete conformer ensemble coordinates </span>
-<span class="linenos"> 33</span>
-<span class="linenos"> 34</span>    <span class="k">return</span> <span class="n">num_edits</span>
-<span class="linenos"> 35</span>
-<span class="linenos"> 36</span><span class="c1"># creates and initializes a Chem.SubstructureEditor instance as specified</span>
-<span class="linenos"> 37</span><span class="c1"># by the given string of substructure search, exclude (optional) and editing result patterns</span>
-<span class="linenos"> 38</span><span class="c1"># in the format &lt;#Search Patterns&gt; &lt;Search Pattern SMARTS&gt; ...  &lt;#Exclude Patterns&gt; [&lt;Exclude Pattern SMARTS&gt; ...] &lt;Result Pattern SMILES&gt;</span>
-<span class="linenos"> 39</span><span class="k">def</span> <span class="nf">createSubstructureEditor</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SubstructureEditor</span><span class="p">:</span>
-<span class="linenos"> 40</span>    <span class="n">editor</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SubstructureEditor</span><span class="p">()</span>
-<span class="linenos"> 41</span>    <span class="n">tokens</span> <span class="o">=</span> <span class="n">ed_ptns</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="linenos"> 42</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 29</span>    <span class="c1"># perform the editing work via the provided Chem.SubstructureEditor instances</span>
+<span class="linenos"> 30</span>    <span class="k">for</span> <span class="n">editor</span> <span class="ow">in</span> <span class="n">ed_list</span><span class="p">:</span>
+<span class="linenos"> 31</span>        <span class="n">num_edits</span> <span class="o">+=</span> <span class="n">editor</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span>    <span class="c1"># if structural changes were made clear 2D and 3D atom coordinates since they became invalid</span>
+<span class="linenos"> 34</span>    <span class="k">if</span> <span class="n">num_edits</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">h_changes</span><span class="p">:</span>
+<span class="linenos"> 35</span>        <span class="n">Chem</span><span class="o">.</span><span class="n">setMDLDimensionality</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># for output in one of the MDL formats indicate that there are no atom coordinates present</span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span>        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+<span class="linenos"> 38</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">clear2DCoordinates</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>        <span class="c1"># delete 2D coordinates</span>
+<span class="linenos"> 39</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">clear3DCoordinates</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>        <span class="c1"># delete 3D coordinates</span>
+<span class="linenos"> 40</span>            <span class="n">Chem</span><span class="o">.</span><span class="n">clear3DCoordinatesArray</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>   <span class="c1"># delete conformer ensemble coordinates </span>
+<span class="linenos"> 41</span>
+<span class="linenos"> 42</span>    <span class="k">return</span> <span class="n">num_edits</span>
 <span class="linenos"> 43</span>
-<span class="linenos"> 44</span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
-<span class="linenos"> 45</span>        <span class="n">editor</span><span class="o">.</span><span class="n">addSearchPattern</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<span class="linenos"> 46</span>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos"> 47</span>        
-<span class="linenos"> 48</span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
-<span class="linenos"> 49</span>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos"> 50</span>        <span class="n">editor</span><span class="o">.</span><span class="n">addExcludePattern</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="linenos"> 44</span><span class="c1"># creates and initializes a Chem.SubstructureEditor instance as specified</span>
+<span class="linenos"> 45</span><span class="c1"># by the given string of substructure search, exclude (optional) and editing result patterns</span>
+<span class="linenos"> 46</span><span class="c1"># in the format &lt;#Search Patterns&gt; &lt;Search Pattern SMARTS&gt; ...  &lt;#Exclude Patterns&gt; [&lt;Exclude Pattern SMARTS&gt; ...] &lt;Result Pattern SMILES&gt;</span>
+<span class="linenos"> 47</span><span class="k">def</span> <span class="nf">createSubstructureEditor</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SubstructureEditor</span><span class="p">:</span>
+<span class="linenos"> 48</span>    <span class="n">editor</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SubstructureEditor</span><span class="p">()</span>
+<span class="linenos"> 49</span>    <span class="n">tokens</span> <span class="o">=</span> <span class="n">ed_ptns</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="linenos"> 50</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="linenos"> 51</span>
-<span class="linenos"> 52</span>    <span class="n">editor</span><span class="o">.</span><span class="n">setResultPattern</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
-<span class="linenos"> 53</span>
-<span class="linenos"> 54</span>    <span class="k">return</span> <span class="n">editor</span>
-<span class="linenos"> 55</span>
-<span class="linenos"> 56</span><span class="c1"># processes the value of the argument -p which is either the path to a file containing multiple lines</span>
-<span class="linenos"> 57</span><span class="c1"># of substructure editing specifications (one per line) or a string directly providing a complete set</span>
-<span class="linenos"> 58</span><span class="c1"># of search, exclude (optional) and result patterns (format is outline above)</span>
-<span class="linenos"> 59</span><span class="k">def</span> <span class="nf">createSubstructureEditors</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<span class="linenos"> 60</span>    <span class="k">if</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>  <span class="c1"># if the argument value is a path to an existing file process it line by line</span>
-<span class="linenos"> 61</span>        <span class="n">editors</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="linenos"> 62</span>
-<span class="linenos"> 63</span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ed_ptns_file</span><span class="p">:</span>
-<span class="linenos"> 64</span>            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ed_ptns_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-<span class="linenos"> 65</span>                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">):</span> <span class="c1"># lines starting with &#39;#&#39; ar comment lines</span>
-<span class="linenos"> 66</span>                    <span class="k">continue</span>
-<span class="linenos"> 67</span>
-<span class="linenos"> 68</span>                <span class="n">editors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">createSubstructureEditor</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
-<span class="linenos"> 69</span>
-<span class="linenos"> 70</span>        <span class="k">return</span> <span class="n">editors</span>
-<span class="linenos"> 71</span>
-<span class="linenos"> 72</span>    <span class="c1"># at this point the argument value directly specifies a set of search, exclude (optional) and result patterns</span>
-<span class="linenos"> 73</span>    <span class="k">return</span> <span class="p">[</span> <span class="n">createSubstructureEditor</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">)</span> <span class="p">]</span> 
-<span class="linenos"> 74</span>
-<span class="linenos"> 75</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos"> 76</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs modifications on the molecular graph of molecules read from a </span><span class="se">\</span>
-<span class="linenos"> 77</span><span class="s1">    specified file according to a provided set of SMARTS/SMILES pattern-based substructure editing rules.&#39;</span><span class="p">)</span>
-<span class="linenos"> 78</span>
-<span class="linenos"> 79</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
-<span class="linenos"> 80</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 81</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 82</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 83</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
-<span class="linenos"> 84</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos"> 85</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos"> 86</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 87</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 88</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Edited molecule output file&#39;</span><span class="p">)</span>
-<span class="linenos"> 89</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span>
-<span class="linenos"> 90</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;patterns&#39;</span><span class="p">,</span>
-<span class="linenos"> 91</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 92</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file/string&gt;&#39;</span><span class="p">,</span>
-<span class="linenos"> 93</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;A string specifying search, (optional) exclude and result patterns or path to a file providing these (one set per line)&#39;</span><span class="p">)</span>
-<span class="linenos"> 94</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
-<span class="linenos"> 95</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_mol&#39;</span><span class="p">,</span>
-<span class="linenos"> 96</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 97</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos"> 98</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos"> 99</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output input molecule before the resulting edited molecule (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">100</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
-<span class="linenos">101</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
-<span class="linenos">102</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">103</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">104</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">105</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">106</span>      
-<span class="linenos">107</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos">108</span>
-<span class="linenos">109</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">110</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
-<span class="linenos">111</span>    
-<span class="linenos">112</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
-<span class="linenos">113</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
-<span class="linenos">114</span>
-<span class="linenos">115</span>    <span class="c1"># create writer for the generated 3D structures (format specified by file extension)</span>
-<span class="linenos">116</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
-<span class="linenos">117</span>
-<span class="linenos">118</span>    <span class="c1"># create the list of one or more initialized Chem.SubstructureEditor instances doing the editing work</span>
-<span class="linenos">119</span>    <span class="n">ed_list</span> <span class="o">=</span> <span class="n">createSubstructureEditors</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">patterns</span><span class="p">)</span>
-<span class="linenos">120</span>    
-<span class="linenos">121</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
-<span class="linenos">122</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
-<span class="linenos">123</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">124</span>    
-<span class="linenos">125</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
-<span class="linenos">126</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">127</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-<span class="linenos">128</span>            <span class="c1"># compose a simple molecule identifier</span>
-<span class="linenos">129</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
-<span class="linenos">130</span>
-<span class="linenos">131</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="linenos">132</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
-<span class="linenos">133</span>            <span class="k">else</span><span class="p">:</span>
-<span class="linenos">134</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)&#39;</span>
-<span class="linenos">135</span>
-<span class="linenos">136</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">137</span>                <span class="c1"># output original molecule before the editing result</span>
-<span class="linenos">138</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_mol</span><span class="p">:</span>
-<span class="linenos">139</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">140</span>
-<span class="linenos">141</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-<span class="linenos">142</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
-<span class="linenos">143</span>
-<span class="linenos">144</span>                <span class="c1"># modify the input molecule according to the specified editing rules </span>
-<span class="linenos">145</span>                <span class="n">num_changes</span> <span class="o">=</span> <span class="n">editMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">ed_list</span><span class="p">)</span>
-<span class="linenos">146</span>                
-<span class="linenos">147</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">148</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Editing molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">num_changes</span><span class="si">}</span><span class="s1"> edit(s)&#39;</span><span class="p">)</span>
-<span class="linenos">149</span>
-<span class="linenos">150</span>                <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="linenos">151</span>                    
-<span class="linenos">152</span>                <span class="c1"># output the edited molecule</span>
-<span class="linenos">153</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
-<span class="linenos">154</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing edited molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
-<span class="linenos">155</span>                        
-<span class="linenos">156</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">157</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: editing or output of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="linenos">158</span>
-<span class="linenos">159</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">160</span>                
-<span class="linenos">161</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">162</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: reading molecule failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 52</span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+<span class="linenos"> 53</span>        <span class="n">editor</span><span class="o">.</span><span class="n">addSearchPattern</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="linenos"> 54</span>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 55</span>        
+<span class="linenos"> 56</span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+<span class="linenos"> 57</span>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 58</span>        <span class="n">editor</span><span class="o">.</span><span class="n">addExcludePattern</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span>    <span class="n">editor</span><span class="o">.</span><span class="n">setResultPattern</span><span class="p">(</span><span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span>    <span class="k">return</span> <span class="n">editor</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span><span class="c1"># processes the value of the argument -p which is either the path to a file containing multiple lines</span>
+<span class="linenos"> 65</span><span class="c1"># of substructure editing specifications (one per line) or a string directly providing a complete set</span>
+<span class="linenos"> 66</span><span class="c1"># of search, exclude (optional) and result patterns (format is outline above)</span>
+<span class="linenos"> 67</span><span class="k">def</span> <span class="nf">createSubstructureEditors</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="linenos"> 68</span>    <span class="k">if</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>  <span class="c1"># if the argument value is a path to an existing file process it line by line</span>
+<span class="linenos"> 69</span>        <span class="n">editors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 70</span>
+<span class="linenos"> 71</span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ed_ptns_file</span><span class="p">:</span>
+<span class="linenos"> 72</span>            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ed_ptns_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+<span class="linenos"> 73</span>                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">):</span> <span class="c1"># lines starting with &#39;#&#39; ar comment lines</span>
+<span class="linenos"> 74</span>                    <span class="k">continue</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span>                <span class="n">editors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">createSubstructureEditor</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span>        <span class="k">return</span> <span class="n">editors</span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span>    <span class="c1"># at this point the argument value directly specifies a set of search, exclude (optional) and result patterns</span>
+<span class="linenos"> 81</span>    <span class="k">return</span> <span class="p">[</span> <span class="n">createSubstructureEditor</span><span class="p">(</span><span class="n">ed_ptns</span><span class="p">)</span> <span class="p">]</span> 
+<span class="linenos"> 82</span>
+<span class="linenos"> 83</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 84</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Performs modifications on the molecular graph of molecules read from a </span><span class="se">\</span>
+<span class="linenos"> 85</span><span class="s1">    specified file according to a provided set of SMARTS/SMILES pattern-based substructure editing rules.&#39;</span><span class="p">)</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos"> 88</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 89</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 90</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 91</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
+<span class="linenos"> 92</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 93</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 94</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 95</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 96</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Edited molecule output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 97</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span>
+<span class="linenos"> 98</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;patterns&#39;</span><span class="p">,</span>
+<span class="linenos"> 99</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">100</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file/string&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">101</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;A string specifying search, (optional) exclude and result patterns or path to a file providing these (one set per line)&#39;</span><span class="p">)</span>
+<span class="linenos">102</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span>
+<span class="linenos">103</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;output_mol&#39;</span><span class="p">,</span>
+<span class="linenos">104</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">105</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">106</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">107</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output input molecule before the resulting edited molecule (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">108</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span>
+<span class="linenos">109</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;rem_h&#39;</span><span class="p">,</span>
+<span class="linenos">110</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">111</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">112</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">113</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Remove ordinary explicit hydrogens (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">114</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+<span class="linenos">115</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;add_h&#39;</span><span class="p">,</span>
+<span class="linenos">116</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">117</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">118</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">119</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Saturate free valences with explicit hydrogens (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">120</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
+<span class="linenos">121</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
+<span class="linenos">122</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">123</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">124</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">125</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">126</span>      
+<span class="linenos">127</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">128</span>
+<span class="linenos">129</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">130</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">133</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos">134</span>
+<span class="linenos">135</span>    <span class="c1"># create writer for the generated 3D structures (format specified by file extension)</span>
+<span class="linenos">136</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos">137</span>
+<span class="linenos">138</span>    <span class="c1"># create the list of one or more initialized Chem.SubstructureEditor instances doing the editing work</span>
+<span class="linenos">139</span>    <span class="n">ed_list</span> <span class="o">=</span> <span class="n">createSubstructureEditors</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">patterns</span><span class="p">)</span>
+<span class="linenos">140</span>    
+<span class="linenos">141</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos">142</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">143</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">144</span>
+<span class="linenos">145</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos">146</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">147</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos">148</span>            <span class="c1"># compose a simple molecule identifier</span>
+<span class="linenos">149</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">150</span>
+<span class="linenos">151</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">152</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
+<span class="linenos">153</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">154</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)&#39;</span>
+<span class="linenos">155</span>
+<span class="linenos">156</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">157</span>                <span class="c1"># output original molecule before the editing result</span>
+<span class="linenos">158</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output_mol</span><span class="p">:</span>
+<span class="linenos">159</span>                    <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">160</span>
+<span class="linenos">161</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos">162</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
 <span class="linenos">163</span>
-<span class="linenos">164</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">165</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">166</span>
-<span class="linenos">167</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">168</span>    <span class="n">main</span><span class="p">()</span>
+<span class="linenos">164</span>                <span class="c1"># modify the input molecule according to the specified editing rules </span>
+<span class="linenos">165</span>                <span class="n">num_changes</span> <span class="o">=</span> <span class="n">editMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">ed_list</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="linenos">166</span>                
+<span class="linenos">167</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">168</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Editing molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">num_changes</span><span class="si">}</span><span class="s1"> edit(s)&#39;</span><span class="p">)</span>
+<span class="linenos">169</span>
+<span class="linenos">170</span>                <span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="linenos">171</span>                    
+<span class="linenos">172</span>                <span class="c1"># output the edited molecule</span>
+<span class="linenos">173</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
+<span class="linenos">174</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing edited molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
+<span class="linenos">175</span>                        
+<span class="linenos">176</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">177</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: editing or output of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">178</span>
+<span class="linenos">179</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">180</span>
+<span class="linenos">181</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">182</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: reading molecule failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">183</span>
+<span class="linenos">184</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">185</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">186</span>
+<span class="linenos">187</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">188</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../../../_downloads/a912bb4b8236c1ffdea6152e979ab887/edit_mols.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
