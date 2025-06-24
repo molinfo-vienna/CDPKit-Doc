@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['apiprefix_2ehpp_5943',['APIPrefix.hpp',['../Shape_2APIPrefix_8hpp.html',1,'']]],
-  ['s_5944',['S',['../namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a5fc329be4baabc9c9fc1836584ff8f63',1,'CDPL::Chem::AtomConfiguration']]],
+  ['apiprefix_2ehpp_5944',['APIPrefix.hpp',['../Shape_2APIPrefix_8hpp.html',1,'']]],
   ['s_5945',['s',['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#a83cc7451b6f5bff93405f502974cecd2',1,'CDPL::Chem::CIPDescriptor']]],
-  ['s_5946',['S',['../namespaceCDPL_1_1Chem_1_1AtomType.html#a42d11e7dbcc4cc4b9f823179559dd2e1',1,'CDPL::Chem::AtomType::S()'],['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#acfd83a27b6bba64800d8f65483bbbc40',1,'CDPL::Chem::CIPDescriptor::S()']]],
+  ['s_5946',['S',['../namespaceCDPL_1_1Chem_1_1CIPDescriptor.html#acfd83a27b6bba64800d8f65483bbbc40',1,'CDPL::Chem::CIPDescriptor::S()'],['../namespaceCDPL_1_1Chem_1_1AtomConfiguration.html#a5fc329be4baabc9c9fc1836584ff8f63',1,'CDPL::Chem::AtomConfiguration::S()'],['../namespaceCDPL_1_1Chem_1_1AtomType.html#a42d11e7dbcc4cc4b9f823179559dd2e1',1,'CDPL::Chem::AtomType::S()']]],
   ['s_5f2_5947',['S_2',['../namespaceCDPL_1_1Chem_1_1SybylAtomType.html#a6e748906289c113d9486302de3fc0416',1,'CDPL::Chem::SybylAtomType::S_2()'],['../namespaceCDPL_1_1ForceField_1_1UFFAtomType.html#afe95571c5985a0aa90590be021872dea',1,'CDPL::ForceField::UFFAtomType::S_2()']]],
   ['s_5f3_5948',['S_3',['../namespaceCDPL_1_1Chem_1_1SybylAtomType.html#aa1a6b8a2a06f04bf935e5e1ae8ce73ce',1,'CDPL::Chem::SybylAtomType']]],
   ['s_5f3_5f2_5949',['S_3_2',['../namespaceCDPL_1_1ForceField_1_1UFFAtomType.html#aee3e7e76bd574c2afadb508ea2bad234',1,'CDPL::ForceField::UFFAtomType']]],
