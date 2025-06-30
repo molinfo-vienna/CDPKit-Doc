@@ -542,7 +542,7 @@ var searchData=
   ['setpdbdeducebondordersfromconectrecordsparameter_4867',['setPDBDeduceBondOrdersFromCONECTRecordsParameter',['../namespaceCDPL_1_1Biomol.html#a65bb8ae803bd1836d03c27bc4abaf9b6',1,'CDPL::Biomol']]],
   ['setpdbevaluatemasterrecordparameter_4868',['setPDBEvaluateMASTERRecordParameter',['../namespaceCDPL_1_1Biomol.html#acd9825794a2060e8bddd3b862562b5ea',1,'CDPL::Biomol']]],
   ['setpdbformatversionparameter_4869',['setPDBFormatVersionParameter',['../namespaceCDPL_1_1Biomol.html#a2fb62cc301aa0d5be8d69945921131db',1,'CDPL::Biomol']]],
-  ['setpdbignoreconectrecordsparameter_4870',['setPDBIgnoreConectRecordsParameter',['../namespaceCDPL_1_1Biomol.html#ab348774c3170184b7702ac15485a169d',1,'CDPL::Biomol']]],
+  ['setpdbignoreconectrecordsparameter_4870',['setPDBIgnoreCONECTRecordsParameter',['../namespaceCDPL_1_1Biomol.html#abc6ca23877554c97a31e7193c7c45b9b',1,'CDPL::Biomol']]],
   ['setpdbignoreformalchargefieldparameter_4871',['setPDBIgnoreFormalChargeFieldParameter',['../namespaceCDPL_1_1Biomol.html#a96a8c68a242f99651c084da147e77c0c',1,'CDPL::Biomol']]],
   ['setpdboutputconectrecordsforallbondsparameter_4872',['setPDBOutputCONECTRecordsForAllBondsParameter',['../namespaceCDPL_1_1Biomol.html#acc22dbbf06efd20dcbf258f18d2ccef7',1,'CDPL::Biomol']]],
   ['setpdboutputconectrecordsparameter_4873',['setPDBOutputCONECTRecordsParameter',['../namespaceCDPL_1_1Biomol.html#a1c9a8c8bee8b1ff105b8a47a26889d70',1,'CDPL::Biomol']]],
