@@ -99,6 +99,12 @@ Public Types</h2></td></tr>
 <tr class="memitem:a5116a63aa58f59dc8179480de5e6dc44"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ABMappingList::const_iterator, const <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a5116a63aa58f59dc8179480de5e6dc44">ConstMappingIterator</a></td></tr>
 <tr class="memdesc:a5116a63aa58f59dc8179480de5e6dc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a5116a63aa58f59dc8179480de5e6dc44">More...</a><br /></td></tr>
 <tr class="separator:a5116a63aa58f59dc8179480de5e6dc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1754a37040a7898e64947dc353039c63"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; const AtomMatchExprPtr &amp;(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a1754a37040a7898e64947dc353039c63">AtomMatchExpressionFunction</a></td></tr>
+<tr class="separator:a1754a37040a7898e64947dc353039c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac77c8d9088336e99ad325b7a048a64f5"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; const BondMatchExprPtr &amp;(const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#ac77c8d9088336e99ad325b7a048a64f5">BondMatchExpressionFunction</a></td></tr>
+<tr class="separator:ac77c8d9088336e99ad325b7a048a64f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a004a4b48b1de8b874a421908f6479704"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; const MolGraphMatchExprPtr &amp;(const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a004a4b48b1de8b874a421908f6479704">MolecularGraphMatchExpressionFunction</a></td></tr>
+<tr class="separator:a004a4b48b1de8b874a421908f6479704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -115,6 +121,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a97db0c82da163bbec933bf0977d29a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbcce3df7a124222db491ed2ee605241"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html">CommonConnectedSubstructureSearch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#acbcce3df7a124222db491ed2ee605241">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html">CommonConnectedSubstructureSearch</a> &amp;)=delete</td></tr>
 <tr class="separator:acbcce3df7a124222db491ed2ee605241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e32f8be8d61a35ddee1384e03fc712"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a43e32f8be8d61a35ddee1384e03fc712">setAtomMatchExpressionFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a1754a37040a7898e64947dc353039c63">AtomMatchExpressionFunction</a> &amp;func)</td></tr>
+<tr class="separator:a43e32f8be8d61a35ddee1384e03fc712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad046a82279cc70503486b117b3d6b64e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#ad046a82279cc70503486b117b3d6b64e">setBondMatchExpressionFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#ac77c8d9088336e99ad325b7a048a64f5">BondMatchExpressionFunction</a> &amp;func)</td></tr>
+<tr class="separator:ad046a82279cc70503486b117b3d6b64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ef5cea48e1ea9ff6d599626e56efa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a61ef5cea48e1ea9ff6d599626e56efa5">setMolecularGraphMatchExpressionFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a004a4b48b1de8b874a421908f6479704">MolecularGraphMatchExpressionFunction</a> &amp;func)</td></tr>
+<tr class="separator:a61ef5cea48e1ea9ff6d599626e56efa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a203d50dfa924279fe300378a7929bf62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a203d50dfa924279fe300378a7929bf62">setQuery</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;query)</td></tr>
 <tr class="memdesc:a203d50dfa924279fe300378a7929bf62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify a new query structure.  <a href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a203d50dfa924279fe300378a7929bf62">More...</a><br /></td></tr>
 <tr class="separator:a203d50dfa924279fe300378a7929bf62"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,6 +238,48 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A constant random access iterator used to iterate over the stored atom/bond mapping objects. </p>
+
+</div>
+</div>
+<a id="a1754a37040a7898e64947dc353039c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1754a37040a7898e64947dc353039c63">&#9670;&nbsp;</a></span>AtomMatchExpressionFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::function&lt;const AtomMatchExprPtr&amp;(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>&amp;)&gt; <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a1754a37040a7898e64947dc353039c63">CDPL::Chem::CommonConnectedSubstructureSearch::AtomMatchExpressionFunction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac77c8d9088336e99ad325b7a048a64f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac77c8d9088336e99ad325b7a048a64f5">&#9670;&nbsp;</a></span>BondMatchExpressionFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::function&lt;const BondMatchExprPtr&amp;(const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>&amp;)&gt; <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#ac77c8d9088336e99ad325b7a048a64f5">CDPL::Chem::CommonConnectedSubstructureSearch::BondMatchExpressionFunction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a004a4b48b1de8b874a421908f6479704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a004a4b48b1de8b874a421908f6479704">&#9670;&nbsp;</a></span>MolecularGraphMatchExpressionFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::function&lt;const MolGraphMatchExprPtr&amp;(const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;)&gt; <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a004a4b48b1de8b874a421908f6479704">CDPL::Chem::CommonConnectedSubstructureSearch::MolecularGraphMatchExpressionFunction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -344,6 +398,60 @@ Public Member Functions</h2></td></tr>
 <span class="mlabels"><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43e32f8be8d61a35ddee1384e03fc712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43e32f8be8d61a35ddee1384e03fc712">&#9670;&nbsp;</a></span>setAtomMatchExpressionFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDPL::Chem::CommonConnectedSubstructureSearch::setAtomMatchExpressionFunction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a1754a37040a7898e64947dc353039c63">AtomMatchExpressionFunction</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad046a82279cc70503486b117b3d6b64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad046a82279cc70503486b117b3d6b64e">&#9670;&nbsp;</a></span>setBondMatchExpressionFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDPL::Chem::CommonConnectedSubstructureSearch::setBondMatchExpressionFunction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#ac77c8d9088336e99ad325b7a048a64f5">BondMatchExpressionFunction</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61ef5cea48e1ea9ff6d599626e56efa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61ef5cea48e1ea9ff6d599626e56efa5">&#9670;&nbsp;</a></span>setMolecularGraphMatchExpressionFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDPL::Chem::CommonConnectedSubstructureSearch::setMolecularGraphMatchExpressionFunction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html#a004a4b48b1de8b874a421908f6479704">MolecularGraphMatchExpressionFunction</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

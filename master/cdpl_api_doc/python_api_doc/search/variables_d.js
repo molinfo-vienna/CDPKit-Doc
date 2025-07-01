@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['m_10657',['M',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#a2d03cf24571f43d74bbc1d3d53375245',1,'CDPL.Chem.CIPDescriptor.M()'],['../classCDPL_1_1Chem_1_1AtomType.html#a4920a36f33fe13e815479cf3fced8ee4',1,'CDPL.Chem.AtomType.M()']]],
-  ['m_10658',['m',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#aec65392a4fe44869612aeae074f3914a',1,'CDPL::Chem::CIPDescriptor']]],
+  ['m_10656',['M',['../classCDPL_1_1Chem_1_1AtomType.html#a4920a36f33fe13e815479cf3fced8ee4',1,'CDPL::Chem::AtomType']]],
+  ['m_10657',['m',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#aec65392a4fe44869612aeae074f3914a',1,'CDPL::Chem::CIPDescriptor']]],
+  ['m_10658',['M',['../classCDPL_1_1Chem_1_1CIPDescriptor.html#a2d03cf24571f43d74bbc1d3d53375245',1,'CDPL::Chem::CIPDescriptor']]],
   ['magenta_10659',['MAGENTA',['../classCDPL_1_1Vis_1_1Color.html#ae01002e1fbf8ba74ecde77065bbde522',1,'CDPL::Vis::Color']]],
   ['max_5fatomic_5fno_10660',['MAX_ATOMIC_NO',['../classCDPL_1_1Chem_1_1AtomType.html#ab128289cdbca4863c995acadbe1abcf0',1,'CDPL::Chem::AtomType']]],
   ['max_5fcharge_5fcompensation_10661',['MAX_CHARGE_COMPENSATION',['../classCDPL_1_1Chem_1_1ProtonationStateStandardizer_1_1Flavor.html#ae4e7c9d7b98918641a8ba51a3c31e0f2',1,'CDPL::Chem::ProtonationStateStandardizer::Flavor']]],
