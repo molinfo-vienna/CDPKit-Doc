@@ -137,7 +137,7 @@ var searchData=
   ['removesubobject_4300',['removeSubObject',['../classCDPL_1_1Vis_1_1Object3D.html#ac93dad4bdd411363fe1a89c9fbb8e584',1,'CDPL::Vis::Object3D']]],
   ['removetautomerizationrule_4301',['removeTautomerizationRule',['../classCDPL_1_1Chem_1_1TautomerGenerator.html#a5c4f4e8125558fd16de67a103b443ba4',1,'CDPL::Chem::TautomerGenerator']]],
   ['removevalue_4302',['removeValue',['../classCDPL_1_1Biomol_1_1MMCIFData_1_1Item.html#aec94a5ff1a5c3888ff0486d71b7bd97f',1,'CDPL::Biomol::MMCIFData::Item']]],
-  ['removevertexduplicates_4303',['removeVertexDuplicates',['../namespaceCDPL_1_1Vis.html#aadf54292279f7a97c5268c73c011a822',1,'CDPL::Vis']]],
+  ['removevertexduplicates_4303',['removeVertexDuplicates',['../namespaceCDPL_1_1Vis.html#a949306fee7d4322ba4323ae9f1d4cf01',1,'CDPL::Vis']]],
   ['removevolumeconstraint_4304',['removeVolumeConstraint',['../classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a89958fd801ddd7fc4b97a0f12c43726d',1,'CDPL::Util::DG3DCoordinatesGenerator']]],
   ['render_4305',['render',['../classCDPL_1_1Vis_1_1GraphicsPrimitive2D.html#afba9d3c2e6b13a000aa658d8bee84409',1,'CDPL.Vis.GraphicsPrimitive2D.render()'],['../classCDPL_1_1Vis_1_1View2D.html#a8021ca8d01afb612c34482d764319ba4',1,'CDPL.Vis.View2D.render()']]],
   ['renderer2d_4306',['Renderer2D',['../classCDPL_1_1Vis_1_1Renderer2D.html',1,'CDPL::Vis']]],
