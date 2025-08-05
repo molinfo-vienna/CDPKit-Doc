@@ -285,155 +285,155 @@ false)</p>
 <span class="linenos">131</span>        <span class="c1"># apply the transformation to all atom positions assoc. with the current conformation</span>
 <span class="linenos">132</span>        <span class="k">if</span> <span class="n">kabsch_algo</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">algnd_coords</span><span class="p">,</span> <span class="n">ref_coords</span><span class="p">):</span>
 <span class="linenos">133</span>            <span class="n">Math</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">algnd_conf</span><span class="p">,</span> <span class="n">Math</span><span class="o">.</span><span class="n">Matrix4D</span><span class="p">(</span><span class="n">kabsch_algo</span><span class="o">.</span><span class="n">transform</span><span class="p">))</span>
-<span class="linenos">134</span>            
-<span class="linenos">135</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">136</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
-<span class="linenos">137</span>    
-<span class="linenos">138</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
-<span class="linenos">139</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
-<span class="linenos">140</span>
-<span class="linenos">141</span>    <span class="c1"># create writer for the generated conformer ensembles (format specified by file extension)</span>
-<span class="linenos">142</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
-<span class="linenos">143</span>
-<span class="linenos">144</span>    <span class="c1"># parse the SMARTS pattern describing fixed substructures, if specified</span>
-<span class="linenos">145</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">fix_ptn</span><span class="p">:</span>
-<span class="linenos">146</span>        <span class="k">try</span><span class="p">:</span>
-<span class="linenos">147</span>            <span class="n">sub_srch_ptn</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fix_ptn</span><span class="p">)</span>
-<span class="linenos">148</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">149</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: parsing of SMARTS pattern failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">150</span>
-<span class="linenos">151</span>        <span class="c1"># create and initialize an instance of the class Chem.SubstructureSearch that</span>
-<span class="linenos">152</span>        <span class="c1"># implements the substructure searching algorithm</span>
-<span class="linenos">153</span>        <span class="n">sub_srch</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SubstructureSearch</span><span class="p">(</span><span class="n">sub_srch_ptn</span><span class="p">)</span>
-<span class="linenos">154</span>        <span class="n">sub_srch</span><span class="o">.</span><span class="n">uniqueMappings</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># report only mappings that differ in matched atoms/bonds</span>
-<span class="linenos">155</span>    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">156</span>        <span class="n">sub_srch</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="linenos">157</span>        
-<span class="linenos">158</span>    <span class="c1"># create and initialize an instance of the class ConfGen.TorsionDriver which</span>
-<span class="linenos">159</span>    <span class="c1"># will perform conformer generation by enumerating energetically favorable</span>
-<span class="linenos">160</span>    <span class="c1"># torsion angle combinations</span>
-<span class="linenos">161</span>    <span class="n">tor_driver</span> <span class="o">=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">TorsionDriver</span><span class="p">()</span>
-<span class="linenos">162</span>
-<span class="linenos">163</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">energyWindow</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">e_window</span>                    <span class="c1"># apply the -e argument</span>
-<span class="linenos">164</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">sampleHetAtomHydrogens</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">rot_term_het_grps</span> <span class="c1"># apply the -r argument</span>
-<span class="linenos">165</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">energyOrdered</span> <span class="o">=</span> <span class="kc">True</span>                                     <span class="c1"># order generated confs. by energy</span>
-<span class="linenos">166</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">strictForceFieldParam</span> <span class="o">=</span> <span class="kc">False</span>                            <span class="c1"># be tolerant</span>
-<span class="linenos">167</span>    
-<span class="linenos">168</span>    <span class="c1"># dictionary mapping status codes to human readable strings</span>
-<span class="linenos">169</span>    <span class="n">status_to_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">UNINITIALIZED</span>                  <span class="p">:</span> <span class="s1">&#39;uninitialized&#39;</span><span class="p">,</span>
-<span class="linenos">170</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FORCEFIELD_SETUP_FAILED</span>        <span class="p">:</span> <span class="s1">&#39;force field setup failed&#39;</span> <span class="p">}</span>
-<span class="linenos">171</span>    
-<span class="linenos">172</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
-<span class="linenos">173</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
-<span class="linenos">174</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">175</span>    
-<span class="linenos">176</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
-<span class="linenos">177</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">178</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
-<span class="linenos">179</span>            <span class="c1"># compose a simple molecule identifier</span>
-<span class="linenos">180</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
-<span class="linenos">181</span>
-<span class="linenos">182</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-<span class="linenos">183</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
-<span class="linenos">184</span>            <span class="k">else</span><span class="p">:</span>
-<span class="linenos">185</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="linenos">186</span>       
-<span class="linenos">187</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">188</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Generating conformers for molecule </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos">189</span>
-<span class="linenos">190</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">191</span>                <span class="c1"># prepare the molecule for torsion driving</span>
-<span class="linenos">192</span>                <span class="n">ConfGen</span><span class="o">.</span><span class="n">prepareForConformerGeneration</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> 
+<span class="linenos">134</span>        
+<span class="linenos">135</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos">136</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates conformer ensembles for the given input molecules by performing torsion driving on the provided 3D structure.&#39;</span><span class="p">)</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos">139</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos">140</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">141</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">142</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
+<span class="linenos">143</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos">144</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos">145</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">146</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">147</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Conformer ensemble output file&#39;</span><span class="p">)</span>
+<span class="linenos">148</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span>
+<span class="linenos">149</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;fix_ptn&#39;</span><span class="p">,</span>
+<span class="linenos">150</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">151</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;SMARTS&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">152</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;SMARTS pattern describing substructures that shall be kept fixed during torsion driving&#39;</span><span class="p">)</span>
+<span class="linenos">153</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span>
+<span class="linenos">154</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;e_window&#39;</span><span class="p">,</span>
+<span class="linenos">155</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">156</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;float&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">157</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+<span class="linenos">158</span>                        <span class="n">default</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span>
+<span class="linenos">159</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output conformer energy window (default: 20.0)&#39;</span><span class="p">)</span>
+<span class="linenos">160</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
+<span class="linenos">161</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_confs&#39;</span><span class="p">,</span>
+<span class="linenos">162</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">163</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;int&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">164</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+<span class="linenos">165</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="linenos">166</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Max. output ensemble size (default: 100; if &lt;= 0 -&gt; no limit)&#39;</span><span class="p">)</span>
+<span class="linenos">167</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span>
+<span class="linenos">168</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;align_confs&#39;</span><span class="p">,</span>
+<span class="linenos">169</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">170</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">171</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">172</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Align generated conformers on the fixed part of the input structure (if specified) or on the whole structure (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">173</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
+<span class="linenos">174</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;rot_term_het_grps&#39;</span><span class="p">,</span>
+<span class="linenos">175</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">176</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">177</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">178</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Consider single bonds to terminal hetero atoms (= N, O, or S) as rotatable (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">179</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
+<span class="linenos">180</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
+<span class="linenos">181</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">182</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos">183</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">184</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos">185</span>    
+<span class="linenos">186</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">187</span>            
+<span class="linenos">188</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">189</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos">190</span>    
+<span class="linenos">191</span>    <span class="c1"># create reader for input molecules (format specified by file extension)</span>
+<span class="linenos">192</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
 <span class="linenos">193</span>
-<span class="linenos">194</span>                <span class="c1"># check if all atoms have 3D coordinates, print an error message if not</span>
-<span class="linenos">195</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">Chem</span><span class="o">.</span><span class="n">hasCoordinates</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
-<span class="linenos">196</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">197</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: torsion driving on molecule </span><span class="si">%s</span><span class="s1"> failed: no atom 3D coordinates provided&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos">198</span>                    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">199</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Torsion driving failed: no atom 3D coordinates provided&#39;</span><span class="p">)</span>
-<span class="linenos">200</span>                    <span class="k">continue</span>
-<span class="linenos">201</span>                
-<span class="linenos">202</span>                <span class="c1"># generate conformer ensemble for read molecule</span>
-<span class="linenos">203</span>                <span class="n">status</span><span class="p">,</span> <span class="n">num_confs</span> <span class="o">=</span> <span class="n">performTorsionDriving</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">tor_driver</span><span class="p">,</span> <span class="n">sub_srch</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> 
-<span class="linenos">204</span>
-<span class="linenos">205</span>                <span class="c1"># check for severe error reported by status code</span>
-<span class="linenos">206</span>                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
-<span class="linenos">207</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
-<span class="linenos">208</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: torsion driving on molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">]))</span>
-<span class="linenos">209</span>                    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">210</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Torsion driving failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">])</span>
-<span class="linenos">211</span>
-<span class="linenos">212</span>                <span class="k">elif</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>  <span class="c1"># arrives here only if no severe error occurred</span>
-<span class="linenos">213</span>                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Generated </span><span class="si">%s</span><span class="s1"> conformer(s)&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_confs</span><span class="p">))</span>
-<span class="linenos">214</span>                        
-<span class="linenos">215</span>                <span class="c1"># output generated ensemble (if available)</span>
-<span class="linenos">216</span>                <span class="k">if</span> <span class="n">num_confs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="linenos">217</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
-<span class="linenos">218</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: output of generated conformers for molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
-<span class="linenos">219</span>                        
-<span class="linenos">220</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">221</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: torsion driving or output of generated conformers for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
-<span class="linenos">222</span>
-<span class="linenos">223</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">224</span>                
-<span class="linenos">225</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">226</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">227</span>
-<span class="linenos">228</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">229</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">230</span>        
-<span class="linenos">231</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos">232</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates conformer ensembles for the given input molecules by performing torsion driving on the provided 3D structure.&#39;</span><span class="p">)</span>
-<span class="linenos">233</span>
-<span class="linenos">234</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
-<span class="linenos">235</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
-<span class="linenos">236</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">237</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">238</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Molecule input file&#39;</span><span class="p">)</span>
-<span class="linenos">239</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos">240</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos">241</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">242</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">243</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Conformer ensemble output file&#39;</span><span class="p">)</span>
-<span class="linenos">244</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span>
-<span class="linenos">245</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;fix_ptn&#39;</span><span class="p">,</span>
-<span class="linenos">246</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">247</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;SMARTS&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">248</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;SMARTS pattern describing substructures that shall be kept fixed during torsion driving&#39;</span><span class="p">)</span>
-<span class="linenos">249</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span>
-<span class="linenos">250</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;e_window&#39;</span><span class="p">,</span>
-<span class="linenos">251</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">252</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;float&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">253</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
-<span class="linenos">254</span>                        <span class="n">default</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span>
-<span class="linenos">255</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output conformer energy window (default: 20.0)&#39;</span><span class="p">)</span>
-<span class="linenos">256</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span>
-<span class="linenos">257</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;max_confs&#39;</span><span class="p">,</span>
-<span class="linenos">258</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">259</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;int&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">260</span>                        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
-<span class="linenos">261</span>                        <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span class="linenos">262</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Max. output ensemble size (default: 100; if &lt;= 0 -&gt; no limit)&#39;</span><span class="p">)</span>
-<span class="linenos">263</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span>
-<span class="linenos">264</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;align_confs&#39;</span><span class="p">,</span>
-<span class="linenos">265</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">266</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">267</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">268</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Align generated conformers on the fixed part of the input structure (if specified) or on the whole structure (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">269</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
-<span class="linenos">270</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;rot_term_het_grps&#39;</span><span class="p">,</span>
-<span class="linenos">271</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">272</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">273</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">274</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Consider single bonds to terminal hetero atoms (= N, O, or S) as rotatable (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">275</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
-<span class="linenos">276</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
-<span class="linenos">277</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">278</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">279</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">280</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">281</span>    
-<span class="linenos">282</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">194</span>    <span class="c1"># create writer for the generated conformer ensembles (format specified by file extension)</span>
+<span class="linenos">195</span>    <span class="n">writer</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolecularGraphWriter</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span> 
+<span class="linenos">196</span>
+<span class="linenos">197</span>    <span class="c1"># parse the SMARTS pattern describing fixed substructures, if specified</span>
+<span class="linenos">198</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">fix_ptn</span><span class="p">:</span>
+<span class="linenos">199</span>        <span class="k">try</span><span class="p">:</span>
+<span class="linenos">200</span>            <span class="n">sub_srch_ptn</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">fix_ptn</span><span class="p">)</span>
+<span class="linenos">201</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">202</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: parsing of SMARTS pattern failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">203</span>
+<span class="linenos">204</span>        <span class="c1"># create and initialize an instance of the class Chem.SubstructureSearch that</span>
+<span class="linenos">205</span>        <span class="c1"># implements the substructure searching algorithm</span>
+<span class="linenos">206</span>        <span class="n">sub_srch</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">SubstructureSearch</span><span class="p">(</span><span class="n">sub_srch_ptn</span><span class="p">)</span>
+<span class="linenos">207</span>        <span class="n">sub_srch</span><span class="o">.</span><span class="n">uniqueMappings</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># report only mappings that differ in matched atoms/bonds</span>
+<span class="linenos">208</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">209</span>        <span class="n">sub_srch</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos">210</span>        
+<span class="linenos">211</span>    <span class="c1"># create and initialize an instance of the class ConfGen.TorsionDriver which</span>
+<span class="linenos">212</span>    <span class="c1"># will perform conformer generation by enumerating energetically favorable</span>
+<span class="linenos">213</span>    <span class="c1"># torsion angle combinations</span>
+<span class="linenos">214</span>    <span class="n">tor_driver</span> <span class="o">=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">TorsionDriver</span><span class="p">()</span>
+<span class="linenos">215</span>
+<span class="linenos">216</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">energyWindow</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">e_window</span>                    <span class="c1"># apply the -e argument</span>
+<span class="linenos">217</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">sampleHetAtomHydrogens</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">rot_term_het_grps</span> <span class="c1"># apply the -r argument</span>
+<span class="linenos">218</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">energyOrdered</span> <span class="o">=</span> <span class="kc">True</span>                                     <span class="c1"># order generated confs. by energy</span>
+<span class="linenos">219</span>    <span class="n">tor_driver</span><span class="o">.</span><span class="n">strictForceFieldParam</span> <span class="o">=</span> <span class="kc">False</span>                            <span class="c1"># be tolerant</span>
+<span class="linenos">220</span>    
+<span class="linenos">221</span>    <span class="c1"># dictionary mapping status codes to human readable strings</span>
+<span class="linenos">222</span>    <span class="n">status_to_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">UNINITIALIZED</span>                  <span class="p">:</span> <span class="s1">&#39;uninitialized&#39;</span><span class="p">,</span>
+<span class="linenos">223</span>                      <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">FORCEFIELD_SETUP_FAILED</span>        <span class="p">:</span> <span class="s1">&#39;force field setup failed&#39;</span> <span class="p">}</span>
+<span class="linenos">224</span>    
+<span class="linenos">225</span>    <span class="c1"># create an instance of the default implementation of the Chem.Molecule interface</span>
+<span class="linenos">226</span>    <span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+<span class="linenos">227</span>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">228</span>    
+<span class="linenos">229</span>    <span class="c1"># read and process molecules one after the other until the end of input has been reached</span>
+<span class="linenos">230</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">231</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+<span class="linenos">232</span>            <span class="c1"># compose a simple molecule identifier</span>
+<span class="linenos">233</span>            <span class="n">mol_id</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">234</span>
+<span class="linenos">235</span>            <span class="k">if</span> <span class="n">mol_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">236</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># fallback if name is empty</span>
+<span class="linenos">237</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">238</span>                <span class="n">mol_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="linenos">239</span>       
+<span class="linenos">240</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">241</span>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Generating conformers for molecule </span><span class="si">%s</span><span class="s1">...&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">242</span>
+<span class="linenos">243</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">244</span>                <span class="c1"># prepare the molecule for torsion driving</span>
+<span class="linenos">245</span>                <span class="n">ConfGen</span><span class="o">.</span><span class="n">prepareForConformerGeneration</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> 
+<span class="linenos">246</span>
+<span class="linenos">247</span>                <span class="c1"># check if all atoms have 3D coordinates, print an error message if not</span>
+<span class="linenos">248</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">Chem</span><span class="o">.</span><span class="n">hasCoordinates</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+<span class="linenos">249</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">250</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: torsion driving on molecule </span><span class="si">%s</span><span class="s1"> failed: no atom 3D coordinates provided&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">251</span>                    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">252</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Torsion driving failed: no atom 3D coordinates provided&#39;</span><span class="p">)</span>
+<span class="linenos">253</span>                    <span class="k">continue</span>
+<span class="linenos">254</span>                
+<span class="linenos">255</span>                <span class="c1"># generate conformer ensemble for read molecule</span>
+<span class="linenos">256</span>                <span class="n">status</span><span class="p">,</span> <span class="n">num_confs</span> <span class="o">=</span> <span class="n">performTorsionDriving</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="n">tor_driver</span><span class="p">,</span> <span class="n">sub_srch</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> 
+<span class="linenos">257</span>
+<span class="linenos">258</span>                <span class="c1"># check for severe error reported by status code</span>
+<span class="linenos">259</span>                <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">ConfGen</span><span class="o">.</span><span class="n">ReturnCode</span><span class="o">.</span><span class="n">SUCCESS</span><span class="p">:</span>
+<span class="linenos">260</span>                    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">261</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: torsion driving on molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">]))</span>
+<span class="linenos">262</span>                    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">263</span>                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Torsion driving failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">status_to_str</span><span class="p">[</span><span class="n">status</span><span class="p">])</span>
+<span class="linenos">264</span>
+<span class="linenos">265</span>                <span class="k">elif</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>  <span class="c1"># arrives here only if no severe error occurred</span>
+<span class="linenos">266</span>                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; -&gt; Generated </span><span class="si">%s</span><span class="s1"> conformer(s)&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_confs</span><span class="p">))</span>
+<span class="linenos">267</span>                        
+<span class="linenos">268</span>                <span class="c1"># output generated ensemble (if available)</span>
+<span class="linenos">269</span>                <span class="k">if</span> <span class="n">num_confs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">270</span>                    <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>   
+<span class="linenos">271</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: output of generated conformers for molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
+<span class="linenos">272</span>                        
+<span class="linenos">273</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">274</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: torsion driving or output of generated conformers for molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">275</span>
+<span class="linenos">276</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">277</span>                
+<span class="linenos">278</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">279</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">280</span>
+<span class="linenos">281</span>    <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">282</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="linenos">283</span>
 <span class="linenos">284</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 <span class="linenos">285</span>    <span class="n">main</span><span class="p">()</span>
