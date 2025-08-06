@@ -104,32 +104,42 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifndef CDPL_VIS_OBJECT3DFACTORY_HPP</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define CDPL_VIS_OBJECT3DFACTORY_HPP</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vis_2APIPrefix_8hpp.html">CDPL/Vis/APIPrefix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ControlParameterContainer_8hpp.html">CDPL/Base/ControlParameterContainer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">namespace </span>Vis</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1Object3DFactory.html">   45</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Vis_2APIPrefix_8hpp.html#a9a28e2872ee66c78f13213888e850585">CDPL_VIS_API</a> <a class="code" href="classCDPL_1_1Vis_1_1Object3DFactory.html">Object3DFactory</a> : <span class="keyword">public</span> <a class="code" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1Object3DFactory.html#a6f9d329840cfaf683c77adfdbde8880d">   52</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3DFactory.html#a6f9d329840cfaf683c77adfdbde8880d">~Object3DFactory</a>() {}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    } <span class="comment">// namespace Vis</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_VIS_OBJECT3DFACTORY_HPP</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Object3D_8hpp.html">CDPL/Vis/Object3D.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ControlParameterContainer_8hpp.html">CDPL/Base/ControlParameterContainer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">namespace </span>Vis</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1Object3DFactory.html">   49</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classCDPL_1_1Vis_1_1Object3DFactory.html">Object3DFactory</a> : <span class="keyword">public</span> <a class="code" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">Base::ControlParameterContainer</a></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1Object3DFactory.html#a726ea10208068126ea532c9d37851db9">   56</a></span>&#160;            <span class="keyword">typedef</span> std::shared_ptr&lt;Object3DFactory&gt; <a class="code" href="classCDPL_1_1Vis_1_1Object3DFactory.html#a726ea10208068126ea532c9d37851db9">SharedPointer</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1Object3DFactory.html#a5d3d5d32f258e6fd8dca2ef018ee497b">   61</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3DFactory.html#a5d3d5d32f258e6fd8dca2ef018ee497b">~Object3DFactory</a>() {}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1Object3DFactory.html#abdd22228d855845829d34611ea09db3d">   63</a></span>&#160;            <span class="keyword">virtual</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3D.html#a240b6595c30f44421bb965b0554b622a">Object3D::SharedPointer</a> <a class="code" href="classCDPL_1_1Vis_1_1Object3DFactory.html#abdd22228d855845829d34611ea09db3d">create</a>(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">T</a>&amp; data) = 0;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        };</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    } <span class="comment">// namespace Vis</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_VIS_OBJECT3DFACTORY_HPP</span></div>
 <div class="ttc" id="aControlParameterContainer_8hpp_html"><div class="ttname"><a href="ControlParameterContainer_8hpp.html">ControlParameterContainer.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Base::ControlParameterContainer.</div></div>
-<div class="ttc" id="aVis_2APIPrefix_8hpp_html"><div class="ttname"><a href="Vis_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_VIS_API.</div></div>
-<div class="ttc" id="aVis_2APIPrefix_8hpp_html_a9a28e2872ee66c78f13213888e850585"><div class="ttname"><a href="Vis_2APIPrefix_8hpp.html#a9a28e2872ee66c78f13213888e850585">CDPL_VIS_API</a></div><div class="ttdeci">#define CDPL_VIS_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
+<div class="ttc" id="aObject3D_8hpp_html"><div class="ttname"><a href="Object3D_8hpp.html">Object3D.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Vis::Object3D.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1ControlParameterContainer_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1ControlParameterContainer.html">CDPL::Base::ControlParameterContainer</a></div><div class="ttdoc">A class providing methods for the storage and lookup of control-parameter values.</div><div class="ttdef"><b>Definition:</b> ControlParameterContainer.hpp:93</div></div>
-<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3DFactory_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3DFactory.html">CDPL::Vis::Object3DFactory</a></div><div class="ttdoc">The abstract base of classes implementing the creation of Vis::Object3D instances for the 3D visualiz...</div><div class="ttdef"><b>Definition:</b> Object3DFactory.hpp:46</div></div>
-<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3DFactory_html_a6f9d329840cfaf683c77adfdbde8880d"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3DFactory.html#a6f9d329840cfaf683c77adfdbde8880d">CDPL::Vis::Object3DFactory::~Object3DFactory</a></div><div class="ttdeci">virtual ~Object3DFactory()</div><div class="ttdoc">Virtual destructor.</div><div class="ttdef"><b>Definition:</b> Object3DFactory.hpp:52</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3DFactory_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3DFactory.html">CDPL::Vis::Object3DFactory</a></div><div class="ttdoc">The abstract base of classes implementing the creation of Vis::Object3D instances for the 3D visualiz...</div><div class="ttdef"><b>Definition:</b> Object3DFactory.hpp:50</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3DFactory_html_a5d3d5d32f258e6fd8dca2ef018ee497b"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3DFactory.html#a5d3d5d32f258e6fd8dca2ef018ee497b">CDPL::Vis::Object3DFactory::~Object3DFactory</a></div><div class="ttdeci">virtual ~Object3DFactory()</div><div class="ttdoc">Virtual destructor.</div><div class="ttdef"><b>Definition:</b> Object3DFactory.hpp:61</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3DFactory_html_a726ea10208068126ea532c9d37851db9"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3DFactory.html#a726ea10208068126ea532c9d37851db9">CDPL::Vis::Object3DFactory::SharedPointer</a></div><div class="ttdeci">std::shared_ptr&lt; Object3DFactory &gt; SharedPointer</div><div class="ttdoc">A reference-counted smart pointer [SHPTR] for dynamically allocated Object3DFactory instances.</div><div class="ttdef"><b>Definition:</b> Object3DFactory.hpp:56</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3DFactory_html_abdd22228d855845829d34611ea09db3d"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3DFactory.html#abdd22228d855845829d34611ea09db3d">CDPL::Vis::Object3DFactory::create</a></div><div class="ttdeci">virtual Object3D::SharedPointer create(const T &amp;data)=0</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3D_html_a240b6595c30f44421bb965b0554b622a"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3D.html#a240b6595c30f44421bb965b0554b622a">CDPL::Vis::Object3D::SharedPointer</a></div><div class="ttdeci">std::shared_ptr&lt; Object3D &gt; SharedPointer</div><div class="ttdoc">A reference-counted smart pointer [SHPTR] for dynamically allocated Object3D instances.</div><div class="ttdef"><b>Definition:</b> Object3D.hpp:60</div></div>
+<div class="ttc" id="anamespaceCDPL_1_1Chem_1_1AtomType_html_a8e13072ff426ad9f138437885c69f62d"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1AtomType.html#a8e13072ff426ad9f138437885c69f62d">CDPL::Chem::AtomType::T</a></div><div class="ttdeci">constexpr unsigned int T</div><div class="ttdoc">Specifies Hydrogen (Tritium).</div><div class="ttdef"><b>Definition:</b> AtomType.hpp:67</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
