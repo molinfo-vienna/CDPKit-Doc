@@ -116,6 +116,7 @@ var menudata={children:[
 {text:"j",url:"namespacemembers_type_j.html#index_j"},
 {text:"l",url:"namespacemembers_type_l.html#index_l"},
 {text:"m",url:"namespacemembers_type_m.html#index_m"},
+{text:"o",url:"namespacemembers_type_o.html#index_o"},
 {text:"p",url:"namespacemembers_type_p.html#index_p"},
 {text:"q",url:"namespacemembers_type_q.html#index_q"},
 {text:"r",url:"namespacemembers_type_r.html#index_r"},
