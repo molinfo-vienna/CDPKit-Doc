@@ -105,50 +105,71 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define CDPL_VIS_STLOBJECT3DWRITER_HPP</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;iosfwd&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vis_2APIPrefix_8hpp.html">CDPL/Vis/APIPrefix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DataWriter_8hpp.html">CDPL/Base/DataWriter.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vis_2APIPrefix_8hpp.html">CDPL/Vis/APIPrefix.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Shape3DVisitor_8hpp.html">CDPL/Vis/Shape3DVisitor.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DataWriter_8hpp.html">CDPL/Base/DataWriter.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Matrix_8hpp.html">CDPL/Math/Matrix.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vector_8hpp.html">CDPL/Math/Vector.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">namespace </span>Vis</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">class </span>Object3D;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">   50</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Vis_2APIPrefix_8hpp.html#a9a28e2872ee66c78f13213888e850585">CDPL_VIS_API</a> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">STLObject3DWriter</a> : <span class="keyword">public</span> <a class="code" href="classCDPL_1_1Base_1_1DataWriter.html">Base::DataWriter</a>&lt;Object3D&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a1e6d10634e1f3ce70e1fffd85a303751">   58</a></span>&#160;            <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a1e6d10634e1f3ce70e1fffd85a303751">STLObject3DWriter</a>(std::ostream&amp; os);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a14c8de234ea09cac03440fab55da3e03">   60</a></span>&#160;            <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a14c8de234ea09cac03440fab55da3e03">STLObject3DWriter</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">STLObject3DWriter</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a2653991fcc4003b6b9289b0afff869cc">   67</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1DataWriter.html">Base::DataWriter&lt;Object3D&gt;</a>&amp; <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a2653991fcc4003b6b9289b0afff869cc">write</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a>&amp; obj);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a92a8043932117e06a409a64443fdc0ea">   69</a></span>&#160;            <span class="keyword">operator</span> <span class="keyword">const</span> <span class="keywordtype">void</span>*() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a349441bb5f4a0a2481cbac5fc251f34b">   70</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a349441bb5f4a0a2481cbac5fc251f34b">operator!</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            std::ostream&amp; output;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordtype">bool</span>          state;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        };</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    } <span class="comment">// namespace Vis</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_VIS_STLOBJECT3DWRITER_HPP</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">namespace </span>Vis</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">class </span>Object3D;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">   54</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Vis_2APIPrefix_8hpp.html#a9a28e2872ee66c78f13213888e850585">CDPL_VIS_API</a> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">STLObject3DWriter</a> : <span class="keyword">public</span> <a class="code" href="classCDPL_1_1Base_1_1DataWriter.html">Base::DataWriter</a>&lt;Object3D&gt;, <span class="keyword">private</span> <a class="code" href="classCDPL_1_1Vis_1_1Shape3DVisitor.html">Shape3DVisitor</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a1e6d10634e1f3ce70e1fffd85a303751">   62</a></span>&#160;            <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a1e6d10634e1f3ce70e1fffd85a303751">STLObject3DWriter</a>(std::ostream&amp; os);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a14c8de234ea09cac03440fab55da3e03">   64</a></span>&#160;            <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a14c8de234ea09cac03440fab55da3e03">STLObject3DWriter</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">STLObject3DWriter</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a2653991fcc4003b6b9289b0afff869cc">   71</a></span>&#160;            <a class="code" href="classCDPL_1_1Base_1_1DataWriter.html">Base::DataWriter&lt;Object3D&gt;</a>&amp; <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a2653991fcc4003b6b9289b0afff869cc">write</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a>&amp; obj);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a92a8043932117e06a409a64443fdc0ea">   73</a></span>&#160;            <span class="keyword">operator</span> <span class="keyword">const</span> <span class="keywordtype">void</span>*() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a349441bb5f4a0a2481cbac5fc251f34b">   74</a></span>&#160;            <span class="keywordtype">bool</span> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a349441bb5f4a0a2481cbac5fc251f34b">operator!</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#af859b8c6584efefbd5b9c54e87eefabd">   76</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#af859b8c6584efefbd5b9c54e87eefabd">close</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">void</span> process(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a>&amp; obj);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">void</span> visitTriangleMesh(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1TriangleMesh3D.html">TriangleMesh3D</a>&amp; mesh);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Math::Vector3D&gt; VertexArray;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            std::ostream&amp;  output;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordtype">bool</span>           state;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordtype">bool</span>           headerWritten;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <a class="code" href="classCMatrix_3_01double_00_014_00_014_01_4.html">Math::Matrix4D</a> vtxTransform;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            VertexArray    transVertices;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        };</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    } <span class="comment">// namespace Vis</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_VIS_STLOBJECT3DWRITER_HPP</span></div>
 <div class="ttc" id="aDataWriter_8hpp_html"><div class="ttname"><a href="DataWriter_8hpp.html">DataWriter.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Base::DataWriter.</div></div>
+<div class="ttc" id="aMatrix_8hpp_html"><div class="ttname"><a href="Matrix_8hpp.html">Matrix.hpp</a></div><div class="ttdoc">Definition of matrix data types.</div></div>
+<div class="ttc" id="aShape3DVisitor_8hpp_html"><div class="ttname"><a href="Shape3DVisitor_8hpp.html">Shape3DVisitor.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Vis::Shape3DVisitor.</div></div>
+<div class="ttc" id="aVector_8hpp_html"><div class="ttname"><a href="Vector_8hpp.html">Vector.hpp</a></div><div class="ttdoc">Definition of vector data types.</div></div>
 <div class="ttc" id="aVis_2APIPrefix_8hpp_html"><div class="ttname"><a href="Vis_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_VIS_API.</div></div>
 <div class="ttc" id="aVis_2APIPrefix_8hpp_html_a9a28e2872ee66c78f13213888e850585"><div class="ttname"><a href="Vis_2APIPrefix_8hpp.html#a9a28e2872ee66c78f13213888e850585">CDPL_VIS_API</a></div><div class="ttdeci">#define CDPL_VIS_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1DataWriter_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1DataWriter.html">CDPL::Base::DataWriter</a></div><div class="ttdoc">An interface for writing data objects of a given type to an arbitrary data sink.</div><div class="ttdef"><b>Definition:</b> DataWriter.hpp:63</div></div>
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1Object3D_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Object3D.html">CDPL::Vis::Object3D</a></div><div class="ttdoc">Object3D.</div><div class="ttdef"><b>Definition:</b> Object3D.hpp:52</div></div>
-<div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">CDPL::Vis::STLObject3DWriter</a></div><div class="ttdoc">Output 3D visualization data represented by Vis::Object3D instances in the STL [STLFMT] format.</div><div class="ttdef"><b>Definition:</b> STLObject3DWriter.hpp:51</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html">CDPL::Vis::STLObject3DWriter</a></div><div class="ttdoc">Output 3D visualization data represented by Vis::Object3D instances in the STL [STLFMT] format.</div><div class="ttdef"><b>Definition:</b> STLObject3DWriter.hpp:55</div></div>
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html_a14c8de234ea09cac03440fab55da3e03"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a14c8de234ea09cac03440fab55da3e03">CDPL::Vis::STLObject3DWriter::STLObject3DWriter</a></div><div class="ttdeci">STLObject3DWriter(const STLObject3DWriter &amp;)=delete</div></div>
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html_a1e6d10634e1f3ce70e1fffd85a303751"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a1e6d10634e1f3ce70e1fffd85a303751">CDPL::Vis::STLObject3DWriter::STLObject3DWriter</a></div><div class="ttdeci">STLObject3DWriter(std::ostream &amp;os)</div><div class="ttdoc">Constructs a STLObject3DWriter instance that will write Vis::Object3D data to the output stream os.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html_a2653991fcc4003b6b9289b0afff869cc"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a2653991fcc4003b6b9289b0afff869cc">CDPL::Vis::STLObject3DWriter::write</a></div><div class="ttdeci">Base::DataWriter&lt; Object3D &gt; &amp; write(const Object3D &amp;obj)</div><div class="ttdoc">Outputs the Vis::Object3D instance obj.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html_a349441bb5f4a0a2481cbac5fc251f34b"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#a349441bb5f4a0a2481cbac5fc251f34b">CDPL::Vis::STLObject3DWriter::operator!</a></div><div class="ttdeci">bool operator!() const</div><div class="ttdoc">Tells whether the writer is in a bad state.</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1STLObject3DWriter_html_af859b8c6584efefbd5b9c54e87eefabd"><div class="ttname"><a href="classCDPL_1_1Vis_1_1STLObject3DWriter.html#af859b8c6584efefbd5b9c54e87eefabd">CDPL::Vis::STLObject3DWriter::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Writes format dependent data (if required) to mark the end of output.</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1Shape3DVisitor_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1Shape3DVisitor.html">CDPL::Vis::Shape3DVisitor</a></div><div class="ttdoc">The base of all Vis::Shape3D visitor implementations [VPTN].</div><div class="ttdef"><b>Definition:</b> Shape3DVisitor.hpp:49</div></div>
+<div class="ttc" id="aclassCDPL_1_1Vis_1_1TriangleMesh3D_html"><div class="ttname"><a href="classCDPL_1_1Vis_1_1TriangleMesh3D.html">CDPL::Vis::TriangleMesh3D</a></div><div class="ttdoc">Data structure for describing the geometric shape of 3D objects by means of a triangle mesh.</div><div class="ttdef"><b>Definition:</b> TriangleMesh3D.hpp:50</div></div>
+<div class="ttc" id="aclassCMatrix_3_01double_00_014_00_014_01_4_html"><div class="ttname"><a href="classCMatrix_3_01double_00_014_00_014_01_4.html">CMatrix&lt; double, 4, 4 &gt;</a></div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
