@@ -110,7 +110,7 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Shape3DVisitor_8hpp.html">CDPL/Vis/Shape3DVisitor.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="DataWriter_8hpp.html">CDPL/Base/DataWriter.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Matrix_8hpp.html">CDPL/Math/Matrix.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Vector_8hpp.html">CDPL/Math/Vector.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="VectorArray_8hpp.html">CDPL/Math/VectorArray.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceCDPL.html">CDPL</a></div>
@@ -141,20 +141,21 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">void</span> process(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a>&amp; obj);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">void</span> visitTriangleMesh(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1TriangleMesh3D.html">TriangleMesh3D</a>&amp; mesh);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            std::ostream&amp;   output;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">bool</span>            state;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">bool</span>            headerWritten;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="classCMatrix_3_01double_00_014_00_014_01_4.html">Math::Matrix4D</a>  vtxTransform;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1Material.html">Material</a>* material;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        };</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    } <span class="comment">// namespace Vis</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_VIS_VRMLOBJECT3DWRITER_HPP</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            std::ostream&amp;       output;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">bool</span>                state;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">bool</span>                headerWritten;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="classCMatrix_3_01double_00_014_00_014_01_4.html">Math::Matrix4D</a>      vtxTransform;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> calcVtxNormals;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Vis_1_1Material.html">Material</a>*     material;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        };</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    } <span class="comment">// namespace Vis</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_VIS_VRMLOBJECT3DWRITER_HPP</span></div>
 <div class="ttc" id="aDataWriter_8hpp_html"><div class="ttname"><a href="DataWriter_8hpp.html">DataWriter.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Base::DataWriter.</div></div>
 <div class="ttc" id="aMatrix_8hpp_html"><div class="ttname"><a href="Matrix_8hpp.html">Matrix.hpp</a></div><div class="ttdoc">Definition of matrix data types.</div></div>
 <div class="ttc" id="aShape3DVisitor_8hpp_html"><div class="ttname"><a href="Shape3DVisitor_8hpp.html">Shape3DVisitor.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Vis::Shape3DVisitor.</div></div>
-<div class="ttc" id="aVector_8hpp_html"><div class="ttname"><a href="Vector_8hpp.html">Vector.hpp</a></div><div class="ttdoc">Definition of vector data types.</div></div>
+<div class="ttc" id="aVectorArray_8hpp_html"><div class="ttname"><a href="VectorArray_8hpp.html">VectorArray.hpp</a></div><div class="ttdoc">Definition of the class CDPL::Math::VectorArray.</div></div>
 <div class="ttc" id="aVis_2APIPrefix_8hpp_html"><div class="ttname"><a href="Vis_2APIPrefix_8hpp.html">APIPrefix.hpp</a></div><div class="ttdoc">Definition of the preprocessor macro CDPL_VIS_API.</div></div>
 <div class="ttc" id="aVis_2APIPrefix_8hpp_html_a9a28e2872ee66c78f13213888e850585"><div class="ttname"><a href="Vis_2APIPrefix_8hpp.html#a9a28e2872ee66c78f13213888e850585">CDPL_VIS_API</a></div><div class="ttdeci">#define CDPL_VIS_API</div><div class="ttdoc">Tells the compiler/linker which classes, functions and variables are part of the library API.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Base_1_1DataWriter_html"><div class="ttname"><a href="classCDPL_1_1Base_1_1DataWriter.html">CDPL::Base::DataWriter</a></div><div class="ttdoc">An interface for writing data objects of a given type to an arbitrary data sink.</div><div class="ttdef"><b>Definition:</b> DataWriter.hpp:63</div></div>
@@ -169,6 +170,7 @@ $(function() {
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1VRMLObject3DWriter_html_ac0cd68dab41a2ae88dfdade3ae29e72e"><div class="ttname"><a href="classCDPL_1_1Vis_1_1VRMLObject3DWriter.html#ac0cd68dab41a2ae88dfdade3ae29e72e">CDPL::Vis::VRMLObject3DWriter::write</a></div><div class="ttdeci">Base::DataWriter&lt; Object3D &gt; &amp; write(const Object3D &amp;obj)</div><div class="ttdoc">Outputs the Vis::Object3D instance obj.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Vis_1_1VRMLObject3DWriter_html_aeefb5d9c8b32bf466c69fb411dd57ffd"><div class="ttname"><a href="classCDPL_1_1Vis_1_1VRMLObject3DWriter.html#aeefb5d9c8b32bf466c69fb411dd57ffd">CDPL::Vis::VRMLObject3DWriter::VRMLObject3DWriter</a></div><div class="ttdeci">VRMLObject3DWriter(const VRMLObject3DWriter &amp;)=delete</div></div>
 <div class="ttc" id="aclassCMatrix_3_01double_00_014_00_014_01_4_html"><div class="ttname"><a href="classCMatrix_3_01double_00_014_00_014_01_4.html">CMatrix&lt; double, 4, 4 &gt;</a></div></div>
+<div class="ttc" id="anamespaceCDPL_1_1Math_html_a2f219d16a380b6b34a0eac3866e50137"><div class="ttname"><a href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">CDPL::Math::Vector3DArray</a></div><div class="ttdeci">VectorArray&lt; Vector3D &gt; Vector3DArray</div><div class="ttdoc">An array of Math::Vector3D objects.</div><div class="ttdef"><b>Definition:</b> VectorArray.hpp:84</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
