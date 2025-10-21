@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdpl_api_doc/index.html">CDPL API Documentation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-v1-3-0">Release V1.3.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-3">Release V1.2.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-2">Release V1.2.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-v1-2-1">Release V1.2.1</a></li>
@@ -99,18 +100,25 @@
              
   <section id="release-notes">
 <span id="index-0"></span><h1>Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading"></a></h1>
+<section id="release-v1-3-0">
+<h2>Release V1.3.0<a class="headerlink" href="#release-v1-3-0" title="Link to this heading"></a></h2>
+<p class="rubric">New Functionality and Features</p>
+<p class="rubric">Improvements</p>
+<p class="rubric">Bug Fixes</p>
+<p class="rubric">API Changes</p>
+</section>
 <section id="release-v1-2-3">
 <h2>Release V1.2.3<a class="headerlink" href="#release-v1-2-3" title="Link to this heading"></a></h2>
-<p class="rubric">Bug Fixes</p>
-<ul class="simple">
-<li><p>Fix for a <em>Base::ItemNotFound</em> exception thrown during the merging of temporary PSD files
-when running the command line tool <a class="reference internal" href="applications/psdcreate.html"><span class="doc">psdcreate</span></a> in multi-threaded mode</p></li>
-</ul>
 <p class="rubric">New Functionality and Features</p>
 <ul class="simple">
 <li><p>New feature of program <a class="reference internal" href="applications/chox.html"><span class="doc">ChOX</span></a> that allows to display structure/reaction data associated
 with the currently shown molecule/reaction records</p></li>
 <li><p>See section below</p></li>
+</ul>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fix for a <em>Base::ItemNotFound</em> exception thrown during the merging of temporary PSD files
+when running the command line tool <a class="reference internal" href="applications/psdcreate.html"><span class="doc">psdcreate</span></a> in multi-threaded mode</p></li>
 </ul>
 <p class="rubric">API Changes</p>
 <ul class="simple">
@@ -125,14 +133,6 @@ similarities/distances in a single run</p></li>
 </section>
 <section id="release-v1-2-2">
 <h2>Release V1.2.2<a class="headerlink" href="#release-v1-2-2" title="Link to this heading"></a></h2>
-<p class="rubric">Bug Fixes</p>
-<ul class="simple">
-<li><p>Fix for an issue leading to a segmentation fault during the parsing of partially invalid SMILES/SMARTS strings that occurs
-if a ring closure at a chiral atom cannot be completed due to either missing or erroneously placed closure bond numbers</p></li>
-<li><p>Fix for a bug in the command line tool <a class="reference internal" href="applications/structgen.html"><span class="doc">structgen</span></a> that led to process termination due
-to a <em>Base::ItemNotFound</em> exception which was thrown when the set time limit got exceeded without having generated a
-complete set of 3D atom coordinates</p></li>
-</ul>
 <p class="rubric">New Functionality and Features</p>
 <ul class="simple">
 <li><p>The command line tool <a class="reference internal" href="applications/psdcreate.html"><span class="doc">psdcreate</span></a> now offers the possibility to process only a subset of the input molecules
@@ -149,6 +149,14 @@ aligned hit molecule structures</p></li>
 more compact molecule/pharmacophore data storage formats</p></li>
 <li><p>Additional Python cookbook script demonstrating how to use the stereoisomer enumeration functionality</p></li>
 </ul>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fix for an issue leading to a segmentation fault during the parsing of partially invalid SMILES/SMARTS strings that occurs
+if a ring closure at a chiral atom cannot be completed due to either missing or erroneously placed closure bond numbers</p></li>
+<li><p>Fix for a bug in the command line tool <a class="reference internal" href="applications/structgen.html"><span class="doc">structgen</span></a> that led to process termination due
+to a <em>Base::ItemNotFound</em> exception which was thrown when the set time limit got exceeded without having generated a
+complete set of 3D atom coordinates</p></li>
+</ul>
 <p class="rubric">API Changes</p>
 <ul class="simple">
 <li><p>Added new setter/getter method pair <em>outputZeroBasedIndices(bool)/outputZeroBasedIndices()</em> to class <em>Pharm::FileScreeningHitCollector</em>
@@ -157,11 +165,6 @@ that allows to control whether any indices (mol. index, conf. index, etc.) store
 </section>
 <section id="release-v1-2-1">
 <h2>Release V1.2.1<a class="headerlink" href="#release-v1-2-1" title="Link to this heading"></a></h2>
-<p class="rubric">Bug Fixes</p>
-<ul class="simple">
-<li><p>Fix for function <em>Pharm::removePositionalDuplicates(Pharmacophore&amp;)</em> which erroneously retained
-the duplicate features (to be removed) instead of the desired features all having unique position and type</p></li>
-</ul>
 <p class="rubric">Improvements</p>
 <ul class="simple">
 <li><p>New implementation of Greene’s algorithm for the calculation of atom hydrophobicities which
@@ -171,6 +174,11 @@ is now more correct and ~100 times faster than the previous one</p></li>
 <li><p>All disk space consumed by an existing pharmacophore screening database (PSD) that is specified as
 destination file for a new database to be created by the tool <a class="reference internal" href="applications/psdcreate.html"><span class="doc">subsearch</span></a> is now
 completely freed and not just internally marked as unallocated space</p></li>
+</ul>
+<p class="rubric">Bug Fixes</p>
+<ul class="simple">
+<li><p>Fix for function <em>Pharm::removePositionalDuplicates(Pharmacophore&amp;)</em> which erroneously retained
+the duplicate features (to be removed) instead of the desired features all having unique position and type</p></li>
 </ul>
 </section>
 <section id="release-v1-2-0">

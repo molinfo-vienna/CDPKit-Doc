@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>subsearch &mdash; CDPKit 1.3.0.dev1 documentation</title>
+  <title>simscreen &mdash; CDPKit 1.3.0.dev1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -12,7 +12,7 @@
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
-    <link rel="canonical" href="https://cdpkit.org/master/applications/subsearch.html" />
+    <link rel="canonical" href="https://cdpkit.org/master/applications/simscreen.html" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -27,8 +27,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="structgen" href="structgen.html" />
-    <link rel="prev" title="simscreen" href="simscreen.html" /> 
+    <link rel="next" title="subsearch" href="subsearch.html" />
+    <link rel="prev" title="shapescreen" href="shapescreen.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,13 +60,13 @@
 <li class="toctree-l2"><a class="reference internal" href="psdmerge.html">psdmerge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="psdinfo.html">psdinfo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapescreen.html">shapescreen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="simscreen.html">simscreen</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">subsearch</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">simscreen</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mandatory-options">Mandatory options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#other-options">Other options</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="subsearch.html">subsearch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="structgen.html">structgen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="confgen.html">confgen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="genfraglib.html">genfraglib</a></li>
@@ -99,9 +99,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">CDPKit Applications</a></li>
-      <li class="breadcrumb-item active">subsearch</li>
+      <li class="breadcrumb-item active">simscreen</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/applications/subsearch.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/applications/simscreen.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -109,21 +109,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="subsearch">
-<h1>subsearch<a class="headerlink" href="#subsearch" title="Link to this heading"></a></h1>
-<p>Performs substructure searching on a set of input molecules.</p>
+  <section id="simscreen">
+<h1>simscreen<a class="headerlink" href="#simscreen" title="Link to this heading"></a></h1>
+<p>Performs a fast fingerprint-based similarity screening of molecule databases.</p>
 <section id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
 <blockquote>
-<div><p><strong class="program">subsearch</strong> [-hVvp] [-c arg] [-l arg] [-n arg] [-I arg] [-O arg] [-N arg] [-e arg] -i arg [arg]… -o arg -s arg [arg]…</p>
+<div><p><strong class="program">simscreen</strong> [-hVvpMTugSNGFBYt] [-c arg] [-l arg] [-o arg] [-r arg] [-m arg] [-f arg] [-e arg] [-b arg] [-n arg] [-x arg] [-P arg] [-Q arg] [-D arg] [-O arg] [–tversky-weight-a arg] [–tversky-weight-b arg] [–ecfp-size arg] [–ecfp-radius arg] [–ecfp-inc-H arg] [–ecfp-inc-chirality arg] [–daylight-size arg] [–daylight-min-path-len arg] [–daylight-max-path-len arg] [–daylight-inc-H arg] [–pharm-2d-size arg] [–pharm-2d-min-tuple-size arg] [–pharm-2d-max-tuple-size arg] [–pharm-2d-bin-size arg] [–pharm-3d-size arg] [–pharm-3d-min-tuple-size arg] [–pharm-3d-max-tuple-size arg] [–pharm-3d-bin-size arg] -q arg -d arg</p>
 </div></blockquote>
 </section>
 <section id="mandatory-options">
 <h2>Mandatory options<a class="headerlink" href="#mandatory-options" title="Link to this heading"></a></h2>
 <blockquote>
-<div><p>-i [ –input ] arg</p>
+<div><p>-q [ –query ] arg</p>
 <blockquote>
-<div><p>Specifies one or more molecule input file(s) to be searched for matching substructures.</p>
+<div><p>The query molecule input file.</p>
 <dl class="simple">
 <dt>Supported Input Formats:</dt><dd><ul class="simple">
 <li><p>JME Molecular Editor String (.jme)</p></li>
@@ -148,15 +148,25 @@
 <li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
 <li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
 <li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>Brookhaven Protein Data Bank Entry Format (.pdb, .ent)</p></li>
+<li><p>Macromolecular Transmission Format (.mmtf)</p></li>
+<li><p>Macromolecular Crystallographic Information File Format (.mmcif, .cif)</p></li>
+<li><p>GZip-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.gz, .ent.gz)</p></li>
+<li><p>BZip2-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.bz2, .ent.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Transmission Format (.mmtf.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Transmission Format (.mmtf.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Crystallographic Information File Format (.mmcif.gz, .cif.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Crystallographic Information File Format (.mmcif.bz2,.cif.bz2)</p></li>
+<li><p>Pharmacophore Screening Database Format (.psd)</p></li>
 </ul>
 </dd>
 </dl>
 </div></blockquote>
-<p>-o [ –output ] arg</p>
+<p>-d [ –database ] arg</p>
 <blockquote>
-<div><p>Specifies the output file where the matching molecules will be stored.</p>
+<div><p>The molecule database file to screen.</p>
 <dl class="simple">
-<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
 <li><p>JME Molecular Editor String (.jme)</p></li>
 <li><p>MDL Structure-Data Format (.sdf, .sd)</p></li>
 <li><p>MDL Molfile (.mol)</p></li>
@@ -179,13 +189,19 @@
 <li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
 <li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
 <li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>Brookhaven Protein Data Bank Entry Format (.pdb, .ent)</p></li>
+<li><p>Macromolecular Transmission Format (.mmtf)</p></li>
+<li><p>Macromolecular Crystallographic Information File Format (.mmcif, .cif)</p></li>
+<li><p>GZip-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.gz, .ent.gz)</p></li>
+<li><p>BZip2-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.bz2, .ent.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Transmission Format (.mmtf.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Transmission Format (.mmtf.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Crystallographic Information File Format (.mmcif.gz, .cif.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Crystallographic Information File Format (.mmcif.bz2, .cif.bz2)</p></li>
+<li><p>Pharmacophore Screening Database Format (.psd)</p></li>
 </ul>
 </dd>
 </dl>
-</div></blockquote>
-<p>-s [ –substructs ] arg</p>
-<blockquote>
-<div><p>Substructure SMARTS pattern(s).</p>
 </div></blockquote>
 </div></blockquote>
 </section>
@@ -218,9 +234,9 @@ INFO).</p>
 <blockquote>
 <div><p>Show progress bar (default: true).</p>
 </div></blockquote>
-<p>-n [ –nm-output ] arg</p>
+<p>-o [ –output ] arg</p>
 <blockquote>
-<div><p>Specifies the output file where the non-matching molecules will be stored.</p>
+<div><p>Hit molecule output file.</p>
 <dl class="simple">
 <dt>Supported Output Formats:</dt><dd><ul class="simple">
 <li><p>JME Molecular Editor String (.jme)</p></li>
@@ -245,14 +261,120 @@ INFO).</p>
 <li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
 <li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
 <li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>Brookhaven Protein Data Bank Entry Format (.pdb, .ent)</p></li>
+<li><p>Macromolecular Transmission Format (.mmtf)</p></li>
+<li><p>Macromolecular Crystallographic Information File Format (.mmcif, .cif)</p></li>
+<li><p>GZip-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.gz, .ent.gz)</p></li>
+<li><p>BZip2-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.bz2, .ent.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Transmission Format (.mmtf.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Transmission Format (.mmtf.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Crystallographic Information File Format (.mmcif.gz, .cif.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Crystallographic Information File Format (.mmcif.bz2, .cif.bz2)</p></li>
+<li><p>Pharmacophore Screening Database Format (.psd)</p></li>
 </ul>
 </dd>
 </dl>
 </div></blockquote>
-<p>-I [ –input-format ] arg</p>
+<p>-r [ –report ] arg</p>
 <blockquote>
-<div><p>Allows to explicitly specify the format of the input file(s) by providing one of
-the supported file-extensions (without leading dot!) as argument.</p>
+<div><p>Report output file.</p>
+</div></blockquote>
+<p>-m [ –mode ] arg</p>
+<blockquote>
+<div><p>Specifies which kind of obtained results for the query/database molecule pairings
+are of interest (BEST_OVERALL, BEST_PER_QUERY, BEST_PER_QUERY_CONF, default: BEST_PER_QUERY).</p>
+</div></blockquote>
+<p>-f [ –func ] arg</p>
+<blockquote>
+<div><p>Function to use for molecule similarity/distance calculation and ranking operations
+(TANIMOTO_SIM, TVERSKY_SIM, COSINE_SIM, DICE_SIM, MANHATTAN_SIM, MANHATTAN_DIST,
+HAMMING_DIST, EUCLIDEAN_SIM, EUCLIDEAN_DIST, default: TANIMOTO_SIM)</p>
+</div></blockquote>
+<p>-e [ –descr ] arg</p>
+<blockquote>
+<div><p>Type of molecule descriptor to use for similarity/distance calculations (ECFP, DAYLIGHT,
+PUBCHEM, MACCS, PHARM_2D, PHARM_3D, default: ECFP)</p>
+</div></blockquote>
+<p>-b [ –best-hits ] arg</p>
+<blockquote>
+<div><p>Maximum number of best scoring hits to output (default: 1000).</p>
+</div></blockquote>
+<p>-n [ –max-hits ] arg</p>
+<blockquote>
+<div><p>Maximum number of found hits at which the screen will terminate (overrides the –
+best-hits option, default: 0 - no limit).</p>
+</div></blockquote>
+<p>-x [ –cutoff ] arg</p>
+<blockquote>
+<div><p>Similarity/distance cutoff value which determines whether an database molecule is
+considered as a hit (default: -1.0 -&gt; no cutoff).</p>
+</div></blockquote>
+<p>-M [ –merge-hits ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, identified hits are merged into a single, combined hit list. If false,
+a separate hit list for every query molecule will be maintained (default: false).</p>
+</div></blockquote>
+<p>-T [ –split-output ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, for every query molecule a separate report and hit output file will be
+generated (default: true).</p>
+</div></blockquote>
+<p>-u [ –output-query ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If specified, query molecules will be written at the beginning of the hit molecule
+output file (default: true).</p>
+</div></blockquote>
+<p>-g [ –single-conf ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If specified, conformers of the database molecules are treated as individual single
+conformer molecules (default: false).</p>
+</div></blockquote>
+<p>-S [ –score-sd-tags ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, similarity/distance score values will be appended as SD-block entries of
+the output hit molecules (default: true).</p>
+</div></blockquote>
+<p>-N [ –query-name-sd-tags ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, the query molecule name will be appended to the SD-block of the output
+hit molecules (default: false).</p>
+</div></blockquote>
+<p>-G [ –query-idx-sd-tags ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, the query molecule index will be appended to the SD-block of the output
+hit molecules (default: false).</p>
+</div></blockquote>
+<p>-F [ –query-conf-sd-tags ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, the query molecule conformer index will be appended to the SD-block of
+the output hit molecules (default: true).</p>
+</div></blockquote>
+<p>-B [ –db-idx-sd-tags ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, the database molecule index will be appended to the SD-block of the output
+hit molecules (default: false).</p>
+</div></blockquote>
+<p>-Y [ –db-conf-sd-tags ] [=arg(=1)]</p>
+<blockquote>
+<div><p>If true, the database molecule conformer index will be appended to the SD-block
+of the output hit molecules (default: true).</p>
+</div></blockquote>
+<p>-P [ –hit-name-ptn ] arg</p>
+<blockquote>
+<div><p>Pattern for composing the names of written hit molecules by variable substitution
+(supported variables: &#64;Q&#64; = query molecule name, &#64;D&#64; = database molecule name, &#64;C&#64;
+= query molecule conformer index, &#64;c&#64; = database molecule conformer index, &#64;I&#64; =
+query molecule index and &#64;i&#64; = database molecule index, default: &#64;D&#64;_&#64;c&#64;_&#64;Q&#64;_&#64;C&#64;).</p>
+</div></blockquote>
+<p>-t [ –num-threads ] [=arg(=4)]</p>
+<blockquote>
+<div><p>Number of parallel execution threads (default: no multithreading, implicit value:
+4 threads, must be &gt;= 0, 0 disables multithreading).</p>
+</div></blockquote>
+<p>-Q [ –query-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the format of the query molecule file by providing
+one of the supported file-extensions (without leading dot!) as argument.</p>
 <dl class="simple">
 <dt>Supported Input Formats:</dt><dd><ul class="simple">
 <li><p>JME Molecular Editor String (.jme)</p></li>
@@ -277,6 +399,60 @@ the supported file-extensions (without leading dot!) as argument.</p>
 <li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
 <li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
 <li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>Brookhaven Protein Data Bank Entry Format (.pdb, .ent)</p></li>
+<li><p>Macromolecular Transmission Format (.mmtf)</p></li>
+<li><p>Macromolecular Crystallographic Information File Format (.mmcif, .cif)</p></li>
+<li><p>GZip-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.gz, .ent.gz)</p></li>
+<li><p>BZip2-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.bz2, .ent.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Transmission Format (.mmtf.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Transmission Format (.mmtf.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Crystallographic Information File Format (.mmcif.gz, .cif.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Crystallographic Information File Format (.mmcif.bz2, .cif.bz2)</p></li>
+<li><p>Pharmacophore Screening Database Format (.psd)</p></li>
+</ul>
+</dd>
+</dl>
+<p>This option is useful when the format cannot be auto-detected from the actual extension
+of the file (because missing, misleading or not supported).</p>
+</div></blockquote>
+<p>-D [ –database-format ] arg</p>
+<blockquote>
+<div><p>Allows to explicitly specify the format of the screening database file by providing
+one of the supported file-extensions (without leading dot!) as argument.</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (.jme)</p></li>
+<li><p>MDL Structure-Data Format (.sdf, .sd)</p></li>
+<li><p>MDL Molfile (.mol)</p></li>
+<li><p>Daylight SMILES Format (.smi)</p></li>
+<li><p>Daylight SMARTS Format (.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
+<li><p>Native CDPL Format (.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 Format (.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ Format (.xyz)</p></li>
+<li><p>Chemical Markup Language Format (.cml)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data Format (.sdf.gz, .sd.gz, .sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data Format (.sdf.bz2, .sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL Format (.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL Format (.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES Format (.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES Format (.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 Format (.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 Format (.mol2.bz2)</p></li>
+<li><p>GZip-Compressed Atomic Coordinates XYZ Format (.xyz.gz)</p></li>
+<li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>Brookhaven Protein Data Bank Entry Format (.pdb, .ent)</p></li>
+<li><p>Macromolecular Transmission Format (.mmtf)</p></li>
+<li><p>Macromolecular Crystallographic Information File Format (.mmcif, .cif)</p></li>
+<li><p>GZip-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.gz, .ent.gz)</p></li>
+<li><p>BZip2-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.bz2, .ent.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Transmission Format (.mmtf.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Transmission Format (.mmtf.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Crystallographic Information File Format (.mmcif.gz, .cif.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Crystallographic Information File Format (.mmcif.bz2, .cif.bz2)</p></li>
+<li><p>Pharmacophore Screening Database Format (.psd)</p></li>
 </ul>
 </dd>
 </dl>
@@ -285,7 +461,7 @@ of the file(s) (because missing, misleading or not supported).</p>
 </div></blockquote>
 <p>-O [ –output-format ] arg</p>
 <blockquote>
-<div><p>Allows to explicitly specify the matching molecule output format by providing one
+<div><p>Allows to explicitly specify the hit molecule output file format by providing one
 of the supported file-extensions (without leading dot!) as argument.</p>
 <dl class="simple">
 <dt>Supported Output Formats:</dt><dd><ul class="simple">
@@ -311,68 +487,129 @@ of the supported file-extensions (without leading dot!) as argument.</p>
 <li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
 <li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
 <li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
+<li><p>Brookhaven Protein Data Bank Entry Format (.pdb, .ent)</p></li>
+<li><p>Macromolecular Transmission Format (.mmtf)</p></li>
+<li><p>Macromolecular Crystallographic Information File Format (.mmcif, .cif)</p></li>
+<li><p>GZip-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.gz, .ent.gz)</p></li>
+<li><p>BZip2-Compressed Brookhaven Protein Data Bank Entry Format (.pdb.bz2, .ent.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Transmission Format (.mmtf.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Transmission Format (.mmtf.bz2)</p></li>
+<li><p>GZip-Compressed Macromolecular Crystallographic Information File Format (.mmcif.gz, .cif.gz)</p></li>
+<li><p>BZip2-Compressed Macromolecular Crystallographic Information File Format (.mmcif.bz2, .cif.bz2)</p></li>
+<li><p>Pharmacophore Screening Database Format (.psd)</p></li>
 </ul>
 </dd>
 </dl>
 <p>This option is useful when the format cannot be auto-detected from the actual extension
 of the file (because missing, misleading or not supported).</p>
 </div></blockquote>
-<p>-N [ –nm-output-format ] arg</p>
-<blockquote>
-<div><p>Allows to explicitly specify the non-matching molecule output format by providing
-one of the supported file-extensions (without leading dot!) as argument.</p>
-<dl class="simple">
-<dt>Supported Output Formats:</dt><dd><ul class="simple">
-<li><p>JME Molecular Editor String (.jme)</p></li>
-<li><p>MDL Structure-Data Format (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Daylight SMILES Format (.smi)</p></li>
-<li><p>Daylight SMARTS Format (.sma)</p></li>
-<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
-<li><p>Native CDPL Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 Format (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ Format (.xyz)</p></li>
-<li><p>Chemical Markup Language Format (.cml)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data Format (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data Format (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Daylight SMILES Format (.smi.gz)</p></li>
-<li><p>BZip2-Compressed Daylight SMILES Format (.smi.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 Format (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 Format (.mol2.bz2)</p></li>
-<li><p>GZip-Compressed Atomic Coordinates XYZ Format (.xyz.gz)</p></li>
-<li><p>BZip2-Compressed Atomic Coordinates XYZ Format (.xyz.bz2)</p></li>
-<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
-<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
-</ul>
-</dd>
-</dl>
-<p>This option is useful when the format cannot be auto-detected from the actual extension
-of the file (because missing, misleading or not supported).</p>
+<p class="attribution">—ecfp-size arg</p>
 </div></blockquote>
-<p>-e [ –match-expr ] arg</p>
 <blockquote>
-<div><p>Allows to define a complex substructure query in the form of a logical expression
-that specifies how the individual SMARTS pattern matching results have to be merged
-into a single overall molecule matching result. When no expression is specified
-the default logic is an OR combination. That is, at least one of the given SMARTS
-patterns has to match for a positive molecule matching result.</p>
-<dl class="simple">
-<dt>Supported logical operations:</dt><dd><ul class="simple">
-<li><p>AND (symbol: &amp;)</p></li>
-<li><p>OR  (symbol: |)</p></li>
-<li><p>XOR (symbol: ^)</p></li>
-<li><p>NOT (symbol: !)</p></li>
-</ul>
-</dd>
-</dl>
-<p>Parentheses can be used for grouping without limit on nesting depth. Any whitespace
-characters will be stripped before expression evaluation and thus can be used freely.
-SMARTS patterns specified by option -s are referenced by positive integer numbers
-&gt;= 1. The numeric id of a pattern corresponds to its position in the argument list
-of option -s.</p>
-<p>Example: -e ‘!(1&amp;(2^3)) | 4’</p>
+<div><blockquote>
+<div><p>Size of the generated fingerprint (default: 8191).</p>
+</div></blockquote>
+<p class="attribution">—ecfp-radius arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Atom environment radius in number of bonds (default: 2 -&gt; ECFP4).</p>
+</div></blockquote>
+<p class="attribution">—ecfp-inc-H arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Whether or not to include hydrogen atoms (default: false).</p>
+</div></blockquote>
+<p class="attribution">—ecfp-inc-chirality arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Whether or not to regard the chriality of stereo atoms(default: false).</p>
+</div></blockquote>
+<p class="attribution">—daylight-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Size of the generated fingerprint (default: 8191).</p>
+</div></blockquote>
+<p class="attribution">—daylight-min-path-len arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Minimum considered atom path length in number of bonds (default: 0).</p>
+</div></blockquote>
+<p class="attribution">—daylight-max-path-len arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Maximum considered atom path length in number of bonds (default: 5).</p>
+</div></blockquote>
+<p class="attribution">—daylight-inc-H arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Whether or not to include hydrogen atoms (default: false).</p>
+</div></blockquote>
+<p class="attribution">—pharm-2d-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Size of the generated fingerprint (default: 8191).</p>
+</div></blockquote>
+<p class="attribution">—pharm-2d-min-tuple-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Minimum feature tuple size (default: 1).</p>
+</div></blockquote>
+<p class="attribution">—pharm-2d-max-tuple-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Maximum feature tuple size (default: 3).</p>
+</div></blockquote>
+<p class="attribution">—pharm-2d-bin-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Feature distance bin size (default: 2.0, must be &gt; 0).</p>
+</div></blockquote>
+<p class="attribution">—pharm-3d-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Size of the generated fingerprint (default: 8191).</p>
+</div></blockquote>
+<p class="attribution">—pharm-3d-min-tuple-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Minimum feature tuple size (default: 1).</p>
+</div></blockquote>
+<p class="attribution">—pharm-3d-max-tuple-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Maximum feature tuple size (default: 3).</p>
+</div></blockquote>
+<p class="attribution">—pharm-3d-bin-size arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Feature distance bin size (default: 3.0, must be &gt; 0).</p>
+</div></blockquote>
+<p class="attribution">—tversky-weight-a arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Weight factor of the query molecule fingerprint exclusive bits (default: 1.0).</p>
+</div></blockquote>
+<p class="attribution">—tversky-weight-b arg</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Weight factor of the database molecule fingerprint exclusive bits (default: 0.0).</p>
 </div></blockquote>
 </div></blockquote>
 </section>
@@ -382,8 +619,8 @@ of option -s.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="simscreen.html" class="btn btn-neutral float-left" title="simscreen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="structgen.html" class="btn btn-neutral float-right" title="structgen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="shapescreen.html" class="btn btn-neutral float-left" title="shapescreen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="subsearch.html" class="btn btn-neutral float-right" title="subsearch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
