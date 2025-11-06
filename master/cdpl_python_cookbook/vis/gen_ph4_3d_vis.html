@@ -110,7 +110,7 @@ read from an input file and writes the resulting vector graphics data to one or 
 (in case of multiple input pharmacophores) output file(s).</p>
 <p><strong>Synopsis</strong></p>
 <blockquote>
-<div><p><strong class="program">python</strong> <em>gen_ph4_3d_vis.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-c] [-d]</p>
+<div><p><strong class="program">python</strong> <em>gen_ph4_3d_vis.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-c] [-d] [-t]</p>
 </div></blockquote>
 <p><strong>Mandatory options</strong></p>
 <blockquote>
@@ -135,6 +135,9 @@ read from an input file and writes the resulting vector graphics data to one or 
 <dt><kbd><span class="option">-d</span></kbd></dt>
 <dd><p>Make vector and plane features undirected (default: false)</p>
 </dd>
+<dt><kbd><span class="option">-t</span></kbd></dt>
+<dd><p>Disable feature transparency (default: false)</p>
+</dd>
 </dl>
 </div></blockquote>
 <p><strong>Example</strong></p>
@@ -156,94 +159,109 @@ read from an input file and writes the resulting vector graphics data to one or 
 </figcaption>
 </figure>
 <p><strong>Code</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">os</span>
-<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="kn">import</span> <span class="nn">CDPL.Util</span> <span class="k">as</span> <span class="nn">Util</span>
-<span class="linenos"> 6</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
-<span class="linenos"> 7</span><span class="kn">import</span> <span class="nn">CDPL.Vis</span> <span class="k">as</span> <span class="nn">Vis</span>
-<span class="linenos"> 8</span>
-<span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
-<span class="linenos">11</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates 3D vector graphics representations of pharmacophores for the display by external programs.&#39;</span><span class="p">)</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
-<span class="linenos">14</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
-<span class="linenos">15</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">16</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">17</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input pharmacophore file (*.pml, *.cdf)&#39;</span><span class="p">)</span>
-<span class="linenos">18</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
-<span class="linenos">19</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
-<span class="linenos">20</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos">21</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
-<span class="linenos">22</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;3D visualization data output file (*.r3d, *.stl, *.ply, *.wrl)&#39;</span><span class="p">)</span>
-<span class="linenos">23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
-<span class="linenos">24</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;no_ftr_ctrs&#39;</span><span class="p">,</span>
-<span class="linenos">25</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">26</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">27</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">28</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not output spheres representing the feature centers (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">29</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span>
-<span class="linenos">30</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;no_ftr_dir&#39;</span><span class="p">,</span>
-<span class="linenos">31</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">32</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
-<span class="linenos">33</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="linenos">34</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Make vector and plane features undirected (default: false)&#39;</span><span class="p">)</span>
-<span class="linenos">35</span>    
-<span class="linenos">36</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos">37</span>    
-<span class="linenos">38</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">39</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
-<span class="linenos">40</span>
-<span class="linenos">41</span>    <span class="c1"># create reader for input pharmacophores (format specified by file extension)</span>
-<span class="linenos">42</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">PharmacophoreReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
-<span class="linenos">43</span>    
-<span class="linenos">44</span>    <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore interface</span>
-<span class="linenos">45</span>    <span class="n">ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>
-<span class="linenos">46</span>
-<span class="linenos">47</span>    <span class="c1"># instantiate class implementing the creation of visual 3D</span>
-<span class="linenos">48</span>    <span class="c1"># representations of Pharm.FeatureContainer objects</span>
-<span class="linenos">49</span>    <span class="n">ph4_3d_repr_factory</span> <span class="o">=</span> <span class="n">Vis</span><span class="o">.</span><span class="n">FeatureContainerObject3DFactory</span><span class="p">()</span>
-<span class="linenos">50</span>
-<span class="linenos">51</span>    <span class="c1"># apply the value of option -c</span>
-<span class="linenos">52</span>    <span class="n">Vis</span><span class="o">.</span><span class="n">setShowFeatureCentersParameter</span><span class="p">(</span><span class="n">ph4_3d_repr_factory</span><span class="p">,</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_ftr_ctrs</span><span class="p">)</span>
-<span class="linenos">53</span>    
-<span class="linenos">54</span>    <span class="n">out_file</span><span class="p">,</span> <span class="n">out_file_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span>
-<span class="linenos">55</span>    
-<span class="linenos">56</span>    <span class="c1"># read and process pharmacophores one after the other until the end of input has been reached</span>
-<span class="linenos">57</span>    <span class="k">try</span><span class="p">:</span>
-<span class="linenos">58</span>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="linenos">59</span>        
-<span class="linenos">60</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ph4</span><span class="p">):</span>
-<span class="linenos">61</span>            <span class="k">try</span><span class="p">:</span>
-<span class="linenos">62</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">no_ftr_dir</span><span class="p">:</span>                       <span class="c1"># if pharm. features shall be output without orientation information (option -d)</span>
-<span class="linenos">63</span>                    <span class="n">Pharm</span><span class="o">.</span><span class="n">clearOrientations</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>          <span class="c1"># clear orientation property of all features</span>
-<span class="linenos">64</span>                    <span class="n">Pharm</span><span class="o">.</span><span class="n">removePositionalDuplicates</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span> <span class="c1"># and reduce multiple features having the same type and position to one feature</span>
-<span class="linenos">65</span>
-<span class="linenos">66</span>                <span class="c1"># create writer for the output file (file format determined by the file extension)</span>
-<span class="linenos">67</span>                <span class="n">writer</span> <span class="o">=</span> <span class="n">Vis</span><span class="o">.</span><span class="n">Object3DWriter</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_file</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">i</span><span class="si">}{</span><span class="n">out_file_ext</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="linenos">68</span>
-<span class="linenos">69</span>                <span class="c1"># generate the 3D visual representation of the read pharmacophore</span>
-<span class="linenos">70</span>                <span class="n">ph4_3d_repr</span> <span class="o">=</span> <span class="n">ph4_3d_repr_factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>
-<span class="linenos">71</span>
-<span class="linenos">72</span>                <span class="c1"># output the generated visualization data</span>
-<span class="linenos">73</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ph4_3d_repr</span><span class="p">):</span>
-<span class="linenos">74</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: output of pharmacophore visualization data failed&#39;</span><span class="p">)</span>
-<span class="linenos">75</span>
-<span class="linenos">76</span>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="linenos">77</span>                <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="linenos">78</span>    
-<span class="linenos">79</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">80</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: generation or output of pharmacophore visualization data failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">81</span>                
-<span class="linenos">82</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">83</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="linenos">84</span>
-<span class="linenos">85</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="linenos">86</span>        
-<span class="linenos">87</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<span class="linenos">88</span>    <span class="n">main</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">os</span>
+<span class="linenos">  3</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.Util</span> <span class="k">as</span> <span class="nn">Util</span>
+<span class="linenos">  6</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
+<span class="linenos">  7</span><span class="kn">import</span> <span class="nn">CDPL.Vis</span> <span class="k">as</span> <span class="nn">Vis</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 11</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Generates 3D vector graphics representations of pharmacophores for the display by external programs.&#39;</span><span class="p">)</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos"> 14</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 15</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 16</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 17</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Input pharmacophore file (*.pml, *.cdf)&#39;</span><span class="p">)</span>
+<span class="linenos"> 18</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 19</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 20</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 21</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 22</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;3D visualization data output file (*.r3d, *.stl, *.ply, *.wrl)&#39;</span><span class="p">)</span>
+<span class="linenos"> 23</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+<span class="linenos"> 24</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;no_ftr_ctrs&#39;</span><span class="p">,</span>
+<span class="linenos"> 25</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 26</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 27</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 28</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not output spheres representing the feature centers (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 29</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span>
+<span class="linenos"> 30</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;no_ftr_dir&#39;</span><span class="p">,</span>
+<span class="linenos"> 31</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 32</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 33</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 34</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Make vector and plane features undirected (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 35</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span>
+<span class="linenos"> 36</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;no_transp&#39;</span><span class="p">,</span>
+<span class="linenos"> 37</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 38</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 39</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 40</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable feature transparency (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 41</span>     
+<span class="linenos"> 42</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 43</span>    
+<span class="linenos"> 44</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 45</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span>    <span class="c1"># create reader for input pharmacophores (format specified by file extension)</span>
+<span class="linenos"> 48</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">PharmacophoreReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos"> 49</span>    
+<span class="linenos"> 50</span>    <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore interface</span>
+<span class="linenos"> 51</span>    <span class="n">ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>
+<span class="linenos"> 52</span>
+<span class="linenos"> 53</span>    <span class="c1"># instantiate class implementing the creation of visual 3D</span>
+<span class="linenos"> 54</span>    <span class="c1"># representations of Pharm.FeatureContainer objects</span>
+<span class="linenos"> 55</span>    <span class="n">ph4_3d_repr_factory</span> <span class="o">=</span> <span class="n">Vis</span><span class="o">.</span><span class="n">FeatureContainerObject3DFactory</span><span class="p">()</span>
+<span class="linenos"> 56</span>
+<span class="linenos"> 57</span>    <span class="c1"># apply the value of option -c</span>
+<span class="linenos"> 58</span>    <span class="n">Vis</span><span class="o">.</span><span class="n">setShowFeatureCentersParameter</span><span class="p">(</span><span class="n">ph4_3d_repr_factory</span><span class="p">,</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">no_ftr_ctrs</span><span class="p">)</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span>    <span class="c1"># process option -t</span>
+<span class="linenos"> 61</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">no_transp</span><span class="p">:</span>
+<span class="linenos"> 62</span>        <span class="n">ftr_colors</span> <span class="o">=</span> <span class="n">Vis</span><span class="o">.</span><span class="n">DefaultFeatureColorTable</span><span class="p">()</span>
+<span class="linenos"> 63</span>
+<span class="linenos"> 64</span>        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">ftr_colors</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="linenos"> 65</span>            <span class="n">color</span><span class="o">.</span><span class="n">setAlpha</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>        <span class="n">Vis</span><span class="o">.</span><span class="n">setFeatureColorTableParameter</span><span class="p">(</span><span class="n">ph4_3d_repr_factory</span><span class="p">,</span> <span class="n">ftr_colors</span><span class="p">)</span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span>    <span class="n">out_file</span><span class="p">,</span> <span class="n">out_file_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">)</span>
+<span class="linenos"> 70</span>    
+<span class="linenos"> 71</span>    <span class="c1"># read and process pharmacophores one after the other until the end of input has been reached</span>
+<span class="linenos"> 72</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 73</span>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 74</span>        
+<span class="linenos"> 75</span>        <span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ph4</span><span class="p">):</span>
+<span class="linenos"> 76</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 77</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">no_ftr_dir</span><span class="p">:</span>                       <span class="c1"># if pharm. features shall be output without orientation information (option -d)</span>
+<span class="linenos"> 78</span>                    <span class="n">Pharm</span><span class="o">.</span><span class="n">clearOrientations</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>          <span class="c1"># clear orientation property of all features</span>
+<span class="linenos"> 79</span>                    <span class="n">Pharm</span><span class="o">.</span><span class="n">removePositionalDuplicates</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span> <span class="c1"># and reduce multiple features having the same type and position to one feature</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>                <span class="c1"># create writer for the output file (file format determined by the file extension)</span>
+<span class="linenos"> 82</span>                <span class="n">writer</span> <span class="o">=</span> <span class="n">Vis</span><span class="o">.</span><span class="n">Object3DWriter</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_file</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">i</span><span class="si">}{</span><span class="n">out_file_ext</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span>                <span class="c1"># generate the 3D visual representation of the read pharmacophore</span>
+<span class="linenos"> 85</span>                <span class="n">ph4_3d_repr</span> <span class="o">=</span> <span class="n">ph4_3d_repr_factory</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span>                <span class="c1"># output the generated visualization data</span>
+<span class="linenos"> 88</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ph4_3d_repr</span><span class="p">):</span>
+<span class="linenos"> 89</span>                    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: output of pharmacophore visualization data failed&#39;</span><span class="p">)</span>
+<span class="linenos"> 90</span>
+<span class="linenos"> 91</span>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos"> 92</span>                <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos"> 93</span>    
+<span class="linenos"> 94</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos"> 95</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: generation or output of pharmacophore visualization data failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos"> 96</span>                
+<span class="linenos"> 97</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos"> 98</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">101</span>        
+<span class="linenos">102</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">103</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><a class="reference download internal" download="" href="../../_downloads/3b2a571e4849dfb46b74d8d445b1cbd6/gen_ph4_3d_vis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
