@@ -57,7 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CDPL Python Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Installing the CDPL Python bindings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#processing-molecules">2. Processing Molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">2. Working with molecules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
@@ -95,41 +95,74 @@
              
   <section id="installing-the-cdpl-python-bindings">
 <h1><span class="section-number">1. </span>Installing the CDPL Python bindings<a class="headerlink" href="#installing-the-cdpl-python-bindings" title="Link to this heading"></a></h1>
+<p>To be able to follow this tutorial the <em>CDPL Python</em> bindings need to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a> using the <strong class="program">pip</strong> command as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cdpkit</span>
 </pre></div>
 </div>
+<p>Other possible options for installing the Python bindings can be found <a class="reference external" href="https://cdpkit.org/installation.html">here</a>.</p>
 </section>
-<section id="processing-molecules">
-<h1><span class="section-number">2. </span>Processing Molecules<a class="headerlink" href="#processing-molecules" title="Link to this heading"></a></h1>
-<p>The data structures for the in-memory representation of molecules as
-well as functionality for their processing are located in package
-CDPL.Chem</p>
+<section id="working-with-molecules">
+<h1><span class="section-number">2. </span>Working with molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
+<p>The primary data structure for the in-memory representation of molecules (class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>) as well as all basic processing functionality is located in package <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>.
+Importing the package as shown below will make all contained classes and functions accessible via the prefix <em>Chem.*</em>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 </pre></div>
 </div>
-<p>First example: parsing a SMILES string</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;c1ccccc1&#39;</span><span class="p">)</span>
+<p>An initally empty molecule object can then be created as follows:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The number of (explicit) atoms can be queried either by acessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">numAtoms</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span>
+<span class="c1"># or</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">getNumAtoms</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>In the same manner, the number of bonds can be retrieved by:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span>
+<span class="c1"># or</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">getNumBonds</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Atoms are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ab998b55e7f56b00f47e3acbfa4511f2e">addAtom()</a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicAtom.html">Chem.BasicAtom</a> object which is owned by the creating <em>Chem.BasicMolecule</em> instance <em>mol</em>. The created atom does not yet possess any chemical properties like element, formal charge, and so on. The values of these properties need to be set explicitly by invoking dedicated property functions which take the atom and desired value of the property as arguments. For example</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will set the type property of the atom to the atomic number of carbon. The value of the type property can be retrieved by the associated function</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<p>In a similar fashion, bonds are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#acd42f15d874185b4eea2cf497a509ea6">addBond()</a>
+which expects the indices (zero-based) of the two atoms to connect as arguments:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span> <span class="c1"># add second carbon atom</span>
 
-<span class="n">mol</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">CDPL</span><span class="o">.</span><span class="n">Chem</span><span class="o">.</span><span class="n">_chem</span><span class="o">.</span><span class="n">BasicMolecule</span> <span class="n">at</span> <span class="mh">0x7fd0b6cf8b30</span><span class="o">&gt;</span>
+<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicBond.html">Chem.BasicBond</a> object which is also owned by the creating <em>Chem.BasicMolecule</em> instance <em>mol</em>. As with atoms, the created bond does not yet have any properties set. To set the bond order to a value of 2 (= double bond) the property function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">Chem.setOrder()</a> needs to be invoked:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Display of the parsed molecule:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Vis</span>
-
-<span class="n">display</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<p>A previously set bond order property value can be accessed by the accompanying getter function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">Chem.getOrder()</a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getOrder</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_8_0.svg" src="../_images/cdpl_python_tutorial_8_0.svg" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">removeAtom</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span>
-</pre></div>
-</div>
-<img alt="../_images/cdpl_python_tutorial_10_0.svg" src="../_images/cdpl_python_tutorial_10_0.svg" />
 </section>
 
 
