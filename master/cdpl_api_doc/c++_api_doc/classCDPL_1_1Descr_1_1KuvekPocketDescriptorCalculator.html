@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Implements the calculation of receptor binding pocket shape and electrostatics descriptors according to the method devised by Kuvek et al. [<a class="el" href="References.html#KBPD">KBPD</a>].  
+<p>Implements the algorithm devised by Kuvek et al. [<a class="el" href="References.html#KBPD">KBPD</a>] for the calculation of receptor binding pocket shape and surface electrostatics descriptors.  
  <a href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="KuvekPocketDescriptorCalculator_8hpp_source.html">KuvekPocketDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -96,8 +96,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aadda64613e4a7c8a76481207027b2297"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aadda64613e4a7c8a76481207027b2297">KuvekPocketDescriptorCalculator</a> (double sphere_radius=<a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#ac12e1662a9ce1391d3a9ac34d978d1f4">DEF_PROBE_RADIUS</a>, double max_atom_to_sphr_surf_dist=<a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a54b615c383ff0c63e1da1c54b6034e8d">DEF_MAX_ATOM_TO_SPHERE_SURF_DIST</a>, std::size_t num_test_vecs=<a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a4ca35d70f79c10d256cb2cae2bddf365">DEF_NUM_TEST_VECTORS</a>)</td></tr>
-<tr class="separator:aadda64613e4a7c8a76481207027b2297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5faecf19471e2ac82dc1a6086ad1cf5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aa5faecf19471e2ac82dc1a6086ad1cf5">KuvekPocketDescriptorCalculator</a> (double sphere_radius=<a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#ac12e1662a9ce1391d3a9ac34d978d1f4">DEF_PROBE_RADIUS</a>, std::size_t num_test_vecs=<a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a4ca35d70f79c10d256cb2cae2bddf365">DEF_NUM_TEST_VECTORS</a>, double max_atom_to_sphr_surf_dist=<a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a54b615c383ff0c63e1da1c54b6034e8d">DEF_MAX_ATOM_TO_SPHERE_SURF_DIST</a>)</td></tr>
+<tr class="separator:aa5faecf19471e2ac82dc1a6086ad1cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb6206dec9a1148ac26379206f77ad1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aafb6206dec9a1148ac26379206f77ad1">setSphereRadius</a> (double radius)</td></tr>
 <tr class="separator:aafb6206dec9a1148ac26379206f77ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cc4980dc2ae53dc9504e02ffc3e4745"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a5cc4980dc2ae53dc9504e02ffc3e4745">getSphereRadius</a> () const</td></tr>
@@ -110,11 +110,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2d74b5b2a71ab52f5d5452a3bc471f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1dcfcc769f10db0d6d57d802c12e46d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#ae1dcfcc769f10db0d6d57d802c12e46d">getNumTestVectors</a> () const</td></tr>
 <tr class="separator:ae1dcfcc769f10db0d6d57d802c12e46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d48f4f20b012262e5d2e08411a54f4a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a4d48f4f20b012262e5d2e08411a54f4a">getTestVector</a> (std::size_t idx)</td></tr>
+<tr class="separator:a4d48f4f20b012262e5d2e08411a54f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadeb4126ee2d831cf27c7d440501b22e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aadeb4126ee2d831cf27c7d440501b22e">setAtom3DCoordinatesFunction</a> (const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a> &amp;func)</td></tr>
 <tr class="memdesc:aadeb4126ee2d831cf27c7d440501b22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies a function for the retrieval of atom 3D-coordinates.  <a href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aadeb4126ee2d831cf27c7d440501b22e">More...</a><br /></td></tr>
 <tr class="separator:aadeb4126ee2d831cf27c7d440501b22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb2733a04e00bd29c391a13cd57da8a8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#afb2733a04e00bd29c391a13cd57da8a8">getAtom3DCoordinatesFunction</a> () const</td></tr>
 <tr class="separator:afb2733a04e00bd29c391a13cd57da8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bcf7391b6f0a08676e2731f15657a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a76bcf7391b6f0a08676e2731f15657a5">setAtomChargeFunction</a> (const <a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aa76eee70e70a26d2bc10b49e87faaf26">AtomChargeFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a76bcf7391b6f0a08676e2731f15657a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies a function for the retrieval of atom charges.  <a href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a76bcf7391b6f0a08676e2731f15657a5">More...</a><br /></td></tr>
+<tr class="separator:a76bcf7391b6f0a08676e2731f15657a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f174ced2ed4ca46f3eae81e206e0755"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aa76eee70e70a26d2bc10b49e87faaf26">AtomChargeFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a7f174ced2ed4ca46f3eae81e206e0755">getAtomChargeFunction</a> () const</td></tr>
+<tr class="separator:a7f174ced2ed4ca46f3eae81e206e0755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47af6c900dc01ee0ab7ed192e1eaaf02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a47af6c900dc01ee0ab7ed192e1eaaf02">calculate</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;pos, const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">Chem::AtomContainer</a> &amp;atoms, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
 <tr class="separator:a47af6c900dc01ee0ab7ed192e1eaaf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,7 +135,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a4ca35d70f79c10d256cb2cae2bddf365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements the calculation of receptor binding pocket shape and electrostatics descriptors according to the method devised by Kuvek et al. [<a class="el" href="References.html#KBPD">KBPD</a>]. </p>
+<div class="textblock"><p>Implements the algorithm devised by Kuvek et al. [<a class="el" href="References.html#KBPD">KBPD</a>] for the calculation of receptor binding pocket shape and surface electrostatics descriptors. </p>
 <dl class="section since"><dt>Since</dt><dd>1.3 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa76eee70e70a26d2bc10b49e87faaf26"></a>
@@ -146,8 +153,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aadda64613e4a7c8a76481207027b2297"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadda64613e4a7c8a76481207027b2297">&#9670;&nbsp;</a></span>KuvekPocketDescriptorCalculator()</h2>
+<a id="aa5faecf19471e2ac82dc1a6086ad1cf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5faecf19471e2ac82dc1a6086ad1cf5">&#9670;&nbsp;</a></span>KuvekPocketDescriptorCalculator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,14 +168,14 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>max_atom_to_sphr_surf_dist</em> = <code><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a54b615c383ff0c63e1da1c54b6034e8d">DEF_MAX_ATOM_TO_SPHERE_SURF_DIST</a></code>, </td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>num_test_vecs</em> = <code><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a4ca35d70f79c10d256cb2cae2bddf365">DEF_NUM_TEST_VECTORS</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>num_test_vecs</em> = <code><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a4ca35d70f79c10d256cb2cae2bddf365">DEF_NUM_TEST_VECTORS</a></code>&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>max_atom_to_sphr_surf_dist</em> = <code><a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#a54b615c383ff0c63e1da1c54b6034e8d">DEF_MAX_ATOM_TO_SPHERE_SURF_DIST</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -286,6 +293,24 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4d48f4f20b012262e5d2e08411a54f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d48f4f20b012262e5d2e08411a54f4a">&#9670;&nbsp;</a></span>getTestVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a>&amp; CDPL::Descr::KuvekPocketDescriptorCalculator::getTestVector </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aadeb4126ee2d831cf27c7d440501b22e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aadeb4126ee2d831cf27c7d440501b22e">&#9670;&nbsp;</a></span>setAtom3DCoordinatesFunction()</h2>
 
@@ -320,6 +345,50 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a>&amp; CDPL::Descr::KuvekPocketDescriptorCalculator::getAtom3DCoordinatesFunction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76bcf7391b6f0a08676e2731f15657a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76bcf7391b6f0a08676e2731f15657a5">&#9670;&nbsp;</a></span>setAtomChargeFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CDPL::Descr::KuvekPocketDescriptorCalculator::setAtomChargeFunction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aa76eee70e70a26d2bc10b49e87faaf26">AtomChargeFunction</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Specifies a function for the retrieval of atom charges. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The atom charge retrieval function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>By default, formal charges will be used. </dd></dl>
+
+</div>
+</div>
+<a id="a7f174ced2ed4ca46f3eae81e206e0755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f174ced2ed4ca46f3eae81e206e0755">&#9670;&nbsp;</a></span>getAtomChargeFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html#aa76eee70e70a26d2bc10b49e87faaf26">AtomChargeFunction</a>&amp; CDPL::Descr::KuvekPocketDescriptorCalculator::getAtomChargeFunction </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
