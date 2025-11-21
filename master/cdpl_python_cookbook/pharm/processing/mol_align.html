@@ -179,7 +179,7 @@ alignment solution only)</p>
 <span class="linenos"> 19</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading reference pharmacophore failed&#39;</span><span class="p">)</span>
 <span class="linenos"> 20</span>                
 <span class="linenos"> 21</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos"> 22</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading reference pharmacophore failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos"> 22</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading reference pharmacophore failed:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 <span class="linenos"> 23</span>
 <span class="linenos"> 24</span>    <span class="k">return</span> <span class="n">ph4</span>
 <span class="linenos"> 25</span>
@@ -365,7 +365,7 @@ alignment solution only)</p>
 <span class="linenos">205</span>                            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing alignment pose of molecule </span><span class="si">%s</span><span class="s1"> failed&#39;</span> <span class="o">%</span> <span class="n">mol_id</span><span class="p">)</span>
 <span class="linenos">206</span>
 <span class="linenos">207</span>                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
-<span class="linenos">208</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing alignment pose of molecule </span><span class="si">%s</span><span class="s1"> failed: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+<span class="linenos">208</span>                        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing alignment pose of molecule </span><span class="si">%s</span><span class="s1"> failed:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mol_id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
 <span class="linenos">209</span>
 <span class="linenos">210</span>                    <span class="n">last_pose</span> <span class="o">=</span> <span class="n">curr_pose</span>
 <span class="linenos">211</span>                    <span class="n">output_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -379,7 +379,7 @@ alignment solution only)</p>
 <span class="linenos">219</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="linenos">220</span>                
 <span class="linenos">221</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">222</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading input molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">222</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading input molecule failed:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 <span class="linenos">223</span>
 <span class="linenos">224</span>    <span class="n">mol_writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="linenos">225</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
