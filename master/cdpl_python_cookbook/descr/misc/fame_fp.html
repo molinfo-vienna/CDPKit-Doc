@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.1.5. FAME Atom Environment Fingerprints &mdash; CDPKit 1.3.0.dev1 documentation</title>
+  <title>4.2.1. FAME Atom Environment Fingerprint &mdash; CDPKit 1.3.0.dev1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
@@ -12,7 +12,7 @@
 
   
     <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
-    <link rel="canonical" href="https://cdpkit.org/master/cdpl_python_cookbook/descr/fingerprints/fame_fp.html" />
+    <link rel="canonical" href="https://cdpkit.org/master/cdpl_python_cookbook/descr/misc/fame_fp.html" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -27,8 +27,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="4.1.6. 2D and 3D Pharmacophore Fingerprints" href="ph4_fp.html" />
-    <link rel="prev" title="4.1.4. Bond-Path Fingerprints" href="path_fp.html" /> 
+    <link rel="next" title="4.2.2. Receptor Binding Pocket Descriptor" href="rec_bp_descr.html" />
+    <link rel="prev" title="4.2. Miscellaneous Descriptors" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,13 +61,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">4.1. Generation of Fingerprints</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ecfp.html">4.1.1. Extended Connectivity Fingerprints (ECFPs)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pubchem_fp.html">4.1.2. PubChem Fingerprints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="maccs_key.html">4.1.3. MDL MACCS Keys</a></li>
-<li class="toctree-l4"><a class="reference internal" href="path_fp.html">4.1.4. Bond-Path Fingerprints</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">4.1.5. FAME Atom Environment Fingerprints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ph4_fp.html">4.1.6. 2D and 3D Pharmacophore Fingerprints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fingerprints/index.html">4.1. Fingerprints</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4.2. Miscellaneous Descriptors</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.2.1. FAME Atom Environment Fingerprint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rec_bp_descr.html">4.2.2. Receptor Binding Pocket Descriptor</a></li>
 </ul>
 </li>
 </ul>
@@ -101,10 +98,10 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">CDPL Python Cookbook</a></li>
           <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">4. </span>Calculation of Molecule and Pharmacophore Descriptors</a></li>
-          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4.1. </span>Generation of Fingerprints</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.1.5. </span>FAME Atom Environment Fingerprints</li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4.2. </span>Miscellaneous Descriptors</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.2.1. </span>FAME Atom Environment Fingerprint</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../_sources/cdpl_python_cookbook/descr/fingerprints/fame_fp.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/cdpl_python_cookbook/descr/misc/fame_fp.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -112,8 +109,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="fame-atom-environment-fingerprints">
-<h1><span class="section-number">4.1.5. </span>FAME Atom Environment Fingerprints<a class="headerlink" href="#fame-atom-environment-fingerprints" title="Link to this heading"></a></h1>
+  <section id="fame-atom-environment-fingerprint">
+<h1><span class="section-number">4.2.1. </span>FAME Atom Environment Fingerprint<a class="headerlink" href="#fame-atom-environment-fingerprint" title="Link to this heading"></a></h1>
 <p>The script <em>gen_fame_fp.py</em> generates and outputs the FAME environment descriptor
 <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id5" title="Ya Chen, Thomas Seidel, Roxane Axel Jacob, Steffen Hirte, Angelica Mazzolari, Alessandro Pedretti, Giulio Vistoli, Thierry Langer, Filip Miljković, and Johannes Kirchmair. Active learning approach for guiding site-of-metabolism measurement and annotation. Journal of Chemical Information and Modeling, 64(2):348-358, 2024. PMID: 38170877. URL: https://doi.org/10.1021/acs.jcim.3c01588, arXiv:https://doi.org/10.1021/acs.jcim.3c01588, doi:10.1021/acs.jcim.3c01588.">8</a>, <a class="reference internal" href="../../../bibliography.html#id6" title="Martin Šícho, Conrad Stork, Angelica Mazzolari, Christina de Bruyn Kops, Alessandro Pedretti, Bernard Testa, Giulio Vistoli, Daniel Svozil, and Johannes Kirchmair. Fame 3: predicting the sites of metabolism in synthetic compounds and natural products for phase 1 and phase 2 metabolic enzymes. Journal of Chemical Information and Modeling, 59(8):3400-3412, 2019. PMID: 31361490. URL: https://doi.org/10.1021/acs.jcim.9b00376, arXiv:https://doi.org/10.1021/acs.jcim.9b00376, doi:10.1021/acs.jcim.9b00376.">18</a>]</span>
 for each atom of molecules read from a specified input file.</p>
@@ -187,8 +184,8 @@ for each atom of molecules read from a specified input file.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="path_fp.html" class="btn btn-neutral float-left" title="4.1.4. Bond-Path Fingerprints" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ph4_fp.html" class="btn btn-neutral float-right" title="4.1.6. 2D and 3D Pharmacophore Fingerprints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="4.2. Miscellaneous Descriptors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rec_bp_descr.html" class="btn btn-neutral float-right" title="4.2.2. Receptor Binding Pocket Descriptor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

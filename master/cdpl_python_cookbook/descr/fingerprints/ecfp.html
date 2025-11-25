@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.1.1. Extended Connectivity Fingerprints (ECFPs) &mdash; CDPKit 1.3.0.dev1 documentation</title>
+  <title>4.1.1. Extended Connectivity Fingerprint (ECFP) &mdash; CDPKit 1.3.0.dev1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
@@ -27,8 +27,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="4.1.2. PubChem Fingerprints" href="pubchem_fp.html" />
-    <link rel="prev" title="4.1. Generation of Fingerprints" href="index.html" /> 
+    <link rel="next" title="4.1.2. PubChem Fingerprint" href="pubchem_fp.html" />
+    <link rel="prev" title="4.1. Fingerprints" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,15 +61,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">4.1. Generation of Fingerprints</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">4.1.1. Extended Connectivity Fingerprints (ECFPs)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pubchem_fp.html">4.1.2. PubChem Fingerprints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="maccs_key.html">4.1.3. MDL MACCS Keys</a></li>
-<li class="toctree-l4"><a class="reference internal" href="path_fp.html">4.1.4. Bond-Path Fingerprints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="fame_fp.html">4.1.5. FAME Atom Environment Fingerprints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ph4_fp.html">4.1.6. 2D and 3D Pharmacophore Fingerprints</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">4.1. Fingerprints</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">4.1.1. Extended Connectivity Fingerprint (ECFP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pubchem_fp.html">4.1.2. PubChem Fingerprint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="maccs_key.html">4.1.3. MDL MACCS Key</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_fp.html">4.1.4. Bond-Path Fingerprint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ph4_fp.html">4.1.5. 2D and 3D Pharmacophore Fingerprints</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/index.html">4.2. Miscellaneous Descriptors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
@@ -101,8 +101,8 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">CDPL Python Cookbook</a></li>
           <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">4. </span>Calculation of Molecule and Pharmacophore Descriptors</a></li>
-          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4.1. </span>Generation of Fingerprints</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4.1.1. </span>Extended Connectivity Fingerprints (ECFPs)</li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">4.1. </span>Fingerprints</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4.1.1. </span>Extended Connectivity Fingerprint (ECFP)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/cdpl_python_cookbook/descr/fingerprints/ecfp.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -112,8 +112,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="extended-connectivity-fingerprints-ecfps">
-<h1><span class="section-number">4.1.1. </span>Extended Connectivity Fingerprints (ECFPs)<a class="headerlink" href="#extended-connectivity-fingerprints-ecfps" title="Link to this heading"></a></h1>
+  <section id="extended-connectivity-fingerprint-ecfp">
+<h1><span class="section-number">4.1.1. </span>Extended Connectivity Fingerprint (ECFP)<a class="headerlink" href="#extended-connectivity-fingerprint-ecfp" title="Link to this heading"></a></h1>
 <p>The script <em>gen_ecfp.py</em> generates and outputs the <em>Extended Connectivity Fingerprint</em> (ECFP) <span id="id1">[<a class="reference internal" href="../../../bibliography.html#id12" title="David Rogers and Mathew Hahn. Extended-connectivity fingerprints. Journal of Chemical Information and Modeling, 50(5):742-754, 2010. PMID: 20426451. URL: https://doi.org/10.1021/ci100050t, arXiv:https://doi.org/10.1021/ci100050t, doi:10.1021/ci100050t.">3</a>]</span> of molecules
 read from a specified input file.</p>
 <p><strong>Synopsis</strong></p>
@@ -272,8 +272,8 @@ molecular graph)</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="4.1. Generation of Fingerprints" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pubchem_fp.html" class="btn btn-neutral float-right" title="4.1.2. PubChem Fingerprints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="4.1. Fingerprints" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pubchem_fp.html" class="btn btn-neutral float-right" title="4.1.2. PubChem Fingerprint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
