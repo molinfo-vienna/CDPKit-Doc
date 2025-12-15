@@ -1,7 +1,8 @@
 Installing the CDPL Python bindings
 ===================================
 
-To be able to follow this tutorial the *CDPL Python* bindings need to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited on `PyPI <https://pypi.org/project/CDPKit>`_ using the :program:`pip` command as follows:
+To be able to follow this tutorial the *CDPL Python* bindings need to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited 
+on `PyPI <https://pypi.org/project/CDPKit>`_ using the :program:`pip` command as follows:
 
 .. code:: ipython3
 
@@ -12,8 +13,8 @@ Other possible options for installing the Python bindings can be found `here <ht
 Working with molecules
 ======================
 
-The primary data structure for the in-memory representation of molecules (class `Chem.BasicMolecule <https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html>`_) as well as all basic processing functionality is located in package `CDPL.Chem <https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html>`_. 
-Importing the package as shown below will make all contained classes and functions accessible via the prefix *Chem.\**.
+The primary data structure for the in-memory representation of molecules (class `Chem.BasicMolecule <https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html>`_) as well as all basic processing functionality is located in package
+`CDPL.Chem <https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html>`_. Importing the package as shown below will make all contained classes and functions accessible via the prefix *Chem.\**.
 
 .. code:: ipython3
 
@@ -58,6 +59,19 @@ In the same manner, the number of bonds can be retrieved by:
     0
 
 
+
+The *CDPL Python* bindings support the `Rich Output <https://ipython.readthedocs.io/en/stable/interactive/plotting.html>`_ of 
+`Chem.MolecularGraph <https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html>`_ instances in Jupyter notebooks. 
+Rich output is activated by importing the `CDPL.Vis <https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html>`_ package.
+
+.. code:: ipython3
+
+    import CDPL.Vis
+
+After the import of the package simply typing the variable name and executing the cell will display the skeletal formula representation of the molecular graph (see below).
+
+Manual construction
+-------------------
 
 Atoms are created by calling the method `addAtom() <https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ab998b55e7f56b00f47e3acbfa4511f2e>`_:
 
@@ -114,4 +128,64 @@ A previously set bond order property value can be accessed by the accompanying g
 
     2
 
+
+
+To create a more complex molecule, e.g. Pyridine, from the Ethane fragment that is currently described by **mol** the following lines will do the trick:
+
+.. code:: ipython3
+
+    # create atoms and set corr. elements
+    Chem.setType(mol.addAtom(), Chem.AtomType.C)
+    Chem.setType(mol.addAtom(), Chem.AtomType.C)
+    Chem.setType(mol.addAtom(), Chem.AtomType.C)
+    Chem.setType(mol.addAtom(), Chem.AtomType.N)
+    # create bonds and set corr. orders
+    Chem.setOrder(mol.addBond(1, 2), 1)
+    Chem.setOrder(mol.addBond(2, 3), 2)
+    Chem.setOrder(mol.addBond(3, 4), 1)
+    Chem.setOrder(mol.addBond(4, 5), 2)
+    Chem.setOrder(mol.addBond(5, 0), 1)
+
+.. code:: ipython3
+
+    mol.numBonds
+
+
+
+
+.. parsed-literal::
+
+    6
+
+
+
+.. code:: ipython3
+
+    mol.numAtoms
+
+
+
+
+.. parsed-literal::
+
+    6
+
+
+
+.. code:: ipython3
+
+    mol
+
+
+
+
+.. image:: cdpl_python_tutorial_files/cdpl_python_tutorial_28_0.svg
+
+
+
+Construction from molecular data
+--------------------------------
+
+Parsing SMILES
+^^^^^^^^^^^^^^
 

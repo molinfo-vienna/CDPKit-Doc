@@ -57,7 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CDPL Python Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Installing the CDPL Python bindings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">2. Working with molecules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">2. Working with molecules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-construction">2.1. Manual construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#construction-from-molecular-data">2.2. Construction from molecular data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parsing-smiles">2.2.1. Parsing SMILES</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
@@ -95,7 +102,8 @@
              
   <section id="installing-the-cdpl-python-bindings">
 <h1><span class="section-number">1. </span>Installing the CDPL Python bindings<a class="headerlink" href="#installing-the-cdpl-python-bindings" title="Link to this heading"></a></h1>
-<p>To be able to follow this tutorial the <em>CDPL Python</em> bindings need to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a> using the <strong class="program">pip</strong> command as follows:</p>
+<p>To be able to follow this tutorial the <em>CDPL Python</em> bindings need to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited
+on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a> using the <strong class="program">pip</strong> command as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cdpkit</span>
 </pre></div>
 </div>
@@ -103,8 +111,8 @@
 </section>
 <section id="working-with-molecules">
 <h1><span class="section-number">2. </span>Working with molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
-<p>The primary data structure for the in-memory representation of molecules (class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>) as well as all basic processing functionality is located in package <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>.
-Importing the package as shown below will make all contained classes and functions accessible via the prefix <em>Chem.*</em>.</p>
+<p>The primary data structure for the in-memory representation of molecules (class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>) as well as all basic processing functionality is located in package
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>. Importing the package as shown below will make all contained classes and functions accessible via the prefix <em>Chem.*</em>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 </pre></div>
 </div>
@@ -130,6 +138,15 @@ Importing the package as shown below will make all contained classes and functio
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
 </pre></div>
 </div>
+<p>The <em>CDPL Python</em> bindings support the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances in Jupyter notebooks.
+Rich output is activated by importing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html">CDPL.Vis</a> package.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Vis</span>
+</pre></div>
+</div>
+<p>After the import of the package simply typing the variable name and executing the cell will display the skeletal formula representation of the molecular graph (see below).</p>
+<section id="manual-construction">
+<h2><span class="section-number">2.1. </span>Manual construction<a class="headerlink" href="#manual-construction" title="Link to this heading"></a></h2>
 <p>Atoms are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ab998b55e7f56b00f47e3acbfa4511f2e">addAtom()</a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">()</span>
 </pre></div>
@@ -163,6 +180,43 @@ which expects the indices (zero-based) of the two atoms to connect as arguments:
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
 </pre></div>
 </div>
+<p>To create a more complex molecule, e.g. Pyridine, from the Ethane fragment that is currently described by <strong>mol</strong> the following lines will do the trick:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create atoms and set corr. elements</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">N</span><span class="p">)</span>
+<span class="c1"># create bonds and set corr. orders</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_28_0.svg" src="../_images/cdpl_python_tutorial_28_0.svg" />
+</section>
+<section id="construction-from-molecular-data">
+<h2><span class="section-number">2.2. </span>Construction from molecular data<a class="headerlink" href="#construction-from-molecular-data" title="Link to this heading"></a></h2>
+<section id="parsing-smiles">
+<h3><span class="section-number">2.2.1. </span>Parsing SMILES<a class="headerlink" href="#parsing-smiles" title="Link to this heading"></a></h3>
+</section>
+</section>
 </section>
 
 
