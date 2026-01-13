@@ -64,6 +64,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#reading-molecules-from-input-data">3.3. Reading Molecules from Input Data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">3.3.1. Data provided as Strings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">3.3.2. Reading Molecules from Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">3.3.3. Sequential Molecule Reading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random-access-to-input-molecules">3.3.4. Random Access to Input Molecules</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +133,7 @@ on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a>
 <p>The number of (explicit) atoms can be queried either by acessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">numAtoms</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span>
 <span class="c1"># or</span>
-<span class="n">mol</span><span class="o">.</span><span class="n">getNumAtoms</span><span class="p">()</span>
+<span class="c1">#mol.getNumAtoms()</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
@@ -140,7 +142,7 @@ on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a>
 <p>In the same manner, the number of bonds can be retrieved by:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span>
 <span class="c1"># or</span>
-<span class="n">mol</span><span class="o">.</span><span class="n">getNumBonds</span><span class="p">()</span>
+<span class="c1">#mol.getNumBonds()</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
@@ -235,12 +237,14 @@ which expects the indices (zero-based) of the two atoms to connect as arguments:
 The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> object representing the chemical structure
 encoded by the given SMILES string. For example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;c1c(C(=O)O)ccc(CNN)c1&#39;</span><span class="p">)</span>
+
 <span class="n">mol</span>
 </pre></div>
 </div>
 <img alt="../_images/cdpl_python_tutorial_34_0.svg" src="../_images/cdpl_python_tutorial_34_0.svg" />
 <p>A similar function called <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5248eaa483ae5dc078a8f276c91ed5dc">Chem.parseSMARTS()</a> can be used to parse and and prepare SMARTS patterns for substructure searching:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="s1">&#39;c1:c:[n,o,s]:c:c:1-[C:2](-,=[*])-,=O&#39;</span><span class="p">)</span>
+
 <span class="n">mol</span>
 </pre></div>
 </div>
@@ -254,7 +258,7 @@ encoded by the given SMILES string. For example:</p>
 </ol>
 <p>Molecule data readers for a specific format (Step 2) can be created in two ways:</p>
 <ol class="arabic simple">
-<li><p>Via class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> providing the <em>Base.StringIOStream</em> instance (Step 1) and a data format specifier (= file extension or one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a>) as constructor arguments.</p></li>
+<li><p>Via class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> providing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">Base.StringIOStream</a> instance (Step 1) and a data format specifier (= file extension or one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a>) as constructor arguments.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MOL2MoleculeReader.html">Chem.MOL2MoleculeReader</a> implementing the Sybyl MOL2 format input).</p></li>
 </ol>
 <p>Example: Reading a molecule from a string providing data in MDL SDF format</p>
@@ -314,28 +318,99 @@ encoded by the given SMILES string. For example:</p>
 <h3><span class="section-number">3.3.2. </span>Reading Molecules from Files<a class="headerlink" href="#reading-molecules-from-files" title="Link to this heading"></a></h3>
 <p>Reading molecules from files also requires the creation of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> subclass instance that performs the actual format-specific data decoding work. As with string data, several options exist:</p>
 <ol class="arabic simple">
-<li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behaviour, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> needs to be provided.</p></li>
+<li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behaviour, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
 <li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">Base.FileIOStream</a> that was created for the file as the first and and a format specifier as the second argument. The format specification can be a characteristic file extension or one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a>.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MOL2MoleculeReader.html">Chem.MOL2MoleculeReader</a> implementing the Sybyl MOL2 format input) that accepts an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">Base.FileIOStream</a> as constructor argument.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FileSDFMoleculeReader.html">Chem.FileSDFMoleculeReader</a> implementing MDL SDF format input) that accepts a file path as argument to the constructor.</p></li>
 </ol>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Option 1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># - Option 1 -</span>
 <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file.sdf&#39;</span><span class="p">)</span>
 <span class="c1"># or</span>
-<span class="c1">#reader = Chem.MoleculeReader(&#39;/path/to/input/file&#39;, &#39;smi&#39;)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file&#39;</span><span class="p">,</span> <span class="s1">&#39;smi&#39;</span><span class="p">)</span>
 <span class="c1"># or</span>
-<span class="c1">#reader = Chem.MoleculeReader(&#39;/path/to/input/file&#39;, Chem.DataFormat.SMILES)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file&#39;</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">SMILES</span><span class="p">)</span>
 
-<span class="c1"># Option 2</span>
+<span class="c1"># - Option 2 -</span>
 <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">Base</span><span class="o">.</span><span class="n">FileIOStream</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file&#39;</span><span class="p">),</span> <span class="s1">&#39;sdf&#39;</span><span class="p">)</span>
 <span class="c1"># or</span>
-<span class="c1">#reader = Chem.MoleculeReader(Base.FileIOStream(&#39;/path/to/input/file&#39;), Chem.DataFormat.SDF)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">Base</span><span class="o">.</span><span class="n">FileIOStream</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file&#39;</span><span class="p">),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">DataFormat</span><span class="o">.</span><span class="n">SDF</span><span class="p">)</span>
 
-<span class="c1"># Option 3</span>
+<span class="c1"># - Option 3 -</span>
 <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MOL2MoleculeReader</span><span class="p">(</span><span class="n">Base</span><span class="o">.</span><span class="n">FileIOStream</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file&#39;</span><span class="p">))</span>
 
-<span class="c1"># Option 4</span>
+<span class="c1"># - Option 4 -</span>
 <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">FileSDFMoleculeReader</span><span class="p">(</span><span class="s1">&#39;/path/to/input/file&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sequential-molecule-reading">
+<h3><span class="section-number">3.3.3. </span>Sequential Molecule Reading<a class="headerlink" href="#sequential-molecule-reading" title="Link to this heading"></a></h3>
+<p>Given a properly initialized <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> subclass instance, molecules can be read in the order provided by the input data by repeatedly calling the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method. If there are no more molecules to read, the return value of the method will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smi_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;c1n(ccn1)c1ccc(cc1)c1ccc(n1c1c(cc(cc1)C(=O)N)C)CCC(=O)[O-] 022_3QJ5_A</span>
+<span class="s2">CNC(=O)[C@H](C(C)(C)C)NC(=O)[C@@H]([C@H](C)N([O-])C=O)CCCc1ccccc1 023_2WO9_B</span>
+<span class="s2">N1N(C(c2c(C=1Nc1cc([nH]n1)C)ccc(N1CC[NH+](CC1)C)c2)=O)C(C)C 027_3PIX_A</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">ios</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">StringIOStream</span><span class="p">(</span><span class="n">smi_data</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">ios</span><span class="p">,</span> <span class="s1">&#39;smi&#39;</span><span class="p">)</span>
+<span class="n">mol_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">mol</span><span class="p">):</span>
+   <span class="n">mol_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Read </span><span class="si">{</span><span class="n">mol_count</span><span class="si">}</span><span class="s1"> molecules&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Read</span> <span class="mi">3</span> <span class="n">molecules</span>
+</pre></div>
+</div>
+</section>
+<section id="random-access-to-input-molecules">
+<h3><span class="section-number">3.3.4. </span>Random Access to Input Molecules<a class="headerlink" href="#random-access-to-input-molecules" title="Link to this heading"></a></h3>
+<p>There is a special version of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> which expects the index (zero-based) of the molecule to read as its first argument. This way molecules can be read in any order, no matter what their order is in the input data. The number of available molecules can be queried either by calling the method <a class="reference external" href="https://cdpkit.org/master/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80">getNumRecords()</a> or by accessing the property <a class="reference external" href="https://cdpkit.org/master/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">numRecords</a>.</p>
+<p>Example:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ios</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">StringIOStream</span><span class="p">(</span><span class="n">smi_data</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">ios</span><span class="p">,</span> <span class="s1">&#39;smi&#39;</span><span class="p">)</span>
+
+<span class="n">num_mols</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">getNumRecords</span><span class="p">()</span>
+<span class="c1"># or</span>
+<span class="c1">#num_mols = reader.numRecords</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of input molecules: </span><span class="si">{</span><span class="n">num_mols</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Number</span> <span class="n">of</span> <span class="nb">input</span> <span class="n">molecules</span><span class="p">:</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the 2nd molecule</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+
+<span class="n">mol</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_45_0.svg" src="../_images/cdpl_python_tutorial_45_0.svg" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the 1st molecule</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+
+<span class="n">mol</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_46_0.svg" src="../_images/cdpl_python_tutorial_46_0.svg" />
+<p>If the index is out of the valid range then a corresponding exception will be thrown:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there is no 5th molecule</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">40</span><span class="o">-</span><span class="n">a898d182f25f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="c1"># there is no 5th molecule</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+
+
+<span class="ne">IndexError</span><span class="p">:</span> <span class="n">StreamDataReader</span><span class="p">:</span> <span class="n">record</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="n">bounds</span>
 </pre></div>
 </div>
 </section>
