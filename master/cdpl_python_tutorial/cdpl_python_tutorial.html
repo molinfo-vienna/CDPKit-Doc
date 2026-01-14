@@ -59,13 +59,17 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-cdpl-python-bindings">2. Installing the CDPL Python Bindings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">3. Working with Molecules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-memory-representation-of-molecules">3.1. In-memory Representation of Molecules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-construction-of-molecular-structures">3.2. Manual Construction of Molecular Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#in-memory-representation-of-molecular-structures">3.1. In-memory Representation of Molecular Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-construction-of-molecules">3.2. Manual Construction of Molecules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-molecules-from-input-data">3.3. Reading Molecules from Input Data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">3.3.1. Data provided as Strings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">3.3.2. Reading Molecules from Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">3.3.3. Sequential Molecule Reading</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#random-access-to-input-molecules">3.3.4. Random Access to Input Molecules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">3.3.4. Random Molecule Access</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#processing-molecular-graphs">3.4. Processing Molecular Graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-atoms-and-bonds">3.4.1. Accessing Atoms and Bonds</a></li>
 </ul>
 </li>
 </ul>
@@ -119,8 +123,8 @@ on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a>
 </section>
 <section id="working-with-molecules">
 <h1><span class="section-number">3. </span>Working with Molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
-<section id="in-memory-representation-of-molecules">
-<h2><span class="section-number">3.1. </span>In-memory Representation of Molecules<a class="headerlink" href="#in-memory-representation-of-molecules" title="Link to this heading"></a></h2>
+<section id="in-memory-representation-of-molecular-structures">
+<h2><span class="section-number">3.1. </span>In-memory Representation of Molecular Structures<a class="headerlink" href="#in-memory-representation-of-molecular-structures" title="Link to this heading"></a></h2>
 <p>The primary data structure for the in-memory representation of molecules (class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>) as well as all basic processing functionality is located in package
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>. Importing the package as shown below will make all contained classes and functions accessible via the prefix <em>Chem.*</em>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
@@ -156,8 +160,8 @@ Rich output is activated by importing the <a class="reference external" href="ht
 </div>
 <p>After the import, simply typing the variable name and executing the cell will display the skeletal formula of the molecular graph.</p>
 </section>
-<section id="manual-construction-of-molecular-structures">
-<h2><span class="section-number">3.2. </span>Manual Construction of Molecular Structures<a class="headerlink" href="#manual-construction-of-molecular-structures" title="Link to this heading"></a></h2>
+<section id="manual-construction-of-molecules">
+<h2><span class="section-number">3.2. </span>Manual Construction of Molecules<a class="headerlink" href="#manual-construction-of-molecules" title="Link to this heading"></a></h2>
 <p>Atoms are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ab998b55e7f56b00f47e3acbfa4511f2e">addAtom()</a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">()</span>
 </pre></div>
@@ -365,8 +369,8 @@ encoded by the given SMILES string. For example:</p>
 </pre></div>
 </div>
 </section>
-<section id="random-access-to-input-molecules">
-<h3><span class="section-number">3.3.4. </span>Random Access to Input Molecules<a class="headerlink" href="#random-access-to-input-molecules" title="Link to this heading"></a></h3>
+<section id="random-molecule-access">
+<h3><span class="section-number">3.3.4. </span>Random Molecule Access<a class="headerlink" href="#random-molecule-access" title="Link to this heading"></a></h3>
 <p>There is a special version of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase">Chem.MoleculeReaderBase</a> which expects the index (zero-based) of the molecule to read as its first argument. This way molecules can be read in any order, no matter what their order is in the input data. The number of available molecules can be queried either by calling the method <a class="reference external" href="https://cdpkit.org/master/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80">getNumRecords()</a> or by accessing the property <a class="reference external" href="https://cdpkit.org/master/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">numRecords</a>.</p>
 <p>Example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ios</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">StringIOStream</span><span class="p">(</span><span class="n">smi_data</span><span class="p">)</span>
@@ -397,20 +401,61 @@ encoded by the given SMILES string. For example:</p>
 </div>
 <img alt="../_images/cdpl_python_tutorial_46_0.svg" src="../_images/cdpl_python_tutorial_46_0.svg" />
 <p>If the index is out of the valid range then a corresponding exception will be thrown:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there is no 5th molecule</span>
-<span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there is no 4th molecule</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
 
 <span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">40</span><span class="o">-</span><span class="n">a898d182f25f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-      <span class="mi">1</span> <span class="c1"># there is no 5th molecule</span>
-<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+      <span class="mi">1</span> <span class="c1"># there is no 4th molecule</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
 
 
 <span class="ne">IndexError</span><span class="p">:</span> <span class="n">StreamDataReader</span><span class="p">:</span> <span class="n">record</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="n">bounds</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="processing-molecular-graphs">
+<h2><span class="section-number">3.4. </span>Processing Molecular Graphs<a class="headerlink" href="#processing-molecular-graphs" title="Link to this heading"></a></h2>
+<section id="accessing-atoms-and-bonds">
+<h3><span class="section-number">3.4.1. </span>Accessing Atoms and Bonds<a class="headerlink" href="#accessing-atoms-and-bonds" title="Link to this heading"></a></h3>
+<p>Atom and bonds of a molecular graph represented by, e. g., a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> instance can be accessed by calling the methods
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#ae4dc0c96b4675cdd0726a6a0a55c681f">getAtom()</a> and
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#aad68f03787b42d08b22bfc820e5016a6">getBond()</a>, respectively.
+These methods expect the zero-based index of the atom/bond in the parent molecular graphs’s atom/bond list as argument.
+Allowed atom/bond indices are in the range <em>[0, #atoms)/[0, #bonds)</em>. Providing an index outside the allowed range will result in an exception.</p>
+<p>Example: Counting element symbols and bond orders</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sym_counts</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">order_counts</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span><span class="p">):</span>
+    <span class="n">atom</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">getAtom</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">sym</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getSymbol</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">sym_counts</span><span class="p">:</span>
+        <span class="n">sym_counts</span><span class="p">[</span><span class="n">sym</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sym_counts</span><span class="p">[</span><span class="n">sym</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span><span class="p">):</span>
+    <span class="n">bond</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">getBond</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getOrder</span><span class="p">(</span><span class="n">bond</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">order</span> <span class="ow">in</span> <span class="n">order_counts</span><span class="p">:</span>
+        <span class="n">order_counts</span><span class="p">[</span><span class="n">order</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">order_counts</span><span class="p">[</span><span class="n">order</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Element symbols: </span><span class="si">{</span><span class="n">sym_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bond orders: </span><span class="si">{</span><span class="n">order_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Element</span> <span class="n">symbols</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">Bond</span> <span class="n">orders</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
 </pre></div>
 </div>
 </section>
