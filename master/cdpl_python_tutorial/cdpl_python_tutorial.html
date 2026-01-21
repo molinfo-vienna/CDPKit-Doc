@@ -58,7 +58,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CDPL Python Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#installing-the-cdpl-python-bindings">1.1. Installing the CDPL Python Bindings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cdpl-organization">1.2. CDPL Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cdpl-architecture">1.2. CDPL Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-property-handling">1.3. Object Property Handling</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">2. Working with Molecules</a><ul>
@@ -122,9 +123,9 @@
 </div>
 <p>Other ways to install the Python bindings are described in section <a class="reference external" href="https://cdpkit.org/installation.html">Installation</a>.</p>
 </section>
-<section id="cdpl-organization">
-<h2><span class="section-number">1.2. </span>CDPL Organization<a class="headerlink" href="#cdpl-organization" title="Link to this heading"></a></h2>
-<p>The <em>CDPL</em> comprises several sub-packages each providing functionality related to a certain aspect of chem- and pharmacoinformatics. The following table lists all available sub-packages together with a brief description which kind of functionality they provide:</p>
+<section id="cdpl-architecture">
+<h2><span class="section-number">1.2. </span>CDPL Architecture<a class="headerlink" href="#cdpl-architecture" title="Link to this heading"></a></h2>
+<p>The <em>CDPL</em> comprises several sub-packages each providing functionality related to a certain aspect of chem- and pharmacoinformatics. The following table lists all available sub-packages together with a brief description of the kind of functionality they provide:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33.3%" />
@@ -184,6 +185,11 @@ descriptors <span id="id2">[<a class="reference internal" href="../bibliography.
 </tr>
 </tbody>
 </table>
+</section>
+<section id="object-property-handling">
+<h2><span class="section-number">1.3. </span>Object Property Handling<a class="headerlink" href="#object-property-handling" title="Link to this heading"></a></h2>
+<p>In the <em>CDPL</em> properties of molecules, atoms, bonds, pharmacophores, etc. are not stored as data members of the corresponding objects
+but as key:value pairs in a dictionary (similar to the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> attribute of Python objects).</p>
 <p><strong>TODO</strong></p>
 </section>
 </section>
