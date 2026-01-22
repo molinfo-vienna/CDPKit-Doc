@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. Introduction &mdash; CDPKit 1.3.0.dev1 documentation</title>
+  <title>1. Installing the CDPL Python Bindings &mdash; CDPKit 1.3.0.dev1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -56,24 +56,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CDPL Python Tutorial</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-the-cdpl-python-bindings">1.1. Installing the CDPL Python Bindings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cdpl-architecture">1.2. CDPL Architecture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#object-property-handling">1.3. Object Property Handling</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Installing the CDPL Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cdpl-package-overview">2. CDPL Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-concepts">3. Basic Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-properties">3.1. Dynamic Properties</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">2. Working with Molecules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-memory-representation-of-molecular-structures">2.1. In-memory Representation of Molecular Structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-construction-of-molecules">2.2. Manual Construction of Molecules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-molecules">2.3. Reading Molecules</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">2.3.1. Data provided as Strings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">2.3.2. Reading Molecules from Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">2.3.3. Sequential Molecule Reading</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">2.3.4. Random Molecule Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">4. Working with Molecules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-memory-representation-of-molecular-structures">4.1. In-memory Representation of Molecular Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-construction-of-molecules">4.2. Manual Construction of Molecules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-molecules">4.3. Reading Molecules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">4.3.1. Data provided as Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">4.3.2. Reading Molecules from Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">4.3.3. Sequential Molecule Reading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">4.3.4. Random Molecule Access</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#processing-molecular-graphs">2.4. Processing Molecular Graphs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-atoms-and-bonds">2.4.1. Accessing Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processing-molecular-graphs">4.4. Processing Molecular Graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-atoms-and-bonds">4.4.1. Accessing Atoms and Bonds</a></li>
 </ul>
 </li>
 </ul>
@@ -103,7 +103,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">CDPL Python Tutorial</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1. </span>Introduction</li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Installing the CDPL Python Bindings</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/cdpl_python_tutorial/cdpl_python_tutorial.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -113,18 +113,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="introduction">
-<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
-<section id="installing-the-cdpl-python-bindings">
-<h2><span class="section-number">1.1. </span>Installing the CDPL Python Bindings<a class="headerlink" href="#installing-the-cdpl-python-bindings" title="Link to this heading"></a></h2>
+  <section id="installing-the-cdpl-python-bindings">
+<h1><span class="section-number">1. </span>Installing the CDPL Python Bindings<a class="headerlink" href="#installing-the-cdpl-python-bindings" title="Link to this heading"></a></h1>
 <p>To be able to follow this tutorial the <em>CDPL Python</em> bindings have to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a> using the <strong class="program">pip</strong> command as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cdpkit</span>
 </pre></div>
 </div>
 <p>Other ways to install the Python bindings are described in section <a class="reference external" href="https://cdpkit.org/installation.html">Installation</a>.</p>
 </section>
-<section id="cdpl-architecture">
-<h2><span class="section-number">1.2. </span>CDPL Architecture<a class="headerlink" href="#cdpl-architecture" title="Link to this heading"></a></h2>
+<section id="cdpl-package-overview">
+<h1><span class="section-number">2. </span>CDPL Package Overview<a class="headerlink" href="#cdpl-package-overview" title="Link to this heading"></a></h1>
 <p>The <em>CDPL</em> comprises several sub-packages each providing functionality related to a certain aspect of chem- and pharmacoinformatics. The following table lists all available sub-packages together with a brief description of the kind of functionality they provide:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -186,18 +184,38 @@ descriptors <span id="id2">[<a class="reference internal" href="../bibliography.
 </tbody>
 </table>
 </section>
-<section id="object-property-handling">
-<h2><span class="section-number">1.3. </span>Object Property Handling<a class="headerlink" href="#object-property-handling" title="Link to this heading"></a></h2>
-<p>In the <em>CDPL</em> properties of molecules, atoms, bonds, pharmacophores, etc. are not stored as data members of the corresponding objects
-but as key:value pairs in a dictionary (similar to the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> attribute of Python objects).</p>
+<section id="basic-concepts">
+<h1><span class="section-number">3. </span>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Link to this heading"></a></h1>
+<section id="dynamic-properties">
+<h2><span class="section-number">3.1. </span>Dynamic Properties<a class="headerlink" href="#dynamic-properties" title="Link to this heading"></a></h2>
+<p>The <em>CDPL</em> stores properties of certain data types such as molecules, atoms, bonds, pharmacophores, etc. not as ordinary data members of the associated classes
+but as <em>key:value</em> pairs in a dictionary (similar to the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__dict__">__dict__</a> attribute of Python objects). This design decision was made due to several advantages of this approach:</p>
+<ul class="simple">
+<li><p>Flexibility and extensibility: new properties can be defined at runtime by user code</p></li>
+<li><p>Class instance specific property values can be stored directly in the dictionary of the instance they are
+associated with, no external accompanying data structures are required for storing user-defined properties
+unknown to the <em>CDPL</em></p></li>
+<li><p>It can be easily determined whether the value of a particular property is available or not by checking if
+the dictionary contains a corresponding entry. C++ class data members (note that <em>CDPL</em> Python objects just wrap
+corresponding C++ class instances!) exist in memory after a class instance has been constructed and from that
+point on have a value. This is particularly problematic for properties that cannot be assigned a reasonable
+default value.</p></li>
+</ul>
+<p>All <em>CDPL</em> classes supporting this kind of dynamic property storage derive from class
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> which provides methods for property value lookup, storage, removal, iteration, existence testing and counting. Properties are identified by unique keys of type <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1LookupKey.html">CDPL.Base.LookupKey</a> that are created on-the-fly in the <em>CDPL</em> initialization phase. Keys of pre-defined <em>CDPL</em> properties are exported as static attributes of classes that follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;CN&gt;Property</em>. <em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package name
+(see table above) and <em>&lt;CN&gt;</em> is the name of a child class of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> for which these
+properties have been defined (example: atom property keys accessible as members of class
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">CDPL.Chem.AtomProperty</a>).
+Property values virtually can be of any type and get stored in the dictionary as instances of the data wrapper class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1Any.html">CDPL.Base.Any</a>.
+Since <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> methods operating on specific properties always demand the unique key of the property as argument, corresponding code is not only tedious to write but also hard to read and error prone. Therefore, each <em>CDPL</em> sub-package that introduces properties also provides four free functions (at package level) per property that encapsulate the low-level <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> method calls and provide them with the correct property key and value type. Futhermore, the functions also constrain the type of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a>  subclass the property has been introduced for. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">CDPL.Chem.setOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad021960310274a588d47cb4f2d25098c">CDPL.Chem.hasOrder()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aedc63dddcd7838a82e1327dec7ca5504">CDPL.Chem.clearOrder()</a> are an example for such four functions that operate on the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">CDPL.Chem.BondProperty.ORDER</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances with  integer being the property value type.</p>
 <p><strong>TODO</strong></p>
 </section>
 </section>
 <section id="working-with-molecules">
-<h1><span class="section-number">2. </span>Working with Molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>Working with Molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
 <section id="in-memory-representation-of-molecular-structures">
-<h2><span class="section-number">2.1. </span>In-memory Representation of Molecular Structures<a class="headerlink" href="#in-memory-representation-of-molecular-structures" title="Link to this heading"></a></h2>
-<p>The <em>CDPL</em> models molecular structures as undirected graphs where atoms represent the graph nodes and bonds the edges. Concrete data structures for the in-memory representation of atoms, bonds and molecular graphs implement a hierarchy of interfaces that specify all necessary methods for common operations like atom/bond addition, removal, access, membership testing, counting, and so on.</p>
+<h2><span class="section-number">4.1. </span>In-memory Representation of Molecular Structures<a class="headerlink" href="#in-memory-representation-of-molecular-structures" title="Link to this heading"></a></h2>
+<p>The <em>CDPL</em> models molecular structures as undirected graphs where atoms represent the graph nodes and bonds the edges. Concrete data structures for the in-memory representation of atoms, bonds and molecular graphs implement a hierarchy of interfaces (abstract classes) that specify all necessary methods for common operations like atom/bond addition, removal, access, membership testing, counting, and so on.</p>
 <p>The following table provides an overview of the most relevant interfaces and data structures provided by the <em>CDPL</em> for molecular data representation and processing:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -298,7 +316,7 @@ the end of a code cell.</p>
 </div>
 </section>
 <section id="manual-construction-of-molecules">
-<h2><span class="section-number">2.2. </span>Manual Construction of Molecules<a class="headerlink" href="#manual-construction-of-molecules" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.2. </span>Manual Construction of Molecules<a class="headerlink" href="#manual-construction-of-molecules" title="Link to this heading"></a></h2>
 <p>An initally empty molecule object without any atoms and bonds can then be created as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
 </pre></div>
@@ -391,9 +409,9 @@ the end of a code cell.</p>
 <img alt="../_images/cdpl_python_tutorial_30_0.svg" src="../_images/cdpl_python_tutorial_30_0.svg" />
 </section>
 <section id="reading-molecules">
-<h2><span class="section-number">2.3. </span>Reading Molecules<a class="headerlink" href="#reading-molecules" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>Reading Molecules<a class="headerlink" href="#reading-molecules" title="Link to this heading"></a></h2>
 <section id="data-provided-as-strings">
-<h3><span class="section-number">2.3.1. </span>Data provided as Strings<a class="headerlink" href="#data-provided-as-strings" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.1. </span>Data provided as Strings<a class="headerlink" href="#data-provided-as-strings" title="Link to this heading"></a></h3>
 <p class="rubric">SMILES and SMARTS</p>
 <p>For the direct parsing of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97463a5b3b08debaa2b2299a2644e912">Chem.parseSMILES()</a>. The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> object representing the chemical structure
 encoded by the given SMILES string. For example:</p>
@@ -476,7 +494,7 @@ encoded by the given SMILES string. For example:</p>
 <img alt="../_images/cdpl_python_tutorial_36_0.svg" src="../_images/cdpl_python_tutorial_36_0.svg" />
 </section>
 <section id="reading-molecules-from-files">
-<h3><span class="section-number">2.3.2. </span>Reading Molecules from Files<a class="headerlink" href="#reading-molecules-from-files" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.2. </span>Reading Molecules from Files<a class="headerlink" href="#reading-molecules-from-files" title="Link to this heading"></a></h3>
 <p>Reading molecules from files also requires the creation of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance that performs the actual format-specific data decoding work. As with string data, several options exist:</p>
 <ol class="arabic simple">
 <li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behaviour, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
@@ -505,7 +523,7 @@ encoded by the given SMILES string. For example:</p>
 </div>
 </section>
 <section id="sequential-molecule-reading">
-<h3><span class="section-number">2.3.3. </span>Sequential Molecule Reading<a class="headerlink" href="#sequential-molecule-reading" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.3. </span>Sequential Molecule Reading<a class="headerlink" href="#sequential-molecule-reading" title="Link to this heading"></a></h3>
 <p>Given a properly initialized <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance, molecules can be read in the order provided by the input data by repeatedly calling the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method. If there are no more molecules to read, the return value of the method will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smi_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;c1n(ccn1)c1ccc(cc1)c1ccc(n1c1c(cc(cc1)C(=O)N)C)CCC(=O)[O-] 022_3QJ5_A</span>
 <span class="s2">CNC(=O)[C@H](C(C)(C)C)NC(=O)[C@@H]([C@H](C)N([O-])C=O)CCCc1ccccc1 023_2WO9_B</span>
@@ -527,7 +545,7 @@ encoded by the given SMILES string. For example:</p>
 </div>
 </section>
 <section id="random-molecule-access">
-<h3><span class="section-number">2.3.4. </span>Random Molecule Access<a class="headerlink" href="#random-molecule-access" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.4. </span>Random Molecule Access<a class="headerlink" href="#random-molecule-access" title="Link to this heading"></a></h3>
 <p>There is a special version of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> which expects the index (zero-based) of the molecule to read as its first argument. This way molecules can be read in any order, no matter what their order is in the input data. The number of available molecules can be queried either by calling the method <a class="reference external" href="https://cdpkit.org/master/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80">getNumRecords()</a> or by accessing the property <a class="reference external" href="https://cdpkit.org/master/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">numRecords</a>.</p>
 <p>Example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ios</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">StringIOStream</span><span class="p">(</span><span class="n">smi_data</span><span class="p">)</span>
@@ -577,9 +595,9 @@ encoded by the given SMILES string. For example:</p>
 </section>
 </section>
 <section id="processing-molecular-graphs">
-<h2><span class="section-number">2.4. </span>Processing Molecular Graphs<a class="headerlink" href="#processing-molecular-graphs" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4. </span>Processing Molecular Graphs<a class="headerlink" href="#processing-molecular-graphs" title="Link to this heading"></a></h2>
 <section id="accessing-atoms-and-bonds">
-<h3><span class="section-number">2.4.1. </span>Accessing Atoms and Bonds<a class="headerlink" href="#accessing-atoms-and-bonds" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1. </span>Accessing Atoms and Bonds<a class="headerlink" href="#accessing-atoms-and-bonds" title="Link to this heading"></a></h3>
 <p>Atom and bonds of a molecular graph represented by, e. g., a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> instance can be accessed by calling the methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#ae4dc0c96b4675cdd0726a6a0a55c681f">getAtom()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#aad68f03787b42d08b22bfc820e5016a6">getBond()</a>, respectively. These methods expect the zero-based index of the atom/bond in the parent molecular graphs’s atom/bond list as argument. Allowed atom/bond indices are in the range [0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>)/[0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a>). Providing an index outside the allowed range will result in an exception.</p>
 <p>Example: Counting element symbols and bond orders</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sym_counts</span> <span class="o">=</span> <span class="p">{}</span>
