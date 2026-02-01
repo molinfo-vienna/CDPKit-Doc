@@ -61,7 +61,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#basic-concepts">3. Basic Concepts</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dynamic-properties">3.1. Dynamic Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#control-parameters">3.2. Control-Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#data-i-o">3.3. Data I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-i-o-framework">3.3. Data I/O Framework</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">4. Working with Molecules</a><ul>
@@ -240,17 +240,23 @@ or function objects that get called on events such as parameter value change (me
 (methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a59d55eed967a82380c8b2ed2cd40405b">registerParameterRemovedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a6e8209de7f5cfb7a7b3f94cf109b0156">unregisterParameterRemovedCallback()</a>) and parent change
 (methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#acf09cf417dfc41787e89825762bb2e32">registerParentChangedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#aca5b0565223043518608dd7a84cb5e0f">unregisterParentChangedCallback()</a>).</p>
 </section>
-<section id="data-i-o">
-<h2><span class="section-number">3.3. </span>Data I/O<a class="headerlink" href="#data-i-o" title="Link to this heading"></a></h2>
+<section id="data-i-o-framework">
+<h2><span class="section-number">3.3. </span>Data I/O Framework<a class="headerlink" href="#data-i-o-framework" title="Link to this heading"></a></h2>
 <p>Classes implementing the input/output of data of a certain type in a particular format (e.g. molecular structures in SD-file format) are derived from abstract base classes that follow the naming schemes
 <em>CDPL.&lt;PN&gt;.&lt;DT&gt;ReaderBase</em> and  <em>CDPL.&lt;PN&gt;.&lt;DT&gt;WriterBase</em>, respectively. <em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package
-name and <em>&lt;DT&gt;</em> is the name of the data type to read or write (e.g., <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">CDPL.Chem.MoleculeReaderBase</a> and
+name and <em>&lt;DT&gt;</em> is the name of the data type to read or write (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">CDPL.Chem.MoleculeReaderBase</a> and
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">CDPL.Chem.MolecularGraphWriterBase</a>).
 These base classes are all derived from the abstract class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataIOBase.html">CDPL.Base.DataIOBase</a> which itself is derived from <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html">CDPL.Base.ControlParameterContainer</a>. Instances of concrete classes implementing a particular data I/O format
 thus support the configuration of their runtime behavior by control-parameters (see <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1ControlParameter.html">CDPL.Chem.ControlParameter</a>
-for examples).</p>
+for examples). The name of classes implementing the input/output of data in one of the supported formats all follow the scheme <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;Writer</em>, respectively where <em>&lt;PN&gt;</em> denotes the
+<em>CDPL</em> sub-package name, <em>&lt;FID&gt;</em> is a format identifier (usually a characteristic file extension) and <em>&lt;DT&gt;</em> is
+the name of the data type to read or write (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMoleculeReader.html">CDPL.Chem.SDFMoleculeReader</a> and
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMolecularGraphWriter.html">CDPL.Chem.SDFMolecularGraphWriter</a>).
+These classes all expect an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IOStream.html">CDPL.Base.IOStream</a> as constructor argument which abstracts the type of data source/sink to read from or write to. Subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IOStream.html">CDPL.Base.IOStream</a> are provided that implement a particular type of storage such as files (class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">CDPL.Base.FileIOStream</a>) and in-memory strings (class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">CDPL.Base.StringIOStream</a>).</p>
 <p>Each data format implemented by the <em>CDPL</em> is described by an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> which
-stores and allows to retrieve important format-specific information like common file-extensions or mime-type.</p>
+stores and gives access to relevant format-specific information such common file-extensions or mime-type.
+Pre-defined data format descriptors are exported as static attributes of classes following the naming scheme
+<em>CDPL.&lt;PN&gt;.DataFormat</em> where <em>&lt;PN&gt;</em> is the name of the <em>CDPL</em> sub-package implementing the format (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">CDPL.Chem.DataFormat</a>).</p>
 <p><strong>TODO</strong></p>
 </section>
 </section>
