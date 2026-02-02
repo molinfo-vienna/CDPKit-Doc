@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.3.4. Pharmacophore Feature Mapping Analysis &mdash; CDPKit 1.3.0.dev1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=361f14d3" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
+    <link rel="canonical" href="https://cdpkit.org/master/cdpl_python_cookbook/pharm/processing/ftr_mpg.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=41a6cf89"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../_static/tabs.js?v=3ee01567"></script>
+        <script src="../../../_static/docs-versions-menu.js?v=bb46260f"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3. Calculation of Molecule, Atom and Bond Properties" href="../../molprop/index.html" />
+    <link rel="prev" title="2.3.3. Pharmacophore to Pharmacophore Alignment" href="ph4_align.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #aaaaaa" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../applications/index.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">CDPL Python Cookbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../chem/index.html">1. Basic Processing of Molecules and Reactions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">2. Pharmacophore Generation and Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../io/index.html">2.1. Input and Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../generation/index.html">2.2. Generation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">2.3. Processing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ftr_props.html">2.3.1. Retrieving Feature Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mol_align.html">2.3.2. Molecule to Reference Pharmacophore Alignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ph4_align.html">2.3.3. Pharmacophore to Pharmacophore Alignment</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">2.3.4. Pharmacophore Feature Mapping Analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">6. Force Field Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shape/index.html">7. Molecular Shape Analysis and Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vis/index.html">8. Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #aaaaaa" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CDPKit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">CDPL Python Cookbook</a></li>
+          <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">2. </span>Pharmacophore Generation and Processing</a></li>
+          <li class="breadcrumb-item"><a href="index.html"><span class="section-number">2.3. </span>Processing</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2.3.4. </span>Pharmacophore Feature Mapping Analysis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/cdpl_python_cookbook/pharm/processing/ftr_mpg.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pharmacophore-feature-mapping-analysis">
+<span id="index-0"></span><h1><span class="section-number">2.3.4. </span>Pharmacophore Feature Mapping Analysis<a class="headerlink" href="#pharmacophore-feature-mapping-analysis" title="Link to this heading"></a></h1>
+<p>The script <em>analyze_ph4_ftr_mpg.py</em> reports information about the perceived matches between the features of a reference pharmacophore and a set of input pharmacophores.</p>
+<p><strong>Synopsis</strong></p>
+<blockquote>
+<div><p><strong class="program">python</strong> <em>analyze_ph4_ftr_mpg.py</em> [-h] -r &lt;file&gt; -i &lt;file&gt; -o &lt;file&gt; [-x] [-Q] [-q] [-p]</p>
+</div></blockquote>
+<p><strong>Mandatory options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-r <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Reference pharmacophore input file (*.pml, *.cdf)</p>
+</dd>
+<dt><kbd><span class="option">-i <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Pharmacophore input file (*.pml, *.cdf)</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;file&gt;</var></span></kbd></dt>
+<dd><p>Feature mapping info output file</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Other options</strong></p>
+<blockquote>
+<div><dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show help message and exit</p>
+</dd>
+<dt><kbd><span class="option">-x</span></kbd></dt>
+<dd><p>Do not remove exclusion volumes before processing (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-d <var>&lt;float&gt;</var></span></kbd></dt>
+<dd><p>Minimum required score difference between two consecutively output pharmacophore alignment poses
+(default: 0.0)</p>
+</dd>
+<dt><kbd><span class="option">-Q</span></kbd></dt>
+<dd><p>If specified, only alignments where the positions of the features of the input pharmacophores lie strictly
+within the tolerance spheres of the reference pharmacophore features will be considered as being valid.
+Otherwise, alignments where the position of at least one feature of the aligned pairs lies within the tolerance
+sphere of the other feature are also valid (default: false)</p>
+</dd>
+<dt><kbd><span class="option">-q</span></kbd></dt>
+<dd><p>Disable progress output (default: false)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Code</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  2</span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="kn">import</span> <span class="nn">CDPL.Pharm</span> <span class="k">as</span> <span class="nn">Pharm</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">CDPL.Math</span> <span class="k">as</span> <span class="nn">Math</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="c1"># reads and returns the specified reference pharmacophore</span>
+<span class="linenos">  9</span><span class="k">def</span> <span class="nf">readRefPharmacophore</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">Pharmacophore</span><span class="p">:</span>
+<span class="linenos"> 10</span>    <span class="c1"># create pharmacophore reader instance</span>
+<span class="linenos"> 11</span>    <span class="n">reader</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">PharmacophoreReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span>    <span class="c1"># create an instance of the default implementation of the Pharm.Pharmacophore interface</span>
+<span class="linenos"> 14</span>    <span class="n">ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos"> 17</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ph4</span><span class="p">):</span> <span class="c1"># read reference pharmacophore</span>
+<span class="linenos"> 18</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading reference pharmacophore failed&#39;</span><span class="p">)</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos"> 21</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: reading reference pharmacophore failed:</span><span class="se">\n</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span>    <span class="k">return</span> <span class="n">ph4</span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="k">def</span> <span class="nf">parseArgs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">:</span>
+<span class="linenos"> 26</span>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Reports information about the perceived matches between the features of a reference pharmacophore and a set of input pharmacophores.&#39;</span><span class="p">)</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span>
+<span class="linenos"> 29</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;ref_ph4_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 30</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 31</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 32</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Reference pharmacophore input file (*.pml, *.cdf)&#39;</span><span class="p">)</span>
+<span class="linenos"> 33</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span>
+<span class="linenos"> 34</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 35</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 36</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 37</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Pharmacophore input file (*.pml, *.cdf)&#39;</span><span class="p">)</span>
+<span class="linenos"> 38</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span>
+<span class="linenos"> 39</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out_file&#39;</span><span class="p">,</span>
+<span class="linenos"> 40</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 41</span>                        <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;&lt;file&gt;&#39;</span><span class="p">,</span>
+<span class="linenos"> 42</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Feature mapping info output file&#39;</span><span class="p">)</span>
+<span class="linenos"> 43</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-Q&#39;</span><span class="p">,</span>
+<span class="linenos"> 44</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;query_mode&#39;</span><span class="p">,</span>
+<span class="linenos"> 45</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 46</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 47</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 48</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;If specified, only alignments where the positions of the features of the input pharmacophores lie strictly &#39;</span>\
+<span class="linenos"> 49</span>                        <span class="s1">&#39;within the tolerance spheres of the reference pharmacophore features will be considered as being valid. Otherwise, &#39;</span>\
+<span class="linenos"> 50</span>                        <span class="s1">&#39;alignments where the position of at least one feature of the aligned pairs lies within the tolerance sphere of the &#39;</span>\
+<span class="linenos"> 51</span>                        <span class="s1">&#39;other feature are also valid (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 52</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span>
+<span class="linenos"> 53</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;keep_x_vols&#39;</span><span class="p">,</span>
+<span class="linenos"> 54</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 55</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 56</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 57</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Do not remove exclusion volumes before processing (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 58</span>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span>
+<span class="linenos"> 59</span>                        <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;quiet&#39;</span><span class="p">,</span>
+<span class="linenos"> 60</span>                        <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 61</span>                        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+<span class="linenos"> 62</span>                        <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 63</span>                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disable progress output (default: false)&#39;</span><span class="p">)</span>
+<span class="linenos"> 64</span> 
+<span class="linenos"> 65</span>    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos"> 68</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span>    <span class="c1"># read the reference pharmacophore</span>
+<span class="linenos"> 71</span>    <span class="n">ref_ph4</span> <span class="o">=</span> <span class="n">readRefPharmacophore</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">ref_ph4_file</span><span class="p">)</span> 
+<span class="linenos"> 72</span>
+<span class="linenos"> 73</span>    <span class="c1"># will store the processed reference features</span>
+<span class="linenos"> 74</span>    <span class="n">working_ref_ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureSet</span><span class="p">()</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">keep_x_vols</span><span class="p">:</span>
+<span class="linenos"> 77</span>        <span class="n">working_ref_ph4</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ref_ph4</span><span class="p">)</span>
+<span class="linenos"> 78</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 79</span>        <span class="n">Pharm</span><span class="o">.</span><span class="n">removeFeaturesWithType</span><span class="p">(</span><span class="n">ref_ph4</span><span class="p">,</span> <span class="n">working_ref_ph4</span><span class="p">,</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">EXCLUSION_VOLUME</span><span class="p">)</span>
+<span class="linenos"> 80</span>
+<span class="linenos"> 81</span>    <span class="c1"># will store the processed input features</span>
+<span class="linenos"> 82</span>    <span class="n">working_ipt_ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureSet</span><span class="p">()</span>
+<span class="linenos"> 83</span>
+<span class="linenos"> 84</span>    <span class="c1"># create reader for input pharmacophores (format specified by file extension)</span>
+<span class="linenos"> 85</span>    <span class="n">ph4_reader</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">PharmacophoreReader</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in_file</span><span class="p">)</span> 
+<span class="linenos"> 86</span>
+<span class="linenos"> 87</span>    <span class="c1"># open output file for writing</span>
+<span class="linenos"> 88</span>    <span class="n">out_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span>    <span class="c1"># write output file CSV column headers</span>
+<span class="linenos"> 91</span>    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Input Pharm. Index, Ref. Feature Index, Ref. Feature Type, Inp. Feature Index, Inp. Feature Type, Distance Score, Angle Score</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos"> 92</span>    
+<span class="linenos"> 93</span>    <span class="c1"># create an instances of the default implementation of the Pharm.Pharmacophore interface</span>
+<span class="linenos"> 94</span>    <span class="n">ph4</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">BasicPharmacophore</span><span class="p">()</span>
+<span class="linenos"> 95</span>
+<span class="linenos"> 96</span>    <span class="c1"># create an instance of the class implementing the perception and storage of pharmacophore feature mappings </span>
+<span class="linenos"> 97</span>    <span class="n">ftr_mpg</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">SpatialFeatureMapping</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">query_mode</span><span class="p">)</span> <span class="c1"># arg = True -&gt; input features must be within the tolerance spheres of the ref. features</span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span>    <span class="c1"># create identity transformation for input pharmacophore features (already aligned)</span>
+<span class="linenos">100</span>    <span class="n">id_xform</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="n">Matrix4D</span><span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">DIdentityMatrix</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos">101</span>   
+<span class="linenos">102</span>    <span class="c1"># read and process pharmacphores one after the other until the end of input has been reached</span>
+<span class="linenos">103</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">104</span>        <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">105</span>        
+<span class="linenos">106</span>        <span class="k">while</span> <span class="n">ph4_reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ph4</span><span class="p">):</span>
+<span class="linenos">107</span>            <span class="c1"># compose a simple parmacophore identifier</span>
+<span class="linenos">108</span>            <span class="n">ph4_id</span> <span class="o">=</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">getName</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+<span class="linenos">109</span>
+<span class="linenos">110</span>            <span class="k">if</span> <span class="n">ph4_id</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">111</span>                <span class="n">ph4_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span>       <span class="c1"># fallback if name is empty</span>
+<span class="linenos">112</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">113</span>                <span class="n">ph4_id</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="si">{</span><span class="n">ph4_id</span><span class="si">}</span><span class="se">\&#39;</span><span class="s1"> (#</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">)&#39;</span>
+<span class="linenos">114</span>
+<span class="linenos">115</span>            <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">116</span>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Processing input pharmacophore </span><span class="si">{</span><span class="n">ph4_id</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
+<span class="linenos">117</span>
+<span class="linenos">118</span>            <span class="k">try</span><span class="p">:</span>
+<span class="linenos">119</span>                <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">keep_x_vols</span><span class="p">:</span>
+<span class="linenos">120</span>                    <span class="n">working_ipt_ph4</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ph4</span><span class="p">)</span>
+<span class="linenos">121</span>                <span class="k">else</span><span class="p">:</span>
+<span class="linenos">122</span>                    <span class="n">Pharm</span><span class="o">.</span><span class="n">removeFeaturesWithType</span><span class="p">(</span><span class="n">ph4</span><span class="p">,</span> <span class="n">working_ipt_ph4</span><span class="p">,</span> <span class="n">Pharm</span><span class="o">.</span><span class="n">FeatureType</span><span class="o">.</span><span class="n">EXCLUSION_VOLUME</span><span class="p">)</span>
+<span class="linenos">123</span>                
+<span class="linenos">124</span>                <span class="n">unmpd_ref_ftrs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">working_ref_ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="p">))</span>
+<span class="linenos">125</span>                <span class="n">unmpd_ipt_ftrs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">working_ipt_ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="p">))</span>
+<span class="linenos">126</span>            
+<span class="linenos">127</span>                <span class="n">ftr_mpg</span><span class="o">.</span><span class="n">perceive</span><span class="p">(</span><span class="n">working_ref_ph4</span><span class="p">,</span> <span class="n">working_ipt_ph4</span><span class="p">,</span> <span class="n">id_xform</span><span class="p">)</span>
+<span class="linenos">128</span>
+<span class="linenos">129</span>                <span class="c1"># output found feature mappings where the features are of the same type</span>
+<span class="linenos">130</span>                <span class="k">for</span> <span class="n">ftr_pair</span> <span class="ow">in</span> <span class="n">ftr_mpg</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">131</span>                    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ref_ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s1">, &#39;</span>\
+<span class="linenos">132</span>                                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ftr_mpg</span><span class="o">.</span><span class="n">getPositionMatchScore</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s1">, &#39;</span>\
+<span class="linenos">133</span>                                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ftr_mpg</span><span class="o">.</span><span class="n">getGeometryMatchScore</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">134</span>                    
+<span class="linenos">135</span>                    <span class="n">unmpd_ref_ftrs</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">working_ref_ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="linenos">136</span>                    <span class="n">unmpd_ipt_ftrs</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">working_ipt_ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ftr_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="linenos">137</span>
+<span class="linenos">138</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">139</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Num. reference features matching input features of the same type: </span><span class="si">{</span><span class="n">working_ref_ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">unmpd_ref_ftrs</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">140</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Num. input features matching reference features of the same type: </span><span class="si">{</span><span class="n">working_ipt_ph4</span><span class="o">.</span><span class="n">numFeatures</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">unmpd_ipt_ftrs</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">141</span>                    
+<span class="linenos">142</span>                <span class="n">het_mpd_ref_ftrs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="linenos">143</span>                <span class="n">het_mpd_ipt_ftrs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="linenos">144</span>                
+<span class="linenos">145</span>                <span class="c1"># output valid (in terms of distance) matches of not yet mapped reference and</span>
+<span class="linenos">146</span>                <span class="c1"># input features (ignoring the type)</span>
+<span class="linenos">147</span>                <span class="k">for</span> <span class="n">ref_ftr_idx</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">unmpd_ref_ftrs</span><span class="p">):</span>
+<span class="linenos">148</span>                    <span class="n">ref_ftr</span> <span class="o">=</span> <span class="n">working_ref_ph4</span><span class="o">.</span><span class="n">getFeature</span><span class="p">(</span><span class="n">ref_ftr_idx</span><span class="p">)</span>
+<span class="linenos">149</span>                    
+<span class="linenos">150</span>                    <span class="k">for</span> <span class="n">ipt_ftr_idx</span> <span class="ow">in</span> <span class="n">unmpd_ipt_ftrs</span><span class="p">:</span>
+<span class="linenos">151</span>                        <span class="n">ipt_ftr</span> <span class="o">=</span> <span class="n">working_ipt_ph4</span><span class="o">.</span><span class="n">getFeature</span><span class="p">(</span><span class="n">ipt_ftr_idx</span><span class="p">)</span>
+<span class="linenos">152</span>                        <span class="n">dist_score</span> <span class="o">=</span> <span class="n">ftr_mpg</span><span class="o">.</span><span class="n">getPositionMatchFunction</span><span class="p">()(</span><span class="n">ref_ftr</span><span class="p">,</span> <span class="n">ipt_ftr</span><span class="p">,</span> <span class="n">id_xform</span><span class="p">)</span>
+<span class="linenos">153</span>                        
+<span class="linenos">154</span>                        <span class="k">if</span> <span class="n">dist_score</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">155</span>                            <span class="n">unmpd_ref_ftrs</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">ref_ftr_idx</span><span class="p">)</span>
+<span class="linenos">156</span>                            <span class="n">het_mpd_ref_ftrs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ref_ftr_idx</span><span class="p">)</span>
+<span class="linenos">157</span>                            <span class="n">het_mpd_ipt_ftrs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ipt_ftr_idx</span><span class="p">)</span>
+<span class="linenos">158</span>                            
+<span class="linenos">159</span>                            <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ref_ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ref_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ref_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ipt_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, &#39;</span>\
+<span class="linenos">160</span>                                           <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ipt_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">dist_score</span><span class="si">}</span><span class="s1">, -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">161</span>
+<span class="linenos">162</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">163</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Num. remaining reference features matching input features of any type: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">het_mpd_ref_ftrs</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">164</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Num. remaining input features matching reference features of any type: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">het_mpd_ipt_ftrs</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">165</span>                 
+<span class="linenos">166</span>                <span class="n">unmpd_ipt_ftrs</span> <span class="o">-=</span> <span class="n">het_mpd_ipt_ftrs</span>
+<span class="linenos">167</span>
+<span class="linenos">168</span>                <span class="c1"># output unmapped reference features</span>
+<span class="linenos">169</span>                <span class="k">for</span> <span class="n">ref_ftr_idx</span> <span class="ow">in</span> <span class="n">unmpd_ref_ftrs</span><span class="p">:</span>
+<span class="linenos">170</span>                    <span class="n">ref_ftr</span> <span class="o">=</span> <span class="n">working_ref_ph4</span><span class="o">.</span><span class="n">getFeature</span><span class="p">(</span><span class="n">ref_ftr_idx</span><span class="p">)</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span>                    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ref_ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ref_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ref_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, -1, -1, -1, -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">173</span>
+<span class="linenos">174</span>                <span class="c1"># output unmapped input features</span>
+<span class="linenos">175</span>                <span class="k">for</span> <span class="n">ipt_ftr_idx</span> <span class="ow">in</span> <span class="n">unmpd_ipt_ftrs</span><span class="p">:</span>
+<span class="linenos">176</span>                    <span class="n">ipt_ftr</span> <span class="o">=</span> <span class="n">working_ipt_ph4</span><span class="o">.</span><span class="n">getFeature</span><span class="p">(</span><span class="n">ipt_ftr_idx</span><span class="p">)</span>
+<span class="linenos">177</span>
+<span class="linenos">178</span>                    <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">, -1, -1, </span><span class="si">{</span><span class="n">ph4</span><span class="o">.</span><span class="n">getFeatureIndex</span><span class="p">(</span><span class="n">ipt_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">Pharm</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">ipt_ftr</span><span class="p">)</span><span class="si">}</span><span class="s1">, -1, -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">179</span>
+<span class="linenos">180</span>                <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">quiet</span><span class="p">:</span>
+<span class="linenos">181</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Num. unmatched reference features: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">unmpd_ref_ftrs</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">182</span>                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; -&gt; Num. unmatched input features: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">unmpd_ipt_ftrs</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">183</span>             
+<span class="linenos">184</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">185</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: processing of input parmacophore </span><span class="si">{</span><span class="n">ph4_id</span><span class="si">}</span><span class="s1"> failed:</span><span class="se">\n</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">186</span>
+<span class="linenos">187</span>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">188</span>                
+<span class="linenos">189</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
+<span class="linenos">190</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: reading input parmacophore failed:</span><span class="se">\n</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">191</span>
+<span class="linenos">192</span>    <span class="n">out_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">193</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">194</span>        
+<span class="linenos">195</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">196</span>    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference download internal" download="" href="../../../_downloads/93429098701a911f7b5fb8f4329b0366/analyze_ph4_ftr_mpg.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">source</span> <span class="pre">file</span></code></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ph4_align.html" class="btn btn-neutral float-left" title="2.3.3. Pharmacophore to Pharmacophore Alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../molprop/index.html" class="btn btn-neutral float-right" title="3. Calculation of Molecule, Atom and Bond Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
