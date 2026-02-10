@@ -123,10 +123,13 @@ for examples). The name of classes implementing the input/output of data in one 
 *CDPL* sub-package name, *<FID>* is a format identifier (usually a characteristic file extension) and *<DT>* is 
 the name of the data type to read or write (e.g. `CDPL.Chem.SDFMoleculeReader`_ and
 `CDPL.Chem.SDFMolecularGraphWriter`_).
-These classes all expect an instance of class `CDPL.Base.IOStream`_ as constructor argument which abstracts the type of data source/sink to read from or write to. Subclasses of `CDPL.Base.IOStream`_ are provided that implement a particular type of storage such as files (class `CDPL.Base.FileIOStream`_) and in-memory strings (class `CDPL.Base.StringIOStream`_).
+Data reader classes all expect an instance of class `CDPL.Base.IStream`_ and data writer classes an instance of `CDPL.Base.OStream`_ as constructor argument. 
+These data stream classes generalize data sources and sinks and thus allow the file format implementations to be independent of the actual data storage type. 
+Particular types of storage such as files or strings are implemented by concrete subclasses of `CDPL.Base.IStream`_ and `CDPL.Base.OStream`_  like class `CDPL.Base.FileIOStream`_ for files and `CDPL.Base.StringIOStream`_ for in-memory
+strings, respectively.
 
 Each data format implemented by the *CDPL* is described by an instance of class `CDPL.Base.DataFormat`_ which
-stores and gives access to relevant format-specific information such common file-extensions or mime-type. 
+stores and gives access to relevant format-specific information such as common file-extensions or mime-type. 
 Pre-defined data format descriptors are exported as static attributes of classes following the naming scheme
 *CDPL.<PN>.DataFormat* where *<PN>* is the name of the *CDPL* sub-package implementing the format (e.g. `CDPL.Chem.DataFormat`_).
 
@@ -711,6 +714,10 @@ Example: Counting element symbols and bond orders
 .. _CDPL.GRAIL: https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1GRAIL.html
 
 .. _CDPL.Vis: https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html
+
+.. _CDPL.Base.IStream: https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html
+
+.. _CDPL.Base.OStream: https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html
 
 .. _CDPL.Base.IOStream: https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IOStream.html
 

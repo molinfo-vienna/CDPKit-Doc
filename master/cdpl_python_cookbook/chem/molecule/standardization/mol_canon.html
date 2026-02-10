@@ -173,7 +173,7 @@
 <span class="linenos"> 27</span>    <span class="c1"># if stereochemistry is not considered then clear the corresponding property flags</span>
 <span class="linenos"> 28</span>    <span class="k">if</span> <span class="n">ignore_stereo</span><span class="p">:</span>
 <span class="linenos"> 29</span>        <span class="n">atom_flags</span> <span class="o">^=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomPropertyFlag</span><span class="o">.</span><span class="n">CONFIGURATION</span>
-<span class="linenos"> 30</span>        <span class="n">bond_flags</span> <span class="o">^=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomPropertyFlag</span><span class="o">.</span><span class="n">CONFIGURATION</span>
+<span class="linenos"> 30</span>        <span class="n">bond_flags</span> <span class="o">^=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BondPropertyFlag</span><span class="o">.</span><span class="n">CONFIGURATION</span>
 <span class="linenos"> 31</span>
 <span class="linenos"> 32</span>    <span class="c1"># calculate canonical atom numbers (numbers will be stored as atom property Chem.AtomProperty.CANONICAL_NUMBER)</span>
 <span class="linenos"> 33</span>    <span class="n">Chem</span><span class="o">.</span><span class="n">calcCanonicalNumbering</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">atom_flags</span><span class="p">,</span> <span class="n">bond_flags</span><span class="p">)</span>
