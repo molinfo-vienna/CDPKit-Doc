@@ -66,18 +66,21 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-molecules">4. Working with Molecules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#in-memory-representation-of-molecular-structures">4.1. In-memory Representation of Molecular Structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#basic-operations-on-molecule-objects">4.2. Basic Operations on Molecule Objects</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#creation">4.2.1. Creation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#querying-atom-and-bond-counts">4.2.2. Querying Atom and Bond Counts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-atoms-and-bonds">4.2.3. Creating Atoms and Bonds</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-atoms-and-bonds">4.2.4. Accessing Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#representation-of-molecule-substructures">4.2. Representation of Molecule Substructures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-operations-on-molecular-graphs">4.3. Basic Operations on Molecular Graphs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation">4.3.1. Creation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#querying-atom-and-bond-counts">4.3.2. Querying Atom and Bond Counts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-atoms-and-bonds">4.3.3. Creating Atoms and Bonds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copying-atoms-and-bonds">4.3.4. Copying Atoms and Bonds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-atoms-and-bonds">4.3.5. Accessing Atoms and Bonds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-all-atoms-and-bonds">4.3.6. Removing all Atoms and Bonds</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-molecule-data">4.3. Reading Molecule Data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">4.3.1. Data provided as Strings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">4.3.2. Reading Molecules from Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">4.3.3. Sequential Molecule Reading</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">4.3.4. Random Molecule Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-molecule-data">4.4. Reading Molecule Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">4.4.1. Data provided as Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">4.4.2. Reading Molecules from Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">4.4.3. Sequential Molecule Reading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">4.4.4. Random Molecule Access</a></li>
 </ul>
 </li>
 </ul>
@@ -377,29 +380,45 @@ substructures/fragments of any kind (e.g. rings, substructure matches, …) in a
 </tr>
 </tbody>
 </table>
-<p>Most of the classes listed above as well as other classes/functions used for molecular data I/O and basic processing reside in package <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>.</p>
+</section>
+<section id="representation-of-molecule-substructures">
+<h2><span class="section-number">4.2. </span>Representation of Molecule Substructures<a class="headerlink" href="#representation-of-molecule-substructures" title="Link to this heading"></a></h2>
+<p>From ground up, a molecular structure can be created only via an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a>.
+Adding  atoms and bonds via corresponding methods (see next section) will instantiate new
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> objects which from that point on will be owned and managed by the
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> instance. For the specification of a particular subset of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> and
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a>  objects associated with a given <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> instance the <em>CDPL</em> provides the
+class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a>. Analogous to class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> this class also provides methods for adding
+atoms and bonds. The difference is that these methods expect <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> or
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances as argument which will be stored internally as light-weight pointers (not as copies!).
+Like <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> derives from <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> and instances of both classes thus can be processed in the same way by code that operates on molecular structures represented by
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> objects.</p>
+</section>
+<section id="basic-operations-on-molecular-graphs">
+<h2><span class="section-number">4.3. </span>Basic Operations on Molecular Graphs<a class="headerlink" href="#basic-operations-on-molecular-graphs" title="Link to this heading"></a></h2>
+<p>Most of the classes for molecular structure representation, molecular data I/O and functions for basic processing reside in package <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Chem</span> <span class="k">as</span> <span class="nn">Chem</span>
 </pre></div>
 </div>
-<p>By the import line above the code in the remainder of this tutorial can conveniently access all package contents via the prefix <em>Chem.*</em>.</p>
-<p>Furthermore, the <em>CDPL Python</em> bindings implement the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances in Jupyter notebooks. Rich output is activated by importing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html">CDPL.Vis</a> package and will be used in the following code snippets to display the skeletal formula of molecular graphs simply by typing the variable name at
+<p>By the import line above the code in the remainder of this tutorial can conveniently access all package contents
+via the prefix <em>Chem.*</em>.</p>
+<p>Furthermore, the <em>CDPL Python</em> bindings implement the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances in
+Jupyter notebooks. Rich output is activated by importing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html">CDPL.Vis</a> package and will be used in the following
+code snippets to display the skeletal formula of molecular graphs simply by typing the variable name at
 the end of a code cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Vis</span>
 </pre></div>
 </div>
-</section>
-<section id="basic-operations-on-molecule-objects">
-<h2><span class="section-number">4.2. </span>Basic Operations on Molecule Objects<a class="headerlink" href="#basic-operations-on-molecule-objects" title="Link to this heading"></a></h2>
 <section id="creation">
-<h3><span class="section-number">4.2.1. </span>Creation<a class="headerlink" href="#creation" title="Link to this heading"></a></h3>
-<p>An initally empty molecule object without any atoms and bonds can then be created as follows:</p>
+<h3><span class="section-number">4.3.1. </span>Creation<a class="headerlink" href="#creation" title="Link to this heading"></a></h3>
+<p>An initally empty molecule object without any atoms and bonds can then be created by instantiating the class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> which implements the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> interface as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="querying-atom-and-bond-counts">
-<h3><span class="section-number">4.2.2. </span>Querying Atom and Bond Counts<a class="headerlink" href="#querying-atom-and-bond-counts" title="Link to this heading"></a></h3>
-<p>The number of (explicit) atoms can be queried either by acessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">numAtoms</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>:</p>
+<h3><span class="section-number">4.3.2. </span>Querying Atom and Bond Counts<a class="headerlink" href="#querying-atom-and-bond-counts" title="Link to this heading"></a></h3>
+<p>The number of (explicit) atoms can be queried either by acessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">numAtoms</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a> provided by the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">Chem.AtomContainer</a> interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span>
 <span class="c1"># or</span>
 <span class="c1">#mol.getNumAtoms()</span>
@@ -408,7 +427,7 @@ the end of a code cell.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>In the same manner, the number of bonds can be retrieved by:</p>
+<p>In the same manner, the number of explicit bonds can be retrieved by the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">numBonds</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a> provided by the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">Chem.BondContainer</a> interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span>
 <span class="c1"># or</span>
 <span class="c1">#mol.getNumBonds()</span>
@@ -419,12 +438,12 @@ the end of a code cell.</p>
 </div>
 </section>
 <section id="creating-atoms-and-bonds">
-<h3><span class="section-number">4.2.3. </span>Creating Atoms and Bonds<a class="headerlink" href="#creating-atoms-and-bonds" title="Link to this heading"></a></h3>
-<p>Atoms are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ab998b55e7f56b00f47e3acbfa4511f2e">addAtom()</a>:</p>
+<h3><span class="section-number">4.3.3. </span>Creating Atoms and Bonds<a class="headerlink" href="#creating-atoms-and-bonds" title="Link to this heading"></a></h3>
+<p>Atoms are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ab998b55e7f56b00f47e3acbfa4511f2e">addAtom()</a> provided by the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicAtom.html">Chem.BasicAtom</a> object which is owned by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> instance
+<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> object which is owned by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance
 <strong>mol</strong>. The created atom does not yet possess any chemical properties like element, formal charge, and so on. The value of these properties needs to be set explicitly by invoking dedicated property functions which take the atom and desired value of the property as arguments. For example</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
@@ -443,11 +462,11 @@ the end of a code cell.</p>
 <span class="n">b</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicBond.html">Chem.BasicBond</a> object which is also owned by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> instance <em>mol</em>. As with atoms, the created bond does not yet have any properties. To set the bond order to a value of 2 (= double bond) the property function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">Chem.setOrder()</a> needs to be called:</p>
+<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> object which is also owned and managed by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance <em>mol</em>. As with atoms, the created bond does not yet have any properties. To set the bond order to a value of 2 (= double bond) the property function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">Chem.setOrder()</a> needs to be called:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>A previously set bond order property value can be accessed by the accompanying getter function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">Chem.getOrder()</a>:</p>
+<p>A previously set bond order property value can be retrieved by the accompanying getter function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">Chem.getOrder()</a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getOrder</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -457,7 +476,7 @@ the end of a code cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_25_0.svg" src="../_images/cdpl_python_tutorial_25_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_27_0.svg" src="../_images/cdpl_python_tutorial_27_0.svg" />
 <p>To create a more complex molecule, e.g. Pyridine, from the Ethene fragment that is currently described by <strong>mol</strong> the following lines will do the trick:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create missing atoms and set atom types</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
@@ -488,11 +507,57 @@ the end of a code cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_30_0.svg" src="../_images/cdpl_python_tutorial_30_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_32_0.svg" src="../_images/cdpl_python_tutorial_32_0.svg" />
+</section>
+<section id="copying-atoms-and-bonds">
+<h3><span class="section-number">4.3.4. </span>Copying Atoms and Bonds<a class="headerlink" href="#copying-atoms-and-bonds" title="Link to this heading"></a></h3>
+<p>In the most simplest way a deep copy of a chemical structure described by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance can be created by passing the instance to the constructur of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+
+<span class="n">mol_copy</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_34_0.svg" src="../_images/cdpl_python_tutorial_34_0.svg" />
+<p>Current atoms and bonds of an existing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> object can be replaced by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#aeb88efb7a7e545f1255dd3525335ec9d">assign()</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a3a66552396e11b9f1661aaf2cb735c0f">copy()</a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
+
+<span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">numAtoms</span><span class="p">)</span>
+
+<span class="n">mol_copy</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+<span class="c1"># or</span>
+<span class="c1"># mol_copy.copy(mol)</span>
+
+<span class="n">mol_copy</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_36_1.svg" src="../_images/cdpl_python_tutorial_36_1.svg" />
+<p>It is also possible to concatenate molecular structures either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a8adeff4dfaf59e1ae10d4ac70c8e1e95">append()</a> or by using the inplace addition operator (+=):</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+
+<span class="n">mol_copy</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_38_0.svg" src="../_images/cdpl_python_tutorial_38_0.svg" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">+=</span> <span class="n">mol_copy</span>
+
+<span class="n">mol_copy</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_39_0.svg" src="../_images/cdpl_python_tutorial_39_0.svg" />
 </section>
 <section id="accessing-atoms-and-bonds">
-<h3><span class="section-number">4.2.4. </span>Accessing Atoms and Bonds<a class="headerlink" href="#accessing-atoms-and-bonds" title="Link to this heading"></a></h3>
-<p>Atom and bonds of a molecular graph represented by, e. g., a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> instance can be accessed by calling the methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#ae4dc0c96b4675cdd0726a6a0a55c681f">getAtom()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#aad68f03787b42d08b22bfc820e5016a6">getBond()</a>, respectively. These methods expect the zero-based index of the atom/bond in the parent molecular graphs’s atom/bond list as argument. Valid atom/bond indices are in the range [0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>)/[0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a>). Specifying an index outside the allowed range will result in an exception.</p>
+<h3><span class="section-number">4.3.5. </span>Accessing Atoms and Bonds<a class="headerlink" href="#accessing-atoms-and-bonds" title="Link to this heading"></a></h3>
+<p>Atom and bonds of a molecular structure represented by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance can be accessed by
+calling the methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#ae4dc0c96b4675cdd0726a6a0a55c681f">getAtom()</a> (<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">Chem.AtomContainer</a> interface) and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#aad68f03787b42d08b22bfc820e5016a6">getBond()</a> (<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">Chem.BondContainer</a>
+interface), respectively. These methods expect the zero-based index of the atom/bond in the parent molecular
+graphs’s atom/bond list as argument. Valid atom/bond indices are in the range
+[0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>)/[0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a>). Specifying an index outside the allowed range will trigger an
+exception.</p>
 <p>Example: Counting atom types and bond orders</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">type_counts</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">order_counts</span> <span class="o">=</span> <span class="p">{}</span>
@@ -501,7 +566,7 @@ the end of a code cell.</p>
     <span class="n">atom</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">getAtom</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">atom_type</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">type_counts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">atom_type</span> <span class="ow">in</span> <span class="n">type_counts</span><span class="p">:</span>
         <span class="n">type_counts</span><span class="p">[</span><span class="n">atom_type</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">type_counts</span><span class="p">[</span><span class="n">atom_type</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -515,22 +580,24 @@ the end of a code cell.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">order_counts</span><span class="p">[</span><span class="n">bond_order</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Atom types: </span><span class="si">{</span><span class="n">sym_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Atom types: </span><span class="si">{</span><span class="n">type_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bond orders: </span><span class="si">{</span><span class="n">order_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Atom</span> <span class="n">types</span><span class="p">:</span> <span class="p">{</span><span class="mi">6</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="n">Bond</span> <span class="n">orders</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Atom</span> <span class="n">types</span><span class="p">:</span> <span class="p">{</span><span class="mi">6</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">Bond</span> <span class="n">orders</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Atoms and bonds can also be accessed in a sequential manner. The following code is an alternative version of the one above using sequential atom/bond access:</p>
+<p>Atoms and bonds can also be accessed in a sequential manner by iterating over the corresponding atom and bond
+lists which can be retieved by method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html#a19ccf5296f5354f6d9187cfa6d691277">getAtoms()</a> or property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">atoms</a> and method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html#a4a2419ae3fc47e3b71853c679df1eb06">getBonds()</a> or property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">bonds</a> of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> interface, respectively. The following code is an alternative version of
+the one above employing sequential atom/bond access:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">type_counts</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">order_counts</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
     <span class="n">atom_type</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">sym</span> <span class="ow">in</span> <span class="n">type_counts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">atom_type</span> <span class="ow">in</span> <span class="n">type_counts</span><span class="p">:</span>
         <span class="n">type_counts</span><span class="p">[</span><span class="n">atom_type</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">type_counts</span><span class="p">[</span><span class="n">atom_type</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -543,20 +610,39 @@ the end of a code cell.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">order_counts</span><span class="p">[</span><span class="n">bond_order</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Atom types: </span><span class="si">{</span><span class="n">sym_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Atom types: </span><span class="si">{</span><span class="n">type_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Bond orders: </span><span class="si">{</span><span class="n">order_counts</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Atom</span> <span class="n">types</span><span class="p">:</span> <span class="p">{</span><span class="mi">6</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="n">Bond</span> <span class="n">orders</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Atom</span> <span class="n">types</span><span class="p">:</span> <span class="p">{</span><span class="mi">6</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">Bond</span> <span class="n">orders</span><span class="p">:</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="removing-all-atoms-and-bonds">
+<h3><span class="section-number">4.3.6. </span>Removing all Atoms and Bonds<a class="headerlink" href="#removing-all-atoms-and-bonds" title="Link to this heading"></a></h3>
+<p>Atoms, bonds and properties can be completely removed by invoking the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a1e86b5a4d16e62b1e59fad00b4addf4c">clear()</a> on a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num. atoms before clear(): </span><span class="si">{</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">numAtoms</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num. bonds before clear(): </span><span class="si">{</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">numBonds</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mol_copy</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num. atoms after clear(): </span><span class="si">{</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">numAtoms</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num. bonds after clear(): </span><span class="si">{</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">numBonds</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Num</span><span class="o">.</span> <span class="n">atoms</span> <span class="n">before</span> <span class="n">clear</span><span class="p">():</span> <span class="mi">24</span>
+<span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">before</span> <span class="n">clear</span><span class="p">():</span> <span class="mi">24</span>
+<span class="n">Num</span><span class="o">.</span> <span class="n">atoms</span> <span class="n">after</span> <span class="n">clear</span><span class="p">():</span> <span class="mi">0</span>
+<span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">clear</span><span class="p">():</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="reading-molecule-data">
-<h2><span class="section-number">4.3. </span>Reading Molecule Data<a class="headerlink" href="#reading-molecule-data" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4. </span>Reading Molecule Data<a class="headerlink" href="#reading-molecule-data" title="Link to this heading"></a></h2>
 <section id="data-provided-as-strings">
-<h3><span class="section-number">4.3.1. </span>Data provided as Strings<a class="headerlink" href="#data-provided-as-strings" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1. </span>Data provided as Strings<a class="headerlink" href="#data-provided-as-strings" title="Link to this heading"></a></h3>
 <p class="rubric">SMILES and SMARTS</p>
 <p>For the direct parsing of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97463a5b3b08debaa2b2299a2644e912">Chem.parseSMILES()</a>. The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> object representing the chemical structure
 encoded by the given SMILES string. For example:</p>
@@ -565,14 +651,14 @@ encoded by the given SMILES string. For example:</p>
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_36_0.svg" src="../_images/cdpl_python_tutorial_36_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_47_0.svg" src="../_images/cdpl_python_tutorial_47_0.svg" />
 <p>A similar function called <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5248eaa483ae5dc078a8f276c91ed5dc">Chem.parseSMARTS()</a> can be used to parse and and prepare SMARTS patterns for substructure searching:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="s1">&#39;c1:c:[n,o,s]:c:c:1-[C:2](-,=[*])-,=O&#39;</span><span class="p">)</span>
 
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_38_0.svg" src="../_images/cdpl_python_tutorial_38_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_49_0.svg" src="../_images/cdpl_python_tutorial_49_0.svg" />
 <p class="rubric">Other formats</p>
 <p>The general procedure for reading molecules from string data in one of the supported input formats (including SMILES and SMARTS) is as follows:</p>
 <ol class="arabic simple">
@@ -636,10 +722,10 @@ encoded by the given SMILES string. For example:</p>
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_40_0.svg" src="../_images/cdpl_python_tutorial_40_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_51_0.svg" src="../_images/cdpl_python_tutorial_51_0.svg" />
 </section>
 <section id="reading-molecules-from-files">
-<h3><span class="section-number">4.3.2. </span>Reading Molecules from Files<a class="headerlink" href="#reading-molecules-from-files" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.2. </span>Reading Molecules from Files<a class="headerlink" href="#reading-molecules-from-files" title="Link to this heading"></a></h3>
 <p>Reading molecules from files also requires the creation of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance that performs the actual format-specific data decoding work. As with string data, several options exist:</p>
 <ol class="arabic simple">
 <li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behavior, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
@@ -668,7 +754,7 @@ encoded by the given SMILES string. For example:</p>
 </div>
 </section>
 <section id="sequential-molecule-reading">
-<h3><span class="section-number">4.3.3. </span>Sequential Molecule Reading<a class="headerlink" href="#sequential-molecule-reading" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.3. </span>Sequential Molecule Reading<a class="headerlink" href="#sequential-molecule-reading" title="Link to this heading"></a></h3>
 <p>Given a properly initialized <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance, molecules can be read in the order provided by the input data by repeatedly calling the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method. If there are no more molecules to read, the return value of the method will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smi_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;c1n(ccn1)c1ccc(cc1)c1ccc(n1c1c(cc(cc1)C(=O)N)C)CCC(=O)[O-] 022_3QJ5_A</span>
 <span class="s2">CNC(=O)[C@H](C(C)(C)C)NC(=O)[C@@H]([C@H](C)N([O-])C=O)CCCc1ccccc1 023_2WO9_B</span>
@@ -690,7 +776,7 @@ encoded by the given SMILES string. For example:</p>
 </div>
 </section>
 <section id="random-molecule-access">
-<h3><span class="section-number">4.3.4. </span>Random Molecule Access<a class="headerlink" href="#random-molecule-access" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.4. </span>Random Molecule Access<a class="headerlink" href="#random-molecule-access" title="Link to this heading"></a></h3>
 <p>There is a special version of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> which expects the index (zero-based) of the molecule to read as its first argument. This way molecules can be read in any order, no matter what their order is in the input data. The number of available molecules can be queried either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80">getNumRecords()</a> or by accessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">numRecords</a>.</p>
 <p>Example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ios</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">StringIOStream</span><span class="p">(</span><span class="n">smi_data</span><span class="p">)</span>
@@ -712,14 +798,14 @@ encoded by the given SMILES string. For example:</p>
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_47_0.svg" src="../_images/cdpl_python_tutorial_47_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_58_0.svg" src="../_images/cdpl_python_tutorial_58_0.svg" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the 1st molecule</span>
 <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
 
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_48_0.svg" src="../_images/cdpl_python_tutorial_48_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_59_0.svg" src="../_images/cdpl_python_tutorial_59_0.svg" />
 <p>If the index is out of the valid range then a corresponding exception will be thrown:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># there is no 4th molecule</span>
 <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
@@ -729,7 +815,7 @@ encoded by the given SMILES string. For example:</p>
 
 <span class="ne">IndexError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">55</span><span class="o">-</span><span class="mi">7</span><span class="n">fa4905834ac</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">63</span><span class="o">-</span><span class="mi">7</span><span class="n">fa4905834ac</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
       <span class="mi">1</span> <span class="c1"># there is no 4th molecule</span>
 <span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">mol</span><span class="p">)</span>
 
