@@ -256,9 +256,10 @@ Moreover, <em>Vis::Object3D</em> instances may be used to build a simple 3D scen
 <li><p>New atom type constant <em>Chem::AtomType::R</em> for the specification of atoms representing R-groups</p></li>
 <li><p>Signature of method <em>Base::DataOutputHandler::createWriter(std::iostream&amp;)</em> has been changed to
 <em>Base::DataOutputHandler&lt;T&gt;::createWriter(std::ostream&amp;)</em> in order to support write-only output streams</p></li>
-<li><p>New control-parameter default value <em>Chem::ControlParameterDefault::MDL_OUTPUT_AROMATIC_BOND_TYPES</em></p></li>
-<li><p>New control-parameter <em>Chem::ControlParameter::MDL_OUTPUT_AROMATIC_BOND_TYPES</em> plus associated functions allowing to specify
-what kind of bond type shall be output for aromatic bonds when writing molecular graph data in an MDL CTab based format</p></li>
+<li><p>New control-parameter default value <em>Chem::ControlParameterDefault::MDL_ENABLE_AROMATIC_BOND_TYPES</em></p></li>
+<li><p>New control-parameter <em>Chem::ControlParameter::MDL_ENABLE_AROMATIC_BOND_TYPES</em> plus associated functions allowing to specify
+what kind of bond type shall be output for aromatic bonds when writing molecular graph data in an MDL CTab based format.
+If the control-parameter is <em>true</em> the on data reading the aromaticity flag of bonds with ‘aromatic’ type will be set to <em>true</em> and <em>false</em>, otherwise</p></li>
 <li><p>Added methods to class <em>Chem::CommonConnectedSubstructureSearch</em> that allow to customize the way atom, bond and molecular graph
 match expression functions employed for substructure matching will be retrieved (default: use the expressions provided as properties)</p></li>
 <li><p>New function <em>Chem::align2DCoordinates()</em> that computes and carries out a transformation which aligns
