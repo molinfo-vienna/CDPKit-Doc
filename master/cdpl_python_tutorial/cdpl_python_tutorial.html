@@ -92,15 +92,16 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-molecule-data">4.5. Reading Molecule Data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#data-provided-as-strings">4.5.1. Data provided as Strings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reading-molecules-from-files">4.5.2. Reading Molecules from Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parsing-string-data">4.5.1. Parsing String Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reading-data-files">4.5.2. Reading Data Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">4.5.3. Sequential Molecule Reading</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">4.5.4. Random Molecule Access</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#writing-molecule-data">4.6. Writing Molecule Data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#direct-string-output">4.6.1. Direct String Output</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#file-output">4.6.2. File Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#essential-atom-properties">4.6. Essential Atom Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-molecule-data">4.7. Writing Molecule Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#direct-string-output">4.7.1. Direct String Output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-output">4.7.2. File Output</a></li>
 </ul>
 </li>
 </ul>
@@ -1356,10 +1357,10 @@ will have no effect:</p>
 </section>
 <section id="reading-molecule-data">
 <h2><span class="section-number">4.5. </span>Reading Molecule Data<a class="headerlink" href="#reading-molecule-data" title="Link to this heading"></a></h2>
-<section id="data-provided-as-strings">
-<h3><span class="section-number">4.5.1. </span>Data provided as Strings<a class="headerlink" href="#data-provided-as-strings" title="Link to this heading"></a></h3>
+<section id="parsing-string-data">
+<h3><span class="section-number">4.5.1. </span>Parsing String Data<a class="headerlink" href="#parsing-string-data" title="Link to this heading"></a></h3>
 <p class="rubric">SMILES and SMARTS</p>
-<p>For the direct parsing of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97463a5b3b08debaa2b2299a2644e912">Chem.parseSMILES()</a>. The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> object representing the chemical structure
+<p>For the parsing of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97463a5b3b08debaa2b2299a2644e912">Chem.parseSMILES()</a>. The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> object representing the chemical structure
 encoded by the given SMILES string. For example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;c1c(C(=O)O)ccc(CNN)c1&#39;</span><span class="p">)</span>
 
@@ -1439,8 +1440,8 @@ encoded by the given SMILES string. For example:</p>
 </div>
 <img alt="../_images/cdpl_python_tutorial_140_0.svg" src="../_images/cdpl_python_tutorial_140_0.svg" />
 </section>
-<section id="reading-molecules-from-files">
-<h3><span class="section-number">4.5.2. </span>Reading Molecules from Files<a class="headerlink" href="#reading-molecules-from-files" title="Link to this heading"></a></h3>
+<section id="reading-data-files">
+<h3><span class="section-number">4.5.2. </span>Reading Data Files<a class="headerlink" href="#reading-data-files" title="Link to this heading"></a></h3>
 <p>Reading molecules from files also requires the creation of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance that performs the actual format-specific data decoding work. As with string data, several options exist:</p>
 <ol class="arabic simple">
 <li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behavior, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
@@ -1543,10 +1544,127 @@ encoded by the given SMILES string. For example:</p>
 </div>
 </section>
 </section>
+<section id="essential-atom-properties">
+<h2><span class="section-number">4.6. </span>Essential Atom Properties<a class="headerlink" href="#essential-atom-properties" title="Link to this heading"></a></h2>
+<p>The following table lists a subset of the exported <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> properties which are considered essential for a
+proper description of atoms in a molecular structure. The corresponding property keys are made available as static
+public members of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Entity3DProperty.html">Chem.Entity3DProperty</a> (see section <a class="reference internal" href="#dynamic-properties">Dynamic Properties</a> for
+further infromation). Along  with each defined property key the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides four functions that
+allow for a more comfortable and type-safe property value handling.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 20.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>Property Key</p></th>
+<th class="head"><p>Property Functions</p></th>
+<th class="head"><p>C++/Python Value Type</p></th>
+<th class="head"><p>Default Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Numeric atom type/atomic number</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">TYPE</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b7bd15a77897e642d44ec56395db91f">Chem.setType()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2ab1b85967b8f213bced1ac9b9dcbd6b">Chem.getType()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aa11f75af056273ee405943b9b0242afe">Chem.hasType()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#abbe331861f6f29ddbeb0eea7a342fea9">Chem.clearType()</a></p></td>
+<td><p><em>unsigned int</em>/<em>int</em></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomType.html#a69fe4886bcac34ae4f279709c97370ea">Chem.AtomType.UNKNOWN</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Symbolic atom type/element symbol</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">SYMBOL</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ae467609c02f752b3455a080b62426dce">Chem.setSymbol()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aad592b8ec08a6d4804b07755ae99c5b4">Chem.getSymbol()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ac9f27c42aa7c5edf4f8585c03a06b707">Chem.hasSymbol()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a992a5a2f1ee26ec8d19a9b2b5e9c6225">Chem.clearSymbol()</a></p></td>
+<td><p><em>std::string</em>/<em>str</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Formal charge</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">FORMAL_CHARGE</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a47e6ee3db0608388012817480fe753f9">Chem.setFormalCharge()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#afa634d2c287d1516f0345fcdd9e979a9">Chem.getFormalCharge()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a82ce1dd385e95fa1ed769e30208ff066">Chem.hasFormalCharge()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a56b3f79baa71ebab789873a1ca4f4635">Chem.clearFormalCharge()</a></p></td>
+<td><p><em>long</em>/<em>int</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Isotope (neutron count)</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">ISOTOPE</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6a658c780e6f0cccf48ff2366cc6fd51">Chem.setIsotope()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a96cc114a0487cb2c2b1285275d428a3f">Chem.getIsotope()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a37bf75a872a76825a60a6a13f7285339">Chem.hasIsotope()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a7bde1102c99e94551ac6db93a78bfad0">Chem.clearIsotope()</a></p></td>
+<td><p><em>std::size_t</em>/<em>int</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code> (-&gt; nat. mixture)</p></td>
+</tr>
+<tr class="row-even"><td><p>Number of implicit hydrogens</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">IMPLICIT_HYDROGEN_COUNT</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ae7dd6d307727cf3b886712e360ce871a">Chem.setImplicitHydrogenCount()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a946cf1c558f4c117db1cf455f6257095">Chem.getImplicitHydrogenCount()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a16f4bb56d2f221475adf43a6115e4512">Chem.hasImplicitHydrogenCount()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ae9f0e4e2a80338931e02cf5c5cd55d23">Chem.clearImplicitHydrogenCount()</a></p></td>
+<td><p><em>std::size_t</em>/<em>int</em></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number of unpaired electrons</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">UNPAIRED_ELECTRON_COUNT</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#af73aba0d54fdb2e0c39655376d7c78df">Chem.setUnpairedElectronCount()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a7030e4204ccfc678d9adbdd32eb36b9d">Chem.getUnpairedElectronCount()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab440cf0d8825176e08c97867b21018c3">Chem.hasUnpairedElectronCount()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a3aeb5c8e37c4e4d8a5a54cfd3a08be08">Chem.clearUnpairedElectronCount()</a></p></td>
+<td><p><em>std::size_t</em>/<em>int</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Hybridization state descriptor</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">HYBRIDIZATION</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ac7eff0821c7792d9a9a5c34e34244900">Chem.setHybridizationState()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a380460f2c06306105a8f2c8763b62ab7">Chem.getHybridizationState()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a3a7d4d049946aa8ac2cb2fc86282803b">Chem.hasHybridizationState()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a50eed3c6b6e85f7def74057f0f2af6c5">Chem.clearHybridizationState()</a></p></td>
+<td><p><em>unsigned int</em>/<em>int</em></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stereo configuration descriptor</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">STEREO_DESCRIPTOR</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a94ecf7f236b8873dc532fc702d6cd8d7">Chem.setStereoDescriptor()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a3ab885adc327932cd3f9ce4bee93463e">Chem.getStereoDescriptor()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a8f341fe5f048bd369c4500cc1d33c76a">Chem.hasStereoDescriptor()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6024e2bfc9acff7940d17239e7f0eb64">Chem.clearStereoDescriptor()</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1StereoDescriptor.html">Chem.StereoDescriptor</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Chem.StereoDescriptor(Chem.AtomConfiguration.NONE)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Ring system membership predicate</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">RING_FLAG</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a10e2530cdef3c762e509ef20d3300f02">Chem.setRingFlag()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a38c3bdf64e44e6b9696c597216a8eb05">Chem.getRingFlag()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a486e8c17e53b693612002759a19f70ad">Chem.hasRingFlag()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a0e21b20b73bdd2aa46ef04a7c16183aa">Chem.clearRingFlag()</a></p></td>
+<td><p><em>bool</em></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aromatic ring system membership predicate</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">AROMATICITY_FLAG</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a92138d75f1fe2915409a42f0da608330">Chem.setAromaticityFlag()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad1975a5b154e159811c97c6c8375bcd0">Chem.getAromaticityFlag()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#af5a737bbb0e86fc2d747a33d0523e6a6">Chem.hasAromaticityFlag()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5d3ab79d30b082c3b22563fdd80851d1">Chem.clearAromaticityFlag()</a></p></td>
+<td><p><em>bool</em></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>2D Coordinates (position in skeletal formula)</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">COORDINATES_2D</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab6b9262e881dc745ff1829eb5025979e">Chem.set2DCoordinates()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad2454234fe3de841dc586bb99a666392">Chem.get2DCoordinates()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a9d484c07a600531a72a24555dc015a39">Chem.has2DCoordinates()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5b9f2bd0833083236ee428f636d50d9a">Chem.clear2DCoordinates()</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Math_1_1Vector2D.html">CDPL.Math.Vector2D</a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>3D Coordinates</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Entity3DProperty.html">COORDINATES_3D</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6679f376362d76a2e3b15ab1bf4e1baf">Chem.set3DCoordinates()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a0c7fd49b633d548b3f3150b1996b4072">Chem.get3DCoordinates()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a4254dac14bbfb14104e8876b6155cd54">Chem.has3DCoordinates()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ae5ed69e4b63ef330a03c834bdb187aad">Chem.clear3DCoordinates()</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Math_1_1Vector3D.html">CDPL.Math.Vector3D</a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Conformer 3D coordinates</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">COORDINATES_3D_ARRAY</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#af97a16e29e54afda07d6b82933985771">Chem.set3DCoordinatesArray()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5395b5ee402e0da698d818c0016afa1a">Chem.get3DCoordinatesArray()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2f655d01263a553bff6e4de859f61bea">Chem.has3DCoordinatesArray()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ae6608943ee8e3304a384acb4dac7ec73">Chem.clear3DCoordinatesArray()</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Math_1_1Vector3DArray.html">CDPL.Math.Vector3DArray</a></p></td>
+<td><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="writing-molecule-data">
-<h2><span class="section-number">4.6. </span>Writing Molecule Data<a class="headerlink" href="#writing-molecule-data" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.7. </span>Writing Molecule Data<a class="headerlink" href="#writing-molecule-data" title="Link to this heading"></a></h2>
 <section id="direct-string-output">
-<h3><span class="section-number">4.6.1. </span>Direct String Output<a class="headerlink" href="#direct-string-output" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.1. </span>Direct String Output<a class="headerlink" href="#direct-string-output" title="Link to this heading"></a></h3>
 <p class="rubric">SMILES</p>
 <p>For a direct generation of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b2f4f87930cf893cc80c2930b268014">Chem.generateSMILES()</a>.
 The function expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance representing the chemical structure as first argument. Further optional arguments allow to customize the SMILES output in several aspects.</p>
@@ -1665,7 +1783,7 @@ $$$$
 </div>
 </section>
 <section id="file-output">
-<h3><span class="section-number">4.6.2. </span>File Output<a class="headerlink" href="#file-output" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.7.2. </span>File Output<a class="headerlink" href="#file-output" title="Link to this heading"></a></h3>
 <p>Writing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance data to file storage also requires the creation of a
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">Chem.MolecularGraphWriterBase</a> subclass instance that performs the actual format-specific data encoding work.
 As with string data output, several options exist:</p>
