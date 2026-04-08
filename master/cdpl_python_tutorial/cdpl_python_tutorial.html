@@ -91,16 +91,24 @@
 <li class="toctree-l4"><a class="reference internal" href="#id5">4.4.6. Removing multiple Atoms and Bonds</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-molecule-data">4.5. Reading Molecule Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#inpout-of-molecule-data">4.5. Inpout of Molecule Data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#parsing-string-data">4.5.1. Parsing String Data</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reading-data-files">4.5.2. Reading Data Files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-reading">4.5.3. Sequential Molecule Reading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequential-molecule-access">4.5.3. Sequential Molecule Access</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#random-molecule-access">4.5.4. Random Molecule Access</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#essential-properties">4.6. Essential Properties</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#preparation-for-downstream-processing">4.7. Preparation for Downstream Processing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#writing-molecule-data">4.8. Writing Molecule Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparation-for-downstream-processing">4.7. Preparation for Downstream Processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#implicit-hydrogen-count-calculation">4.7.1. Implicit Hydrogen Count Calculation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atomic-orbital-hybridization-perception">4.7.2. Atomic Orbital Hybridization Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atom-and-bond-ring-membership-perception">4.7.3. Atom and Bond Ring Membership Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sssr-perception">4.7.4. SSSR Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atom-and-bond-aromaticity-perception">4.7.5. Atom and Bond Aromaticity Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#molecular-graph-component-perception">4.7.6. Molecular Graph Component Perception</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#output-of-molecule-data">4.8. Output of Molecule Data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#direct-string-output">4.8.1. Direct String Output</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#file-output">4.8.2. File Output</a></li>
 </ul>
@@ -144,7 +152,9 @@
              
   <section id="installing-the-cdpl-python-bindings">
 <h1><span class="section-number">1. </span>Installing the CDPL Python Bindings<a class="headerlink" href="#installing-the-cdpl-python-bindings" title="Link to this heading"></a></h1>
-<p>To be able to follow this tutorial the <em>CDPL Python</em> bindings have to be installed on your computer. The most straightforward way to accomplish this task is to install the latest official release deposited on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a> using the <strong class="program">pip</strong> command as follows:</p>
+<p>To be able to follow this tutorial the <em>CDPL Python</em> bindings have to be installed on your computer.
+The most straightforward way to accomplish this task is to install the latest official release deposited
+on <a class="reference external" href="https://pypi.org/project/CDPKit">PyPI</a> using the <strong class="program">pip</strong> command as follows:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cdpkit</span>
 </pre></div>
 </div>
@@ -152,7 +162,8 @@
 </section>
 <section id="cdpl-package-overview">
 <h1><span class="section-number">2. </span>CDPL Package Overview<a class="headerlink" href="#cdpl-package-overview" title="Link to this heading"></a></h1>
-<p>The <em>CDPL</em> comprises several sub-packages each providing functionality related to a certain aspect of chem- and pharmacoinformatics. The following table lists all available sub-packages
+<p>The <em>CDPL</em> comprises several sub-packages each providing functionality related to a certain aspect of chem- and
+pharmacoinformatics. The following table lists all available sub-packages
 together with a brief description of the kind of functionality they provide:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -218,8 +229,10 @@ descriptors <span id="id2">[<a class="reference internal" href="../bibliography.
 <h1><span class="section-number">3. </span>Basic Concepts<a class="headerlink" href="#basic-concepts" title="Link to this heading"></a></h1>
 <section id="dynamic-properties">
 <h2><span class="section-number">3.1. </span>Dynamic Properties<a class="headerlink" href="#dynamic-properties" title="Link to this heading"></a></h2>
-<p>The <em>CDPL</em> stores properties associated with certain types of data like molecules, atoms, bonds, pharmacophores, etc. not as ordinary data members of the implementing classes
-but as <em>key:value</em> pairs in a dictionary (similar to the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__dict__">__dict__</a> attribute of Python objects). This design decision was made due to several advantages of this approach:</p>
+<p>The <em>CDPL</em> stores properties associated with certain types of data like molecules, atoms, bonds,
+pharmacophores, etc. not as ordinary data members of the implementing classes
+but as <em>key:value</em> pairs in a dictionary (similar to the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__dict__">__dict__</a> attribute of Python objects).
+This design decision was made due to several advantages of this approach:</p>
 <ul class="simple">
 <li><p>Flexibility and extensibility: new properties can be defined at runtime by user code</p></li>
 <li><p>Class instance specific property values can be stored directly in the dictionary of the instance they are
@@ -232,24 +245,33 @@ point on have a value. This is particularly problematic for properties that cann
 default value.</p></li>
 </ul>
 <p>All <em>CDPL</em> classes supporting this kind of dynamic property storage are derived from class
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> which provides methods for property value lookup, storage, removal, iteration, existence testing and counting. Properties are identified by unique keys of type <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1LookupKey.html">CDPL.Base.LookupKey</a>
-that are created on-the-fly during the <em>CDPL</em> initialization phase. Keys of pre-defined <em>CDPL</em> properties are exported as static attributes of classes that follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;CN&gt;Property</em>.
-<em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package name (see table above) and <em>&lt;CN&gt;</em> is the name of a child class of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> for which these properties have been defined (example: atom property keys
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> which provides methods for property value lookup, storage, removal,
+iteration, existence testing and counting. Properties are identified by unique keys of type <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1LookupKey.html">CDPL.Base.LookupKey</a>
+that are created on-the-fly during the <em>CDPL</em> initialization phase. Keys of pre-defined <em>CDPL</em> properties are
+exported as static attributes of classes that follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;CN&gt;Property</em>.
+<em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package name (see table above) and <em>&lt;CN&gt;</em> is the name of a child class of
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> for which these properties have been defined (example: atom property keys
 accessible via class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">CDPL.Chem.AtomProperty</a>). Property values virtually can be of any type and get stored in
 the dictionary as instances of the data wrapper class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1Any.html">CDPL.Base.Any</a>.</p>
-<p>Since <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> methods acting upon a particular property always demand the key of the property as argument and setter/getter methods in addition require knowledge of the value type, corresponding code
-is not only tedious to write but also hard to read and error prone. Therefore, each <em>CDPL</em> sub-package that introduces properties also provides four free functions (at package level) per property that encapsulate the
-low-level <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> method calls. These functions internally not only specify the correct property key and value type but also constrain the type of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a>
-subclass the property has been introduced for. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">CDPL.Chem.setOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad021960310274a588d47cb4f2d25098c">CDPL.Chem.hasOrder()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aedc63dddcd7838a82e1327dec7ca5504">CDPL.Chem.clearOrder()</a> represent an example of such four functions that are provided
+<p>Since <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> methods acting upon a particular property always demand the key of the property as
+argument and setter/getter methods in addition require knowledge of the value type, corresponding code
+is not only tedious to write but also hard to read and error prone. Therefore, each <em>CDPL</em> sub-package that introduces
+properties also provides four free functions (at package level) per property that encapsulate the
+low-level <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> method calls. These functions internally not only specify the correct property
+key and value type but also constrain the type of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a>
+subclass the property has been introduced for. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">CDPL.Chem.setOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad021960310274a588d47cb4f2d25098c">CDPL.Chem.hasOrder()</a>
+and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aedc63dddcd7838a82e1327dec7ca5504">CDPL.Chem.clearOrder()</a> represent an example of such four functions that are provided
 for the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">CDPL.Chem.BondProperty.ORDER</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances using integer as value type.
 Using property getter functions (like <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>) has the additional benefit that they will, if one
-has been defined, automatically return a default value for unset properties. Defined property default values are exported and accessible as static attributes of classes that follow the naming scheme
+has been defined, automatically return a default value for unset properties. Defined property default values are
+exported and accessible as static attributes of classes that follow the naming scheme
 <em>CDPL.&lt;PN&gt;.&lt;CN&gt;PropertyDefault</em> (example: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondPropertyDefault.html">CDPL.Chem.BondPropertyDefault</a>; for the meaning of <em>&lt;PN&gt;</em> and <em>&lt;CN&gt;</em>
 see text above).</p>
 </section>
 <section id="control-parameters">
 <h2><span class="section-number">3.2. </span>Control-Parameters<a class="headerlink" href="#control-parameters" title="Link to this heading"></a></h2>
-<p>Control-parameters are used for the runtime configuration of arbitrary functionality in a generic, flexible and functionality independent way (in the <em>CDPL</em> mainly used by the data I/O and visualization code).
+<p>Control-parameters are used for the runtime configuration of arbitrary functionality in a generic, flexible and functionality
+independent way (in the <em>CDPL</em> mainly used by the data I/O and visualization code).
 The implementation and usage of the control-parameter infrastructure largely parallels the one for dynamic properties:</p>
 <ul class="simple">
 <li><p>Control-parameters are identified via unique instances of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1LookupKey.html">CDPL.Base.LookupKey</a></p></li>
@@ -270,24 +292,32 @@ or function objects that get called on events such as parameter value change (me
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a18609f39cfa56248ac4191a1a24740cc">registerParameterChangedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#ac4130ab4db30b557cc3cbe536c747cea">unregisterParameterChangedCallback()</a>), parameter value removal
 (methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a59d55eed967a82380c8b2ed2cd40405b">registerParameterRemovedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a6e8209de7f5cfb7a7b3f94cf109b0156">unregisterParameterRemovedCallback()</a>) and parent change
 (methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#acf09cf417dfc41787e89825762bb2e32">registerParentChangedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#aca5b0565223043518608dd7a84cb5e0f">unregisterParentChangedCallback()</a>).</p>
-<p>A notable difference between dynamic properties and control-parameters is that the latter always possess a default value which gets returned by the associated getter function if a parameter value has not been explicitly set.
+<p>A notable difference between dynamic properties and control-parameters is that the latter always possess a default value which
+gets returned by the associated getter function if a parameter value has not been explicitly set.
 Control-parameter default values are exported and accessible as static attributes of classes that follow the
 naming scheme <em>CDPL.&lt;PN&gt;.ControlParameterDefault</em> (<em>&lt;PN&gt;</em> = <em>CDPL</em> sub-package name; example:
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1ControlParameterDefault.html">CDPL.Chem.ControlParameterDefault</a>).</p>
 </section>
 <section id="data-i-o-framework">
 <h2><span class="section-number">3.3. </span>Data I/O Framework<a class="headerlink" href="#data-i-o-framework" title="Link to this heading"></a></h2>
-<p>Classes implementing the input/output of data of a certain type in a particular format (e.g. molecular structures in SD-file format) are derived from abstract base classes that follow the naming scheme
+<p>Classes implementing the input/output of data of a certain type in a particular format (e.g. molecular structures in SD-file format)
+are derived from abstract base classes that follow the naming scheme
 <em>CDPL.&lt;PN&gt;.&lt;DT&gt;ReaderBase</em> and  <em>CDPL.&lt;PN&gt;.&lt;DT&gt;WriterBase</em>, respectively. <em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package
 name and <em>&lt;DT&gt;</em> is the name of the data type to read or write (e.g. classes <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">CDPL.Chem.MoleculeReaderBase</a> and
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">CDPL.Chem.MolecularGraphWriterBase</a>).
-These base classes are all derived from the abstract class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataIOBase.html">CDPL.Base.DataIOBase</a> which itself is derived from <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html">CDPL.Base.ControlParameterContainer</a>. Instances of concrete classes implementing the I/O of data in a particular  format thus support the configuration of their runtime behavior by control-parameters (see
+These base classes are all derived from the abstract class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataIOBase.html">CDPL.Base.DataIOBase</a> which itself is derived from
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html">CDPL.Base.ControlParameterContainer</a>. Instances of concrete classes implementing the I/O of data in a particular
+format thus support the configuration of their runtime behavior by control-parameters (see
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1ControlParameter.html">CDPL.Chem.ControlParameter</a> for examples). The names of the format-specific classes all follow the scheme
-<em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;Writer</em>, respectively where <em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package name, <em>&lt;FID&gt;</em> is a format identifier (usually a characteristic file extension) and <em>&lt;DT&gt;</em> is the name of
+<em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;Writer</em>, respectively where <em>&lt;PN&gt;</em> denotes the <em>CDPL</em> sub-package
+name, <em>&lt;FID&gt;</em> is a format identifier (usually a characteristic file extension) and <em>&lt;DT&gt;</em> is the name of
 the data type to read or write (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMoleculeReader.html">CDPL.Chem.SDFMoleculeReader</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMolecularGraphWriter.html">CDPL.Chem.SDFMolecularGraphWriter</a>).</p>
-<p>Data reader classes all expect an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a> and data writer classes an instance of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> as argument to their constructor.
-These stream-based I/O classes represent abstract storage devices which allow the same code to handle I/O to files, in-memory strings, or custom adaptor devices that perform arbitrary operations (e.g. compression) on the fly.
-Concrete types of storage devices are implemented by dedicated subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a>  such as class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">CDPL.Base.FileIOStream</a> for file I/O and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">CDPL.Base.StringIOStream</a> for in-memory string data I/O, respectively.</p>
+<p>Data reader classes all expect an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a> and data writer classes an instance of
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> as argument to their constructor.
+These stream-based I/O classes represent abstract storage devices which allow the same code to handle I/O to files,
+in-memory strings, or custom adaptor devices that perform arbitrary operations (e.g. compression) on the fly.
+Concrete types of storage devices are implemented by dedicated subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a>
+such as class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">CDPL.Base.FileIOStream</a> for file I/O and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">CDPL.Base.StringIOStream</a> for in-memory string data I/O, respectively.</p>
 <p>Since files represent the most dealt-with kind of data storage, file I/O-specific variants of reader/writer classes
 are provided that make reading/writing data from/to files more convenient. These classes follow the naming scheme
 <em>CDPL.&lt;PN&gt;.File&lt;FID&gt;&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.File&lt;FID&gt;&lt;DT&gt;Writer</em> (for the meaning of <em>&lt;PN&gt;</em>, <em>&lt;FID&gt;</em> and
@@ -298,24 +328,39 @@ to a file as constructor argument and thus circumvent the need to explicitly cre
 stores and gives access to relevant format-specific information such as common file-extensions or mime-type.
 Pre-defined data format descriptors are exported as static attributes of classes following the naming scheme
 <em>CDPL.&lt;PN&gt;.DataFormat</em> where <em>&lt;PN&gt;</em> is the name of the <em>CDPL</em> sub-package implementing the format (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">CDPL.Chem.DataFormat</a>).</p>
-<p>The link between a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance describing a particular data format and associated classes implementing the reading/writing of data in this format gets established by dedicated input- and output-handler classes. These classes provide factory methods to create a reader/writer class instance for a given file path or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance and follow the naming scheme
+<p>The link between a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance describing a particular data format and associated classes implementing the
+reading/writing of data in this format gets established by dedicated input- and output-handler classes. These classes provide
+factory methods to create a reader/writer class instance for a given file path or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance and follow the naming scheme
 <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;InputHandler</em> and <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;OutputHandler</em>, respectively (for the meaning of <em>&lt;PN&gt;</em>,
 <em>&lt;FID&gt;</em> and <em>&lt;DT&gt;</em> see text above; examples: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMoleculeInputHandler.html">CDPL.Chem.SDFMoleculeInputHandler</a>,
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SMILESMolecularGraphOutputHandler.html">CDPL.Chem.SMILESMolecularGraphOutputHandler</a>). For each data format supported by the <em>CDPL</em> an input- and/or output-handler class instance is registered at a data type-specific singleton class named
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SMILESMolecularGraphOutputHandler.html">CDPL.Chem.SMILESMolecularGraphOutputHandler</a>). For each data format supported by the <em>CDPL</em> an input- and/or
+output-handler class instance is registered at a data type-specific singleton class named
 <em>CDPL.&lt;PN&gt;.&lt;DT&gt;IOManager</em> (for the meaning of <em>&lt;PN&gt;</em> and <em>&lt;DT&gt;</em> see text above; example:
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeIOManager.html">CDPL.Chem.MoleculeIOManager</a>). Amongst others, the I/O manager classes provide methods to lookup a registered handler instance for a given file extension, mime-type or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> object. This way it is possible to, e.g., write code that creates a reader class instance for the input of data from a file where the actual data format is determined lateron at runtime.
-In order to facilitate the writing of data format-independent code the <em>CDPL</em> provides special reader and writer classes that perform the runtime lookup of a suitable input/output handler and reader/writer class
-instantiation automatically. The classes follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Writer</em>, respectively (examples: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">CDPL.Chem.MoleculeReader</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">CDPL.Chem.MolecularGraphWriter</a>). The constructors of the classes expect the data source/sink to be provided as a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance or specified as path to a file. If a file path is specified it is attempted to deduce the data format from the file name’s extension. Optionally, a
-characteristic file extension string or a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance can be provided in case the file extension is missing or unknown to the <em>CDPL</em>. If the data source/sink is provided as a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance then the explicit specification of the data format is mandatory.</p>
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeIOManager.html">CDPL.Chem.MoleculeIOManager</a>). Amongst others, the I/O manager classes provide methods to lookup a
+registered handler instance for a given file extension, mime-type or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> object. This way it is
+possible to, e.g., write code that creates a reader class instance for the input of data from a file where the a
+ctual data format is determined lateron at runtime.
+In order to facilitate the writing of data format-independent code the <em>CDPL</em> provides special reader and writer
+classes that perform the runtime lookup of a suitable input/output handler and reader/writer class
+instantiation automatically. The classes follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Writer</em>,
+respectively (examples: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">CDPL.Chem.MoleculeReader</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">CDPL.Chem.MolecularGraphWriter</a>). The constructors of the
+classes expect the data source/sink to be provided as a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance or specified
+as path to a file. If a file path is specified it is attempted to deduce the data format from the file name’s
+extension. Optionally, a characteristic file extension string or a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance can be provided in
+case the file extension is missing or unknown to the <em>CDPL</em>. If the data source/sink is provided as a
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance then the explicit specification of the data format is mandatory.</p>
 </section>
 </section>
 <section id="working-with-molecules">
 <h1><span class="section-number">4. </span>Working with Molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
 <section id="in-memory-representation-of-molecular-structures">
 <h2><span class="section-number">4.1. </span>In-memory Representation of Molecular Structures<a class="headerlink" href="#in-memory-representation-of-molecular-structures" title="Link to this heading"></a></h2>
-<p>The <em>CDPL</em> models molecular structures as undirected graphs where atoms represent the graph nodes and bonds the edges. Concrete data structures for the in-memory representation of atoms,
-bonds and molecular graphs implement a hierarchy of interfaces (abstract classes) that specify all necessary methods for common operations like atom/bond addition, removal, access, membership testing, counting, and so on.</p>
-<p>The following table provides an overview of the most relevant interfaces and data structures provided by the <em>CDPL</em> for molecular data representation and processing:</p>
+<p>The <em>CDPL</em> models molecular structures as undirected graphs where atoms represent the graph nodes and bonds the edges.
+Concrete data structures for the in-memory representation of atoms,
+bonds and molecular graphs implement a hierarchy of interfaces (abstract classes) that specify all necessary methods
+for common operations like atom/bond addition, removal, access, membership testing, counting, and so on.</p>
+<p>The following table provides an overview of the most relevant interfaces and data structures provided by the
+<em>CDPL</em> for molecular data representation and processing:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 17.2%" />
@@ -413,7 +458,8 @@ class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python
 atoms and bonds except that the methods of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> expect existing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> or
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances as argument. These do not get stored as copies but as light-weight references to the
 original instances which can be retrieved lateron by methods for atom/bond access.
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> as well as <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> are subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> and instances of both can be processed in the same way by any code that operates on <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> objects.</p>
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> as well as <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> are subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> and
+instances of both can be processed in the same way by any code that operates on <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> objects.</p>
 </section>
 <section id="basic-operations-on-molecule-objects">
 <h2><span class="section-number">4.3. </span>Basic Operations on <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> Objects<a class="headerlink" href="#basic-operations-on-molecule-objects" title="Link to this heading"></a></h2>
@@ -432,14 +478,16 @@ the end of a code cell.</p>
 </div>
 <section id="creation">
 <h3><span class="section-number">4.3.1. </span>Creation<a class="headerlink" href="#creation" title="Link to this heading"></a></h3>
-<p>A <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> object not yet having any atoms and bonds can be created by instantiating the class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> (the provided default implementation of the`Chem.Molecule`_ interface):</p>
+<p>A <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> object not yet having any atoms and bonds can be created by instantiating the class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>
+(the provided default implementation of the`Chem.Molecule`_ interface):</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
 <section id="querying-atom-and-bond-counts">
 <h3><span class="section-number">4.3.2. </span>Querying Atom and Bond Counts<a class="headerlink" href="#querying-atom-and-bond-counts" title="Link to this heading"></a></h3>
-<p>The number of (explicit) atoms can be queried either by acessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">numAtoms</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a> which are both provided by the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">Chem.AtomContainer</a> interface:</p>
+<p>The number of (explicit) atoms can be queried either by acessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">numAtoms</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>
+which are both provided by the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html">Chem.AtomContainer</a> interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numAtoms</span>
 <span class="c1"># or</span>
 <span class="c1">#mol.getNumAtoms()</span>
@@ -448,7 +496,8 @@ the end of a code cell.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>In the same manner, the number of explicit bonds can be retrieved by the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">numBonds</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a> of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">Chem.BondContainer</a> interface:</p>
+<p>In the same manner, the number of explicit bonds can be retrieved by the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">numBonds</a> or by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a>
+of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">Chem.BondContainer</a> interface:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">numBonds</span>
 <span class="c1"># or</span>
 <span class="c1">#mol.getNumBonds()</span>
@@ -465,25 +514,31 @@ the end of a code cell.</p>
 </pre></div>
 </div>
 <p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> object which is owned by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance
-<strong>mol</strong>. The created atom does not yet possess any chemical properties like element, formal charge, and so on. The value of these properties needs to be set explicitly by invoking dedicated property functions which take the atom and desired value of the property as arguments. For example</p>
+<strong>mol</strong>. The created atom does not yet possess any chemical properties like element, formal charge, and so on.
+The value of these properties needs to be set explicitly by invoking dedicated property functions which take
+the atom and desired value of the property as arguments. For example</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b7bd15a77897e642d44ec56395db91f">Chem.setType()</a> function will set the type property of the atom to the atomic number of carbon. The value of the type property can be retrieved by the associated function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2ab1b85967b8f213bced1ac9b9dcbd6b">Chem.getType()</a></p>
+<p>The <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b7bd15a77897e642d44ec56395db91f">Chem.setType()</a> function will set the type property of the atom to the atomic number of carbon.
+The value of the type property can be retrieved by the associated function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2ab1b85967b8f213bced1ac9b9dcbd6b">Chem.getType()</a></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getType</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
 </pre></div>
 </div>
-<p>In a similar fashion, bonds are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#acd42f15d874185b4eea2cf497a509ea6">addBond()</a> which expects the indices (zero-based) of the two atoms to connect as arguments:</p>
+<p>In a similar fashion, bonds are created by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#acd42f15d874185b4eea2cf497a509ea6">addBond()</a> which expects the indices (zero-based)
+of the two atoms to connect as arguments:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add second carbon atom</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> object which is also owned and managed by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance <em>mol</em>. As with atoms, the created bond does not yet have any properties. To set the bond order to a value of 2 (= double bond) the property function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">Chem.setOrder()</a> needs to be called:</p>
+<p>The method returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> object which is also owned and managed by the creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a>
+instance <em>mol</em>. As with atoms, the created bond does not yet have any properties. To set the bond order
+to a value of <code class="docutils literal notranslate"><span class="pre">2</span></code> (= double bond) the property function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">Chem.setOrder()</a> needs to be called:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setOrder</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -498,7 +553,8 @@ the end of a code cell.</p>
 </pre></div>
 </div>
 <img alt="../_images/cdpl_python_tutorial_27_0.svg" src="../_images/cdpl_python_tutorial_27_0.svg" />
-<p>To create a more complex molecule, e.g. Pyridine, from the Ethene fragment that is currently described by <strong>mol</strong> the following lines will do the trick:</p>
+<p>To create a more complex molecule, e.g. Pyridine, from the Ethene fragment that is currently described
+by <strong>mol</strong> the following lines will do the trick:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create missing atoms and set atom types</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
@@ -532,7 +588,8 @@ the end of a code cell.</p>
 </section>
 <section id="copying-atoms-and-bonds">
 <h3><span class="section-number">4.3.4. </span>Copying Atoms and Bonds<a class="headerlink" href="#copying-atoms-and-bonds" title="Link to this heading"></a></h3>
-<p>A deep copy of a chemical structure described by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance can be created in several ways. The first option is to pass the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as argument to the constructur of class
+<p>A deep copy of a chemical structure described by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance can be created in several ways.
+The first option is to pass the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as argument to the constructur of class
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
@@ -540,7 +597,8 @@ the end of a code cell.</p>
 </pre></div>
 </div>
 <img alt="../_images/cdpl_python_tutorial_34_0.svg" src="../_images/cdpl_python_tutorial_34_0.svg" />
-<p>The second possibility is to replace the current atoms and bonds of an existing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> object by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#aeb88efb7a7e545f1255dd3525335ec9d">assign()</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a3a66552396e11b9f1661aaf2cb735c0f">copy()</a>:</p>
+<p>The second possibility is to replace the current atoms and bonds of an existing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> object by
+calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#aeb88efb7a7e545f1255dd3525335ec9d">assign()</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a3a66552396e11b9f1661aaf2cb735c0f">copy()</a>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
 
 <span class="n">Chem</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">addAtom</span><span class="p">(),</span> <span class="n">Chem</span><span class="o">.</span><span class="n">AtomType</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
@@ -567,19 +625,20 @@ the end of a code cell.</p>
 </pre></div>
 </div>
 <img alt="../_images/cdpl_python_tutorial_38_0.svg" src="../_images/cdpl_python_tutorial_38_0.svg" />
-<p>It is also possible to concatenate molecular structures either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a8adeff4dfaf59e1ae10d4ac70c8e1e95">append()</a> or by using the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a83ddd4db763aede8ec3e2759609ff862">inplace addition operator</a> <code class="docutils literal notranslate"><span class="pre">+=</span></code>:</p>
+<p>It is also possible to concatenate molecular structures either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a8adeff4dfaf59e1ae10d4ac70c8e1e95">append()</a> or by using
+the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a83ddd4db763aede8ec3e2759609ff862">inplace addition operator</a> <code class="docutils literal notranslate"><span class="pre">+=</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
 <span class="n">mol_copy</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_41_0.svg" src="../_images/cdpl_python_tutorial_41_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_40_0.svg" src="../_images/cdpl_python_tutorial_40_0.svg" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">+=</span> <span class="n">mol_copy</span>
 
 <span class="n">mol_copy</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_42_0.svg" src="../_images/cdpl_python_tutorial_42_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_41_0.svg" src="../_images/cdpl_python_tutorial_41_0.svg" />
 </section>
 <section id="accessing-atoms-and-bonds">
 <h3><span class="section-number">4.3.5. </span>Accessing Atoms and Bonds<a class="headerlink" href="#accessing-atoms-and-bonds" title="Link to this heading"></a></h3>
@@ -672,7 +731,8 @@ The following code is an alternative version of the one above that employs seque
 </section>
 <section id="removing-single-atoms-and-bonds">
 <h3><span class="section-number">4.3.7. </span>Removing single Atoms and Bonds<a class="headerlink" href="#removing-single-atoms-and-bonds" title="Link to this heading"></a></h3>
-<p>Single atoms and bonds can be removed by calling the methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ac08a7c0881d235387268a219c97bf651">removeAtom()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a633c5d5776b547c5b0103dfc6fab9421">removeBond()</a>, respectively. The methods expect the zero-based index of the atom/bond in the molecule’s atom/bond list as
+<p>Single atoms and bonds can be removed by calling the methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#ac08a7c0881d235387268a219c97bf651">removeAtom()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a633c5d5776b547c5b0103dfc6fab9421">removeBond()</a>, respectively.
+The methods expect the zero-based index of the atom/bond in the molecule’s atom/bond list as
 argument. Valid atom/bond indices are in the range [0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>)/[0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a>). Specifying an
 index outside the allowed range will raise an exception.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
@@ -695,8 +755,9 @@ index outside the allowed range will raise an exception.</p>
 <span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">removeAtom</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_50_1.svg" src="../_images/cdpl_python_tutorial_50_1.svg" />
-<p>As can be seen, the removal of an atom automatically triggers the removal of all incident bonds. This is necesessary to maintain molecular graph integrity. Removal of a bond, on the other hand, will only affect
+<img alt="../_images/cdpl_python_tutorial_49_1.svg" src="../_images/cdpl_python_tutorial_49_1.svg" />
+<p>As can be seen, the removal of an atom automatically triggers the removal of all incident bonds.
+This is necesessary to maintain molecular graph integrity. Removal of a bond, on the other hand, will only affect
 the bond count:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
@@ -718,7 +779,7 @@ the bond count:</p>
 <span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">removeBond</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="mi">5</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_52_1.svg" src="../_images/cdpl_python_tutorial_52_1.svg" />
+<img alt="../_images/cdpl_python_tutorial_51_1.svg" src="../_images/cdpl_python_tutorial_51_1.svg" />
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances that are removed from their parent <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance
@@ -730,7 +791,9 @@ referencing them) results in undefined behavior!</p>
 <h3><span class="section-number">4.3.8. </span>Removing multiple Atoms and Bonds<a class="headerlink" href="#removing-multiple-atoms-and-bonds" title="Link to this heading"></a></h3>
 <p>Multiple atoms and bonds can be removed at once via the help of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance that specifies the
 atoms and bonds to remove. After adding atoms and bonds to the Chem.Fragment`_ instance their removal is initiated
-either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a260a01ae4366901b071043f8617be64a">remove()</a> with the fragment object as argument or by <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#abe20257ca62b55aa345276de4393887a">inplace subtraction</a> (<code class="docutils literal notranslate"><span class="pre">-=</span></code>) of the fragment object:</p>
+either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#a260a01ae4366901b071043f8617be64a">remove()</a> with the fragment object as argument or by
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html#abe20257ca62b55aa345276de4393887a">inplace subtraction</a>
+(<code class="docutils literal notranslate"><span class="pre">-=</span></code>) of the fragment object:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol_copy</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 <span class="n">frag</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Fragment</span><span class="p">()</span>
 
@@ -761,7 +824,7 @@ either by calling the method <a class="reference external" href="https://cdpkit.
 <span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">remove</span><span class="p">(</span><span class="n">frag</span><span class="p">):</span> <span class="mi">2</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_55_1.svg" src="../_images/cdpl_python_tutorial_55_1.svg" />
+<img alt="../_images/cdpl_python_tutorial_54_1.svg" src="../_images/cdpl_python_tutorial_54_1.svg" />
 </section>
 <section id="testing-atom-and-bond-ownership">
 <h3><span class="section-number">4.3.9. </span>Testing Atom and Bond Ownership<a class="headerlink" href="#testing-atom-and-bond-ownership" title="Link to this heading"></a></h3>
@@ -841,7 +904,8 @@ calling the method <a class="reference external" href="https://cdpkit.org/cdpl_a
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The attempt to retrieve the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance index on a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance that is not the parent will raise an exception!</p>
+<p>The attempt to retrieve the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance index on a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> instance that
+is not the parent will raise an exception!</p>
 </div>
 <p>Examples:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">getAtomIndex</span><span class="p">(</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -899,7 +963,8 @@ instance:</p>
 </pre></div>
 </div>
 <p>Like class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> provides the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">atoms</a> and the method
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html#ad028eb1083a491b60a5060f769673743">getAtoms()</a> which both give access to the atom pair sequence:</p>
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html#ad028eb1083a491b60a5060f769673743">getAtoms()</a>
+which both give access to the atom pair sequence:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span><span class="o">.</span><span class="n">getAtomIndex</span><span class="p">(</span><span class="n">bond</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1021,9 +1086,11 @@ properties that can be used to access incident bonds and connected atoms.</p>
 </pre></div>
 </div>
 <p>Additionally, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> provides the method
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html#ad315d5b7c1755ffb65ddda9d9fe3819d">getAtoms()</a> and the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">atoms</a> for
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html#ad315d5b7c1755ffb65ddda9d9fe3819d">getAtoms()</a>
+and the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">atoms</a> for
 accessing the list of bonded <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> instances as well as the method
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html#a4171f816134f0dcd7762a1648d8518ab">getBonds()</a> and the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">bonds</a> for
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html#a4171f816134f0dcd7762a1648d8518ab">getBonds()</a>
+and the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">bonds</a> for
 corresponding <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance access.</p>
 <p>The above code changed to use the mentioned properties:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
@@ -1140,7 +1207,7 @@ instance as argument. These constructors create a <a class="reference external" 
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_103_0.svg" src="../_images/cdpl_python_tutorial_103_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_102_0.svg" src="../_images/cdpl_python_tutorial_102_0.svg" />
 <p>As noted in section <a class="reference internal" href="#representation-of-molecule-substructures">Representation of Molecule Substructures</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a>
 instances added to a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance get stored as pointers (not as copies).
 Membership tests for <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances retrieved from a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> will therefore
@@ -1178,7 +1245,8 @@ evaluate to <code class="docutils literal notranslate"><span class="pre">True</s
 <h3><span class="section-number">4.4.2. </span>Adding single Atoms and Bonds<a class="headerlink" href="#adding-single-atoms-and-bonds" title="Link to this heading"></a></h3>
 <p>For adding individual <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> provides the methods
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#afcb879ed6470ef02b6b4bb2c6c8070e8">addAtom()</a> and
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a82b3b0457cfe048ea918b053b9fa37d4">addBond()</a>, respectively.
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a82b3b0457cfe048ea918b053b9fa37d4">addBond()</a>,
+respectively.
 For molecular graph consistency reasons adding a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance also adds the two
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> instances referenced by the bond (if not added already). Furthermore, pointers to <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances get stored only once. In case a given <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance has already
@@ -1215,25 +1283,28 @@ been added the methods will do nothing and just return <code class="docutils lit
 <span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">addBond</span><span class="p">():</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_112_1.svg" src="../_images/cdpl_python_tutorial_112_1.svg" />
+<img alt="../_images/cdpl_python_tutorial_111_1.svg" src="../_images/cdpl_python_tutorial_111_1.svg" />
 </section>
 <section id="adding-multiple-atoms-and-bonds">
 <h3><span class="section-number">4.4.3. </span>Adding multiple Atoms and Bonds<a class="headerlink" href="#adding-multiple-atoms-and-bonds" title="Link to this heading"></a></h3>
 <p>The current lists of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances can be <strong>replaced</strong> by the method
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a870930ae0a11c4614cef10e2d77b4305">assign()</a> which accepts either a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> or a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as argument:</p>
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a870930ae0a11c4614cef10e2d77b4305">assign()</a>
+which accepts either a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> or a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as argument:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_114_0.svg" src="../_images/cdpl_python_tutorial_114_0.svg" />
-<p>The current lists of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances can be <strong>extended</strong> using the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a4402deccbaf9c04fee0c40bb2714f4a2">inplace addition operator</a> <code class="docutils literal notranslate"><span class="pre">+=</span></code> with a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance specifying the atoms and bond to add:</p>
+<img alt="../_images/cdpl_python_tutorial_113_0.svg" src="../_images/cdpl_python_tutorial_113_0.svg" />
+<p>The current lists of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances can be <strong>extended</strong> using the
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a4402deccbaf9c04fee0c40bb2714f4a2">inplace addition operator</a>
+<code class="docutils literal notranslate"><span class="pre">+=</span></code> with a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance specifying the atoms and bond to add:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag</span> <span class="o">+=</span> <span class="n">mol_copy</span>
 
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_116_0.svg" src="../_images/cdpl_python_tutorial_116_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_115_0.svg" src="../_images/cdpl_python_tutorial_115_0.svg" />
 <p>Note that only <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance will be added that are not already part of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fragment remains unaltered</span>
 <span class="n">frag</span> <span class="o">+=</span> <span class="n">mol_copy</span>
@@ -1241,11 +1312,12 @@ been added the methods will do nothing and just return <code class="docutils lit
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_118_0.svg" src="../_images/cdpl_python_tutorial_118_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_117_0.svg" src="../_images/cdpl_python_tutorial_117_0.svg" />
 </section>
 <section id="exchanging-atom-and-bond-lists">
 <h3><span class="section-number">4.4.4. </span>Exchanging Atom and Bond Lists<a class="headerlink" href="#exchanging-atom-and-bond-lists" title="Link to this heading"></a></h3>
-<p>The current lists of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances of two <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instances can be mutually exchanged by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a7dd0fcc088c1a7da30e75e3f61d5ac1a">swap()</a> on one of the instances providing the other instance as argument:</p>
+<p>The current lists of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances of two <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instances can be mutually
+exchanged by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a7dd0fcc088c1a7da30e75e3f61d5ac1a">swap()</a> on one of the instances providing the other instance as argument:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag2</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">Fragment</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
 <span class="n">frag</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">frag2</span><span class="p">)</span>
@@ -1253,15 +1325,18 @@ been added the methods will do nothing and just return <code class="docutils lit
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_120_0.svg" src="../_images/cdpl_python_tutorial_120_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_119_0.svg" src="../_images/cdpl_python_tutorial_119_0.svg" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag2</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_121_0.svg" src="../_images/cdpl_python_tutorial_121_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_120_0.svg" src="../_images/cdpl_python_tutorial_120_0.svg" />
 </section>
 <section id="id4">
 <h3><span class="section-number">4.4.5. </span>Removing single Atoms and Bonds<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
-<p>Single atoms and bonds can be removed by calling the methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a2efe66d31aea184246191827019c164b">removeAtom()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#ab5c1087e8ffa547824b8dbe787f5797c">removeBond()</a>, respectively. The methods expect the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance to remove or the zero-based
+<p>Single atoms and bonds can be removed by calling the methods
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#a2efe66d31aea184246191827019c164b">removeAtom()</a>
+and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#ab5c1087e8ffa547824b8dbe787f5797c">removeBond()</a>,
+respectively. The methods expect the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance to remove or the zero-based
 index as argument. Valid atom/bond indices are in the range [0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomContainer.html#aa18ef7240d27820c882998d8c8dbdfd7">getNumAtoms()</a>)/[0, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html#ae0aa42f2445494d5e0bf3e3019545236">getNumBonds()</a>).
 Specifying an index outside the allowed range will raise an exception.</p>
 <p>Examples:</p>
@@ -1283,8 +1358,9 @@ Specifying an index outside the allowed range will raise an exception.</p>
 <span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">removeAtom</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span> <span class="mi">4</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_123_1.svg" src="../_images/cdpl_python_tutorial_123_1.svg" />
-<p>In order to maintain molecular graph consistency, removing an atom automatically triggers the removal of all incident bonds. Removal of a bond has no side effect on the atom count:</p>
+<img alt="../_images/cdpl_python_tutorial_122_1.svg" src="../_images/cdpl_python_tutorial_122_1.svg" />
+<p>In order to maintain molecular graph consistency, removing an atom automatically triggers the removal of all incident bonds.
+Removal of a bond has no side effect on the atom count:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num. atoms before removeBond(2): </span><span class="si">{</span><span class="n">frag</span><span class="o">.</span><span class="n">numAtoms</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Num. bonds before removeBond(2): </span><span class="si">{</span><span class="n">frag</span><span class="o">.</span><span class="n">numBonds</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -1303,7 +1379,7 @@ Specifying an index outside the allowed range will raise an exception.</p>
 <span class="n">Num</span><span class="o">.</span> <span class="n">bonds</span> <span class="n">after</span> <span class="n">removeBond</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="mi">3</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_125_1.svg" src="../_images/cdpl_python_tutorial_125_1.svg" />
+<img alt="../_images/cdpl_python_tutorial_124_1.svg" src="../_images/cdpl_python_tutorial_124_1.svg" />
 <p>When the removal of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instance is attempted that is not part of the
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance then the corresponding methods return <code class="docutils literal notranslate"><span class="pre">False</span></code> to indicate that the removal
 operation failed:</p>
@@ -1322,11 +1398,13 @@ operation failed:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_129_0.svg" src="../_images/cdpl_python_tutorial_129_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_128_0.svg" src="../_images/cdpl_python_tutorial_128_0.svg" />
 </section>
 <section id="id5">
 <h3><span class="section-number">4.4.6. </span>Removing multiple Atoms and Bonds<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<p>Multiple <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances can be removed at once via <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#ad14ca8f184120fbf87435b06dbd5a060">inplace subtraction</a> (<code class="docutils literal notranslate"><span class="pre">-=</span></code>) of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance:</p>
+<p>Multiple <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances can be removed at once via
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html#ad14ca8f184120fbf87435b06dbd5a060">inplace subtraction</a>
+(<code class="docutils literal notranslate"><span class="pre">-=</span></code>) of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 
 <span class="n">frag</span> <span class="o">+=</span> <span class="n">mol_copy</span>
@@ -1334,7 +1412,7 @@ operation failed:</p>
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_131_0.svg" src="../_images/cdpl_python_tutorial_131_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_130_0.svg" src="../_images/cdpl_python_tutorial_130_0.svg" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag2</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
 <span class="n">frag2</span><span class="o">.</span><span class="n">addBond</span><span class="p">(</span><span class="n">mol_copy</span><span class="o">.</span><span class="n">getBond</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
@@ -1345,7 +1423,7 @@ operation failed:</p>
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_132_0.svg" src="../_images/cdpl_python_tutorial_132_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_131_0.svg" src="../_images/cdpl_python_tutorial_131_0.svg" />
 <p>Attempting to remove <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances that are not part of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance
 will have no effect:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frag</span> <span class="o">-=</span> <span class="n">frag2</span>
@@ -1353,31 +1431,33 @@ will have no effect:</p>
 <span class="n">frag</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_134_0.svg" src="../_images/cdpl_python_tutorial_134_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_133_0.svg" src="../_images/cdpl_python_tutorial_133_0.svg" />
 </section>
 </section>
-<section id="reading-molecule-data">
-<h2><span class="section-number">4.5. </span>Reading Molecule Data<a class="headerlink" href="#reading-molecule-data" title="Link to this heading"></a></h2>
+<section id="inpout-of-molecule-data">
+<h2><span class="section-number">4.5. </span>Inpout of Molecule Data<a class="headerlink" href="#inpout-of-molecule-data" title="Link to this heading"></a></h2>
 <section id="parsing-string-data">
 <h3><span class="section-number">4.5.1. </span>Parsing String Data<a class="headerlink" href="#parsing-string-data" title="Link to this heading"></a></h3>
 <p class="rubric">SMILES and SMARTS</p>
-<p>For the parsing of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97463a5b3b08debaa2b2299a2644e912">Chem.parseSMILES()</a>. The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> object representing the chemical structure
+<p>For the parsing of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97463a5b3b08debaa2b2299a2644e912">Chem.parseSMILES()</a>.
+The function returns a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BasicMolecule.html">Chem.BasicMolecule</a> object representing the chemical structure
 encoded by the given SMILES string. For example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;c1c(C(=O)O)ccc(CNN)c1&#39;</span><span class="p">)</span>
 
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_136_0.svg" src="../_images/cdpl_python_tutorial_136_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_135_0.svg" src="../_images/cdpl_python_tutorial_135_0.svg" />
 <p>A similar function called <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5248eaa483ae5dc078a8f276c91ed5dc">Chem.parseSMARTS()</a> can be used to parse and and prepare SMARTS patterns for substructure searching:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mol</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMARTS</span><span class="p">(</span><span class="s1">&#39;c1:c:[n,o,s]:c:c:1-[C:2](-,=[*])-,=O&#39;</span><span class="p">)</span>
 
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_138_0.svg" src="../_images/cdpl_python_tutorial_138_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_137_0.svg" src="../_images/cdpl_python_tutorial_137_0.svg" />
 <p class="rubric">Other formats</p>
-<p>The general procedure for the construction of molecules from string data in one of the supported formats (including SMILES and SMARTS) is as follows:</p>
+<p>The general procedure for the construction of molecules from string data in one of the supported formats
+(including SMILES and SMARTS) is as follows:</p>
 <ol class="arabic simple">
 <li><p>Create an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">Base.StringIOStream</a> that wraps the string and serves as input data source for the next steps.</p></li>
 <li><p>Create a suitable <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance that will perform the format-specific decoding of the molecule data in step 3.</p></li>
@@ -1439,13 +1519,14 @@ encoded by the given SMILES string. For example:</p>
 <span class="n">mol</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_140_0.svg" src="../_images/cdpl_python_tutorial_140_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_139_0.svg" src="../_images/cdpl_python_tutorial_139_0.svg" />
 </section>
 <section id="reading-data-files">
 <h3><span class="section-number">4.5.2. </span>Reading Data Files<a class="headerlink" href="#reading-data-files" title="Link to this heading"></a></h3>
-<p>Reading molecules from files also requires the creation of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance that performs the actual format-specific data decoding work. As with string data, several options exist:</p>
+<p>Reading molecules from files also requires the creation of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass
+instance that performs the actual format-specific data decoding work. As with string data, several options exist:</p>
 <ol class="arabic simple">
-<li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behavior, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
+<li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behavior, a second argument specifying the actual file extension string to use (e.g. <code class="docutils literal notranslate"><span class="pre">'sdf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'smi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mol2'</span></code>, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
 <li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">Chem.MoleculeReader</a> passing an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">Base.FileIOStream</a> that was created for the file as the first and and a format specifier as the second argument. The format specification can be a characteristic file extension or one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a>.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMoleculeReader.html">Chem.SDFMoleculeReader</a> implementing reading MDL SD-file format data) that accepts an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">Base.FileIOStream</a> as constructor argument.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FileSDFMoleculeReader.html">Chem.FileSDFMoleculeReader</a>) that accepts a file path as constructor argument.</p></li>
@@ -1470,9 +1551,11 @@ encoded by the given SMILES string. For example:</p>
 </pre></div>
 </div>
 </section>
-<section id="sequential-molecule-reading">
-<h3><span class="section-number">4.5.3. </span>Sequential Molecule Reading<a class="headerlink" href="#sequential-molecule-reading" title="Link to this heading"></a></h3>
-<p>Given a properly initialized <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance, molecules can be read in the order provided by the input data by repeatedly calling the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method. If there are no more molecules to read, the return value of the method will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<section id="sequential-molecule-access">
+<h3><span class="section-number">4.5.3. </span>Sequential Molecule Access<a class="headerlink" href="#sequential-molecule-access" title="Link to this heading"></a></h3>
+<p>Given a properly initialized <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> subclass instance, molecules can be read in
+the order provided by the input data by repeatedly calling the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method. If there are no more
+molecules to read, the return value of the method will evaluate to <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smi_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;c1n(ccn1)c1ccc(cc1)c1ccc(n1c1c(cc(cc1)C(=O)N)C)CCC(=O)[O-] 022_3QJ5_A</span>
 <span class="s2">CNC(=O)[C@H](C(C)(C)C)NC(=O)[C@@H]([C@H](C)N([O-])C=O)CCCc1ccccc1 023_2WO9_B</span>
 <span class="s2">N1N(C(c2c(C=1Nc1cc([nH]n1)C)ccc(N1CC[NH+](CC1)C)c2)=O)C(C)C 027_3PIX_A</span>
@@ -1494,7 +1577,10 @@ encoded by the given SMILES string. For example:</p>
 </section>
 <section id="random-molecule-access">
 <h3><span class="section-number">4.5.4. </span>Random Molecule Access<a class="headerlink" href="#random-molecule-access" title="Link to this heading"></a></h3>
-<p>There is a special version of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> which expects the index (zero-based) of the molecule to read as its first argument. This way molecules can be read in any order, no matter what their order is in the input data. The number of available molecules can be queried either by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80">getNumRecords()</a> or by accessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">numRecords</a>.</p>
+<p>There is a special version of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521">read()</a> method of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">Chem.MoleculeReaderBase</a> which expects the
+index (zero-based) of the molecule to read as its first argument. This way molecules can be read in any order,
+no matter what their order is in the input data. The number of available molecules can be queried either
+by calling the method <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80">getNumRecords()</a> or by accessing the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">numRecords</a>.</p>
 <p>Example:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ios</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">StringIOStream</span><span class="p">(</span><span class="n">smi_data</span><span class="p">)</span>
 <span class="n">reader</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MoleculeReader</span><span class="p">(</span><span class="n">ios</span><span class="p">,</span> <span class="s1">&#39;smi&#39;</span><span class="p">)</span>
@@ -1515,14 +1601,14 @@ encoded by the given SMILES string. For example:</p>
 <span class="n">mol_copy</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_147_0.svg" src="../_images/cdpl_python_tutorial_147_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_146_0.svg" src="../_images/cdpl_python_tutorial_146_0.svg" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the 1st molecule</span>
 <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mol_copy</span><span class="p">)</span>
 
 <span class="n">mol_copy</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_148_0.svg" src="../_images/cdpl_python_tutorial_148_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_147_0.svg" src="../_images/cdpl_python_tutorial_147_0.svg" />
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If the index is out of the valid range then a corresponding exception will be thrown!</p>
@@ -1549,7 +1635,8 @@ encoded by the given SMILES string. For example:</p>
 <h2><span class="section-number">4.6. </span>Essential Properties<a class="headerlink" href="#essential-properties" title="Link to this heading"></a></h2>
 <p>The following tables list subsets of exported <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Entity3D.html">Chem.Entity3D</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> and
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> properties which are essential for a proper description and follow-up processing of organic
-molecular structures. Along with each exported property key the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides four functions that allow for a more comfortable and type-safe property value assignment and retrieval as well removal and existence
+molecular structures. Along with each exported property key the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides four functions
+that allow for a more comfortable and type-safe property value assignment and retrieval as well removal and existence
 testing (see section <a class="reference internal" href="#dynamic-properties">Dynamic Properties</a> for further information).</p>
 <table class="docutils align-default" id="id6">
 <caption><span class="caption-text"><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Entity3D.html">Chem.Entity3D</a> properties</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
@@ -1780,22 +1867,47 @@ testing (see section <a class="reference internal" href="#dynamic-properties">Dy
 </section>
 <section id="preparation-for-downstream-processing">
 <h2><span class="section-number">4.7. </span>Preparation for Downstream Processing<a class="headerlink" href="#preparation-for-downstream-processing" title="Link to this heading"></a></h2>
-<p>More complex algorithms and methods operating on molecular structures (e.g. descriptor calculations,
-conformer generation, substructure searching, …) often require structure-derived secondary information such as
-implicit hydrogen counts, atomic orbital hybridization, the smallest set of smallest rings (SSSR), atom/bond ring
-membership, atom/bond aromaticity, and so forth for to be able to carry out the requested computations. For the
-sake of computational efficiency, control and flexibility, it is generally the responsibility of the user of a piece of <em>CDPL</em> functionality to make sure all of its data prerequisites are fulfilled. When it comes to the structure-derived data mentioned above, the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides a set of dedicated functions which allow to compute these data in an easy manner and save the results as values of corresponding <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a>  properties for future use (see section <a class="reference internal" href="#essential-properties">Essential Properties</a>).
-The following sub-sections provide an overview of the most important property calculation functions and demonstrate their correct usage by means of easy to follow code examples.</p>
+<p>Many of the algorithms and methods provided by the <em>CDPL</em> that operate on molecular structures
+(e.g. data output, descriptor calculations, conformer generation, substructure searching, …)
+rely on secondary structure-derived information such as implicit hydrogen counts, atomic orbital hybridization,
+the smallest set of smallest rings (SSSR), atom/bond ring membership, atom/bond aromaticity, and so forth.
+For the sake of computational efficiency, control and flexibility, it is generally the responsibility of the
+user to provide all input data needed by a particular method or algorithm.
+When it comes to the structure-derived data mentioned above, the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides a set of easy
+to use functions that allow to compute these data and save the results as values of corresponding <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a>  properties for future use (see section <a class="reference internal" href="#essential-properties">Essential Properties</a>).
+The following sub-sections provide an overview of the most important property calculation functions and
+demonstrate their correct usage by means of code snippets.</p>
+<section id="implicit-hydrogen-count-calculation">
+<h3><span class="section-number">4.7.1. </span>Implicit Hydrogen Count Calculation<a class="headerlink" href="#implicit-hydrogen-count-calculation" title="Link to this heading"></a></h3>
 </section>
-<section id="writing-molecule-data">
-<h2><span class="section-number">4.8. </span>Writing Molecule Data<a class="headerlink" href="#writing-molecule-data" title="Link to this heading"></a></h2>
+<section id="atomic-orbital-hybridization-perception">
+<h3><span class="section-number">4.7.2. </span>Atomic Orbital Hybridization Perception<a class="headerlink" href="#atomic-orbital-hybridization-perception" title="Link to this heading"></a></h3>
+</section>
+<section id="atom-and-bond-ring-membership-perception">
+<h3><span class="section-number">4.7.3. </span>Atom and Bond Ring Membership Perception<a class="headerlink" href="#atom-and-bond-ring-membership-perception" title="Link to this heading"></a></h3>
+</section>
+<section id="sssr-perception">
+<h3><span class="section-number">4.7.4. </span>SSSR Perception<a class="headerlink" href="#sssr-perception" title="Link to this heading"></a></h3>
+</section>
+<section id="atom-and-bond-aromaticity-perception">
+<h3><span class="section-number">4.7.5. </span>Atom and Bond Aromaticity Perception<a class="headerlink" href="#atom-and-bond-aromaticity-perception" title="Link to this heading"></a></h3>
+</section>
+<section id="molecular-graph-component-perception">
+<h3><span class="section-number">4.7.6. </span>Molecular Graph Component Perception<a class="headerlink" href="#molecular-graph-component-perception" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="output-of-molecule-data">
+<h2><span class="section-number">4.8. </span>Output of Molecule Data<a class="headerlink" href="#output-of-molecule-data" title="Link to this heading"></a></h2>
 <section id="direct-string-output">
 <h3><span class="section-number">4.8.1. </span>Direct String Output<a class="headerlink" href="#direct-string-output" title="Link to this heading"></a></h3>
 <p class="rubric">SMILES</p>
-<p>For a direct generation of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b2f4f87930cf893cc80c2930b268014">Chem.generateSMILES()</a>.
-The function expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance representing the chemical structure as first argument. Further optional arguments allow to customize the SMILES output in several aspects.</p>
+<p>For a direct generation of SMILES strings the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the built-in utility function
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b2f4f87930cf893cc80c2930b268014">Chem.generateSMILES()</a>.
+The function expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance representing the chemical structure as first argument.
+Further optional arguments allow to customize the SMILES output in several aspects.</p>
 <p>Examples:</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># calculate required properties, more on that later</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># calculate required properties (see above)</span>
 
 <span class="n">Chem</span><span class="o">.</span><span class="n">generateSMILES</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> <span class="c1"># by default, non-canonical SMILES strinsg are generated</span>
 </pre></div>
@@ -1817,7 +1929,11 @@ The function expects a <a class="reference external" href="https://cdpkit.org/cd
 </div>
 <p class="rubric">InChI</p>
 <p>InChI strings can be generated by means of the utility function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ae64b94b51bd619fb7cfcf1fc39fc3198">Chem.generateINCHI()</a>. The function likewise
-expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as its first argument. A second optional argument of type <code class="docutils literal notranslate"><span class="pre">str</span></code> allows to provide settings for the InChI generation code (supported options are described <a class="reference external" href="https://github.com/IUPAC-InChI/InChI/blob/dev/INCHI-1-DOC/APIReference/InChI_API_Reference.md#getinchi">here</a>). The third argument controls the dimension of the atom coordinates (0 -&gt; auto sel., 2 -&gt; 2D or 3 -&gt; 3D) that are output as part of the generated auxiliary information (if enabled by the provided settings, see second example).</p>
+expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as its first argument. A second optional argument of type <strong>str</strong>
+allows to provide settings for the InChI generation code (supported options are described
+<a class="reference external" href="https://github.com/IUPAC-InChI/InChI/blob/dev/INCHI-1-DOC/APIReference/InChI_API_Reference.md#getinchi">here</a>).
+The third argument controls the dimension of the atom coordinates (<code class="docutils literal notranslate"><span class="pre">0</span></code> -&gt; auto sel., <code class="docutils literal notranslate"><span class="pre">2</span></code> -&gt; 2D or <code class="docutils literal notranslate"><span class="pre">3</span></code> -&gt; 3D)
+that are output as part of the generated auxiliary information (if enabled by the provided settings, see second example).</p>
 <p>Examples:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">generateINCHI</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </pre></div>
@@ -1840,7 +1956,8 @@ expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/py
 </pre></div>
 </div>
 <p class="rubric">Other formats</p>
-<p>The general procedure for the output of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances as string data encoded in one of the supported formats (including SMILES and InChI) is as follows:</p>
+<p>The general procedure for the output of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances as string data encoded in
+one of the supported formats (including SMILES and InChI) is as follows:</p>
 <ol class="arabic simple">
 <li><p>Create an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">Base.StringIOStream</a> that wraps the string and serves as output data sink for the next steps.</p></li>
 <li><p>Create a suitable <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">Chem.MolecularGraphWriterBase</a> subclass instance that will perform the format-specific encoding of the molecule data in step 3.</p></li>
@@ -1914,7 +2031,7 @@ $$$$
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">Chem.MolecularGraphWriterBase</a> subclass instance that performs the actual format-specific data encoding work.
 As with string data output, several options exist:</p>
 <ol class="arabic simple">
-<li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">Chem.MolecularGraphWriter</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behavior, a second argument specifying the actual file extension string to use (e.g. sdf, smi, mol2, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
+<li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">Chem.MolecularGraphWriter</a> passing the path to the file as constructor argument. When just a path is provided as argument then the data format will be determined automatically from the file extension. To override this behavior, a second argument specifying the actual file extension string to use (e.g. <code class="docutils literal notranslate"><span class="pre">'sdf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'smi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mol2'</span></code>, ..) or one one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a> has to be provided.</p></li>
 <li><p>Instantiation of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">Chem.MolecularGraphWriter</a> passing an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">Base.FileIOStream</a> that was created for the file as the first and and a format specifier as the second argument. The format specification can be a characteristic file extension or one of the data format descriptors defined in class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">Chem.DataFormat</a>.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">Chem.MolecularGraphWriterBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMolecularGraphWriter.html">Chem.SDFMolecularGraphWriter</a> implementing writing MDL SD-file data) that accepts an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">Base.FileIOStream</a> as constructor argument.</p></li>
 <li><p>Direct instantiation of a format-specific subclass of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">Chem.MolecularGraphWriterBase</a> (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FileSDFMolecularGraphWriter.html">Chem.FileSDFMolecularGraphWriter</a>) that accepts a file path as constructor argument.</p></li>
@@ -1939,7 +2056,8 @@ As with string data output, several options exist:</p>
 </pre></div>
 </div>
 <p>Once a data writer instance has been created, the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html#abd69e3d91024fff2fe687d804e36f1ea">write()</a> method can be called one or multiple times with
-the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance(s) to output as argument. After all <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances have been output the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html#a1b386f6cf1691ef956c6b8f6d2d1d0be">close()</a> method needs to be called to flush all written data to disk and close the file (note:
+the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance(s) to output as argument. After all <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances have
+been output the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html#a1b386f6cf1691ef956c6b8f6d2d1d0be">close()</a> method needs to be called to flush all written data to disk and close the file (note:
 although this method will be called automatically by the destructor of the data writer, an explicit call will have
 an immediate effect and is preferred over a delayed destructor call by the garbage collector happening at an
 indeterminate point in time).</p>
