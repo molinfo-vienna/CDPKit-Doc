@@ -8,7 +8,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=3b823a73" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4fd78809" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -383,7 +383,7 @@ for common operations like atom/bond addition, removal, access, membership testi
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Entity3DContainer.html">CDPL.Chem.Entity3DContainer</a></p></td>
 <td><p>Interface</p></td>
-<td><p>None</p></td>
+<td><p>-</p></td>
 <td><p>Represents a collection of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Entity3D.html">CDPL.Chem.Entity3D</a> instances and specifies methods for read-only
 instance access and querying their number</p></td>
 </tr>
@@ -395,7 +395,7 @@ instance access, querying their number, collection membership testing and orderi
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondContainer.html">CDPL.Chem.BondContainer</a></p></td>
 <td><p>Interface</p></td>
-<td><p>None</p></td>
+<td><p>-</p></td>
 <td><p>Represents a collection of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances and specifies methods for read-only
 instance access, querying their number, collection membership testing and ordering</p></td>
 </tr>
@@ -469,10 +469,10 @@ instances of both can be processed in the same way by any code that operates on 
 </div>
 <p>By the import line above the code in the remainder of this tutorial can conveniently access all package contents
 via the prefix <em>Chem.*</em>.</p>
-<p>Furthermore, the <em>CDPL Python</em> bindings implement the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instances in
-Jupyter notebooks. Rich output is activated by importing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html">CDPL.Vis</a> package and will be used in the following
-code snippets to display the skeletal formula of molecular graphs simply by typing the variable name at
-the end of a code cell.</p>
+<p>Furthermore, the <em>CDPL Python</em> bindings implement the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> and
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FragmentList.html">Chem.FragmentList</a> instances in Jupyter notebooks. Rich output is activated by importing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html">CDPL.Vis</a>
+package and will be used in the following code snippets to display the skeletal formula of molecular graphs
+simply by typing the variable name at the end of a code cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Vis</span>
 </pre></div>
 </div>
@@ -915,7 +915,7 @@ is not the parent will raise an exception!</p>
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-330-835c00aa411f&gt; in &lt;module&gt;
+&lt;ipython-input-247-835c00aa411f&gt; in &lt;module&gt;
 ----&gt; 1 mol.getAtomIndex(mol_copy.atoms[0])
 
 
@@ -929,7 +929,7 @@ ItemNotFound: BasicMolecule: argument atom not part of the molecule
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-331-ae6b58adf8f3&gt; in &lt;module&gt;
+&lt;ipython-input-248-ae6b58adf8f3&gt; in &lt;module&gt;
 ----&gt; 1 mol.getBondIndex(mol_copy.bonds[1])
 
 
@@ -1022,7 +1022,7 @@ by the calling the method <a class="reference external" href="https://cdpkit.org
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-342-093f4eea5627&gt; in &lt;module&gt;
+&lt;ipython-input-259-093f4eea5627&gt; in &lt;module&gt;
 ----&gt; 1 bond.getNeighbor(mol.atoms[0])
 
 
@@ -1163,7 +1163,7 @@ Atom index: 5
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-346-8b35fac927c4&gt; in &lt;module&gt;
+&lt;ipython-input-263-8b35fac927c4&gt; in &lt;module&gt;
 ----&gt; 1 mol.atoms[0].getBondToAtom(mol.atoms[2])
 
 
@@ -1621,7 +1621,7 @@ by calling the method <a class="reference external" href="https://cdpkit.org/cdp
 
 IndexError                                Traceback (most recent call last)
 
-&lt;ipython-input-377-4f5078ed4ed6&gt; in &lt;module&gt;
+&lt;ipython-input-294-4f5078ed4ed6&gt; in &lt;module&gt;
       1 # there is no 4th molecule
 ----&gt; 2 reader.read(3, mol_copy)
 
@@ -1855,7 +1855,14 @@ testing (see section <a class="reference internal" href="#dynamic-properties">Dy
 <td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a></p></td>
 <td><p>-</p></td>
 </tr>
-<tr class="row-even"><td><p>Arbitrary string data (e.g. from SD-file)</p></td>
+<tr class="row-even"><td><p>Ring atoms and bonds</p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">CYCLIC_SUBSTRUCTURE</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aef5d266659dc218c95941abb65f4bc98">Chem.setCyclicSubstructure()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a5741bd8246a3b967e8b41ff8836f844b">Chem.getCyclicSubstructure()</a>,
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a8d25800cde619cd6600177f85f3cb0bc">Chem.hasCyclicSubstructure()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aff443eeb049b638f27c2b2c084384580">Chem.clearCyclicSubstructure()</a></p></td>
+<td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a></p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arbitrary string data (e.g. from SD-file)</p></td>
 <td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">STRUCTURE_DATA</a></p></td>
 <td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a7ea9e8add9f147199d3cd8cf9608185b">Chem.setStructureData()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a97f09f9da4de013651397d22c6324294">Chem.getStructureData()</a>,
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6f442b8b4ae059628fa79eca853df01a">Chem.hasStructureData()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a528afe2ea2678c8be4e063f8d4ecf4e4">Chem.clearStructureData()</a></p></td>
@@ -2002,25 +2009,25 @@ Impl. H-count property values after form. charge change and calculation with ove
 <section id="atomic-orbital-hybridization-perception">
 <h3><span class="section-number">4.7.2. </span>Atomic Orbital Hybridization Perception<a class="headerlink" href="#atomic-orbital-hybridization-perception" title="Link to this heading"></a></h3>
 <p>The atomic orbital hybridization of a single atom represented by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> instance in a particular
-structural context specified by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance can be perceived by the function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aa2acedb689dfdcd9cbba918a1ecabb86">Chem.perceiveHybridizationState()</a>. The functions returns the determined hybrization state as value of one
-of the corresponding integer constants exported as static public attributes of class
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1HybridizationState.html">Chem.HybridizationState</a>. The hybridization state of an atom depends on the chemical element (specified by the
-value of the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.TYPE</a>), the formal charge (specified by the value of property
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.FORMAL_CHARGE</a>), the implicit hydrogen count (specified by the value of the property
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.IMPLICIT_HYDROGEN_COUNT</a>, see previous section) as well as the number and order
-(specified by the value of the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">Chem.BondProperty.ORDER</a>) of any incident explicit bonds.</p>
+structural context specified by a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance can be determined by the function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aa2acedb689dfdcd9cbba918a1ecabb86">Chem.perceiveHybridizationState()</a>. The functions returns the identified hybrization state as an unsigned integer
+value. The meaning of this value is defined by the constants exported as static public attributes
+of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1HybridizationState.html">Chem.HybridizationState</a>. The hybridization state of an atom depends on the chemical element (specified by the value of property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.TYPE</a>), the formal charge (specified by the value of property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.FORMAL_CHARGE</a>), the implicit hydrogen count (specified by the value of property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.IMPLICIT_HYDROGEN_COUNT</a>, see section <a class="reference internal" href="#implicit-hydrogen-count-calculation">Implicit Hydrogen Count Calculation</a>) as well as
+the number and order (specified by the value of property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">Chem.BondProperty.ORDER</a>) of any incident explicit
+bonds.</p>
 <p>Example 1: Hybridization state of carbon in Methane</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hyb_state_str</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">UNKNOWN</span> <span class="p">:</span> <span class="s1">&#39;n.a.&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">DP</span> <span class="p">:</span> <span class="s1">&#39;DP&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SD3</span> <span class="p">:</span> <span class="s1">&#39;SD3&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP</span> <span class="p">:</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP2</span>  <span class="p">:</span> <span class="s1">&#39;SP2 &#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP2D</span> <span class="p">:</span> <span class="s1">&#39;SP2D&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3</span> <span class="p">:</span> <span class="s1">&#39;SP3&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3D</span> <span class="p">:</span> <span class="s1">&#39;SP3D&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3D2</span> <span class="p">:</span> <span class="s1">&#39;SP3D2&#39;</span><span class="p">,</span>
-    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3D3</span> <span class="p">:</span> <span class="s1">&#39;SP3D3&#39;</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">DP</span> <span class="p">:</span> <span class="s1">&#39;dp&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SD3</span> <span class="p">:</span> <span class="s1">&#39;sd3&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP</span> <span class="p">:</span> <span class="s1">&#39;sp&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP2</span>  <span class="p">:</span> <span class="s1">&#39;sp2&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP2D</span> <span class="p">:</span> <span class="s1">&#39;sp2d&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3</span> <span class="p">:</span> <span class="s1">&#39;sp3&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3D</span> <span class="p">:</span> <span class="s1">&#39;sp3d&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3D2</span> <span class="p">:</span> <span class="s1">&#39;sp3d2&#39;</span><span class="p">,</span>
+    <span class="n">Chem</span><span class="o">.</span><span class="n">HybridizationState</span><span class="o">.</span><span class="n">SP3D3</span> <span class="p">:</span> <span class="s1">&#39;sp3d3&#39;</span>
 <span class="p">}</span>
 
 <span class="n">methane</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">BasicMolecule</span><span class="p">()</span>
@@ -2035,13 +2042,13 @@ value of the property <a class="reference external" href="https://cdpkit.org/cdp
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hybridization of carbon in Methane: </span><span class="si">{</span><span class="n">hyb_state_str</span><span class="p">[</span><span class="n">hyb_state</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hybridization of carbon in Methane: SP3
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hybridization of carbon in Methane: sp3
 </pre></div>
 </div>
-<p>For the perception of the hybridization state of all <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> instances contained in a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance and saving the state for later use as value of the corresponding property
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.HYBRIDIZATION</a> the convenience function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aff960fb1895ebfdea29aa7eb93732afb">Chem.perceiveHybridizationStates()</a> is provided. The function expects the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as first argument and an overwrite flag (see previous
-section) as second argument.</p>
-<p>Example: Hybridization of Alanine atoms</p>
+<p>For perceiving the hybridization state of all <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> instances contained in a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance and saving the information for later use as value of the corresponding property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.HYBRIDIZATION</a> the convenience function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aff960fb1895ebfdea29aa7eb93732afb">Chem.perceiveHybridizationStates()</a> is provided. The function expects the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as first argument and the value of the <em>overwrite</em> flag (see
+section <a class="reference internal" href="#implicit-hydrogen-count-calculation">Implicit Hydrogen Count Calculation</a> for information) as second argument.</p>
+<p>Example 2: Hybridization of Alanine atoms</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">Chem</span><span class="o">.</span><span class="n">perceiveHybridizationStates</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
@@ -2051,12 +2058,12 @@ section) as second argument.</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Atom#</span><span class="si">{</span><span class="n">mol</span><span class="o">.</span><span class="n">getAtomIndex</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">hyb_state_str</span><span class="p">[</span><span class="n">hyb_state</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Atom#0: SP3
-Atom#1: SP2
-Atom#2: SP3
-Atom#3: SP3
-Atom#4: SP3
-Atom#5: SP2
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Atom#0: sp3
+Atom#1: sp2
+Atom#2: sp3
+Atom#3: sp3
+Atom#4: sp3
+Atom#5: sp2
 Atom#6: n.a.
 Atom#7: n.a.
 Atom#8: n.a.
@@ -2069,9 +2076,64 @@ Atom#12: n.a.
 </section>
 <section id="atom-and-bond-ring-membership-perception">
 <h3><span class="section-number">4.7.3. </span>Atom and Bond Ring Membership Perception<a class="headerlink" href="#atom-and-bond-ring-membership-perception" title="Link to this heading"></a></h3>
+<p>Information about the membership of an atom or bond in a cycle of the molecular graph gets stored as boolean value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.RING_FLAG</a> and the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">Chem.BondProperty.RING_FLAG</a>, respectively. For the perception of atom/bond ring membership the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>
+package provides the function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a658bcc38eaf6f5718c75eedae20869be">Chem.setRingFlags()</a> which expects the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as first
+argument and the value of the <em>overwrite</em> flag (see section <a class="reference internal" href="#implicit-hydrogen-count-calculation">Implicit Hydrogen Count Calculation</a> for
+information) as second argument. The function also sets the value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">Chem.MolecularGraphProperty.CYCLIC_SUBSTRUCTURE</a> which is a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance specifying the subset
+of cyclic <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances.</p>
+<p>Example: Perception of cyclic atoms and bonds in Methylcyclohexane</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mch</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;C1C(C)CCCC1&#39;</span><span class="p">)</span>
+
+<span class="n">mch</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_167_0.svg" src="../_images/cdpl_python_tutorial_167_0.svg" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">setRingFlags</span><span class="p">(</span><span class="n">mch</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ring_atoms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ring_bonds</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">mch</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getRingFlag</span><span class="p">(</span><span class="n">atom</span><span class="p">):</span>
+        <span class="n">ring_atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mch</span><span class="o">.</span><span class="n">getAtomIndex</span><span class="p">(</span><span class="n">atom</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">mch</span><span class="o">.</span><span class="n">bonds</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getRingFlag</span><span class="p">(</span><span class="n">bond</span><span class="p">):</span>
+        <span class="n">ring_bonds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mch</span><span class="o">.</span><span class="n">getBondIndex</span><span class="p">(</span><span class="n">bond</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Ring atoms: </span><span class="si">{</span><span class="n">ring_atoms</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Ring bonds: </span><span class="si">{</span><span class="n">ring_bonds</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Ring atoms: [0, 1, 3, 4, 5, 6]
+Ring bonds: [0, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getCyclicSubstructure</span><span class="p">(</span><span class="n">mch</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_169_0.svg" src="../_images/cdpl_python_tutorial_169_0.svg" />
 </section>
 <section id="sssr-perception">
 <h3><span class="section-number">4.7.4. </span>SSSR Perception<a class="headerlink" href="#sssr-perception" title="Link to this heading"></a></h3>
+<p>The <em>Smallest Set of Smallest Rings (SSSR)</em> of a molecular graph is a so-called <em>Minimal Cycle Basis</em> which allows to construct <strong>every</strong> cycle within the molecular graph by a linear combination of the cycles
+in the SSSR (more information on this matter can be found
+<a class="reference external" href="https://depth-first.com/articles/2020/08/31/a-smallest-set-of-smallest-rings/">here</a>).
+Rings of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance are simply substructures that are made up of distinct subsets of the overall <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances. Therefore, the <em>CDPL</em> uses <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instances to describe the individual rings of a molecular graph which are themselves stored in <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FragmentList.html">Chem.FragmentList</a> instances for the
+representation of complete ring sets.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morphine</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;CN1CC[C@]23C4=C5C=CC(O)=C4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5&#39;</span><span class="p">)</span>
+
+<span class="n">morphine</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_171_0.svg" src="../_images/cdpl_python_tutorial_171_0.svg" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">morphine</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">Chem</span><span class="o">.</span><span class="n">getSSSR</span><span class="p">(</span><span class="n">morphine</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_172_0.svg" src="../_images/cdpl_python_tutorial_172_0.svg" />
 </section>
 <section id="atom-and-bond-aromaticity-perception">
 <h3><span class="section-number">4.7.5. </span>Atom and Bond Aromaticity Perception<a class="headerlink" href="#atom-and-bond-aromaticity-perception" title="Link to this heading"></a></h3>
@@ -2089,7 +2151,7 @@ Atom#12: n.a.
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a6b2f4f87930cf893cc80c2930b268014">Chem.generateSMILES()</a>.
 The function expects a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance representing the chemical structure as first argument.
 Further optional arguments allow to customize the SMILES output in several aspects.</p>
-<p>Examples:</p>
+<p>Example 1:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">calcBasicProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># calculate required properties (see above)</span>
 
 <span class="n">Chem</span><span class="o">.</span><span class="n">generateSMILES</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span> <span class="c1"># by default, non-canonical SMILES strinsg are generated</span>
@@ -2098,12 +2160,14 @@ Further optional arguments allow to customize the SMILES output in several aspec
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;OC(=O)[C@@H](N)C&#39;
 </pre></div>
 </div>
+<p>Example 2:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">generateSMILES</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># second arg. True -&gt; generate canonical SMILES</span>
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;C[C@@H](C(O)=O)N&#39;
 </pre></div>
 </div>
+<p>Example 3:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">generateSMILES</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># third arg. False -&gt; output also standard H-atoms</span>
 </pre></div>
 </div>
@@ -2117,13 +2181,14 @@ allows to provide settings for the InChI generation code (supported options are 
 <a class="reference external" href="https://github.com/IUPAC-InChI/InChI/blob/dev/INCHI-1-DOC/APIReference/InChI_API_Reference.md#getinchi">here</a>).
 The third argument controls the dimension of the atom coordinates (<code class="docutils literal notranslate"><span class="pre">0</span></code> -&gt; auto sel., <code class="docutils literal notranslate"><span class="pre">2</span></code> -&gt; 2D or <code class="docutils literal notranslate"><span class="pre">3</span></code> -&gt; 3D)
 that are output as part of the generated auxiliary information (if enabled by the provided settings, see second example).</p>
-<p>Examples:</p>
+<p>Example 1:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">generateINCHI</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;InChI=1S/C3H7NO2/c1-2(4)3(5)6/h2H,4H2,1H3,(H,5,6)/t2-/m0/s1&#39;
 </pre></div>
 </div>
+<p>Example 2:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">generateINCHI</span><span class="p">(</span><span class="n">mol</span><span class="p">,</span> <span class="s1">&#39;/WarnOnEmptyStructure /NEWPSOFF&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># outputs InChI as above + auxiliary information</span>
 </pre></div>
 </div>
