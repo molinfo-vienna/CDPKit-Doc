@@ -8,7 +8,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=4fd78809" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -915,7 +915,7 @@ is not the parent will raise an exception!</p>
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-247-835c00aa411f&gt; in &lt;module&gt;
+&lt;ipython-input-149-835c00aa411f&gt; in &lt;module&gt;
 ----&gt; 1 mol.getAtomIndex(mol_copy.atoms[0])
 
 
@@ -929,7 +929,7 @@ ItemNotFound: BasicMolecule: argument atom not part of the molecule
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-248-ae6b58adf8f3&gt; in &lt;module&gt;
+&lt;ipython-input-150-ae6b58adf8f3&gt; in &lt;module&gt;
 ----&gt; 1 mol.getBondIndex(mol_copy.bonds[1])
 
 
@@ -1022,7 +1022,7 @@ by the calling the method <a class="reference external" href="https://cdpkit.org
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-259-093f4eea5627&gt; in &lt;module&gt;
+&lt;ipython-input-161-093f4eea5627&gt; in &lt;module&gt;
 ----&gt; 1 bond.getNeighbor(mol.atoms[0])
 
 
@@ -1163,7 +1163,7 @@ Atom index: 5
 
 ItemNotFound                              Traceback (most recent call last)
 
-&lt;ipython-input-263-8b35fac927c4&gt; in &lt;module&gt;
+&lt;ipython-input-165-8b35fac927c4&gt; in &lt;module&gt;
 ----&gt; 1 mol.atoms[0].getBondToAtom(mol.atoms[2])
 
 
@@ -1621,7 +1621,7 @@ by calling the method <a class="reference external" href="https://cdpkit.org/cdp
 
 IndexError                                Traceback (most recent call last)
 
-&lt;ipython-input-294-4f5078ed4ed6&gt; in &lt;module&gt;
+&lt;ipython-input-196-4f5078ed4ed6&gt; in &lt;module&gt;
       1 # there is no 4th molecule
 ----&gt; 2 reader.read(3, mol_copy)
 
@@ -2079,9 +2079,7 @@ Atom#12: n.a.
 <p>Information about the membership of an atom or bond in a cycle of the molecular graph gets stored as boolean value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.RING_FLAG</a> and the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">Chem.BondProperty.RING_FLAG</a>, respectively. For the perception of atom/bond ring membership the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>
 package provides the function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a658bcc38eaf6f5718c75eedae20869be">Chem.setRingFlags()</a> which expects the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as first
 argument and the value of the <em>overwrite</em> flag (see section <a class="reference internal" href="#implicit-hydrogen-count-calculation">Implicit Hydrogen Count Calculation</a> for
-information) as second argument. The function also sets the value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> property
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">Chem.MolecularGraphProperty.CYCLIC_SUBSTRUCTURE</a> which is a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance specifying the subset
-of cyclic <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances.</p>
+information) as second argument.</p>
 <p>Example: Perception of cyclic atoms and bonds in Methylcyclohexane</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mch</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;C1C(C)CCCC1&#39;</span><span class="p">)</span>
 
@@ -2110,33 +2108,86 @@ of cyclic <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/py
 Ring bonds: [0, 2, 3, 4, 5, 6]
 </pre></div>
 </div>
+<p>The function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a658bcc38eaf6f5718c75eedae20869be">Chem.setRingFlags()</a> also sets the value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">Chem.MolecularGraphProperty.CYCLIC_SUBSTRUCTURE</a> which is a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance that specifies the subset
+of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances involved in a molecular graph cycle:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getCyclicSubstructure</span><span class="p">(</span><span class="n">mch</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_169_0.svg" src="../_images/cdpl_python_tutorial_169_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_170_0.svg" src="../_images/cdpl_python_tutorial_170_0.svg" />
 </section>
 <section id="sssr-perception">
 <h3><span class="section-number">4.7.4. </span>SSSR Perception<a class="headerlink" href="#sssr-perception" title="Link to this heading"></a></h3>
-<p>The <em>Smallest Set of Smallest Rings (SSSR)</em> of a molecular graph is a so-called <em>Minimal Cycle Basis</em> which allows to construct <strong>every</strong> cycle within the molecular graph by a linear combination of the cycles
-in the SSSR (more information on this matter can be found
-<a class="reference external" href="https://depth-first.com/articles/2020/08/31/a-smallest-set-of-smallest-rings/">here</a>).
-Rings of a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance are simply substructures that are made up of distinct subsets of the overall <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances. Therefore, the <em>CDPL</em> uses <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instances to describe the individual rings of a molecular graph which are themselves stored in <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FragmentList.html">Chem.FragmentList</a> instances for the
-representation of complete ring sets.</p>
+<p>The <em>Smallest Set of Smallest Rings (SSSR)</em> of a molecular graph is a so-called <em>Minimal Cycle Basis</em>
+whose knowledge is a prerequisite for a wide variety of cheminfornatics algorithms (more information on this
+matter can be found <a class="reference external" href="https://depth-first.com/articles/2020/08/31/a-smallest-set-of-smallest-rings/">here</a>).
+Cycles of a molecular graph can be considered as simple substructures each comprising a distinct
+subset of the overall atoms and bonds. For this reason, the <em>CDPL</em> uses memory-efficient
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instances to specify the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances that constitute a cycle and ring sets (like the SSSR) are represented by <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FragmentList.html">Chem.FragmentList</a> instances which store light-weight pointers to the
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instances describing the cycles.
+For the perception of the SSSR of a molecular graph the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the function
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aa230c0768046e81d53cd5ed515d2360d">Chem.perceiveSSSR()</a> which expects the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as first argument and the value of the
+<em>overwrite</em> flag (see section <a class="reference internal" href="#implicit-hydrogen-count-calculation">Implicit Hydrogen Count Calculation</a> for information) as second argument. The
+perceived SSSR gets stored as value (of type <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FragmentList.html">Chem.FragmentList</a>) of the property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">Chem.MolecularGraphProperty.SSSR</a> for later use.</p>
+<p>Example: Perception of the SSSR of Morphine</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">morphine</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;CN1CC[C@]23C4=C5C=CC(O)=C4O[C@H]2[C@@H](O)C=C[C@H]3[C@H]1C5&#39;</span><span class="p">)</span>
 
 <span class="n">morphine</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_171_0.svg" src="../_images/cdpl_python_tutorial_171_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_172_0.svg" src="../_images/cdpl_python_tutorial_172_0.svg" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">morphine</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
 <span class="n">Chem</span><span class="o">.</span><span class="n">getSSSR</span><span class="p">(</span><span class="n">morphine</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/cdpl_python_tutorial_172_0.svg" src="../_images/cdpl_python_tutorial_172_0.svg" />
+<img alt="../_images/cdpl_python_tutorial_173_0.svg" src="../_images/cdpl_python_tutorial_173_0.svg" />
 </section>
 <section id="atom-and-bond-aromaticity-perception">
 <h3><span class="section-number">4.7.5. </span>Atom and Bond Aromaticity Perception<a class="headerlink" href="#atom-and-bond-aromaticity-perception" title="Link to this heading"></a></h3>
+<p>Information about the membership of an atom or bond in an aromatic ring system of the molecular graph gets stored as boolean value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1AtomProperty.html">Chem.AtomProperty.AROMATICITY_FLAG</a> and the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">Chem.BondProperty.AROMATICITY_FLAG</a>, respectively. For the perception of atom/bond aromaticity the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a>
+package provides the function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a041765889242bbc38a22d97ae7e35e62">Chem.setAromaticityFlags()</a> which expects the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> instance as
+first argument and the value of the <em>overwrite</em> flag (see section <a class="reference internal" href="#implicit-hydrogen-count-calculation">Implicit Hydrogen Count Calculation</a> for
+information) as second argument.</p>
+<p>Example: Perception of aromatic atoms and bonds of LSD</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lsd</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">parseSMILES</span><span class="p">(</span><span class="s1">&#39;CCN(CC)C(=O)[C@H]1CN([C@@H]2Cc3c[nH]c4c3c(ccc4)C2=C1)C&#39;</span><span class="p">)</span>
+
+<span class="n">lsd</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_175_0.svg" src="../_images/cdpl_python_tutorial_175_0.svg" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">calcImplicitHydrogenCounts</span><span class="p">(</span><span class="n">lsd</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">Chem</span><span class="o">.</span><span class="n">perceiveSSSR</span><span class="p">(</span><span class="n">lsd</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">Chem</span><span class="o">.</span><span class="n">setAromaticityFlags</span><span class="p">(</span><span class="n">lsd</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">arom_atoms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">arom_bonds</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">lsd</span><span class="o">.</span><span class="n">atoms</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getAromaticityFlag</span><span class="p">(</span><span class="n">atom</span><span class="p">):</span>
+        <span class="n">arom_atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lsd</span><span class="o">.</span><span class="n">getAtomIndex</span><span class="p">(</span><span class="n">atom</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">bond</span> <span class="ow">in</span> <span class="n">lsd</span><span class="o">.</span><span class="n">bonds</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">Chem</span><span class="o">.</span><span class="n">getAromaticityFlag</span><span class="p">(</span><span class="n">bond</span><span class="p">):</span>
+        <span class="n">arom_bonds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lsd</span><span class="o">.</span><span class="n">getBondIndex</span><span class="p">(</span><span class="n">bond</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Aromatic atoms: </span><span class="si">{</span><span class="n">arom_atoms</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Aromatic bonds: </span><span class="si">{</span><span class="n">arom_bonds</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Aromatic atoms: [12, 13, 14, 15, 16, 17, 18, 19, 20]
+Aromatic bonds: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+</pre></div>
+</div>
+<p>The function <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a041765889242bbc38a22d97ae7e35e62">Chem.setAromaticityFlags()</a> also sets the value of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> property
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphProperty.html">Chem.MolecularGraphProperty.AROMATIC_SUBSTRUCTURE</a> which is a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> instance that specifies the subset
+of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">Chem.Bond</a> instances that are part of an aromatic ring system:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Chem</span><span class="o">.</span><span class="n">getAromaticSubstructure</span><span class="p">(</span><span class="n">lsd</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/cdpl_python_tutorial_178_0.svg" src="../_images/cdpl_python_tutorial_178_0.svg" />
 </section>
 <section id="molecular-graph-component-perception">
 <h3><span class="section-number">4.7.6. </span>Molecular Graph Component Perception<a class="headerlink" href="#molecular-graph-component-perception" title="Link to this heading"></a></h3>
