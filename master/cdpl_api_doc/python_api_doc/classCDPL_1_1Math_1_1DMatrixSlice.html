@@ -185,11 +185,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae00a2f5c26fc879c1ebe93d0112c42da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the multiplication operation <code>self * e</code>.  <a href="classCDPL_1_1Math_1_1DMatrixSlice.html#ae00a2f5c26fc879c1ebe93d0112c42da">More...</a><br /></td></tr>
 <tr class="separator:ae00a2f5c26fc879c1ebe93d0112c42da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a842fcc1cb64b307ec584002ed05a2ddb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstDMatrixExpression.html">ConstDMatrixExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1DMatrixSlice.html#a842fcc1cb64b307ec584002ed05a2ddb">__div__</a> (float t)</td></tr>
-<tr class="memdesc:a842fcc1cb64b307ec584002ed05a2ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the division operation <code>self / t</code>.  <a href="classCDPL_1_1Math_1_1DMatrixSlice.html#a842fcc1cb64b307ec584002ed05a2ddb">More...</a><br /></td></tr>
+<tr class="memdesc:a842fcc1cb64b307ec584002ed05a2ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the division operation <code>self // t</code>.  <a href="classCDPL_1_1Math_1_1DMatrixSlice.html#a842fcc1cb64b307ec584002ed05a2ddb">More...</a><br /></td></tr>
 <tr class="separator:a842fcc1cb64b307ec584002ed05a2ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9fd2cd723198927a0fb35331ccbbeeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstDMatrixExpression.html">ConstDMatrixExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1DMatrixSlice.html#ae9fd2cd723198927a0fb35331ccbbeeb">__truediv__</a> (float t)</td></tr>
+<tr class="memdesc:ae9fd2cd723198927a0fb35331ccbbeeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the <em>true</em> division operation <code>self / t</code>.  <a href="classCDPL_1_1Math_1_1DMatrixSlice.html#ae9fd2cd723198927a0fb35331ccbbeeb">More...</a><br /></td></tr>
 <tr class="separator:ae9fd2cd723198927a0fb35331ccbbeeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48a0aa31d1c57f21310f7d5c8673ae6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstDMatrixExpression.html">ConstDMatrixExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1DMatrixSlice.html#a48a0aa31d1c57f21310f7d5c8673ae6b">__rmul__</a> (float t)</td></tr>
+<tr class="memdesc:a48a0aa31d1c57f21310f7d5c8673ae6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the multiplication operation <code>t * self</code>.  <a href="classCDPL_1_1Math_1_1DMatrixSlice.html#a48a0aa31d1c57f21310f7d5c8673ae6b">More...</a><br /></td></tr>
 <tr class="separator:a48a0aa31d1c57f21310f7d5c8673ae6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2673df79a62ece6aaa95909ce89f1d4"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1DMatrixSlice.html#ad2673df79a62ece6aaa95909ce89f1d4">__setitem__</a> (tuple ij, float v)</td></tr>
 <tr class="separator:ad2673df79a62ece6aaa95909ce89f1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1154,7 +1156,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the result of the division operation <code>self / t</code>. </p>
+<p>Returns the result of the division operation <code>self // t</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Specifies the divisor. </td></tr>
@@ -1180,13 +1182,15 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the result of the <em>true</em> division operation <code>self / t</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">t</td><td>Specifies the divisor. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>ConstDMatrixExpression</code> instance holding the result of the division. </dd></dl>
 
 </div>
 </div>
@@ -1205,13 +1209,15 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the result of the multiplication operation <code>t * self</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">t</td><td>Specifies the multiplicand. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>ConstDMatrixExpression</code> instance holding the result of the multiplication. </dd></dl>
 
 </div>
 </div>

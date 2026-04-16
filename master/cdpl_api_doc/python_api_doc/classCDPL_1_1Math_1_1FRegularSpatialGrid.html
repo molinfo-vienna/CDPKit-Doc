@@ -297,11 +297,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a28ddd94ce6f1ab2c0b504503aad03ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the multiplication operation <code>self * t</code>.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a28ddd94ce6f1ab2c0b504503aad03ff1">More...</a><br /></td></tr>
 <tr class="separator:a28ddd94ce6f1ab2c0b504503aad03ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c5bed785e679176c61ca859c53c865"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstFGridExpression.html">ConstFGridExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a48c5bed785e679176c61ca859c53c865">__div__</a> (float t)</td></tr>
-<tr class="memdesc:a48c5bed785e679176c61ca859c53c865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the division operation <code>self / t</code>.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a48c5bed785e679176c61ca859c53c865">More...</a><br /></td></tr>
+<tr class="memdesc:a48c5bed785e679176c61ca859c53c865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the division operation <code>self // t</code>.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a48c5bed785e679176c61ca859c53c865">More...</a><br /></td></tr>
 <tr class="separator:a48c5bed785e679176c61ca859c53c865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7dbccc55737da00fa4daff84216909c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstFGridExpression.html">ConstFGridExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#af7dbccc55737da00fa4daff84216909c">__truediv__</a> (float t)</td></tr>
+<tr class="memdesc:af7dbccc55737da00fa4daff84216909c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the <em>true</em> division operation <code>self / t</code>.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#af7dbccc55737da00fa4daff84216909c">More...</a><br /></td></tr>
 <tr class="separator:af7dbccc55737da00fa4daff84216909c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ed0dbb9337fa781fd566b4531e9b814"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstFGridExpression.html">ConstFGridExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a7ed0dbb9337fa781fd566b4531e9b814">__rmul__</a> (float t)</td></tr>
+<tr class="memdesc:a7ed0dbb9337fa781fd566b4531e9b814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the multiplication operation <code>t * self</code>.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a7ed0dbb9337fa781fd566b4531e9b814">More...</a><br /></td></tr>
 <tr class="separator:a7ed0dbb9337fa781fd566b4531e9b814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af81b5e9fa58fb962614df748f2d738d5"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#af81b5e9fa58fb962614df748f2d738d5">__setitem__</a> (tuple ijk, float v)</td></tr>
 <tr class="separator:af81b5e9fa58fb962614df748f2d738d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2906,7 +2908,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the result of the division operation <code>self / t</code>. </p>
+<p>Returns the result of the division operation <code>self // t</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Specifies the divisor. </td></tr>
@@ -2934,13 +2936,15 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the result of the <em>true</em> division operation <code>self / t</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">t</td><td>Specifies the divisor. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>ConstFGridExpression</code> instance holding the result of the division. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FRegularGrid.html#ae4a690d4f6fe3f3864ba2dc22739dbf7">CDPL.Grid.FRegularGrid</a>.</p>
 
@@ -2961,13 +2965,15 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the result of the multiplication operation <code>t * self</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">t</td><td></td></tr>
+    <tr><td class="paramname">t</td><td>Specifies the multiplicand. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>ConstFGridExpression</code> instance holding the result of the multiplication. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FRegularGrid.html#a2403e06d69bb218c5511d07388b6b901">CDPL.Grid.FRegularGrid</a>.</p>
 
