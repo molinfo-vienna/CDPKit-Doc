@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. Installing the CDPL Python Bindings &mdash; CDPKit 1.3.0.dev1 documentation</title>
+  <title>1. Installing the CDPL Python Bindings &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=41a6cf89"></script>
+        <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/tabs.js?v=3ee01567"></script>
@@ -178,7 +178,7 @@ together with a brief description of the kind of functionality they provide:</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Base.html">CDPL.Base</a></p></td>
-<td><p>Core classes defining a software framework for functionality implemented in the other CDPL packages</p></td>
+<td><p>Core classes defining a software framework for functionality implemented in other CDPL packages</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Util.html">CDPL.Util</a></p></td>
 <td><p>Implementations of useful general purpose algorithms, containers, function objects and free functions</p></td>
@@ -187,7 +187,7 @@ together with a brief description of the kind of functionality they provide:</p>
 <td><p>Data structures, algorithms and functions related to mathematics</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a></p></td>
-<td><p>Infrastructure for the in-memory representation, I/O and basic processing of molecular
+<td><p>Infrastructure for the representation, I/O and basic processing of molecular
 structures and reactions</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1MolProp.html">CDPL.MolProp</a></p></td>
@@ -260,9 +260,9 @@ is not only tedious to write but also hard to read and error prone. Therefore, e
 properties also provides four free functions (at package level) per property that encapsulate the
 low-level <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> method calls. These functions internally not only specify the correct property
 key and value type but also constrain the type of the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a>
-subclass the property has been introduced for. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">CDPL.Chem.setOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad021960310274a588d47cb4f2d25098c">CDPL.Chem.hasOrder()</a>
-and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aedc63dddcd7838a82e1327dec7ca5504">CDPL.Chem.clearOrder()</a> represent an example of such four functions that are provided
-for the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">CDPL.Chem.BondProperty.ORDER</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances using integer as value type.
+subclass the property is associated with. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ab4460ac3bac716de49c744c52d980181">CDPL.Chem.setOrder()</a>, <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#ad021960310274a588d47cb4f2d25098c">CDPL.Chem.hasOrder()</a>
+and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#aedc63dddcd7838a82e1327dec7ca5504">CDPL.Chem.clearOrder()</a> are an example of such four functions that are provided
+for the property <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1BondProperty.html">CDPL.Chem.BondProperty.ORDER</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances with integer being the value type.
 Using property getter functions (like <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html#a2a3103e8e0338219a5703da063cd3ef5">CDPL.Chem.getOrder()</a>) has the additional benefit that they will, if one
 has been defined, automatically return a default value for unset properties. Defined property default values are
 exported and accessible as static attributes of classes that follow the naming scheme
@@ -286,23 +286,21 @@ scheme <em>CDPL.&lt;PN&gt;.ControlParameter</em> (&lt;PN&gt; = CDPL sub-package 
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1PropertyContainer.html">CDPL.Base.PropertyContainer</a> but also offers methods (<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#ac6b8c89fead591acfcdc6d31996a3b84">setParent()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a9d4db56fae26568869b283896b10171a">getParent()</a>) that allow to connect
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html">CDPL.Base.ControlParameterContainer</a> instances in a parent-child manner. This way tree-like hierarchies of
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html">CDPL.Base.ControlParameterContainer</a> instances for resolving parameter value requests can be built.
-If a requested parameter value is not stored in a given container, the request gets automatically forwarded to the
-registered parent container which may again forward the request to its parent until a value is found or the root of
-the tree has been reached. Furthermore, methods are provided which allow the registration of user-defined functions
-or function objects that get called on events such as parameter value change (methods
+If a requested parameter value is not stored in a given container then the request is automatically forwarded
+to the registered parent container which may again forward the request to its parent until a value is found or
+the root of the tree has been reached. Furthermore, methods are provided which allow the registration of
+user-defined functions or function objects that get called on events such as parameter value change (methods
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a18609f39cfa56248ac4191a1a24740cc">registerParameterChangedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#ac4130ab4db30b557cc3cbe536c747cea">unregisterParameterChangedCallback()</a>), parameter value removal
 (methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a59d55eed967a82380c8b2ed2cd40405b">registerParameterRemovedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#a6e8209de7f5cfb7a7b3f94cf109b0156">unregisterParameterRemovedCallback()</a>) and parent change
 (methods <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#acf09cf417dfc41787e89825762bb2e32">registerParentChangedCallback()</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1ControlParameterContainer.html#aca5b0565223043518608dd7a84cb5e0f">unregisterParentChangedCallback()</a>).</p>
-<p>A notable difference between dynamic properties and control-parameters is that the latter always possess a default value which
-gets returned by the associated getter function if a parameter value has not been explicitly set.
+<p>A notable difference between dynamic properties and control-parameters is that the latter always possess a default value which gets returned by the associated getter function if a parameter value has not been explicitly set.
 Control-parameter default values are exported and accessible as static attributes of classes that follow the
 naming scheme <em>CDPL.&lt;PN&gt;.ControlParameterDefault</em> (<em>&lt;PN&gt;</em> = CDPL sub-package name; example:
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1ControlParameterDefault.html">CDPL.Chem.ControlParameterDefault</a>).</p>
 </section>
 <section id="data-i-o-framework">
 <h2><span class="section-number">3.3. </span>Data I/O Framework<a class="headerlink" href="#data-i-o-framework" title="Link to this heading"></a></h2>
-<p>Classes implementing the input/output of data of a certain type in a particular format (e.g. molecular structures in SD-file format)
-are derived from abstract base classes that follow the naming scheme
+<p>Classes implementing the input/output of data of a certain type in a particular format (e.g. molecular structures in SD-file format) are derived from abstract base classes that follow the naming scheme
 <em>CDPL.&lt;PN&gt;.&lt;DT&gt;ReaderBase</em> and  <em>CDPL.&lt;PN&gt;.&lt;DT&gt;WriterBase</em>, respectively. <em>&lt;PN&gt;</em> denotes the CDPL sub-package
 name and <em>&lt;DT&gt;</em> is the name of the data type to read or write (e.g. classes <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReaderBase.html">CDPL.Chem.MoleculeReaderBase</a> and
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriterBase.html">CDPL.Chem.MolecularGraphWriterBase</a>).
@@ -317,21 +315,23 @@ the data type to read or write (e.g. <a class="reference external" href="https:/
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> as argument to their constructor.
 These stream-based I/O classes represent abstract storage devices which allow the same code to handle I/O to files,
 in-memory strings, or custom adaptor devices that perform arbitrary operations (e.g. compression) on the fly.
-Concrete types of storage devices are implemented by dedicated subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a>
-such as class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">CDPL.Base.FileIOStream</a> for file I/O and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">CDPL.Base.StringIOStream</a> for in-memory string data I/O, respectively.</p>
-<p>Since files represent the most dealt-with kind of data storage, file I/O-specific variants of reader/writer classes
+Concrete types of storage devices are implemented by dedicated subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a> and
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> such as class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">CDPL.Base.FileIOStream</a> for file I/O and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1StringIOStream.html">CDPL.Base.StringIOStream</a>
+for in-memory string data I/O, respectively.</p>
+<p>Since files represent the most common kind of data storage, file I/O-specific variants of reader/writer classes
 are provided that make reading/writing data from/to files more convenient. These classes follow the naming scheme
 <em>CDPL.&lt;PN&gt;.File&lt;FID&gt;&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.File&lt;FID&gt;&lt;DT&gt;Writer</em> (for the meaning of <em>&lt;PN&gt;</em>, <em>&lt;FID&gt;</em> and
 <em>&lt;DT&gt;</em> see text above). Instead of an instance of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> they accept the path
 to a file as constructor argument and thus circumvent the need to explicitly create and manage instances of class
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1FileIOStream.html">CDPL.Base.FileIOStream</a>.</p>
-<p>Each data format implemented by the CDPL is described by an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> which
+<p>Each data format implemented in the CDPL is described by an instance of class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> which
 stores and gives access to relevant format-specific information such as common file-extensions or mime-type.
 Pre-defined data format descriptors are exported as static attributes of classes following the naming scheme
 <em>CDPL.&lt;PN&gt;.DataFormat</em> where <em>&lt;PN&gt;</em> is the name of the CDPL sub-package implementing the format (e.g. <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1DataFormat.html">CDPL.Chem.DataFormat</a>).</p>
-<p>The link between a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance describing a particular data format and associated classes implementing the
-reading/writing of data in this format gets established by dedicated input- and output-handler classes. These classes provide
-factory methods to create a reader/writer class instance for a given file path or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance and follow the naming scheme
+<p>The link between a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance describing a particular data format and associated classes
+implementing the reading/writing of data in this format gets established by dedicated input- and output-handler
+classes. These classes provide factory methods to create a reader/writer class instance for a given file path or
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance and follow the naming scheme
 <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;InputHandler</em> and <em>CDPL.&lt;PN&gt;.&lt;FID&gt;&lt;DT&gt;OutputHandler</em>, respectively (for the meaning of <em>&lt;PN&gt;</em>,
 <em>&lt;FID&gt;</em> and <em>&lt;DT&gt;</em> see text above; examples: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SDFMoleculeInputHandler.html">CDPL.Chem.SDFMoleculeInputHandler</a>,
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1SMILESMolecularGraphOutputHandler.html">CDPL.Chem.SMILESMolecularGraphOutputHandler</a>). For each data format supported by the CDPL an input- and/or
@@ -339,27 +339,28 @@ output-handler class instance is registered at a data type-specific singleton cl
 <em>CDPL.&lt;PN&gt;.&lt;DT&gt;IOManager</em> (for the meaning of <em>&lt;PN&gt;</em> and <em>&lt;DT&gt;</em> see text above; example:
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeIOManager.html">CDPL.Chem.MoleculeIOManager</a>). Amongst others, the I/O manager classes provide methods to lookup a
 registered handler instance for a given file extension, mime-type or <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> object. This way it is
-possible to, e.g., write code that creates a reader class instance for the input of data from a file where the a
-ctual data format is determined lateron at runtime.
+possible to, e.g., write code that creates a reader class instance for the input of data from a file where the
+actual data format is determined lateron at runtime.
 In order to facilitate the writing of data format-independent code the CDPL provides special reader and writer
-classes that perform the runtime lookup of a suitable input/output handler and reader/writer class
-instantiation automatically. The classes follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Reader</em> and <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Writer</em>,
-respectively (examples: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">CDPL.Chem.MoleculeReader</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">CDPL.Chem.MolecularGraphWriter</a>). The constructors of the
-classes expect the data source/sink to be provided as a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance or specified
-as path to a file. If a file path is specified it is attempted to deduce the data format from the file name’s
-extension. Optionally, a characteristic file extension string or a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance can be provided in
-case the file extension is missing or unknown to the CDPL. If the data source/sink is provided as a
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance then the explicit specification of the data format is mandatory.</p>
+classes that perform the runtime lookup of a suitable input/output handler and the reader/writer class
+instantiation automatically. The classes follow the naming scheme <em>CDPL.&lt;PN&gt;.&lt;DT&gt;Reader</em> and
+<em>CDPL.&lt;PN&gt;.&lt;DT&gt;Writer</em>, respectively (examples: <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MoleculeReader.html">CDPL.Chem.MoleculeReader</a> and
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraphWriter.html">CDPL.Chem.MolecularGraphWriter</a>). The constructors of the classes expect the data source/sink to be provided as
+a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance or specified as path to a file. If a file path is specified
+it is attempted to deduce the data format from the file extension. Optionally, a characteristic file extension
+string or a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1DataFormat.html">CDPL.Base.DataFormat</a> instance can be provided in case the file extension is missing or unknown to
+the CDPL. If the data source/sink is provided as a <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1IStream.html">CDPL.Base.IStream</a>/<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Base_1_1OStream.html">CDPL.Base.OStream</a> instance then the
+explicit specification of the data format is mandatory.</p>
 </section>
 </section>
 <section id="working-with-molecules">
 <h1><span class="section-number">4. </span>Working with Molecules<a class="headerlink" href="#working-with-molecules" title="Link to this heading"></a></h1>
 <section id="in-memory-representation-of-molecular-structures">
 <h2><span class="section-number">4.1. </span>In-memory Representation of Molecular Structures<a class="headerlink" href="#in-memory-representation-of-molecular-structures" title="Link to this heading"></a></h2>
-<p>The CDPL models molecular structures as undirected graphs where atoms represent the graph nodes and bonds the edges.
-Concrete data structures for the in-memory representation of atoms,
-bonds and molecular graphs implement a hierarchy of interfaces (abstract classes) that specify all necessary methods
-for common operations like atom/bond addition, removal, access, membership testing, counting, and so on.</p>
+<p>The CDPL models molecular structures as undirected graphs where atoms represent the vertices of the graph and
+bonds the edges.
+Concrete data structures for the in-memory representation of atoms, bonds and molecular graphs implement a hierarchy of interfaces (abstract classes) that specify all necessary methods for common operations like
+atom/bond addition, removal, access, membership testing, counting, and so forth.</p>
 <p>The following table provides an overview of the most relevant interfaces and data structures provided by the
 CDPL for molecular data representation and processing:</p>
 <table class="docutils align-default">
@@ -454,13 +455,14 @@ more <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_
 Adding atoms and bonds by calling dedicated methods (see next section) will create new
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> and <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> objects which from that point on are owned and managed by the
 creating <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> instance. For the specification of arbitrary sets of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> and
-<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a>  objects that belong to one or more <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> instance(s) the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package provides the
-class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a>. Like <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a>, this class also offers methods for adding
-atoms and bonds except that the methods of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> expect existing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> or
+<a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a>  objects that belong to one or more <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> instance(s) the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Chem.html">CDPL.Chem</a> package
+provides the class <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a>. As <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> this class also offers methods for adding
+atoms and bonds with the exception that the methods of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> expect existing <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Atom.html">CDPL.Chem.Atom</a> or
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Bond.html">CDPL.Chem.Bond</a> instances as argument. These do not get stored as copies but as light-weight references to the
 original instances which can be retrieved lateron by methods for atom/bond access.
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">CDPL.Chem.Molecule</a> as well as <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Fragment.html">CDPL.Chem.Fragment</a> are subclasses of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> and
-instances of both can be processed in the same way by any code that operates on <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a> objects.</p>
+their instances thus can be processed in the same way by any code that operates on <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL.Chem.MolecularGraph</a>
+objects.</p>
 </section>
 <section id="basic-operations-on-molecule-objects">
 <h2><span class="section-number">4.3. </span>Basic Operations on <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> Objects<a class="headerlink" href="#basic-operations-on-molecule-objects" title="Link to this heading"></a></h2>
@@ -470,9 +472,9 @@ instances of both can be processed in the same way by any code that operates on 
 </div>
 <p>By the import line above the code in the remainder of this tutorial can conveniently access all package contents
 via the prefix <em>Chem.*</em>.</p>
-<p>Furthermore, the <em>CDPL Python</em> bindings implement the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> and
+<p>Furthermore, the CDPL Python bindings implement the <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/plotting.html">Rich Output</a> of <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> and
 <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/classCDPL_1_1Chem_1_1FragmentList.html">Chem.FragmentList</a> instances in Jupyter notebooks. Rich output is activated by importing the <a class="reference external" href="https://cdpkit.org/cdpl_api_doc/python_api_doc/namespaceCDPL_1_1Vis.html">CDPL.Vis</a>
-package and will be used in the following code snippets to display the skeletal formula of molecular graphs
+package and will be used in the remainder of this tutorial to display the skeletal formula of molecular graphs
 simply by typing the variable name at the end of a code cell.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">CDPL.Vis</span>
 </pre></div>
