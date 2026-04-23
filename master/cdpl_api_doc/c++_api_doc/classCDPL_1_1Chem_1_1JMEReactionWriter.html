@@ -273,7 +273,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A writer for reaction data in the native I/O format of the <em>JME Molecular Editor</em> [<a class="el" href="References.html#JME">JME</a>] java applet. </p>
 <p><code>JMEReactionWriter</code> implements the output of <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> objects in the native I/O format used by the <em>JME Molecular Editor</em> applet. The output data are written by means of a <code>std::ostream</code> object that was provided to the <code>JMEReactionWriter</code> constructor.</p>
-<p>Atom and bond attributes that get written for a component of the output reaction are defined by the following <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a>, <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> and <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html" title="A common interface for data-structures that support a random access to stored Chem::Bond instances.">Chem::BondContainer</a> properties:</p>
+<p>Atom and bond attributes that get written for a component of the output reaction are defined by the following <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> and <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> properties:</p>
 <table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
 <tr bgcolor="#DDDDDD" align="center" valign="middle">
 <th><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> Property </th><th>Description </th><th>Notes  </th></tr>
@@ -296,19 +296,14 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td>Chem::AtomProperty::REACTION_ATOM_MAPPING_ID </td><td>Specifies the reactant to product atom mapping class </td><td>Only written if the specified mapping number is greater than zero  </td></tr>
 </table>
-<table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
+<p><br  />
+ </p><table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
 <tr bgcolor="#DDDDDD" align="center" valign="middle">
 <th><a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> Property </th><th>Description </th><th>Notes  </th></tr>
 <tr>
 <td><a class="el" href="namespaceCDPL_1_1Chem_1_1BondProperty.html#ad2020d267e91be4101f2845484e4977f">Chem::BondProperty::ORDER</a> </td><td>Specifies the order of the bond </td><td align="center">-  </td></tr>
 <tr>
 <td>Chem::BondProperty::STEREO_FLAG </td><td>Specifies the 2D stereo bond type (see <a class="el" href="namespaceCDPL_1_1Chem_1_1BondStereoFlag.html" title="Provides constants for the specification of stereo bonds in 2D depictions of chemical structures.">Chem::BondStereoFlag</a>) </td><td>Either stereo bonds are not supported by the <em>JME</em> format and are written as plain single bonds  </td></tr>
-</table>
-<table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
-<tr bgcolor="#DDDDDD" align="center" valign="middle">
-<th><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html" title="A common interface for data-structures that support a random access to stored Chem::Bond instances.">Chem::BondContainer</a> Property </th><th>Description </th><th>Notes  </th></tr>
-<tr>
-<td>Chem::BondContainerProperty::HEAVY_BOND_COUNT </td><td>Specifies the heavy bond count of the atoms </td><td>Only written if the atom is a query atom and a corresponding matching constraint has been specified  </td></tr>
 </table>
 <p>Beside the editing of conventional chemical structures, the <em>JME</em> applet allows to some extent the specification of atom matching constraints for the definition of substructure search queries. If an atom of a component of the output reaction specifies any constraints by a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem::MatchConstraintList</a> data structure that has been assigned to the property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a684dae48f242c6c58ffbaad9e09244a1">Chem::AtomProperty::MATCH_CONSTRAINTS</a>, an attempt is made to convert the contained <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="MatchConstraint.">Chem::MatchConstraint</a> objects to equivalent <em>JME</em> query expression primitives.</p>
 <p>Different types of constraints specified by <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="MatchConstraint.">Chem::MatchConstraint</a> instances and the corresponding <em>JME</em> expression primitives are listed in the table below (<em>&lt;n&gt;</em> denotes a positive integer value and <em>&lt;S&gt;</em> the symbol of a chemical element; * the value is either provided by the <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="MatchConstraint.">Chem::MatchConstraint</a> instance (see <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html#a396ffd7346ad646e1f07ab3f126ed278" title="Returns the value of the query attribute.">Chem::MatchConstraint::getValue()</a>) or, if no value has been set, by the property specified in parentheses):</p>
