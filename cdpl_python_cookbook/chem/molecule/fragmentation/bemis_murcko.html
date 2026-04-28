@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.1.2.3. Bemis-Murcko Framework Analysis &mdash; CDPKit 1.2.3 documentation</title>
+  <title>1.1.2.3. Bemis-Murcko Framework Analysis &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=bd7b91d8" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../../../../_static/favicon.svg"/>
@@ -19,7 +19,7 @@
   
         <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../../../../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../../_static/tabs.js?v=3ee01567"></script>
@@ -57,13 +57,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../applications/index.html">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">CDPL Python Cookbook</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">1. Processing of Chemical Data</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">1. Basic Processing of Molecules and Reactions</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">1.1. Molecules</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../io/index.html">1.1.1. Input and Output</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="index.html">1.1.2. Fragmentation and Extraction of Substructures</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../standardization/index.html">1.1.3. Structure Standardization, Curation and Database Preparation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../substruct_search/index.html">1.1.4. Substructure Search</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../isomer_enum/index.html">1.1.5. Generation of Isomers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../misc/index.html">1.1.4. Miscellaneous</a></li>
 </ul>
 </li>
 </ul>
@@ -73,6 +72,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../forcefield/index.html">6. Force Field Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../shape/index.html">7. Molecular Shape Analysis and Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../vis/index.html">8. Visualization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
@@ -97,7 +98,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">CDPL Python Cookbook</a></li>
-          <li class="breadcrumb-item"><a href="../../index.html"><span class="section-number">1. </span>Processing of Chemical Data</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html"><span class="section-number">1. </span>Basic Processing of Molecules and Reactions</a></li>
           <li class="breadcrumb-item"><a href="../index.html"><span class="section-number">1.1. </span>Molecules</a></li>
           <li class="breadcrumb-item"><a href="index.html"><span class="section-number">1.1.2. </span>Fragmentation and Extraction of Substructures</a></li>
       <li class="breadcrumb-item active"><span class="section-number">1.1.2.3. </span>Bemis-Murcko Framework Analysis</li>
@@ -111,9 +112,9 @@
            <div itemprop="articleBody">
              
   <section id="bemis-murcko-framework-analysis">
-<h1><span class="section-number">1.1.2.3. </span>Bemis-Murcko Framework Analysis<a class="headerlink" href="#bemis-murcko-framework-analysis" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1><span class="section-number">1.1.2.3. </span>Bemis-Murcko Framework Analysis<a class="headerlink" href="#bemis-murcko-framework-analysis" title="Link to this heading"></a></h1>
 <p>The script <em>gen_bm_frags.py</em> analyzes the framework of input molecules according to the rules established by Bemis and
-Murcko <span id="id1">[<a class="reference internal" href="../../../../bibliography.html#id22" title="Guy W. Bemis and Mark A. Murcko. The properties of known drugs. 1. molecular frameworks. Journal of Medicinal Chemistry, 39(15):2887-2893, 1996. PMID: 8709122. URL: https://doi.org/10.1021/jm9602928, arXiv:https://doi.org/10.1021/jm9602928, doi:10.1021/jm9602928.">17</a>]</span>.</p>
+Murcko <span id="id1">[<a class="reference internal" href="../../../../bibliography.html#id24" title="Guy W. Bemis and Mark A. Murcko. The properties of known drugs. 1. molecular frameworks. Journal of Medicinal Chemistry, 39(15):2887-2893, 1996. PMID: 8709122. URL: https://doi.org/10.1021/jm9602928, arXiv:https://doi.org/10.1021/jm9602928, doi:10.1021/jm9602928.">19</a>]</span>.</p>
 <p><strong>Synopsis</strong></p>
 <blockquote>
 <div><p><strong class="program">python</strong> <em>gen_bm_frags.py</em> [-h] -i &lt;file&gt; -o &lt;file&gt; [-v] [-m] [-H] [-f &lt;true|false&gt;] [-r] [-s] [-l] [-x] [-c]</p>
@@ -311,7 +312,7 @@ Murcko <span id="id1">[<a class="reference internal" href="../../../../bibliogra
 <span class="linenos">144</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: writing fragment of molecule </span><span class="si">{mol_id}</span><span class="s1"> failed&#39;</span><span class="p">)</span>
 <span class="linenos">145</span>
 <span class="linenos">146</span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe write errors</span>
-<span class="linenos">147</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing fragment of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
+<span class="linenos">147</span>            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: writing fragment of molecule </span><span class="si">{</span><span class="n">mol_id</span><span class="si">}</span><span class="s1"> failed:</span><span class="se">\n</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  
 <span class="linenos">148</span>
 <span class="linenos">149</span><span class="k">def</span> <span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="linenos">150</span>    <span class="n">args</span> <span class="o">=</span> <span class="n">parseArgs</span><span class="p">()</span> <span class="c1"># process command line arguments</span>
@@ -408,7 +409,7 @@ Murcko <span id="id1">[<a class="reference internal" href="../../../../bibliogra
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

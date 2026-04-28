@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CDPL Python Tutorial &mdash; CDPKit 1.2.3 documentation</title>
+  <title>CDPL Python Tutorial &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=bd7b91d8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/tabs.js?v=3ee01567"></script>
@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Molecular Input/Output" href="cdpl_python_tutorial.html" />
+    <link rel="next" title="1. Installing the CDPL Python Bindings" href="cdpl_python_tutorial.html" />
     <link rel="prev" title="ChOX" href="../applications/chox.html" /> 
 </head>
 
@@ -56,13 +56,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CDPL Python Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html">1. Molecular Input/Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#d-structure-and-conformer-ensemble-generation">2. 3D Structure and Conformer Ensemble Generation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-generation-and-processing">3. Pharmacophore Generation and Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-atom-properties">4. Calculation of Atom Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-molecular-structure-descriptors">5. Calculation of Molecular Structure Descriptors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#force-field-calculations">6. Force Field Calculations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#substructure-searching-and-matching">7. Substructure Searching and Matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html">1. Installing the CDPL Python Bindings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#cdpl-package-overview">2. CDPL Package Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#basic-concepts">3. Basic Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#working-with-molecules">4. Working with Molecules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cdpl_python_cookbook/index.html">CDPL Python Cookbook</a></li>
@@ -99,66 +96,78 @@
              
   <section id="cdpl-python-tutorial">
 <span id="index-0"></span><h1>CDPL Python Tutorial<a class="headerlink" href="#cdpl-python-tutorial" title="Link to this heading"></a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please install CDPKit before proceeding with the tutorial. Detailed installation instructions can be found in section
-<a class="reference internal" href="../installation.html"><span class="doc">Installing CDPKit</span></a>.</p>
-</div>
-<p>Welcome to the “Getting Started with Python” tutorial! If you’re familiar with cheminformatics
-libraries like RDKit, you’ll find that CDPKit offers a unique set of <a class="reference internal" href="../applications/index.html"><span class="doc">tools</span></a> and a feature-rich software development library that can take your
-computational drug design projects to new heights.</p>
-<p>The <em>Chemical Data Processing Library</em> (CDPL) serves as the basis for CDPKit’s own applications and provides powerful basic functionality for
-the development of advanced drug discovery applications.
-Whether you’re a researcher, a student, or an industry professional, this tutorial aims to introduce the basic concepts and
-functionalities of CDPKit, enabling you to harness its full potential.</p>
-<p>In the subsequent sections, we’ll walk you through the foundational concepts and dive into practical applications with hands-on examples.
-By the end, you’ll be well-equipped to incorporate CDPKit into your workflow and start crafting effective drug design solutions using Python.</p>
+<p>Welcome to the <em>Chemical Data Processing Library</em> (CDPL) Python tutorial!</p>
+<p>The CDPL serves as foundation for CDPKit’s own <a class="reference internal" href="../applications/index.html"><span class="doc">applications</span></a> and provides powerful basic functionality for
+the development of advanced cheminformatics and drug discovery software.</p>
+<p>The subsequent sections will introduce the most important concepts, core data structures and method/algorithm implementations
+by means of short theory sections and runnable code snippets. The tutorial is based on a Jupyter notebook
+which can be <a class="reference download internal" download="" href="../_downloads/999a5c790a46fa52bb4ccaef474e687a/cdpl_python_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">downloaded</span></code></a> and then executed step-by-step on your own computer.</p>
+<p>By the end, you’ll be well-equipped to start crafting your own drug design software solutions using the CDPL Python bindings.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>For a detailed description of a particular function, method or class please visit the <a class="reference external" href="../cdpl_api_doc/python_api_doc/index.html">CDPL Python API Documentation</a> pages.
 There is also a a powerful search tool on the top right corner of the page that you can use to find particular functions or modules within the documentation.</p>
 </div>
-<p>So, grab a coffee (or tea) and let’s embark on this exciting journey into the realm of computational drug design with CDPKit!</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html">1. Molecular Input/Output</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#reading-molecules-from-an-input-file">1.1. Reading molecules from an input file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#retrieving-structure-data-from-mdl-sd-files">1.2. Retrieving structure data from MDL SD-files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#writing-molecules-to-an-output-file">1.3. Writing molecules to an output file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#description-of-structural-atom-environments-as-smiles-strings">1.4. Description of structural atom environments as SMILES strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#chembl-molecule-standardization-and-parent-structure-extraction">1.5. ChEMBL molecule standardization and parent structure extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#standardization-prediction-of-protonation-states">1.6. Standardization/prediction of protonation states</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html">1. Installing the CDPL Python Bindings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#cdpl-package-overview">2. CDPL Package Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#basic-concepts">3. Basic Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#dynamic-properties">3.1. Dynamic Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#control-parameters">3.2. Control-Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#data-i-o-framework">3.3. Data I/O Framework</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#d-structure-and-conformer-ensemble-generation">2. 3D Structure and Conformer Ensemble Generation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#generating-single-low-energy-3d-structures">2.1. Generating single low-energy 3D structures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#generating-conformer-ensembles">2.2. Generating conformer ensembles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#working-with-molecules">4. Working with Molecules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#in-memory-representation-of-molecular-structures">4.1. In-memory Representation of Molecular Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#representation-of-molecule-substructures">4.2. Representation of Molecule Substructures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#basic-operations-on-molecule-objects">4.3. Basic Operations on Molecule Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#creation">4.3.1. Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#querying-atom-and-bond-counts">4.3.2. Querying Atom and Bond Counts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#creating-atoms-and-bonds">4.3.3. Creating Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#copying-atoms-and-bonds">4.3.4. Copying Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#accessing-atoms-and-bonds">4.3.5. Accessing Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#removing-all-atoms-and-bonds">4.3.6. Removing all Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#removing-single-atoms-and-bonds">4.3.7. Removing single Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#removing-multiple-atoms-and-bonds">4.3.8. Removing multiple Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#testing-atom-and-bond-ownership">4.3.9. Testing Atom and Bond Ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#retrieving-atom-and-bond-indices">4.3.10. Retrieving Atom and Bond Indices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#processing-bonds">4.3.11. Processing Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#processing-atom-connections">4.3.12. Processing Atom Connections</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-generation-and-processing">3. Pharmacophore Generation and Processing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-generation-for-single-conformer-molecules">3.1. Pharmacophore generation for single-conformer molecules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#pharmacophore-generation-for-multi-conformer-molecules">3.2. Pharmacophore generation for multi-conformer molecules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#generating-ligand-receptor-interaction-pharmacophores">3.3. Generating ligand-receptor interaction pharmacophores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#alignment-of-molecules-to-a-reference-pharmacophore">3.4. Alignment of molecules to a reference pharmacophore</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#retrieving-information-about-pharmacophores-and-features">3.5. Retrieving information about pharmacophores and features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#basic-operations-on-fragment-objects">4.4. Basic Operations on Fragment Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#id3">4.4.1. Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#adding-single-atoms-and-bonds">4.4.2. Adding single Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#adding-multiple-atoms-and-bonds">4.4.3. Adding multiple Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#exchanging-atom-and-bond-lists">4.4.4. Exchanging Atom and Bond Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#id4">4.4.5. Removing single Atoms and Bonds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#id5">4.4.6. Removing multiple Atoms and Bonds</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-atom-properties">4. Calculation of Atom Properties</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-atom-classification-properties">4.1. Calculation of atom classification properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-connectivity-properties">4.2. Calculation of connectivity properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#input-of-molecule-data">4.5. Input of Molecule Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#parsing-string-data">4.5.1. Parsing String Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#reading-data-files">4.5.2. Reading Data Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#sequential-molecule-access">4.5.3. Sequential Molecule Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#random-molecule-access">4.5.4. Random Molecule Access</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-molecular-structure-descriptors">5. Calculation of Molecular Structure Descriptors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#extended-connectivity-fingerprints-ecfps">5.1. Extended connectivity fingerprints (ECFPs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#fame-atom-environment-fingerprints">5.2. FAME atom environment fingerprints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#essential-properties">4.6. Essential Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#preparation-for-downstream-processing">4.7. Preparation for Downstream Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#implicit-hydrogen-count-calculation">4.7.1. Implicit Hydrogen Count Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#atomic-orbital-hybridization-perception">4.7.2. Atomic Orbital Hybridization Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#atom-and-bond-ring-membership-perception">4.7.3. Atom and Bond Ring Membership Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#sssr-perception">4.7.4. SSSR Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#atom-and-bond-aromaticity-perception">4.7.5. Atom and Bond Aromaticity Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#molecular-graph-component-perception">4.7.6. Molecular Graph Component Perception</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#all-in-one-property-calculation">4.7.7. All-in-one Property Calculation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#force-field-calculations">6. Force Field Calculations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#calculation-of-mmff94-atom-charges">6.1. Calculation of MMFF94 atom charges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#output-of-molecule-data">4.8. Output of Molecule Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#direct-string-output">4.8.1. Direct String Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdpl_python_tutorial.html#file-output">4.8.2. File Output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cdpl_python_tutorial.html#substructure-searching-and-matching">7. Substructure Searching and Matching</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cdpl_python_tutorial.html#filtering-molecules-based-on-a-smarts-pattern">7.1. Filtering molecules based on a SMARTS pattern</a></li>
 </ul>
 </li>
 </ul>
@@ -170,13 +179,13 @@ There is also a a powerful search tool on the top right corner of the page that 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../applications/chox.html" class="btn btn-neutral float-left" title="ChOX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cdpl_python_tutorial.html" class="btn btn-neutral float-right" title="1. Molecular Input/Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cdpl_python_tutorial.html" class="btn btn-neutral float-right" title="1. Installing the CDPL Python Bindings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

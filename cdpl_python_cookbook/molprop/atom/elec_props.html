@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3.1.4. Partial Charges And Other Electronic Properties &mdash; CDPKit 1.2.3 documentation</title>
+  <title>3.1.4. Partial Charges And Other Electronic Properties &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=bd7b91d8" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../../../_static/favicon.svg"/>
@@ -19,7 +19,7 @@
   
         <script src="../../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../../../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../../_static/tabs.js?v=3ee01567"></script>
@@ -57,7 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../applications/index.html">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">CDPL Python Cookbook</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../chem/index.html">1. Processing of Chemical Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chem/index.html">1. Basic Processing of Molecules and Reactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">3. Calculation of Molecule, Atom and Bond Properties</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">3.1. Atomic Properties</a><ul class="current">
@@ -68,11 +68,14 @@
 <li class="toctree-l4"><a class="reference internal" href="physchem_props.html">3.1.5. Physicochemical Properties</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../molecule/index.html">3.2. Molecular Properties</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../forcefield/index.html">6. Force Field Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shape/index.html">7. Molecular Shape Analysis and Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../vis/index.html">8. Visualization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
@@ -110,7 +113,7 @@
            <div itemprop="articleBody">
              
   <section id="partial-charges-and-other-electronic-properties">
-<h1><span class="section-number">3.1.4. </span>Partial Charges And Other Electronic Properties<a class="headerlink" href="#partial-charges-and-other-electronic-properties" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1><span class="section-number">3.1.4. </span>Partial Charges And Other Electronic Properties<a class="headerlink" href="#partial-charges-and-other-electronic-properties" title="Link to this heading"></a></h1>
 <p>The script <em>print_atom_elec_props.py</em> demonstrates how to iterate over the atoms of molecules
 read from a specified input file and calculate the following electronic atom properties:</p>
 <blockquote>
@@ -179,10 +182,10 @@ read from a specified input file and calculate the following electronic atom pro
 <span class="linenos">46</span>            <span class="k">try</span><span class="p">:</span>
 <span class="linenos">47</span>                <span class="n">outputProperties</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 <span class="linenos">48</span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="linenos">49</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">49</span>                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: processing of molecule failed:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 <span class="linenos">50</span>                
 <span class="linenos">51</span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1"># handle exception raised in case of severe read errors</span>
-<span class="linenos">52</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="linenos">52</span>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s1">&#39;Error: reading molecule failed:</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 <span class="linenos">53</span>
 <span class="linenos">54</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="linenos">55</span>        
@@ -204,7 +207,7 @@ read from a specified input file and calculate the following electronic atom pro
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

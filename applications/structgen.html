@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>structgen &mdash; CDPKit 1.2.3 documentation</title>
+  <title>structgen &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=bd7b91d8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/tabs.js?v=3ee01567"></script>
@@ -60,6 +60,7 @@
 <li class="toctree-l2"><a class="reference internal" href="psdmerge.html">psdmerge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="psdinfo.html">psdinfo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shapescreen.html">shapescreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simscreen.html">simscreen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subsearch.html">subsearch</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">structgen</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#synopsis">Synopsis</a></li>
@@ -109,7 +110,7 @@
            <div itemprop="articleBody">
              
   <section id="structgen">
-<h1>structgen<a class="headerlink" href="#structgen" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>structgen<a class="headerlink" href="#structgen" title="Link to this heading"></a></h1>
 <p>Performs 3D structure generation for a set of input molecules.</p>
 <p><strong class="program">structgen</strong> is similar to <strong class="program">confgen</strong> but has been designed for use-cases where
 a single reasonable low-energy 3D struture of a molecule is sufficient (which can be generated much
@@ -129,26 +130,26 @@ faster than a diverse conformer ensemble).</p>
 be generated.</p>
 <dl class="simple">
 <dt>Supported Input Formats:</dt><dd><ul class="simple">
-<li><p>JME Molecular Editor String (.jme)</p></li>
-<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Daylight SMILES String (.smi)</p></li>
-<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
-<li><p>Native CDPL-Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
-<li><p>Chemical Markup Language Format (.cml)</p></li>
-<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
-<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
-<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
-<li><p>CDPL Conformer Generator Fragment Library Format (.cfl, .cdf)</p></li>
+<li><p>JME Molecular Editor String (*.jme)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Daylight SMILES String (*.smi)</p></li>
+<li><p>IUPAC International Chemical Identifier (*.inchi, *.ichi)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (*.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (*.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>CDPL Conformer Generator Fragment Library Format (*.cfl, *.cdf)</p></li>
 </ul>
 </dd>
 </dl>
@@ -158,20 +159,20 @@ be generated.</p>
 <div><p>Specifies the output file where the generated structures will be stored.</p>
 <dl class="simple">
 <dt>Supported Output Formats:</dt><dd><ul class="simple">
-<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Native CDPL-Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
-<li><p>Chemical Markup Language Format (.cml)</p></li>
-<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
-<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
 </ul>
 </dd>
 </dl>
@@ -212,23 +213,23 @@ INFO).</p>
 <div><p>Specifies the output file for molecules where structure generation failed.</p>
 <dl class="simple">
 <dt>Supported Output Formats:</dt><dd><ul class="simple">
-<li><p>JME Molecular Editor String (.jme)</p></li>
-<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Daylight SMILES String (.smi)</p></li>
-<li><p>Daylight SMARTS String (.sma)</p></li>
-<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
-<li><p>Native CDPL-Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
-<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
+<li><p>JME Molecular Editor String (*.jme)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Daylight SMILES String (*.smi)</p></li>
+<li><p>Daylight SMARTS String (*.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (*.inchi, *.ichi)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (*.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (*.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
 </ul>
 </dd>
 </dl>
@@ -339,6 +340,31 @@ structure generation to fail (default: false).</p>
 the supported file-extensions (without leading dot!) as argument.
 This option is useful when the format cannot be auto-detected from the actual extension
 of the file(s) (because missing, misleading or not supported).</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (*.jme)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Daylight SMILES String (*.smi)</p></li>
+<li><p>IUPAC International Chemical Identifier (*.inchi, *.ichi)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (*.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (*.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>CDPL Conformer Generator Fragment Library Format (*.cfl, *.cdf)</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 <p>-O [ –output-format ] arg</p>
 <blockquote>
@@ -347,6 +373,25 @@ file-extensions (without leading dot!) as argument.
 This option is useful when the format cannot be auto-detected from the actual extension
 of the file (because missing, misleading or not supported).
 Note that only storage formats make sense that allow to store atom 3D-coordinates!</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 <p>-F [ –failed-format ] arg</p>
 <blockquote>
@@ -354,6 +399,28 @@ Note that only storage formats make sense that allow to store atom 3D-coordinate
 file-extensions (without leading dot!) as argument.
 This option is useful when the format cannot be auto-detected from the actual extension
 of the file (because missing, misleading or not supported).</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (*.jme)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Daylight SMILES String (*.smi)</p></li>
+<li><p>Daylight SMARTS String (*.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (*.inchi, *.ichi)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (*.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (*.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 <p>-j [ –fixed-substr ] arg</p>
 <blockquote>
@@ -412,7 +479,7 @@ template molecule file (default: false). [since V1.1]</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

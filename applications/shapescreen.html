@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>shapescreen &mdash; CDPKit 1.2.3 documentation</title>
+  <title>shapescreen &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=bd7b91d8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/tabs.js?v=3ee01567"></script>
@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="subsearch" href="subsearch.html" />
+    <link rel="next" title="simscreen" href="simscreen.html" />
     <link rel="prev" title="psdinfo" href="psdinfo.html" /> 
 </head>
 
@@ -65,6 +65,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#other-options">Other options</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="simscreen.html">simscreen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subsearch.html">subsearch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="structgen.html">structgen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="confgen.html">confgen</a></li>
@@ -109,7 +110,7 @@
            <div itemprop="articleBody">
              
   <section id="shapescreen">
-<h1>shapescreen<a class="headerlink" href="#shapescreen" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>shapescreen<a class="headerlink" href="#shapescreen" title="Link to this heading"></a></h1>
 <p>Performs a fast Gaussian shape-based similarity screening of molecule databases.</p>
 <section id="synopsis">
 <h2>Synopsis<a class="headerlink" href="#synopsis" title="Link to this heading"></a></h2>
@@ -125,21 +126,21 @@
 <div><p>The query molecule input file.</p>
 <dl class="simple">
 <dt>Supported Input Formats:</dt><dd><ul class="simple">
-<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Native CDPL-Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
-<li><p>Chemical Markup Language Format (.cml)</p></li>
-<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
-<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
-<li><p>Pharmacophore Screening Database (.psd)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>Pharmacophore Screening Database (*.psd)</p></li>
 </ul>
 </dd>
 </dl>
@@ -147,24 +148,24 @@
 </div></blockquote>
 <p>-d [ –database ] arg</p>
 <blockquote>
-<div><p>The screened database input file.</p>
+<div><p>The molecule database file to screen.</p>
 <dl class="simple">
 <dt>Supported Input Formats:</dt><dd><ul class="simple">
-<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Native CDPL-Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>Atomic Coordinates XYZ File (.xyz)</p></li>
-<li><p>Chemical Markup Language Format (.cml)</p></li>
-<li><p>GZip-Compressed Chemical Markup Language Format (.cml.gz)</p></li>
-<li><p>BZip2-Compressed Chemical Markup Language Format (.cml.bz2)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
-<li><p>Pharmacophore Screening Database (.psd)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>Pharmacophore Screening Database (*.psd)</p></li>
 </ul>
 </dd>
 </dl>
@@ -206,23 +207,23 @@ INFO).</p>
 <div><p>Hit molecule output file.</p>
 <dl class="simple">
 <dt>Supported Output Formats:</dt><dd><ul class="simple">
-<li><p>JME Molecular Editor String (.jme)</p></li>
-<li><p>MDL Structure-Data File (.sdf, .sd)</p></li>
-<li><p>MDL Molfile (.mol)</p></li>
-<li><p>Daylight SMILES String (.smi)</p></li>
-<li><p>Daylight SMARTS String (.sma)</p></li>
-<li><p>IUPAC International Chemical Identifier (.inchi, .ichi)</p></li>
-<li><p>Native CDPL-Format (.cdf)</p></li>
-<li><p>Tripos Sybyl MOL2 File (.mol2)</p></li>
-<li><p>GZip-Compressed MDL Structure-Data File (.sdf.gz, .sd.gz, .sdz)</p></li>
-<li><p>BZip2-Compressed MDL Structure-Data File (.sdf.bz2, .sd.bz2)</p></li>
-<li><p>GZip-Compressed Native CDPL-Format (.cdf.gz)</p></li>
-<li><p>BZip2-Compressed Native CDPL-Format (.cdf.bz2)</p></li>
-<li><p>GZip-Compressed Daylight SMILES String (.smi.gz)</p></li>
-<li><p>BZip2-Compressed Daylight SMILES String (.smi.bz2)</p></li>
-<li><p>GZip-Compressed Tripos Sybyl MOL2 File (.mol2.gz)</p></li>
-<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (.mol2.bz2)</p></li>
-<li><p>Pharmacophore Screening Database (.psd)</p></li>
+<li><p>JME Molecular Editor String (*.jme)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Daylight SMILES String (*.smi)</p></li>
+<li><p>Daylight SMARTS String (*.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (*.inchi, *.ichi)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (*.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (*.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>Pharmacophore Screening Database (*.psd)</p></li>
 </ul>
 </dd>
 </dl>
@@ -378,6 +379,26 @@ one of the supported file-extensions (without leading dot!) as argument.
 This option is useful when the format cannot be auto-detected from the actual extension
 of the file (because missing, misleading or not supported).
 Note that atomic 3D-coordinates are required for shape screening!</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>Pharmacophore Screening Database (*.psd)</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 <p>-D [ –database-format ] arg</p>
 <blockquote>
@@ -386,6 +407,26 @@ one of the supported file-extensions (without leading dot!) as argument.
 This option is useful when the format cannot be auto-detected from the actual extension
 of the file(s) (because missing, misleading or not supported).
 Note that atomic 3D-coordinates are required for shape screening!</p>
+<dl class="simple">
+<dt>Supported Input Formats:</dt><dd><ul class="simple">
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>Atomic Coordinates XYZ File (*.xyz)</p></li>
+<li><p>Chemical Markup Language Format (*.cml)</p></li>
+<li><p>GZip-Compressed Chemical Markup Language Format (*.cml.gz)</p></li>
+<li><p>BZip2-Compressed Chemical Markup Language Format (*.cml.bz2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>Pharmacophore Screening Database (*.psd)</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 <p>-O [ –output-format ] arg</p>
 <blockquote>
@@ -393,6 +434,28 @@ Note that atomic 3D-coordinates are required for shape screening!</p>
 of the supported file-extensions (without leading dot!) as argument.
 This option is useful when the format cannot be auto-detected from the actual extension
 of the file (because missing, misleading or not supported).</p>
+<dl class="simple">
+<dt>Supported Output Formats:</dt><dd><ul class="simple">
+<li><p>JME Molecular Editor String (*.jme)</p></li>
+<li><p>MDL Structure-Data File (*.sdf, *.sd)</p></li>
+<li><p>MDL Molfile (*.mol)</p></li>
+<li><p>Daylight SMILES String (*.smi)</p></li>
+<li><p>Daylight SMARTS String (*.sma)</p></li>
+<li><p>IUPAC International Chemical Identifier (*.inchi, *.ichi)</p></li>
+<li><p>Native CDPL-Format (*.cdf)</p></li>
+<li><p>Tripos Sybyl MOL2 File (*.mol2)</p></li>
+<li><p>GZip-Compressed MDL Structure-Data File (*.sdf.gz, *.sd.gz, *.sdz)</p></li>
+<li><p>BZip2-Compressed MDL Structure-Data File (*.sdf.bz2, *.sd.bz2)</p></li>
+<li><p>GZip-Compressed Native CDPL-Format (*.cdf.gz)</p></li>
+<li><p>BZip2-Compressed Native CDPL-Format (*.cdf.bz2)</p></li>
+<li><p>GZip-Compressed Daylight SMILES String (*.smi.gz)</p></li>
+<li><p>BZip2-Compressed Daylight SMILES String (*.smi.bz2)</p></li>
+<li><p>GZip-Compressed Tripos Sybyl MOL2 File (*.mol2.gz)</p></li>
+<li><p>BZip2-Compressed Tripos Sybyl MOL2 File (*.mol2.bz2)</p></li>
+<li><p>Pharmacophore Screening Database (*.psd)</p></li>
+</ul>
+</dd>
+</dl>
 </div></blockquote>
 </div></blockquote>
 </section>
@@ -403,13 +466,13 @@ of the file (because missing, misleading or not supported).</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="psdinfo.html" class="btn btn-neutral float-left" title="psdinfo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="subsearch.html" class="btn btn-neutral float-right" title="subsearch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="simscreen.html" class="btn btn-neutral float-right" title="simscreen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

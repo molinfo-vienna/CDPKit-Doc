@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CDPL Python Cookbook &mdash; CDPKit 1.2.3 documentation</title>
+  <title>CDPL Python Cookbook &mdash; CDPKit 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=bd7b91d8" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=d9965e9a" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.svg"/>
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=590429e0"></script>
+        <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/tabs.js?v=3ee01567"></script>
@@ -27,8 +27,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Processing of Chemical Data" href="chem/index.html" />
-    <link rel="prev" title="1. Molecular Input/Output" href="../cdpl_python_tutorial/cdpl_python_tutorial.html" /> 
+    <link rel="next" title="1. Basic Processing of Molecules and Reactions" href="chem/index.html" />
+    <link rel="prev" title="1. Installing the CDPL Python Bindings" href="../cdpl_python_tutorial/cdpl_python_tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,12 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cdpl_python_tutorial/index.html">CDPL Python Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CDPL Python Cookbook</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="chem/index.html">1. Processing of Chemical Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chem/index.html">1. Basic Processing of Molecules and Reactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pharm/index.html">2. Pharmacophore Generation and Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="molprop/index.html">3. Calculation of Molecule, Atom and Bond Properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="confgen/index.html">5. 3D Structure and Conformer Generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="forcefield/index.html">6. Force Field Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape/index.html">7. Molecular Shape Analysis and Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vis/index.html">8. Visualization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cdpl_api_doc/index.html">CDPL API Documentation</a></li>
@@ -99,20 +101,27 @@
   <section id="cdpl-python-cookbook">
 <span id="index-0"></span><h1>CDPL Python Cookbook<a class="headerlink" href="#cdpl-python-cookbook" title="Link to this heading"></a></h1>
 <p>This ‘cookbook’ provides a set of scripts that demonstrate how often occurring tasks in cheminformatics can be accomplished
-with Python code that utilizes functionality offered by the CDPL.</p>
-<p>The scripts are all ready-to-run and have been designed to be executed on the command line. Most of the scripts require arguments to be specified
-(e.g. path to input/output files). Information on required/supported arguments can be obtained by running the scripts
+with Python code that utilizes functionality offered by the CDPL. To be able to understand the CDPL-specific parts of the code
+it is highly recommended to first have an in-depth look at the <a class="reference internal" href="../cdpl_python_tutorial/index.html"><span class="doc">CDPL Python Tutorial</span></a> which imparts valuable
+knowledge regarding basic concepts and the work with fundamental data structures.</p>
+<p>All scripts are ready-to-run and have been designed to be executed on the command line. Most of the scripts require arguments to
+be specified (e.g. path to input/output files). Information on required/supported arguments can be obtained by running the scripts
 without arguments.</p>
-<p>The source code provided by this cookbook can be used without restrictions for any purpose under the terms of the
+<p>The source code provided by this cookbook may be used without restrictions for any purpose under the terms of the
 <a class="reference external" href="https://opensource.org/license/0bsd">Zero-Clause BSD License (0BSD)</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The scripts require a properly set up installation of the CDPL Python bindings.
 Please visit section <a class="reference internal" href="../installation.html"><span class="doc">Installing CDPKit</span></a> for further information.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To quickly find cookbook scripts that cover a certain topic or utilize a particular package/class/method/function it is advisable to use
+the built-in search functionality and/or consult the page <a class="reference external" href="../genindex.html">index</a>.</p>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="chem/index.html">1. Processing of Chemical Data</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="chem/index.html">1. Basic Processing of Molecules and Reactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="chem/molecule/index.html">1.1. Molecules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="chem/molecule/io/index.html">1.1.1. Input and Output</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="chem/molecule/io/seq_input.html">1.1.1.1. Sequential Input</a></li>
@@ -129,14 +138,14 @@ Please visit section <a class="reference internal" href="../installation.html"><
 <li class="toctree-l4"><a class="reference internal" href="chem/molecule/standardization/chembl_pipeline.html">1.1.3.1. ChEMBL Structure Curation Pipeline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chem/molecule/standardization/prot_phys_cond.html">1.1.3.2. Generating Protonation States at Physiological pH</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chem/molecule/standardization/clean_mol_db.html">1.1.3.3. Database Cleaning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chem/molecule/standardization/mol_canon.html">1.1.3.4. Atom/Bond Order Canonicalization</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="chem/molecule/substruct_search/index.html">1.1.4. Substructure Search</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="chem/molecule/substruct_search/substruct_filter.html">1.1.4.1. Testing for the Presence of Substructures</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="chem/molecule/isomer_enum/index.html">1.1.5. Generation of Isomers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="chem/molecule/isomer_enum/stereoisomers.html">1.1.5.1. Enumeration of Stereoisomers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chem/molecule/misc/index.html">1.1.4. Miscellaneous</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chem/molecule/misc/substruct_search.html">1.1.4.1. Testing for the Presence of Substructures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chem/molecule/misc/substruct_editing.html">1.1.4.2. Editing of Substructures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chem/molecule/misc/stereoisomers.html">1.1.4.3. Enumeration of Stereoisomers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chem/molecule/misc/2d_layout.html">1.1.4.4. 2D Structure Generation</a></li>
 </ul>
 </li>
 </ul>
@@ -156,6 +165,8 @@ Please visit section <a class="reference internal" href="../installation.html"><
 <li class="toctree-l2"><a class="reference internal" href="pharm/processing/index.html">2.3. Processing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pharm/processing/ftr_props.html">2.3.1. Retrieving Feature Properties</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pharm/processing/mol_align.html">2.3.2. Molecule to Reference Pharmacophore Alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pharm/processing/ph4_align.html">2.3.3. Pharmacophore to Pharmacophore Alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pharm/processing/ftr_mpg.html">2.3.4. Pharmacophore Feature Mapping Analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -169,16 +180,24 @@ Please visit section <a class="reference internal" href="../installation.html"><
 <li class="toctree-l3"><a class="reference internal" href="molprop/atom/physchem_props.html">3.1.5. Physicochemical Properties</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="molprop/molecule/index.html">3.2. Molecular Properties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="molprop/molecule/func_groups.html">3.2.1. Functional Groups</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="descr/index.html">4. Calculation of Molecule and Pharmacophore Descriptors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="descr/fingerprints/index.html">4.1. Generation of Fingerprints</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/ecfp.html">4.1.1. Extended Connectivity Fingerprints (ECFPs)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/pubchem_fp.html">4.1.2. PubChem Fingerprints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/maccs_key.html">4.1.3. MDL MACCS Keys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/path_fp.html">4.1.4. Bond-Path Fingerprints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/fame_fp.html">4.1.5. FAME Atom Environment Fingerprints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/ph4_fp.html">4.1.6. 2D and 3D Pharmacophore Fingerprints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="descr/fingerprints/index.html">4.1. Fingerprints</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/ecfp.html">4.1.1. Extended Connectivity Fingerprint (ECFP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/pubchem_fp.html">4.1.2. PubChem Fingerprint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/maccs_key.html">4.1.3. MDL MACCS Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/path_fp.html">4.1.4. Bond-Path Fingerprint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descr/fingerprints/ph4_fp.html">4.1.5. 2D and 3D Pharmacophore Fingerprints</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="descr/misc/index.html">4.2. Miscellaneous Descriptors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="descr/misc/fame_fp.html">4.2.1. FAME Atom Environment Fingerprint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="descr/misc/rec_bp_descr.html">4.2.2. Receptor Binding Pocket Descriptor</a></li>
 </ul>
 </li>
 </ul>
@@ -193,6 +212,14 @@ Please visit section <a class="reference internal" href="../installation.html"><
 <li class="toctree-l2"><a class="reference internal" href="forcefield/mmff94_charges.html">6.1. MMFF94 Atom Charges</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="shape/index.html">7. Molecular Shape Analysis and Alignment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shape/mol_align.html">7.1. Gaussian Shape-based Molecule Alignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vis/index.html">8. Visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vis/gen_ph4_3d_vis.html">8.1. Pharmacophore 3D Visualization</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -201,14 +228,14 @@ Please visit section <a class="reference internal" href="../installation.html"><
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../cdpl_python_tutorial/cdpl_python_tutorial.html" class="btn btn-neutral float-left" title="1. Molecular Input/Output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="chem/index.html" class="btn btn-neutral float-right" title="1. Processing of Chemical Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../cdpl_python_tutorial/cdpl_python_tutorial.html" class="btn btn-neutral float-left" title="1. Installing the CDPL Python Bindings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chem/index.html" class="btn btn-neutral float-right" title="1. Basic Processing of Molecules and Reactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Thomas Seidel and Oliver Wieder.</p>
+    <p>&#169; Copyright 2026, Thomas Seidel and Oliver Wieder.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
