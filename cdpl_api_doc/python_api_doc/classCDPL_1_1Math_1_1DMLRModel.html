@@ -221,9 +221,9 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Performs <em>Multiple Linear Regression</em> [<a class="el" href="References.html#WLIREG">WLIREG</a>] on a set of data points \( (y_i, \vec{X}_i) \). </p>
 <p>For each data point, \( y_i \) is the dependent (response) variable and \( \vec{X}_i \) is a \( M \)-dimensional vector containing the independent (explanatory) variables of the modeled function \( y = f(\vec{X}) \). It is assumed that the relationship between the dependent variables \( y_i \) and the independent variables \( \vec{X}_i \) can be modeled by a linear function of \( M \) parameters \( \beta_i, \, i = 1, 2, \ldots, M \) (regression coefficients) plus an error term \( \epsilon_i \):</p>
-<p>[ y_i = \beta_1 x_{i1} + \beta_2 x_{i2} + \ldots + \beta_M x_{iM} + \epsilon_i ]</p>
+<p class="formulaDsp">\[ y_i = \beta_1 x_{i1} + \beta_2 x_{i2} + \ldots + \beta_M x_{iM} + \epsilon_i \]</p>
 <p>The parameters \( \beta_i \) are estimated by <em>Least Squares Analysis</em> [<a class="el" href="References.html#WLSQRS">WLSQRS</a>] which minimizes the sum of squared residuals \( \chi^2 \)</p>
-<p>[ \chi^2 = \sum_{i=1}^{N} (y_i - f(\vec{X}_i, \vec{\beta}))^2 ]</p>
+<p class="formulaDsp">\[ \chi^2 = \sum_{i=1}^{N} (y_i - f(\vec{X}_i, \vec{\beta}))^2 \]</p>
 <p>of the given set of \( N \) data points with respect to the adjustable parameters \( \vec{\beta} \). The parameters \( \beta_i \) are computed using <em>Singular Value Decomposition</em> [<a class="el" href="References.html#WSVD">WSVD</a>] as implemented in [<a class="el" href="References.html#NRIC">NRIC</a>]. This method is computationally intensive, but is particularly useful if the \( X \) matrix is ill-conditioned. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afcb43d6c1e3df8b5c8f65243f46e2277"></a>
@@ -954,7 +954,7 @@ Properties</h2></td></tr>
 
 <p>Returns the sum of squared residuals \( \chi^2 \). </p>
 <p>\( \chi^2 \) is calculated by:</p>
-<p>[ \chi^2 = \sum_{i=1}^{N} (y_i - \sum_{j=1}^{M}(x_{ij} \beta_j))^2 ]</p>
+<p class="formulaDsp">\[ \chi^2 = \sum_{i=1}^{N} (y_i - \sum_{j=1}^{M}(x_{ij} \beta_j))^2 \]</p>
 <dl class="section return"><dt>Returns</dt><dd>The sum of squared residuals \( \chi^2 \).</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The returned value is only valid if <a class="el" href="classCDPL_1_1Math_1_1DMLRModel.html#adb151f604fd2f9cd9a8617c2cb66d057" title="Calculates various statistical parameters describing the built regression model.">calcStatistics()</a> has been called before. </dd></dl>
 
@@ -977,7 +977,7 @@ Properties</h2></td></tr>
 
 <p>Returns the goodness of fit \( Q \). </p>
 <p>The goodness of fit \( Q \) is given by:</p>
-<p>[ Q = gammaq(\frac{N - 2}{2}, \frac{\chi^2}{2}) ]</p>
+<p class="formulaDsp">\[ Q = gammaq(\frac{N - 2}{2}, \frac{\chi^2}{2}) \]</p>
 <p>where \( gammaq \) is the incomplete gamma function (see [<a class="el" href="References.html#NRIC">NRIC</a>] for details).</p>
 <dl class="section return"><dt>Returns</dt><dd>The goodness of fit \( Q \).</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The returned value is only valid if <a class="el" href="classCDPL_1_1Math_1_1DMLRModel.html#adb151f604fd2f9cd9a8617c2cb66d057" title="Calculates various statistical parameters describing the built regression model.">calcStatistics()</a> has been called before.</dd></dl>
@@ -1002,7 +1002,7 @@ Properties</h2></td></tr>
 
 <p>Returns the correlation coefficient \( r \). </p>
 <p>The correlation coefficient \( r \) is calculated by:</p>
-<p>[ r = \frac{\sum_{i=1}^{N} (\hat{y}_i - \bar{\hat{y}})(y_i - \bar{y})} {\sqrt{\sum_{i=1}^{N} (\hat{y}_i - \bar{\hat{y}})^2 \sum_{i=1}^{N} (y_i - \bar{y})^2 }} ]</p>
+<p class="formulaDsp">\[ r = \frac{\sum_{i=1}^{N} (\hat{y}_i - \bar{\hat{y}})(y_i - \bar{y})} {\sqrt{\sum_{i=1}^{N} (\hat{y}_i - \bar{\hat{y}})^2 \sum_{i=1}^{N} (y_i - \bar{y})^2 }} \]</p>
 <p>where</p>
 <p>\begin{eqnarray*} \hat{y}_i &amp;=&amp; \sum_{j=1}^{M}(x_{ij} \beta_j) \ \bar{\hat{y}} &amp;=&amp; \frac{\sum_{i=1}^{N} \hat{y}_i}{N} \ \bar{y} &amp;=&amp; \frac{\sum_{i=1}^{N} y_i}{N} \end{eqnarray*}</p>
 <dl class="section return"><dt>Returns</dt><dd>The correlation coefficient \( r \).</dd></dl>
@@ -1027,7 +1027,7 @@ Properties</h2></td></tr>
 
 <p>Returns the standard deviation of the residuals \( s_r \). </p>
 <p>The standard deviation \( s_r \) is calculated by:</p>
-<p>[ s_r = \sqrt{\frac{\sum_{i=1}^{N} (y_i - \sum_{j=1}^{M} (x_{ij} \beta_j))^2} {N - M}} ]</p>
+<p class="formulaDsp">\[ s_r = \sqrt{\frac{\sum_{i=1}^{N} (y_i - \sum_{j=1}^{M} (x_{ij} \beta_j))^2} {N - M}} \]</p>
 <dl class="section return"><dt>Returns</dt><dd>The standard deviation of the residuals \( s_r \).</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>\( s_r \) is only definded if \( N &gt; M \) and <a class="el" href="classCDPL_1_1Math_1_1DMLRModel.html#adb151f604fd2f9cd9a8617c2cb66d057" title="Calculates various statistical parameters describing the built regression model.">calcStatistics()</a> has been called before. </dd></dl>
 
