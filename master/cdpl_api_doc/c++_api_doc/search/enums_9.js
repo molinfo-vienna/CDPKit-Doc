@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['patternatomlabelflag_15957',['PatternAtomLabelFlag',['../classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#a0ab4a0c4d2d252625bce550596b03ebf',1,'CDPL::Pharm::PatternBasedFeatureGenerator']]]
+  ['recordtype_15949',['RecordType',['../classCDPL_1_1Biomol_1_1PDBData.html#a879b9969591bf17e3215af28f8ccac37',1,'CDPL::Biomol::PDBData']]],
+  ['relation_15950',['Relation',['../classCDPL_1_1Chem_1_1MatchConstraint.html#af1033dfe4115e6c5bfdd01b327c163f3',1,'CDPL::Chem::MatchConstraint']]]
 ];

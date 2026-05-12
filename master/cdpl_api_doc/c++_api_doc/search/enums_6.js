@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joinstyle_15954',['JoinStyle',['../classCDPL_1_1Vis_1_1Pen.html#a3bf21d041d8cb858a7de28e9b00ca67e',1,'CDPL::Vis::Pen']]]
+  ['linestyle_15946',['LineStyle',['../classCDPL_1_1Vis_1_1Pen.html#a799ad334140456c9f5f511275a4dab4a',1,'CDPL::Vis::Pen']]]
 ];
