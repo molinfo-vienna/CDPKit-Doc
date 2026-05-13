@@ -82,6 +82,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Writer for molecular graph data in <em>XYZ</em> format to an output stream.  
+ <a href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="XYZMolecularGraphWriter_8hpp_source.html">XYZMolecularGraphWriter.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Chem::XYZMolecularGraphWriter:</div>
@@ -108,7 +111,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5c6fa3dc227677e5bedb1405746551a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data of the molecular graph <em>molgraph</em> to the output stream specified in the constructor.  <a href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#a5c6fa3dc227677e5bedb1405746551a8">More...</a><br /></td></tr>
 <tr class="separator:a5c6fa3dc227677e5bedb1405746551a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa75f91744e798a6fac75acc5f54ecad9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#aa75f91744e798a6fac75acc5f54ecad9">operator const void *</a> () const</td></tr>
-<tr class="memdesc:aa75f91744e798a6fac75acc5f54ecad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer whose value indicates the error state of the writer.  <a href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#aa75f91744e798a6fac75acc5f54ecad9">More...</a><br /></td></tr>
+<tr class="memdesc:aa75f91744e798a6fac75acc5f54ecad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-zero value if the writer is in a good state, and zero otherwise.  <a href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#aa75f91744e798a6fac75acc5f54ecad9">More...</a><br /></td></tr>
 <tr class="separator:aa75f91744e798a6fac75acc5f54ecad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5df2dbb28c049dac6bdecbe3616110a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#a5df2dbb28c049dac6bdecbe3616110a6">operator!</a> () const</td></tr>
 <tr class="memdesc:a5df2dbb28c049dac6bdecbe3616110a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a bad state.  <a href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#a5df2dbb28c049dac6bdecbe3616110a6">More...</a><br /></td></tr>
@@ -267,7 +270,11 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:af3d0761beccd0fb3b73929cdf488a432 inherit pro_methods_classCDPL_1_1Base_1_1ControlParameterContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#af3d0761beccd0fb3b73929cdf488a432">More...</a><br /></td></tr>
 <tr class="separator:af3d0761beccd0fb3b73929cdf488a432 inherit pro_methods_classCDPL_1_1Base_1_1ControlParameterContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Writer for molecular graph data in <em>XYZ</em> format to an output stream. </p>
+<p>The writer implements the <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> interface for molecular graphs and emits one record per call to <a class="el" href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#a5c6fa3dc227677e5bedb1405746551a8" title="Writes data of the molecular graph molgraph to the output stream specified in the constructor.">write()</a>. The configuration of the output formatting is controlled by the I/O-related control parameters registered for the writer instance.</p>
+<dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a402c70c354fdb87ddf2c7a5d2258e5ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a402c70c354fdb87ddf2c7a5d2258e5ed">&#9670;&nbsp;</a></span>XYZMolecularGraphWriter() <span class="overload">[1/2]</span></h2>
 
@@ -416,12 +423,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer whose value indicates the error state of the writer. </p>
-<p>The operator allows to write expressions like: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (writer) { ... </div>
-<div class="line"><span class="keywordflow">if</span> (writer.write(...)) { ...</div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>A non-<em>null</em> pointer if the writer is in a good state, a <em>null</em> pointer otherwise. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The returned pointer is not meant to be dereferenced, it is just a state indicator. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1XYZMolecularGraphWriter.html#a5df2dbb28c049dac6bdecbe3616110a6" title="Tells whether the writer is in a bad state.">operator!()</a> </dd></dl>
+<p>Returns a non-zero value if the writer is in a good state, and zero otherwise. </p>
+<dl class="section return"><dt>Returns</dt><dd>A non-zero value if the writer can accept further output, zero otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a42e0aa437204d3e71f60df6f778e3d51">CDPL::Base::DataWriter&lt; MolecularGraph &gt;</a>.</p>
 
@@ -451,10 +454,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Tells whether the writer is in a bad state. </p>
-<p>The operator allows to write expressions like: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (!writer) { ... </div>
-<div class="line"><span class="keywordflow">if</span> (!writer.write(...)) { ...</div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd><code>false</code> if the writer is in a good state, and <code>true</code> otherwise. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>operator const void*() </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the writer is in a bad state, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#ab8dd69c41af9fd3a01e4bdbd72d5fdb6">CDPL::Base::DataWriter&lt; MolecularGraph &gt;</a>.</p>
 

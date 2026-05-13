@@ -316,7 +316,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Specifies the dimension of atom coordinates. </p>
 <p>A control-parameter value of <em>2</em> specifies 2D-coordinates and a value of <em>3</em> 3D-coordinates. Other values trigger the selection of an implementation defined default dimension.</p>
-<p><b>Value Type:</b> <code>std::size_t</code> </p>
+<p><b>Value Type:</b> <code>int</code> </p>
 
 </div>
 </div>
@@ -447,7 +447,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Specifies the separator for <em>SMILES</em>, <em>SMARTS</em>, <em>JME</em> and <em>InChI</em> output data records [<a class="el" href="References.html#SMILES">SMILES</a>, <a class="el" href="References.html#SMARTS">SMARTS</a>, <a class="el" href="References.html#JME">JME</a>, <a class="el" href="References.html#INCHI">INCHI</a>]. </p>
 <p>Typical separators are, for example, space (" "), tab ("\t") or newline ("\n").</p>
-<p><b>Value Type:</b> <code>std::string</code> </p>
+<p><b>Value Type:</b> <code>str</code> </p>
 
 </div>
 </div>
@@ -498,12 +498,12 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies the desired version of the connection table data format for the output of molecular graphs in <em>MDL SD-</em> or <em>Mol-File</em> format [<a class="el" href="References.html#CTFILE">CTFILE</a>]. </p>
-<p>The desired data format version is specified by one of the constants defined in namespace <a class="el" href="classCDPL_1_1Chem_1_1MDLDataFormatVersion.html" title="Provides constants that are used to specify the connection table and Rxn-File version for the I/O of ...">CDPL.Chem.MDLDataFormatVersion</a>. If <code>MDL_CTAB_VERSION</code> has not been set or the parameter value equals <a class="el" href="classCDPL_1_1Chem_1_1MDLDataFormatVersion.html#a1fe2b79b1cb184521a40a850702c0a1e" title="Specifies that the data format version is undefined.">CDPL.Chem.MDLDataFormatVersion.UNDEF</a>, the format specified by the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="MolecularGraph.">Chem.MolecularGraph</a> property Chem.MolecularGraphProperty.MDL_CTAB_VERSION will take effect.</p>
+<p>The desired data format version is specified by one of the constants defined in namespace <a class="el" href="classCDPL_1_1Chem_1_1MDLDataFormatVersion.html" title="Provides constants that are used to specify the connection table and Rxn-File version for the I/O of ...">CDPL.Chem.MDLDataFormatVersion</a>. If <code>MDL_CTAB_VERSION</code> has not been set or the parameter value equals <a class="el" href="classCDPL_1_1Chem_1_1MDLDataFormatVersion.html#a1fe2b79b1cb184521a40a850702c0a1e" title="Specifies that the data format version is undefined.">CDPL.Chem.MDLDataFormatVersion.UNDEF</a>, the format specified by the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem.MolecularGraph</a> property Chem.MolecularGraphProperty.MDL_CTAB_VERSION will take effect.</p>
 <p>If, after all, both the control-parameter and the property do not specify a particular connection table format version, a suitable output format is chosen as follows:</p><ul>
 <li>if both the atom and bond count of the molecular graph is less than <em>1000</em>, data will be written in the <em>V2000</em> format</li>
 <li>and in the format <em>V3000</em> otherwise</li>
 </ul>
-<p><b>Value Type:</b> <code>unsigned int</code> </p>
+<p><b>Value Type:</b> <code>int</code> </p>
 
 </div>
 </div>
@@ -528,7 +528,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies whether the stereo parity of atoms shall be ignored when reading or writing data in an <em>MDL CTFile</em> based format [<a class="el" href="References.html#CTFILE">CTFILE</a>]. </p>
-<p>If the control-parameter is set to <code>True</code>, the stereo parity of atoms will be ignored both on reading (i.e. the read MDL parity of an input atom will not be converted to the corresponding <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">Chem.StereoDescriptor</a> object and stored in the <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem.Atom</a> property Chem.AtomProperty.STEREO_DESCRIPTOR) and writing (i.e. the property Chem.AtomProperty.MDL_PARITY is not written to the corresponding connection table data field).</p>
+<p>If the control-parameter is set to <code>True</code>, the stereo parity of atoms will be ignored both on reading (i.e. the read MDL parity of an input atom will not be converted to the corresponding <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">Chem.StereoDescriptor</a> object and stored in the <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem.Atom</a> property <a class="el" href="classCDPL_1_1Chem_1_1AtomProperty.html#a7a941be504c62f2b76a126148ae61498" title="Specifies the stereochemical descriptor of the atom.">Chem.AtomProperty.STEREO_DESCRIPTOR</a>) and writing (i.e. the property <a class="el" href="classCDPL_1_1Chem_1_1AtomProperty.html#aa751a1e48da359aec4c909d1808a5697" title="Specifies the MDL stereo parity of the atom (see namespace Chem.MDLParity).">Chem.AtomProperty.MDL_PARITY</a> is not written to the corresponding connection table data field).</p>
 <p><b>Value Type:</b> <code>bool</code> </p>
 
 </div>
@@ -559,7 +559,7 @@ Static Public Attributes</h2></td></tr>
 <li>if both the reactant and product count of the output reaction is less than <em>1000</em>, data will be written in the <em>V2000</em> format</li>
 <li>and in the format <em>V3000</em> otherwise</li>
 </ul>
-<p><b>Value Type:</b> <code>unsigned int</code> </p>
+<p><b>Value Type:</b> <code>int</code> </p>
 
 </div>
 </div>
@@ -745,7 +745,7 @@ Static Public Attributes</h2></td></tr>
 <li>"SN"</li>
 </ul>
 <p>The character 'S' denotes the <em>SMILES</em> representation of the molecular graph or reaction, and 'N' the name of the molecular graph/reaction (see Chem.MolecularGraphProperty.NAME and Chem.ReactionProperty.NAME).</p>
-<p><b>Value Type:</b> <code>std::string</code> </p>
+<p><b>Value Type:</b> <code>str</code> </p>
 
 </div>
 </div>
@@ -770,7 +770,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies the minimum ring size that is required for the specification of ring double bond geometries in generated <em>SMILES</em> strings [<a class="el" href="References.html#SMILES">SMILES</a>]. </p>
-<p><b>Value Type:</b> <code>std::size_t</code> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1ControlParameter.html#a85644130deedf87e478f708c4e9b2b83" title="Specifies whether to generate SMILES strings [SMILES] that also include directional bonds for the def...">Chem.ControlParameter.SMILES_OUTPUT_RING_BOND_STEREO</a> </dd></dl>
+<p><b>Value Type:</b> <code>int</code> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1ControlParameter.html#a85644130deedf87e478f708c4e9b2b83" title="Specifies whether to generate SMILES strings [SMILES] that also include directional bonds for the def...">Chem.ControlParameter.SMILES_OUTPUT_RING_BOND_STEREO</a> </dd></dl>
 
 </div>
 </div>
@@ -926,7 +926,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies whether to generate reaction <em>SMILES</em> strings [<a class="el" href="References.html#SMILES">SMILES</a>] that contain atom-atom mapping numbers. </p>
-<p>If the control-parameter is set to <code>True</code>, the generated <em>SMILES</em> string will specify reaction atom-atom mapping numbers (see Chem.AtomProperty.ATOM_MAPPING_ID). If the value of <code>SMILES_OUTPUT_ATOM_MAPPING_ID</code> is <code>False</code>, atom-atom mapping numbers will not be specified.</p>
+<p>If the control-parameter is set to <code>True</code>, the generated <em>SMILES</em> string will specify reaction atom-atom mapping numbers (see <a class="el" href="classCDPL_1_1Chem_1_1AtomProperty.html#af78cb3d94ba753410d0a1154ed9eb664" title="Specifies the atom-atom mapping ID used to relate reactant atoms to product atoms in a reaction.">Chem.AtomProperty.ATOM_MAPPING_ID</a>). If the value of <code>SMILES_OUTPUT_ATOM_MAPPING_ID</code> is <code>False</code>, atom-atom mapping numbers will not be specified.</p>
 <p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
 
 </div>
@@ -1004,7 +1004,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies whether to generate canonical <em>SMILES</em> strings [<a class="el" href="References.html#SMILES">SMILES</a>]. </p>
-<p>If the control-parameter is set to <code>True</code>, canonical <em>SMILES</em> strings will be generated. A canonical <em>SMILES</em> string is unique for a given chemical structure and is always identical regardless of the atom and bond order in the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="MolecularGraph.">Chem.MolecularGraph</a> object that describes the structure. If the value of <code>SMILES_OUTPUT_CANONICAL_FORM</code> is <code>False</code>, the form of a generated <em>SMILES</em> string depends on the order of the atoms and bonds in the output molecular graph and thus may differ across a set of <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="MolecularGraph.">Chem.MolecularGraph</a> objects that otherwise represent the same chemical structure.</p>
+<p>If the control-parameter is set to <code>True</code>, canonical <em>SMILES</em> strings will be generated. A canonical <em>SMILES</em> string is unique for a given chemical structure and is always identical regardless of the atom and bond order in the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem.MolecularGraph</a> object that describes the structure. If the value of <code>SMILES_OUTPUT_CANONICAL_FORM</code> is <code>False</code>, the form of a generated <em>SMILES</em> string depends on the order of the atoms and bonds in the output molecular graph and thus may differ across a set of <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem.MolecularGraph</a> objects that otherwise represent the same chemical structure.</p>
 <p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
 
 </div>
@@ -1110,7 +1110,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Specifies options for the input of <em>InChI</em> strings [<a class="el" href="References.html#INCHI">INCHI</a>]. </p>
 <p>Please refer to the <em>InChI C-API</em> documentation [<a class="el" href="References.html#INCHI">INCHI</a>] for further information about the syntax and meaning of the available options.</p>
-<p><b>Value Type:</b> <code>std::string</code> </p>
+<p><b>Value Type:</b> <code>str</code> </p>
 
 </div>
 </div>
@@ -1136,7 +1136,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Specifies options for the output of <em>InChI</em> strings [<a class="el" href="References.html#INCHI">INCHI</a>]. </p>
 <p>Please refer to the <em>InChI C-API</em> documentation [<a class="el" href="References.html#INCHI">INCHI</a>] for further information about the syntax and meaning of the available options.</p>
-<p><b>Value Type:</b> <code>std::string</code> </p>
+<p><b>Value Type:</b> <code>str</code> </p>
 
 </div>
 </div>

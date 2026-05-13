@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html" title="TautomerScore.">TautomerScore</a>.  
+<p>Functor for the calculation of a heuristic stability score of a tautomeric form represented as a molecular graph.  
  <a href="classCDPL_1_1Chem_1_1TautomerScore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TautomerScore_8hpp_source.html">TautomerScore.hpp</a>&gt;</code></p>
@@ -90,16 +90,21 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a072d3dcf66f58506dba8d20218543b95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html#a072d3dcf66f58506dba8d20218543b95">TautomerScore</a> ()</td></tr>
+<tr class="memdesc:a072d3dcf66f58506dba8d20218543b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>TautomerScore</code> instance.  <a href="classCDPL_1_1Chem_1_1TautomerScore.html#a072d3dcf66f58506dba8d20218543b95">More...</a><br /></td></tr>
 <tr class="separator:a072d3dcf66f58506dba8d20218543b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad04da0d13a7c940dd94db92250425e8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html#ad04da0d13a7c940dd94db92250425e8a">TautomerScore</a> (const <a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html">TautomerScore</a> &amp;ts)</td></tr>
+<tr class="memdesc:ad04da0d13a7c940dd94db92250425e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classCDPL_1_1Chem_1_1TautomerScore.html#ad04da0d13a7c940dd94db92250425e8a">More...</a><br /></td></tr>
 <tr class="separator:ad04da0d13a7c940dd94db92250425e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9962b9abf583b2e62cffe6f33b1405a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html#ad9962b9abf583b2e62cffe6f33b1405a">operator()</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:ad9962b9abf583b2e62cffe6f33b1405a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the tautomer stability score of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1TautomerScore.html#ad9962b9abf583b2e62cffe6f33b1405a">More...</a><br /></td></tr>
 <tr class="separator:ad9962b9abf583b2e62cffe6f33b1405a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88e9c0a5438abedc21edfe36d7f3ae89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html">TautomerScore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html#a88e9c0a5438abedc21edfe36d7f3ae89">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html">TautomerScore</a> &amp;ts)</td></tr>
+<tr class="memdesc:a88e9c0a5438abedc21edfe36d7f3ae89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="classCDPL_1_1Chem_1_1TautomerScore.html#a88e9c0a5438abedc21edfe36d7f3ae89">More...</a><br /></td></tr>
 <tr class="separator:a88e9c0a5438abedc21edfe36d7f3ae89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1TautomerScore.html" title="TautomerScore.">TautomerScore</a>. </p>
+<div class="textblock"><p>Functor for the calculation of a heuristic stability score of a tautomeric form represented as a molecular graph. </p>
+<p>The score is computed from contributions of atom-type, hybridization, ring-membership and specific structural motifs (amide-like nitrogens, carboxylic oxygens, exocyclic hydroxyls, 2,4-hydroxy-pyridine-like rings, etc.) and is typically used to rank tautomeric forms of a molecule from least to most stable. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a072d3dcf66f58506dba8d20218543b95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a072d3dcf66f58506dba8d20218543b95">&#9670;&nbsp;</a></span>TautomerScore() <span class="overload">[1/2]</span></h2>
@@ -115,6 +120,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>TautomerScore</code> instance. </p>
 
 </div>
 </div>
@@ -133,6 +140,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ts</td><td>The other <code>TautomerScore</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -153,6 +168,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates the tautomer stability score of the molecular graph <em>molgraph</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph representing the tautomeric form to score. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The calculated tautomer stability score. </dd></dl>
+
 </div>
 </div>
 <a id="a88e9c0a5438abedc21edfe36d7f3ae89"></a>
@@ -170,6 +194,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ts</td><td>The other <code>TautomerScore</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 
 </div>
 </div>

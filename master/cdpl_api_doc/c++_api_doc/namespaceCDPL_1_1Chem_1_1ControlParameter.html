@@ -408,7 +408,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies the desired version of the connection table data format for the output of molecular graphs in <em>MDL SD-</em> or <em>Mol-File</em> format [<a class="el" href="References.html#CTFILE">CTFILE</a>]. </p>
-<p>The desired data format version is specified by one of the constants defined in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1MDLDataFormatVersion.html" title="Provides constants that are used to specify the connection table and Rxn-File version for the I/O of ...">CDPL::Chem::MDLDataFormatVersion</a>. If <code>MDL_CTAB_VERSION</code> has not been set or the parameter value equals <a class="el" href="namespaceCDPL_1_1Chem_1_1MDLDataFormatVersion.html#a50b7beca22dd17d2cd264dd32a158dac" title="Specifies that the data format version is undefined.">CDPL::Chem::MDLDataFormatVersion::UNDEF</a>, the format specified by the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="MolecularGraph.">Chem::MolecularGraph</a> property <a class="el" href="namespaceCDPL_1_1Chem_1_1MolecularGraphProperty.html#aba12b5a587d8c65ba3b2aa700bc49fd9">Chem::MolecularGraphProperty::MDL_CTAB_VERSION</a> will take effect.</p>
+<p>The desired data format version is specified by one of the constants defined in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1MDLDataFormatVersion.html" title="Provides constants that are used to specify the connection table and Rxn-File version for the I/O of ...">CDPL::Chem::MDLDataFormatVersion</a>. If <code>MDL_CTAB_VERSION</code> has not been set or the parameter value equals <a class="el" href="namespaceCDPL_1_1Chem_1_1MDLDataFormatVersion.html#a50b7beca22dd17d2cd264dd32a158dac" title="Specifies that the data format version is undefined.">CDPL::Chem::MDLDataFormatVersion::UNDEF</a>, the format specified by the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> property <a class="el" href="namespaceCDPL_1_1Chem_1_1MolecularGraphProperty.html#aba12b5a587d8c65ba3b2aa700bc49fd9">Chem::MolecularGraphProperty::MDL_CTAB_VERSION</a> will take effect.</p>
 <p>If, after all, both the control-parameter and the property do not specify a particular connection table format version, a suitable output format is chosen as follows:</p><ul>
 <li>if both the atom and bond count of the molecular graph is less than <em>1000</em>, data will be written in the <em>V2000</em> format</li>
 <li>and in the format <em>V3000</em> otherwise</li>
@@ -438,7 +438,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies whether the stereo parity of atoms shall be ignored when reading or writing data in an <em>MDL CTFile</em> based format [<a class="el" href="References.html#CTFILE">CTFILE</a>]. </p>
-<p>If the control-parameter is set to <code>true</code>, the stereo parity of atoms will be ignored both on reading (i.e. the read MDL parity of an input atom will not be converted to the corresponding <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">Chem::StereoDescriptor</a> object and stored in the <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#aa2f8b6185e308226daaa1b46cec87f1a">Chem::AtomProperty::STEREO_DESCRIPTOR</a>) and writing (i.e. the property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a93c23180934db928d35a5af5d6d5992b">Chem::AtomProperty::MDL_PARITY</a> is not written to the corresponding connection table data field).</p>
+<p>If the control-parameter is set to <code>true</code>, the stereo parity of atoms will be ignored both on reading (i.e. the read MDL parity of an input atom will not be converted to the corresponding <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">Chem::StereoDescriptor</a> object and stored in the <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#aa2f8b6185e308226daaa1b46cec87f1a" title="Specifies the stereochemical descriptor of the atom.">Chem::AtomProperty::STEREO_DESCRIPTOR</a>) and writing (i.e. the property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a93c23180934db928d35a5af5d6d5992b" title="Specifies the MDL stereo parity of the atom (see namespace Chem::MDLParity).">Chem::AtomProperty::MDL_PARITY</a> is not written to the corresponding connection table data field).</p>
 <p><b>Value Type:</b> <code>bool</code> </p>
 
 </div>
@@ -797,7 +797,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies whether to generate canonical <em>SMILES</em> strings [<a class="el" href="References.html#SMILES">SMILES</a>]. </p>
-<p>If the control-parameter is set to <code>true</code>, canonical <em>SMILES</em> strings will be generated. A canonical <em>SMILES</em> string is unique for a given chemical structure and is always identical regardless of the atom and bond order in the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="MolecularGraph.">Chem::MolecularGraph</a> object that describes the structure. If the value of <code>SMILES_OUTPUT_CANONICAL_FORM</code> is <code>false</code>, the form of a generated <em>SMILES</em> string depends on the order of the atoms and bonds in the output molecular graph and thus may differ across a set of <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="MolecularGraph.">Chem::MolecularGraph</a> objects that otherwise represent the same chemical structure.</p>
+<p>If the control-parameter is set to <code>true</code>, canonical <em>SMILES</em> strings will be generated. A canonical <em>SMILES</em> string is unique for a given chemical structure and is always identical regardless of the atom and bond order in the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> object that describes the structure. If the value of <code>SMILES_OUTPUT_CANONICAL_FORM</code> is <code>false</code>, the form of a generated <em>SMILES</em> string depends on the order of the atoms and bonds in the output molecular graph and thus may differ across a set of <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> objects that otherwise represent the same chemical structure.</p>
 <p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
 
 </div>
@@ -1031,7 +1031,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Specifies whether to generate reaction <em>SMILES</em> strings [<a class="el" href="References.html#SMILES">SMILES</a>] that contain atom-atom mapping numbers. </p>
-<p>If the control-parameter is set to <code>true</code>, the generated <em>SMILES</em> string will specify reaction atom-atom mapping numbers (see <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a6fc27df2926313ac4007ee81fb316068">Chem::AtomProperty::ATOM_MAPPING_ID</a>). If the value of <code>SMILES_OUTPUT_ATOM_MAPPING_ID</code> is <code>false</code>, atom-atom mapping numbers will not be specified.</p>
+<p>If the control-parameter is set to <code>true</code>, the generated <em>SMILES</em> string will specify reaction atom-atom mapping numbers (see <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a6fc27df2926313ac4007ee81fb316068" title="Specifies the atom-atom mapping ID used to relate reactant atoms to product atoms in a reaction.">Chem::AtomProperty::ATOM_MAPPING_ID</a>). If the value of <code>SMILES_OUTPUT_ATOM_MAPPING_ID</code> is <code>false</code>, atom-atom mapping numbers will not be specified.</p>
 <p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
 
 </div>
@@ -1502,6 +1502,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 
 </div>
 </div>
@@ -1524,6 +1525,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 
 </div>
 </div>
@@ -1546,6 +1548,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 
 </div>
 </div>
@@ -1568,6 +1571,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><b>Value Type:</b> <code>bool</code> </p><dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 
 </div>
 </div>
