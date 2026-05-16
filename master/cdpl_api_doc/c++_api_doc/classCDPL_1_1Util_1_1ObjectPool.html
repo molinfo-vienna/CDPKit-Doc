@@ -100,49 +100,68 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultConstructor.html">DefaultConstructor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default object factory which creates new instances of <code>ObjectType</code> via <code>new</code>.  <a href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultConstructor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultDestructor.html">DefaultDestructor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default object destructor which destroys instances of <code>ObjectType</code> via <code>delete</code>.  <a href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultDestructor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:afc02a29b155493bef581d1fd33921f39"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#afc02a29b155493bef581d1fd33921f39">ObjectType</a></td></tr>
+<tr class="memdesc:afc02a29b155493bef581d1fd33921f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the pooled objects.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#afc02a29b155493bef581d1fd33921f39">More...</a><br /></td></tr>
 <tr class="separator:afc02a29b155493bef581d1fd33921f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2508522e2f96291f1c019b838db789e0"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#afc02a29b155493bef581d1fd33921f39">ObjectType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a2508522e2f96291f1c019b838db789e0">SharedObjectPointer</a></td></tr>
+<tr class="memdesc:a2508522e2f96291f1c019b838db789e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A smart pointer to a borrowed object that returns the object to the pool on destruction.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a2508522e2f96291f1c019b838db789e0">More...</a><br /></td></tr>
 <tr class="separator:a2508522e2f96291f1c019b838db789e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ede54944ebcb02fb182e8dde774cadc"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#afc02a29b155493bef581d1fd33921f39">ObjectType</a> *()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a8ede54944ebcb02fb182e8dde774cadc">ConstructorFunction</a></td></tr>
+<tr class="memdesc:a8ede54944ebcb02fb182e8dde774cadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic wrapper for functions creating new instances of <code>ObjectType</code>.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a8ede54944ebcb02fb182e8dde774cadc">More...</a><br /></td></tr>
 <tr class="separator:a8ede54944ebcb02fb182e8dde774cadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cb4560ce8ce62e716371d69e1f493f9"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#afc02a29b155493bef581d1fd33921f39">ObjectType</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a4cb4560ce8ce62e716371d69e1f493f9">DestructorFunction</a></td></tr>
+<tr class="memdesc:a4cb4560ce8ce62e716371d69e1f493f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic wrapper for functions destroying instances of <code>ObjectType</code>.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a4cb4560ce8ce62e716371d69e1f493f9">More...</a><br /></td></tr>
 <tr class="separator:a4cb4560ce8ce62e716371d69e1f493f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af605510cf27a8e87aae29d645593ac72"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#afc02a29b155493bef581d1fd33921f39">ObjectType</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#af605510cf27a8e87aae29d645593ac72">ObjectFunction</a></td></tr>
+<tr class="memdesc:af605510cf27a8e87aae29d645593ac72"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic wrapper for functions operating on instances of <code>ObjectType</code>.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#af605510cf27a8e87aae29d645593ac72">More...</a><br /></td></tr>
 <tr class="separator:af605510cf27a8e87aae29d645593ac72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaca989c79fceb5b91d0b3470a120d344"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#aaca989c79fceb5b91d0b3470a120d344">ObjectPool</a> (const <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html">ObjectPool</a> &amp;pool)</td></tr>
+<tr class="memdesc:aaca989c79fceb5b91d0b3470a120d344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#aaca989c79fceb5b91d0b3470a120d344">More...</a><br /></td></tr>
 <tr class="separator:aaca989c79fceb5b91d0b3470a120d344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab292b927ac317e4eeb9f2a5377313e2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#ab292b927ac317e4eeb9f2a5377313e2c">ObjectPool</a> (std::size_t max_size=0)</td></tr>
+<tr class="memdesc:ab292b927ac317e4eeb9f2a5377313e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a default-configured <code>ObjectPool</code> instance using <a class="el" href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultConstructor.html" title="Default object factory which creates new instances of ObjectType via new.">DefaultConstructor</a> and <a class="el" href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultDestructor.html" title="Default object destructor which destroys instances of ObjectType via delete.">DefaultDestructor</a>.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#ab292b927ac317e4eeb9f2a5377313e2c">More...</a><br /></td></tr>
 <tr class="separator:ab292b927ac317e4eeb9f2a5377313e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6102f31d0059203395d3318cc9c8e1a5"><td class="memTemplParams" colspan="2">template&lt;typename C , typename D &gt; </td></tr>
 <tr class="memitem:a6102f31d0059203395d3318cc9c8e1a5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a6102f31d0059203395d3318cc9c8e1a5">ObjectPool</a> (const C &amp;ctor_func, const D &amp;dtor_func, std::size_t max_size=0)</td></tr>
+<tr class="memdesc:a6102f31d0059203395d3318cc9c8e1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code>ObjectPool</code> instance using a user-supplied factory and destructor.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a6102f31d0059203395d3318cc9c8e1a5">More...</a><br /></td></tr>
 <tr class="separator:a6102f31d0059203395d3318cc9c8e1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1967ce057e434d847b846ffe340b715"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#af1967ce057e434d847b846ffe340b715">~ObjectPool</a> ()</td></tr>
+<tr class="memdesc:af1967ce057e434d847b846ffe340b715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Destroys all currently idle pool entries.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#af1967ce057e434d847b846ffe340b715">More...</a><br /></td></tr>
 <tr class="separator:af1967ce057e434d847b846ffe340b715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c48ab38d5c82db3afb97b29ebdfb780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a2508522e2f96291f1c019b838db789e0">SharedObjectPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a6c48ab38d5c82db3afb97b29ebdfb780">get</a> ()</td></tr>
+<tr class="memdesc:a6c48ab38d5c82db3afb97b29ebdfb780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a smart pointer to a pool-owned object.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a6c48ab38d5c82db3afb97b29ebdfb780">More...</a><br /></td></tr>
 <tr class="separator:a6c48ab38d5c82db3afb97b29ebdfb780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a086a34cc406d6e870e0b601863e65997"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a086a34cc406d6e870e0b601863e65997">getSize</a> () const</td></tr>
+<tr class="memdesc:a086a34cc406d6e870e0b601863e65997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current number of idle objects in the pool.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a086a34cc406d6e870e0b601863e65997">More...</a><br /></td></tr>
 <tr class="separator:a086a34cc406d6e870e0b601863e65997"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add530c7cf5a2386ff5f7de4a2e5cad0c"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#add530c7cf5a2386ff5f7de4a2e5cad0c">getMaxSize</a> () const</td></tr>
+<tr class="memdesc:add530c7cf5a2386ff5f7de4a2e5cad0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum pool size.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#add530c7cf5a2386ff5f7de4a2e5cad0c">More...</a><br /></td></tr>
 <tr class="separator:add530c7cf5a2386ff5f7de4a2e5cad0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52f4bbae15cdeef78205478d1381fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#ac52f4bbae15cdeef78205478d1381fa9">setMaxSize</a> (std::size_t max_size)</td></tr>
+<tr class="memdesc:ac52f4bbae15cdeef78205478d1381fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum pool size.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#ac52f4bbae15cdeef78205478d1381fa9">More...</a><br /></td></tr>
 <tr class="separator:ac52f4bbae15cdeef78205478d1381fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a0fae8045b5c38056d77411044cc2ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a3a0fae8045b5c38056d77411044cc2ad">freeMemory</a> ()</td></tr>
+<tr class="memdesc:a3a0fae8045b5c38056d77411044cc2ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys all currently idle pool entries and releases their memory.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a3a0fae8045b5c38056d77411044cc2ad">More...</a><br /></td></tr>
 <tr class="separator:a3a0fae8045b5c38056d77411044cc2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ebd9e758bb30cc6d40f746a2cbd1dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a9ebd9e758bb30cc6d40f746a2cbd1dd2">setInitFunction</a> (const <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#af605510cf27a8e87aae29d645593ac72">ObjectFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a9ebd9e758bb30cc6d40f746a2cbd1dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function to be invoked on an object when it is handed out by <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a6c48ab38d5c82db3afb97b29ebdfb780" title="Returns a smart pointer to a pool-owned object.">get()</a>.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a9ebd9e758bb30cc6d40f746a2cbd1dd2">More...</a><br /></td></tr>
 <tr class="separator:a9ebd9e758bb30cc6d40f746a2cbd1dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a180c298f1a4ca14de1897e2e4bfb33c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a180c298f1a4ca14de1897e2e4bfb33c6">setCleanupFunction</a> (const <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#af605510cf27a8e87aae29d645593ac72">ObjectFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a180c298f1a4ca14de1897e2e4bfb33c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function to be invoked on an object when it is returned to the pool.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#a180c298f1a4ca14de1897e2e4bfb33c6">More...</a><br /></td></tr>
 <tr class="separator:a180c298f1a4ca14de1897e2e4bfb33c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa58ebafd2816d0bf67de8027893aa9c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html">ObjectPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#aa58ebafd2816d0bf67de8027893aa9c1">operator=</a> (const <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html">ObjectPool</a> &amp;pool)</td></tr>
+<tr class="memdesc:aa58ebafd2816d0bf67de8027893aa9c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="classCDPL_1_1Util_1_1ObjectPool.html#aa58ebafd2816d0bf67de8027893aa9c1">More...</a><br /></td></tr>
 <tr class="separator:aa58ebafd2816d0bf67de8027893aa9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -150,7 +169,7 @@ Public Member Functions</h2></td></tr>
 class CDPL::Util::ObjectPool&lt; T &gt;</h3>
 
 <p>A data structure that caches instances of type <code>T</code> up to a user specified amount. </p>
-<p>Instances of type <code>T</code> that are allocated via this pool (see <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a6c48ab38d5c82db3afb97b29ebdfb780">get()</a>) are preferentially taken from an internally maintained list of previously allocated but now unused objects. If there are no free objects a new object instance will be created on the fly. Allocated objects are returned as smart pointers which keep track of all current references to the object. If the reference count drops to zero at some point, the object is automatically returned to the pool it was allocated from.</p>
+<p>Instances of type <code>T</code> that are allocated via this pool (see <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a6c48ab38d5c82db3afb97b29ebdfb780" title="Returns a smart pointer to a pool-owned object.">get()</a>) are preferentially taken from an internally maintained list of previously allocated but now unused objects. If there are no free objects a new object instance will be created on the fly. Allocated objects are returned as smart pointers which keep track of all current references to the object. If the reference count drops to zero at some point, the object is automatically returned to the pool it was allocated from.</p>
 <p><em>Warning:</em> Due to this automatic return of unused objects it is necessary that all objects have returned to their source pool before the pool instance gets destroyed!!!! </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="afc02a29b155493bef581d1fd33921f39"></a>
@@ -166,6 +185,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The type of the pooled objects. </p>
 
 </div>
 </div>
@@ -183,6 +204,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>A smart pointer to a borrowed object that returns the object to the pool on destruction. </p>
+
 </div>
 </div>
 <a id="a8ede54944ebcb02fb182e8dde774cadc"></a>
@@ -198,6 +221,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A generic wrapper for functions creating new instances of <code>ObjectType</code>. </p>
 
 </div>
 </div>
@@ -215,6 +240,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>A generic wrapper for functions destroying instances of <code>ObjectType</code>. </p>
+
 </div>
 </div>
 <a id="af605510cf27a8e87aae29d645593ac72"></a>
@@ -230,6 +257,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A generic wrapper for functions operating on instances of <code>ObjectType</code>. </p>
 
 </div>
 </div>
@@ -260,6 +289,15 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>The other <code>ObjectPool</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The pool of allocated objects of <em>pool</em> is not copied; the new instance starts with an empty pool. </dd></dl>
+
 </div>
 </div>
 <a id="ab292b927ac317e4eeb9f2a5377313e2c"></a>
@@ -287,6 +325,14 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a default-configured <code>ObjectPool</code> instance using <a class="el" href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultConstructor.html" title="Default object factory which creates new instances of ObjectType via new.">DefaultConstructor</a> and <a class="el" href="structCDPL_1_1Util_1_1ObjectPool_1_1DefaultDestructor.html" title="Default object destructor which destroys instances of ObjectType via delete.">DefaultDestructor</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_size</td><td>The maximum number of objects retained in the pool, or <em>0</em> for no limit. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -334,6 +380,16 @@ template&lt;typename C , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs an <code>ObjectPool</code> instance using a user-supplied factory and destructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctor_func</td><td>The factory used to create new instances. </td></tr>
+    <tr><td class="paramname">dtor_func</td><td>The destructor used to release instances. </td></tr>
+    <tr><td class="paramname">max_size</td><td>The maximum number of objects retained in the pool, or <em>0</em> for no limit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af1967ce057e434d847b846ffe340b715"></a>
@@ -360,6 +416,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. Destroys all currently idle pool entries. </p>
+<dl class="section warning"><dt>Warning</dt><dd>All previously handed-out smart pointers must have been released before destruction; otherwise the deferred put() will operate on a destroyed pool. </dd></dl>
 
 </div>
 </div>
@@ -389,6 +448,10 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a smart pointer to a pool-owned object. </p>
+<p>If no idle object is available a new one is created via the configured object factory. If an init function has been set (see <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a9ebd9e758bb30cc6d40f746a2cbd1dd2" title="Sets the function to be invoked on an object when it is handed out by get().">setInitFunction()</a>) it is invoked on the object before it is returned. The object is automatically returned to the pool when the last reference to the smart pointer is released.</p>
+<dl class="section return"><dt>Returns</dt><dd>A smart pointer to a borrowed object. </dd></dl>
+
 </div>
 </div>
 <a id="a086a34cc406d6e870e0b601863e65997"></a>
@@ -416,6 +479,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the current number of idle objects in the pool. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current pool size. </dd></dl>
+
 </div>
 </div>
 <a id="add530c7cf5a2386ff5f7de4a2e5cad0c"></a>
@@ -442,6 +508,9 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured maximum pool size. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum number of objects retained in the pool, or <em>0</em> for no limit. </dd></dl>
 
 </div>
 </div>
@@ -471,6 +540,15 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the maximum pool size. </p>
+<p>Excess idle objects above the new pool size are destroyed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_size</td><td>The new maximum pool size, or <em>0</em> for no limit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3a0fae8045b5c38056d77411044cc2ad"></a>
@@ -497,6 +575,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destroys all currently idle pool entries and releases their memory. </p>
 
 </div>
 </div>
@@ -526,6 +606,14 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the function to be invoked on an object when it is handed out by <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html#a6c48ab38d5c82db3afb97b29ebdfb780" title="Returns a smart pointer to a pool-owned object.">get()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The function to invoke on each newly handed-out object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a180c298f1a4ca14de1897e2e4bfb33c6"></a>
@@ -554,6 +642,14 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the function to be invoked on an object when it is returned to the pool. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The function to invoke on each returned object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa58ebafd2816d0bf67de8027893aa9c1"></a>
@@ -581,6 +677,16 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>The other <code>ObjectPool</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The pool of allocated objects of <em>pool</em> is not copied; only the configuration (max size, factory, destructor, cleanup and init function) is taken over. </dd></dl>
 
 </div>
 </div>

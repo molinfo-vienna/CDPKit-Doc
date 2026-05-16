@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html" title="CanonicalNumberingCalculator.">CanonicalNumberingCalculator</a>.  
+<p>Calculation of canonical atom numberings for molecular graphs using McKay's algorithm for practical graph isomorphism.  
  <a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CanonicalNumberingCalculator_8hpp_source.html">CanonicalNumberingCalculator.hpp</a>&gt;</code></p>
@@ -93,6 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a70a8032f875e6b4b6ce3f5d2fcd6a504"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; std::size_t(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a></td></tr>
+<tr class="memdesc:a70a8032f875e6b4b6ce3f5d2fcd6a504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the (implicit + explicit) hydrogen count of an atom.  <a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">More...</a><br /></td></tr>
 <tr class="separator:a70a8032f875e6b4b6ce3f5d2fcd6a504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -120,8 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a63c284fec40a64befcd312ae032dbdba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the set of bond properties that gets considered by the canonical numbering algorithm.  <a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a63c284fec40a64befcd312ae032dbdba">More...</a><br /></td></tr>
 <tr class="separator:a63c284fec40a64befcd312ae032dbdba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03d99ce7a851918bc61f25840dea0c32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">setHydrogenCountFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a03d99ce7a851918bc61f25840dea0c32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies a function for the retrieval of the hydrogen count of an atom.  <a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">More...</a><br /></td></tr>
 <tr class="separator:a03d99ce7a851918bc61f25840dea0c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a518fef76ce185bb79dcb12faf0fe28f1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">getHydrogenCountFunction</a> ()</td></tr>
+<tr class="memdesc:a518fef76ce185bb79dcb12faf0fe28f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the function used for the retrieval of the hydrogen count of an atom.  <a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">More...</a><br /></td></tr>
 <tr class="separator:a518fef76ce185bb79dcb12faf0fe28f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb88fab16c12aa230e697a42ad79c187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb88fab16c12aa230e697a42ad79c187">calculate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a> &amp;numbering)</td></tr>
 <tr class="memdesc:adb88fab16c12aa230e697a42ad79c187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a canonical numbering of the atoms in the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb88fab16c12aa230e697a42ad79c187">More...</a><br /></td></tr>
@@ -137,7 +140,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a5c7a8b36192b68332fbd13f98d8168ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html" title="CanonicalNumberingCalculator.">CanonicalNumberingCalculator</a>. </p>
+<div class="textblock"><p>Calculation of canonical atom numberings for molecular graphs using McKay's algorithm for practical graph isomorphism. </p>
+<p>The set of atom and bond properties used to break ties during numbering can be configured via <a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a344c153a4db37cd572cce9ced681b47a" title="Allows to specify the set of atomic properties that has to be considered by the canonical numering al...">setAtomPropertyFlags()</a> and <a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#aec27daf5108d23ea30cfdc4f024f9037" title="Allows to specify the set of bond properties that has to be considered by the canonical numering algo...">setBondPropertyFlags()</a>; a custom hydrogen-count function used for label generation can be installed via <a class="el" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32" title="Specifies a function for the retrieval of the hydrogen count of an atom.">setHydrogenCountFunction()</a>.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#MCKAY">MCKAY</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a70a8032f875e6b4b6ce3f5d2fcd6a504"></a>
@@ -151,6 +155,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor used to retrieve the (implicit + explicit) hydrogen count of an atom. </p>
 
 </div>
 </div>
@@ -389,6 +395,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies a function for the retrieval of the hydrogen count of an atom. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The hydrogen count function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a518fef76ce185bb79dcb12faf0fe28f1"></a>
@@ -405,6 +419,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the function used for the retrieval of the hydrogen count of an atom. </p>
+<dl class="section return"><dt>Returns</dt><dd>The currently configured hydrogen count function. </dd></dl>
 
 </div>
 </div>

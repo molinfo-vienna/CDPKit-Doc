@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html" title="AttributedGrid.">AttributedGrid</a>.  
+<p>Abstract base class for grid types that also carry generic key/value properties.  
  <a href="classCDPL_1_1Grid_1_1AttributedGrid.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Grid.AttributedGrid:</div>
@@ -101,8 +101,10 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:add56c06f924c24d182dbb3495993041a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <code>AttributedGrid</code> instance. <br /></td></tr>
 <tr class="separator:add56c06f924c24d182dbb3495993041a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66613f477bc46b5dc69ae49a6e0a9c55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html#a66613f477bc46b5dc69ae49a6e0a9c55">isEmpty</a> ()</td></tr>
+<tr class="memdesc:a66613f477bc46b5dc69ae49a6e0a9c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the grid is empty.  <a href="classCDPL_1_1Grid_1_1AttributedGrid.html#a66613f477bc46b5dc69ae49a6e0a9c55">More...</a><br /></td></tr>
 <tr class="separator:a66613f477bc46b5dc69ae49a6e0a9c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e9f4410dd3c3acb7a6667445965fa1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html#a83e9f4410dd3c3acb7a6667445965fa1">getNumElements</a> ()</td></tr>
+<tr class="memdesc:a83e9f4410dd3c3acb7a6667445965fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of grid elements.  <a href="classCDPL_1_1Grid_1_1AttributedGrid.html#a83e9f4410dd3c3acb7a6667445965fa1">More...</a><br /></td></tr>
 <tr class="separator:a83e9f4410dd3c3acb7a6667445965fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a160cb00bbbc787ecca0724cff7b551c0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html#a160cb00bbbc787ecca0724cff7b551c0">__len__</a> ()</td></tr>
 <tr class="separator:a160cb00bbbc787ecca0724cff7b551c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +190,8 @@ Properties</h2></td></tr>
 <tr class="separator:ae628d29d1b9d8bd821de3de47f43d231 inherit properties_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html" title="AttributedGrid.">AttributedGrid</a>. </p>
+<div class="textblock"><p>Abstract base class for grid types that also carry generic key/value properties. </p>
+<p><code><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html" title="Abstract base class for grid types that also carry generic key/value properties.">AttributedGrid</a></code> combines the property-bag interface from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html" title="A class providing methods for the storage and lookup of object properties.">Base.PropertyContainer</a> with the minimal grid interface required to know the number of grid elements and whether the grid is empty. Concrete grid types (e.g. Grid.RegularGrid) implement the pure virtual member functions. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a66613f477bc46b5dc69ae49a6e0a9c55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66613f477bc46b5dc69ae49a6e0a9c55">&#9670;&nbsp;</a></span>isEmpty()</h2>
@@ -204,7 +207,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Tells whether the grid is empty. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>True</code> if the grid is empty, and <code>False</code> otherwise. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FSpatialGrid.html#afe827e67c5a607920c15f5742b093d2a">CDPL.Grid.FSpatialGrid</a>, <a class="el" href="classCDPL_1_1Grid_1_1FRegularGrid.html#a0c1a0c50a2295e30ecc8ba014cb555af">CDPL.Grid.FRegularGrid</a>, <a class="el" href="classCDPL_1_1Grid_1_1DSpatialGrid.html#a56052263aa80b422c17d396f85c2a17f">CDPL.Grid.DSpatialGrid</a>, and <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html#aeb3758975bdced5d6f95e7f9216ed567">CDPL.Grid.DRegularGrid</a>.</p>
 
@@ -224,7 +229,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the total number of grid elements. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of grid elements. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FSpatialGrid.html#ab03590dfbd8f55764de3413cdba7bffc">CDPL.Grid.FSpatialGrid</a>, and <a class="el" href="classCDPL_1_1Grid_1_1DSpatialGrid.html#a42e2e3a02f1f2fd258149687623bae73">CDPL.Grid.DSpatialGrid</a>.</p>
 

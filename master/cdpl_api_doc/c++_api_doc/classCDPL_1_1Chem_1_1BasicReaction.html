@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html" title="BasicReaction.">BasicReaction</a>.  
+<p>Default concrete implementation of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> abstract interface.  
  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BasicReaction_8hpp_source.html">BasicReaction.hpp</a>&gt;</code></p>
@@ -102,8 +102,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a6b846d800fdbc0efde343061865e8128"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>BasicReaction</code> instances.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a6b846d800fdbc0efde343061865e8128">More...</a><br /></td></tr>
 <tr class="separator:a6b846d800fdbc0efde343061865e8128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cfa60823eb881c8b424a55f1e639128"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ComponentList::iterator, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a></td></tr>
+<tr class="memdesc:a2cfa60823eb881c8b424a55f1e639128"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">More...</a><br /></td></tr>
 <tr class="separator:a2cfa60823eb881c8b424a55f1e639128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ComponentList::const_iterator, const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">ConstComponentIterator</a></td></tr>
+<tr class="memdesc:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">More...</a><br /></td></tr>
 <tr class="separator:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1Reaction"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1Reaction')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">CDPL::Chem::Reaction</a></td></tr>
 <tr class="memitem:a44418819b40175d1557e73016dd4d864 inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a44418819b40175d1557e73016dd4d864">SharedPointer</a></td></tr>
@@ -140,73 +142,82 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aba382fd71aa480fa7a0405b562b5025c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#aba382fd71aa480fa7a0405b562b5025c">More...</a><br /></td></tr>
 <tr class="separator:aba382fd71aa480fa7a0405b562b5025c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73fa3c786c148130714eef2681ec9049"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a73fa3c786c148130714eef2681ec9049">getComponentRole</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol) const</td></tr>
-<tr class="memdesc:a73fa3c786c148130714eef2681ec9049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reaction role of the specified component.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a73fa3c786c148130714eef2681ec9049">More...</a><br /></td></tr>
+<tr class="memdesc:a73fa3c786c148130714eef2681ec9049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reaction role of the component <em>mol</em> (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>).  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a73fa3c786c148130714eef2681ec9049">More...</a><br /></td></tr>
 <tr class="separator:a73fa3c786c148130714eef2681ec9049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe82bdcb53262597ef627073cf7be282"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#afe82bdcb53262597ef627073cf7be282">getComponentIndex</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol) const</td></tr>
-<tr class="memdesc:afe82bdcb53262597ef627073cf7be282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the specified reaction component.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#afe82bdcb53262597ef627073cf7be282">More...</a><br /></td></tr>
+<tr class="memdesc:afe82bdcb53262597ef627073cf7be282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the component <em>mol</em> in the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#afe82bdcb53262597ef627073cf7be282">More...</a><br /></td></tr>
 <tr class="separator:afe82bdcb53262597ef627073cf7be282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a680347d18a526abc42ad9c0e5cd0ce00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a680347d18a526abc42ad9c0e5cd0ce00">containsComponent</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol) const</td></tr>
-<tr class="memdesc:a680347d18a526abc42ad9c0e5cd0ce00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the specified molecule is a component of this reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a680347d18a526abc42ad9c0e5cd0ce00">More...</a><br /></td></tr>
+<tr class="memdesc:a680347d18a526abc42ad9c0e5cd0ce00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether <em>mol</em> is a component of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a680347d18a526abc42ad9c0e5cd0ce00">More...</a><br /></td></tr>
 <tr class="separator:a680347d18a526abc42ad9c0e5cd0ce00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84dfcf910eaaa23fc064b8108beef7a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a84dfcf910eaaa23fc064b8108beef7a7">clear</a> ()</td></tr>
 <tr class="memdesc:a84dfcf910eaaa23fc064b8108beef7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all components and clears all properties of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a84dfcf910eaaa23fc064b8108beef7a7">More...</a><br /></td></tr>
 <tr class="separator:a84dfcf910eaaa23fc064b8108beef7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47f0c0c9e65ecdfdcb9ff76a0563f7cd"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a47f0c0c9e65ecdfdcb9ff76a0563f7cd">getNumComponents</a> () const</td></tr>
-<tr class="memdesc:a47f0c0c9e65ecdfdcb9ff76a0563f7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a47f0c0c9e65ecdfdcb9ff76a0563f7cd">More...</a><br /></td></tr>
+<tr class="memdesc:a47f0c0c9e65ecdfdcb9ff76a0563f7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of components in the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a47f0c0c9e65ecdfdcb9ff76a0563f7cd">More...</a><br /></td></tr>
 <tr class="separator:a47f0c0c9e65ecdfdcb9ff76a0563f7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a612777a003a5889033059c55e9245584"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a612777a003a5889033059c55e9245584">getNumComponents</a> (unsigned int role) const</td></tr>
-<tr class="memdesc:a612777a003a5889033059c55e9245584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of reaction components with the specified role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a612777a003a5889033059c55e9245584">More...</a><br /></td></tr>
+<tr class="memdesc:a612777a003a5889033059c55e9245584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of components with the given reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a612777a003a5889033059c55e9245584">More...</a><br /></td></tr>
 <tr class="separator:a612777a003a5889033059c55e9245584"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90edcb50a1b0070cd582df2c1b3eb208"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">ConstComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a90edcb50a1b0070cd582df2c1b3eb208">getComponentsBegin</a> () const</td></tr>
+<tr class="memdesc:a90edcb50a1b0070cd582df2c1b3eb208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first component of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a90edcb50a1b0070cd582df2c1b3eb208">More...</a><br /></td></tr>
 <tr class="separator:a90edcb50a1b0070cd582df2c1b3eb208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae60dc6b97c9ff44fb33acd1fb1777073"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#ae60dc6b97c9ff44fb33acd1fb1777073">getComponentsBegin</a> ()</td></tr>
+<tr class="memdesc:ae60dc6b97c9ff44fb33acd1fb1777073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the first component of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ae60dc6b97c9ff44fb33acd1fb1777073">More...</a><br /></td></tr>
 <tr class="separator:ae60dc6b97c9ff44fb33acd1fb1777073"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e16e5114573d67828447db64d2d8499"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">ConstComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a9e16e5114573d67828447db64d2d8499">getComponentsEnd</a> () const</td></tr>
+<tr class="memdesc:a9e16e5114573d67828447db64d2d8499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last component of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a9e16e5114573d67828447db64d2d8499">More...</a><br /></td></tr>
 <tr class="separator:a9e16e5114573d67828447db64d2d8499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44ab0295d060b02c01c86903cff8ebfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a44ab0295d060b02c01c86903cff8ebfb">getComponentsEnd</a> ()</td></tr>
+<tr class="memdesc:a44ab0295d060b02c01c86903cff8ebfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last component of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a44ab0295d060b02c01c86903cff8ebfb">More...</a><br /></td></tr>
 <tr class="separator:a44ab0295d060b02c01c86903cff8ebfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5891c24eaab7251d6e983609f6ffb9a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">ConstComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a5891c24eaab7251d6e983609f6ffb9a2">getComponentsBegin</a> (unsigned int role) const</td></tr>
+<tr class="memdesc:a5891c24eaab7251d6e983609f6ffb9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first component with the given reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a5891c24eaab7251d6e983609f6ffb9a2">More...</a><br /></td></tr>
 <tr class="separator:a5891c24eaab7251d6e983609f6ffb9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63cc158748213664ee4a106be1514b89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a63cc158748213664ee4a106be1514b89">getComponentsBegin</a> (unsigned int role)</td></tr>
+<tr class="memdesc:a63cc158748213664ee4a106be1514b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the first component with the given reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a63cc158748213664ee4a106be1514b89">More...</a><br /></td></tr>
 <tr class="separator:a63cc158748213664ee4a106be1514b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33cc7a9f493abc4efedf5df56f4296c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">ConstComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a33cc7a9f493abc4efedf5df56f4296c0">getComponentsEnd</a> (unsigned int role) const</td></tr>
+<tr class="memdesc:a33cc7a9f493abc4efedf5df56f4296c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last component with the given reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a33cc7a9f493abc4efedf5df56f4296c0">More...</a><br /></td></tr>
 <tr class="separator:a33cc7a9f493abc4efedf5df56f4296c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ffe7dba0c5832df7e97f0f27baa66ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a3ffe7dba0c5832df7e97f0f27baa66ff">getComponentsEnd</a> (unsigned int role)</td></tr>
+<tr class="memdesc:a3ffe7dba0c5832df7e97f0f27baa66ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last component with the given reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a3ffe7dba0c5832df7e97f0f27baa66ff">More...</a><br /></td></tr>
 <tr class="separator:a3ffe7dba0c5832df7e97f0f27baa66ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6b4f060c97ef5ba2d3361c55859662b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#ab6b4f060c97ef5ba2d3361c55859662b">getComponent</a> (std::size_t idx) const</td></tr>
-<tr class="memdesc:ab6b4f060c97ef5ba2d3361c55859662b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the reaction component at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ab6b4f060c97ef5ba2d3361c55859662b">More...</a><br /></td></tr>
+<tr class="memdesc:ab6b4f060c97ef5ba2d3361c55859662b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the component at the specified index.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ab6b4f060c97ef5ba2d3361c55859662b">More...</a><br /></td></tr>
 <tr class="separator:ab6b4f060c97ef5ba2d3361c55859662b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab095d4d0049c7e4535b2fdb4ca90b800"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#ab095d4d0049c7e4535b2fdb4ca90b800">getComponent</a> (std::size_t idx)</td></tr>
-<tr class="memdesc:ab095d4d0049c7e4535b2fdb4ca90b800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the reaction component at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ab095d4d0049c7e4535b2fdb4ca90b800">More...</a><br /></td></tr>
+<tr class="memdesc:ab095d4d0049c7e4535b2fdb4ca90b800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the component at the specified index.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ab095d4d0049c7e4535b2fdb4ca90b800">More...</a><br /></td></tr>
 <tr class="separator:ab095d4d0049c7e4535b2fdb4ca90b800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef90b86d270c53e94df5513f5b49eb55"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#aef90b86d270c53e94df5513f5b49eb55">getComponent</a> (std::size_t idx, unsigned int role) const</td></tr>
-<tr class="memdesc:aef90b86d270c53e94df5513f5b49eb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the reaction component at index <em>idx</em> in the list of components with the specified role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#aef90b86d270c53e94df5513f5b49eb55">More...</a><br /></td></tr>
+<tr class="memdesc:aef90b86d270c53e94df5513f5b49eb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the component at the given index within its reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#aef90b86d270c53e94df5513f5b49eb55">More...</a><br /></td></tr>
 <tr class="separator:aef90b86d270c53e94df5513f5b49eb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9065073a7223cbfe1d92f8fee8a8dff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#ae9065073a7223cbfe1d92f8fee8a8dff">getComponent</a> (std::size_t idx, unsigned int role)</td></tr>
-<tr class="memdesc:ae9065073a7223cbfe1d92f8fee8a8dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the reaction component at index <em>idx</em> in the list of components with the specified role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ae9065073a7223cbfe1d92f8fee8a8dff">More...</a><br /></td></tr>
+<tr class="memdesc:ae9065073a7223cbfe1d92f8fee8a8dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the component at the given index within its reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ae9065073a7223cbfe1d92f8fee8a8dff">More...</a><br /></td></tr>
 <tr class="separator:ae9065073a7223cbfe1d92f8fee8a8dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26eed496e6999bef4ec7c37d23b503d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#ac26eed496e6999bef4ec7c37d23b503d">addComponent</a> (unsigned int role)</td></tr>
-<tr class="memdesc:ac26eed496e6999bef4ec7c37d23b503d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new reaction component with the specified role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ac26eed496e6999bef4ec7c37d23b503d">More...</a><br /></td></tr>
+<tr class="memdesc:ac26eed496e6999bef4ec7c37d23b503d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new empty component with the specified reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#ac26eed496e6999bef4ec7c37d23b503d">More...</a><br /></td></tr>
 <tr class="separator:ac26eed496e6999bef4ec7c37d23b503d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fddfa00033e4840c6a9ff7713347652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a6fddfa00033e4840c6a9ff7713347652">addComponent</a> (unsigned int role, const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol)</td></tr>
 <tr class="memdesc:a6fddfa00033e4840c6a9ff7713347652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new reaction component with the specified role that is a copy of the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a6fddfa00033e4840c6a9ff7713347652">More...</a><br /></td></tr>
 <tr class="separator:a6fddfa00033e4840c6a9ff7713347652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a767bc6245bffe71a3bba41de0c811907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a767bc6245bffe71a3bba41de0c811907">swapComponentRoles</a> (unsigned int role1, unsigned int role2)</td></tr>
-<tr class="memdesc:a767bc6245bffe71a3bba41de0c811907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the reaction roles of the component sets specified by <em>role1</em> and <em>role2</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a767bc6245bffe71a3bba41de0c811907">More...</a><br /></td></tr>
+<tr class="memdesc:a767bc6245bffe71a3bba41de0c811907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the reaction roles of two component groups.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a767bc6245bffe71a3bba41de0c811907">More...</a><br /></td></tr>
 <tr class="separator:a767bc6245bffe71a3bba41de0c811907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d7a586e00c25fcb39f02dc3190906db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a9d7a586e00c25fcb39f02dc3190906db">removeComponent</a> (std::size_t idx)</td></tr>
-<tr class="memdesc:a9d7a586e00c25fcb39f02dc3190906db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the reaction component at the specified index.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a9d7a586e00c25fcb39f02dc3190906db">More...</a><br /></td></tr>
+<tr class="memdesc:a9d7a586e00c25fcb39f02dc3190906db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component at the specified index.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a9d7a586e00c25fcb39f02dc3190906db">More...</a><br /></td></tr>
 <tr class="separator:a9d7a586e00c25fcb39f02dc3190906db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71f8f7ca7a3c24bc73562aa04e11fd27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a71f8f7ca7a3c24bc73562aa04e11fd27">removeComponent</a> (std::size_t idx, unsigned int role)</td></tr>
-<tr class="memdesc:a71f8f7ca7a3c24bc73562aa04e11fd27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the reaction component at index <em>idx</em> in the list of components with the specified role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a71f8f7ca7a3c24bc73562aa04e11fd27">More...</a><br /></td></tr>
+<tr class="memdesc:a71f8f7ca7a3c24bc73562aa04e11fd27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component at the given index within its reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a71f8f7ca7a3c24bc73562aa04e11fd27">More...</a><br /></td></tr>
 <tr class="separator:a71f8f7ca7a3c24bc73562aa04e11fd27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24d061d09efd8c254df3a041a877de75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a24d061d09efd8c254df3a041a877de75">removeComponent</a> (const <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a> &amp;it)</td></tr>
+<tr class="memdesc:a24d061d09efd8c254df3a041a877de75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the component referenced by the given iterator.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a24d061d09efd8c254df3a041a877de75">More...</a><br /></td></tr>
 <tr class="separator:a24d061d09efd8c254df3a041a877de75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a822c99f1b74fc654889b3f0f6d0923"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a4a822c99f1b74fc654889b3f0f6d0923">removeComponents</a> (unsigned int role)</td></tr>
-<tr class="memdesc:a4a822c99f1b74fc654889b3f0f6d0923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all components with the specified role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a4a822c99f1b74fc654889b3f0f6d0923">More...</a><br /></td></tr>
+<tr class="memdesc:a4a822c99f1b74fc654889b3f0f6d0923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all components with the specified reaction role.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a4a822c99f1b74fc654889b3f0f6d0923">More...</a><br /></td></tr>
 <tr class="separator:a4a822c99f1b74fc654889b3f0f6d0923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f6e553152a1ad151b4fc2b0e1447be2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a44418819b40175d1557e73016dd4d864">Reaction::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a8f6e553152a1ad151b4fc2b0e1447be2">clone</a> () const</td></tr>
-<tr class="memdesc:a8f6e553152a1ad151b4fc2b0e1447be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of the current reaction state.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a8f6e553152a1ad151b4fc2b0e1447be2">More...</a><br /></td></tr>
+<tr class="memdesc:a8f6e553152a1ad151b4fc2b0e1447be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep copy of the reaction.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a8f6e553152a1ad151b4fc2b0e1447be2">More...</a><br /></td></tr>
 <tr class="separator:a8f6e553152a1ad151b4fc2b0e1447be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e959ac7d89d0ef1f9eed851556f71b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html">BasicReaction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a4e959ac7d89d0ef1f9eed851556f71b0">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html">BasicReaction</a> &amp;rxn)</td></tr>
 <tr class="memdesc:a4e959ac7d89d0ef1f9eed851556f71b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of reaction components and properties by a copy of the components and properties of the reaction <em>rxn</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a4e959ac7d89d0ef1f9eed851556f71b0">More...</a><br /></td></tr>
@@ -342,7 +353,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html" title="BasicReaction.">BasicReaction</a>. </p>
+<div class="textblock"><p>Default concrete implementation of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> abstract interface. </p>
+<p><code>BasicReaction</code> stores reaction components as <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> instances grouped by reaction role (reactant, agent, product). Components are pooled via a <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html" title="A data structure that caches instances of type T up to a user specified amount.">Util::ObjectPool</a> to minimize allocation overhead in batch processing scenarios. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6b846d800fdbc0efde343061865e8128"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b846d800fdbc0efde343061865e8128">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -372,6 +384,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components. </p>
+
 </div>
 </div>
 <a id="a0f304bd8c30e34f77d07f1a9b3d7f753"></a>
@@ -385,6 +399,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components. </p>
 
 </div>
 </div>
@@ -505,15 +521,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the reaction role of the specified component. </p>
-<p>If the specified molecule is not a component of this reaction, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a0db383f6a3aa1ed7669b23e3c5733160" title="Specifies that a molecule is not a reaction component.">Chem::ReactionRole::NONE</a> will be returned.</p>
+<p>Returns the reaction role of the component <em>mol</em> (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The component for which to return the reaction role. </td></tr>
+    <tr><td class="paramname">mol</td><td>The molecule whose role is requested. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A flag that specifies the reaction role of the component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The reaction role of the component. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#af12a9c9142739700fdf69ac0d8c1db2a">CDPL::Chem::Reaction</a>.</p>
 
@@ -543,20 +558,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the index of the specified reaction component. </p>
+<p>Returns the index of the component <em>mol</em> in the reaction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The component for which to return the index. </td></tr>
+    <tr><td class="paramname">mol</td><td>The molecule whose index is requested. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The zero-based index of the specified reaction component. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a></td><td>if the specified molecule is not a component of this reaction. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>The zero-based index of the component. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a7a07fd672fe97b6b853a2651b5ebf968">CDPL::Chem::Reaction</a>.</p>
 
@@ -586,14 +595,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether the specified molecule is a component of this reaction. </p>
+<p>Tells whether <em>mol</em> is a component of the reaction. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The molecule to look for. </td></tr>
+    <tr><td class="paramname">mol</td><td>The molecule to look up. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the specified molecule is a component of this reaction, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>mol</em> is a component of the reaction, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a7e89ccae0801b21b036c3bdc53bf0117">CDPL::Chem::Reaction</a>.</p>
 
@@ -651,8 +660,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of reaction components. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of reaction components. </dd></dl>
+<p>Returns the total number of components in the reaction. </p>
+<dl class="section return"><dt>Returns</dt><dd>The total number of components. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a2e1180f1bc954c14955ea5e816bfd2f6">CDPL::Chem::Reaction</a>.</p>
 
@@ -682,20 +691,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of reaction components with the specified role. </p>
+<p>Returns the number of components with the given reaction role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag that specifies the reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of reaction components with the specified role. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a></td><td>if the value of <em>role</em> is not equal to <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of components with the specified role. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a8ee5a0c8fe9464b201a9a8d749a30f53">CDPL::Chem::Reaction</a>.</p>
 
@@ -716,6 +719,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first component of the reaction. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first component. </dd></dl>
+
 </div>
 </div>
 <a id="ae60dc6b97c9ff44fb33acd1fb1777073"></a>
@@ -732,6 +738,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing to the first component of the reaction. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the first component. </dd></dl>
 
 </div>
 </div>
@@ -750,6 +759,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last component of the reaction. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last component. </dd></dl>
+
 </div>
 </div>
 <a id="a44ab0295d060b02c01c86903cff8ebfb"></a>
@@ -766,6 +778,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing one past the last component of the reaction. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing one past the last component. </dd></dl>
 
 </div>
 </div>
@@ -785,6 +800,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first component with the given reaction role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first component with the specified role. </dd></dl>
+
 </div>
 </div>
 <a id="a63cc158748213664ee4a106be1514b89"></a>
@@ -802,6 +826,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing to the first component with the given reaction role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the first component with the specified role. </dd></dl>
 
 </div>
 </div>
@@ -821,6 +854,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last component with the given reaction role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last component with the specified role. </dd></dl>
+
 </div>
 </div>
 <a id="a3ffe7dba0c5832df7e97f0f27baa66ff"></a>
@@ -838,6 +880,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing one past the last component with the given reaction role. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing one past the last component with the specified role. </dd></dl>
 
 </div>
 </div>
@@ -865,20 +916,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>const</code> reference to the reaction component at index <em>idx</em>. </p>
+<p>Returns a <code>const</code> reference to the component at the specified index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the reaction component to return. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based component index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the reaction component at the specified index. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of components is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a47f0c0c9e65ecdfdcb9ff76a0563f7cd" title="Returns the number of reaction components.">getNumComponents()</a> - 1]. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the component. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a70232e6469a4ec8d73ec4c48c8dcae3a">CDPL::Chem::Reaction</a>.</p>
 
@@ -908,20 +953,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a non-<code>const</code> reference to the reaction component at index <em>idx</em>. </p>
+<p>Returns a reference to the component at the specified index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the reaction component to return. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based component index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the reaction component at the specified index. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of components is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a47f0c0c9e65ecdfdcb9ff76a0563f7cd" title="Returns the number of reaction components.">getNumComponents()</a> - 1]. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the component. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#aa3b4ba99bb30a0cce6b6c910074af86a">CDPL::Chem::Reaction</a>.</p>
 
@@ -961,21 +1000,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>const</code> reference to the reaction component at index <em>idx</em> in the list of components with the specified role. </p>
+<p>Returns a <code>const</code> reference to the component at the given index within its reaction role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the reaction component to return. </td></tr>
-    <tr><td class="paramname">role</td><td>A flag indicating the reaction role of the component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based component index within the role. </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the reaction component with the specified role and index. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of components with the specified role is zero or <em>idx</em> is not in the range [0, <code>getNumComponents(role) - 1</code>]. <a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a> if the value of <em>role</em> is not equal to <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the component. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a2c579fcaa81fe9114ef11a548daf6ceb">CDPL::Chem::Reaction</a>.</p>
 
@@ -1015,21 +1048,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a non-<code>const</code> reference to the reaction component at index <em>idx</em> in the list of components with the specified role. </p>
+<p>Returns a reference to the component at the given index within its reaction role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the reaction component to return. </td></tr>
-    <tr><td class="paramname">role</td><td>A flag indicating the reaction role of the component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based component index within the role. </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the reaction component with the specified role and index. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of components with the specified role is zero or <em>idx</em> is not in the range [0, <code>getNumComponents(role) - 1</code>]. <a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a> if the value of <em>role</em> is not equal to <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the component. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a866dba10661263f80da3676ae869d924">CDPL::Chem::Reaction</a>.</p>
 
@@ -1059,20 +1086,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a new reaction component with the specified role. </p>
+<p>Adds a new empty component with the specified reaction role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag specifying the reaction role of the new component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role of the new component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the newly created component molecule. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a></td><td>if the value of <em>role</em> is not <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#acd39c2b7dc1d7660e60d9b41196f7c04">CDPL::Chem::Reaction</a>.</p>
 
@@ -1156,18 +1177,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Swaps the reaction roles of the component sets specified by <em>role1</em> and <em>role2</em>. </p>
-<p>If <em>role1</em> is equal to <em>role2</em>, the method has no effect.</p>
+<p>Swaps the reaction roles of two component groups. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role1</td><td>A flag specifying the reaction role of the first component set (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
-    <tr><td class="paramname">role2</td><td>A flag specifying the reaction role of the second component set (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a></td><td>if the value of <em>role1</em> and/or <em>role2</em> is not equal to <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
+    <tr><td class="paramname">role1</td><td>The first reaction role. </td></tr>
+    <tr><td class="paramname">role2</td><td>The second reaction role. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1200,16 +1214,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the reaction component at the specified index. </p>
+<p>Removes the component at the specified index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the component to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of components is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a47f0c0c9e65ecdfdcb9ff76a0563f7cd" title="Returns the number of reaction components.">getNumComponents()</a> - 1]. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based component index. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1252,17 +1260,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the reaction component at index <em>idx</em> in the list of components with the specified role. </p>
+<p>Removes the component at the given index within its reaction role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the component to remove. </td></tr>
-    <tr><td class="paramname">role</td><td>The reaction role of the components </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of components with the specified role is zero or <em>idx</em> is not in the range [0, <code>getNumComponents(role) - 1</code>]. <a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a> if the value of <em>role</em> is not <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based component index within the role. </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1286,6 +1288,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the component referenced by the given iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>Iterator referencing the component to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the component following the removed one. </dd></dl>
 
 </div>
 </div>
@@ -1313,16 +1324,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes all components with the specified role. </p>
+<p>Removes all components with the specified reaction role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag specifying the reaction role of the components to remove (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ValueError.html" title="Thrown to indicate errors caused by some invalid value.">Base::ValueError</a></td><td>if the value of <em>role</em> is not <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a921ba9296f6029af6902d8ce0527d997" title="Specifies the reactants of a reaction.">Chem::ReactionRole::REACTANT</a>, <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a66223d61a85581b4ccfc9d4f8b56ee72" title="Specifies the agents of a reaction (e.g. solvent or catalyst).">Chem::ReactionRole::AGENT</a> or <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a29e966d9c780803ee0dbdfda389b38ce" title="Specifies the products of a reaction.">Chem::ReactionRole::PRODUCT</a>. </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role of the components to remove (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1354,8 +1359,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a copy of the current reaction state. </p>
-<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the copy of the reaction. </dd></dl>
+<p>Creates a deep copy of the reaction. </p>
+<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the cloned reaction. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#aafc0e559b9fbc7aca96201de8367ba02">CDPL::Chem::Reaction</a>.</p>
 
