@@ -86,7 +86,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html" title="PEOESigmaChargeCalculator.">PEOESigmaChargeCalculator</a>.  
+<p>Calculator that uses the <em>Partial Equalization of Orbital Electronegativities</em> (PEOE) method of Gasteiger and Marsili to compute sigma atomic charges and electronegativities of a molecular graph.  
  <a href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PEOESigmaChargeCalculator_8hpp_source.html">PEOESigmaChargeCalculator.hpp</a>&gt;</code></p>
@@ -94,6 +94,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a33ed02a92169bfac824f63691b999ab3"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html">PEOESigmaChargeCalculator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#a33ed02a92169bfac824f63691b999ab3">SharedPointer</a></td></tr>
+<tr class="memdesc:a33ed02a92169bfac824f63691b999ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>PEOESigmaChargeCalculator</code> instances.  <a href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#a33ed02a92169bfac824f63691b999ab3">More...</a><br /></td></tr>
 <tr class="separator:a33ed02a92169bfac824f63691b999ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -133,8 +134,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a15fbd8c5cdac54b079303cd7ab0a9816"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#a15fbd8c5cdac54b079303cd7ab0a9816">DEF_NUM_ITERATIONS</a> = 20</td></tr>
+<tr class="memdesc:a15fbd8c5cdac54b079303cd7ab0a9816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of charge-shifting iterations.  <a href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#a15fbd8c5cdac54b079303cd7ab0a9816">More...</a><br /></td></tr>
 <tr class="separator:a15fbd8c5cdac54b079303cd7ab0a9816"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa50c75bb3ffe81bea560e4b2700dac15"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#aa50c75bb3ffe81bea560e4b2700dac15">DEF_DAMPING_FACTOR</a> = 0.48</td></tr>
+<tr class="memdesc:aa50c75bb3ffe81bea560e4b2700dac15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default per-iteration damping factor.  <a href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#aa50c75bb3ffe81bea560e4b2700dac15">More...</a><br /></td></tr>
 <tr class="separator:aa50c75bb3ffe81bea560e4b2700dac15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -143,7 +146,8 @@ Friends</h2></td></tr>
 <tr class="separator:af9af6604e7cec1d9142aeee1997cd806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html" title="PEOESigmaChargeCalculator.">PEOESigmaChargeCalculator</a>. </p>
+<div class="textblock"><p>Calculator that uses the <em>Partial Equalization of Orbital Electronegativities</em> (PEOE) method of Gasteiger and Marsili to compute sigma atomic charges and electronegativities of a molecular graph. </p>
+<p>The calculation iteratively shifts partial charges between bonded atoms until the orbital electronegativities are (approximately) equalized. The number of iterations and the damping factor that controls the shift attenuation per iteration can be configured.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#PEOE">PEOE</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a33ed02a92169bfac824f63691b999ab3"></a>
@@ -157,6 +161,8 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>PEOESigmaChargeCalculator</code> instances. </p>
 
 </div>
 </div>
@@ -282,7 +288,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>By default, <a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#a15fbd8c5cdac54b079303cd7ab0a9816">PEOESigmaChargeCalculator::DEF_NUM_ITERATIONS</a> iterations are performed. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>By default, <a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#a15fbd8c5cdac54b079303cd7ab0a9816" title="Default number of charge-shifting iterations.">PEOESigmaChargeCalculator::DEF_NUM_ITERATIONS</a> iterations are performed. </dd></dl>
 
 </div>
 </div>
@@ -329,7 +335,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The default damping factor is specified by the constant <a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#aa50c75bb3ffe81bea560e4b2700dac15">PEOESigmaChargeCalculator::DEF_DAMPING_FACTOR</a>. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The default damping factor is specified by the constant <a class="el" href="classCDPL_1_1MolProp_1_1PEOESigmaChargeCalculator.html#aa50c75bb3ffe81bea560e4b2700dac15" title="Default per-iteration damping factor.">PEOESigmaChargeCalculator::DEF_DAMPING_FACTOR</a>. </dd></dl>
 
 </div>
 </div>
@@ -488,6 +494,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default number of charge-shifting iterations. </p>
+
 </div>
 </div>
 <a id="aa50c75bb3ffe81bea560e4b2700dac15"></a>
@@ -509,6 +517,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default per-iteration damping factor. </p>
 
 </div>
 </div>

@@ -86,7 +86,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html" title="NPointPharmacophoreFingerprintGenerator.">NPointPharmacophoreFingerprintGenerator</a>.  
+<p>Abstract base for N-point pharmacophore fingerprint generators.  
  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="NPointPharmacophoreFingerprintGenerator_8hpp_source.html">NPointPharmacophoreFingerprintGenerator.hpp</a>&gt;</code></p>
@@ -102,58 +102,78 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a07231428701c8b4aaea293cfd590f0a3"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a07231428701c8b4aaea293cfd590f0a3">FeatureFilterFunction</a></td></tr>
+<tr class="memdesc:a07231428701c8b4aaea293cfd590f0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to filter which features participate in the fingerprint.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a07231428701c8b4aaea293cfd590f0a3">More...</a><br /></td></tr>
 <tr class="separator:a07231428701c8b4aaea293cfd590f0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3409ade8846df8ac3eb9512b39f18d6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#af3409ade8846df8ac3eb9512b39f18d6">~NPointPharmacophoreFingerprintGenerator</a> ()</td></tr>
+<tr class="memdesc:af3409ade8846df8ac3eb9512b39f18d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#af3409ade8846df8ac3eb9512b39f18d6">More...</a><br /></td></tr>
 <tr class="separator:af3409ade8846df8ac3eb9512b39f18d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a875dc9e33b31fcb8b3bee923dadf0753"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a875dc9e33b31fcb8b3bee923dadf0753">setMinFeatureTupleSize</a> (std::size_t min_size)</td></tr>
+<tr class="memdesc:a875dc9e33b31fcb8b3bee923dadf0753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum size of generated feature tuples.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a875dc9e33b31fcb8b3bee923dadf0753">More...</a><br /></td></tr>
 <tr class="separator:a875dc9e33b31fcb8b3bee923dadf0753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bc06ec16764b058d9a3978a6823334d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a0bc06ec16764b058d9a3978a6823334d">getMinFeatureTupleSize</a> () const</td></tr>
+<tr class="memdesc:a0bc06ec16764b058d9a3978a6823334d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured minimum feature tuple size.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a0bc06ec16764b058d9a3978a6823334d">More...</a><br /></td></tr>
 <tr class="separator:a0bc06ec16764b058d9a3978a6823334d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a569468e65cd8ffc8ba4ac5aa7c3c282b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a569468e65cd8ffc8ba4ac5aa7c3c282b">setMaxFeatureTupleSize</a> (std::size_t max_size)</td></tr>
+<tr class="memdesc:a569468e65cd8ffc8ba4ac5aa7c3c282b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum size of generated feature tuples.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a569468e65cd8ffc8ba4ac5aa7c3c282b">More...</a><br /></td></tr>
 <tr class="separator:a569468e65cd8ffc8ba4ac5aa7c3c282b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61a1e41e78b97a96babdfdeb442687e1"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a61a1e41e78b97a96babdfdeb442687e1">getMaxFeatureTupleSize</a> () const</td></tr>
+<tr class="memdesc:a61a1e41e78b97a96babdfdeb442687e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum feature tuple size.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a61a1e41e78b97a96babdfdeb442687e1">More...</a><br /></td></tr>
 <tr class="separator:a61a1e41e78b97a96babdfdeb442687e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ea033f1ac326401bd564d92b5b077a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a9ea033f1ac326401bd564d92b5b077a3">setBinSize</a> (double bin_size)</td></tr>
+<tr class="memdesc:a9ea033f1ac326401bd564d92b5b077a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the bins used to discretize feature-pair distances.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a9ea033f1ac326401bd564d92b5b077a3">More...</a><br /></td></tr>
 <tr class="separator:a9ea033f1ac326401bd564d92b5b077a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe3fe34c15fdf1d1950342c7a434c18b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#abe3fe34c15fdf1d1950342c7a434c18b">getBinSize</a> () const</td></tr>
+<tr class="memdesc:abe3fe34c15fdf1d1950342c7a434c18b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured distance bin size.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#abe3fe34c15fdf1d1950342c7a434c18b">More...</a><br /></td></tr>
 <tr class="separator:abe3fe34c15fdf1d1950342c7a434c18b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a994170989293df1a1988da289a94694e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Pharm_1_1PharmacophoreGenerator.html">Pharm::PharmacophoreGenerator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a994170989293df1a1988da289a94694e">getPharmacophoreGenerator</a> ()</td></tr>
+<tr class="memdesc:a994170989293df1a1988da289a94694e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the internal pharmacophore generator used for the input molecular graph.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a994170989293df1a1988da289a94694e">More...</a><br /></td></tr>
 <tr class="separator:a994170989293df1a1988da289a94694e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a058b52b538e6161fb9aafd661571247e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Pharm_1_1PharmacophoreGenerator.html">Pharm::PharmacophoreGenerator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a058b52b538e6161fb9aafd661571247e">getPharmacophoreGenerator</a> () const</td></tr>
+<tr class="memdesc:a058b52b538e6161fb9aafd661571247e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the internal pharmacophore generator used for the input molecular graph.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a058b52b538e6161fb9aafd661571247e">More...</a><br /></td></tr>
 <tr class="separator:a058b52b538e6161fb9aafd661571247e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96f898bcc6374eb3c1db1dfe7438bd03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a96f898bcc6374eb3c1db1dfe7438bd03">setFeatureFilterFunction</a> (const <a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a07231428701c8b4aaea293cfd590f0a3">FeatureFilterFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a96f898bcc6374eb3c1db1dfe7438bd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies a predicate that selects which features participate in the fingerprint.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a96f898bcc6374eb3c1db1dfe7438bd03">More...</a><br /></td></tr>
 <tr class="separator:a96f898bcc6374eb3c1db1dfe7438bd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add7fda9c656871170e322dc648fc958c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a07231428701c8b4aaea293cfd590f0a3">FeatureFilterFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#add7fda9c656871170e322dc648fc958c">getFeatureFilterFunction</a> () const</td></tr>
+<tr class="memdesc:add7fda9c656871170e322dc648fc958c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured feature filter function.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#add7fda9c656871170e322dc648fc958c">More...</a><br /></td></tr>
 <tr class="separator:add7fda9c656871170e322dc648fc958c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:af2eb85fd59e68a811e3a595f1066d757"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#af2eb85fd59e68a811e3a595f1066d757">DEF_MIN_FEATURE_TUPLE_SIZE</a> = 1</td></tr>
+<tr class="memdesc:af2eb85fd59e68a811e3a595f1066d757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default minimum size of generated feature tuples.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#af2eb85fd59e68a811e3a595f1066d757">More...</a><br /></td></tr>
 <tr class="separator:af2eb85fd59e68a811e3a595f1066d757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8938fd9d584c24e32b9a98b61bd4c7b"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#aa8938fd9d584c24e32b9a98b61bd4c7b">DEF_MAX_FEATURE_TUPLE_SIZE</a> = 3</td></tr>
+<tr class="memdesc:aa8938fd9d584c24e32b9a98b61bd4c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum size of generated feature tuples.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#aa8938fd9d584c24e32b9a98b61bd4c7b">More...</a><br /></td></tr>
 <tr class="separator:aa8938fd9d584c24e32b9a98b61bd4c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae0f3e39e3255f9634b163b1cd3c64dbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#ae0f3e39e3255f9634b163b1cd3c64dbc">NPointPharmacophoreFingerprintGenerator</a> ()</td></tr>
+<tr class="memdesc:ae0f3e39e3255f9634b163b1cd3c64dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>NPointPharmacophoreFingerprintGenerator</code> instance.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#ae0f3e39e3255f9634b163b1cd3c64dbc">More...</a><br /></td></tr>
 <tr class="separator:ae0f3e39e3255f9634b163b1cd3c64dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a152621ef53e6c83cd4e59f74ffebb170"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a152621ef53e6c83cd4e59f74ffebb170">NPointPharmacophoreFingerprintGenerator</a> (const <a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html">NPointPharmacophoreFingerprintGenerator</a> &amp;gen)=default</td></tr>
+<tr class="memdesc:a152621ef53e6c83cd4e59f74ffebb170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a152621ef53e6c83cd4e59f74ffebb170">More...</a><br /></td></tr>
 <tr class="separator:a152621ef53e6c83cd4e59f74ffebb170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fc4ba84a33849a3c9a3b0b174b87e5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a3fc4ba84a33849a3c9a3b0b174b87e5a">generate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;fp)</td></tr>
+<tr class="memdesc:a3fc4ba84a33849a3c9a3b0b174b87e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the fingerprint of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#a3fc4ba84a33849a3c9a3b0b174b87e5a">More...</a><br /></td></tr>
 <tr class="separator:a3fc4ba84a33849a3c9a3b0b174b87e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1f124135f10b57c8aa59db6e962ba40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#ac1f124135f10b57c8aa59db6e962ba40">generate</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">Pharm::FeatureContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;fp)</td></tr>
+<tr class="memdesc:ac1f124135f10b57c8aa59db6e962ba40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the fingerprint of the feature container <em>cntnr</em>.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#ac1f124135f10b57c8aa59db6e962ba40">More...</a><br /></td></tr>
 <tr class="separator:ac1f124135f10b57c8aa59db6e962ba40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:ad546f7199ab98daa8004441fa0f62d7c"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#ad546f7199ab98daa8004441fa0f62d7c">DEF_BIN_SIZE</a> = 2.0</td></tr>
+<tr class="memdesc:ad546f7199ab98daa8004441fa0f62d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default distance bin size.  <a href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html#ad546f7199ab98daa8004441fa0f62d7c">More...</a><br /></td></tr>
 <tr class="separator:ad546f7199ab98daa8004441fa0f62d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Descr_1_1NPointPharmacophoreFingerprintGenerator.html" title="NPointPharmacophoreFingerprintGenerator.">NPointPharmacophoreFingerprintGenerator</a>. </p>
+<div class="textblock"><p>Abstract base for N-point pharmacophore fingerprint generators. </p>
+<p>The base class implements the common machinery for enumerating feature tuples of size in <em>[minTupleSize, maxTupleSize]</em>, binning the feature-pair distances of each tuple and setting the corresponding bits of the output fingerprint. The concrete distance (topological vs. spatial 3D) is provided by the derived class via the pure virtual <code>getDistance()</code> hook.</p>
 <dl class="section since"><dt>Since</dt><dd>1.2 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a07231428701c8b4aaea293cfd590f0a3"></a>
@@ -167,6 +187,8 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor used to filter which features participate in the fingerprint. </p>
 
 </div>
 </div>
@@ -194,6 +216,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Virtual destructor. </p>
+
 </div>
 </div>
 <a id="ae0f3e39e3255f9634b163b1cd3c64dbc"></a>
@@ -218,6 +242,8 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>NPointPharmacophoreFingerprintGenerator</code> instance. </p>
 
 </div>
 </div>
@@ -245,6 +271,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Copy constructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -264,6 +292,14 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the minimum size of generated feature tuples. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min_size</td><td>The minimum tuple size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0bc06ec16764b058d9a3978a6823334d"></a>
@@ -280,6 +316,9 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured minimum feature tuple size. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured minimum tuple size. </dd></dl>
 
 </div>
 </div>
@@ -299,6 +338,14 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the maximum size of generated feature tuples. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_size</td><td>The maximum tuple size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a61a1e41e78b97a96babdfdeb442687e1"></a>
@@ -315,6 +362,9 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured maximum feature tuple size. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured maximum tuple size. </dd></dl>
 
 </div>
 </div>
@@ -334,6 +384,14 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the size of the bins used to discretize feature-pair distances. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bin_size</td><td>The bin size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abe3fe34c15fdf1d1950342c7a434c18b"></a>
@@ -350,6 +408,9 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured distance bin size. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured bin size. </dd></dl>
 
 </div>
 </div>
@@ -368,6 +429,9 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the internal pharmacophore generator used for the input molecular graph. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the pharmacophore generator. </dd></dl>
+
 </div>
 </div>
 <a id="a058b52b538e6161fb9aafd661571247e"></a>
@@ -384,6 +448,9 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the internal pharmacophore generator used for the input molecular graph. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the pharmacophore generator. </dd></dl>
 
 </div>
 </div>
@@ -402,6 +469,14 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies a predicate that selects which features participate in the fingerprint. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The feature filter function. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section since"><dt>Since</dt><dd>1.3 </dd></dl>
 
 </div>
@@ -420,6 +495,9 @@ Static Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured feature filter function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured feature filter function. </dd></dl>
 <dl class="section since"><dt>Since</dt><dd>1.3 </dd></dl>
 
 </div>
@@ -458,6 +536,15 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Generates the fingerprint of the molecular graph <em>molgraph</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
+    <tr><td class="paramname">fp</td><td>The output bitset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac1f124135f10b57c8aa59db6e962ba40"></a>
@@ -494,6 +581,15 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Generates the fingerprint of the feature container <em>cntnr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cntnr</td><td>The feature container. </td></tr>
+    <tr><td class="paramname">fp</td><td>The output bitset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -517,6 +613,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default minimum size of generated feature tuples. </p>
+
 </div>
 </div>
 <a id="aa8938fd9d584c24e32b9a98b61bd4c7b"></a>
@@ -539,6 +637,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default maximum size of generated feature tuples. </p>
+
 </div>
 </div>
 <a id="ad546f7199ab98daa8004441fa0f62d7c"></a>
@@ -560,6 +660,8 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default distance bin size. </p>
 
 </div>
 </div>

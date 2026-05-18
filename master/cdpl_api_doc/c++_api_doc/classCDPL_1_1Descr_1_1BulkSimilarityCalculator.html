@@ -83,94 +83,143 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Calculator that performs a bulk pairwise comparison of a single query descriptor against a stored set of target descriptors using a configurable similarity function.  
+ <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="BulkSimilarityCalculator_8hpp_source.html">BulkSimilarityCalculator.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a35e60e6c63be2d2a5d0fc9a287f9d060"><td class="memItemLeft" align="right" valign="top">typedef DT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a35e60e6c63be2d2a5d0fc9a287f9d060">Descriptor</a></td></tr>
+<tr class="memdesc:a35e60e6c63be2d2a5d0fc9a287f9d060"><td class="mdescLeft">&#160;</td><td class="mdescRight">The descriptor type.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a35e60e6c63be2d2a5d0fc9a287f9d060">More...</a><br /></td></tr>
 <tr class="separator:a35e60e6c63be2d2a5d0fc9a287f9d060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79b7c8c50d717831bdb4a3db7968d197"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; DT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a79b7c8c50d717831bdb4a3db7968d197">DescriptorPointer</a></td></tr>
+<tr class="memdesc:a79b7c8c50d717831bdb4a3db7968d197"><td class="mdescLeft">&#160;</td><td class="mdescRight">A smart pointer to a stored descriptor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a79b7c8c50d717831bdb4a3db7968d197">More...</a><br /></td></tr>
 <tr class="separator:a79b7c8c50d717831bdb4a3db7968d197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af73f0a7572ecf51d1397e42154792d01"><td class="memItemLeft" align="right" valign="top">typedef SVT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af73f0a7572ecf51d1397e42154792d01">SimilarityValue</a></td></tr>
+<tr class="memdesc:af73f0a7572ecf51d1397e42154792d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">The similarity-value type.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af73f0a7572ecf51d1397e42154792d01">More...</a><br /></td></tr>
 <tr class="separator:af73f0a7572ecf51d1397e42154792d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a374a015f8f4db1c4a05312c431d6a4d9"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; SVT(const DT &amp;, const DT &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a374a015f8f4db1c4a05312c431d6a4d9">SimilarityFunction</a></td></tr>
+<tr class="memdesc:a374a015f8f4db1c4a05312c431d6a4d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to compute the similarity of two descriptors.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a374a015f8f4db1c4a05312c431d6a4d9">More...</a><br /></td></tr>
 <tr class="separator:a374a015f8f4db1c4a05312c431d6a4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a99aef4c4f71f17184dc8a8eb3e06a2"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; std::size_t, SVT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a4a99aef4c4f71f17184dc8a8eb3e06a2">Result</a></td></tr>
+<tr class="memdesc:a4a99aef4c4f71f17184dc8a8eb3e06a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single calculation result: (target descriptor index, similarity value).  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a4a99aef4c4f71f17184dc8a8eb3e06a2">More...</a><br /></td></tr>
 <tr class="separator:a4a99aef4c4f71f17184dc8a8eb3e06a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a098a92f6a89e6170da6885d5654c4cf6"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a098a92f6a89e6170da6885d5654c4cf6">SharedPointer</a></td></tr>
+<tr class="memdesc:a098a92f6a89e6170da6885d5654c4cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>BulkSimilarityCalculator</code> instances.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a098a92f6a89e6170da6885d5654c4cf6">More...</a><br /></td></tr>
 <tr class="separator:a098a92f6a89e6170da6885d5654c4cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3df7bb0a2f04b7e30ecae2bb8ab57f07"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; typename DescriptorList::const_iterator, DT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a3df7bb0a2f04b7e30ecae2bb8ab57f07">ConstDescriptorIterator</a></td></tr>
+<tr class="memdesc:a3df7bb0a2f04b7e30ecae2bb8ab57f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the stored target descriptors.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a3df7bb0a2f04b7e30ecae2bb8ab57f07">More...</a><br /></td></tr>
 <tr class="separator:a3df7bb0a2f04b7e30ecae2bb8ab57f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedab599056f210bb1bf9cda819684eb3"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; typename DescriptorList::iterator, DT &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aedab599056f210bb1bf9cda819684eb3">DescriptorIterator</a></td></tr>
+<tr class="memdesc:aedab599056f210bb1bf9cda819684eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable iterator over the stored target descriptors.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aedab599056f210bb1bf9cda819684eb3">More...</a><br /></td></tr>
 <tr class="separator:aedab599056f210bb1bf9cda819684eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace232598122c4acfcc237656601b0c70"><td class="memItemLeft" align="right" valign="top">typedef ResultList::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ace232598122c4acfcc237656601b0c70">ConstResultIterator</a></td></tr>
+<tr class="memdesc:ace232598122c4acfcc237656601b0c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the calculation results.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ace232598122c4acfcc237656601b0c70">More...</a><br /></td></tr>
 <tr class="separator:ace232598122c4acfcc237656601b0c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af7a81e70272024ef49917b2f80b17c10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af7a81e70272024ef49917b2f80b17c10">BulkSimilarityCalculator</a> ()=default</td></tr>
+<tr class="memdesc:af7a81e70272024ef49917b2f80b17c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BulkSimilarityCalculator</code> instance with the default similarity function (<a class="el" href="classCDPL_1_1Descr_1_1TanimotoSimilarity.html" title="Functor class for calculating Tanimoto Similarities [CITB] of bitsets and vectors.">TanimotoSimilarity</a>).  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af7a81e70272024ef49917b2f80b17c10">More...</a><br /></td></tr>
 <tr class="separator:af7a81e70272024ef49917b2f80b17c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8864e7e7bc294f40663cd3be56c3f82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ac8864e7e7bc294f40663cd3be56c3f82">BulkSimilarityCalculator</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &amp;calc)=default</td></tr>
+<tr class="memdesc:ac8864e7e7bc294f40663cd3be56c3f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ac8864e7e7bc294f40663cd3be56c3f82">More...</a><br /></td></tr>
 <tr class="separator:ac8864e7e7bc294f40663cd3be56c3f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8de350ab5993bd288aac1ae019c1ad6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af8de350ab5993bd288aac1ae019c1ad6">BulkSimilarityCalculator</a> (<a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &amp;&amp;calc)=default</td></tr>
+<tr class="memdesc:af8de350ab5993bd288aac1ae019c1ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af8de350ab5993bd288aac1ae019c1ad6">More...</a><br /></td></tr>
 <tr class="separator:af8de350ab5993bd288aac1ae019c1ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb1c5f49b38520755cc9c462d09326e9"><td class="memTemplParams" colspan="2">template&lt;typename SF &gt; </td></tr>
 <tr class="memitem:acb1c5f49b38520755cc9c462d09326e9"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#acb1c5f49b38520755cc9c462d09326e9">BulkSimilarityCalculator</a> (SF &amp;&amp;sim_func)</td></tr>
+<tr class="memdesc:acb1c5f49b38520755cc9c462d09326e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BulkSimilarityCalculator</code> instance with the given similarity function.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#acb1c5f49b38520755cc9c462d09326e9">More...</a><br /></td></tr>
 <tr class="separator:acb1c5f49b38520755cc9c462d09326e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae42f3c8574bcece95fb60fd57afe44e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ae42f3c8574bcece95fb60fd57afe44e5">operator=</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &amp;calc)=default</td></tr>
+<tr class="memdesc:ae42f3c8574bcece95fb60fd57afe44e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ae42f3c8574bcece95fb60fd57afe44e5">More...</a><br /></td></tr>
 <tr class="separator:ae42f3c8574bcece95fb60fd57afe44e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab03167432ed3a89b269726bc3394ece4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ab03167432ed3a89b269726bc3394ece4">operator=</a> (<a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html">BulkSimilarityCalculator</a> &amp;&amp;calc)=default</td></tr>
+<tr class="memdesc:ab03167432ed3a89b269726bc3394ece4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ab03167432ed3a89b269726bc3394ece4">More...</a><br /></td></tr>
 <tr class="separator:ab03167432ed3a89b269726bc3394ece4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a201cd4dd312e358d77cf8b98cb86ea98"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a374a015f8f4db1c4a05312c431d6a4d9">SimilarityFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a201cd4dd312e358d77cf8b98cb86ea98">getSimilarityFunction</a> () const</td></tr>
+<tr class="memdesc:a201cd4dd312e358d77cf8b98cb86ea98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured similarity function.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a201cd4dd312e358d77cf8b98cb86ea98">More...</a><br /></td></tr>
 <tr class="separator:a201cd4dd312e358d77cf8b98cb86ea98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dec47a301f038214c306d70d0f398aa"><td class="memTemplParams" colspan="2">template&lt;typename SF &gt; </td></tr>
 <tr class="memitem:a6dec47a301f038214c306d70d0f398aa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a6dec47a301f038214c306d70d0f398aa">setSimilarityFunction</a> (SF &amp;&amp;func)</td></tr>
+<tr class="memdesc:a6dec47a301f038214c306d70d0f398aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the similarity function.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a6dec47a301f038214c306d70d0f398aa">More...</a><br /></td></tr>
 <tr class="separator:a6dec47a301f038214c306d70d0f398aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae79a0dfdd23b9ad187ed6480657a2c13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ae79a0dfdd23b9ad187ed6480657a2c13">clear</a> ()</td></tr>
+<tr class="memdesc:ae79a0dfdd23b9ad187ed6480657a2c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all stored descriptors and calculation results.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ae79a0dfdd23b9ad187ed6480657a2c13">More...</a><br /></td></tr>
 <tr class="separator:ae79a0dfdd23b9ad187ed6480657a2c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a120ef8a3681bd3dde37ad61514a6e34e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aedab599056f210bb1bf9cda819684eb3">DescriptorIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a120ef8a3681bd3dde37ad61514a6e34e">getDescriptorsBegin</a> ()</td></tr>
+<tr class="memdesc:a120ef8a3681bd3dde37ad61514a6e34e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the first stored descriptor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a120ef8a3681bd3dde37ad61514a6e34e">More...</a><br /></td></tr>
 <tr class="separator:a120ef8a3681bd3dde37ad61514a6e34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8a46368fcf83c2e846d485f79d800f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aedab599056f210bb1bf9cda819684eb3">DescriptorIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ac8a46368fcf83c2e846d485f79d800f8">getDescriptorsEnd</a> ()</td></tr>
+<tr class="memdesc:ac8a46368fcf83c2e846d485f79d800f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last stored descriptor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ac8a46368fcf83c2e846d485f79d800f8">More...</a><br /></td></tr>
 <tr class="separator:ac8a46368fcf83c2e846d485f79d800f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaecbe924624e6c0b5e791ae3959d8ac8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a3df7bb0a2f04b7e30ecae2bb8ab57f07">ConstDescriptorIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aaecbe924624e6c0b5e791ae3959d8ac8">getDescriptorsBegin</a> () const</td></tr>
+<tr class="memdesc:aaecbe924624e6c0b5e791ae3959d8ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first stored descriptor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aaecbe924624e6c0b5e791ae3959d8ac8">More...</a><br /></td></tr>
 <tr class="separator:aaecbe924624e6c0b5e791ae3959d8ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8beb2179c18bbaf191b26710319bbe15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a3df7bb0a2f04b7e30ecae2bb8ab57f07">ConstDescriptorIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a8beb2179c18bbaf191b26710319bbe15">getDescriptorsEnd</a> () const</td></tr>
+<tr class="memdesc:a8beb2179c18bbaf191b26710319bbe15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last stored descriptor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a8beb2179c18bbaf191b26710319bbe15">More...</a><br /></td></tr>
 <tr class="separator:a8beb2179c18bbaf191b26710319bbe15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaec847eba67ec4bbc24ed08b45fdbb0e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aaec847eba67ec4bbc24ed08b45fdbb0e">getNumDescriptors</a> () const</td></tr>
+<tr class="memdesc:aaec847eba67ec4bbc24ed08b45fdbb0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored descriptors.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aaec847eba67ec4bbc24ed08b45fdbb0e">More...</a><br /></td></tr>
 <tr class="separator:aaec847eba67ec4bbc24ed08b45fdbb0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9d813f8847aa5fb3e7b241248550e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aca9d813f8847aa5fb3e7b241248550e4">addDescriptor</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a35e60e6c63be2d2a5d0fc9a287f9d060">Descriptor</a> &amp;descr)</td></tr>
+<tr class="memdesc:aca9d813f8847aa5fb3e7b241248550e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a copy of <em>descr</em> to the stored descriptor list.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aca9d813f8847aa5fb3e7b241248550e4">More...</a><br /></td></tr>
 <tr class="separator:aca9d813f8847aa5fb3e7b241248550e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2573c9ca86fc5317f61a2fd6991c95f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a2573c9ca86fc5317f61a2fd6991c95f5">addDescriptor</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a79b7c8c50d717831bdb4a3db7968d197">DescriptorPointer</a> &amp;descr_ptr)</td></tr>
+<tr class="memdesc:a2573c9ca86fc5317f61a2fd6991c95f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the descriptor referenced by <em>descr_ptr</em> to the stored descriptor list, sharing ownership.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a2573c9ca86fc5317f61a2fd6991c95f5">More...</a><br /></td></tr>
 <tr class="separator:a2573c9ca86fc5317f61a2fd6991c95f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01625d963b854edd9f9b3244d37f1ddb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a01625d963b854edd9f9b3244d37f1ddb">containsDescriptor</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a35e60e6c63be2d2a5d0fc9a287f9d060">Descriptor</a> &amp;descr) const</td></tr>
+<tr class="memdesc:a01625d963b854edd9f9b3244d37f1ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether a descriptor that compares equal to <em>descr</em> is stored.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a01625d963b854edd9f9b3244d37f1ddb">More...</a><br /></td></tr>
 <tr class="separator:a01625d963b854edd9f9b3244d37f1ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b3ce81efe201e5eb7b7ea495638e751"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a35e60e6c63be2d2a5d0fc9a287f9d060">Descriptor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a8b3ce81efe201e5eb7b7ea495638e751">getDescriptor</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a8b3ce81efe201e5eb7b7ea495638e751"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the stored descriptor at index <em>idx</em>.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a8b3ce81efe201e5eb7b7ea495638e751">More...</a><br /></td></tr>
 <tr class="separator:a8b3ce81efe201e5eb7b7ea495638e751"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30d0b61681ec3e7bb9908164b549dccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a30d0b61681ec3e7bb9908164b549dccc">removeDescriptor</a> (std::size_t idx)</td></tr>
+<tr class="memdesc:a30d0b61681ec3e7bb9908164b549dccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the descriptor at index <em>idx</em>.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a30d0b61681ec3e7bb9908164b549dccc">More...</a><br /></td></tr>
 <tr class="separator:a30d0b61681ec3e7bb9908164b549dccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6be878accc367f8114041ef06f9ca86d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aedab599056f210bb1bf9cda819684eb3">DescriptorIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a6be878accc367f8114041ef06f9ca86d">removeDescriptor</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aedab599056f210bb1bf9cda819684eb3">DescriptorIterator</a> &amp;it)</td></tr>
+<tr class="memdesc:a6be878accc367f8114041ef06f9ca86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the descriptor referenced by <em>it</em>.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a6be878accc367f8114041ef06f9ca86d">More...</a><br /></td></tr>
 <tr class="separator:a6be878accc367f8114041ef06f9ca86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af756bd809120f6874ca45150fe22f000"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000">calculate</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a35e60e6c63be2d2a5d0fc9a287f9d060">Descriptor</a> &amp;descr, <a class="el" href="classbool.html">bool</a> sort=false, <a class="el" href="classbool.html">bool</a> sort_desc=true)</td></tr>
+<tr class="memdesc:af756bd809120f6874ca45150fe22f000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the similarity between the query <em>descr</em> and every stored descriptor.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000">More...</a><br /></td></tr>
 <tr class="separator:af756bd809120f6874ca45150fe22f000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4bb0f6c6de3dc4686db56be440bc860"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ace232598122c4acfcc237656601b0c70">ConstResultIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aa4bb0f6c6de3dc4686db56be440bc860">getResultsBegin</a> () const</td></tr>
+<tr class="memdesc:aa4bb0f6c6de3dc4686db56be440bc860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first result of the last <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000" title="Computes the similarity between the query descr and every stored descriptor.">calculate()</a> call.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#aa4bb0f6c6de3dc4686db56be440bc860">More...</a><br /></td></tr>
 <tr class="separator:aa4bb0f6c6de3dc4686db56be440bc860"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af689a447b3bba322e6b140edc40fc7f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ace232598122c4acfcc237656601b0c70">ConstResultIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af689a447b3bba322e6b140edc40fc7f6">getResultsEnd</a> () const</td></tr>
+<tr class="memdesc:af689a447b3bba322e6b140edc40fc7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last result of the last <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000" title="Computes the similarity between the query descr and every stored descriptor.">calculate()</a> call.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af689a447b3bba322e6b140edc40fc7f6">More...</a><br /></td></tr>
 <tr class="separator:af689a447b3bba322e6b140edc40fc7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19b243b68d6a6a3c2fbdfc9581433e6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ace232598122c4acfcc237656601b0c70">ConstResultIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a19b243b68d6a6a3c2fbdfc9581433e6c">begin</a> () const</td></tr>
+<tr class="memdesc:a19b243b68d6a6a3c2fbdfc9581433e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first result (range-based for support).  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a19b243b68d6a6a3c2fbdfc9581433e6c">More...</a><br /></td></tr>
 <tr class="separator:a19b243b68d6a6a3c2fbdfc9581433e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5e90592f98ac2b09607462cf7a911aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ace232598122c4acfcc237656601b0c70">ConstResultIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ad5e90592f98ac2b09607462cf7a911aa">end</a> () const</td></tr>
+<tr class="memdesc:ad5e90592f98ac2b09607462cf7a911aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last result (range-based for support).  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#ad5e90592f98ac2b09607462cf7a911aa">More...</a><br /></td></tr>
 <tr class="separator:ad5e90592f98ac2b09607462cf7a911aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46618f6a1b289270afba07872f34ea8c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a4a99aef4c4f71f17184dc8a8eb3e06a2">Result</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a46618f6a1b289270afba07872f34ea8c">getResult</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a46618f6a1b289270afba07872f34ea8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result at the given index.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a46618f6a1b289270afba07872f34ea8c">More...</a><br /></td></tr>
 <tr class="separator:a46618f6a1b289270afba07872f34ea8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b37c030e706e267cf4135f2511f15a9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af73f0a7572ecf51d1397e42154792d01">SimilarityValue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a1b37c030e706e267cf4135f2511f15a9">getSimilarity</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a1b37c030e706e267cf4135f2511f15a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the similarity value of the result at the given index.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a1b37c030e706e267cf4135f2511f15a9">More...</a><br /></td></tr>
 <tr class="separator:a1b37c030e706e267cf4135f2511f15a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e244c3b1f235cdd96df70309395554"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a42e244c3b1f235cdd96df70309395554">getDescriptorIndex</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a42e244c3b1f235cdd96df70309395554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the target descriptor referenced by the result at the given result index.  <a href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#a42e244c3b1f235cdd96df70309395554">More...</a><br /></td></tr>
 <tr class="separator:a42e244c3b1f235cdd96df70309395554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename DT = Util::BitSet, typename SVT = double&gt;<br />
 class CDPL::Descr::BulkSimilarityCalculator&lt; DT, SVT &gt;</h3>
 
+<p>Calculator that performs a bulk pairwise comparison of a single query descriptor against a stored set of target descriptors using a configurable similarity function. </p>
+<p>Stored descriptors are held by shared pointer; the calculator can therefore share descriptor ownership with external code. After a call to <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000" title="Computes the similarity between the query descr and every stored descriptor.">calculate()</a> the per-target similarity values are available in stored order and can optionally be sorted.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DT</td><td>The descriptor type (defaults to <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d" title="A dynamic bitset class.">Util::BitSet</a>, suitable for fingerprint similarity). </td></tr>
+    <tr><td class="paramname">SVT</td><td>The similarity-value type (defaults to <code>double</code>).</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section since"><dt>Since</dt><dd>1.2.3 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a35e60e6c63be2d2a5d0fc9a287f9d060"></a>
@@ -186,6 +235,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The descriptor type. </p>
 
 </div>
 </div>
@@ -203,6 +254,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>A smart pointer to a stored descriptor. </p>
+
 </div>
 </div>
 <a id="af73f0a7572ecf51d1397e42154792d01"></a>
@@ -218,6 +271,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The similarity-value type. </p>
 
 </div>
 </div>
@@ -235,6 +290,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the generic functor used to compute the similarity of two descriptors. </p>
+
 </div>
 </div>
 <a id="a4a99aef4c4f71f17184dc8a8eb3e06a2"></a>
@@ -250,6 +307,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A single calculation result: (target descriptor index, similarity value). </p>
 
 </div>
 </div>
@@ -267,6 +326,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>BulkSimilarityCalculator</code> instances. </p>
+
 </div>
 </div>
 <a id="a3df7bb0a2f04b7e30ecae2bb8ab57f07"></a>
@@ -282,6 +343,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant iterator over the stored target descriptors. </p>
 
 </div>
 </div>
@@ -299,6 +362,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>A mutable iterator over the stored target descriptors. </p>
+
 </div>
 </div>
 <a id="ace232598122c4acfcc237656601b0c70"></a>
@@ -314,6 +379,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant iterator over the calculation results. </p>
 
 </div>
 </div>
@@ -343,6 +410,8 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>BulkSimilarityCalculator</code> instance with the default similarity function (<a class="el" href="classCDPL_1_1Descr_1_1TanimotoSimilarity.html" title="Functor class for calculating Tanimoto Similarities [CITB] of bitsets and vectors.">TanimotoSimilarity</a>). </p>
+
 </div>
 </div>
 <a id="ac8864e7e7bc294f40663cd3be56c3f82"></a>
@@ -371,6 +440,14 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Copy constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The other <code>BulkSimilarityCalculator</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af8de350ab5993bd288aac1ae019c1ad6"></a>
@@ -398,6 +475,14 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Move constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The other <code>BulkSimilarityCalculator</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -429,6 +514,20 @@ template&lt;typename SF &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>BulkSimilarityCalculator</code> instance with the given similarity function. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SF</td><td>The similarity-function type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sim_func</td><td>The similarity function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -458,6 +557,15 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The other <code>BulkSimilarityCalculator</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
+
 </div>
 </div>
 <a id="ab03167432ed3a89b269726bc3394ece4"></a>
@@ -486,6 +594,15 @@ template&lt;typename DT  = Util::BitSet, typename SVT  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Move assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The other <code>BulkSimilarityCalculator</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
+
 </div>
 </div>
 <a id="a201cd4dd312e358d77cf8b98cb86ea98"></a>
@@ -501,6 +618,9 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured similarity function. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the similarity function. </dd></dl>
 
 </div>
 </div>
@@ -524,6 +644,20 @@ template&lt;typename SF &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the similarity function. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SF</td><td>The similarity-function type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The new similarity function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae79a0dfdd23b9ad187ed6480657a2c13"></a>
@@ -539,6 +673,8 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes all stored descriptors and calculation results. </p>
 
 </div>
 </div>
@@ -556,6 +692,9 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing to the first stored descriptor. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the first stored descriptor. </dd></dl>
+
 </div>
 </div>
 <a id="ac8a46368fcf83c2e846d485f79d800f8"></a>
@@ -571,6 +710,9 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing one past the last stored descriptor. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing one past the last stored descriptor. </dd></dl>
 
 </div>
 </div>
@@ -588,6 +730,9 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first stored descriptor. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first stored descriptor. </dd></dl>
+
 </div>
 </div>
 <a id="a8beb2179c18bbaf191b26710319bbe15"></a>
@@ -604,6 +749,9 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last stored descriptor. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last stored descriptor. </dd></dl>
+
 </div>
 </div>
 <a id="aaec847eba67ec4bbc24ed08b45fdbb0e"></a>
@@ -619,6 +767,9 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of stored descriptors. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of descriptors. </dd></dl>
 
 </div>
 </div>
@@ -640,6 +791,14 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a copy of <em>descr</em> to the stored descriptor list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descr</td><td>The descriptor to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2573c9ca86fc5317f61a2fd6991c95f5"></a>
@@ -659,6 +818,14 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds the descriptor referenced by <em>descr_ptr</em> to the stored descriptor list, sharing ownership. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descr_ptr</td><td>A smart pointer to the descriptor. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -680,6 +847,15 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Tells whether a descriptor that compares equal to <em>descr</em> is stored. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descr</td><td>The descriptor to look for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if such a descriptor is stored, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a8b3ce81efe201e5eb7b7ea495638e751"></a>
@@ -699,6 +875,21 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the stored descriptor at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based descriptor index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the descriptor. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -720,6 +911,20 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Removes the descriptor at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based descriptor index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a6be878accc367f8114041ef06f9ca86d"></a>
@@ -739,6 +944,21 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the descriptor referenced by <em>it</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>Iterator referencing the descriptor to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the descriptor following the removed one. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1RangeError.html" title="Thrown to indicate that a value is out of range.">Base::RangeError</a></td><td>if <em>it</em> is out of range. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -776,6 +996,16 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Computes the similarity between the query <em>descr</em> and every stored descriptor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descr</td><td>The query descriptor. </td></tr>
+    <tr><td class="paramname">sort</td><td>If <code>true</code>, the resulting (index, similarity) pairs are sorted by similarity value. </td></tr>
+    <tr><td class="paramname">sort_desc</td><td>If <code>true</code> (default), sorting is in descending order of similarity; if <code>false</code>, in ascending order. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa4bb0f6c6de3dc4686db56be440bc860"></a>
@@ -791,6 +1021,9 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first result of the last <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000" title="Computes the similarity between the query descr and every stored descriptor.">calculate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first result. </dd></dl>
 
 </div>
 </div>
@@ -808,6 +1041,9 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last result of the last <a class="el" href="classCDPL_1_1Descr_1_1BulkSimilarityCalculator.html#af756bd809120f6874ca45150fe22f000" title="Computes the similarity between the query descr and every stored descriptor.">calculate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last result. </dd></dl>
+
 </div>
 </div>
 <a id="a19b243b68d6a6a3c2fbdfc9581433e6c"></a>
@@ -824,6 +1060,9 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first result (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first result. </dd></dl>
+
 </div>
 </div>
 <a id="ad5e90592f98ac2b09607462cf7a911aa"></a>
@@ -839,6 +1078,9 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing one past the last result (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last result. </dd></dl>
 
 </div>
 </div>
@@ -860,6 +1102,21 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the result at the given index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based result index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the (descriptor index, similarity) pair. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1b37c030e706e267cf4135f2511f15a9"></a>
@@ -880,6 +1137,21 @@ template&lt;typename DT , typename SVT &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the similarity value of the result at the given index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based result index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the similarity value. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a42e244c3b1f235cdd96df70309395554"></a>
@@ -899,6 +1171,21 @@ template&lt;typename DT , typename SVT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the index of the target descriptor referenced by the result at the given result index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based result index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The descriptor index referenced by the result. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is out of bounds. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

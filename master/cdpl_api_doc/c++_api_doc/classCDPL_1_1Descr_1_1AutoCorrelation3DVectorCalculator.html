@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html" title="AutoCorrelation3DVectorCalculator.">AutoCorrelation3DVectorCalculator</a>.  
+<p>Generic implementation of the 3D auto-correlation vector calculation for sequences of entities of arbitrary type.  
  <a href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AutoCorrelation3DVectorCalculator_8hpp_source.html">AutoCorrelation3DVectorCalculator.hpp</a>&gt;</code></p>
@@ -99,6 +99,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a4ac77e76a02ce8acd0d3caa08f1c3103"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a4ac77e76a02ce8acd0d3caa08f1c3103">EntityType</a></td></tr>
+<tr class="memdesc:a4ac77e76a02ce8acd0d3caa08f1c3103"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the entities passed to <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d" title="Calculates the 3D auto-correlation vector of an entity sequence.">calculate()</a>.  <a href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a4ac77e76a02ce8acd0d3caa08f1c3103">More...</a><br /></td></tr>
 <tr class="separator:a4ac77e76a02ce8acd0d3caa08f1c3103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7498cedf7d833c67eaa8f868df773ec6"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a4ac77e76a02ce8acd0d3caa08f1c3103">EntityType</a> &amp;, const <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a4ac77e76a02ce8acd0d3caa08f1c3103">EntityType</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a7498cedf7d833c67eaa8f868df773ec6">EntityPairWeightFunction</a></td></tr>
 <tr class="memdesc:a7498cedf7d833c67eaa8f868df773ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor class used to store a user-defined entity pair weight function.  <a href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a7498cedf7d833c67eaa8f868df773ec6">More...</a><br /></td></tr>
@@ -138,14 +139,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8291ca0df22d736240824ff45fb9f0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fbb9cd0fdbe1177e8b01cc41737e98d"><td class="memTemplParams" colspan="2">template&lt;typename Iter , typename Vec &gt; </td></tr>
 <tr class="memitem:a5fbb9cd0fdbe1177e8b01cc41737e98d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d">calculate</a> (Iter beg, Iter end, Vec &amp;vec)</td></tr>
-<tr class="memdesc:a5fbb9cd0fdbe1177e8b01cc41737e98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the RDF code of an entity sequence.  <a href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d">More...</a><br /></td></tr>
+<tr class="memdesc:a5fbb9cd0fdbe1177e8b01cc41737e98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the 3D auto-correlation vector of an entity sequence.  <a href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d">More...</a><br /></td></tr>
 <tr class="separator:a5fbb9cd0fdbe1177e8b01cc41737e98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class CDPL::Descr::AutoCorrelation3DVectorCalculator&lt; T &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html" title="AutoCorrelation3DVectorCalculator.">AutoCorrelation3DVectorCalculator</a>. </p>
+<p>Generic implementation of the 3D auto-correlation vector calculation for sequences of entities of arbitrary type. </p>
+<p>The actual entity type is specified by the template parameter <em>T</em>. User-defined functions for the retrieval of entity 3D coordinates and for the calculation of entity-pair weights can be provided via <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a8291ca0df22d736240824ff45fb9f0f7" title="Allows to specify the entity 3D coordinates function.">setEntity3DCoordinatesFunction()</a> and <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a8667d0c1ff5e73d8dba3bd37fc630456" title="Allows to specify a custom entity pair weight function.">setEntityPairWeightFunction()</a>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the entities for which the 3D auto-correlation vector shall be calculated. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4ac77e76a02ce8acd0d3caa08f1c3103"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ac77e76a02ce8acd0d3caa08f1c3103">&#9670;&nbsp;</a></span>EntityType</h2>
@@ -160,6 +168,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The type of the entities passed to <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d" title="Calculates the 3D auto-correlation vector of an entity sequence.">calculate()</a>. </p>
 
 </div>
 </div>
@@ -420,7 +430,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d" title="Calculates the RDF code of an entity sequence.">calculate()</a>, otherwise a zero distance for each entity pair will be used for the calculation. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a5fbb9cd0fdbe1177e8b01cc41737e98d" title="Calculates the 3D auto-correlation vector of an entity sequence.">calculate()</a>, otherwise a zero distance for each entity pair will be used for the calculation. </dd></dl>
 
 </div>
 </div>
@@ -460,7 +470,7 @@ template&lt;typename Iter , typename Vec &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the RDF code of an entity sequence. </p>
+<p>Calculates the 3D auto-correlation vector of an entity sequence. </p>
 <p>The elements of the returned vector correspond to the values of the 3D autocorrelation function for the different interval centers. The total number of calculated vector elements is given by the specified number of incrementation steps (see <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#ac4d254b9424bdd85d791ac256dc1d8ac" title="Sets the number of desired radius incrementation steps.">setNumSteps()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

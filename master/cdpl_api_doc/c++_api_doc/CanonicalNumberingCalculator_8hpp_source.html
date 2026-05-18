@@ -134,219 +134,219 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">class </span>Atom;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">class </span>Bond;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">   72</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ad83744c7a32a2d87ca314294046f71d9">   80</a></span>&#160;            <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> DEF_ATOM_PROPERTY_FLAGS =</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#af712c316f2961e3589e7c102fceb10f1">AtomPropertyFlag::TYPE</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a55971b892e7bc9416b7ab974960ec5f4">AtomPropertyFlag::ISOTOPE</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a12002ad2a6ffa5c70f5f45b63a1ed1db">AtomPropertyFlag::FORMAL_CHARGE</a> |</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a40421d2b105fbdd0e4b9407b2d0684d7">AtomPropertyFlag::AROMATICITY</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#aa175a8e30f5b01bacc5bcb60c9315eeb">AtomPropertyFlag::CONFIGURATION</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a380cbc845cdae784a12205caa0e36204">AtomPropertyFlag::H_COUNT</a>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a5c7a8b36192b68332fbd13f98d8168ef">   88</a></span>&#160;            <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> DEF_BOND_PROPERTY_FLAGS =</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <a class="code" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#a8c03b02a56b5377aec4760522d03d1d6">BondPropertyFlag::ORDER</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#a38f63a2f0a3a1d23adeadc0635e2e274">BondPropertyFlag::AROMATICITY</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#abfb9d35179cd1758c276a2dc0b212443">BondPropertyFlag::CONFIGURATION</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">   94</a></span>&#160;            <span class="keyword">typedef</span> std::function&lt;std::size_t(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>&amp;, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;)&gt; <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a963ce4b8a8f2e5a722749597546798dd">   99</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a963ce4b8a8f2e5a722749597546798dd">CanonicalNumberingCalculator</a>();</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb25f544d6ada4d912d66dad559477e8">  109</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb25f544d6ada4d912d66dad559477e8">CanonicalNumberingCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; numbering);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ac440c63978c7fda9dd4ed96a64295721">  111</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ac440c63978c7fda9dd4ed96a64295721">CanonicalNumberingCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a818cbb54a6de218cde668c1f41d9c652">  113</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a>&amp; <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a818cbb54a6de218cde668c1f41d9c652">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a344c153a4db37cd572cce9ced681b47a">  131</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a344c153a4db37cd572cce9ced681b47a">setAtomPropertyFlags</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a6a8022d5546cc4fe5ec29695b07f1e46">  139</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a6a8022d5546cc4fe5ec29695b07f1e46">getAtomPropertyFlags</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#aec27daf5108d23ea30cfdc4f024f9037">  154</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#aec27daf5108d23ea30cfdc4f024f9037">setBondPropertyFlags</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a63c284fec40a64befcd312ae032dbdba">  162</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a63c284fec40a64befcd312ae032dbdba">getBondPropertyFlags</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">  168</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">setHydrogenCountFunction</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a>&amp; func);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">  174</a></span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a>&amp; <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">getHydrogenCountFunction</a>();</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb88fab16c12aa230e697a42ad79c187">  183</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb88fab16c12aa230e697a42ad79c187">calculate</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; numbering);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keyword">class </span>AtomNode;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keyword">class </span>Edge;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Edge*&gt;           EdgeList;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;std::uint64_t&gt; ConnectionTable;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            <span class="keywordtype">void</span> setup(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="namespaceCDPL_1_1Chem.html#ab01eab4c3d9d4567962c09ba7e1ea367">canonicalize</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="namespaceCDPL_1_1Chem.html#ab01eab4c3d9d4567962c09ba7e1ea367">canonicalize</a>(std::size_t);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordtype">void</span> processNewSolution();</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="keywordtype">int</span> testNewSolution();</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordtype">void</span> buildConnectionTable(ConnectionTable&amp; ctab) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordtype">void</span> appendAtomConfigs(ConnectionTable&amp; ctab);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="keywordtype">void</span> appendBondConfigs(ConnectionTable&amp; ctab);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keywordtype">void</span> establishCanonNumbering(<a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordtype">void</span> saveState();</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="keywordtype">void</span> restoreState();</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            AtomNode* allocNode(<a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>* atom, std::uint64_t label, std::size_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            Edge* allocEdge(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>* bond, std::uint64_t label,</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                            AtomNode* nbr_node, std::size_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keyword">class </span>AtomNode</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;              <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                <span class="keyword">typedef</span> EdgeList::const_iterator EdgeIterator;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                AtomNode();</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                <span class="keywordtype">void</span> init(<a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>* atom, std::uint64_t label, std::size_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>* getAtom() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="keywordtype">void</span> addEdge(Edge* edge);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                std::uint64_t getLabel() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="keywordtype">void</span> setLabel(std::uint64_t label);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                <span class="keywordtype">void</span> setNewLabel(std::size_t label);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="keywordtype">void</span> updateLabel();</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                std::size_t getID() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordtype">void</span> sortEdges();</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                std::size_t getNumEdges() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                EdgeIterator getEdgesBegin() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                EdgeIterator getEdgesEnd() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keywordtype">void</span> appendConnectivityData(ConnectionTable&amp; ctab) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                <span class="keywordtype">void</span> appendBondConfigData(ConnectionTable&amp; ctab) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                <span class="keywordtype">void</span> appendAtomConfigData(ConnectionTable&amp; ctab);</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                <span class="keywordtype">bool</span> involvedInStereocenter();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                <span class="keywordtype">bool</span> isEquivalent(<span class="keyword">const</span> AtomNode* node) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;                <span class="keywordtype">bool</span> isNonEquivalent(<span class="keyword">const</span> AtomNode* node) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <span class="keywordtype">void</span> addToEquivalenceSet(<span class="keyword">const</span> AtomNode* node);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                <span class="keywordtype">void</span> addToNonEquivalenceSet(<span class="keyword">const</span> AtomNode* node);</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">bool</span> terminalAndOnCommonNonStereoNode(<span class="keyword">const</span> AtomNode* node1, <span class="keyword">const</span> AtomNode* node2);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html">  262</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html">LessCmpFunc</a></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                {</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html#a112a7eb8d8326eeed4e66e2d742b8f6f">  265</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html#a112a7eb8d8326eeed4e66e2d742b8f6f">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                };</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;              <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordtype">bool</span> initConfigurationData();</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>*      calculator;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>*      atom;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                std::uint64_t    initialLabel;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                std::uint64_t    label;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                std::size_t      newLabel;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                std::size_t      id;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>     equivNodeMask;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                EdgeList         edges;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <a class="code" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">StereoDescriptor</a> stereoDescr;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                <span class="keywordtype">bool</span>             hasConfiguration;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <span class="keywordtype">bool</span>             configDataValid;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="keywordtype">bool</span>             partOfStereocenter;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                <span class="keywordtype">bool</span>             partOfStereocenterValid;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            };</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keyword">class </span>Edge</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;              <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                Edge();</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>* bond, std::uint64_t label,</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                          AtomNode* nbr_node, std::size_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                <span class="keywordtype">void</span> appendBondData(ConnectionTable&amp;) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                <span class="keywordtype">void</span> appendConfigurationData(<span class="keyword">const</span> AtomNode* node, ConnectionTable&amp; ctab);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                AtomNode* getNeighborNode() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                <span class="keywordtype">bool</span> representsStereoBond(<span class="keyword">const</span> AtomNode* node);</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                std::size_t getID() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html">  304</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html">LessCmpFunc</a></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;                {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html#ae2bb0e045881f23352c2a7d5c4de853a">  307</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html#ae2bb0e045881f23352c2a7d5c4de853a">operator()</a>(<span class="keyword">const</span> Edge*, <span class="keyword">const</span> Edge*) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                };</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;              <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                <span class="keywordtype">bool</span> initConfigurationData(<span class="keyword">const</span> AtomNode* node);</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>*       bond;</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                AtomNode*         nbrNode;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                std::uint64_t     label;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                std::size_t       id;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                <a class="code" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">StereoDescriptor</a>  stereoDescr;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                <span class="keywordtype">bool</span>              hasConfiguration;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                <span class="keywordtype">bool</span>              configDataValid;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            };</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            <span class="keyword">typedef</span> std::pair&lt;const Fragment*, const ConnectionTable*&gt; CanonComponentInfo;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            <span class="keyword">struct </span>ComponentCmpFunc</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> CanonComponentInfo&amp;, <span class="keyword">const</span> CanonComponentInfo&amp;) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            };</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <span class="keyword">typedef</span> std::pair&lt;AtomNode*, std::uint64_t&gt; NodeLabelingState;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;NodeLabelingState&gt;      NodeLabelingStack;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;AtomNode*&gt;              NodeList;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;ConnectionTable&gt;        ConnectionTableList;</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;CanonComponentInfo&gt;     CanonComponentList;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;AtomNode&gt;</a>         NodeCache;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;Edge&gt;</a>             EdgeCache;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            NodeCache             nodeCache;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            EdgeCache             edgeCache;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>          atomPropertyFlags;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>          bondPropertyFlags;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            HydrogenCountFunction hCountFunc;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordtype">bool</span>                  foundStereogenicAtoms;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="keywordtype">bool</span>                  foundStereogenicBonds;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>* molGraph;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            NodeList              allocNodes;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            EdgeList              allocEdges;</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            NodeList              nodeList;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            NodeList              equivNodeStack;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            NodeLabelingStack     nodeLabelingStack;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            ConnectionTableList   compConnectionTables;</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            ConnectionTableList   levelConnectionTables;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            ConnectionTable       testConnectionTable;</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            NodeList              minNodeList;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            CanonComponentList    canonComponentList;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>          visitedEdgeMask;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        };</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    } <span class="comment">// namespace Chem</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_CHEM_CANONICALNUMBERINGCALCULATOR_HPP</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">   71</a></span>&#160;        <span class="keyword">class </span><a class="code" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ad83744c7a32a2d87ca314294046f71d9">   79</a></span>&#160;            <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> DEF_ATOM_PROPERTY_FLAGS =</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#af712c316f2961e3589e7c102fceb10f1">AtomPropertyFlag::TYPE</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a55971b892e7bc9416b7ab974960ec5f4">AtomPropertyFlag::ISOTOPE</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a12002ad2a6ffa5c70f5f45b63a1ed1db">AtomPropertyFlag::FORMAL_CHARGE</a> |</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a40421d2b105fbdd0e4b9407b2d0684d7">AtomPropertyFlag::AROMATICITY</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#aa175a8e30f5b01bacc5bcb60c9315eeb">AtomPropertyFlag::CONFIGURATION</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a380cbc845cdae784a12205caa0e36204">AtomPropertyFlag::H_COUNT</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a5c7a8b36192b68332fbd13f98d8168ef">   87</a></span>&#160;            <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> DEF_BOND_PROPERTY_FLAGS =</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <a class="code" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#a8c03b02a56b5377aec4760522d03d1d6">BondPropertyFlag::ORDER</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#a38f63a2f0a3a1d23adeadc0635e2e274">BondPropertyFlag::AROMATICITY</a> | <a class="code" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#abfb9d35179cd1758c276a2dc0b212443">BondPropertyFlag::CONFIGURATION</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">   93</a></span>&#160;            <span class="keyword">typedef</span> std::function&lt;std::size_t(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>&amp;, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;)&gt; <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a963ce4b8a8f2e5a722749597546798dd">   98</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a963ce4b8a8f2e5a722749597546798dd">CanonicalNumberingCalculator</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb25f544d6ada4d912d66dad559477e8">  108</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb25f544d6ada4d912d66dad559477e8">CanonicalNumberingCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; numbering);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ac440c63978c7fda9dd4ed96a64295721">  110</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ac440c63978c7fda9dd4ed96a64295721">CanonicalNumberingCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a818cbb54a6de218cde668c1f41d9c652">  112</a></span>&#160;            <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a>&amp; <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a818cbb54a6de218cde668c1f41d9c652">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a344c153a4db37cd572cce9ced681b47a">  130</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a344c153a4db37cd572cce9ced681b47a">setAtomPropertyFlags</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a6a8022d5546cc4fe5ec29695b07f1e46">  138</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a6a8022d5546cc4fe5ec29695b07f1e46">getAtomPropertyFlags</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#aec27daf5108d23ea30cfdc4f024f9037">  153</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#aec27daf5108d23ea30cfdc4f024f9037">setBondPropertyFlags</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a63c284fec40a64befcd312ae032dbdba">  161</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a63c284fec40a64befcd312ae032dbdba">getBondPropertyFlags</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">  167</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">setHydrogenCountFunction</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a>&amp; func);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">  173</a></span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">HydrogenCountFunction</a>&amp; <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">getHydrogenCountFunction</a>();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb88fab16c12aa230e697a42ad79c187">  182</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#adb88fab16c12aa230e697a42ad79c187">calculate</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp; molgraph, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp; numbering);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keyword">class </span>AtomNode;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keyword">class </span>Edge;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CanonicalNumberingCalculator</a> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;Edge*&gt;           EdgeList;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;std::uint64_t&gt; ConnectionTable;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            <span class="keywordtype">void</span> setup(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="namespaceCDPL_1_1Chem.html#ab01eab4c3d9d4567962c09ba7e1ea367">canonicalize</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&amp;, <a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordtype">void</span> <a class="code" href="namespaceCDPL_1_1Chem.html#ab01eab4c3d9d4567962c09ba7e1ea367">canonicalize</a>(std::size_t);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordtype">void</span> processNewSolution();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordtype">int</span> testNewSolution();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="keywordtype">void</span> buildConnectionTable(ConnectionTable&amp; ctab) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordtype">void</span> appendAtomConfigs(ConnectionTable&amp; ctab);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="keywordtype">void</span> appendBondConfigs(ConnectionTable&amp; ctab);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordtype">void</span> establishCanonNumbering(<a class="code" href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">Util::STArray</a>&amp;);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordtype">void</span> saveState();</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordtype">void</span> restoreState();</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            AtomNode* allocNode(<a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>* atom, std::uint64_t label, std::size_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            Edge* allocEdge(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>* bond, std::uint64_t label,</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                            AtomNode* nbr_node, std::size_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="keyword">class </span>AtomNode</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;              <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <span class="keyword">typedef</span> EdgeList::const_iterator EdgeIterator;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                AtomNode();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                <span class="keywordtype">void</span> init(<a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>* atom, std::uint64_t label, std::size_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>* getAtom() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                <span class="keywordtype">void</span> addEdge(Edge* edge);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                std::uint64_t getLabel() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                <span class="keywordtype">void</span> setLabel(std::uint64_t label);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="keywordtype">void</span> setNewLabel(std::size_t label);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="keywordtype">void</span> updateLabel();</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                std::size_t getID() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="keywordtype">void</span> sortEdges();</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                std::size_t getNumEdges() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                EdgeIterator getEdgesBegin() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;                EdgeIterator getEdgesEnd() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                <span class="keywordtype">void</span> appendConnectivityData(ConnectionTable&amp; ctab) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                <span class="keywordtype">void</span> appendBondConfigData(ConnectionTable&amp; ctab) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                <span class="keywordtype">void</span> appendAtomConfigData(ConnectionTable&amp; ctab);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                <span class="keywordtype">bool</span> involvedInStereocenter();</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                <span class="keywordtype">bool</span> isEquivalent(<span class="keyword">const</span> AtomNode* node) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;                <span class="keywordtype">bool</span> isNonEquivalent(<span class="keyword">const</span> AtomNode* node) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                <span class="keywordtype">void</span> addToEquivalenceSet(<span class="keyword">const</span> AtomNode* node);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                <span class="keywordtype">void</span> addToNonEquivalenceSet(<span class="keyword">const</span> AtomNode* node);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                <span class="keyword">static</span> <span class="keywordtype">bool</span> terminalAndOnCommonNonStereoNode(<span class="keyword">const</span> AtomNode* node1, <span class="keyword">const</span> AtomNode* node2);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html">  261</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html">LessCmpFunc</a></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                {</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html#a112a7eb8d8326eeed4e66e2d742b8f6f">  264</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html#a112a7eb8d8326eeed4e66e2d742b8f6f">operator()</a>(<span class="keyword">const</span> AtomNode*, <span class="keyword">const</span> AtomNode*) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                };</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;              <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                <span class="keywordtype">bool</span> initConfigurationData();</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>*      calculator;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>*      atom;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                std::uint64_t    initialLabel;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                std::uint64_t    label;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                std::size_t      newLabel;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                std::size_t      id;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>     equivNodeMask;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                EdgeList         edges;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                <a class="code" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">StereoDescriptor</a> stereoDescr;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                <span class="keywordtype">bool</span>             hasConfiguration;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                <span class="keywordtype">bool</span>             configDataValid;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                <span class="keywordtype">bool</span>             partOfStereocenter;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                <span class="keywordtype">bool</span>             partOfStereocenterValid;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            };</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;            <span class="keyword">class </span>Edge</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;              <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                Edge();</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>* bond, std::uint64_t label,</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                          AtomNode* nbr_node, std::size_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                <span class="keywordtype">void</span> appendBondData(ConnectionTable&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                <span class="keywordtype">void</span> appendConfigurationData(<span class="keyword">const</span> AtomNode* node, ConnectionTable&amp; ctab);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;                AtomNode* getNeighborNode() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                <span class="keywordtype">bool</span> representsStereoBond(<span class="keyword">const</span> AtomNode* node);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;                std::size_t getID() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html">  303</a></span>&#160;                <span class="keyword">struct </span><a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html">LessCmpFunc</a></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html#ae2bb0e045881f23352c2a7d5c4de853a">  306</a></span>&#160;                    <span class="keywordtype">bool</span> <a class="code" href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html#ae2bb0e045881f23352c2a7d5c4de853a">operator()</a>(<span class="keyword">const</span> Edge*, <span class="keyword">const</span> Edge*) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                };</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;              <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                <span class="keywordtype">bool</span> initConfigurationData(<span class="keyword">const</span> AtomNode* node);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">Calculator</a>* calculator;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;                <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>*       bond;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;                AtomNode*         nbrNode;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                std::uint64_t     label;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                std::size_t       id;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                <a class="code" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">StereoDescriptor</a>  stereoDescr;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                <span class="keywordtype">bool</span>              hasConfiguration;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                <span class="keywordtype">bool</span>              configDataValid;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            };</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            <span class="keyword">typedef</span> std::pair&lt;const Fragment*, const ConnectionTable*&gt; CanonComponentInfo;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            <span class="keyword">struct </span>ComponentCmpFunc</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> CanonComponentInfo&amp;, <span class="keyword">const</span> CanonComponentInfo&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            };</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;            <span class="keyword">typedef</span> std::pair&lt;AtomNode*, std::uint64_t&gt; NodeLabelingState;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;NodeLabelingState&gt;      NodeLabelingStack;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;AtomNode*&gt;              NodeList;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;ConnectionTable&gt;        ConnectionTableList;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;            <span class="keyword">typedef</span> std::vector&lt;CanonComponentInfo&gt;     CanonComponentList;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;AtomNode&gt;</a>         NodeCache;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;            <span class="keyword">typedef</span> <a class="code" href="classCDPL_1_1Util_1_1ObjectStack.html">Util::ObjectStack&lt;Edge&gt;</a>             EdgeCache;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            NodeCache             nodeCache;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;            EdgeCache             edgeCache;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>          atomPropertyFlags;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>          bondPropertyFlags;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;            HydrogenCountFunction hCountFunc;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            <span class="keywordtype">bool</span>                  foundStereogenicAtoms;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;            <span class="keywordtype">bool</span>                  foundStereogenicBonds;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>* molGraph;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            NodeList              allocNodes;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;            EdgeList              allocEdges;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            NodeList              nodeList;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            NodeList              equivNodeStack;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            NodeLabelingStack     nodeLabelingStack;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            ConnectionTableList   compConnectionTables;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            ConnectionTableList   levelConnectionTables;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            ConnectionTable       testConnectionTable;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            NodeList              minNodeList;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            CanonComponentList    canonComponentList;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>          visitedEdgeMask;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        };</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    } <span class="comment">// namespace Chem</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;} <span class="comment">// namespace CDPL</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_CHEM_CANONICALNUMBERINGCALCULATOR_HPP</span></div>
 <div class="ttc" id="aArray_8hpp_html"><div class="ttname"><a href="Array_8hpp.html">Array.hpp</a></div><div class="ttdoc">Definition of class CDPL::Util::Array.</div></div>
 <div class="ttc" id="aBitSet_8hpp_html"><div class="ttname"><a href="BitSet_8hpp.html">BitSet.hpp</a></div><div class="ttdoc">Declaration of type CDPL::Util::BitSet.</div></div>
 <div class="ttc" id="aBondPropertyFlag_8hpp_html"><div class="ttname"><a href="BondPropertyFlag_8hpp.html">BondPropertyFlag.hpp</a></div><div class="ttdoc">Definition of constants in namespace CDPL::Chem::BondPropertyFlag.</div></div>
@@ -357,13 +357,13 @@ $(function() {
 <div class="ttc" id="aStereoDescriptor_8hpp_html"><div class="ttname"><a href="StereoDescriptor_8hpp.html">StereoDescriptor.hpp</a></div><div class="ttdoc">Definition of the type CDPL::Chem::StereoDescriptor.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1Atom_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1Atom.html">CDPL::Chem::Atom</a></div><div class="ttdoc">Atom.</div><div class="ttdef"><b>Definition:</b> Atom.hpp:52</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1Bond_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1Bond.html">CDPL::Chem::Bond</a></div><div class="ttdoc">Bond.</div><div class="ttdef"><b>Definition:</b> Bond.hpp:50</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CDPL::Chem::CanonicalNumberingCalculator</a></div><div class="ttdoc">Calculation of canonical atom numberings for molecular graphs using McKay's algorithm for practical g...</div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:73</div></div>
+<div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html">CDPL::Chem::CanonicalNumberingCalculator</a></div><div class="ttdoc">Calculation of canonical atom numberings for molecular graphs using McKay's algorithm.</div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:72</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a03d99ce7a851918bc61f25840dea0c32"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a03d99ce7a851918bc61f25840dea0c32">CDPL::Chem::CanonicalNumberingCalculator::setHydrogenCountFunction</a></div><div class="ttdeci">void setHydrogenCountFunction(const HydrogenCountFunction &amp;func)</div><div class="ttdoc">Specifies a function for the retrieval of the hydrogen count of an atom.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a344c153a4db37cd572cce9ced681b47a"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a344c153a4db37cd572cce9ced681b47a">CDPL::Chem::CanonicalNumberingCalculator::setAtomPropertyFlags</a></div><div class="ttdeci">void setAtomPropertyFlags(unsigned int flags)</div><div class="ttdoc">Allows to specify the set of atomic properties that has to be considered by the canonical numering al...</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a518fef76ce185bb79dcb12faf0fe28f1"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a518fef76ce185bb79dcb12faf0fe28f1">CDPL::Chem::CanonicalNumberingCalculator::getHydrogenCountFunction</a></div><div class="ttdeci">const HydrogenCountFunction &amp; getHydrogenCountFunction()</div><div class="ttdoc">Returns the function used for the retrieval of the hydrogen count of an atom.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a63c284fec40a64befcd312ae032dbdba"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a63c284fec40a64befcd312ae032dbdba">CDPL::Chem::CanonicalNumberingCalculator::getBondPropertyFlags</a></div><div class="ttdeci">unsigned int getBondPropertyFlags() const</div><div class="ttdoc">Returns the set of bond properties that gets considered by the canonical numbering algorithm.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a6a8022d5546cc4fe5ec29695b07f1e46"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a6a8022d5546cc4fe5ec29695b07f1e46">CDPL::Chem::CanonicalNumberingCalculator::getAtomPropertyFlags</a></div><div class="ttdeci">unsigned int getAtomPropertyFlags() const</div><div class="ttdoc">Returns the set of atomic properties that gets considered by the canonical numbering algorithm.</div></div>
-<div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a70a8032f875e6b4b6ce3f5d2fcd6a504"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">CDPL::Chem::CanonicalNumberingCalculator::HydrogenCountFunction</a></div><div class="ttdeci">std::function&lt; std::size_t(const Atom &amp;, const MolecularGraph &amp;)&gt; HydrogenCountFunction</div><div class="ttdoc">Type of the generic functor used to retrieve the (implicit + explicit) hydrogen count of an atom.</div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:94</div></div>
+<div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a70a8032f875e6b4b6ce3f5d2fcd6a504"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a70a8032f875e6b4b6ce3f5d2fcd6a504">CDPL::Chem::CanonicalNumberingCalculator::HydrogenCountFunction</a></div><div class="ttdeci">std::function&lt; std::size_t(const Atom &amp;, const MolecularGraph &amp;)&gt; HydrogenCountFunction</div><div class="ttdoc">Type of the generic functor used to retrieve the (implicit + explicit) hydrogen count of an atom.</div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:93</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a818cbb54a6de218cde668c1f41d9c652"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a818cbb54a6de218cde668c1f41d9c652">CDPL::Chem::CanonicalNumberingCalculator::operator=</a></div><div class="ttdeci">CanonicalNumberingCalculator &amp; operator=(const CanonicalNumberingCalculator &amp;)=delete</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_a963ce4b8a8f2e5a722749597546798dd"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#a963ce4b8a8f2e5a722749597546798dd">CDPL::Chem::CanonicalNumberingCalculator::CanonicalNumberingCalculator</a></div><div class="ttdeci">CanonicalNumberingCalculator()</div><div class="ttdoc">Constructs the CanonicalNumberingCalculator instance.</div></div>
 <div class="ttc" id="aclassCDPL_1_1Chem_1_1CanonicalNumberingCalculator_html_ac440c63978c7fda9dd4ed96a64295721"><div class="ttname"><a href="classCDPL_1_1Chem_1_1CanonicalNumberingCalculator.html#ac440c63978c7fda9dd4ed96a64295721">CDPL::Chem::CanonicalNumberingCalculator::CanonicalNumberingCalculator</a></div><div class="ttdeci">CanonicalNumberingCalculator(const CanonicalNumberingCalculator &amp;)=delete</div></div>
@@ -386,9 +386,9 @@ $(function() {
 <div class="ttc" id="anamespaceCDPL_1_1Util_html_a17c1eaf53b02c92754d13f7ed8e61c61"><div class="ttname"><a href="namespaceCDPL_1_1Util.html#a17c1eaf53b02c92754d13f7ed8e61c61">CDPL::Util::STArray</a></div><div class="ttdeci">Array&lt; std::size_t &gt; STArray</div><div class="ttdoc">An array of unsigned integers of type std::size_t.</div><div class="ttdef"><b>Definition:</b> Array.hpp:567</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Util_html_a51a03f69886fe40c999c05aaa4e7bd0d"><div class="ttname"><a href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">CDPL::Util::BitSet</a></div><div class="ttdeci">boost::dynamic_bitset BitSet</div><div class="ttdoc">A dynamic bitset class.</div><div class="ttdef"><b>Definition:</b> BitSet.hpp:46</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
-<div class="ttc" id="astructCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html">CDPL::Chem::CanonicalNumberingCalculator::AtomNode::LessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:263</div></div>
+<div class="ttc" id="astructCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html">CDPL::Chem::CanonicalNumberingCalculator::AtomNode::LessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:262</div></div>
 <div class="ttc" id="astructCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc_html_a112a7eb8d8326eeed4e66e2d742b8f6f"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1AtomNode_1_1LessCmpFunc.html#a112a7eb8d8326eeed4e66e2d742b8f6f">CDPL::Chem::CanonicalNumberingCalculator::AtomNode::LessCmpFunc::operator()</a></div><div class="ttdeci">bool operator()(const AtomNode *, const AtomNode *) const</div></div>
-<div class="ttc" id="astructCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html">CDPL::Chem::CanonicalNumberingCalculator::Edge::LessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:305</div></div>
+<div class="ttc" id="astructCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc_html"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html">CDPL::Chem::CanonicalNumberingCalculator::Edge::LessCmpFunc</a></div><div class="ttdef"><b>Definition:</b> CanonicalNumberingCalculator.hpp:304</div></div>
 <div class="ttc" id="astructCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc_html_ae2bb0e045881f23352c2a7d5c4de853a"><div class="ttname"><a href="structCDPL_1_1Chem_1_1CanonicalNumberingCalculator_1_1Edge_1_1LessCmpFunc.html#ae2bb0e045881f23352c2a7d5c4de853a">CDPL::Chem::CanonicalNumberingCalculator::Edge::LessCmpFunc::operator()</a></div><div class="ttdeci">bool operator()(const Edge *, const Edge *) const</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

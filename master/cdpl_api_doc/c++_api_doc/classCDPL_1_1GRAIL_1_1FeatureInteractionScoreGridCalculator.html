@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html" title="FeatureInteractionScoreGridCalculator.">FeatureInteractionScoreGridCalculator</a>.  
+<p>Calculator that fills a spatial grid with per-cell feature-interaction scores against a set of target pharmacophore features.  
  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FeatureInteractionScoreGridCalculator_8hpp_source.html">FeatureInteractionScoreGridCalculator.hpp</a>&gt;</code></p>
@@ -93,65 +93,90 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator_1_1MaxScoreFunctor.html">MaxScoreFunctor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Score-combination functor returning the maximum (infinity norm) of the per-feature scores.  <a href="structCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator_1_1MaxScoreFunctor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator_1_1ScoreSumFunctor.html">ScoreSumFunctor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Score-combination functor returning the sum of the per-feature scores.  <a href="structCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator_1_1ScoreSumFunctor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a903c7ede75ce069c44ae41513ca59e36"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html">FeatureInteractionScoreGridCalculator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a903c7ede75ce069c44ae41513ca59e36">SharedPointer</a></td></tr>
+<tr class="memdesc:a903c7ede75ce069c44ae41513ca59e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>FeatureInteractionScoreGridCalculator</code> instances.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a903c7ede75ce069c44ae41513ca59e36">More...</a><br /></td></tr>
 <tr class="separator:a903c7ede75ce069c44ae41513ca59e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa29d05e0ec1bcf7193199ad0865cc1d"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#aaa29d05e0ec1bcf7193199ad0865cc1d">FeaturePredicate</a></td></tr>
+<tr class="memdesc:aaa29d05e0ec1bcf7193199ad0865cc1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor that decides whether a target feature shall be considered.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#aaa29d05e0ec1bcf7193199ad0865cc1d">More...</a><br /></td></tr>
 <tr class="separator:aaa29d05e0ec1bcf7193199ad0865cc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41b22163c48666905a6d6d471a801e51"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">ScoringFunction</a></td></tr>
+<tr class="memdesc:a41b22163c48666905a6d6d471a801e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor that scores the interaction between a grid cell and a target feature.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">More...</a><br /></td></tr>
 <tr class="separator:a41b22163c48666905a6d6d471a801e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b3a10893eee7a4ee17e16d380bc94e9"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a4b3a10893eee7a4ee17e16d380bc94e9">ScoreCombinationFunction</a></td></tr>
+<tr class="memdesc:a4b3a10893eee7a4ee17e16d380bc94e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor that combines per-feature scores into a single grid cell value.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a4b3a10893eee7a4ee17e16d380bc94e9">More...</a><br /></td></tr>
 <tr class="separator:a4b3a10893eee7a4ee17e16d380bc94e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e714f50462ec1f75fa3ef45674d1f2a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a8e714f50462ec1f75fa3ef45674d1f2a">FeatureInteractionScoreGridCalculator</a> ()</td></tr>
+<tr class="memdesc:a8e714f50462ec1f75fa3ef45674d1f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>FeatureInteractionScoreGridCalculator</code> instance.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a8e714f50462ec1f75fa3ef45674d1f2a">More...</a><br /></td></tr>
 <tr class="separator:a8e714f50462ec1f75fa3ef45674d1f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1accf72516776d12249f2ca4f19aecf9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a1accf72516776d12249f2ca4f19aecf9">FeatureInteractionScoreGridCalculator</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">ScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a1accf72516776d12249f2ca4f19aecf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>FeatureInteractionScoreGridCalculator</code> instance with the given scoring function.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a1accf72516776d12249f2ca4f19aecf9">More...</a><br /></td></tr>
 <tr class="separator:a1accf72516776d12249f2ca4f19aecf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d8e83d0f07d2b645d79445a33f7414"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#ac8d8e83d0f07d2b645d79445a33f7414">FeatureInteractionScoreGridCalculator</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">ScoringFunction</a> &amp;scoring_func, const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a4b3a10893eee7a4ee17e16d380bc94e9">ScoreCombinationFunction</a> &amp;comb_func)</td></tr>
+<tr class="memdesc:ac8d8e83d0f07d2b645d79445a33f7414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>FeatureInteractionScoreGridCalculator</code> instance with the given scoring and score-combination functions.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#ac8d8e83d0f07d2b645d79445a33f7414">More...</a><br /></td></tr>
 <tr class="separator:ac8d8e83d0f07d2b645d79445a33f7414"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc04b593a2abc55bf48f2a770e075c0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#acc04b593a2abc55bf48f2a770e075c0e">FeatureInteractionScoreGridCalculator</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html">FeatureInteractionScoreGridCalculator</a> &amp;calc)</td></tr>
+<tr class="memdesc:acc04b593a2abc55bf48f2a770e075c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code>FeatureInteractionScoreGridCalculator</code> instance <em>calc</em>.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#acc04b593a2abc55bf48f2a770e075c0e">More...</a><br /></td></tr>
 <tr class="separator:acc04b593a2abc55bf48f2a770e075c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bffe48f69b9938a8ac7d6c274600fc3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a6bffe48f69b9938a8ac7d6c274600fc3">~FeatureInteractionScoreGridCalculator</a> ()</td></tr>
+<tr class="memdesc:a6bffe48f69b9938a8ac7d6c274600fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a6bffe48f69b9938a8ac7d6c274600fc3">More...</a><br /></td></tr>
 <tr class="separator:a6bffe48f69b9938a8ac7d6c274600fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20431d48df8b909e829815e65717e26b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a20431d48df8b909e829815e65717e26b">normalizeScores</a> (<a class="el" href="classbool.html">bool</a> normalize)</td></tr>
+<tr class="memdesc:a20431d48df8b909e829815e65717e26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables normalization of the combined per-cell scores to the range [0, 1].  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a20431d48df8b909e829815e65717e26b">More...</a><br /></td></tr>
 <tr class="separator:a20431d48df8b909e829815e65717e26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52f00938897f22421258f5c1ea1b397a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a52f00938897f22421258f5c1ea1b397a">scoresNormalized</a> () const</td></tr>
+<tr class="memdesc:a52f00938897f22421258f5c1ea1b397a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the combined per-cell scores are normalized.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a52f00938897f22421258f5c1ea1b397a">More...</a><br /></td></tr>
 <tr class="separator:a52f00938897f22421258f5c1ea1b397a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2588df624c8c562b135714e8bd02511c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a2588df624c8c562b135714e8bd02511c">setScoringFunction</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">ScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a2588df624c8c562b135714e8bd02511c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scoring function used to score the interaction between a grid cell and a target feature.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a2588df624c8c562b135714e8bd02511c">More...</a><br /></td></tr>
 <tr class="separator:a2588df624c8c562b135714e8bd02511c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a064a5db328b093f74bad5f261500fd0c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">ScoringFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a064a5db328b093f74bad5f261500fd0c">getScoringFunction</a> () const</td></tr>
+<tr class="memdesc:a064a5db328b093f74bad5f261500fd0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured scoring function.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a064a5db328b093f74bad5f261500fd0c">More...</a><br /></td></tr>
 <tr class="separator:a064a5db328b093f74bad5f261500fd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633bb2c61b084e9af731b4f78b0aa333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a633bb2c61b084e9af731b4f78b0aa333">setScoreCombinationFunction</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a4b3a10893eee7a4ee17e16d380bc94e9">ScoreCombinationFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a633bb2c61b084e9af731b4f78b0aa333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used to combine per-feature scores into a single grid cell value.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a633bb2c61b084e9af731b4f78b0aa333">More...</a><br /></td></tr>
 <tr class="separator:a633bb2c61b084e9af731b4f78b0aa333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f8ef05f1afde615d5443f5d81d27427"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a4b3a10893eee7a4ee17e16d380bc94e9">ScoreCombinationFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a8f8ef05f1afde615d5443f5d81d27427">getScoreCombinationFunction</a> () const</td></tr>
+<tr class="memdesc:a8f8ef05f1afde615d5443f5d81d27427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured score-combination function.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a8f8ef05f1afde615d5443f5d81d27427">More...</a><br /></td></tr>
 <tr class="separator:a8f8ef05f1afde615d5443f5d81d27427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1be8d816ed46bc9531b7e08548692319"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a1be8d816ed46bc9531b7e08548692319">setFeatureSelectionPredicate</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#aaa29d05e0ec1bcf7193199ad0865cc1d">FeaturePredicate</a> &amp;pred)</td></tr>
+<tr class="memdesc:a1be8d816ed46bc9531b7e08548692319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the predicate that decides whether a target feature shall be considered.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a1be8d816ed46bc9531b7e08548692319">More...</a><br /></td></tr>
 <tr class="separator:a1be8d816ed46bc9531b7e08548692319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab101665c0011893a117b4fc860e99f36"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#aaa29d05e0ec1bcf7193199ad0865cc1d">FeaturePredicate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#ab101665c0011893a117b4fc860e99f36">getFeatureSelectionPredicate</a> () const</td></tr>
+<tr class="memdesc:ab101665c0011893a117b4fc860e99f36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured feature-selection predicate.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#ab101665c0011893a117b4fc860e99f36">More...</a><br /></td></tr>
 <tr class="separator:ab101665c0011893a117b4fc860e99f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98388cf3337eb0ccab02f2a24a5abb6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a98388cf3337eb0ccab02f2a24a5abb6f">setDistanceCutoff</a> (double dist)</td></tr>
+<tr class="memdesc:a98388cf3337eb0ccab02f2a24a5abb6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cutoff distance beyond which target features are not considered.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a98388cf3337eb0ccab02f2a24a5abb6f">More...</a><br /></td></tr>
 <tr class="separator:a98388cf3337eb0ccab02f2a24a5abb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aba1bfce542df3b88c01dbc18bfe933"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a2aba1bfce542df3b88c01dbc18bfe933">getDistanceCutoff</a> () const</td></tr>
+<tr class="memdesc:a2aba1bfce542df3b88c01dbc18bfe933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured cutoff distance.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a2aba1bfce542df3b88c01dbc18bfe933">More...</a><br /></td></tr>
 <tr class="separator:a2aba1bfce542df3b88c01dbc18bfe933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefe8f44fb8858772501583b677094955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#aefe8f44fb8858772501583b677094955">calculate</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">Pharm::FeatureContainer</a> &amp;tgt_ftrs, <a class="el" href="namespaceCDPL_1_1Grid.html#ade7f9792ffbad48c5d4f3a3a29314c34">Grid::DSpatialGrid</a> &amp;grid)</td></tr>
+<tr class="memdesc:aefe8f44fb8858772501583b677094955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the feature-interaction score at each cell of <em>grid</em> against <em>tgt_ftrs</em>.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#aefe8f44fb8858772501583b677094955">More...</a><br /></td></tr>
 <tr class="separator:aefe8f44fb8858772501583b677094955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20e27cd8d1a208e83bd9918c2a090f21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html">FeatureInteractionScoreGridCalculator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a20e27cd8d1a208e83bd9918c2a090f21">operator=</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html">FeatureInteractionScoreGridCalculator</a> &amp;calc)</td></tr>
+<tr class="memdesc:a20e27cd8d1a208e83bd9918c2a090f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a20e27cd8d1a208e83bd9918c2a090f21">More...</a><br /></td></tr>
 <tr class="separator:a20e27cd8d1a208e83bd9918c2a090f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a7d34ce08724aa5660058fb251b6094c9"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a7d34ce08724aa5660058fb251b6094c9">DEF_DISTANCE_CUTOFF</a> = 10.0</td></tr>
+<tr class="memdesc:a7d34ce08724aa5660058fb251b6094c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default cutoff distance beyond which target features are not considered.  <a href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a7d34ce08724aa5660058fb251b6094c9">More...</a><br /></td></tr>
 <tr class="separator:a7d34ce08724aa5660058fb251b6094c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html" title="FeatureInteractionScoreGridCalculator.">FeatureInteractionScoreGridCalculator</a>. </p>
+<div class="textblock"><p>Calculator that fills a spatial grid with per-cell feature-interaction scores against a set of target pharmacophore features. </p>
+<p>For each grid cell, the configured scoring function is evaluated against every target feature within the configured cutoff distance and the resulting scores are combined into a single cell value via a user-supplied combination function (defaulting to a sum). The set of considered target features can be filtered by a feature-selection predicate. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a903c7ede75ce069c44ae41513ca59e36"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a903c7ede75ce069c44ae41513ca59e36">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -164,6 +189,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>FeatureInteractionScoreGridCalculator</code> instances. </p>
 
 </div>
 </div>
@@ -179,6 +206,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the generic functor that decides whether a target feature shall be considered. </p>
+
 </div>
 </div>
 <a id="a41b22163c48666905a6d6d471a801e51"></a>
@@ -193,6 +222,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the generic functor that scores the interaction between a grid cell and a target feature. </p>
+
 </div>
 </div>
 <a id="a4b3a10893eee7a4ee17e16d380bc94e9"></a>
@@ -206,6 +237,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor that combines per-feature scores into a single grid cell value. </p>
 
 </div>
 </div>
@@ -225,6 +258,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>FeatureInteractionScoreGridCalculator</code> instance. </p>
+
 </div>
 </div>
 <a id="a1accf72516776d12249f2ca4f19aecf9"></a>
@@ -242,6 +277,14 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>FeatureInteractionScoreGridCalculator</code> instance with the given scoring function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -271,6 +314,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>FeatureInteractionScoreGridCalculator</code> instance with the given scoring and score-combination functions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scoring_func</td><td>The scoring function. </td></tr>
+    <tr><td class="paramname">comb_func</td><td>The function used to combine per-feature scores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="acc04b593a2abc55bf48f2a770e075c0e"></a>
@@ -289,6 +341,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a copy of the <code>FeatureInteractionScoreGridCalculator</code> instance <em>calc</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The <code>FeatureInteractionScoreGridCalculator</code> to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a6bffe48f69b9938a8ac7d6c274600fc3"></a>
@@ -305,6 +365,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -325,6 +387,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enables or disables normalization of the combined per-cell scores to the range [0, 1]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalize</td><td>If <code>true</code>, the combined scores are normalized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a52f00938897f22421258f5c1ea1b397a"></a>
@@ -341,6 +411,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the combined per-cell scores are normalized. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the combined scores are normalized, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -360,6 +433,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the scoring function used to score the interaction between a grid cell and a target feature. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a064a5db328b093f74bad5f261500fd0c"></a>
@@ -376,6 +457,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured scoring function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured scoring function. </dd></dl>
 
 </div>
 </div>
@@ -395,6 +479,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the function used to combine per-feature scores into a single grid cell value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The score-combination function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a8f8ef05f1afde615d5443f5d81d27427"></a>
@@ -411,6 +503,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured score-combination function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured score-combination function. </dd></dl>
 
 </div>
 </div>
@@ -430,6 +525,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the predicate that decides whether a target feature shall be considered. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pred</td><td>The feature-selection predicate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab101665c0011893a117b4fc860e99f36"></a>
@@ -446,6 +549,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured feature-selection predicate. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured feature-selection predicate. </dd></dl>
 
 </div>
 </div>
@@ -465,6 +571,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the cutoff distance beyond which target features are not considered. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The cutoff distance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2aba1bfce542df3b88c01dbc18bfe933"></a>
@@ -481,6 +595,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured cutoff distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured cutoff distance. </dd></dl>
 
 </div>
 </div>
@@ -510,6 +627,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates the feature-interaction score at each cell of <em>grid</em> against <em>tgt_ftrs</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tgt_ftrs</td><td>The container with the target features. </td></tr>
+    <tr><td class="paramname">grid</td><td>The output grid populated with per-cell scores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a20e27cd8d1a208e83bd9918c2a090f21"></a>
@@ -527,6 +653,15 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The other <code>FeatureInteractionScoreGridCalculator</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 
 </div>
 </div>
@@ -550,6 +685,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default cutoff distance beyond which target features are not considered. </p>
 
 </div>
 </div>

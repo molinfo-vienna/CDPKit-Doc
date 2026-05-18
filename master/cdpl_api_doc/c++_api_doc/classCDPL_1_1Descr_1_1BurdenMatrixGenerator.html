@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html" title="BurdenMatrixGenerator.">BurdenMatrixGenerator</a>.  
+<p>Calculation of the <em>Burden</em> matrix of a molecular graph.  
  <a href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BurdenMatrixGenerator_8hpp_source.html">BurdenMatrixGenerator.hpp</a>&gt;</code></p>
@@ -100,7 +100,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a81694b67efb2945105063e30d8cddef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BurdenMatrixGenerator</code> instance.  <a href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#a81694b67efb2945105063e30d8cddef6">More...</a><br /></td></tr>
 <tr class="separator:a81694b67efb2945105063e30d8cddef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab59691387fa9d9870a2bda6ea4794956"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#ab59691387fa9d9870a2bda6ea4794956">BurdenMatrixGenerator</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, <a class="el" href="namespaceCDPL_1_1Math.html#a13acc3473ef29e6ecfd0ea1d2e7f0f06">Math::DMatrix</a> &amp;mtx)</td></tr>
-<tr class="memdesc:ab59691387fa9d9870a2bda6ea4794956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BCUTDescriptorGenerator</code> instance and generates the <em>Burden</em> matrix of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#ab59691387fa9d9870a2bda6ea4794956">More...</a><br /></td></tr>
+<tr class="memdesc:ab59691387fa9d9870a2bda6ea4794956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BurdenMatrixGenerator</code> instance and generates the <em>Burden</em> matrix of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#ab59691387fa9d9870a2bda6ea4794956">More...</a><br /></td></tr>
 <tr class="separator:ab59691387fa9d9870a2bda6ea4794956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79caf7adb468aa7232c6664657d492d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#a79caf7adb468aa7232c6664657d492d6">BurdenMatrixGenerator</a> (const <a class="el" href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html">BurdenMatrixGenerator</a> &amp;)=delete</td></tr>
 <tr class="separator:a79caf7adb468aa7232c6664657d492d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,7 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a48fa3e7498b3f7505080c8bc6b368fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html" title="BurdenMatrixGenerator.">BurdenMatrixGenerator</a>. </p>
+<div class="textblock"><p>Calculation of the <em>Burden</em> matrix of a molecular graph. </p>
+<p>The <em>Burden</em> matrix is a square matrix of dimension <em>N &times; N</em>, where <em>N</em> is the number of atoms of the molecular graph. The diagonal elements default to the atom type but can be replaced via a user-supplied atom weight function (see <a class="el" href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#a93dc1c62e947bd5678b78696d43ed18e" title="Allows to specify a custom atom weight function for the diagonal elements of the Burden matrix.">setAtomWeightFunction()</a>). The off-diagonal elements encode the bond orders of the connecting bonds.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#BURMA">BURMA</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a06da72fee4a94b1d93506d4bfb1a2a13"></a>
@@ -180,7 +181,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs the <code>BCUTDescriptorGenerator</code> instance and generates the <em>Burden</em> matrix of the molecular graph <em>molgraph</em>. </p>
+<p>Constructs the <code>BurdenMatrixGenerator</code> instance and generates the <em>Burden</em> matrix of the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to generate the <em>Burden</em> matrix. </td></tr>

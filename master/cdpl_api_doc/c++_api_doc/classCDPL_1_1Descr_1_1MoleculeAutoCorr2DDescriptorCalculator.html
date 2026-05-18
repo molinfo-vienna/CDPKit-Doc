@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html" title="MoleculeAutoCorr2DDescriptorCalculator.">MoleculeAutoCorr2DDescriptorCalculator</a>.  
+<p>Calculation of a topological (2D) auto-correlation descriptor of a molecular graph with atom-pair weights resolved by per-atom modes.  
  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MoleculeAutoCorr2DDescriptorCalculator_8hpp_source.html">MoleculeAutoCorr2DDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -96,8 +96,10 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2a04e318bfef55fa1579f1973e47f8d714">FULL_SPLIT</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a682d96f996f83eeaa2639c1726ef38f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies how the descriptor is partitioned by atom-pair modes.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2">More...</a><br /></td></tr>
 <tr class="separator:a682d96f996f83eeaa2639c1726ef38f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dbfe48e4aa97243190439c436ac1bc9"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, unsigned int, unsigned int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a3dbfe48e4aa97243190439c436ac1bc9">AtomPairWeightFunction</a></td></tr>
+<tr class="memdesc:a3dbfe48e4aa97243190439c436ac1bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of an atom pair.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a3dbfe48e4aa97243190439c436ac1bc9">More...</a><br /></td></tr>
 <tr class="separator:a3dbfe48e4aa97243190439c436ac1bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -106,6 +108,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a55c4a2d69bbaf2a2909acaf4ba0bfbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>MoleculeAutoCorr2DDescriptorCalculator</code> instance.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a55c4a2d69bbaf2a2909acaf4ba0bfbcf">More...</a><br /></td></tr>
 <tr class="separator:a55c4a2d69bbaf2a2909acaf4ba0bfbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91153eec97e3bdf3563d737da44b780f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a91153eec97e3bdf3563d737da44b780f">MoleculeAutoCorr2DDescriptorCalculator</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
+<tr class="memdesc:a91153eec97e3bdf3563d737da44b780f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>MoleculeAutoCorr2DDescriptorCalculator</code> instance and calculates the descriptor of <em>molgraph</em>.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a91153eec97e3bdf3563d737da44b780f">More...</a><br /></td></tr>
 <tr class="separator:a91153eec97e3bdf3563d737da44b780f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2a4bde2b9246251097d24953deabbb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#aa2a4bde2b9246251097d24953deabbb7">setMaxDistance</a> (std::size_t max_dist)</td></tr>
 <tr class="memdesc:aa2a4bde2b9246251097d24953deabbb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify that maximum bond path length to consider.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#aa2a4bde2b9246251097d24953deabbb7">More...</a><br /></td></tr>
@@ -117,14 +120,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0fbed06e4c7ff29ba012736a81b83c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify a custom atom pair weight function.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a0fbed06e4c7ff29ba012736a81b83c7b">More...</a><br /></td></tr>
 <tr class="separator:a0fbed06e4c7ff29ba012736a81b83c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5626397647c77fdc7c2cfc6c5aa81e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a5626397647c77fdc7c2cfc6c5aa81e8f">setMode</a> (<a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2">Mode</a> mode)</td></tr>
+<tr class="memdesc:a5626397647c77fdc7c2cfc6c5aa81e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the descriptor partitioning mode.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a5626397647c77fdc7c2cfc6c5aa81e8f">More...</a><br /></td></tr>
 <tr class="separator:a5626397647c77fdc7c2cfc6c5aa81e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a563f4ce3e9b312a045f53caa8ace198d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a563f4ce3e9b312a045f53caa8ace198d">getMode</a> () const</td></tr>
+<tr class="memdesc:a563f4ce3e9b312a045f53caa8ace198d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured descriptor partitioning mode.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a563f4ce3e9b312a045f53caa8ace198d">More...</a><br /></td></tr>
 <tr class="separator:a563f4ce3e9b312a045f53caa8ace198d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a169e8287c64219b13c5d3e02cb1b7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a6a169e8287c64219b13c5d3e02cb1b7e">calculate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
+<tr class="memdesc:a6a169e8287c64219b13c5d3e02cb1b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the auto-correlation descriptor of <em>molgraph</em>.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a6a169e8287c64219b13c5d3e02cb1b7e">More...</a><br /></td></tr>
 <tr class="separator:a6a169e8287c64219b13c5d3e02cb1b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html" title="MoleculeAutoCorr2DDescriptorCalculator.">MoleculeAutoCorr2DDescriptorCalculator</a>. </p>
+<div class="textblock"><p>Calculation of a topological (2D) auto-correlation descriptor of a molecular graph with atom-pair weights resolved by per-atom modes. </p>
+<p>Compared to <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html" title="Calculation of the topological (2D) auto-correlation vector of a molecular graph.">Descr::AutoCorrelation2DVectorCalculator</a>, this calculator emits a partitioned descriptor that splits the per-distance contributions by the atom-pair mode pair selected via the atom-pair weight function (see <code>Mode</code> for available partitioning schemes). </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3dbfe48e4aa97243190439c436ac1bc9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3dbfe48e4aa97243190439c436ac1bc9">&#9670;&nbsp;</a></span>AtomPairWeightFunction</h2>
@@ -137,6 +144,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor used to retrieve the weight of an atom pair. </p>
+<p>The function takes the two atoms and the two modes (one per atom) of an atom pair and returns the corresponding weight contribution. </p>
 
 </div>
 </div>
@@ -152,9 +162,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies how the descriptor is partitioned by atom-pair modes. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a0c01d700113de54c7685bc58f4593537"></a>SEMI_SPLIT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a04e318bfef55fa1579f1973e47f8d714"></a>FULL_SPLIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a0c01d700113de54c7685bc58f4593537"></a>SEMI_SPLIT&#160;</td><td class="fielddoc"><p>Semi-split partitioning: contributions are grouped by the unordered pair of modes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a04e318bfef55fa1579f1973e47f8d714"></a>FULL_SPLIT&#160;</td><td class="fielddoc"><p>Full-split partitioning: contributions are grouped by the ordered pair of modes. </p>
+</td></tr>
 </table>
 
 </div>
@@ -204,6 +218,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>MoleculeAutoCorr2DDescriptorCalculator</code> instance and calculates the descriptor of <em>molgraph</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
+    <tr><td class="paramname">descr</td><td>The output descriptor vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -297,6 +320,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the descriptor partitioning mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>The partitioning mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a563f4ce3e9b312a045f53caa8ace198d"></a>
@@ -313,6 +344,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured descriptor partitioning mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured partitioning mode. </dd></dl>
 
 </div>
 </div>
@@ -341,6 +375,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculates the auto-correlation descriptor of <em>molgraph</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
+    <tr><td class="paramname">descr</td><td>The output descriptor vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

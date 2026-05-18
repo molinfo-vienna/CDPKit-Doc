@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html" title="PharmacophoreAutoCorr3DDescriptorCalculator.">PharmacophoreAutoCorr3DDescriptorCalculator</a>.  
+<p>Calculation of a 3D auto-correlation descriptor of a pharmacophore using feature-pair weights resolved by a per-feature mode.  
  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PharmacophoreAutoCorr3DDescriptorCalculator_8hpp_source.html">PharmacophoreAutoCorr3DDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -91,8 +91,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a4e4245127022d5ad6dee2ca5e2a9be71"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html#a244b9ac0d3c233e355f38db5113d997a">AutoCorr3DVectorCalculator::Entity3DCoordinatesFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a4e4245127022d5ad6dee2ca5e2a9be71">Feature3DCoordinatesFunction</a></td></tr>
+<tr class="memdesc:a4e4245127022d5ad6dee2ca5e2a9be71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function used to retrieve the 3D coordinates of a feature.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a4e4245127022d5ad6dee2ca5e2a9be71">More...</a><br /></td></tr>
 <tr class="separator:a4e4245127022d5ad6dee2ca5e2a9be71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37dee0813f890a051c864f8f66e0a770"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;, unsigned int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a37dee0813f890a051c864f8f66e0a770">FeaturePairWeightFunction</a></td></tr>
+<tr class="memdesc:a37dee0813f890a051c864f8f66e0a770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of a feature pair (with a per-feature mode).  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a37dee0813f890a051c864f8f66e0a770">More...</a><br /></td></tr>
 <tr class="separator:a37dee0813f890a051c864f8f66e0a770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -101,6 +103,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aadaa0c5191c67b5cf4f10c747d16a036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>PharmacophoreAutoCorr3DDescriptorCalculator</code> instance.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aadaa0c5191c67b5cf4f10c747d16a036">More...</a><br /></td></tr>
 <tr class="separator:aadaa0c5191c67b5cf4f10c747d16a036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefc952e6b72a1ad0ba79acb2d670f6ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aefc952e6b72a1ad0ba79acb2d670f6ba">PharmacophoreAutoCorr3DDescriptorCalculator</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">Pharm::FeatureContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
+<tr class="memdesc:aefc952e6b72a1ad0ba79acb2d670f6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>PharmacophoreAutoCorr3DDescriptorCalculator</code> instance and calculates the descriptor of the features in <em>cntnr</em>.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aefc952e6b72a1ad0ba79acb2d670f6ba">More...</a><br /></td></tr>
 <tr class="separator:aefc952e6b72a1ad0ba79acb2d670f6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeba5aedd98a2eea7b4bd1c7fda19abf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aeba5aedd98a2eea7b4bd1c7fda19abf9">setStartRadius</a> (double start_radius)</td></tr>
 <tr class="memdesc:aeba5aedd98a2eea7b4bd1c7fda19abf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the starting value of the radius.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aeba5aedd98a2eea7b4bd1c7fda19abf9">More...</a><br /></td></tr>
@@ -127,10 +130,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a946f413b99584d729b677e9db15d8f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify a custom feature pair weight function.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a946f413b99584d729b677e9db15d8f16">More...</a><br /></td></tr>
 <tr class="separator:a946f413b99584d729b677e9db15d8f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebd99d48bc035060047b4ea5a17032df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aebd99d48bc035060047b4ea5a17032df">calculate</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">Pharm::FeatureContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
+<tr class="memdesc:aebd99d48bc035060047b4ea5a17032df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the 3D auto-correlation descriptor of the features in <em>cntnr</em>.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aebd99d48bc035060047b4ea5a17032df">More...</a><br /></td></tr>
 <tr class="separator:aebd99d48bc035060047b4ea5a17032df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html" title="PharmacophoreAutoCorr3DDescriptorCalculator.">PharmacophoreAutoCorr3DDescriptorCalculator</a>. </p>
+<div class="textblock"><p>Calculation of a 3D auto-correlation descriptor of a pharmacophore using feature-pair weights resolved by a per-feature mode. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4e4245127022d5ad6dee2ca5e2a9be71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e4245127022d5ad6dee2ca5e2a9be71">&#9670;&nbsp;</a></span>Feature3DCoordinatesFunction</h2>
@@ -143,6 +147,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the function used to retrieve the 3D coordinates of a feature. </p>
 
 </div>
 </div>
@@ -157,6 +163,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor used to retrieve the weight of a feature pair (with a per-feature mode). </p>
 
 </div>
 </div>
@@ -205,6 +213,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>PharmacophoreAutoCorr3DDescriptorCalculator</code> instance and calculates the descriptor of the features in <em>cntnr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cntnr</td><td>The feature container. </td></tr>
+    <tr><td class="paramname">descr</td><td>The output descriptor vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -374,7 +391,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aebd99d48bc035060047b4ea5a17032df">calculate()</a>, otherwise a zero distance for each feature pair will be used for the calculation. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aebd99d48bc035060047b4ea5a17032df" title="Calculates the 3D auto-correlation descriptor of the features in cntnr.">calculate()</a>, otherwise a zero distance for each feature pair will be used for the calculation. </dd></dl>
 
 </div>
 </div>
@@ -429,6 +446,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculates the 3D auto-correlation descriptor of the features in <em>cntnr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cntnr</td><td>The feature container. </td></tr>
+    <tr><td class="paramname">descr</td><td>The output descriptor vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

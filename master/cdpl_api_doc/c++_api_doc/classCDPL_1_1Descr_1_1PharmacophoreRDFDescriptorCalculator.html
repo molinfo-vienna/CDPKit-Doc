@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html" title="PharmacophoreRDFDescriptorCalculator.">PharmacophoreRDFDescriptorCalculator</a>.  
+<p>Calculation of an RDF descriptor of a pharmacophore using feature-pair weights resolved by a per-feature mode.  
  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PharmacophoreRDFDescriptorCalculator_8hpp_source.html">PharmacophoreRDFDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -91,8 +91,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a65d0ba2b0015be2a9b0baaa7cc66c7b3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Descr_1_1RDFCodeCalculator.html#aa3a1836df0c0e8093a0276245fc7a664">RDFCodeCalc::Entity3DCoordinatesFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a65d0ba2b0015be2a9b0baaa7cc66c7b3">Feature3DCoordinatesFunction</a></td></tr>
+<tr class="memdesc:a65d0ba2b0015be2a9b0baaa7cc66c7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function used to retrieve the 3D coordinates of a feature.  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a65d0ba2b0015be2a9b0baaa7cc66c7b3">More...</a><br /></td></tr>
 <tr class="separator:a65d0ba2b0015be2a9b0baaa7cc66c7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad98ba7baad2268b552e3754eea52b361"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;, unsigned int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#ad98ba7baad2268b552e3754eea52b361">FeaturePairWeightFunction</a></td></tr>
+<tr class="memdesc:ad98ba7baad2268b552e3754eea52b361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of a feature pair (with a per-feature mode).  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#ad98ba7baad2268b552e3754eea52b361">More...</a><br /></td></tr>
 <tr class="separator:ad98ba7baad2268b552e3754eea52b361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -101,6 +103,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af51e8c5e013d46e6d031e1eeec213144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>PharmacophoreRDFDescriptorCalculator</code> instance.  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#af51e8c5e013d46e6d031e1eeec213144">More...</a><br /></td></tr>
 <tr class="separator:af51e8c5e013d46e6d031e1eeec213144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816943f87d82fa595eb2aaef8e449683"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a816943f87d82fa595eb2aaef8e449683">PharmacophoreRDFDescriptorCalculator</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">Pharm::FeatureContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
+<tr class="memdesc:a816943f87d82fa595eb2aaef8e449683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>PharmacophoreRDFDescriptorCalculator</code> instance and calculates the descriptor of the features in <em>cntnr</em>.  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a816943f87d82fa595eb2aaef8e449683">More...</a><br /></td></tr>
 <tr class="separator:a816943f87d82fa595eb2aaef8e449683"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ad8b76c5480a32fa2e2e8a85a164764"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a8ad8b76c5480a32fa2e2e8a85a164764">setSmoothingFactor</a> (double factor)</td></tr>
 <tr class="memdesc:a8ad8b76c5480a32fa2e2e8a85a164764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify the smoothing factor used in the calculation of feature pair <em>RDF</em> contributions.  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a8ad8b76c5480a32fa2e2e8a85a164764">More...</a><br /></td></tr>
@@ -145,10 +148,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af284b91318011867bbb72306d8e15a87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether feature pair distances get rounded to the nearest radius interval centers.  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#af284b91318011867bbb72306d8e15a87">More...</a><br /></td></tr>
 <tr class="separator:af284b91318011867bbb72306d8e15a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a592d32e16ed68c42cbfe747f6a5130a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a592d32e16ed68c42cbfe747f6a5130a8">calculate</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">Pharm::FeatureContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;descr)</td></tr>
+<tr class="memdesc:a592d32e16ed68c42cbfe747f6a5130a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the RDF descriptor of the features in <em>cntnr</em>.  <a href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a592d32e16ed68c42cbfe747f6a5130a8">More...</a><br /></td></tr>
 <tr class="separator:a592d32e16ed68c42cbfe747f6a5130a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html" title="PharmacophoreRDFDescriptorCalculator.">PharmacophoreRDFDescriptorCalculator</a>. </p>
+<div class="textblock"><p>Calculation of an RDF descriptor of a pharmacophore using feature-pair weights resolved by a per-feature mode. </p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#CITB">CITB</a>, <a class="el" href="References.html#HBMD">HBMD</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a65d0ba2b0015be2a9b0baaa7cc66c7b3"></a>
@@ -163,6 +167,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the function used to retrieve the 3D coordinates of a feature. </p>
+
 </div>
 </div>
 <a id="ad98ba7baad2268b552e3754eea52b361"></a>
@@ -176,6 +182,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor used to retrieve the weight of a feature pair (with a per-feature mode). </p>
 
 </div>
 </div>
@@ -224,6 +232,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>PharmacophoreRDFDescriptorCalculator</code> instance and calculates the descriptor of the features in <em>cntnr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cntnr</td><td>The feature container. </td></tr>
+    <tr><td class="paramname">descr</td><td>The output descriptor vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -487,7 +504,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a592d32e16ed68c42cbfe747f6a5130a8">calculate()</a>, otherwise a zero distance for each feature pair will be used for the calculation. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreRDFDescriptorCalculator.html#a592d32e16ed68c42cbfe747f6a5130a8" title="Calculates the RDF descriptor of the features in cntnr.">calculate()</a>, otherwise a zero distance for each feature pair will be used for the calculation. </dd></dl>
 
 </div>
 </div>
@@ -589,6 +606,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculates the RDF descriptor of the features in <em>cntnr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cntnr</td><td>The feature container. </td></tr>
+    <tr><td class="paramname">descr</td><td>The output descriptor vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

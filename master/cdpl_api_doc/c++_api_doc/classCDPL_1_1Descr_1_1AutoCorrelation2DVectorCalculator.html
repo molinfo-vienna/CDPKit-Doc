@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html" title="AutoCorrelation2DVectorCalculator.">AutoCorrelation2DVectorCalculator</a>.  
+<p>Calculation of the topological (2D) auto-correlation vector of a molecular graph.  
  <a href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AutoCorrelation2DVectorCalculator_8hpp_source.html">AutoCorrelation2DVectorCalculator.hpp</a>&gt;</code></p>
@@ -116,7 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a436d94eb2992a1d11590ffdcd7700e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html" title="AutoCorrelation2DVectorCalculator.">AutoCorrelation2DVectorCalculator</a>. </p>
+<div class="textblock"><p>Calculation of the topological (2D) auto-correlation vector of a molecular graph. </p>
+<p>For every topological distance \( d \in [0, d_{max}] \), the corresponding element of the auto-correlation vector is the sum of the atom-pair weights of all atom pairs whose topological distance equals \( d \). The atom-pair weight function and the maximum topological distance considered can be customized via <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html#a432202c2eb574df56ec08b6faeacc2bf" title="Allows to specify a custom atom pair weight function.">setAtomPairWeightFunction()</a> and <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html#a247953d02e41cca6298508a27c9e3121" title="Allows to specify that maximum bond path length to consider.">setMaxDistance()</a>.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#AUCOR">AUCOR</a>, <a class="el" href="References.html#HBMD">HBMD</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a839c7b0ca9dd8b42b65b247a1502952f"></a>
@@ -183,7 +184,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs the <code>AutoCorrelation2DVectorCalculator</code> instance and calculates the autocorrelation vector of the molecular graph <em>molgraph</em>. </p>
-<p>The calculated autocorrelation vector can be retrieved by a call to getResult().</p>
+<p>The calculated autocorrelation vector is stored in <em>corr_vec</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to calculate the autocorrelation vector. </td></tr>

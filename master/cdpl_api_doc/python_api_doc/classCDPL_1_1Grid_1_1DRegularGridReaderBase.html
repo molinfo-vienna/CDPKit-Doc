@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>An interface for reading data objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular 3D spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> from an arbitrary data source.  
+<p>An interface for reading data objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> from an arbitrary data source.  
  <a href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Grid.DRegularGridReaderBase:</div>
@@ -240,8 +240,8 @@ Properties</h2></td></tr>
 <tr class="separator:ae5dac4690405e4340cbf219d1253a62f inherit properties_classCDPL_1_1Base_1_1ControlParameterContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface for reading data objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular 3D spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> from an arbitrary data source. </p>
-<p><code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html" title="An interface for reading data objects of type Grid.DRegularGrid from an arbitrary data source.">DRegularGridReaderBase</a></code> is the common interface of classes which read objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular 3D spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> from some data source (e.g. a file) that provides the data encoded in a particular storage format.</p>
+<div class="textblock"><p>An interface for reading data objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> from an arbitrary data source. </p>
+<p><code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html" title="An interface for reading data objects of type Grid.DRegularGrid from an arbitrary data source.">DRegularGridReaderBase</a></code> is the common interface of classes which read objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> from some data source (e.g. a file) that provides the data encoded in a particular storage format.</p>
 <p>From the <code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html" title="An interface for reading data objects of type Grid.DRegularGrid from an arbitrary data source.">DRegularGridReaderBase</a></code> interface point of view, the data source is organized as an array of logical data records. Each record is addressed by a zero-based sequential record index and contains the data for exactly <em>one</em> data object. The total number of available data records (which is equal to the maximum record index plus <em>1</em>) can be queried by the method <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html#aa5a6e5076550125bc34deb0aa8ca3dcf" title="Returns the total number of available data records.">getNumRecords()</a>.</p>
 <p>Similar to low-level file I/O, data records may either be read in a sequential or in a random access manner. For sequential access the method read(grid: DRegularGrid) is provided which will read the data record at the 'current' record index (similar to a file reference). The current record index is accessible by the method <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html#a3f16a35ebd6dc46be53ec3ec4662c41e" title="Returns the index of the current data record.">getRecordIndex()</a> and can be modified using the method <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html#a6fa439170bef3c1d2d2fcd08cc1f822f" title="Sets the index of the current data record to idx.">setRecordIndex()</a> (similar to a seek operation).</p>
 <p>For reading data records in a random access manner, the method read(std::size_t idx, grid: DRegularGrid) is available. In contrast to the former <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridReaderBase.html#a690ae119f43e1db5d71a2fba6e352d3d" title="Reads the data record at the current record index and stores the read data in grid.">read()</a> method, this method expects the index of the record to read as the first argument.</p>
@@ -277,7 +277,7 @@ Properties</h2></td></tr>
 <p>If the read operation was successful, the record index is incremented by <em>1</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grid</td><td>The <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular 3D spatial grid storing double-precision floating-point values.">DRegularGrid</a> object storing the read data. </td></tr>
+    <tr><td class="paramname">grid</td><td>The <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">DRegularGrid</a> object storing the read data. </td></tr>
     <tr><td class="paramname">overwrite</td><td>Specifies whether any existing data in <em>grid</em> shall be replaced by the newly read data or if the read data should be appended (if supported by the reader and data type).</td></tr>
   </table>
   </dd>
@@ -329,7 +329,7 @@ Properties</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td>The zero-based index of the data record to read. </td></tr>
-    <tr><td class="paramname">grid</td><td>The <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular 3D spatial grid storing double-precision floating-point values.">DRegularGrid</a> object storing the read data. </td></tr>
+    <tr><td class="paramname">grid</td><td>The <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">DRegularGrid</a> object storing the read data. </td></tr>
     <tr><td class="paramname">overwrite</td><td>Specifies whether any existing data in <em>grid</em> shall be replaced by the newly read data or if the read data should be appended (if supported by the reader and data type).</td></tr>
   </table>
   </dd>

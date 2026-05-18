@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html" title="AtomDensityGridCalculator.">AtomDensityGridCalculator</a>.  
+<p>Calculator that fills a spatial grid with combined per-atom density contributions.  
  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AtomDensityGridCalculator_8hpp_source.html">AtomDensityGridCalculator.hpp</a>&gt;</code></p>
@@ -92,51 +92,69 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac5f0d6cd9a9f3e7fe2ee8de79f380695"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html">AtomDensityGridCalculator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ac5f0d6cd9a9f3e7fe2ee8de79f380695">SharedPointer</a></td></tr>
+<tr class="memdesc:ac5f0d6cd9a9f3e7fe2ee8de79f380695"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>AtomDensityGridCalculator</code> instances.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ac5f0d6cd9a9f3e7fe2ee8de79f380695">More...</a><br /></td></tr>
 <tr class="separator:ac5f0d6cd9a9f3e7fe2ee8de79f380695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3f591a9d1edead87aa16ab401966291"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;, const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae3f591a9d1edead87aa16ab401966291">DensityFunction</a></td></tr>
+<tr class="memdesc:ae3f591a9d1edead87aa16ab401966291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor that evaluates the density contribution of an atom at a query position.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae3f591a9d1edead87aa16ab401966291">More...</a><br /></td></tr>
 <tr class="separator:ae3f591a9d1edead87aa16ab401966291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fa5e199b91f019c8ea428d5c8003bb0"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a5fa5e199b91f019c8ea428d5c8003bb0">DensityCombinationFunction</a></td></tr>
+<tr class="memdesc:a5fa5e199b91f019c8ea428d5c8003bb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor that combines per-atom density contributions into a single value.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a5fa5e199b91f019c8ea428d5c8003bb0">More...</a><br /></td></tr>
 <tr class="separator:a5fa5e199b91f019c8ea428d5c8003bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af4bb657d16a0e56a1f806fb110bb8d75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#af4bb657d16a0e56a1f806fb110bb8d75">AtomDensityGridCalculator</a> ()</td></tr>
+<tr class="memdesc:af4bb657d16a0e56a1f806fb110bb8d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>AtomDensityGridCalculator</code> instance.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#af4bb657d16a0e56a1f806fb110bb8d75">More...</a><br /></td></tr>
 <tr class="separator:af4bb657d16a0e56a1f806fb110bb8d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4535bc6c6e4a3f2997db6f674fd6fcfd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a4535bc6c6e4a3f2997db6f674fd6fcfd">AtomDensityGridCalculator</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html">AtomDensityGridCalculator</a> &amp;calc)</td></tr>
+<tr class="memdesc:a4535bc6c6e4a3f2997db6f674fd6fcfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code>AtomDensityGridCalculator</code> instance <em>calc</em>.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a4535bc6c6e4a3f2997db6f674fd6fcfd">More...</a><br /></td></tr>
 <tr class="separator:a4535bc6c6e4a3f2997db6f674fd6fcfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb169fbfb18a985baa00cc609734591a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#aeb169fbfb18a985baa00cc609734591a">AtomDensityGridCalculator</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae3f591a9d1edead87aa16ab401966291">DensityFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:aeb169fbfb18a985baa00cc609734591a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>AtomDensityGridCalculator</code> instance with the given density function.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#aeb169fbfb18a985baa00cc609734591a">More...</a><br /></td></tr>
 <tr class="separator:aeb169fbfb18a985baa00cc609734591a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd600d603873a5a94b9a3413f6b6886e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#acd600d603873a5a94b9a3413f6b6886e">AtomDensityGridCalculator</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae3f591a9d1edead87aa16ab401966291">DensityFunction</a> &amp;density_func, const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a5fa5e199b91f019c8ea428d5c8003bb0">DensityCombinationFunction</a> &amp;comb_func)</td></tr>
+<tr class="memdesc:acd600d603873a5a94b9a3413f6b6886e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>AtomDensityGridCalculator</code> instance with the given density and density-combination functions.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#acd600d603873a5a94b9a3413f6b6886e">More...</a><br /></td></tr>
 <tr class="separator:acd600d603873a5a94b9a3413f6b6886e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1909085984d8fb1c0762ca449c459ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a1909085984d8fb1c0762ca449c459ceb">setDistanceCutoff</a> (double dist)</td></tr>
+<tr class="memdesc:a1909085984d8fb1c0762ca449c459ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the distance cutoff beyond which atoms are not considered.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a1909085984d8fb1c0762ca449c459ceb">More...</a><br /></td></tr>
 <tr class="separator:a1909085984d8fb1c0762ca449c459ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8f5c7b3defae4d5b1a478d3e82221d2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ad8f5c7b3defae4d5b1a478d3e82221d2">getDistanceCutoff</a> () const</td></tr>
+<tr class="memdesc:ad8f5c7b3defae4d5b1a478d3e82221d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured distance cutoff.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ad8f5c7b3defae4d5b1a478d3e82221d2">More...</a><br /></td></tr>
 <tr class="separator:ad8f5c7b3defae4d5b1a478d3e82221d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad7a4b53ddcec1119aa5b374014ce026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#aad7a4b53ddcec1119aa5b374014ce026">setDensityFunction</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae3f591a9d1edead87aa16ab401966291">DensityFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:aad7a4b53ddcec1119aa5b374014ce026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the density function used to evaluate per-atom contributions.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#aad7a4b53ddcec1119aa5b374014ce026">More...</a><br /></td></tr>
 <tr class="separator:aad7a4b53ddcec1119aa5b374014ce026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a675a65a6a0144aca2af568dd2b684e9e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae3f591a9d1edead87aa16ab401966291">DensityFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a675a65a6a0144aca2af568dd2b684e9e">getDensityFunction</a> () const</td></tr>
+<tr class="memdesc:a675a65a6a0144aca2af568dd2b684e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured density function.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a675a65a6a0144aca2af568dd2b684e9e">More...</a><br /></td></tr>
 <tr class="separator:a675a65a6a0144aca2af568dd2b684e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a6f66721211218f595353cf7bc73ef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a2a6f66721211218f595353cf7bc73ef5">setDensityCombinationFunction</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a5fa5e199b91f019c8ea428d5c8003bb0">DensityCombinationFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a2a6f66721211218f595353cf7bc73ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used to combine per-atom density contributions.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a2a6f66721211218f595353cf7bc73ef5">More...</a><br /></td></tr>
 <tr class="separator:a2a6f66721211218f595353cf7bc73ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62fbad5e506800921a20d362ee8e65b2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a5fa5e199b91f019c8ea428d5c8003bb0">DensityCombinationFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a62fbad5e506800921a20d362ee8e65b2">getDensityCombinationFunction</a> () const</td></tr>
+<tr class="memdesc:a62fbad5e506800921a20d362ee8e65b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured density-combination function.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a62fbad5e506800921a20d362ee8e65b2">More...</a><br /></td></tr>
 <tr class="separator:a62fbad5e506800921a20d362ee8e65b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1660b6b78199aaf8aa4bba22b3ffdcba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a1660b6b78199aaf8aa4bba22b3ffdcba">setAtom3DCoordinatesFunction</a> (const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a> &amp;func)</td></tr>
 <tr class="memdesc:a1660b6b78199aaf8aa4bba22b3ffdcba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies a function for the retrieval of atom 3D-coordinates for grid calculation.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a1660b6b78199aaf8aa4bba22b3ffdcba">More...</a><br /></td></tr>
 <tr class="separator:a1660b6b78199aaf8aa4bba22b3ffdcba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20f9ad4cdd86b054cfd218a1acbe341c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a20f9ad4cdd86b054cfd218a1acbe341c">getAtom3DCoordinatesFunction</a> () const</td></tr>
+<tr class="memdesc:a20f9ad4cdd86b054cfd218a1acbe341c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the function used for the retrieval of atom 3D-coordinates.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a20f9ad4cdd86b054cfd218a1acbe341c">More...</a><br /></td></tr>
 <tr class="separator:a20f9ad4cdd86b054cfd218a1acbe341c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac808c19b7ca9cec39e70dd3b9586901a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ac808c19b7ca9cec39e70dd3b9586901a">calculate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">Chem::AtomContainer</a> &amp;atoms, <a class="el" href="namespaceCDPL_1_1Grid.html#ade7f9792ffbad48c5d4f3a3a29314c34">Grid::DSpatialGrid</a> &amp;grid)</td></tr>
+<tr class="memdesc:ac808c19b7ca9cec39e70dd3b9586901a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the combined per-atom density at each cell of <em>grid</em> for the given atoms.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ac808c19b7ca9cec39e70dd3b9586901a">More...</a><br /></td></tr>
 <tr class="separator:ac808c19b7ca9cec39e70dd3b9586901a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ba286f4346efc3ded566dc885e27e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html">AtomDensityGridCalculator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a96ba286f4346efc3ded566dc885e27e8">operator=</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html">AtomDensityGridCalculator</a> &amp;calc)</td></tr>
+<tr class="memdesc:a96ba286f4346efc3ded566dc885e27e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#a96ba286f4346efc3ded566dc885e27e8">More...</a><br /></td></tr>
 <tr class="separator:a96ba286f4346efc3ded566dc885e27e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ae2acf3b32c0228c7dd826c1325a831ba"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae2acf3b32c0228c7dd826c1325a831ba">DEF_DISTANCE_CUTOFF</a> = 4.5</td></tr>
+<tr class="memdesc:ae2acf3b32c0228c7dd826c1325a831ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default cutoff distance beyond which atoms are not considered.  <a href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html#ae2acf3b32c0228c7dd826c1325a831ba">More...</a><br /></td></tr>
 <tr class="separator:ae2acf3b32c0228c7dd826c1325a831ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1GRAIL_1_1AtomDensityGridCalculator.html" title="AtomDensityGridCalculator.">AtomDensityGridCalculator</a>. </p>
+<div class="textblock"><p>Calculator that fills a spatial grid with combined per-atom density contributions. </p>
+<p>For each grid cell, the density contributions of all atoms within the configured cutoff distance are evaluated using a user-supplied density function and combined into a single cell value via a user-supplied combination function (defaulting to a sum). </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac5f0d6cd9a9f3e7fe2ee8de79f380695"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac5f0d6cd9a9f3e7fe2ee8de79f380695">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -149,6 +167,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>AtomDensityGridCalculator</code> instances. </p>
 
 </div>
 </div>
@@ -164,6 +184,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the generic functor that evaluates the density contribution of an atom at a query position. </p>
+
 </div>
 </div>
 <a id="a5fa5e199b91f019c8ea428d5c8003bb0"></a>
@@ -177,6 +199,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor that combines per-atom density contributions into a single value. </p>
 
 </div>
 </div>
@@ -196,6 +220,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>AtomDensityGridCalculator</code> instance. </p>
+
 </div>
 </div>
 <a id="a4535bc6c6e4a3f2997db6f674fd6fcfd"></a>
@@ -214,6 +240,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a copy of the <code>AtomDensityGridCalculator</code> instance <em>calc</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The <code>AtomDensityGridCalculator</code> to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aeb169fbfb18a985baa00cc609734591a"></a>
@@ -231,6 +265,14 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>AtomDensityGridCalculator</code> instance with the given density function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The density function. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -260,6 +302,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>AtomDensityGridCalculator</code> instance with the given density and density-combination functions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">density_func</td><td>The density function. </td></tr>
+    <tr><td class="paramname">comb_func</td><td>The function used to combine per-atom density contributions. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -279,6 +330,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the distance cutoff beyond which atoms are not considered. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The cutoff distance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad8f5c7b3defae4d5b1a478d3e82221d2"></a>
@@ -295,6 +354,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured distance cutoff. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured cutoff distance. </dd></dl>
 
 </div>
 </div>
@@ -314,6 +376,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the density function used to evaluate per-atom contributions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The density function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a675a65a6a0144aca2af568dd2b684e9e"></a>
@@ -330,6 +400,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured density function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured density function. </dd></dl>
 
 </div>
 </div>
@@ -349,6 +422,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the function used to combine per-atom density contributions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The density-combination function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a62fbad5e506800921a20d362ee8e65b2"></a>
@@ -365,6 +446,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured density-combination function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured density-combination function. </dd></dl>
 
 </div>
 </div>
@@ -409,6 +493,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the function used for the retrieval of atom 3D-coordinates. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured atom 3D-coordinates function. </dd></dl>
+
 </div>
 </div>
 <a id="ac808c19b7ca9cec39e70dd3b9586901a"></a>
@@ -437,6 +524,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates the combined per-atom density at each cell of <em>grid</em> for the given atoms. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atoms</td><td>The atoms contributing to the density. </td></tr>
+    <tr><td class="paramname">grid</td><td>The output grid populated with per-cell density values. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a96ba286f4346efc3ded566dc885e27e8"></a>
@@ -454,6 +550,15 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">calc</td><td>The other <code>AtomDensityGridCalculator</code> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 
 </div>
 </div>
@@ -477,6 +582,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default cutoff distance beyond which atoms are not considered. </p>
 
 </div>
 </div>

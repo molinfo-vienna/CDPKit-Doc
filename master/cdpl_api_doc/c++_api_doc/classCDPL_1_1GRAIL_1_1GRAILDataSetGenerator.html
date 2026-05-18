@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html" title="GRAILDataSetGenerator.">GRAILDataSetGenerator</a>.  
+<p>Generator that pre-computes the per-cell interaction-score grids and the atom-density grid used by <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> scoring of ligand poses against a target environment.  
  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="GRAILDataSetGenerator_8hpp_source.html">GRAILDataSetGenerator.hpp</a>&gt;</code></p>
@@ -92,102 +92,147 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a0f9d14657cc41c1a753423d614e402f6"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html">GRAILDataSetGenerator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a0f9d14657cc41c1a753423d614e402f6">SharedPointer</a></td></tr>
+<tr class="memdesc:a0f9d14657cc41c1a753423d614e402f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>GRAILDataSetGenerator</code> instances.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a0f9d14657cc41c1a753423d614e402f6">More...</a><br /></td></tr>
 <tr class="separator:a0f9d14657cc41c1a753423d614e402f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7540af8ad8c31ab91f1e7ec1092d7afc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a41b22163c48666905a6d6d471a801e51">FeatureInteractionScoreGridCalculator::ScoringFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a7540af8ad8c31ab91f1e7ec1092d7afc">ScoringFunction</a></td></tr>
+<tr class="memdesc:a7540af8ad8c31ab91f1e7ec1092d7afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-export of the scoring-function type used by the underlying score-grid calculator.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a7540af8ad8c31ab91f1e7ec1092d7afc">More...</a><br /></td></tr>
 <tr class="separator:a7540af8ad8c31ab91f1e7ec1092d7afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a916ef31ecc4518569b5abcd703411b2a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html#a4b3a10893eee7a4ee17e16d380bc94e9">FeatureInteractionScoreGridCalculator::ScoreCombinationFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a916ef31ecc4518569b5abcd703411b2a">ScoreCombinationFunction</a></td></tr>
+<tr class="memdesc:a916ef31ecc4518569b5abcd703411b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-export of the score-combination function type used by the underlying score-grid calculator.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a916ef31ecc4518569b5abcd703411b2a">More...</a><br /></td></tr>
 <tr class="separator:a916ef31ecc4518569b5abcd703411b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6675d33bb2ca95698238b83afc2eec6e"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Pharm_1_1Pharmacophore.html">CDPL::Pharm::Pharmacophore</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a6675d33bb2ca95698238b83afc2eec6e">PharmacophoreProcessingFunction</a></td></tr>
+<tr class="memdesc:a6675d33bb2ca95698238b83afc2eec6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to post-process a generated pharmacophore prior to grid calculation.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a6675d33bb2ca95698238b83afc2eec6e">More...</a><br /></td></tr>
 <tr class="separator:a6675d33bb2ca95698238b83afc2eec6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1afa883e3eebd6d0ba9dc0daed3a7c99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a1afa883e3eebd6d0ba9dc0daed3a7c99">GRAILDataSetGenerator</a> ()</td></tr>
+<tr class="memdesc:a1afa883e3eebd6d0ba9dc0daed3a7c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>GRAILDataSetGenerator</code> instance.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a1afa883e3eebd6d0ba9dc0daed3a7c99">More...</a><br /></td></tr>
 <tr class="separator:a1afa883e3eebd6d0ba9dc0daed3a7c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b9b19aab59c86cf2acea9ac82d18f95"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a0b9b19aab59c86cf2acea9ac82d18f95">~GRAILDataSetGenerator</a> ()</td></tr>
+<tr class="memdesc:a0b9b19aab59c86cf2acea9ac82d18f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a0b9b19aab59c86cf2acea9ac82d18f95">More...</a><br /></td></tr>
 <tr class="separator:a0b9b19aab59c86cf2acea9ac82d18f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6ac8cfd2e1c3a8653f7b2bb2b49c031"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae6ac8cfd2e1c3a8653f7b2bb2b49c031">enableInteraction</a> (unsigned int ftr_type, unsigned int tgt_ftr_type, <a class="el" href="classbool.html">bool</a> enable)</td></tr>
+<tr class="memdesc:ae6ac8cfd2e1c3a8653f7b2bb2b49c031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables interaction-grid generation for the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae6ac8cfd2e1c3a8653f7b2bb2b49c031">More...</a><br /></td></tr>
 <tr class="separator:ae6ac8cfd2e1c3a8653f7b2bb2b49c031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a829833fccb611141b0388ab7fac9c799"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a829833fccb611141b0388ab7fac9c799">isInteractionEnabled</a> (unsigned int ftr_type, unsigned int tgt_ftr_type) const</td></tr>
+<tr class="memdesc:a829833fccb611141b0388ab7fac9c799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether interaction-grid generation is enabled for the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a829833fccb611141b0388ab7fac9c799">More...</a><br /></td></tr>
 <tr class="separator:a829833fccb611141b0388ab7fac9c799"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a94b0d1b98ac02ab00a563c2230a329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a1a94b0d1b98ac02ab00a563c2230a329">clearEnabledInteractions</a> ()</td></tr>
+<tr class="memdesc:a1a94b0d1b98ac02ab00a563c2230a329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables interaction-grid generation for all feature-type pairs.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a1a94b0d1b98ac02ab00a563c2230a329">More...</a><br /></td></tr>
 <tr class="separator:a1a94b0d1b98ac02ab00a563c2230a329"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af82b66506c7b69ba6926cd658c29b7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#af82b66506c7b69ba6926cd658c29b7b3">setScoringFunction</a> (unsigned int ftr_type, unsigned int tgt_ftr_type, const <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a7540af8ad8c31ab91f1e7ec1092d7afc">ScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:af82b66506c7b69ba6926cd658c29b7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scoring function for the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#af82b66506c7b69ba6926cd658c29b7b3">More...</a><br /></td></tr>
 <tr class="separator:af82b66506c7b69ba6926cd658c29b7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b58fcc821b00668928c9bdbb7c6fee1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a7540af8ad8c31ab91f1e7ec1092d7afc">ScoringFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a7b58fcc821b00668928c9bdbb7c6fee1">getScoringFunction</a> (unsigned int ftr_type, unsigned int tgt_ftr_type) const</td></tr>
+<tr class="memdesc:a7b58fcc821b00668928c9bdbb7c6fee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scoring function configured for the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a7b58fcc821b00668928c9bdbb7c6fee1">More...</a><br /></td></tr>
 <tr class="separator:a7b58fcc821b00668928c9bdbb7c6fee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb8bbd7e84a618de6d5b012a6da73f1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aeb8bbd7e84a618de6d5b012a6da73f1c">removeScoringFunction</a> (unsigned int ftr_type, unsigned int tgt_ftr_type)</td></tr>
+<tr class="memdesc:aeb8bbd7e84a618de6d5b012a6da73f1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the scoring function configured for the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aeb8bbd7e84a618de6d5b012a6da73f1c">More...</a><br /></td></tr>
 <tr class="separator:aeb8bbd7e84a618de6d5b012a6da73f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99cda325fdbaf09e6ae8f3ab6fea96c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a99cda325fdbaf09e6ae8f3ab6fea96c4">setGridName</a> (unsigned int ftr_type, unsigned int tgt_ftr_type, const std::string &amp;name)</td></tr>
+<tr class="memdesc:a99cda325fdbaf09e6ae8f3ab6fea96c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the grid name associated with the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a99cda325fdbaf09e6ae8f3ab6fea96c4">More...</a><br /></td></tr>
 <tr class="separator:a99cda325fdbaf09e6ae8f3ab6fea96c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ee1cb2029cc8600f7098fbb70645304"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a9ee1cb2029cc8600f7098fbb70645304">getGridName</a> (unsigned int ftr_type, unsigned int tgt_ftr_type) const</td></tr>
+<tr class="memdesc:a9ee1cb2029cc8600f7098fbb70645304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the grid name associated with the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a9ee1cb2029cc8600f7098fbb70645304">More...</a><br /></td></tr>
 <tr class="separator:a9ee1cb2029cc8600f7098fbb70645304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80872debc1777bfa943376d55a8b0ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a80872debc1777bfa943376d55a8b0ead">removeGridName</a> (unsigned int ftr_type, unsigned int tgt_ftr_type)</td></tr>
+<tr class="memdesc:a80872debc1777bfa943376d55a8b0ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the grid name associated with the given (ligand feature type, target feature type) pair.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a80872debc1777bfa943376d55a8b0ead">More...</a><br /></td></tr>
 <tr class="separator:a80872debc1777bfa943376d55a8b0ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00a82b20a18da4c7badc9a02aada19f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a00a82b20a18da4c7badc9a02aada19f2">setScoreCombinationFunction</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a916ef31ecc4518569b5abcd703411b2a">ScoreCombinationFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a00a82b20a18da4c7badc9a02aada19f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used to combine per-feature scores into a single grid cell value.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a00a82b20a18da4c7badc9a02aada19f2">More...</a><br /></td></tr>
 <tr class="separator:a00a82b20a18da4c7badc9a02aada19f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a574a0b57112f64b8a3f5e736e04fe53d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a916ef31ecc4518569b5abcd703411b2a">ScoreCombinationFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a574a0b57112f64b8a3f5e736e04fe53d">getScoreCombinationFunction</a> () const</td></tr>
+<tr class="memdesc:a574a0b57112f64b8a3f5e736e04fe53d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured score-combination function.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a574a0b57112f64b8a3f5e736e04fe53d">More...</a><br /></td></tr>
 <tr class="separator:a574a0b57112f64b8a3f5e736e04fe53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e07c3c47054da78502d34bf298559d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a5e07c3c47054da78502d34bf298559d4">normalizeScores</a> (<a class="el" href="classbool.html">bool</a> normalize)</td></tr>
+<tr class="memdesc:a5e07c3c47054da78502d34bf298559d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables normalization of the combined per-cell scores to the range [0, 1].  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a5e07c3c47054da78502d34bf298559d4">More...</a><br /></td></tr>
 <tr class="separator:a5e07c3c47054da78502d34bf298559d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d019ec0e1b72a3528e25b72370b7d9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a3d019ec0e1b72a3528e25b72370b7d9f">scoresNormalized</a> () const</td></tr>
+<tr class="memdesc:a3d019ec0e1b72a3528e25b72370b7d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the combined per-cell scores are normalized.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a3d019ec0e1b72a3528e25b72370b7d9f">More...</a><br /></td></tr>
 <tr class="separator:a3d019ec0e1b72a3528e25b72370b7d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc32baadf8d7ae34626e6ec2e8947790"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#afc32baadf8d7ae34626e6ec2e8947790">diminishScoresByAtomDensity</a> (<a class="el" href="classbool.html">bool</a> diminish)</td></tr>
+<tr class="memdesc:afc32baadf8d7ae34626e6ec2e8947790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables multiplicative diminishing of interaction scores by the (normalized) atom density of the target environment.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#afc32baadf8d7ae34626e6ec2e8947790">More...</a><br /></td></tr>
 <tr class="separator:afc32baadf8d7ae34626e6ec2e8947790"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ba20200ac2823738ba307c365f977d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a4ba20200ac2823738ba307c365f977d0">scoresDiminishedByAtomDensity</a> () const</td></tr>
+<tr class="memdesc:a4ba20200ac2823738ba307c365f977d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the interaction scores are diminished by the atom density of the target environment.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a4ba20200ac2823738ba307c365f977d0">More...</a><br /></td></tr>
 <tr class="separator:a4ba20200ac2823738ba307c365f977d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae38bce63362a8ed3cdfccfd3dfaef697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae38bce63362a8ed3cdfccfd3dfaef697">storeEnvironmentAtomDensityGrid</a> (<a class="el" href="classbool.html">bool</a> store)</td></tr>
+<tr class="memdesc:ae38bce63362a8ed3cdfccfd3dfaef697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the target environment atom-density grid shall be added to the produced grid set.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae38bce63362a8ed3cdfccfd3dfaef697">More...</a><br /></td></tr>
 <tr class="separator:ae38bce63362a8ed3cdfccfd3dfaef697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac23b734ab3038fed8823d87a65226b58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ac23b734ab3038fed8823d87a65226b58">environmentAtomDensityGridStored</a> () const</td></tr>
+<tr class="memdesc:ac23b734ab3038fed8823d87a65226b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the target environment atom-density grid is stored in the produced grid set.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ac23b734ab3038fed8823d87a65226b58">More...</a><br /></td></tr>
 <tr class="separator:ac23b734ab3038fed8823d87a65226b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1bd7a5b3a966efb756ed4c8fcdd66db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aa1bd7a5b3a966efb756ed4c8fcdd66db">setEnvironmentAtomDensityGridName</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:aa1bd7a5b3a966efb756ed4c8fcdd66db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the name to assign to the target environment atom-density grid in the produced grid set.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aa1bd7a5b3a966efb756ed4c8fcdd66db">More...</a><br /></td></tr>
 <tr class="separator:aa1bd7a5b3a966efb756ed4c8fcdd66db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e821ef3b1d71f1795378aa3986e1aa"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a92e821ef3b1d71f1795378aa3986e1aa">getEnvironmentAtomDensityGridName</a> () const</td></tr>
+<tr class="memdesc:a92e821ef3b1d71f1795378aa3986e1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name assigned to the target environment atom-density grid.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a92e821ef3b1d71f1795378aa3986e1aa">More...</a><br /></td></tr>
 <tr class="separator:a92e821ef3b1d71f1795378aa3986e1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96fea0154edd48f2af1decbd1b3dafc4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Math.html#a8bbb61ee0329212a88a2c8d7b77b0ce3">Math::Matrix4D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a96fea0154edd48f2af1decbd1b3dafc4">getGridTransform</a> () const</td></tr>
+<tr class="memdesc:a96fea0154edd48f2af1decbd1b3dafc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the affine transformation matrix that places the grids in the target coordinate frame.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a96fea0154edd48f2af1decbd1b3dafc4">More...</a><br /></td></tr>
 <tr class="separator:a96fea0154edd48f2af1decbd1b3dafc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae96091c9095eb6dc4678a57b382d3c95"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ae96091c9095eb6dc4678a57b382d3c95"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae96091c9095eb6dc4678a57b382d3c95">setGridTransform</a> (const T &amp;xform)</td></tr>
+<tr class="memdesc:ae96091c9095eb6dc4678a57b382d3c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the affine transformation matrix that places the grids in the target coordinate frame.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae96091c9095eb6dc4678a57b382d3c95">More...</a><br /></td></tr>
 <tr class="separator:ae96091c9095eb6dc4678a57b382d3c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53d705eca5abed2f3290619cc72fc17e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a53d705eca5abed2f3290619cc72fc17e">getGridStepSize</a> () const</td></tr>
+<tr class="memdesc:a53d705eca5abed2f3290619cc72fc17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured grid spacing.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a53d705eca5abed2f3290619cc72fc17e">More...</a><br /></td></tr>
 <tr class="separator:a53d705eca5abed2f3290619cc72fc17e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4eb80347cca9ee3bc2e15629752ba9f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a4eb80347cca9ee3bc2e15629752ba9f4">setGridStepSize</a> (double size)</td></tr>
+<tr class="memdesc:a4eb80347cca9ee3bc2e15629752ba9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the grid spacing (isotropic).  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a4eb80347cca9ee3bc2e15629752ba9f4">More...</a><br /></td></tr>
 <tr class="separator:a4eb80347cca9ee3bc2e15629752ba9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6c721491b76606944c53600075d69f7"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aa6c721491b76606944c53600075d69f7">getGridXSize</a> () const</td></tr>
+<tr class="memdesc:aa6c721491b76606944c53600075d69f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the grid size in the <em>x</em> direction.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aa6c721491b76606944c53600075d69f7">More...</a><br /></td></tr>
 <tr class="separator:aa6c721491b76606944c53600075d69f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08232d30ab4bd812d566de04a4d81f19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a08232d30ab4bd812d566de04a4d81f19">setGridXSize</a> (std::size_t size)</td></tr>
+<tr class="memdesc:a08232d30ab4bd812d566de04a4d81f19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the grid size in the <em>x</em> direction.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a08232d30ab4bd812d566de04a4d81f19">More...</a><br /></td></tr>
 <tr class="separator:a08232d30ab4bd812d566de04a4d81f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a211398a597b0f49b88d857b96b23dcff"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a211398a597b0f49b88d857b96b23dcff">getGridYSize</a> () const</td></tr>
+<tr class="memdesc:a211398a597b0f49b88d857b96b23dcff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the grid size in the <em>y</em> direction.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a211398a597b0f49b88d857b96b23dcff">More...</a><br /></td></tr>
 <tr class="separator:a211398a597b0f49b88d857b96b23dcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0a7ee8094f824436ae97f2a8c51eb4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae0a7ee8094f824436ae97f2a8c51eb4d">setGridYSize</a> (std::size_t size)</td></tr>
+<tr class="memdesc:ae0a7ee8094f824436ae97f2a8c51eb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the grid size in the <em>y</em> direction.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ae0a7ee8094f824436ae97f2a8c51eb4d">More...</a><br /></td></tr>
 <tr class="separator:ae0a7ee8094f824436ae97f2a8c51eb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b4ee276571758e4fc1e3ee9f393e3d3"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a2b4ee276571758e4fc1e3ee9f393e3d3">getGridZSize</a> () const</td></tr>
+<tr class="memdesc:a2b4ee276571758e4fc1e3ee9f393e3d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the grid size in the <em>z</em> direction.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a2b4ee276571758e4fc1e3ee9f393e3d3">More...</a><br /></td></tr>
 <tr class="separator:a2b4ee276571758e4fc1e3ee9f393e3d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47f73a1972c00ee87bb466904e4fe5fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a47f73a1972c00ee87bb466904e4fe5fd">setGridZSize</a> (std::size_t size)</td></tr>
+<tr class="memdesc:a47f73a1972c00ee87bb466904e4fe5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the grid size in the <em>z</em> direction.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a47f73a1972c00ee87bb466904e4fe5fd">More...</a><br /></td></tr>
 <tr class="separator:a47f73a1972c00ee87bb466904e4fe5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d807c5d4b2f8913754372070f7ef938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a2d807c5d4b2f8913754372070f7ef938">setGridParamsForBoundingBox</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;bbox_min, const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;bbox_max, double step_size=<a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#abdaa1b34333ffc3b582686a96b4bea3a">DEF_GRID_STEP_SIZE</a>)</td></tr>
+<tr class="memdesc:a2d807c5d4b2f8913754372070f7ef938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience method that configures grid size, spacing and transformation so that the grid covers the given axis-aligned bounding box.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a2d807c5d4b2f8913754372070f7ef938">More...</a><br /></td></tr>
 <tr class="separator:a2d807c5d4b2f8913754372070f7ef938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60db09103b72117ed7c87aeb7cdc593f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Pharm_1_1DefaultPharmacophoreGenerator.html">Pharm::DefaultPharmacophoreGenerator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a60db09103b72117ed7c87aeb7cdc593f">getPharmacophoreGenerator</a> () const</td></tr>
+<tr class="memdesc:a60db09103b72117ed7c87aeb7cdc593f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the internal pharmacophore generator used for the target environment.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a60db09103b72117ed7c87aeb7cdc593f">More...</a><br /></td></tr>
 <tr class="separator:a60db09103b72117ed7c87aeb7cdc593f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0ce111c41c2b938245636cc67832bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Pharm_1_1DefaultPharmacophoreGenerator.html">Pharm::DefaultPharmacophoreGenerator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ad0ce111c41c2b938245636cc67832bd4">getPharmacophoreGenerator</a> ()</td></tr>
+<tr class="memdesc:ad0ce111c41c2b938245636cc67832bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the internal pharmacophore generator used for the target environment.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ad0ce111c41c2b938245636cc67832bd4">More...</a><br /></td></tr>
 <tr class="separator:ad0ce111c41c2b938245636cc67832bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af044713310ae9a95d6ddc4c753843bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#af044713310ae9a95d6ddc4c753843bae">setPharmacophoreProcessingFunction</a> (const <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a6675d33bb2ca95698238b83afc2eec6e">PharmacophoreProcessingFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:af044713310ae9a95d6ddc4c753843bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function applied to the generated target pharmacophore before grid calculation (e.g. for filtering or modification).  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#af044713310ae9a95d6ddc4c753843bae">More...</a><br /></td></tr>
 <tr class="separator:af044713310ae9a95d6ddc4c753843bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa88b716288f294f19882db85921a4cfd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a6675d33bb2ca95698238b83afc2eec6e">PharmacophoreProcessingFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aa88b716288f294f19882db85921a4cfd">getPharmacophoreProcessingFunction</a> () const</td></tr>
+<tr class="memdesc:aa88b716288f294f19882db85921a4cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured pharmacophore processing function.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#aa88b716288f294f19882db85921a4cfd">More...</a><br /></td></tr>
 <tr class="separator:aa88b716288f294f19882db85921a4cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c7fd13e712e8b4f16b08bbe7bd73c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ac0c7fd13e712e8b4f16b08bbe7bd73c3">calcInteractionGrids</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;tgt_env, const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a> &amp;coords_func, <a class="el" href="namespaceCDPL_1_1Grid.html#a7c5381cec8711ebc3883766f69bc307d">Grid::DRegularGridSet</a> &amp;grid_set, <a class="el" href="classbool.html">bool</a> append=false)</td></tr>
+<tr class="memdesc:ac0c7fd13e712e8b4f16b08bbe7bd73c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the interaction-score grids for all enabled feature-type pairs and stores them in <em>grid_set</em>.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#ac0c7fd13e712e8b4f16b08bbe7bd73c3">More...</a><br /></td></tr>
 <tr class="separator:ac0c7fd13e712e8b4f16b08bbe7bd73c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89eab9b5f7c8973db3fc7df2159e3433"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Grid_1_1RegularGrid.html#a303e3d1574da9592d60a0cb88b1ed006">Grid::DRegularGrid::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a89eab9b5f7c8973db3fc7df2159e3433">calcAtomDensityGrid</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">Chem::AtomContainer</a> &amp;atoms, const <a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Chem::Atom3DCoordinatesFunction</a> &amp;coords_func, const std::string &amp;grid_name)</td></tr>
+<tr class="memdesc:a89eab9b5f7c8973db3fc7df2159e3433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates an atom-density grid for the given atoms.  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#a89eab9b5f7c8973db3fc7df2159e3433">More...</a><br /></td></tr>
 <tr class="separator:a89eab9b5f7c8973db3fc7df2159e3433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:abdaa1b34333ffc3b582686a96b4bea3a"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#abdaa1b34333ffc3b582686a96b4bea3a">DEF_GRID_STEP_SIZE</a> = 0.5</td></tr>
+<tr class="memdesc:abdaa1b34333ffc3b582686a96b4bea3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default grid spacing (isotropic).  <a href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html#abdaa1b34333ffc3b582686a96b4bea3a">More...</a><br /></td></tr>
 <tr class="separator:abdaa1b34333ffc3b582686a96b4bea3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDataSetGenerator.html" title="GRAILDataSetGenerator.">GRAILDataSetGenerator</a>. </p>
+<div class="textblock"><p>Generator that pre-computes the per-cell interaction-score grids and the atom-density grid used by <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> scoring of ligand poses against a target environment. </p>
+<p>For every enabled (ligand feature type, target feature type) pair the generator runs a <a class="el" href="classCDPL_1_1GRAIL_1_1FeatureInteractionScoreGridCalculator.html" title="Calculator that fills a spatial grid with per-cell feature-interaction scores against a set of target...">GRAIL::FeatureInteractionScoreGridCalculator</a> and stores the resulting grid in a <a class="el" href="namespaceCDPL_1_1Grid.html#a7c5381cec8711ebc3883766f69bc307d">Grid::DRegularGridSet</a>. Optionally the generator also produces an atom-density grid of the target environment (e.g. for use as a buriedness or accessibility weight).</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#GRAIL">GRAIL</a>] </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a0f9d14657cc41c1a753423d614e402f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f9d14657cc41c1a753423d614e402f6">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -200,6 +245,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>GRAILDataSetGenerator</code> instances. </p>
 
 </div>
 </div>
@@ -215,6 +262,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Re-export of the scoring-function type used by the underlying score-grid calculator. </p>
+
 </div>
 </div>
 <a id="a916ef31ecc4518569b5abcd703411b2a"></a>
@@ -229,6 +278,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Re-export of the score-combination function type used by the underlying score-grid calculator. </p>
+
 </div>
 </div>
 <a id="a6675d33bb2ca95698238b83afc2eec6e"></a>
@@ -242,6 +293,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the generic functor used to post-process a generated pharmacophore prior to grid calculation. </p>
 
 </div>
 </div>
@@ -260,6 +313,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>GRAILDataSetGenerator</code> instance. </p>
 
 </div>
 </div>
@@ -285,6 +340,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Virtual destructor. </p>
 
 </div>
 </div>
@@ -321,6 +378,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enables or disables interaction-grid generation for the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+    <tr><td class="paramname">enable</td><td>If <code>true</code>, the interaction is enabled. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a829833fccb611141b0388ab7fac9c799"></a>
@@ -349,6 +416,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Tells whether interaction-grid generation is enabled for the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the interaction is enabled, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a1a94b0d1b98ac02ab00a563c2230a329"></a>
@@ -365,6 +442,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disables interaction-grid generation for all feature-type pairs. </p>
 
 </div>
 </div>
@@ -400,6 +479,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the scoring function for the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+    <tr><td class="paramname">func</td><td>The scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7b58fcc821b00668928c9bdbb7c6fee1"></a>
@@ -428,6 +517,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the scoring function configured for the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The configured scoring function (or an empty function if no entry is registered). </dd></dl>
+
 </div>
 </div>
 <a id="aeb8bbd7e84a618de6d5b012a6da73f1c"></a>
@@ -455,6 +554,15 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the scoring function configured for the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -490,6 +598,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the grid name associated with the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+    <tr><td class="paramname">name</td><td>The grid name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9ee1cb2029cc8600f7098fbb70645304"></a>
@@ -517,6 +635,16 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the grid name associated with the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The grid name. </dd></dl>
 
 </div>
 </div>
@@ -546,6 +674,15 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes the grid name associated with the given (ligand feature type, target feature type) pair. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr_type</td><td>The ligand feature type. </td></tr>
+    <tr><td class="paramname">tgt_ftr_type</td><td>The target feature type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a00a82b20a18da4c7badc9a02aada19f2"></a>
@@ -564,6 +701,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the function used to combine per-feature scores into a single grid cell value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The score-combination function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a574a0b57112f64b8a3f5e736e04fe53d"></a>
@@ -580,6 +725,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured score-combination function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured score-combination function. </dd></dl>
 
 </div>
 </div>
@@ -599,6 +747,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enables or disables normalization of the combined per-cell scores to the range [0, 1]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">normalize</td><td>If <code>true</code>, the combined scores are normalized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3d019ec0e1b72a3528e25b72370b7d9f"></a>
@@ -615,6 +771,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the combined per-cell scores are normalized. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the combined scores are normalized, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -634,6 +793,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enables or disables multiplicative diminishing of interaction scores by the (normalized) atom density of the target environment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">diminish</td><td>If <code>true</code>, scores are diminished by atom density. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4ba20200ac2823738ba307c365f977d0"></a>
@@ -650,6 +817,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the interaction scores are diminished by the atom density of the target environment. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if scores are diminished by atom density, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -669,6 +839,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the target environment atom-density grid shall be added to the produced grid set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">store</td><td>If <code>true</code>, the atom-density grid is stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac23b734ab3038fed8823d87a65226b58"></a>
@@ -685,6 +863,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the target environment atom-density grid is stored in the produced grid set. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the atom-density grid is stored, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -704,6 +885,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the name to assign to the target environment atom-density grid in the produced grid set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The grid name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a92e821ef3b1d71f1795378aa3986e1aa"></a>
@@ -721,6 +910,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the name assigned to the target environment atom-density grid. </p>
+<dl class="section return"><dt>Returns</dt><dd>The grid name. </dd></dl>
+
 </div>
 </div>
 <a id="a96fea0154edd48f2af1decbd1b3dafc4"></a>
@@ -737,6 +929,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the affine transformation matrix that places the grids in the target coordinate frame. </p>
+<dl class="section return"><dt>Returns</dt><dd>The grid transformation matrix. </dd></dl>
 
 </div>
 </div>
@@ -766,6 +961,20 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the affine transformation matrix that places the grids in the target coordinate frame. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The transformation matrix expression type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xform</td><td>The transformation matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a53d705eca5abed2f3290619cc72fc17e"></a>
@@ -782,6 +991,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured grid spacing. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured grid spacing. </dd></dl>
 
 </div>
 </div>
@@ -801,6 +1013,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the grid spacing (isotropic). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The grid spacing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa6c721491b76606944c53600075d69f7"></a>
@@ -817,6 +1037,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the grid size in the <em>x</em> direction. </p>
+<dl class="section return"><dt>Returns</dt><dd>The grid size in the <em>x</em> direction. </dd></dl>
 
 </div>
 </div>
@@ -836,6 +1059,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the grid size in the <em>x</em> direction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The grid size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a211398a597b0f49b88d857b96b23dcff"></a>
@@ -852,6 +1083,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the grid size in the <em>y</em> direction. </p>
+<dl class="section return"><dt>Returns</dt><dd>The grid size in the <em>y</em> direction. </dd></dl>
 
 </div>
 </div>
@@ -871,6 +1105,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the grid size in the <em>y</em> direction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The grid size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2b4ee276571758e4fc1e3ee9f393e3d3"></a>
@@ -887,6 +1129,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the grid size in the <em>z</em> direction. </p>
+<dl class="section return"><dt>Returns</dt><dd>The grid size in the <em>z</em> direction. </dd></dl>
 
 </div>
 </div>
@@ -905,6 +1150,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the grid size in the <em>z</em> direction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The grid size. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -940,6 +1193,16 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Convenience method that configures grid size, spacing and transformation so that the grid covers the given axis-aligned bounding box. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bbox_min</td><td>The bounding box minimum-corner coordinates. </td></tr>
+    <tr><td class="paramname">bbox_max</td><td>The bounding box maximum-corner coordinates. </td></tr>
+    <tr><td class="paramname">step_size</td><td>The grid spacing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a60db09103b72117ed7c87aeb7cdc593f"></a>
@@ -957,6 +1220,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the internal pharmacophore generator used for the target environment. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the pharmacophore generator. </dd></dl>
+
 </div>
 </div>
 <a id="ad0ce111c41c2b938245636cc67832bd4"></a>
@@ -973,6 +1239,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the internal pharmacophore generator used for the target environment. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the pharmacophore generator. </dd></dl>
 
 </div>
 </div>
@@ -992,6 +1261,14 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the function applied to the generated target pharmacophore before grid calculation (e.g. for filtering or modification). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The pharmacophore processing function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa88b716288f294f19882db85921a4cfd"></a>
@@ -1008,6 +1285,9 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured pharmacophore processing function. </p>
+<dl class="section return"><dt>Returns</dt><dd>The configured pharmacophore processing function. </dd></dl>
 
 </div>
 </div>
@@ -1049,6 +1329,17 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates the interaction-score grids for all enabled feature-type pairs and stores them in <em>grid_set</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tgt_env</td><td>The target environment. </td></tr>
+    <tr><td class="paramname">coords_func</td><td>The function used to retrieve atom 3D-coordinates from <em>tgt_env</em>. </td></tr>
+    <tr><td class="paramname">grid_set</td><td>The output grid set. </td></tr>
+    <tr><td class="paramname">append</td><td>If <code>true</code>, the new grids are appended to <em>grid_set</em>; otherwise <em>grid_set</em> is cleared first. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a89eab9b5f7c8973db3fc7df2159e3433"></a>
@@ -1083,6 +1374,17 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Calculates an atom-density grid for the given atoms. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atoms</td><td>The atoms contributing to the density. </td></tr>
+    <tr><td class="paramname">coords_func</td><td>The function used to retrieve atom 3D-coordinates. </td></tr>
+    <tr><td class="paramname">grid_name</td><td>The name to assign to the resulting grid. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the calculated atom-density grid. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -1105,6 +1407,8 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default grid spacing (isotropic). </p>
 
 </div>
 </div>
