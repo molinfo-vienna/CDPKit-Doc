@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Calculation of a 3D auto-correlation descriptor of a molecular graph using atom-pair weights resolved by a per-atom mode.  
+<p>Calculation of a 3D auto-correlation descriptor of a molecular graph partitioned by specific atom types.  
  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MoleculeAutoCorr3DDescriptorCalculator_8hpp_source.html">MoleculeAutoCorr3DDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -115,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a99319ef59bb7ab47fd1831ebe9ef5604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the radius step size between successive descriptor vector elements.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a99319ef59bb7ab47fd1831ebe9ef5604">More...</a><br /></td></tr>
 <tr class="separator:a99319ef59bb7ab47fd1831ebe9ef5604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a641ddbff98a28102c712da358a5aa63d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a641ddbff98a28102c712da358a5aa63d">getRadiusIncrement</a> () const</td></tr>
-<tr class="memdesc:a641ddbff98a28102c712da358a5aa63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the radius step size between successive <em>AutoCorr3D</em> code elements.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a641ddbff98a28102c712da358a5aa63d">More...</a><br /></td></tr>
+<tr class="memdesc:a641ddbff98a28102c712da358a5aa63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the radius step size between successive descriptor elements.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a641ddbff98a28102c712da358a5aa63d">More...</a><br /></td></tr>
 <tr class="separator:a641ddbff98a28102c712da358a5aa63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86c83519de8393c540dd882e22377fb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a86c83519de8393c540dd882e22377fb7">setNumSteps</a> (std::size_t num_steps)</td></tr>
 <tr class="memdesc:a86c83519de8393c540dd882e22377fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of desired radius incrementation steps.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a86c83519de8393c540dd882e22377fb7">More...</a><br /></td></tr>
@@ -134,8 +134,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3252f39fb1050a96a6db45c8ae7f3660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculation of a 3D auto-correlation descriptor of a molecular graph using atom-pair weights resolved by a per-atom mode. </p>
-<p>Compared to <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html" title="Generic implementation of the 3D auto-correlation vector calculation for sequences of entities of arb...">Descr::AutoCorrelation3DVectorCalculator</a>, this calculator forwards the per-atom mode to the atom-pair weight function so callers can compute mode-partitioned descriptors. </p>
+<div class="textblock"><p>Calculation of a 3D auto-correlation descriptor of a molecular graph partitioned by specific atom types. </p>
+<p>Atom types considered for partitioning are:</p><ul>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#abb5a6b87a4f129ff5eb6890fcc142361" title="Specifies Hydrogen.">Chem::AtomType::H</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#ae4252d1d4074cf939ef0ae8589790a2a" title="Specifies Carbon.">Chem::AtomType::C</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a0e25cd9ea3a04a6c4e5e2e7bad6e31bf" title="Specifies Nitrogen.">Chem::AtomType::N</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a5d64dc6d67533dbe28012d2e81bc52cc" title="Specifies Oxygen.">Chem::AtomType::O</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a42d11e7dbcc4cc4b9f823179559dd2e1" title="Specifies Sulfur.">Chem::AtomType::S</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a1bbd8020fe393352154723017209c878" title="Specifies Phosphorus.">Chem::AtomType::P</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a991b435e018114bd0d0b65926682ce00" title="Specifies Fluorine.">Chem::AtomType::F</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a6d1a8df024ef82372daf6a6cf35dd19b" title="Specifies Chlorine.">Chem::AtomType::Cl</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#aef3e47ac6189bcfaaf355f578a3ee7fc" title="Specifies Bromine.">Chem::AtomType::Br</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a56c738a430834e5e6a0858f0f4e26f09" title="Specifies Iodine.">Chem::AtomType::I</a> </li>
+</ul>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a54f8b6cfd414e756b2b102af28d525dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54f8b6cfd414e756b2b102af28d525dd">&#9670;&nbsp;</a></span>Atom3DCoordinatesFunction</h2>
@@ -166,7 +177,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of the generic functor used to retrieve the weight of an atom pair. </p>
-<p>The function takes the two atoms and a single mode that resolves the partitioning of the atom-pair contribution. </p>
+<p>The function receives the two atoms and a single atom type specifying the descriptor partition. </p>
 
 </div>
 </div>
@@ -317,7 +328,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the radius step size between successive <em>AutoCorr3D</em> code elements. </p>
+<p>Returns the radius step size between successive descriptor elements. </p>
 <dl class="section return"><dt>Returns</dt><dd>The applied radius step size. </dd></dl>
 
 </div>
@@ -339,7 +350,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the number of desired radius incrementation steps. </p>
-<p>The number of performed radius incrementation steps defines the size of the calculated descriptor vector which is equal to the number of steps.</p>
+<p>The number of performed radius incrementation steps defines the size of the calculated descriptor vector which is equal to the number of steps plus <em>1</em> times <em>10</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">num_steps</td><td>The number of radius incrementation steps. </td></tr>
@@ -393,7 +404,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr3DDescriptorCalculator.html#a3252f39fb1050a96a6db45c8ae7f3660" title="Calculates the 3D auto-correlation descriptor of the atoms in cntnr.">calculate()</a>, otherwise a zero distance for each atom pair will be used for the calculation. </dd></dl>
 
 </div>
 </div>

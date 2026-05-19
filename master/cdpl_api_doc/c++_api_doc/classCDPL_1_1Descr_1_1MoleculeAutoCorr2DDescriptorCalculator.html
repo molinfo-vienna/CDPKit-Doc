@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Calculation of a topological (2D) auto-correlation descriptor of a molecular graph with atom-pair weights resolved by per-atom modes.  
+<p>Calculation of a topological (2D) auto-correlation descriptor of a molecular graph partitioned by specific atom types.  
  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MoleculeAutoCorr2DDescriptorCalculator_8hpp_source.html">MoleculeAutoCorr2DDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -96,7 +96,7 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2a04e318bfef55fa1579f1973e47f8d714">FULL_SPLIT</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a682d96f996f83eeaa2639c1726ef38f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies how the descriptor is partitioned by atom-pair modes.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2">More...</a><br /></td></tr>
+<tr class="memdesc:a682d96f996f83eeaa2639c1726ef38f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies how the descriptor is partitioned by atom types.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2">More...</a><br /></td></tr>
 <tr class="separator:a682d96f996f83eeaa2639c1726ef38f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dbfe48e4aa97243190439c436ac1bc9"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, unsigned int, unsigned int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a3dbfe48e4aa97243190439c436ac1bc9">AtomPairWeightFunction</a></td></tr>
 <tr class="memdesc:a3dbfe48e4aa97243190439c436ac1bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of an atom pair.  <a href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a3dbfe48e4aa97243190439c436ac1bc9">More...</a><br /></td></tr>
@@ -130,8 +130,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6a169e8287c64219b13c5d3e02cb1b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculation of a topological (2D) auto-correlation descriptor of a molecular graph with atom-pair weights resolved by per-atom modes. </p>
-<p>Compared to <a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation2DVectorCalculator.html" title="Calculation of the topological (2D) auto-correlation vector of a molecular graph.">Descr::AutoCorrelation2DVectorCalculator</a>, this calculator emits a partitioned descriptor that splits the per-distance contributions by the atom-pair mode pair selected via the atom-pair weight function (see <code>Mode</code> for available partitioning schemes). </p>
+<div class="textblock"><p>Calculation of a topological (2D) auto-correlation descriptor of a molecular graph partitioned by specific atom types. </p>
+<p>Atom types considered for partitioning are:</p><ul>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#abb5a6b87a4f129ff5eb6890fcc142361" title="Specifies Hydrogen.">Chem::AtomType::H</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#ae4252d1d4074cf939ef0ae8589790a2a" title="Specifies Carbon.">Chem::AtomType::C</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a0e25cd9ea3a04a6c4e5e2e7bad6e31bf" title="Specifies Nitrogen.">Chem::AtomType::N</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a5d64dc6d67533dbe28012d2e81bc52cc" title="Specifies Oxygen.">Chem::AtomType::O</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a42d11e7dbcc4cc4b9f823179559dd2e1" title="Specifies Sulfur.">Chem::AtomType::S</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a1bbd8020fe393352154723017209c878" title="Specifies Phosphorus.">Chem::AtomType::P</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a991b435e018114bd0d0b65926682ce00" title="Specifies Fluorine.">Chem::AtomType::F</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a6d1a8df024ef82372daf6a6cf35dd19b" title="Specifies Chlorine.">Chem::AtomType::Cl</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#aef3e47ac6189bcfaaf355f578a3ee7fc" title="Specifies Bromine.">Chem::AtomType::Br</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a56c738a430834e5e6a0858f0f4e26f09" title="Specifies Iodine.">Chem::AtomType::I</a></li>
+</ul>
+<p>See <a class="el" href="classCDPL_1_1Descr_1_1MoleculeAutoCorr2DDescriptorCalculator.html#a682d96f996f83eeaa2639c1726ef38f2" title="Specifies how the descriptor is partitioned by atom types.">MoleculeAutoCorr2DDescriptorCalculator::Mode</a> for available partitioning schemes. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3dbfe48e4aa97243190439c436ac1bc9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3dbfe48e4aa97243190439c436ac1bc9">&#9670;&nbsp;</a></span>AtomPairWeightFunction</h2>
@@ -146,7 +158,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of the generic functor used to retrieve the weight of an atom pair. </p>
-<p>The function takes the two atoms and the two modes (one per atom) of an atom pair and returns the corresponding weight contribution. </p>
+<p>The function receives the two atoms together with their types and returns the corresponding weight contribution. </p>
 
 </div>
 </div>
@@ -163,11 +175,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Specifies how the descriptor is partitioned by atom-pair modes. </p>
+<p>Specifies how the descriptor is partitioned by atom types. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a0c01d700113de54c7685bc58f4593537"></a>SEMI_SPLIT&#160;</td><td class="fielddoc"><p>Semi-split partitioning: contributions are grouped by the unordered pair of modes. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a0c01d700113de54c7685bc58f4593537"></a>SEMI_SPLIT&#160;</td><td class="fielddoc"><p>Semi-split partitioning: atom pair contributions are grouped by involved atom types (e.g. <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a6d1a8df024ef82372daf6a6cf35dd19b" title="Specifies Chlorine.">Chem::AtomType::Cl</a>, see class documentation for considered atom types). </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a04e318bfef55fa1579f1973e47f8d714"></a>FULL_SPLIT&#160;</td><td class="fielddoc"><p>Full-split partitioning: contributions are grouped by the ordered pair of modes. </p>
+<tr><td class="fieldname"><a id="a682d96f996f83eeaa2639c1726ef38f2a04e318bfef55fa1579f1973e47f8d714"></a>FULL_SPLIT&#160;</td><td class="fielddoc"><p>Full-split partitioning: atom pair contributions are grouped by distinct combinations of involved atom types (e.g. <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#ae4252d1d4074cf939ef0ae8589790a2a" title="Specifies Carbon.">Chem::AtomType::C</a> &lt;-&gt; <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a6d1a8df024ef82372daf6a6cf35dd19b" title="Specifies Chlorine.">Chem::AtomType::Cl</a>, see class documentation for considered atom types). </p>
 </td></tr>
 </table>
 

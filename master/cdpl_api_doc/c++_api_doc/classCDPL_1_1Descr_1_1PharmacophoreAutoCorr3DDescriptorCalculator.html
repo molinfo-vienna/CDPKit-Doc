@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Calculation of a 3D auto-correlation descriptor of a pharmacophore using feature-pair weights resolved by a per-feature mode.  
+<p>Calculation of a 3D auto-correlation descriptor of a pharmacophore partitioned by specific feature types.  
  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PharmacophoreAutoCorr3DDescriptorCalculator_8hpp_source.html">PharmacophoreAutoCorr3DDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -94,7 +94,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a4e4245127022d5ad6dee2ca5e2a9be71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function used to retrieve the 3D coordinates of a feature.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a4e4245127022d5ad6dee2ca5e2a9be71">More...</a><br /></td></tr>
 <tr class="separator:a4e4245127022d5ad6dee2ca5e2a9be71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37dee0813f890a051c864f8f66e0a770"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Pharm::Feature</a> &amp;, unsigned int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a37dee0813f890a051c864f8f66e0a770">FeaturePairWeightFunction</a></td></tr>
-<tr class="memdesc:a37dee0813f890a051c864f8f66e0a770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of a feature pair (with a per-feature mode).  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a37dee0813f890a051c864f8f66e0a770">More...</a><br /></td></tr>
+<tr class="memdesc:a37dee0813f890a051c864f8f66e0a770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of a feature pair.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a37dee0813f890a051c864f8f66e0a770">More...</a><br /></td></tr>
 <tr class="separator:a37dee0813f890a051c864f8f66e0a770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -115,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a975c7ad5cecc88ab8e30fa724e8397bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the radius step size between successive descriptor vector elements.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a975c7ad5cecc88ab8e30fa724e8397bb">More...</a><br /></td></tr>
 <tr class="separator:a975c7ad5cecc88ab8e30fa724e8397bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc8715133b16859c085013f09504629"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a8fc8715133b16859c085013f09504629">getRadiusIncrement</a> () const</td></tr>
-<tr class="memdesc:a8fc8715133b16859c085013f09504629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the radius step size between successive <em>AutoCorr3D</em> code elements.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a8fc8715133b16859c085013f09504629">More...</a><br /></td></tr>
+<tr class="memdesc:a8fc8715133b16859c085013f09504629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the radius step size between successive descriptor vector elements.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#a8fc8715133b16859c085013f09504629">More...</a><br /></td></tr>
 <tr class="separator:a8fc8715133b16859c085013f09504629"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5dc5b68780f3a2ccc89b86f8a66d790"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#ad5dc5b68780f3a2ccc89b86f8a66d790">setNumSteps</a> (std::size_t num_steps)</td></tr>
 <tr class="memdesc:ad5dc5b68780f3a2ccc89b86f8a66d790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of desired radius incrementation steps.  <a href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#ad5dc5b68780f3a2ccc89b86f8a66d790">More...</a><br /></td></tr>
@@ -134,7 +134,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aebd99d48bc035060047b4ea5a17032df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculation of a 3D auto-correlation descriptor of a pharmacophore using feature-pair weights resolved by a per-feature mode. </p>
+<div class="textblock"><p>Calculation of a 3D auto-correlation descriptor of a pharmacophore partitioned by specific feature types. </p>
+<p>Feature types considered for partitioning are:</p><ul>
+<li><a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#ad6c69b93bb4011621feca4bec302e7fc" title="Specifies a hydrophobic feature.">Pharm::FeatureType::HYDROPHOBIC</a>,</li>
+<li><a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#acb2c5f1c72e97cde401bf49135474e62" title="Specifies an aromatic feature.">Pharm::FeatureType::AROMATIC</a>,</li>
+<li><a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#a71c9217cae18f8d96f22254ae431a716" title="Specifies a negatively ionizable feature.">Pharm::FeatureType::NEGATIVE_IONIZABLE</a>,</li>
+<li><a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#a42db189e6504d66fc615b2aa65d9cfad" title="Specifies a positively ionizable feature.">Pharm::FeatureType::POSITIVE_IONIZABLE</a>,</li>
+<li><a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#a5354bd465f4022aab92517384cd6682a" title="Specifies a hydrogen-bond donor feature.">Pharm::FeatureType::H_BOND_DONOR</a>,</li>
+<li><a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#afaf542426c75d0641c5b8c03145f444f" title="Specifies a hydrogen-bond acceptor feature.">Pharm::FeatureType::H_BOND_ACCEPTOR</a> </li>
+</ul>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4e4245127022d5ad6dee2ca5e2a9be71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e4245127022d5ad6dee2ca5e2a9be71">&#9670;&nbsp;</a></span>Feature3DCoordinatesFunction</h2>
@@ -164,7 +172,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type of the generic functor used to retrieve the weight of a feature pair (with a per-feature mode). </p>
+<p>Type of the generic functor used to retrieve the weight of a feature pair. </p>
+<p>The function receives the two features and a single feature type specifying the descriptor partition. </p>
 
 </div>
 </div>
@@ -315,7 +324,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the radius step size between successive <em>AutoCorr3D</em> code elements. </p>
+<p>Returns the radius step size between successive descriptor vector elements. </p>
 <dl class="section return"><dt>Returns</dt><dd>The applied radius step size. </dd></dl>
 
 </div>
@@ -337,7 +346,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the number of desired radius incrementation steps. </p>
-<p>The number of performed radius incrementation steps defines the size of the calculated descriptor vector which is equal to the number of steps.</p>
+<p>The number of performed radius incrementation steps defines the size of the calculated descriptor vector which is equal to the number of steps plus <em>1</em> times <em>6</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">num_steps</td><td>The number of radius incrementation steps. </td></tr>
@@ -391,7 +400,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1PharmacophoreAutoCorr3DDescriptorCalculator.html#aebd99d48bc035060047b4ea5a17032df" title="Calculates the 3D auto-correlation descriptor of the features in cntnr.">calculate()</a>, otherwise a zero distance for each feature pair will be used for the calculation. </dd></dl>
 
 </div>
 </div>

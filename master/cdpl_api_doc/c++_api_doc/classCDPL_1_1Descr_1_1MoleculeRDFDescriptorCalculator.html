@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Calculation of an RDF descriptor of a molecular graph using atom-pair weights resolved by a per-atom mode.  
+<p>Calculation of an RDF descriptor of a molecular graph partitioned by specific atom types.  
  <a href="classCDPL_1_1Descr_1_1MoleculeRDFDescriptorCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MoleculeRDFDescriptorCalculator_8hpp_source.html">MoleculeRDFDescriptorCalculator.hpp</a>&gt;</code></p>
@@ -94,7 +94,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a0067875d891c16d6b79491a721100a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function used to retrieve the 3D coordinates of an atom.  <a href="classCDPL_1_1Descr_1_1MoleculeRDFDescriptorCalculator.html#a0067875d891c16d6b79491a721100a64">More...</a><br /></td></tr>
 <tr class="separator:a0067875d891c16d6b79491a721100a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd14bbff5a1f796d56416f18db08cfe3"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;, unsigned int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1MoleculeRDFDescriptorCalculator.html#afd14bbff5a1f796d56416f18db08cfe3">AtomPairWeightFunction</a></td></tr>
-<tr class="memdesc:afd14bbff5a1f796d56416f18db08cfe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of an atom pair (with a per-atom mode).  <a href="classCDPL_1_1Descr_1_1MoleculeRDFDescriptorCalculator.html#afd14bbff5a1f796d56416f18db08cfe3">More...</a><br /></td></tr>
+<tr class="memdesc:afd14bbff5a1f796d56416f18db08cfe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the generic functor used to retrieve the weight of an atom pair.  <a href="classCDPL_1_1Descr_1_1MoleculeRDFDescriptorCalculator.html#afd14bbff5a1f796d56416f18db08cfe3">More...</a><br /></td></tr>
 <tr class="separator:afd14bbff5a1f796d56416f18db08cfe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -152,8 +152,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4a2d2cb66e9e5982177ba9e78e569349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculation of an RDF descriptor of a molecular graph using atom-pair weights resolved by a per-atom mode. </p>
-<p>The calculator forwards the per-atom mode to the atom-pair weight function so callers can compute mode-partitioned RDF descriptors based on <a class="el" href="classCDPL_1_1Descr_1_1RDFCodeCalculator.html" title="Generic implementation of the radial distribution function (RDF) code calculation for sequences of en...">Descr::RDFCodeCalculator</a>.</p>
+<div class="textblock"><p>Calculation of an RDF descriptor of a molecular graph partitioned by specific atom types. </p>
+<p>Atom types considered for partitioning are:</p><ul>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#abb5a6b87a4f129ff5eb6890fcc142361" title="Specifies Hydrogen.">Chem::AtomType::H</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#ae4252d1d4074cf939ef0ae8589790a2a" title="Specifies Carbon.">Chem::AtomType::C</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a0e25cd9ea3a04a6c4e5e2e7bad6e31bf" title="Specifies Nitrogen.">Chem::AtomType::N</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a5d64dc6d67533dbe28012d2e81bc52cc" title="Specifies Oxygen.">Chem::AtomType::O</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a42d11e7dbcc4cc4b9f823179559dd2e1" title="Specifies Sulfur.">Chem::AtomType::S</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a1bbd8020fe393352154723017209c878" title="Specifies Phosphorus.">Chem::AtomType::P</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a991b435e018114bd0d0b65926682ce00" title="Specifies Fluorine.">Chem::AtomType::F</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a6d1a8df024ef82372daf6a6cf35dd19b" title="Specifies Chlorine.">Chem::AtomType::Cl</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#aef3e47ac6189bcfaaf355f578a3ee7fc" title="Specifies Bromine.">Chem::AtomType::Br</a></li>
+<li><a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html#a56c738a430834e5e6a0858f0f4e26f09" title="Specifies Iodine.">Chem::AtomType::I</a></li>
+</ul>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#CITB">CITB</a>, <a class="el" href="References.html#HBMD">HBMD</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a0067875d891c16d6b79491a721100a64"></a>
@@ -184,7 +195,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type of the generic functor used to retrieve the weight of an atom pair (with a per-atom mode). </p>
+<p>Type of the generic functor used to retrieve the weight of an atom pair. </p>
+<p>The function receives the two atoms and a single atom type specifying the descriptor partition. </p>
 
 </div>
 </div>
@@ -451,7 +463,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the number of desired radius incrementation steps. </p>
-<p>The number of performed radius incrementation steps defines the size of the calculated <em>RDF</em> code vector which is equal to the number of steps plus <em>1</em>.</p>
+<p>The number of performed radius incrementation steps defines the size of the calculated <em>RDF</em> code vector which is equal to the number of steps plus <em>1</em> times <em>10</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">num_steps</td><td>The number of radius incrementation steps. </td></tr>
@@ -505,7 +517,6 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The coordinates function must be specified before calling <a class="el" href="classCDPL_1_1Descr_1_1MoleculeRDFDescriptorCalculator.html#a4a2d2cb66e9e5982177ba9e78e569349" title="Calculates the RDF descriptor of the atoms in cntnr.">calculate()</a>, otherwise a zero distance for each atom pair will be used for the calculation. </dd></dl>
 
 </div>
 </div>
