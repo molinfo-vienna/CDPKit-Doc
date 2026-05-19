@@ -98,6 +98,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac45a9cbfa53678aff4be9def01801fcc"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Pharm_1_1FeatureMapping.html">FeatureMapping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureMapping.html#ac45a9cbfa53678aff4be9def01801fcc">SharedPointer</a></td></tr>
+<tr class="memdesc:ac45a9cbfa53678aff4be9def01801fcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>FeatureMapping</code> instances.  <a href="classCDPL_1_1Pharm_1_1FeatureMapping.html#ac45a9cbfa53678aff4be9def01801fcc">More...</a><br /></td></tr>
 <tr class="separator:ac45a9cbfa53678aff4be9def01801fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Util_1_1MultiMap"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Util_1_1MultiMap')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Util_1_1MultiMap.html">CDPL::Util::MultiMap&lt; const Feature *, const Feature *, true &gt;</a></td></tr>
 <tr class="memitem:abbdc152b629c0f1b506f2859e3d295a0 inherit pub_types_classCDPL_1_1Util_1_1MultiMap"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Util_1_1MultiMap.html">MultiMap</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiMap.html#abbdc152b629c0f1b506f2859e3d295a0">SharedPointer</a></td></tr>
@@ -288,7 +289,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A data type for the storage and lookup of arbitrary feature to feature mappings. </p>
-<p>Features mappings are stored as pairs of pointers to the mapped <code>const</code> <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html" title="Feature.">Pharm::Feature</a> objects. Mappings do not have to be unique and multiple mappings of a given feature to other features are possible. If a mapping entry for a particular feature does not exist, the methods <a class="el" href="classCDPL_1_1Util_1_1MultiMap.html#a72291209e83d7b40aa24edc286ca37ca" title="Returns a non-const reference to the first value associated with the specified key.">FeatureMapping::getValue()</a> and <a class="el" href="classCDPL_1_1Util_1_1MultiMap.html#add4f3d13a9b698227496fd54cb88d891" title="Returns a non-const reference to the first value associated with the specified key.">FeatureMapping::operator[]()</a> return a <em>null</em> pointer to indicate that the lookup of the mapped feature has failed. </p>
+<p>Features mappings are stored as pairs of pointers to the mapped <code>const</code> <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html" title="Abstract base class representing a single pharmacophore feature within a parent Pharm::Pharmacophore.">Pharm::Feature</a> objects. Mappings do not have to be unique and multiple mappings of a given feature to other features are possible. If a mapping entry for a particular feature does not exist, the methods <a class="el" href="classCDPL_1_1Util_1_1MultiMap.html#a72291209e83d7b40aa24edc286ca37ca" title="Returns a non-const reference to the first value associated with the specified key.">FeatureMapping::getValue()</a> and <a class="el" href="classCDPL_1_1Util_1_1MultiMap.html#add4f3d13a9b698227496fd54cb88d891" title="Returns a non-const reference to the first value associated with the specified key.">FeatureMapping::operator[]()</a> return a <em>null</em> pointer to indicate that the lookup of the mapped feature has failed. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac45a9cbfa53678aff4be9def01801fcc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac45a9cbfa53678aff4be9def01801fcc">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -301,6 +302,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>FeatureMapping</code> instances. </p>
 
 </div>
 </div>

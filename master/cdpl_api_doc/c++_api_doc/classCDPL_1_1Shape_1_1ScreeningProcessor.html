@@ -83,53 +83,76 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>High-level driver for shape-based virtual screening of molecular databases.  
+ <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Shape_2ScreeningProcessor_8hpp_source.html">ScreeningProcessor.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a8e22ed1c32c86b162694832bf4cef39f"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html">ScreeningProcessor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a8e22ed1c32c86b162694832bf4cef39f">SharedPointer</a></td></tr>
+<tr class="memdesc:a8e22ed1c32c86b162694832bf4cef39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>ScreeningProcessor</code> instances.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a8e22ed1c32c86b162694832bf4cef39f">More...</a><br /></td></tr>
 <tr class="separator:a8e22ed1c32c86b162694832bf4cef39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0647493b2c42b627ef9800a9bee579f"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; MolecularGraphList::const_iterator, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac0647493b2c42b627ef9800a9bee579f">ConstMolecularGraphIterator</a></td></tr>
+<tr class="memdesc:ac0647493b2c42b627ef9800a9bee579f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the query molecules.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac0647493b2c42b627ef9800a9bee579f">More...</a><br /></td></tr>
 <tr class="separator:ac0647493b2c42b627ef9800a9bee579f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f1d577605260a01ee052d10bfb9b00b"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;, const <a class="el" href="classCDPL_1_1Shape_1_1AlignmentResult.html">AlignmentResult</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2f1d577605260a01ee052d10bfb9b00b">HitCallbackFunction</a></td></tr>
+<tr class="memdesc:a2f1d577605260a01ee052d10bfb9b00b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the callback invoked for each alignment hit (arguments: query, hit, alignment result).  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2f1d577605260a01ee052d10bfb9b00b">More...</a><br /></td></tr>
 <tr class="separator:a2f1d577605260a01ee052d10bfb9b00b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d87c01342c22597071c3888426d22aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2d87c01342c22597071c3888426d22aa">ScreeningProcessor</a> ()</td></tr>
+<tr class="memdesc:a2d87c01342c22597071c3888426d22aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>ScreeningProcessor</code> instance.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2d87c01342c22597071c3888426d22aa">More...</a><br /></td></tr>
 <tr class="separator:a2d87c01342c22597071c3888426d22aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e33aa86b43df55879492a6aa7acdf21"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a7e33aa86b43df55879492a6aa7acdf21">ScreeningProcessor</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;query)</td></tr>
+<tr class="memdesc:a7e33aa86b43df55879492a6aa7acdf21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>ScreeningProcessor</code> instance with <em>query</em> as the single query molecule.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a7e33aa86b43df55879492a6aa7acdf21">More...</a><br /></td></tr>
 <tr class="separator:a7e33aa86b43df55879492a6aa7acdf21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5b599c1c05929db0323e65385c1da5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac5b599c1c05929db0323e65385c1da5d">ScreeningProcessor</a> (const <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html">ScreeningProcessor</a> &amp;proc)=delete</td></tr>
 <tr class="separator:ac5b599c1c05929db0323e65385c1da5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb54ec55e39ff191424ed15ef7e3fe4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#adbb54ec55e39ff191424ed15ef7e3fe4">~ScreeningProcessor</a> ()</td></tr>
+<tr class="memdesc:adbb54ec55e39ff191424ed15ef7e3fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#adbb54ec55e39ff191424ed15ef7e3fe4">More...</a><br /></td></tr>
 <tr class="separator:adbb54ec55e39ff191424ed15ef7e3fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af253187f948627836d840d14647c8444"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html">ScreeningProcessor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#af253187f948627836d840d14647c8444">operator=</a> (const <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html">ScreeningProcessor</a> &amp;proc)=delete</td></tr>
 <tr class="separator:af253187f948627836d840d14647c8444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4de846d6d310e0ad214282f9e26f906"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ae4de846d6d310e0ad214282f9e26f906">setHitCallback</a> (const <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2f1d577605260a01ee052d10bfb9b00b">HitCallbackFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:ae4de846d6d310e0ad214282f9e26f906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback that is invoked for every alignment hit produced by <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a67fbc1892459180d2b50da000bf38c94" title="Processes the database molecule molgraph, aligning it against all query molecules.">process()</a>.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ae4de846d6d310e0ad214282f9e26f906">More...</a><br /></td></tr>
 <tr class="separator:ae4de846d6d310e0ad214282f9e26f906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2addc4fd82531b2f3355aceac5e3a117"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2f1d577605260a01ee052d10bfb9b00b">HitCallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2addc4fd82531b2f3355aceac5e3a117">getHitCallback</a> () const</td></tr>
+<tr class="memdesc:a2addc4fd82531b2f3355aceac5e3a117"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured hit callback.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a2addc4fd82531b2f3355aceac5e3a117">More...</a><br /></td></tr>
 <tr class="separator:a2addc4fd82531b2f3355aceac5e3a117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac03920b3e7c361cee344e4b2d33aef5e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Shape_1_1ScreeningSettings.html">ScreeningSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac03920b3e7c361cee344e4b2d33aef5e">getSettings</a> () const</td></tr>
+<tr class="memdesc:ac03920b3e7c361cee344e4b2d33aef5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current screening settings.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac03920b3e7c361cee344e4b2d33aef5e">More...</a><br /></td></tr>
 <tr class="separator:ac03920b3e7c361cee344e4b2d33aef5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a955221f5366b3b7f12ac2ca3d8d62f6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningSettings.html">ScreeningSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a955221f5366b3b7f12ac2ca3d8d62f6b">getSettings</a> ()</td></tr>
+<tr class="memdesc:a955221f5366b3b7f12ac2ca3d8d62f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current screening settings (mutable).  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a955221f5366b3b7f12ac2ca3d8d62f6b">More...</a><br /></td></tr>
 <tr class="separator:a955221f5366b3b7f12ac2ca3d8d62f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a111b23a30d40195c6a060979dbae2529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a111b23a30d40195c6a060979dbae2529">clearQuerySet</a> ()</td></tr>
+<tr class="memdesc:a111b23a30d40195c6a060979dbae2529"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all query molecules.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a111b23a30d40195c6a060979dbae2529">More...</a><br /></td></tr>
 <tr class="separator:a111b23a30d40195c6a060979dbae2529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e4ff61c7b621f6868361fd036f827dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a1e4ff61c7b621f6868361fd036f827dc">addQuery</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:a1e4ff61c7b621f6868361fd036f827dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds <em>molgraph</em> to the query set.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a1e4ff61c7b621f6868361fd036f827dc">More...</a><br /></td></tr>
 <tr class="separator:a1e4ff61c7b621f6868361fd036f827dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4431005d5dc194bcf6b9ac23121a678b"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a4431005d5dc194bcf6b9ac23121a678b">getQuerySetSize</a> () const</td></tr>
+<tr class="memdesc:a4431005d5dc194bcf6b9ac23121a678b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of query molecules.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a4431005d5dc194bcf6b9ac23121a678b">More...</a><br /></td></tr>
 <tr class="separator:a4431005d5dc194bcf6b9ac23121a678b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39ead8ac45e2c625b18beb07142df667"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a39ead8ac45e2c625b18beb07142df667">getQuery</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a39ead8ac45e2c625b18beb07142df667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the query molecule at index <em>idx</em>.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a39ead8ac45e2c625b18beb07142df667">More...</a><br /></td></tr>
 <tr class="separator:a39ead8ac45e2c625b18beb07142df667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1e834d55cdec3e160b4da2ae8a36876"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac0647493b2c42b627ef9800a9bee579f">ConstMolecularGraphIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#aa1e834d55cdec3e160b4da2ae8a36876">getQuerySetBegin</a> () const</td></tr>
+<tr class="memdesc:aa1e834d55cdec3e160b4da2ae8a36876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first query molecule.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#aa1e834d55cdec3e160b4da2ae8a36876">More...</a><br /></td></tr>
 <tr class="separator:aa1e834d55cdec3e160b4da2ae8a36876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c570f116080dd9b35085fd88e31796"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#ac0647493b2c42b627ef9800a9bee579f">ConstMolecularGraphIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a48c570f116080dd9b35085fd88e31796">getQuerySetEnd</a> () const</td></tr>
+<tr class="memdesc:a48c570f116080dd9b35085fd88e31796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last query molecule.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a48c570f116080dd9b35085fd88e31796">More...</a><br /></td></tr>
 <tr class="separator:a48c570f116080dd9b35085fd88e31796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67fbc1892459180d2b50da000bf38c94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a67fbc1892459180d2b50da000bf38c94">process</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:a67fbc1892459180d2b50da000bf38c94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the database molecule <em>molgraph</em>, aligning it against all query molecules.  <a href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a67fbc1892459180d2b50da000bf38c94">More...</a><br /></td></tr>
 <tr class="separator:a67fbc1892459180d2b50da000bf38c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High-level driver for shape-based virtual screening of molecular databases. </p>
+<p>The processor maintains a set of query molecules and aligns each incoming database molecule against all of them, reporting alignment hits through a user-supplied callback. The behaviour (similarity score type, shape generation, alignment options, etc.) is configured via the embedded <a class="el" href="classCDPL_1_1Shape_1_1ScreeningSettings.html" title="Bundle of configuration parameters for Shape::ScreeningProcessor.">Shape::ScreeningSettings</a> instance. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8e22ed1c32c86b162694832bf4cef39f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e22ed1c32c86b162694832bf4cef39f">&#9670;&nbsp;</a></span>SharedPointer</h2>
 
@@ -141,6 +164,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>ScreeningProcessor</code> instances. </p>
 
 </div>
 </div>
@@ -156,6 +181,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A constant iterator over the query molecules. </p>
+
 </div>
 </div>
 <a id="a2f1d577605260a01ee052d10bfb9b00b"></a>
@@ -169,6 +196,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the callback invoked for each alignment hit (arguments: query, hit, alignment result). </p>
 
 </div>
 </div>
@@ -188,6 +217,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs an empty <code>ScreeningProcessor</code> instance. </p>
+
 </div>
 </div>
 <a id="a7e33aa86b43df55879492a6aa7acdf21"></a>
@@ -205,6 +236,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <code>ScreeningProcessor</code> instance with <em>query</em> as the single query molecule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query</td><td>The query molecule. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -248,6 +287,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -294,6 +335,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the callback that is invoked for every alignment hit produced by <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a67fbc1892459180d2b50da000bf38c94" title="Processes the database molecule molgraph, aligning it against all query molecules.">process()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The hit-callback function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2addc4fd82531b2f3355aceac5e3a117"></a>
@@ -310,6 +359,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured hit callback. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the hit-callback function. </dd></dl>
 
 </div>
 </div>
@@ -328,6 +380,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current screening settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the screening settings. </dd></dl>
+
 </div>
 </div>
 <a id="a955221f5366b3b7f12ac2ca3d8d62f6b"></a>
@@ -345,6 +400,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current screening settings (mutable). </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the screening settings. </dd></dl>
+
 </div>
 </div>
 <a id="a111b23a30d40195c6a060979dbae2529"></a>
@@ -361,6 +419,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes all query molecules. </p>
 
 </div>
 </div>
@@ -380,6 +440,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds <em>molgraph</em> to the query set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The query molecule. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4431005d5dc194bcf6b9ac23121a678b"></a>
@@ -396,6 +464,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of query molecules. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of query molecules. </dd></dl>
 
 </div>
 </div>
@@ -415,6 +486,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the query molecule at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based index of the query molecule. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the query molecule. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of query molecules is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Shape_1_1ScreeningProcessor.html#a4431005d5dc194bcf6b9ac23121a678b" title="Returns the number of query molecules.">getQuerySetSize()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa1e834d55cdec3e160b4da2ae8a36876"></a>
@@ -431,6 +517,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first query molecule. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first query molecule. </dd></dl>
 
 </div>
 </div>
@@ -449,6 +538,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last query molecule. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last query molecule. </dd></dl>
+
 </div>
 </div>
 <a id="a67fbc1892459180d2b50da000bf38c94"></a>
@@ -466,6 +558,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes the database molecule <em>molgraph</em>, aligning it against all query molecules. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The database molecule. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if at least one alignment hit was produced for <em>molgraph</em>, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>

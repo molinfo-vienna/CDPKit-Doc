@@ -84,6 +84,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract base for functions evaluating the overlap between two Gaussian shape functions.  
+ <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="GaussianShapeOverlapFunction_8hpp_source.html">GaussianShapeOverlapFunction.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Shape::GaussianShapeOverlapFunction:</div>
@@ -97,41 +100,58 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:afeaaaa4419f210619e1421c8ac391e8d"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html">GaussianShapeOverlapFunction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#afeaaaa4419f210619e1421c8ac391e8d">SharedPointer</a></td></tr>
+<tr class="memdesc:afeaaaa4419f210619e1421c8ac391e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>GaussianShapeOverlapFunction</code> instances.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#afeaaaa4419f210619e1421c8ac391e8d">More...</a><br /></td></tr>
 <tr class="separator:afeaaaa4419f210619e1421c8ac391e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a999331ee8c2ed50cc0e67a8e67cbcc3c"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(std::size_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a999331ee8c2ed50cc0e67a8e67cbcc3c">ColorFilterFunction</a></td></tr>
+<tr class="memdesc:a999331ee8c2ed50cc0e67a8e67cbcc3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function used to filter color (pharmacophore) features by type.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a999331ee8c2ed50cc0e67a8e67cbcc3c">More...</a><br /></td></tr>
 <tr class="separator:a999331ee8c2ed50cc0e67a8e67cbcc3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7c117dc70390f0db1c8e4e5432f30c1"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(std::size_t, std::size_t)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#ab7c117dc70390f0db1c8e4e5432f30c1">ColorMatchFunction</a></td></tr>
+<tr class="memdesc:ab7c117dc70390f0db1c8e4e5432f30c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function used to decide whether two color features match.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#ab7c117dc70390f0db1c8e4e5432f30c1">More...</a><br /></td></tr>
 <tr class="separator:ab7c117dc70390f0db1c8e4e5432f30c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3e0bbd461726574605e1d80441478f5e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a3e0bbd461726574605e1d80441478f5e">~GaussianShapeOverlapFunction</a> ()</td></tr>
+<tr class="memdesc:a3e0bbd461726574605e1d80441478f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a3e0bbd461726574605e1d80441478f5e">More...</a><br /></td></tr>
 <tr class="separator:a3e0bbd461726574605e1d80441478f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2173febb272d2b0acea3f0d21a0e0840"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a2173febb272d2b0acea3f0d21a0e0840">setShapeFunction</a> (const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeFunction.html">GaussianShapeFunction</a> &amp;func, <a class="el" href="classbool.html">bool</a> is_ref)=0</td></tr>
+<tr class="memdesc:a2173febb272d2b0acea3f0d21a0e0840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the reference or aligned shape function used by the overlap evaluation.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a2173febb272d2b0acea3f0d21a0e0840">More...</a><br /></td></tr>
 <tr class="separator:a2173febb272d2b0acea3f0d21a0e0840"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac3fa6ac0d33327a721e5ae53158740c"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeFunction.html">GaussianShapeFunction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aac3fa6ac0d33327a721e5ae53158740c">getShapeFunction</a> (<a class="el" href="classbool.html">bool</a> ref) const =0</td></tr>
+<tr class="memdesc:aac3fa6ac0d33327a721e5ae53158740c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reference or aligned shape function.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aac3fa6ac0d33327a721e5ae53158740c">More...</a><br /></td></tr>
 <tr class="separator:aac3fa6ac0d33327a721e5ae53158740c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c5fcad8324e37ea08d082086fdfd7ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a3c5fcad8324e37ea08d082086fdfd7ff">setColorMatchFunction</a> (const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#ab7c117dc70390f0db1c8e4e5432f30c1">ColorMatchFunction</a> &amp;func)=0</td></tr>
+<tr class="memdesc:a3c5fcad8324e37ea08d082086fdfd7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function used to decide whether two color features match.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a3c5fcad8324e37ea08d082086fdfd7ff">More...</a><br /></td></tr>
 <tr class="separator:a3c5fcad8324e37ea08d082086fdfd7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a124e682ee1f72d0954be8d4b12ad423b"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#ab7c117dc70390f0db1c8e4e5432f30c1">ColorMatchFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a124e682ee1f72d0954be8d4b12ad423b">getColorMatchFunction</a> () const =0</td></tr>
+<tr class="memdesc:a124e682ee1f72d0954be8d4b12ad423b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured color-match function.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a124e682ee1f72d0954be8d4b12ad423b">More...</a><br /></td></tr>
 <tr class="separator:a124e682ee1f72d0954be8d4b12ad423b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62ba23a02804520c9b8f2527a745b947"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a62ba23a02804520c9b8f2527a745b947">setColorFilterFunction</a> (const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a999331ee8c2ed50cc0e67a8e67cbcc3c">ColorFilterFunction</a> &amp;func)=0</td></tr>
+<tr class="memdesc:a62ba23a02804520c9b8f2527a745b947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function used to filter color features by type.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a62ba23a02804520c9b8f2527a745b947">More...</a><br /></td></tr>
 <tr class="separator:a62ba23a02804520c9b8f2527a745b947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6668aed23c58109df77675732b8699a"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a999331ee8c2ed50cc0e67a8e67cbcc3c">ColorFilterFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aa6668aed23c58109df77675732b8699a">getColorFilterFunction</a> () const =0</td></tr>
+<tr class="memdesc:aa6668aed23c58109df77675732b8699a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured color-filter function.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aa6668aed23c58109df77675732b8699a">More...</a><br /></td></tr>
 <tr class="separator:aa6668aed23c58109df77675732b8699a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0da2736838d3ef94ed592c353a927cf2"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a0da2736838d3ef94ed592c353a927cf2">calcSelfOverlap</a> (<a class="el" href="classbool.html">bool</a> ref) const =0</td></tr>
+<tr class="memdesc:a0da2736838d3ef94ed592c353a927cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the shape-only self-overlap of the reference or aligned shape function.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a0da2736838d3ef94ed592c353a927cf2">More...</a><br /></td></tr>
 <tr class="separator:a0da2736838d3ef94ed592c353a927cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaffe215600af22a1fc6a940ef5ed9863"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aaffe215600af22a1fc6a940ef5ed9863">calcColorSelfOverlap</a> (<a class="el" href="classbool.html">bool</a> ref) const =0</td></tr>
+<tr class="memdesc:aaffe215600af22a1fc6a940ef5ed9863"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the color self-overlap of the reference or aligned shape function.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aaffe215600af22a1fc6a940ef5ed9863">More...</a><br /></td></tr>
 <tr class="separator:aaffe215600af22a1fc6a940ef5ed9863"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2cd72308d3b98aff3354e1805b6217f"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aa2cd72308d3b98aff3354e1805b6217f">calcOverlap</a> () const =0</td></tr>
+<tr class="memdesc:aa2cd72308d3b98aff3354e1805b6217f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the shape-only overlap of the reference and aligned shape functions.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#aa2cd72308d3b98aff3354e1805b6217f">More...</a><br /></td></tr>
 <tr class="separator:aa2cd72308d3b98aff3354e1805b6217f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2527362b4ca2b32ff97d32d4df4712d"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#ae2527362b4ca2b32ff97d32d4df4712d">calcColorOverlap</a> () const =0</td></tr>
+<tr class="memdesc:ae2527362b4ca2b32ff97d32d4df4712d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the color overlap of the reference and aligned shape functions.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#ae2527362b4ca2b32ff97d32d4df4712d">More...</a><br /></td></tr>
 <tr class="separator:ae2527362b4ca2b32ff97d32d4df4712d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39bc540e16873bc242e452bea9d864f0"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a39bc540e16873bc242e452bea9d864f0">calcOverlap</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;coords) const =0</td></tr>
+<tr class="memdesc:a39bc540e16873bc242e452bea9d864f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the shape-only overlap with the aligned shape element positions taken from <em>coords</em>.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a39bc540e16873bc242e452bea9d864f0">More...</a><br /></td></tr>
 <tr class="separator:a39bc540e16873bc242e452bea9d864f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2061b96d923dc1ee85f278035d959fbf"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a2061b96d923dc1ee85f278035d959fbf">calcColorOverlap</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;coords) const =0</td></tr>
+<tr class="memdesc:a2061b96d923dc1ee85f278035d959fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the color overlap with the aligned shape element positions taken from <em>coords</em>.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a2061b96d923dc1ee85f278035d959fbf">More...</a><br /></td></tr>
 <tr class="separator:a2061b96d923dc1ee85f278035d959fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25d6ba1f8ece2681397239ff7a8ec2b1"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a25d6ba1f8ece2681397239ff7a8ec2b1">calcOverlapGradient</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;coords, <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;grad) const =0</td></tr>
+<tr class="memdesc:a25d6ba1f8ece2681397239ff7a8ec2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the shape overlap with the aligned shape element positions taken from <em>coords</em> and returns the gradient with respect to those positions.  <a href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a25d6ba1f8ece2681397239ff7a8ec2b1">More...</a><br /></td></tr>
 <tr class="separator:a25d6ba1f8ece2681397239ff7a8ec2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -143,7 +163,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a8f7c26357bdfcd2415cdf0336fad06f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html">GaussianShapeOverlapFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html#a8f7c26357bdfcd2415cdf0336fad06f4">operator=</a> (const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html">GaussianShapeOverlapFunction</a> &amp;func)</td></tr>
 <tr class="separator:a8f7c26357bdfcd2415cdf0336fad06f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base for functions evaluating the overlap between two Gaussian shape functions. </p>
+<p>Concrete subclasses (e.g. <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html" title="Shape::GaussianShapeOverlapFunction implementation that evaluates the overlap analytically using the ...">Shape::ExactGaussianShapeOverlapFunction</a>, <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html" title="Shape::GaussianShapeOverlapFunction implementation that uses two approximation techniques to trade so...">Shape::FastGaussianShapeOverlapFunction</a>) implement the overlap evaluation using different trade-offs of accuracy vs. speed. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="afeaaaa4419f210619e1421c8ac391e8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afeaaaa4419f210619e1421c8ac391e8d">&#9670;&nbsp;</a></span>SharedPointer</h2>
 
@@ -155,6 +178,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>GaussianShapeOverlapFunction</code> instances. </p>
 
 </div>
 </div>
@@ -170,6 +195,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the function used to filter color (pharmacophore) features by type. </p>
+
 </div>
 </div>
 <a id="ab7c117dc70390f0db1c8e4e5432f30c1"></a>
@@ -183,6 +210,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the function used to decide whether two color features match. </p>
 
 </div>
 </div>
@@ -209,6 +238,8 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Virtual destructor. </p>
 
 </div>
 </div>
@@ -298,6 +329,15 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Specifies the reference or aligned shape function used by the overlap evaluation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The shape function. </td></tr>
+    <tr><td class="paramname">is_ref</td><td>If <code>true</code>, <em>func</em> is the reference shape function; otherwise the aligned shape function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a1071051105fd0cd46d910c153954ea6e">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#ab023a6ff3fb61c7d971c0de053cff13c">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -325,6 +365,15 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the reference or aligned shape function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>If <code>true</code>, the reference shape function is returned; otherwise the aligned shape function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the requested shape function (or <code>nullptr</code> if none is associated). </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a4902827251798ed1906f3a7a4c3adf59">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a3d1b3f58b2240dcfda03f72e1d850c49">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
@@ -354,6 +403,14 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Specifies the function used to decide whether two color features match. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The color-match function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a8ccda6552a35fdce488585df07b131b7">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a2f3f25679a63648a4ccd3248be471a43">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -380,6 +437,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured color-match function. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the color-match function. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a46d1242ef0cef12adf57cb5f04baef63">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a72e0346ca661d21bb93e4da673ea3643">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
@@ -409,6 +469,14 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Specifies the function used to filter color features by type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The color-filter function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a462a8040e613442771838aa063ce7701">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a683abc2c266398b7e798a2fcbea0338e">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -435,6 +503,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured color-filter function. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the color-filter function. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a0dbe01e4a61f6124734c54b1c40599ae">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a09c1d0c0607a41dbcca7551a71d2193b">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
@@ -464,6 +535,15 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Calculates the shape-only self-overlap of the reference or aligned shape function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>If <code>true</code>, the reference self-overlap is returned; otherwise the aligned self-overlap. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The self-overlap value. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a708112f61a0da78dbe9da6b23f017c80">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a1414039e9929fa728c0498c0fd3ffaaa">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -492,6 +572,15 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Calculates the color self-overlap of the reference or aligned shape function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>If <code>true</code>, the reference color self-overlap is returned; otherwise the aligned color self-overlap. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The color self-overlap value. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#adfb93c5e9ad33c8760a4676e854b2237">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a105dcd00ef637c906851a4c3a50f84ef">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -519,6 +608,9 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Calculates the shape-only overlap of the reference and aligned shape functions. </p>
+<dl class="section return"><dt>Returns</dt><dd>The shape overlap value. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a23e2bc641fa49b82f50f5a846d8623da">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#ae9a296b2c8041c7ebb8bc11573fbdc3e">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -545,6 +637,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculates the color overlap of the reference and aligned shape functions. </p>
+<dl class="section return"><dt>Returns</dt><dd>The color overlap value. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#aaa9580e420cd5238f0fa35cbbd0b7f16">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a40ba858c3b65362408896fb2b95c7eec">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
@@ -574,6 +669,15 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Calculates the shape-only overlap with the aligned shape element positions taken from <em>coords</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>The element 3D positions of the aligned shape. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The shape overlap value. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a2289fe84bc773037e0a63489e7e23c24">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a4d6a93b0f3931edba4f8a89c3eb10e4f">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
 </div>
@@ -601,6 +705,15 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculates the color overlap with the aligned shape element positions taken from <em>coords</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>The element 3D positions of the aligned shape. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The color overlap value. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#ab0218eec965cab83373e4fad6ca3ab08">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#a9a9a4e32b665278192bbdcfdf8380ed5">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 
@@ -639,6 +752,16 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calculates the shape overlap with the aligned shape element positions taken from <em>coords</em> and returns the gradient with respect to those positions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>The element 3D positions of the aligned shape. </td></tr>
+    <tr><td class="paramname">grad</td><td>The output element-wise gradient of the overlap. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The shape overlap value. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a50b61b7c087b35826865d4e5e190bfa2">CDPL::Shape::FastGaussianShapeOverlapFunction</a>, and <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html#af77d6f4d6d0c8a2bc137b78e083c43b6">CDPL::Shape::ExactGaussianShapeOverlapFunction</a>.</p>
 

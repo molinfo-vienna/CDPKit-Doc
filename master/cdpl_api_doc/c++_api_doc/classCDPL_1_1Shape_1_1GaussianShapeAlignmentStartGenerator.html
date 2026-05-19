@@ -82,6 +82,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract base for generators of starting transformations used to seed Gaussian-shape overlap optimization.  
+ <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="GaussianShapeAlignmentStartGenerator_8hpp_source.html">GaussianShapeAlignmentStartGenerator.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Shape::GaussianShapeAlignmentStartGenerator:</div>
@@ -95,23 +98,34 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2d156378239a424983a7aa33c7227b66"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a2d156378239a424983a7aa33c7227b66">~GaussianShapeAlignmentStartGenerator</a> ()</td></tr>
+<tr class="memdesc:a2d156378239a424983a7aa33c7227b66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a2d156378239a424983a7aa33c7227b66">More...</a><br /></td></tr>
 <tr class="separator:a2d156378239a424983a7aa33c7227b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a589e9ae60fb7771fc113df4d2e9acbba"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a589e9ae60fb7771fc113df4d2e9acbba">setupReference</a> (<a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeFunction.html">GaussianShapeFunction</a> &amp;func, <a class="el" href="namespaceCDPL_1_1Math.html#a8bbb61ee0329212a88a2c8d7b77b0ce3">Math::Matrix4D</a> &amp;xform) const</td></tr>
+<tr class="memdesc:a589e9ae60fb7771fc113df4d2e9acbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the reference shape function for use by the start generator.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a589e9ae60fb7771fc113df4d2e9acbba">More...</a><br /></td></tr>
 <tr class="separator:a589e9ae60fb7771fc113df4d2e9acbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8d087784e57325552e77e35c5431156"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#ae8d087784e57325552e77e35c5431156">setupAligned</a> (<a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeFunction.html">GaussianShapeFunction</a> &amp;func, <a class="el" href="namespaceCDPL_1_1Math.html#a8bbb61ee0329212a88a2c8d7b77b0ce3">Math::Matrix4D</a> &amp;xform) const</td></tr>
+<tr class="memdesc:ae8d087784e57325552e77e35c5431156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the aligned shape function for use by the start generator.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#ae8d087784e57325552e77e35c5431156">More...</a><br /></td></tr>
 <tr class="separator:ae8d087784e57325552e77e35c5431156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eee5517d98469233b0b4c6d99829993"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a0eee5517d98469233b0b4c6d99829993">setReference</a> (const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeFunction.html">GaussianShapeFunction</a> &amp;ref_shape_func, unsigned int sym_class)=0</td></tr>
+<tr class="memdesc:a0eee5517d98469233b0b4c6d99829993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the reference shape function and its symmetry class.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a0eee5517d98469233b0b4c6d99829993">More...</a><br /></td></tr>
 <tr class="separator:a0eee5517d98469233b0b4c6d99829993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab22955a9c90f5d83e01d30366d4a2b6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#aab22955a9c90f5d83e01d30366d4a2b6">generate</a> (const <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeFunction.html">GaussianShapeFunction</a> &amp;func, unsigned int sym_class)=0</td></tr>
+<tr class="memdesc:aab22955a9c90f5d83e01d30366d4a2b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the set of starting transformations for the alignment of <em>func</em>.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#aab22955a9c90f5d83e01d30366d4a2b6">More...</a><br /></td></tr>
 <tr class="separator:aab22955a9c90f5d83e01d30366d4a2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade851c3b551e30e16394dbab7af3091c"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#ade851c3b551e30e16394dbab7af3091c">getNumStartTransforms</a> () const =0</td></tr>
+<tr class="memdesc:ade851c3b551e30e16394dbab7af3091c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of starting transformations produced by the last <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#aab22955a9c90f5d83e01d30366d4a2b6" title="Generates the set of starting transformations for the alignment of func.">generate()</a> call.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#ade851c3b551e30e16394dbab7af3091c">More...</a><br /></td></tr>
 <tr class="separator:ade851c3b551e30e16394dbab7af3091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa632c7f40f85b46b40c7d5c7c8450ad"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#aaa632c7f40f85b46b40c7d5c7c8450ad">getNumStartSubTransforms</a> () const =0</td></tr>
+<tr class="memdesc:aaa632c7f40f85b46b40c7d5c7c8450ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of sub-transformations sharing the same starting transformation index space.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#aaa632c7f40f85b46b40c7d5c7c8450ad">More...</a><br /></td></tr>
 <tr class="separator:aaa632c7f40f85b46b40c7d5c7c8450ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a097873054d0548fe7f41a85c57f8fda7"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="namespaceCDPL_1_1Shape.html#a7336a0a5750cd0b7c91deb397d4bfee7">QuaternionTransformation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a097873054d0548fe7f41a85c57f8fda7">getStartTransform</a> (std::size_t idx) const =0</td></tr>
+<tr class="memdesc:a097873054d0548fe7f41a85c57f8fda7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the starting transformation at index <em>idx</em>.  <a href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#a097873054d0548fe7f41a85c57f8fda7">More...</a><br /></td></tr>
 <tr class="separator:a097873054d0548fe7f41a85c57f8fda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base for generators of starting transformations used to seed Gaussian-shape overlap optimization. </p>
+<p>Concrete subclasses (e.g. <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html" title="Generator that produces alignment starting transformations by aligning the principal axes of the alig...">Shape::PrincipalAxesAlignmentStartGenerator</a>) implement the pure virtual member functions to provide a set of candidate transformations placing the aligned shape relative to the reference shape. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2d156378239a424983a7aa33c7227b66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d156378239a424983a7aa33c7227b66">&#9670;&nbsp;</a></span>~GaussianShapeAlignmentStartGenerator()</h2>
 
@@ -134,6 +148,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Virtual destructor. </p>
 
 </div>
 </div>
@@ -171,6 +187,16 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prepares the reference shape function for use by the start generator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The reference shape function (may be modified, e.g. centered). </td></tr>
+    <tr><td class="paramname">xform</td><td>The output transformation that maps the reference shape from its prepared frame back to its original frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The perceived symmetry class of the reference shape (see namespace <a class="el" href="namespaceCDPL_1_1Shape_1_1SymmetryClass.html" title="Provides constants for the rotational symmetry class of a Gaussian shape.">Shape::SymmetryClass</a>). </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#a9620a6e6a88f109406fe50ebcf3989de">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
@@ -210,6 +236,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Prepares the aligned shape function for use by the start generator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The aligned shape function (may be modified, e.g. centered). </td></tr>
+    <tr><td class="paramname">xform</td><td>The output transformation that maps the aligned shape from its prepared frame back to its original frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The perceived symmetry class of the aligned shape (see namespace <a class="el" href="namespaceCDPL_1_1Shape_1_1SymmetryClass.html" title="Provides constants for the rotational symmetry class of a Gaussian shape.">Shape::SymmetryClass</a>). </dd></dl>
+
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#afff0773ded91ae8bac1791bd0bd803b9">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
 </div>
@@ -247,6 +283,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Specifies the reference shape function and its symmetry class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref_shape_func</td><td>The reference shape function. </td></tr>
+    <tr><td class="paramname">sym_class</td><td>The symmetry class of the reference shape (see namespace <a class="el" href="namespaceCDPL_1_1Shape_1_1SymmetryClass.html" title="Provides constants for the rotational symmetry class of a Gaussian shape.">Shape::SymmetryClass</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#aaa54b423484a48366be26fdf71c10bd4">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
@@ -286,6 +331,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Generates the set of starting transformations for the alignment of <em>func</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The aligned shape function. </td></tr>
+    <tr><td class="paramname">sym_class</td><td>The symmetry class of the aligned shape (see namespace <a class="el" href="namespaceCDPL_1_1Shape_1_1SymmetryClass.html" title="Provides constants for the rotational symmetry class of a Gaussian shape.">Shape::SymmetryClass</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if at least one starting transformation was produced, and <code>false</code> otherwise. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#a5fcf244d27a192a2353dae8caab5aec8">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
 </div>
@@ -312,6 +367,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of starting transformations produced by the last <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#aab22955a9c90f5d83e01d30366d4a2b6" title="Generates the set of starting transformations for the alignment of func.">generate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of starting transformations. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#a8fafc045917b15d8d81feb56c2cfa257">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
@@ -340,6 +398,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of sub-transformations sharing the same starting transformation index space. </p>
+<p>Subclasses that produce multiple sub-transforms per logical start (e.g. for symmetry-related variants) use this method to expose the secondary count.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of sub-transformations per starting transformation. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#a77a2ebfcf9952c0eb75aef8d2d932241">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
 </div>
@@ -367,6 +429,21 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the starting transformation at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based index of the starting transformation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the starting transformation. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of starting transformations is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeAlignmentStartGenerator.html#ade851c3b551e30e16394dbab7af3091c" title="Returns the number of starting transformations produced by the last generate() call.">getNumStartTransforms()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Shape_1_1PrincipalAxesAlignmentStartGenerator.html#a60fa77ad0e896cc30638030c8c4c4952">CDPL::Shape::PrincipalAxesAlignmentStartGenerator</a>.</p>
 
