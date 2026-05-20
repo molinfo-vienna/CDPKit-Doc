@@ -82,24 +82,35 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>RAII helper that deletes a file when the <code>FileRemover</code> instance goes out of scope (unless released beforehand). Useful for guaranteeing the cleanup of temporary files.  
+ <a href="classCDPL_1_1Util_1_1FileRemover.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="FileRemover_8hpp_source.html">FileRemover.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4a65c9d3289f57f7d4a4c94eb0790fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#ab4a65c9d3289f57f7d4a4c94eb0790fe">FileRemover</a> (const std::string &amp;path)</td></tr>
+<tr class="memdesc:ab4a65c9d3289f57f7d4a4c94eb0790fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>FileRemover</code> guarding the file at <em>path</em>.  <a href="classCDPL_1_1Util_1_1FileRemover.html#ab4a65c9d3289f57f7d4a4c94eb0790fe">More...</a><br /></td></tr>
 <tr class="separator:ab4a65c9d3289f57f7d4a4c94eb0790fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77ea79448ff5daecf8fb430f29678811"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#a77ea79448ff5daecf8fb430f29678811">~FileRemover</a> ()</td></tr>
+<tr class="memdesc:a77ea79448ff5daecf8fb430f29678811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Removes the file at the currently held path unless <a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#a5b0955526c4d759a1031ef13ffbde058" title="Releases the FileRemover from its current path so that the file will not be removed on destruction.">release()</a> has been called.  <a href="classCDPL_1_1Util_1_1FileRemover.html#a77ea79448ff5daecf8fb430f29678811">More...</a><br /></td></tr>
 <tr class="separator:a77ea79448ff5daecf8fb430f29678811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60a4bc1cce9685bc25176c2a6237db71"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#a60a4bc1cce9685bc25176c2a6237db71">getPath</a> () const</td></tr>
+<tr class="memdesc:a60a4bc1cce9685bc25176c2a6237db71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the file-system path currently guarded by the <code>FileRemover</code>.  <a href="classCDPL_1_1Util_1_1FileRemover.html#a60a4bc1cce9685bc25176c2a6237db71">More...</a><br /></td></tr>
 <tr class="separator:a60a4bc1cce9685bc25176c2a6237db71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1edd51998dde9ee5bc11e733126c60ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#a1edd51998dde9ee5bc11e733126c60ea">reset</a> (const std::string &amp;new_path)</td></tr>
+<tr class="memdesc:a1edd51998dde9ee5bc11e733126c60ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the currently held path with <em>new_path</em>; the previously held file is removed immediately.  <a href="classCDPL_1_1Util_1_1FileRemover.html#a1edd51998dde9ee5bc11e733126c60ea">More...</a><br /></td></tr>
 <tr class="separator:a1edd51998dde9ee5bc11e733126c60ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b0955526c4d759a1031ef13ffbde058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#a5b0955526c4d759a1031ef13ffbde058">release</a> ()</td></tr>
+<tr class="memdesc:a5b0955526c4d759a1031ef13ffbde058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the <code>FileRemover</code> from its current path so that the file will not be removed on destruction.  <a href="classCDPL_1_1Util_1_1FileRemover.html#a5b0955526c4d759a1031ef13ffbde058">More...</a><br /></td></tr>
 <tr class="separator:a5b0955526c4d759a1031ef13ffbde058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa61f671eaa6d40fd1cd62f64766bf295"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html">FileRemover</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#aa61f671eaa6d40fd1cd62f64766bf295">operator=</a> (<a class="el" href="classCDPL_1_1Util_1_1FileRemover.html">FileRemover</a> &amp;rhs)</td></tr>
+<tr class="memdesc:aa61f671eaa6d40fd1cd62f64766bf295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-style assignment: takes over the path held by <em>rhs</em> and releases <em>rhs</em>.  <a href="classCDPL_1_1Util_1_1FileRemover.html#aa61f671eaa6d40fd1cd62f64766bf295">More...</a><br /></td></tr>
 <tr class="separator:aa61f671eaa6d40fd1cd62f64766bf295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>RAII helper that deletes a file when the <code>FileRemover</code> instance goes out of scope (unless released beforehand). Useful for guaranteeing the cleanup of temporary files. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab4a65c9d3289f57f7d4a4c94eb0790fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab4a65c9d3289f57f7d4a4c94eb0790fe">&#9670;&nbsp;</a></span>FileRemover()</h2>
 
@@ -124,6 +135,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs a <code>FileRemover</code> guarding the file at <em>path</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The file-system path of the file to remove on destruction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a77ea79448ff5daecf8fb430f29678811"></a>
@@ -140,6 +159,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. Removes the file at the currently held path unless <a class="el" href="classCDPL_1_1Util_1_1FileRemover.html#a5b0955526c4d759a1031ef13ffbde058" title="Releases the FileRemover from its current path so that the file will not be removed on destruction.">release()</a> has been called. </p>
 
 </div>
 </div>
@@ -159,6 +180,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the file-system path currently guarded by the <code>FileRemover</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the file-system path. </dd></dl>
+
 </div>
 </div>
 <a id="a1edd51998dde9ee5bc11e733126c60ea"></a>
@@ -177,6 +201,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Replaces the currently held path with <em>new_path</em>; the previously held file is removed immediately. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_path</td><td>The new file-system path to guard. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5b0955526c4d759a1031ef13ffbde058"></a>
@@ -193,6 +225,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Releases the <code>FileRemover</code> from its current path so that the file will not be removed on destruction. </p>
 
 </div>
 </div>
@@ -211,6 +245,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Move-style assignment: takes over the path held by <em>rhs</em> and releases <em>rhs</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>The <code>FileRemover</code> to take over from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 
 </div>
 </div>

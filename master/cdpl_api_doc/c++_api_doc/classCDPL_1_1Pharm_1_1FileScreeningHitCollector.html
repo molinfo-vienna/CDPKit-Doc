@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html" title="FileScreeningHitCollector.">FileScreeningHitCollector</a>.  
+<p>Hit-callback functor for use with <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningProcessor.html" title="High-level driver for pharmacophore-based screening of a Pharm::ScreeningDBAccessor-backed database a...">Pharm::ScreeningProcessor</a> that writes each accepted hit molecule (optionally aligned and annotated with score/database properties) to a <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> sink.  
  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FileScreeningHitCollector_8hpp_source.html">FileScreeningHitCollector.hpp</a>&gt;</code></p>
@@ -91,45 +91,62 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a927aaa82ec0a62413351493e16af3558"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html">Base::DataWriter</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a927aaa82ec0a62413351493e16af3558">MolecularGraphWriter</a></td></tr>
+<tr class="memdesc:a927aaa82ec0a62413351493e16af3558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the underlying molecular-graph data writer.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a927aaa82ec0a62413351493e16af3558">More...</a><br /></td></tr>
 <tr class="separator:a927aaa82ec0a62413351493e16af3558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a786c764be7458c949019c591ea688bfa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a786c764be7458c949019c591ea688bfa">FileScreeningHitCollector</a> (<a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a927aaa82ec0a62413351493e16af3558">MolecularGraphWriter</a> &amp;writer)</td></tr>
+<tr class="memdesc:a786c764be7458c949019c591ea688bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>FileScreeningHitCollector</code> instance.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a786c764be7458c949019c591ea688bfa">More...</a><br /></td></tr>
 <tr class="separator:a786c764be7458c949019c591ea688bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43d476fd2e874d7c52a63afa32fce810"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a43d476fd2e874d7c52a63afa32fce810">setDataWriter</a> (<a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a927aaa82ec0a62413351493e16af3558">MolecularGraphWriter</a> &amp;writer)</td></tr>
+<tr class="memdesc:a43d476fd2e874d7c52a63afa32fce810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the molecular-graph writer used to output hit molecules.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a43d476fd2e874d7c52a63afa32fce810">More...</a><br /></td></tr>
 <tr class="separator:a43d476fd2e874d7c52a63afa32fce810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0aa863a43c8734c160ea1c112140414"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a927aaa82ec0a62413351493e16af3558">MolecularGraphWriter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#af0aa863a43c8734c160ea1c112140414">getDataWriter</a> () const</td></tr>
+<tr class="memdesc:af0aa863a43c8734c160ea1c112140414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured molecular-graph writer.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#af0aa863a43c8734c160ea1c112140414">More...</a><br /></td></tr>
 <tr class="separator:af0aa863a43c8734c160ea1c112140414"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a049f3c0bf3685ac3c96d9edf7a33002a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a049f3c0bf3685ac3c96d9edf7a33002a">alignHitMolecule</a> (<a class="el" href="classbool.html">bool</a> align)</td></tr>
+<tr class="memdesc:a049f3c0bf3685ac3c96d9edf7a33002a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the hit molecule's coordinates shall be transformed by the alignment matrix before writing.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a049f3c0bf3685ac3c96d9edf7a33002a">More...</a><br /></td></tr>
 <tr class="separator:a049f3c0bf3685ac3c96d9edf7a33002a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85c28ab0c09b67d4efbb1513c1f2f8a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a85c28ab0c09b67d4efbb1513c1f2f8a2">alignHitMolecule</a> () const</td></tr>
+<tr class="memdesc:a85c28ab0c09b67d4efbb1513c1f2f8a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the hit molecule is aligned before writing.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a85c28ab0c09b67d4efbb1513c1f2f8a2">More...</a><br /></td></tr>
 <tr class="separator:a85c28ab0c09b67d4efbb1513c1f2f8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbf78cdc32d1c1e782e6ee3f2c03f170"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#adbf78cdc32d1c1e782e6ee3f2c03f170">outputScoreProperty</a> (<a class="el" href="classbool.html">bool</a> output)</td></tr>
+<tr class="memdesc:adbf78cdc32d1c1e782e6ee3f2c03f170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the alignment score shall be written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#adbf78cdc32d1c1e782e6ee3f2c03f170">More...</a><br /></td></tr>
 <tr class="separator:adbf78cdc32d1c1e782e6ee3f2c03f170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a693396718571e3a85456c21ab727fe73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a693396718571e3a85456c21ab727fe73">outputScoreProperty</a> () const</td></tr>
+<tr class="memdesc:a693396718571e3a85456c21ab727fe73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the alignment score is written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a693396718571e3a85456c21ab727fe73">More...</a><br /></td></tr>
 <tr class="separator:a693396718571e3a85456c21ab727fe73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf53dbaebdf5e7e87ed1895556156af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#acf53dbaebdf5e7e87ed1895556156af9">outputDBNameProperty</a> (<a class="el" href="classbool.html">bool</a> output)</td></tr>
+<tr class="memdesc:acf53dbaebdf5e7e87ed1895556156af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the source-database name shall be written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#acf53dbaebdf5e7e87ed1895556156af9">More...</a><br /></td></tr>
 <tr class="separator:acf53dbaebdf5e7e87ed1895556156af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24701705cdd7d1d75062441a9b5ef723"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a24701705cdd7d1d75062441a9b5ef723">outputDBNameProperty</a> () const</td></tr>
+<tr class="memdesc:a24701705cdd7d1d75062441a9b5ef723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the source-database name is written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a24701705cdd7d1d75062441a9b5ef723">More...</a><br /></td></tr>
 <tr class="separator:a24701705cdd7d1d75062441a9b5ef723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba77dec0c9b20a3b0a5d105ae0733dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#aba77dec0c9b20a3b0a5d105ae0733dea">outputDBMoleculeIndexProperty</a> (<a class="el" href="classbool.html">bool</a> output)</td></tr>
+<tr class="memdesc:aba77dec0c9b20a3b0a5d105ae0733dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the source-database molecule index shall be written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#aba77dec0c9b20a3b0a5d105ae0733dea">More...</a><br /></td></tr>
 <tr class="separator:aba77dec0c9b20a3b0a5d105ae0733dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad244e9fa316110dc046ec473c3b0eb5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#ad244e9fa316110dc046ec473c3b0eb5b">outputDBMoleculeIndexProperty</a> () const</td></tr>
+<tr class="memdesc:ad244e9fa316110dc046ec473c3b0eb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the source-database molecule index is written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#ad244e9fa316110dc046ec473c3b0eb5b">More...</a><br /></td></tr>
 <tr class="separator:ad244e9fa316110dc046ec473c3b0eb5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b124cdcf625be1eeea6548e989c993c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a8b124cdcf625be1eeea6548e989c993c">outputMoleculeConfIndexProperty</a> (<a class="el" href="classbool.html">bool</a> output)</td></tr>
+<tr class="memdesc:a8b124cdcf625be1eeea6548e989c993c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the conformer index within the source molecule shall be written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a8b124cdcf625be1eeea6548e989c993c">More...</a><br /></td></tr>
 <tr class="separator:a8b124cdcf625be1eeea6548e989c993c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a205aee5e72a8c4edd5c150855073f79c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a205aee5e72a8c4edd5c150855073f79c">outputMoleculeConfIndexProperty</a> () const</td></tr>
+<tr class="memdesc:a205aee5e72a8c4edd5c150855073f79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the conformer index within the source molecule is written as a molecule property.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a205aee5e72a8c4edd5c150855073f79c">More...</a><br /></td></tr>
 <tr class="separator:a205aee5e72a8c4edd5c150855073f79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6608950df182ca64ed6b0ef4a074723d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a6608950df182ca64ed6b0ef4a074723d">outputZeroBasedIndices</a> (<a class="el" href="classbool.html">bool</a> zero_based)</td></tr>
+<tr class="memdesc:a6608950df182ca64ed6b0ef4a074723d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether emitted molecule and conformer indices are zero-based (rather than one-based).  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a6608950df182ca64ed6b0ef4a074723d">More...</a><br /></td></tr>
 <tr class="separator:a6608950df182ca64ed6b0ef4a074723d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c89cfb4fa0a07e4b3da88fdb2a5da33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a1c89cfb4fa0a07e4b3da88fdb2a5da33">outputZeroBasedIndices</a> () const</td></tr>
+<tr class="memdesc:a1c89cfb4fa0a07e4b3da88fdb2a5da33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether emitted molecule and conformer indices are zero-based.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a1c89cfb4fa0a07e4b3da88fdb2a5da33">More...</a><br /></td></tr>
 <tr class="separator:a1c89cfb4fa0a07e4b3da88fdb2a5da33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8868a1b14fdccd77483d689634707919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a8868a1b14fdccd77483d689634707919">operator()</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningProcessor_1_1SearchHit.html">ScreeningProcessor::SearchHit</a> &amp;hit, double score)</td></tr>
+<tr class="memdesc:a8868a1b14fdccd77483d689634707919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the search hit <em>hit</em> and its alignment score <em>score</em> to the configured data writer.  <a href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html#a8868a1b14fdccd77483d689634707919">More...</a><br /></td></tr>
 <tr class="separator:a8868a1b14fdccd77483d689634707919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FileScreeningHitCollector.html" title="FileScreeningHitCollector.">FileScreeningHitCollector</a>. </p>
+<div class="textblock"><p>Hit-callback functor for use with <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningProcessor.html" title="High-level driver for pharmacophore-based screening of a Pharm::ScreeningDBAccessor-backed database a...">Pharm::ScreeningProcessor</a> that writes each accepted hit molecule (optionally aligned and annotated with score/database properties) to a <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> sink. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a927aaa82ec0a62413351493e16af3558"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a927aaa82ec0a62413351493e16af3558">&#9670;&nbsp;</a></span>MolecularGraphWriter</h2>
@@ -142,6 +159,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the underlying molecular-graph data writer. </p>
 
 </div>
 </div>
@@ -162,6 +181,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>FileScreeningHitCollector</code> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">writer</td><td>The molecular-graph writer used to output hit molecules. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -181,6 +208,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies the molecular-graph writer used to output hit molecules. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">writer</td><td>The data writer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af0aa863a43c8734c160ea1c112140414"></a>
@@ -197,6 +232,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured molecular-graph writer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the data writer. </dd></dl>
 
 </div>
 </div>
@@ -216,6 +254,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the hit molecule's coordinates shall be transformed by the alignment matrix before writing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">align</td><td><code>true</code> to align the hit molecule, and <code>false</code> to write the original coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a85c28ab0c09b67d4efbb1513c1f2f8a2"></a>
@@ -232,6 +278,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the hit molecule is aligned before writing. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if alignment is performed, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -251,6 +300,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the alignment score shall be written as a molecule property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td><code>true</code> to write the score property, and <code>false</code> to skip it. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a693396718571e3a85456c21ab727fe73"></a>
@@ -267,6 +324,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the alignment score is written as a molecule property. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the score property is written, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -286,6 +346,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the source-database name shall be written as a molecule property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td><code>true</code> to write the database-name property, and <code>false</code> to skip it. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a24701705cdd7d1d75062441a9b5ef723"></a>
@@ -302,6 +370,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the source-database name is written as a molecule property. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the database-name property is written, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -321,6 +392,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the source-database molecule index shall be written as a molecule property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td><code>true</code> to write the molecule-index property, and <code>false</code> to skip it. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad244e9fa316110dc046ec473c3b0eb5b"></a>
@@ -337,6 +416,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the source-database molecule index is written as a molecule property. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the molecule-index property is written, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -356,6 +438,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the conformer index within the source molecule shall be written as a molecule property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td><code>true</code> to write the conformer-index property, and <code>false</code> to skip it. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a205aee5e72a8c4edd5c150855073f79c"></a>
@@ -372,6 +462,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the conformer index within the source molecule is written as a molecule property. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the conformer-index property is written, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -391,6 +484,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether emitted molecule and conformer indices are zero-based (rather than one-based). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">zero_based</td><td><code>true</code> to use zero-based indices, and <code>false</code> to use one-based indices. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1c89cfb4fa0a07e4b3da88fdb2a5da33"></a>
@@ -407,6 +508,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether emitted molecule and conformer indices are zero-based. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if zero-based indices are used, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -435,6 +539,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Writes the search hit <em>hit</em> and its alignment score <em>score</em> to the configured data writer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hit</td><td>The screening search hit. </td></tr>
+    <tr><td class="paramname">score</td><td>The alignment score of the hit. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the hit was successfully written, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>

@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html" title="CationPiInteractionScore.">CationPiInteractionScore</a>.  
+<p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm::FeatureInteractionScore</a> implementation that scores an aromatic/cationic feature pair by combining per-component scores for cation-to-ring-center distance and cation-displacement to ring-plane-normal angle.  
  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CationPiInteractionScore_8hpp_source.html">CationPiInteractionScore.hpp</a>&gt;</code></p>
@@ -103,8 +103,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a9f885d0729258d232044c4e2caa60de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>CationPiInteractionScore</code> instances.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a9f885d0729258d232044c4e2caa60de0">More...</a><br /></td></tr>
 <tr class="separator:a9f885d0729258d232044c4e2caa60de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ba7518c5533cdfbe3d596e284cdc4b"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a93ba7518c5533cdfbe3d596e284cdc4b">DistanceScoringFunction</a></td></tr>
+<tr class="memdesc:a93ba7518c5533cdfbe3d596e284cdc4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function mapping a cation-aromatic distance to its score contribution.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a93ba7518c5533cdfbe3d596e284cdc4b">More...</a><br /></td></tr>
 <tr class="separator:a93ba7518c5533cdfbe3d596e284cdc4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cfe0d4059cefe1bad1551661768eed1"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a2cfe0d4059cefe1bad1551661768eed1">AngleScoringFunction</a></td></tr>
+<tr class="memdesc:a2cfe0d4059cefe1bad1551661768eed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function mapping a cation-displacement angle to its score contribution.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a2cfe0d4059cefe1bad1551661768eed1">More...</a><br /></td></tr>
 <tr class="separator:a2cfe0d4059cefe1bad1551661768eed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Pharm_1_1FeatureInteractionScore')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">CDPL::Pharm::FeatureInteractionScore</a></td></tr>
 <tr class="memitem:ab40d47158b95aeefe93120c847fd13ea inherit pub_types_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">FeatureInteractionScore</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#ab40d47158b95aeefe93120c847fd13ea">SharedPointer</a></td></tr>
@@ -117,18 +119,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a27bd5596b3a030c85c3447ca23bd7c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>CationPiInteractionScore</code> functor with the specified constraints.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a27bd5596b3a030c85c3447ca23bd7c22">More...</a><br /></td></tr>
 <tr class="separator:a27bd5596b3a030c85c3447ca23bd7c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea83e698d9a229c5902b1c780b21cd85"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#aea83e698d9a229c5902b1c780b21cd85">getMinDistance</a> () const</td></tr>
+<tr class="memdesc:aea83e698d9a229c5902b1c780b21cd85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured minimum cation-aromatic distance.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#aea83e698d9a229c5902b1c780b21cd85">More...</a><br /></td></tr>
 <tr class="separator:aea83e698d9a229c5902b1c780b21cd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a696ffd23dde023f9c37b6311268016f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a696ffd23dde023f9c37b6311268016f9">getMaxDistance</a> () const</td></tr>
+<tr class="memdesc:a696ffd23dde023f9c37b6311268016f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum cation-aromatic distance.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a696ffd23dde023f9c37b6311268016f9">More...</a><br /></td></tr>
 <tr class="separator:a696ffd23dde023f9c37b6311268016f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e90a1a4a865f7d82f5da200656f1f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a33e90a1a4a865f7d82f5da200656f1f8">getMaxAngle</a> () const</td></tr>
+<tr class="memdesc:a33e90a1a4a865f7d82f5da200656f1f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum angle between cation displacement and aromatic-plane normal.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a33e90a1a4a865f7d82f5da200656f1f8">More...</a><br /></td></tr>
 <tr class="separator:a33e90a1a4a865f7d82f5da200656f1f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb2743adb8fc2f0b18ceb39e33f6aa07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#afb2743adb8fc2f0b18ceb39e33f6aa07">setDistanceScoringFunction</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a93ba7518c5533cdfbe3d596e284cdc4b">DistanceScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:afb2743adb8fc2f0b18ceb39e33f6aa07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps the cation-aromatic distance to its score contribution.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#afb2743adb8fc2f0b18ceb39e33f6aa07">More...</a><br /></td></tr>
 <tr class="separator:afb2743adb8fc2f0b18ceb39e33f6aa07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56fdf28197542d10ea06d2e874ed97d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a56fdf28197542d10ea06d2e874ed97d5">setAngleScoringFunction</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a2cfe0d4059cefe1bad1551661768eed1">AngleScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a56fdf28197542d10ea06d2e874ed97d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps the cation-displacement angle to its score contribution.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a56fdf28197542d10ea06d2e874ed97d5">More...</a><br /></td></tr>
 <tr class="separator:a56fdf28197542d10ea06d2e874ed97d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1366bb24160fc5fbe533606fd7e1ec71"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a1366bb24160fc5fbe533606fd7e1ec71">operator()</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr1, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const</td></tr>
+<tr class="memdesc:a1366bb24160fc5fbe533606fd7e1ec71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the cation-&pi; interaction score between features <em>ftr1</em> and <em>ftr2</em>.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a1366bb24160fc5fbe533606fd7e1ec71">More...</a><br /></td></tr>
 <tr class="separator:a1366bb24160fc5fbe533606fd7e1ec71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac60b7da49a690357ffc17b390f07dad1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#ac60b7da49a690357ffc17b390f07dad1">operator()</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;ftr1_pos, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const</td></tr>
+<tr class="memdesc:ac60b7da49a690357ffc17b390f07dad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the cation-&pi; interaction score with the first feature represented only by its 3D position <em>ftr1_pos</em>.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#ac60b7da49a690357ffc17b390f07dad1">More...</a><br /></td></tr>
 <tr class="separator:ac60b7da49a690357ffc17b390f07dad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">CDPL::Pharm::FeatureInteractionScore</a></td></tr>
 <tr class="memitem:ae0e5172ddf7fe6dabd4e9f04a7451074 inherit pub_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#ae0e5172ddf7fe6dabd4e9f04a7451074">~FeatureInteractionScore</a> ()</td></tr>
@@ -138,10 +147,13 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a078e27e1dde5e8b07da61d1f4975e7fd"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a078e27e1dde5e8b07da61d1f4975e7fd">DEF_MIN_DISTANCE</a> = 3.5</td></tr>
+<tr class="memdesc:a078e27e1dde5e8b07da61d1f4975e7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default minimum cation-to-aromatic-center distance in &Aring;ngstrom.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a078e27e1dde5e8b07da61d1f4975e7fd">More...</a><br /></td></tr>
 <tr class="separator:a078e27e1dde5e8b07da61d1f4975e7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2888bebb02a048a0b1a30204bce9cb61"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a2888bebb02a048a0b1a30204bce9cb61">DEF_MAX_DISTANCE</a> = 5.5</td></tr>
+<tr class="memdesc:a2888bebb02a048a0b1a30204bce9cb61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum cation-to-aromatic-center distance in &Aring;ngstrom.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a2888bebb02a048a0b1a30204bce9cb61">More...</a><br /></td></tr>
 <tr class="separator:a2888bebb02a048a0b1a30204bce9cb61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf95dd219caee6911fad2360d2a0c5b3"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#acf95dd219caee6911fad2360d2a0c5b3">DEF_MAX_ANGLE</a> = 30.0</td></tr>
+<tr class="memdesc:acf95dd219caee6911fad2360d2a0c5b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum angle between cation displacement and aromatic-ring plane normal in degrees.  <a href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#acf95dd219caee6911fad2360d2a0c5b3">More...</a><br /></td></tr>
 <tr class="separator:acf95dd219caee6911fad2360d2a0c5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -151,7 +163,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a1d128927bab0f81f567e5013faf2fa67 inherit pro_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html" title="CationPiInteractionScore.">CationPiInteractionScore</a>. </p>
+<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm::FeatureInteractionScore</a> implementation that scores an aromatic/cationic feature pair by combining per-component scores for cation-to-ring-center distance and cation-displacement to ring-plane-normal angle. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9f885d0729258d232044c4e2caa60de0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f885d0729258d232044c4e2caa60de0">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -181,6 +193,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the function mapping a cation-aromatic distance to its score contribution. </p>
+
 </div>
 </div>
 <a id="a2cfe0d4059cefe1bad1551661768eed1"></a>
@@ -194,6 +208,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the function mapping a cation-displacement angle to its score contribution. </p>
 
 </div>
 </div>
@@ -265,6 +281,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the currently configured minimum cation-aromatic distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The minimum distance. </dd></dl>
+
 </div>
 </div>
 <a id="a696ffd23dde023f9c37b6311268016f9"></a>
@@ -282,6 +301,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the currently configured maximum cation-aromatic distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum distance. </dd></dl>
+
 </div>
 </div>
 <a id="a33e90a1a4a865f7d82f5da200656f1f8"></a>
@@ -298,6 +320,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured maximum angle between cation displacement and aromatic-plane normal. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum angle in degrees. </dd></dl>
 
 </div>
 </div>
@@ -317,6 +342,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies the function that maps the cation-aromatic distance to its score contribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The distance-scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a56fdf28197542d10ea06d2e874ed97d5"></a>
@@ -334,6 +367,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies the function that maps the cation-displacement angle to its score contribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The angle-scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -370,6 +411,16 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Evaluates the cation-&pi; interaction score between features <em>ftr1</em> and <em>ftr2</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1</td><td>The first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The cation-&pi; interaction score. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a89dca9a3679e890576c600db2ba76527">CDPL::Pharm::FeatureInteractionScore</a>.</p>
 
@@ -409,6 +460,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Evaluates the cation-&pi; interaction score with the first feature represented only by its 3D position <em>ftr1_pos</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1_pos</td><td>The 3D position of the first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The cation-&pi; interaction score. </dd></dl>
+
 <p>Implements <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a9a153a232bd84cccab0dff524b495f01">CDPL::Pharm::FeatureInteractionScore</a>.</p>
 
 </div>
@@ -434,6 +495,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default minimum cation-to-aromatic-center distance in &Aring;ngstrom. </p>
+
 </div>
 </div>
 <a id="a2888bebb02a048a0b1a30204bce9cb61"></a>
@@ -456,6 +519,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default maximum cation-to-aromatic-center distance in &Aring;ngstrom. </p>
+
 </div>
 </div>
 <a id="acf95dd219caee6911fad2360d2a0c5b3"></a>
@@ -477,6 +542,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default maximum angle between cation displacement and aromatic-ring plane normal in degrees. </p>
 
 </div>
 </div>

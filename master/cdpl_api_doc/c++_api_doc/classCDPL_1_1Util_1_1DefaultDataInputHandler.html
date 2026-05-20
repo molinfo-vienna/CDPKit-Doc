@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html" title="DefaultDataInputHandler.">DefaultDataInputHandler</a>.  
+<p>Default <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html" title="A factory interface providing methods for the creation of Base::DataReader instances handling a parti...">Base::DataInputHandler</a> implementation that exposes a fixed <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> and instantiates readers of the supplied stream-based <em>ReaderImpl</em> type (file-based readers are produced by wrapping it in <a class="el" href="classCDPL_1_1Util_1_1FileDataReader.html" title="Convenience wrapper that adapts a stream-based reader implementation ReaderImpl into a file-based Bas...">Util::FileDataReader</a>).  
  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="DefaultDataInputHandler_8hpp_source.html">DefaultDataInputHandler.hpp</a>&gt;</code></p>
@@ -99,6 +99,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:adab6588f04474e6a0e682459950646d2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html">Base::DataInputHandler</a>&lt; DataType &gt;::<a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#adab6588f04474e6a0e682459950646d2">ReaderType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#adab6588f04474e6a0e682459950646d2">ReaderType</a></td></tr>
+<tr class="memdesc:adab6588f04474e6a0e682459950646d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> specialization produced by this handler.  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#adab6588f04474e6a0e682459950646d2">More...</a><br /></td></tr>
 <tr class="separator:adab6588f04474e6a0e682459950646d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1DataInputHandler"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1DataInputHandler')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html">CDPL::Base::DataInputHandler&lt; typename ReaderImpl::DataType &gt;</a></td></tr>
 <tr class="memitem:aaa3d54853c539cf4b424f8f5a9ab5959 inherit pub_types_classCDPL_1_1Base_1_1DataInputHandler"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Base_1_1DataReader.html">DataReader</a>&lt; typename ReaderImpl::DataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html#aaa3d54853c539cf4b424f8f5a9ab5959">ReaderType</a></td></tr>
@@ -109,13 +110,13 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e1a5b35f35c1aca906c4c2c8824a372"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html">Base::DataFormat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#a2e1a5b35f35c1aca906c4c2c8824a372">getDataFormat</a> () const</td></tr>
-<tr class="memdesc:a2e1a5b35f35c1aca906c4c2c8824a372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> object that provides information about the handled input data format.  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#a2e1a5b35f35c1aca906c4c2c8824a372">More...</a><br /></td></tr>
+<tr class="memdesc:a2e1a5b35f35c1aca906c4c2c8824a372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data format advertised by this handler.  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#a2e1a5b35f35c1aca906c4c2c8824a372">More...</a><br /></td></tr>
 <tr class="separator:a2e1a5b35f35c1aca906c4c2c8824a372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a055f111e8bc3bf73ccb6f5335f826942"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1DataReader.html#aedddfd232f2d18e261aea5e7722993fe">ReaderType::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#a055f111e8bc3bf73ccb6f5335f826942">createReader</a> (std::istream &amp;is) const</td></tr>
-<tr class="memdesc:a055f111e8bc3bf73ccb6f5335f826942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> instance that will read the data from the input stream <em>is</em>.  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#a055f111e8bc3bf73ccb6f5335f826942">More...</a><br /></td></tr>
+<tr class="memdesc:a055f111e8bc3bf73ccb6f5335f826942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a reader that reads from the input stream <em>is</em>.  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#a055f111e8bc3bf73ccb6f5335f826942">More...</a><br /></td></tr>
 <tr class="separator:a055f111e8bc3bf73ccb6f5335f826942"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3539c11f5160f1a711009388e8835a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1DataReader.html#aedddfd232f2d18e261aea5e7722993fe">ReaderType::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#af3539c11f5160f1a711009388e8835a6">createReader</a> (const std::string &amp;file_name, std::ios_base::openmode mode) const</td></tr>
-<tr class="memdesc:af3539c11f5160f1a711009388e8835a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> instance that will read the data from the file specified by <em>file_name</em>.  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#af3539c11f5160f1a711009388e8835a6">More...</a><br /></td></tr>
+<tr class="memdesc:af3539c11f5160f1a711009388e8835a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a reader that reads from the file <em>file_name</em> (opened in mode <em>mode</em>).  <a href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html#af3539c11f5160f1a711009388e8835a6">More...</a><br /></td></tr>
 <tr class="separator:af3539c11f5160f1a711009388e8835a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Base_1_1DataInputHandler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Base_1_1DataInputHandler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html">CDPL::Base::DataInputHandler&lt; typename ReaderImpl::DataType &gt;</a></td></tr>
 <tr class="memitem:a9bfb5a2c5346dfb2ad7892e82320ca17 inherit pub_methods_classCDPL_1_1Base_1_1DataInputHandler"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html#a9bfb5a2c5346dfb2ad7892e82320ca17">~DataInputHandler</a> ()</td></tr>
@@ -126,7 +127,15 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ReaderImpl, const Base::DataFormat &amp; Format, typename DataType = typename ReaderImpl::DataType&gt;<br />
 class CDPL::Util::DefaultDataInputHandler&lt; ReaderImpl, Format, DataType &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Util_1_1DefaultDataInputHandler.html" title="DefaultDataInputHandler.">DefaultDataInputHandler</a>. </p>
+<p>Default <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html" title="A factory interface providing methods for the creation of Base::DataReader instances handling a parti...">Base::DataInputHandler</a> implementation that exposes a fixed <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> and instantiates readers of the supplied stream-based <em>ReaderImpl</em> type (file-based readers are produced by wrapping it in <a class="el" href="classCDPL_1_1Util_1_1FileDataReader.html" title="Convenience wrapper that adapts a stream-based reader implementation ReaderImpl into a file-based Bas...">Util::FileDataReader</a>). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ReaderImpl</td><td>The underlying stream-based reader implementation type. </td></tr>
+    <tr><td class="paramname">Format</td><td>A reference to the <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> constant advertised by the handler. </td></tr>
+    <tr><td class="paramname">DataType</td><td>The data type read by <em>ReaderImpl</em>. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="adab6588f04474e6a0e682459950646d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adab6588f04474e6a0e682459950646d2">&#9670;&nbsp;</a></span>ReaderType</h2>
@@ -141,6 +150,8 @@ template&lt;typename ReaderImpl , const Base::DataFormat &amp; Format, typename 
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> specialization produced by this handler. </p>
 
 </div>
 </div>
@@ -170,8 +181,8 @@ template&lt;typename ReaderImpl , const Base::DataFormat &amp; Format, typename 
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> object that provides information about the handled input data format. </p>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> object that provides information about the handled data format. </dd></dl>
+<p>Returns the data format advertised by this handler. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the fixed <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> <em>Format</em>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html#a52c9696b93f2a30d045869c4c6d35b55">CDPL::Base::DataInputHandler&lt; typename ReaderImpl::DataType &gt;</a>.</p>
 
@@ -203,14 +214,14 @@ template&lt;typename ReaderImpl , const Base::DataFormat &amp; Format, typename 
 </table>
 </div><div class="memdoc">
 
-<p>Creates a <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> instance that will read the data from the input stream <em>is</em>. </p>
+<p>Creates a reader that reads from the input stream <em>is</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">is</td><td>The input stream to read from. </td></tr>
+    <tr><td class="paramname">is</td><td>The input stream to wrap. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to a freshly constructed <em>ReaderImpl</em>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html#a970dac3bde9e934232c28833a924a74d">CDPL::Base::DataInputHandler&lt; typename ReaderImpl::DataType &gt;</a>.</p>
 
@@ -252,15 +263,15 @@ template&lt;typename ReaderImpl , const Base::DataFormat &amp; Format, typename 
 </table>
 </div><div class="memdoc">
 
-<p>Creates a <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> instance that will read the data from the file specified by <em>file_name</em>. </p>
+<p>Creates a reader that reads from the file <em>file_name</em> (opened in mode <em>mode</em>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">file_name</td><td>The full path of the file to read from. </td></tr>
-    <tr><td class="paramname">mode</td><td>Flags specifying the file open-mode. </td></tr>
+    <tr><td class="paramname">file_name</td><td>The path of the input file. </td></tr>
+    <tr><td class="paramname">mode</td><td>The open mode of the underlying file stream. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="classCDPL_1_1Base_1_1DataReader.html" title="An interface for reading data objects of a given type from an arbitrary data source.">Base::DataReader</a> instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to a freshly constructed <a class="el" href="classCDPL_1_1Util_1_1FileDataReader.html" title="Convenience wrapper that adapts a stream-based reader implementation ReaderImpl into a file-based Bas...">Util::FileDataReader</a> wrapping a <em>ReaderImpl</em>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataInputHandler.html#a7ffd9c6f1dd9383476902a88a1b62b43">CDPL::Base::DataInputHandler&lt; typename ReaderImpl::DataType &gt;</a>.</p>
 

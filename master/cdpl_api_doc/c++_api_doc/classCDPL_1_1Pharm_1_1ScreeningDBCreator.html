@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A class for the creation of optimized pharmacophore screening databases.  
+<p>Abstract base class for creators that build optimized pharmacophore screening databases.  
  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ScreeningDBCreator_8hpp_source.html">ScreeningDBCreator.hpp</a>&gt;</code></p>
@@ -107,10 +107,13 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a17c1e668fbf6689f7e9bf02fe3e91aa9a94bcb35a369ccfbc70265d8cf4ad0975">APPEND</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a17c1e668fbf6689f7e9bf02fe3e91aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies how an existing database file is treated by <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#af83a8cea3d45eea54912e8ea824540d0" title="Opens the database identified by name in the specified mode.">open()</a>.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a17c1e668fbf6689f7e9bf02fe3e91aa9">More...</a><br /></td></tr>
 <tr class="separator:a17c1e668fbf6689f7e9bf02fe3e91aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aded80918bc3ca60c29a6440357779824"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html">ScreeningDBCreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#aded80918bc3ca60c29a6440357779824">SharedPointer</a></td></tr>
+<tr class="memdesc:aded80918bc3ca60c29a6440357779824"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>ScreeningDBCreator</code> instances.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#aded80918bc3ca60c29a6440357779824">More...</a><br /></td></tr>
 <tr class="separator:aded80918bc3ca60c29a6440357779824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9780d39f3cdcc096d6772ba04afb1c3f"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a9780d39f3cdcc096d6772ba04afb1c3f">ProgressCallbackFunction</a></td></tr>
+<tr class="memdesc:a9780d39f3cdcc096d6772ba04afb1c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the progress-reporting callback (argument: fraction in [0, 1], return: <code>true</code> to continue, <code>false</code> to abort).  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a9780d39f3cdcc096d6772ba04afb1c3f">More...</a><br /></td></tr>
 <tr class="separator:a9780d39f3cdcc096d6772ba04afb1c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -119,26 +122,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6d451a57614e40830e81e78192a90c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a6d451a57614e40830e81e78192a90c26">More...</a><br /></td></tr>
 <tr class="separator:a6d451a57614e40830e81e78192a90c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83a8cea3d45eea54912e8ea824540d0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#af83a8cea3d45eea54912e8ea824540d0">open</a> (const std::string &amp;name, <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a17c1e668fbf6689f7e9bf02fe3e91aa9">Mode</a> mode=<a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a17c1e668fbf6689f7e9bf02fe3e91aa9af8beb00e861bbd957f8e6ea34536fdb0">CREATE</a>, <a class="el" href="classbool.html">bool</a> allow_dup_entries=true)=0</td></tr>
+<tr class="memdesc:af83a8cea3d45eea54912e8ea824540d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the database identified by <em>name</em> in the specified <em>mode</em>.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#af83a8cea3d45eea54912e8ea824540d0">More...</a><br /></td></tr>
 <tr class="separator:af83a8cea3d45eea54912e8ea824540d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87b9bee868effd5fc25153cf5cfb5375"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a87b9bee868effd5fc25153cf5cfb5375">close</a> ()=0</td></tr>
+<tr class="memdesc:a87b9bee868effd5fc25153cf5cfb5375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the currently open database.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a87b9bee868effd5fc25153cf5cfb5375">More...</a><br /></td></tr>
 <tr class="separator:a87b9bee868effd5fc25153cf5cfb5375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a140108255620825651ab1890fa660e30"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a17c1e668fbf6689f7e9bf02fe3e91aa9">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a140108255620825651ab1890fa660e30">getMode</a> () const =0</td></tr>
+<tr class="memdesc:a140108255620825651ab1890fa660e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the mode in which the currently open database was opened.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a140108255620825651ab1890fa660e30">More...</a><br /></td></tr>
 <tr class="separator:a140108255620825651ab1890fa660e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71194487584dfcc285d7c173e431d6b3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a71194487584dfcc285d7c173e431d6b3">allowDuplicateEntries</a> () const =0</td></tr>
+<tr class="memdesc:a71194487584dfcc285d7c173e431d6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether duplicate molecule entries are allowed.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a71194487584dfcc285d7c173e431d6b3">More...</a><br /></td></tr>
 <tr class="separator:a71194487584dfcc285d7c173e431d6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade92991d37f16cff22b7c9e6bb79790f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#ade92991d37f16cff22b7c9e6bb79790f">process</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph)=0</td></tr>
+<tr class="memdesc:ade92991d37f16cff22b7c9e6bb79790f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes <em>molgraph</em> and adds it (or its derived pharmacophores) to the database.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#ade92991d37f16cff22b7c9e6bb79790f">More...</a><br /></td></tr>
 <tr class="separator:ade92991d37f16cff22b7c9e6bb79790f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9b058004a43f7d3f899e2f52e61dc92"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#ae9b058004a43f7d3f899e2f52e61dc92">merge</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBAccessor.html">ScreeningDBAccessor</a> &amp;db_acc, const <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a9780d39f3cdcc096d6772ba04afb1c3f">ProgressCallbackFunction</a> &amp;func)=0</td></tr>
+<tr class="memdesc:ae9b058004a43f7d3f899e2f52e61dc92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges the contents of <em>db_acc</em> into the currently open database.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#ae9b058004a43f7d3f899e2f52e61dc92">More...</a><br /></td></tr>
 <tr class="separator:ae9b058004a43f7d3f899e2f52e61dc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66d0753e6f66077cfaf515e395b7959f"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a66d0753e6f66077cfaf515e395b7959f">getDatabaseName</a> () const =0</td></tr>
+<tr class="memdesc:a66d0753e6f66077cfaf515e395b7959f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the currently open database.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a66d0753e6f66077cfaf515e395b7959f">More...</a><br /></td></tr>
 <tr class="separator:a66d0753e6f66077cfaf515e395b7959f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a791c2edfd5c05c805444dc7edcffd58e"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a791c2edfd5c05c805444dc7edcffd58e">getNumProcessed</a> () const =0</td></tr>
+<tr class="memdesc:a791c2edfd5c05c805444dc7edcffd58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of molecules processed since the database was opened.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a791c2edfd5c05c805444dc7edcffd58e">More...</a><br /></td></tr>
 <tr class="separator:a791c2edfd5c05c805444dc7edcffd58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c02beecb97efcb0884888e658ecd431"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a9c02beecb97efcb0884888e658ecd431">getNumRejected</a> () const =0</td></tr>
+<tr class="memdesc:a9c02beecb97efcb0884888e658ecd431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of molecules that were rejected (e.g. as duplicates) since the database was opened.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a9c02beecb97efcb0884888e658ecd431">More...</a><br /></td></tr>
 <tr class="separator:a9c02beecb97efcb0884888e658ecd431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d5f7322c4520bb3598a0a6f8575ef81"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a8d5f7322c4520bb3598a0a6f8575ef81">getNumDeleted</a> () const =0</td></tr>
+<tr class="memdesc:a8d5f7322c4520bb3598a0a6f8575ef81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries that were deleted since the database was opened.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#a8d5f7322c4520bb3598a0a6f8575ef81">More...</a><br /></td></tr>
 <tr class="separator:a8d5f7322c4520bb3598a0a6f8575ef81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1089fff990bddfbde8a0c7679b2109"><td class="memItemLeft" align="right" valign="top">virtual std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#aac1089fff990bddfbde8a0c7679b2109">getNumInserted</a> () const =0</td></tr>
+<tr class="memdesc:aac1089fff990bddfbde8a0c7679b2109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries that were inserted since the database was opened.  <a href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#aac1089fff990bddfbde8a0c7679b2109">More...</a><br /></td></tr>
 <tr class="separator:aac1089fff990bddfbde8a0c7679b2109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -147,7 +161,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a2c856713bd2c61146ce16b931f42bdc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class for the creation of optimized pharmacophore screening databases. </p>
+<div class="textblock"><p>Abstract base class for creators that build optimized pharmacophore screening databases. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aded80918bc3ca60c29a6440357779824"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aded80918bc3ca60c29a6440357779824">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -160,6 +174,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>ScreeningDBCreator</code> instances. </p>
 
 </div>
 </div>
@@ -175,6 +191,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the progress-reporting callback (argument: fraction in [0, 1], return: <code>true</code> to continue, <code>false</code> to abort). </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -189,10 +207,15 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies how an existing database file is treated by <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningDBCreator.html#af83a8cea3d45eea54912e8ea824540d0" title="Opens the database identified by name in the specified mode.">open()</a>. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a17c1e668fbf6689f7e9bf02fe3e91aa9af8beb00e861bbd957f8e6ea34536fdb0"></a>CREATE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a17c1e668fbf6689f7e9bf02fe3e91aa9a2612b9684ca62c6085b70e743580996c"></a>UPDATE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a17c1e668fbf6689f7e9bf02fe3e91aa9a94bcb35a369ccfbc70265d8cf4ad0975"></a>APPEND&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a17c1e668fbf6689f7e9bf02fe3e91aa9af8beb00e861bbd957f8e6ea34536fdb0"></a>CREATE&#160;</td><td class="fielddoc"><p>Create a new database (replacing any existing file). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a17c1e668fbf6689f7e9bf02fe3e91aa9a2612b9684ca62c6085b70e743580996c"></a>UPDATE&#160;</td><td class="fielddoc"><p>Update an existing database in place. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a17c1e668fbf6689f7e9bf02fe3e91aa9a94bcb35a369ccfbc70265d8cf4ad0975"></a>APPEND&#160;</td><td class="fielddoc"><p>Append to an existing database. </p>
+</td></tr>
 </table>
 
 </div>
@@ -266,6 +289,16 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Opens the database identified by <em>name</em> in the specified <em>mode</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The database name (path, URI, etc., interpreted by the concrete subclass). </td></tr>
+    <tr><td class="paramname">mode</td><td>The open mode (see Mode). </td></tr>
+    <tr><td class="paramname">allow_dup_entries</td><td>If <code>true</code>, duplicate molecule entries are allowed; if <code>false</code>, duplicates are rejected. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a9c29ab74e72f83a5a370ca822e536665">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
 </div>
@@ -292,6 +325,8 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Closes the currently open database. </p>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a5b4d022962b07443b8fff8093ab50dea">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
@@ -320,6 +355,9 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the mode in which the currently open database was opened. </p>
+<dl class="section return"><dt>Returns</dt><dd>The open mode. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#ab2c89e8a46876aa721191573aed5c123">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
 </div>
@@ -346,6 +384,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Tells whether duplicate molecule entries are allowed. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if duplicates are allowed, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a23cf4020b2b2b6b4319686928f0b670e">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
@@ -374,6 +415,15 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Processes <em>molgraph</em> and adds it (or its derived pharmacophores) to the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph to process. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if at least one entry was inserted, and <code>false</code> otherwise (e.g. when duplicates are rejected). </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#aa1283e5c788fb5a41b2fdb9d82aa9da8">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
@@ -413,6 +463,16 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Merges the contents of <em>db_acc</em> into the currently open database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db_acc</td><td>The source database accessor. </td></tr>
+    <tr><td class="paramname">func</td><td>An optional progress-reporting callback (called repeatedly with a fraction in [0, 1]). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the merge completed successfully, and <code>false</code> if it was aborted by the callback. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a70ccffcf53bd86cf5c7c67baf5d0d3b2">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
 </div>
@@ -439,6 +499,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the name of the currently open database. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the database name. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a2016fa137c9bd50ca9ae5f9465977811">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
@@ -467,6 +530,9 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of molecules processed since the database was opened. </p>
+<dl class="section return"><dt>Returns</dt><dd>The processed-molecule count. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a849f49d3f148e5581ca89ef15f900869">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
 </div>
@@ -493,6 +559,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of molecules that were rejected (e.g. as duplicates) since the database was opened. </p>
+<dl class="section return"><dt>Returns</dt><dd>The rejected-molecule count. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#ab28ba5a6ef6e2969f6c3477e7ce3b23c">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
@@ -521,6 +590,9 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of entries that were deleted since the database was opened. </p>
+<dl class="section return"><dt>Returns</dt><dd>The deleted-entry count. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#a265ff4024c89190d52a744451f410462">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 
 </div>
@@ -547,6 +619,9 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of entries that were inserted since the database was opened. </p>
+<dl class="section return"><dt>Returns</dt><dd>The inserted-entry count. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1PSDScreeningDBCreator.html#adb5f842229ebb171004d3974fdb01247">CDPL::Pharm::PSDScreeningDBCreator</a>.</p>
 

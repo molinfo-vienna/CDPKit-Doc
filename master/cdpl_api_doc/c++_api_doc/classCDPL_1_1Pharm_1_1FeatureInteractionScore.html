@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="FeatureInteractionScore.">FeatureInteractionScore</a>.  
+<p>Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-feature interaction (e.g. H-bond, ionic, &pi;-&pi; stacking) between two <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html" title="Abstract base class representing a single pharmacophore feature within a parent Pharm::Pharmacophore.">Pharm::Feature</a> instances.  
  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FeatureInteractionScore_8hpp_source.html">FeatureInteractionScore.hpp</a>&gt;</code></p>
@@ -109,8 +109,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae0e5172ddf7fe6dabd4e9f04a7451074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#ae0e5172ddf7fe6dabd4e9f04a7451074">More...</a><br /></td></tr>
 <tr class="separator:ae0e5172ddf7fe6dabd4e9f04a7451074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89dca9a3679e890576c600db2ba76527"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a89dca9a3679e890576c600db2ba76527">operator()</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr1, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const =0</td></tr>
+<tr class="memdesc:a89dca9a3679e890576c600db2ba76527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the interaction score between features <em>ftr1</em> and <em>ftr2</em>.  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a89dca9a3679e890576c600db2ba76527">More...</a><br /></td></tr>
 <tr class="separator:a89dca9a3679e890576c600db2ba76527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a153a232bd84cccab0dff524b495f01"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a9a153a232bd84cccab0dff524b495f01">operator()</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;ftr1_pos, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const =0</td></tr>
+<tr class="memdesc:a9a153a232bd84cccab0dff524b495f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the interaction score with the first feature represented only by its 3D position <em>ftr1_pos</em>.  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a9a153a232bd84cccab0dff524b495f01">More...</a><br /></td></tr>
 <tr class="separator:a9a153a232bd84cccab0dff524b495f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -119,7 +121,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a1d128927bab0f81f567e5013faf2fa67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="FeatureInteractionScore.">FeatureInteractionScore</a>. </p>
+<div class="textblock"><p>Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-feature interaction (e.g. H-bond, ionic, &pi;-&pi; stacking) between two <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html" title="Abstract base class representing a single pharmacophore feature within a parent Pharm::Pharmacophore.">Pharm::Feature</a> instances. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab40d47158b95aeefe93120c847fd13ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab40d47158b95aeefe93120c847fd13ea">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -225,6 +227,16 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Evaluates the interaction score between features <em>ftr1</em> and <em>ftr2</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1</td><td>The first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interaction score. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a53c95b31385186b9b3740f1ec8509b13">CDPL::Pharm::XBondingInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a8c97eb388537eaa662bef5504b09293a">CDPL::Pharm::ParallelPiPiInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1OrthogonalPiPiInteractionScore.html#a076cac5e3ebbb27a524741069b3ac3f9">CDPL::Pharm::OrthogonalPiPiInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1HBondingInteractionScore.html#a1f469672f6845b617195013f3e0eaf77">CDPL::Pharm::HBondingInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScoreCombiner.html#a93dafa468fdb737e5df33c8166447734">CDPL::Pharm::FeatureInteractionScoreCombiner</a>, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceScore.html#a4831015a706d2215890bbc47fe2d553e">CDPL::Pharm::FeatureDistanceScore</a>, and <a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#a1366bb24160fc5fbe533606fd7e1ec71">CDPL::Pharm::CationPiInteractionScore</a>.</p>
 
 </div>
@@ -262,6 +274,16 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Evaluates the interaction score with the first feature represented only by its 3D position <em>ftr1_pos</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1_pos</td><td>The 3D position of the first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The interaction score. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a6c8d04fb835fbbb38bfd4baf7e2ec300">CDPL::Pharm::XBondingInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#aeb79377a5870df6631c49200546a9f09">CDPL::Pharm::ParallelPiPiInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1OrthogonalPiPiInteractionScore.html#ada46f50da401ec00f3f4cd14f862a34b">CDPL::Pharm::OrthogonalPiPiInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1HBondingInteractionScore.html#a5c1b6b4993d8a8f8e08f7ac471be1723">CDPL::Pharm::HBondingInteractionScore</a>, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScoreCombiner.html#ab73d6f29cb1f9d3860e1d4e7971dd6c6">CDPL::Pharm::FeatureInteractionScoreCombiner</a>, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceScore.html#a3fb1eaf6bf9ea8fa7599dc44ef402465">CDPL::Pharm::FeatureDistanceScore</a>, and <a class="el" href="classCDPL_1_1Pharm_1_1CationPiInteractionScore.html#ac60b7da49a690357ffc17b390f07dad1">CDPL::Pharm::CationPiInteractionScore</a>.</p>
 

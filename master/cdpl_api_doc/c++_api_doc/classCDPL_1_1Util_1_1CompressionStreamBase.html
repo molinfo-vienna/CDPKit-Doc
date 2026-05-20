@@ -84,6 +84,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="namespaceCDPL_1_1Base.html" title="Contains core framework classes and functions.">Base</a> class for stream wrappers that buffer (de)compressed data through a temporary file.  
+ <a href="classCDPL_1_1Util_1_1CompressionStreamBase.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="CompressionStreams_8hpp_source.html">CompressionStreams.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Util::CompressionStreamBase&lt; CompAlgo, StreamType &gt;:</div>
@@ -114,6 +117,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae800b0a7faa530bafd7eba60bb857240"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html#ae800b0a7faa530bafd7eba60bb857240">CompressionStreamBase</a> ()</td></tr>
+<tr class="memdesc:ae800b0a7faa530bafd7eba60bb857240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>CompressionStreamBase</code> instance and installs the temporary-file buffer.  <a href="classCDPL_1_1Util_1_1CompressionStreamBase.html#ae800b0a7faa530bafd7eba60bb857240">More...</a><br /></td></tr>
 <tr class="separator:ae800b0a7faa530bafd7eba60bb857240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -129,7 +133,20 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:aeed198b6d3d8ca641f3dc8df67387e7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html#aeed198b6d3d8ca641f3dc8df67387e7a">compOutput</a> (<a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html#a92d4c9242167a09d05de2b771f55b423">OStreamType</a> &amp;os)</td></tr>
 <tr class="separator:aeed198b6d3d8ca641f3dc8df67387e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;CompressionAlgo CompAlgo, typename StreamType&gt;<br />
+class CDPL::Util::CompressionStreamBase&lt; CompAlgo, StreamType &gt;</h3>
+
+<p><a class="el" href="namespaceCDPL_1_1Base.html" title="Contains core framework classes and functions.">Base</a> class for stream wrappers that buffer (de)compressed data through a temporary file. </p>
+<p>Subclasses inherit a hidden <code>std::basic_filebuf</code> and use it as the working buffer while transparently compressing/decompressing data on open/close.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CompAlgo</td><td>The compression algorithm identifier (see <a class="el" href="namespaceCDPL_1_1Util.html#a4ad0a1010a1caadcde48db519833cc2e" title="Identifiers for the compression algorithms supported by the Util compression-stream wrappers.">Util::CompressionAlgo</a>). </td></tr>
+    <tr><td class="paramname">StreamType</td><td>The standard stream type (std::basic_istream/ostream/iostream) to derive from. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a4620687787515f342dbe79dc0a2c0aff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4620687787515f342dbe79dc0a2c0aff">&#9670;&nbsp;</a></span>char_type</h2>
 
@@ -256,6 +273,8 @@ template&lt;CDPL::Util::CompressionAlgo CompAlgo, typename StreamType &gt; </div
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>CompressionStreamBase</code> instance and installs the temporary-file buffer. </p>
 
 </div>
 </div>

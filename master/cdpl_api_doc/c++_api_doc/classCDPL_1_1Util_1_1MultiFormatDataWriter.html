@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html" title="MultiFormatDataWriter.">MultiFormatDataWriter</a>.  
+<p><a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> front-end that automatically selects a concrete handler from <a class="el" href="classCDPL_1_1Base_1_1DataIOManager.html" title="A singleton class that serves as a global registry for Base::DataInputHandler and Base::DataOutputHan...">Base::DataIOManager</a> based on the output file name or an explicitly supplied format identifier.  
  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MultiFormatDataWriter_8hpp_source.html">MultiFormatDataWriter.hpp</a>&gt;</code></p>
@@ -99,6 +99,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a832c495fe68e2a83a5747864de83a67d"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html">MultiFormatDataWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a832c495fe68e2a83a5747864de83a67d">SharedPointer</a></td></tr>
+<tr class="memdesc:a832c495fe68e2a83a5747864de83a67d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MultiFormatDataWriter</code> instances.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a832c495fe68e2a83a5747864de83a67d">More...</a><br /></td></tr>
 <tr class="separator:a832c495fe68e2a83a5747864de83a67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1DataWriter"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1DataWriter')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html">CDPL::Base::DataWriter&lt; DataType &gt;</a></td></tr>
 <tr class="memitem:a9c076171ff81c4c0b59b802a31f3e05e inherit pub_types_classCDPL_1_1Base_1_1DataWriter"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html">DataWriter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a9c076171ff81c4c0b59b802a31f3e05e">SharedPointer</a></td></tr>
@@ -131,32 +132,38 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a888c4bcba94de89951394b440427dd44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">MultiFormatDataWriter</a> (const std::string &amp;file_name, std::ios_base::openmode mode=std::ios_base::in|std::ios_base::out|std::ios_base::trunc|std::ios_base::binary)</td></tr>
+<tr class="memdesc:a888c4bcba94de89951394b440427dd44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>MultiFormatDataWriter</code> that opens <em>file_name</em> and deduces the output format from its name.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">More...</a><br /></td></tr>
 <tr class="separator:a888c4bcba94de89951394b440427dd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c4b878b6e16792492d5ae358e1c8b10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a4c4b878b6e16792492d5ae358e1c8b10">MultiFormatDataWriter</a> (const std::string &amp;file_name, const std::string &amp;fmt, std::ios_base::openmode mode=std::ios_base::in|std::ios_base::out|std::ios_base::trunc|std::ios_base::binary)</td></tr>
+<tr class="memdesc:a4c4b878b6e16792492d5ae358e1c8b10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>MultiFormatDataWriter</code> that opens <em>file_name</em> and uses the output handler matching the file-extension/format name <em>fmt</em>.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a4c4b878b6e16792492d5ae358e1c8b10">More...</a><br /></td></tr>
 <tr class="separator:a4c4b878b6e16792492d5ae358e1c8b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e42f5a8635aef361ca081b8022c0dd7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0e42f5a8635aef361ca081b8022c0dd7">MultiFormatDataWriter</a> (const std::string &amp;file_name, const <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html">Base::DataFormat</a> &amp;fmt, std::ios_base::openmode mode=std::ios_base::in|std::ios_base::out|std::ios_base::trunc|std::ios_base::binary)</td></tr>
+<tr class="memdesc:a0e42f5a8635aef361ca081b8022c0dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>MultiFormatDataWriter</code> that opens <em>file_name</em> and uses the output handler matching the <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> <em>fmt</em>.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0e42f5a8635aef361ca081b8022c0dd7">More...</a><br /></td></tr>
 <tr class="separator:a0e42f5a8635aef361ca081b8022c0dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f823b343924fb9870783404e0922ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#ad4f823b343924fb9870783404e0922ca">MultiFormatDataWriter</a> (std::iostream &amp;ios, const std::string &amp;fmt)</td></tr>
+<tr class="memdesc:ad4f823b343924fb9870783404e0922ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>MultiFormatDataWriter</code> that wraps <em>ios</em> and uses the output handler matching the file-extension/format name <em>fmt</em>.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#ad4f823b343924fb9870783404e0922ca">More...</a><br /></td></tr>
 <tr class="separator:ad4f823b343924fb9870783404e0922ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5c3f9c293753d6904739cb8d613aa29"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#ae5c3f9c293753d6904739cb8d613aa29">MultiFormatDataWriter</a> (std::iostream &amp;ios, const <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html">Base::DataFormat</a> &amp;fmt)</td></tr>
+<tr class="memdesc:ae5c3f9c293753d6904739cb8d613aa29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>MultiFormatDataWriter</code> that wraps <em>ios</em> and uses the output handler matching the <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> <em>fmt</em>.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#ae5c3f9c293753d6904739cb8d613aa29">More...</a><br /></td></tr>
 <tr class="separator:ae5c3f9c293753d6904739cb8d613aa29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a234d399e8bf0fff80e473bee0e86a958"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a234d399e8bf0fff80e473bee0e86a958">MultiFormatDataWriter</a> (const <a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html">MultiFormatDataWriter</a> &amp;)=delete</td></tr>
 <tr class="separator:a234d399e8bf0fff80e473bee0e86a958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e46823e860192d75e3d889b33f8e8e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html">MultiFormatDataWriter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0e46823e860192d75e3d889b33f8e8e0">operator=</a> (const <a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html">MultiFormatDataWriter</a> &amp;)=delete</td></tr>
 <tr class="separator:a0e46823e860192d75e3d889b33f8e8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba13ea66e104a4816c54d390e95d5510"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html">Base::DataFormat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#aba13ea66e104a4816c54d390e95d5510">getDataFormat</a> () const</td></tr>
+<tr class="memdesc:aba13ea66e104a4816c54d390e95d5510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data format actually used by the wrapped output handler.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#aba13ea66e104a4816c54d390e95d5510">More...</a><br /></td></tr>
 <tr class="separator:aba13ea66e104a4816c54d390e95d5510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36cd43f8358156a2a06b35c0b0aa52a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html">MultiFormatDataWriter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a36cd43f8358156a2a06b35c0b0aa52a7">write</a> (const <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a8e95bfc74f86c11207ed5f8dd3fb5f69">DataType</a> &amp;obj)</td></tr>
-<tr class="memdesc:a36cd43f8358156a2a06b35c0b0aa52a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the data object <em>obj</em>.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a36cd43f8358156a2a06b35c0b0aa52a7">More...</a><br /></td></tr>
+<tr class="memdesc:a36cd43f8358156a2a06b35c0b0aa52a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <em>obj</em> via the wrapped writer.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a36cd43f8358156a2a06b35c0b0aa52a7">More...</a><br /></td></tr>
 <tr class="separator:a36cd43f8358156a2a06b35c0b0aa52a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedc4d8057f60bd2ba905ea4929d42316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#aedc4d8057f60bd2ba905ea4929d42316">close</a> ()</td></tr>
-<tr class="memdesc:aedc4d8057f60bd2ba905ea4929d42316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes format dependent data (if required) to mark the end of output.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#aedc4d8057f60bd2ba905ea4929d42316">More...</a><br /></td></tr>
+<tr class="memdesc:aedc4d8057f60bd2ba905ea4929d42316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the wrapped writer (and the underlying file stream if owned).  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#aedc4d8057f60bd2ba905ea4929d42316">More...</a><br /></td></tr>
 <tr class="separator:aedc4d8057f60bd2ba905ea4929d42316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dc465d199e51f143fe8d99c36f1fe35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a5dc465d199e51f143fe8d99c36f1fe35">operator const void *</a> () const</td></tr>
-<tr class="memdesc:a5dc465d199e51f143fe8d99c36f1fe35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer whose value indicates the error state of the writer.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a5dc465d199e51f143fe8d99c36f1fe35">More...</a><br /></td></tr>
+<tr class="memdesc:a5dc465d199e51f143fe8d99c36f1fe35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a good (writable) state.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a5dc465d199e51f143fe8d99c36f1fe35">More...</a><br /></td></tr>
 <tr class="separator:a5dc465d199e51f143fe8d99c36f1fe35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c0e327996058a941e82f4d25485e48c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0c0e327996058a941e82f4d25485e48c">operator!</a> () const</td></tr>
-<tr class="memdesc:a0c0e327996058a941e82f4d25485e48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a bad state.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0c0e327996058a941e82f4d25485e48c">More...</a><br /></td></tr>
+<tr class="memdesc:a0c0e327996058a941e82f4d25485e48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a bad (non-writable) state.  <a href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0c0e327996058a941e82f4d25485e48c">More...</a><br /></td></tr>
 <tr class="separator:a0c0e327996058a941e82f4d25485e48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Base_1_1DataIOBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Base_1_1DataIOBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Base_1_1DataIOBase.html">CDPL::Base::DataIOBase</a></td></tr>
 <tr class="memitem:a8d6b4503ec9bb264efdbadb092454664 inherit pub_methods_classCDPL_1_1Base_1_1DataIOBase"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataIOBase.html#a8d6b4503ec9bb264efdbadb092454664">registerIOCallback</a> (const <a class="el" href="classCDPL_1_1Base_1_1DataIOBase.html#ad6266739e4e6f74e6e317779d25bda8e">IOCallbackFunction</a> &amp;func)</td></tr>
@@ -282,7 +289,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename DataType&gt;<br />
 class CDPL::Util::MultiFormatDataWriter&lt; DataType &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html" title="MultiFormatDataWriter.">MultiFormatDataWriter</a>. </p>
+<p><a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> front-end that automatically selects a concrete handler from <a class="el" href="classCDPL_1_1Base_1_1DataIOManager.html" title="A singleton class that serves as a global registry for Base::DataInputHandler and Base::DataOutputHan...">Base::DataIOManager</a> based on the output file name or an explicitly supplied format identifier. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>The data type to write. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a832c495fe68e2a83a5747864de83a67d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a832c495fe68e2a83a5747864de83a67d">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -297,6 +310,8 @@ template&lt;typename DataType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MultiFormatDataWriter</code> instances. </p>
 
 </div>
 </div>
@@ -328,6 +343,21 @@ template&lt;typename DataType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <code>MultiFormatDataWriter</code> that opens <em>file_name</em> and deduces the output format from its name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>The output-file name. </td></tr>
+    <tr><td class="paramname">mode</td><td>The open mode of the underlying file stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if no matching output handler was found. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -365,6 +395,22 @@ template&lt;typename DataType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a <code>MultiFormatDataWriter</code> that opens <em>file_name</em> and uses the output handler matching the file-extension/format name <em>fmt</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>The output-file name. </td></tr>
+    <tr><td class="paramname">fmt</td><td>A file-extension or format name resolvable via <a class="el" href="classCDPL_1_1Base_1_1DataIOManager.html" title="A singleton class that serves as a global registry for Base::DataInputHandler and Base::DataOutputHan...">Base::DataIOManager</a>. </td></tr>
+    <tr><td class="paramname">mode</td><td>The open mode of the underlying file stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if no matching output handler was found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0e42f5a8635aef361ca081b8022c0dd7"></a>
@@ -401,6 +447,22 @@ template&lt;typename DataType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a <code>MultiFormatDataWriter</code> that opens <em>file_name</em> and uses the output handler matching the <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> <em>fmt</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>The output-file name. </td></tr>
+    <tr><td class="paramname">fmt</td><td>The output format identifier. </td></tr>
+    <tr><td class="paramname">mode</td><td>The open mode of the underlying file stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if no matching output handler was found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad4f823b343924fb9870783404e0922ca"></a>
@@ -431,6 +493,21 @@ template&lt;typename DataType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a <code>MultiFormatDataWriter</code> that wraps <em>ios</em> and uses the output handler matching the file-extension/format name <em>fmt</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ios</td><td>The output stream to wrap. </td></tr>
+    <tr><td class="paramname">fmt</td><td>A file-extension or format name resolvable via <a class="el" href="classCDPL_1_1Base_1_1DataIOManager.html" title="A singleton class that serves as a global registry for Base::DataInputHandler and Base::DataOutputHan...">Base::DataIOManager</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if no matching output handler was found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae5c3f9c293753d6904739cb8d613aa29"></a>
@@ -460,6 +537,21 @@ template&lt;typename DataType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <code>MultiFormatDataWriter</code> that wraps <em>ios</em> and uses the output handler matching the <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> <em>fmt</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ios</td><td>The output stream to wrap. </td></tr>
+    <tr><td class="paramname">fmt</td><td>The output format identifier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if no matching output handler was found. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -534,6 +626,9 @@ template&lt;typename DataType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the data format actually used by the wrapped output handler. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the resolved <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a>. </dd></dl>
+
 </div>
 </div>
 <a id="a36cd43f8358156a2a06b35c0b0aa52a7"></a>
@@ -562,20 +657,14 @@ template&lt;typename DataType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the data object <em>obj</em>. </p>
+<p>Writes <em>obj</em> via the wrapped writer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">obj</td><td>The data object to write. </td></tr>
+    <tr><td class="paramname">obj</td><td>The object to write. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if an I/O error occurred. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a85e18719ef01ecb576dbd1c2e54d3aa8">CDPL::Base::DataWriter&lt; DataType &gt;</a>.</p>
 
@@ -603,13 +692,7 @@ template&lt;typename DataType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes format dependent data (if required) to mark the end of output. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base::IOError</a></td><td>if an I/O error occurred. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Closes the wrapped writer (and the underlying file stream if owned). </p>
 
 <p>Reimplemented from <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#addb1c7be30af3dd4df96ec0f33ecc80d">CDPL::Base::DataWriter&lt; DataType &gt;</a>.</p>
 
@@ -637,12 +720,8 @@ template&lt;typename DataType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer whose value indicates the error state of the writer. </p>
-<p>The operator allows to write expressions like: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (writer) { ... </div>
-<div class="line"><span class="keywordflow">if</span> (writer.write(...)) { ...</div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>A non-<em>null</em> pointer if the writer is in a good state, a <em>null</em> pointer otherwise. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The returned pointer is not meant to be dereferenced, it is just a state indicator. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a0c0e327996058a941e82f4d25485e48c" title="Tells whether the writer is in a bad state.">operator!()</a> </dd></dl>
+<p>Tells whether the writer is in a good (writable) state. </p>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>nullptr</code> pointer if the writer is in a good state, and <code>nullptr</code> otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a42e0aa437204d3e71f60df6f778e3d51">CDPL::Base::DataWriter&lt; DataType &gt;</a>.</p>
 
@@ -670,11 +749,8 @@ template&lt;typename DataType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether the writer is in a bad state. </p>
-<p>The operator allows to write expressions like: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (!writer) { ... </div>
-<div class="line"><span class="keywordflow">if</span> (!writer.write(...)) { ...</div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd><code>false</code> if the writer is in a good state, and <code>true</code> otherwise. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>operator const void*() </dd></dl>
+<p>Tells whether the writer is in a bad (non-writable) state. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the writer is in a bad state, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#ab8dd69c41af9fd3a01e4bdbd72d5fdb6">CDPL::Base::DataWriter&lt; DataType &gt;</a>.</p>
 

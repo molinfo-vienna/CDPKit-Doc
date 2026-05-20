@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Bidirectional stream wrapper that decompresses data read from <em>stream</em> into a temporary buffer and re-compresses the (possibly modified) buffer back to <em>stream</em> on close.  
+ <a href="classCDPL_1_1Util_1_1CompressedIOStream.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="CompressionStreams_8hpp_source.html">CompressionStreams.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Util::CompressedIOStream&lt; CompAlgo, CharT, TraitsT &gt;:</div>
@@ -124,17 +127,23 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a562367b12eeae29c3b66bf09a5eaa6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressedIOStream.html#a3a562367b12eeae29c3b66bf09a5eaa6">CompressedIOStream</a> ()</td></tr>
+<tr class="memdesc:a3a562367b12eeae29c3b66bf09a5eaa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>CompressedIOStream</code> instance without an associated source/sink stream.  <a href="classCDPL_1_1Util_1_1CompressedIOStream.html#a3a562367b12eeae29c3b66bf09a5eaa6">More...</a><br /></td></tr>
 <tr class="separator:a3a562367b12eeae29c3b66bf09a5eaa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a238c872326efa2ba802394bb4dee4706"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressedIOStream.html#a238c872326efa2ba802394bb4dee4706">CompressedIOStream</a> (StreamType &amp;stream)</td></tr>
+<tr class="memdesc:a238c872326efa2ba802394bb4dee4706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>CompressedIOStream</code> instance and immediately opens it on <em>stream</em>.  <a href="classCDPL_1_1Util_1_1CompressedIOStream.html#a238c872326efa2ba802394bb4dee4706">More...</a><br /></td></tr>
 <tr class="separator:a238c872326efa2ba802394bb4dee4706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63cbb0ff0eb4c97aafb9ec263e80582a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressedIOStream.html#a63cbb0ff0eb4c97aafb9ec263e80582a">~CompressedIOStream</a> ()</td></tr>
+<tr class="memdesc:a63cbb0ff0eb4c97aafb9ec263e80582a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. Flushes any pending modifications back to the sink stream as compressed output.  <a href="classCDPL_1_1Util_1_1CompressedIOStream.html#a63cbb0ff0eb4c97aafb9ec263e80582a">More...</a><br /></td></tr>
 <tr class="separator:a63cbb0ff0eb4c97aafb9ec263e80582a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa265aa835be1e614d9e6b559d0f35fc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressedIOStream.html#aa265aa835be1e614d9e6b559d0f35fc2">open</a> (StreamType &amp;stream)</td></tr>
+<tr class="memdesc:aa265aa835be1e614d9e6b559d0f35fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the bidirectional compression stream on <em>stream</em>.  <a href="classCDPL_1_1Util_1_1CompressedIOStream.html#aa265aa835be1e614d9e6b559d0f35fc2">More...</a><br /></td></tr>
 <tr class="separator:aa265aa835be1e614d9e6b559d0f35fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28a8b2f6d7debe415c0f787dfa766dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressedIOStream.html#a28a8b2f6d7debe415c0f787dfa766dcd">close</a> ()</td></tr>
+<tr class="memdesc:a28a8b2f6d7debe415c0f787dfa766dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the stream and writes any pending modifications back as compressed output.  <a href="classCDPL_1_1Util_1_1CompressedIOStream.html#a28a8b2f6d7debe415c0f787dfa766dcd">More...</a><br /></td></tr>
 <tr class="separator:a28a8b2f6d7debe415c0f787dfa766dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Util_1_1CompressionStreamBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Util_1_1CompressionStreamBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html">CDPL::Util::CompressionStreamBase&lt; CompAlgo, std::basic_iostream&lt; char, std::char_traits&lt; char &gt; &gt; &gt;</a></td></tr>
 <tr class="memitem:ae800b0a7faa530bafd7eba60bb857240 inherit pub_methods_classCDPL_1_1Util_1_1CompressionStreamBase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html#ae800b0a7faa530bafd7eba60bb857240">CompressionStreamBase</a> ()</td></tr>
+<tr class="memdesc:ae800b0a7faa530bafd7eba60bb857240 inherit pub_methods_classCDPL_1_1Util_1_1CompressionStreamBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>CompressionStreamBase</code> instance and installs the temporary-file buffer.  <a href="classCDPL_1_1Util_1_1CompressionStreamBase.html#ae800b0a7faa530bafd7eba60bb857240">More...</a><br /></td></tr>
 <tr class="separator:ae800b0a7faa530bafd7eba60bb857240 inherit pub_methods_classCDPL_1_1Util_1_1CompressionStreamBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -151,7 +160,20 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:aeed198b6d3d8ca641f3dc8df67387e7a inherit pro_methods_classCDPL_1_1Util_1_1CompressionStreamBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html#aeed198b6d3d8ca641f3dc8df67387e7a">compOutput</a> (<a class="el" href="classCDPL_1_1Util_1_1CompressionStreamBase.html#a92d4c9242167a09d05de2b771f55b423">OStreamType</a> &amp;os)</td></tr>
 <tr class="separator:aeed198b6d3d8ca641f3dc8df67387e7a inherit pro_methods_classCDPL_1_1Util_1_1CompressionStreamBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;CompressionAlgo CompAlgo, typename CharT = char, typename TraitsT = std::char_traits&lt;CharT&gt;&gt;<br />
+class CDPL::Util::CompressedIOStream&lt; CompAlgo, CharT, TraitsT &gt;</h3>
+
+<p>Bidirectional stream wrapper that decompresses data read from <em>stream</em> into a temporary buffer and re-compresses the (possibly modified) buffer back to <em>stream</em> on close. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">CompAlgo</td><td>The compression algorithm identifier (see <a class="el" href="namespaceCDPL_1_1Util.html#a4ad0a1010a1caadcde48db519833cc2e" title="Identifiers for the compression algorithms supported by the Util compression-stream wrappers.">Util::CompressionAlgo</a>). </td></tr>
+    <tr><td class="paramname">CharT</td><td>The character type of the stream. </td></tr>
+    <tr><td class="paramname">TraitsT</td><td>The character traits type of the stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6208574c6078c91f5233ac9124af10d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6208574c6078c91f5233ac9124af10d0">&#9670;&nbsp;</a></span>char_type</h2>
 
@@ -247,6 +269,8 @@ template&lt;CDPL::Util::CompressionAlgo CompAlgo, typename CharT , typename Trai
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>CompressedIOStream</code> instance without an associated source/sink stream. </p>
+
 </div>
 </div>
 <a id="a238c872326efa2ba802394bb4dee4706"></a>
@@ -267,6 +291,14 @@ template&lt;CDPL::Util::CompressionAlgo CompAlgo, typename CharT , typename Trai
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>CompressedIOStream</code> instance and immediately opens it on <em>stream</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>The compressed source/sink stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a63cbb0ff0eb4c97aafb9ec263e80582a"></a>
@@ -282,6 +314,8 @@ template&lt;CDPL::Util::CompressionAlgo CompAlgo, typename CharT , typename Trai
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. Flushes any pending modifications back to the sink stream as compressed output. </p>
 
 </div>
 </div>
@@ -304,6 +338,14 @@ template&lt;CDPL::Util::CompressionAlgo CompAlgo, typename CharT , typename Trai
       </table>
 </div><div class="memdoc">
 
+<p>Opens the bidirectional compression stream on <em>stream</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>The compressed source/sink stream. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a28a8b2f6d7debe415c0f787dfa766dcd"></a>
@@ -319,6 +361,8 @@ template&lt;CDPL::Util::CompressionAlgo CompAlgo, typename CharT , typename Trai
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Closes the stream and writes any pending modifications back as compressed output. </p>
 
 </div>
 </div>

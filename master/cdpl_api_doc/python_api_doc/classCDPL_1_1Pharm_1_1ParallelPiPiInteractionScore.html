@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html" title="ParallelPiPiInteractionScore.">ParallelPiPiInteractionScore</a>.  
+<p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm.FeatureInteractionScore</a> implementation that scores an aromatic feature pair for a parallel (sandwich/displaced) &pi;-&pi; interaction by combining per-component scores for vertical/horizontal center separations and ring-plane-normal angle.  
  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Pharm.ParallelPiPiInteractionScore:</div>
@@ -101,19 +101,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac46f031d8a7d9805e307f56ade278755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a copy of the <code>ParallelPiPiInteractionScore</code> instance <em>score</em>.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#ac46f031d8a7d9805e307f56ade278755">More...</a><br /></td></tr>
 <tr class="separator:ac46f031d8a7d9805e307f56ade278755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1de4383cda686c4c278927929e96f08d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1de4383cda686c4c278927929e96f08d">__init__</a> (float min_v_dist=3.0, float max_v_dist=5.5, float max_h_dist=2.8, float max_ang=20.0)</td></tr>
-<tr class="memdesc:a1de4383cda686c4c278927929e96f08d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html" title="ParallelPiPiInteractionScore.">ParallelPiPiInteractionScore</a></code> functor with the specified constraints.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1de4383cda686c4c278927929e96f08d">More...</a><br /></td></tr>
+<tr class="memdesc:a1de4383cda686c4c278927929e96f08d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html" title="Pharm.FeatureInteractionScore implementation that scores an aromatic feature pair for a parallel (san...">ParallelPiPiInteractionScore</a></code> functor with the specified constraints.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1de4383cda686c4c278927929e96f08d">More...</a><br /></td></tr>
 <tr class="separator:a1de4383cda686c4c278927929e96f08d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b3fd5ba7d17431aebfd2c7dad2254b0"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a7b3fd5ba7d17431aebfd2c7dad2254b0">setDistanceScoringFunction</a> (<a class="el" href="classCDPL_1_1Pharm_1_1DoubleDoubleFunctor.html">DoubleDoubleFunctor</a> func)</td></tr>
+<tr class="memdesc:a7b3fd5ba7d17431aebfd2c7dad2254b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps a feature-pair distance to its score contribution.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a7b3fd5ba7d17431aebfd2c7dad2254b0">More...</a><br /></td></tr>
 <tr class="separator:a7b3fd5ba7d17431aebfd2c7dad2254b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fa686a65d627e71d7dc1354ec4dd21b"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1fa686a65d627e71d7dc1354ec4dd21b">setAngleScoringFunction</a> (<a class="el" href="classCDPL_1_1Pharm_1_1DoubleDoubleFunctor.html">DoubleDoubleFunctor</a> func)</td></tr>
+<tr class="memdesc:a1fa686a65d627e71d7dc1354ec4dd21b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps the ring-plane-normal angle to its score contribution.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1fa686a65d627e71d7dc1354ec4dd21b">More...</a><br /></td></tr>
 <tr class="separator:a1fa686a65d627e71d7dc1354ec4dd21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41437c86b57670ec2840bbf5322dcf43"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a41437c86b57670ec2840bbf5322dcf43">getMinVDistance</a> ()</td></tr>
+<tr class="memdesc:a41437c86b57670ec2840bbf5322dcf43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured minimum out-of-plane ring-center separation.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a41437c86b57670ec2840bbf5322dcf43">More...</a><br /></td></tr>
 <tr class="separator:a41437c86b57670ec2840bbf5322dcf43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3d526e30f7ac0764dd6f96c5635aed4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#ad3d526e30f7ac0764dd6f96c5635aed4">getMaxVDistance</a> ()</td></tr>
+<tr class="memdesc:ad3d526e30f7ac0764dd6f96c5635aed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum out-of-plane ring-center separation.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#ad3d526e30f7ac0764dd6f96c5635aed4">More...</a><br /></td></tr>
 <tr class="separator:ad3d526e30f7ac0764dd6f96c5635aed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab59542d63e1272adfbd2ed10a8845192"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#ab59542d63e1272adfbd2ed10a8845192">getMaxHDistance</a> ()</td></tr>
+<tr class="memdesc:ab59542d63e1272adfbd2ed10a8845192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum in-plane ring-center displacement.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#ab59542d63e1272adfbd2ed10a8845192">More...</a><br /></td></tr>
 <tr class="separator:ab59542d63e1272adfbd2ed10a8845192"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b42fe803ef3f87af71daa73c620227c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1b42fe803ef3f87af71daa73c620227c">getMaxAngle</a> ()</td></tr>
+<tr class="memdesc:a1b42fe803ef3f87af71daa73c620227c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum deviation from a 0&deg; angle between the two ring-plane normals.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a1b42fe803ef3f87af71daa73c620227c">More...</a><br /></td></tr>
 <tr class="separator:a1b42fe803ef3f87af71daa73c620227c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affea4e6449c3e049444661c373c2ab07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html">ParallelPiPiInteractionScore</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#affea4e6449c3e049444661c373c2ab07">assign</a> (<a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html">ParallelPiPiInteractionScore</a> constr)</td></tr>
 <tr class="memdesc:affea4e6449c3e049444661c373c2ab07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>ParallelPiPiInteractionScore</code> instance <em>constr</em>.  <a href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#affea4e6449c3e049444661c373c2ab07">More...</a><br /></td></tr>
@@ -134,16 +140,20 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ad710ea834b33896850e2735e19c4f73a"><td class="memItemLeft" align="right" valign="top"><a id="ad710ea834b33896850e2735e19c4f73a"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_MIN_V_DISTANCE</b> = 3.0</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#ad710ea834b33896850e2735e19c4f73a">DEF_MIN_V_DISTANCE</a> = 3.0</td></tr>
+<tr class="memdesc:ad710ea834b33896850e2735e19c4f73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default minimum out-of-plane (vertical) ring-center separation in &Aring;ngstrom. <br /></td></tr>
 <tr class="separator:ad710ea834b33896850e2735e19c4f73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a850b7ada1703eee824faa9616c122f0b"><td class="memItemLeft" align="right" valign="top"><a id="a850b7ada1703eee824faa9616c122f0b"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_MAX_V_DISTANCE</b> = 5.5</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a850b7ada1703eee824faa9616c122f0b">DEF_MAX_V_DISTANCE</a> = 5.5</td></tr>
+<tr class="memdesc:a850b7ada1703eee824faa9616c122f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum out-of-plane (vertical) ring-center separation in &Aring;ngstrom. <br /></td></tr>
 <tr class="separator:a850b7ada1703eee824faa9616c122f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabc0cf8837716bb6083d386bd9eb83d4"><td class="memItemLeft" align="right" valign="top"><a id="aabc0cf8837716bb6083d386bd9eb83d4"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_MAX_H_DISTANCE</b> = 2.8</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#aabc0cf8837716bb6083d386bd9eb83d4">DEF_MAX_H_DISTANCE</a> = 2.8</td></tr>
+<tr class="memdesc:aabc0cf8837716bb6083d386bd9eb83d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum in-plane (horizontal) ring-center displacement in &Aring;ngstrom. <br /></td></tr>
 <tr class="separator:aabc0cf8837716bb6083d386bd9eb83d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98e4b79c4885d54aad6fd0306f4d56ae"><td class="memItemLeft" align="right" valign="top"><a id="a98e4b79c4885d54aad6fd0306f4d56ae"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_MAX_ANGLE</b> = 20.0</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html#a98e4b79c4885d54aad6fd0306f4d56ae">DEF_MAX_ANGLE</a> = 20.0</td></tr>
+<tr class="memdesc:a98e4b79c4885d54aad6fd0306f4d56ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum angle deviation from 0&deg; of the two ring-plane normals in degrees. <br /></td></tr>
 <tr class="separator:a98e4b79c4885d54aad6fd0306f4d56ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -166,7 +176,7 @@ Properties</h2></td></tr>
 <tr class="separator:aa92c5e4183b52bf4c3a2d437ea8c52dc inherit properties_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html" title="ParallelPiPiInteractionScore.">ParallelPiPiInteractionScore</a>. </p>
+<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm.FeatureInteractionScore</a> implementation that scores an aromatic feature pair for a parallel (sandwich/displaced) &pi;-&pi; interaction by combining per-component scores for vertical/horizontal center separations and ring-plane-normal angle. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac46f031d8a7d9805e307f56ade278755"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac46f031d8a7d9805e307f56ade278755">&#9670;&nbsp;</a></span>__init__() <span class="overload">[1/2]</span></h2>
@@ -232,7 +242,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a <code><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html" title="ParallelPiPiInteractionScore.">ParallelPiPiInteractionScore</a></code> functor with the specified constraints. </p>
+<p>Constructs a <code><a class="el" href="classCDPL_1_1Pharm_1_1ParallelPiPiInteractionScore.html" title="Pharm.FeatureInteractionScore implementation that scores an aromatic feature pair for a parallel (san...">ParallelPiPiInteractionScore</a></code> functor with the specified constraints. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">min_v_dist</td><td>The minimum allowed distance of the two feature-positions orthogonal to the ring-planes. </td></tr>
@@ -261,9 +271,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies the function that maps a feature-pair distance to its score contribution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td></td></tr>
+    <tr><td class="paramname">func</td><td>The distance-scoring function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,9 +297,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies the function that maps the ring-plane-normal angle to its score contribution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td></td></tr>
+    <tr><td class="paramname">func</td><td>The angle-scoring function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,7 +322,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the currently configured minimum out-of-plane ring-center separation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The minimum vertical distance. </dd></dl>
 
 </div>
 </div>
@@ -326,7 +342,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the currently configured maximum out-of-plane ring-center separation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum vertical distance. </dd></dl>
 
 </div>
 </div>
@@ -344,7 +362,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the currently configured maximum in-plane ring-center displacement. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum horizontal distance. </dd></dl>
 
 </div>
 </div>
@@ -362,7 +382,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the currently configured maximum deviation from a 0&deg; angle between the two ring-plane normals. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum angle deviation in degrees. </dd></dl>
 
 </div>
 </div>

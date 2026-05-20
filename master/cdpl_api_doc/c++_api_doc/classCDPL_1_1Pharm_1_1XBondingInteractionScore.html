@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html" title="XBondingInteractionScore.">XBondingInteractionScore</a>.  
+<p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm::FeatureInteractionScore</a> implementation that scores a halogen-bond donor/acceptor feature pair by combining per-component scores for halogen-acceptor distance, acceptor-halogen-bound-atom angle and acceptor-direction angle.  
  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="XBondingInteractionScore_8hpp_source.html">XBondingInteractionScore.hpp</a>&gt;</code></p>
@@ -103,8 +103,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a2cac79805cf09b68123179a3511223c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>XBondingInteractionScore</code> instances.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a2cac79805cf09b68123179a3511223c3">More...</a><br /></td></tr>
 <tr class="separator:a2cac79805cf09b68123179a3511223c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98cae892490d83e7995b78f5d6cda973"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a98cae892490d83e7995b78f5d6cda973">DistanceScoringFunction</a></td></tr>
+<tr class="memdesc:a98cae892490d83e7995b78f5d6cda973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function mapping a halogen-acceptor distance to its score contribution.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a98cae892490d83e7995b78f5d6cda973">More...</a><br /></td></tr>
 <tr class="separator:a98cae892490d83e7995b78f5d6cda973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b0c62721d13808092a26fdc02164b7"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; double(double)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#af8b0c62721d13808092a26fdc02164b7">AngleScoringFunction</a></td></tr>
+<tr class="memdesc:af8b0c62721d13808092a26fdc02164b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the function mapping a halogen-bond geometry angle to its score contribution.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#af8b0c62721d13808092a26fdc02164b7">More...</a><br /></td></tr>
 <tr class="separator:af8b0c62721d13808092a26fdc02164b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Pharm_1_1FeatureInteractionScore')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">CDPL::Pharm::FeatureInteractionScore</a></td></tr>
 <tr class="memitem:ab40d47158b95aeefe93120c847fd13ea inherit pub_types_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">FeatureInteractionScore</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#ab40d47158b95aeefe93120c847fd13ea">SharedPointer</a></td></tr>
@@ -117,22 +119,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a77d25e20c1081f71a2632065bf29932b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>XBondingInteractionScore</code> functor with the specified scores.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a77d25e20c1081f71a2632065bf29932b">More...</a><br /></td></tr>
 <tr class="separator:a77d25e20c1081f71a2632065bf29932b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af540c75b110912287325eea83ccdd6c3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#af540c75b110912287325eea83ccdd6c3">getMinAXDistance</a> () const</td></tr>
+<tr class="memdesc:af540c75b110912287325eea83ccdd6c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured minimum halogen-acceptor distance.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#af540c75b110912287325eea83ccdd6c3">More...</a><br /></td></tr>
 <tr class="separator:af540c75b110912287325eea83ccdd6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a502acbd21c0c7e69e03a5fc8a66dbc16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a502acbd21c0c7e69e03a5fc8a66dbc16">getMaxAXDistance</a> () const</td></tr>
+<tr class="memdesc:a502acbd21c0c7e69e03a5fc8a66dbc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum halogen-acceptor distance.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a502acbd21c0c7e69e03a5fc8a66dbc16">More...</a><br /></td></tr>
 <tr class="separator:a502acbd21c0c7e69e03a5fc8a66dbc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa62953ee8077b67a02b955a16cf3233a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aa62953ee8077b67a02b955a16cf3233a">getMinAXBAngle</a> () const</td></tr>
+<tr class="memdesc:aa62953ee8077b67a02b955a16cf3233a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured minimum acceptor-halogen-bound-atom angle.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aa62953ee8077b67a02b955a16cf3233a">More...</a><br /></td></tr>
 <tr class="separator:aa62953ee8077b67a02b955a16cf3233a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dae6ef7c292b51cb928b7deabba937f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a7dae6ef7c292b51cb928b7deabba937f">getMaxAcceptorAngle</a> () const</td></tr>
+<tr class="memdesc:a7dae6ef7c292b51cb928b7deabba937f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum deviation from the acceptor's preferred X-bonding direction.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a7dae6ef7c292b51cb928b7deabba937f">More...</a><br /></td></tr>
 <tr class="separator:a7dae6ef7c292b51cb928b7deabba937f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaebeb7d64d82176178b3282503228959"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aaebeb7d64d82176178b3282503228959">setDistanceScoringFunction</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a98cae892490d83e7995b78f5d6cda973">DistanceScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:aaebeb7d64d82176178b3282503228959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps the halogen-acceptor distance to its score contribution.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aaebeb7d64d82176178b3282503228959">More...</a><br /></td></tr>
 <tr class="separator:aaebeb7d64d82176178b3282503228959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa958cac598934b5a5fe2969ee369a16c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aa958cac598934b5a5fe2969ee369a16c">setAcceptorAngleScoringFunction</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#af8b0c62721d13808092a26fdc02164b7">AngleScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:aa958cac598934b5a5fe2969ee369a16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps the acceptor-direction angle to its score contribution.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aa958cac598934b5a5fe2969ee369a16c">More...</a><br /></td></tr>
 <tr class="separator:aa958cac598934b5a5fe2969ee369a16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b2b524e8d265c6bcdd8ed545ea93934"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a3b2b524e8d265c6bcdd8ed545ea93934">setAXBAngleScoringFunction</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#af8b0c62721d13808092a26fdc02164b7">AngleScoringFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a3b2b524e8d265c6bcdd8ed545ea93934"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function that maps the acceptor-halogen-bound-atom angle to its score contribution.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a3b2b524e8d265c6bcdd8ed545ea93934">More...</a><br /></td></tr>
 <tr class="separator:a3b2b524e8d265c6bcdd8ed545ea93934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53c95b31385186b9b3740f1ec8509b13"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a53c95b31385186b9b3740f1ec8509b13">operator()</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr1, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const</td></tr>
+<tr class="memdesc:a53c95b31385186b9b3740f1ec8509b13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the halogen-bond interaction score between features <em>ftr1</em> and <em>ftr2</em>.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a53c95b31385186b9b3740f1ec8509b13">More...</a><br /></td></tr>
 <tr class="separator:a53c95b31385186b9b3740f1ec8509b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c8d04fb835fbbb38bfd4baf7e2ec300"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a6c8d04fb835fbbb38bfd4baf7e2ec300">operator()</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;ftr1_pos, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const</td></tr>
+<tr class="memdesc:a6c8d04fb835fbbb38bfd4baf7e2ec300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the halogen-bond interaction score with the first feature represented only by its 3D position <em>ftr1_pos</em>.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a6c8d04fb835fbbb38bfd4baf7e2ec300">More...</a><br /></td></tr>
 <tr class="separator:a6c8d04fb835fbbb38bfd4baf7e2ec300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">CDPL::Pharm::FeatureInteractionScore</a></td></tr>
 <tr class="memitem:ae0e5172ddf7fe6dabd4e9f04a7451074 inherit pub_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#ae0e5172ddf7fe6dabd4e9f04a7451074">~FeatureInteractionScore</a> ()</td></tr>
@@ -142,12 +153,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ad8585de1aa94dd8dbf240a4ea71b73b1"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#ad8585de1aa94dd8dbf240a4ea71b73b1">DEF_MIN_AX_DISTANCE</a> = 1.6</td></tr>
+<tr class="memdesc:ad8585de1aa94dd8dbf240a4ea71b73b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default minimum halogen-acceptor distance in &Aring;ngstrom.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#ad8585de1aa94dd8dbf240a4ea71b73b1">More...</a><br /></td></tr>
 <tr class="separator:ad8585de1aa94dd8dbf240a4ea71b73b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac70c3a0d36470acd0baa486e5c55d203"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#ac70c3a0d36470acd0baa486e5c55d203">DEF_MAX_AX_DISTANCE</a> = 4.0</td></tr>
+<tr class="memdesc:ac70c3a0d36470acd0baa486e5c55d203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum halogen-acceptor distance in &Aring;ngstrom.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#ac70c3a0d36470acd0baa486e5c55d203">More...</a><br /></td></tr>
 <tr class="separator:ac70c3a0d36470acd0baa486e5c55d203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1c5c12fdeba4566f85ab80f8aba38a"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aca1c5c12fdeba4566f85ab80f8aba38a">DEF_MIN_AXB_ANGLE</a> = 150.0</td></tr>
+<tr class="memdesc:aca1c5c12fdeba4566f85ab80f8aba38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default minimum acceptor-halogen-bound-atom angle in degrees.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#aca1c5c12fdeba4566f85ab80f8aba38a">More...</a><br /></td></tr>
 <tr class="separator:aca1c5c12fdeba4566f85ab80f8aba38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a686071bbe701beee16a9aa5f1f268fa9"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a686071bbe701beee16a9aa5f1f268fa9">DEF_MAX_ACC_ANGLE</a> = 35.0</td></tr>
+<tr class="memdesc:a686071bbe701beee16a9aa5f1f268fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default maximum deviation from the acceptor's preferred X-bonding direction in degrees.  <a href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html#a686071bbe701beee16a9aa5f1f268fa9">More...</a><br /></td></tr>
 <tr class="separator:a686071bbe701beee16a9aa5f1f268fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -157,7 +172,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a1d128927bab0f81f567e5013faf2fa67 inherit pro_methods_classCDPL_1_1Pharm_1_1FeatureInteractionScore"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1XBondingInteractionScore.html" title="XBondingInteractionScore.">XBondingInteractionScore</a>. </p>
+<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm::FeatureInteractionScore</a> implementation that scores a halogen-bond donor/acceptor feature pair by combining per-component scores for halogen-acceptor distance, acceptor-halogen-bound-atom angle and acceptor-direction angle. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a2cac79805cf09b68123179a3511223c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cac79805cf09b68123179a3511223c3">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -187,6 +202,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the function mapping a halogen-acceptor distance to its score contribution. </p>
+
 </div>
 </div>
 <a id="af8b0c62721d13808092a26fdc02164b7"></a>
@@ -200,6 +217,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the function mapping a halogen-bond geometry angle to its score contribution. </p>
 
 </div>
 </div>
@@ -278,6 +297,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the currently configured minimum halogen-acceptor distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The minimum AX distance. </dd></dl>
+
 </div>
 </div>
 <a id="a502acbd21c0c7e69e03a5fc8a66dbc16"></a>
@@ -294,6 +316,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured maximum halogen-acceptor distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum AX distance. </dd></dl>
 
 </div>
 </div>
@@ -312,6 +337,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the currently configured minimum acceptor-halogen-bound-atom angle. </p>
+<dl class="section return"><dt>Returns</dt><dd>The minimum AXB angle in degrees. </dd></dl>
+
 </div>
 </div>
 <a id="a7dae6ef7c292b51cb928b7deabba937f"></a>
@@ -328,6 +356,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured maximum deviation from the acceptor's preferred X-bonding direction. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum acceptor angle in degrees. </dd></dl>
 
 </div>
 </div>
@@ -347,6 +378,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies the function that maps the halogen-acceptor distance to its score contribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The distance-scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa958cac598934b5a5fe2969ee369a16c"></a>
@@ -365,6 +404,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies the function that maps the acceptor-direction angle to its score contribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The acceptor-angle scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3b2b524e8d265c6bcdd8ed545ea93934"></a>
@@ -382,6 +429,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies the function that maps the acceptor-halogen-bound-atom angle to its score contribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The AXB-angle scoring function. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -418,6 +473,16 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Evaluates the halogen-bond interaction score between features <em>ftr1</em> and <em>ftr2</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1</td><td>The first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The halogen-bond interaction score. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a89dca9a3679e890576c600db2ba76527">CDPL::Pharm::FeatureInteractionScore</a>.</p>
 
@@ -457,6 +522,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Evaluates the halogen-bond interaction score with the first feature represented only by its 3D position <em>ftr1_pos</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1_pos</td><td>The 3D position of the first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The halogen-bond interaction score. </dd></dl>
+
 <p>Implements <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#a9a153a232bd84cccab0dff524b495f01">CDPL::Pharm::FeatureInteractionScore</a>.</p>
 
 </div>
@@ -482,6 +557,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default minimum halogen-acceptor distance in &Aring;ngstrom. </p>
+
 </div>
 </div>
 <a id="ac70c3a0d36470acd0baa486e5c55d203"></a>
@@ -503,6 +580,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default maximum halogen-acceptor distance in &Aring;ngstrom. </p>
 
 </div>
 </div>
@@ -526,6 +605,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default minimum acceptor-halogen-bound-atom angle in degrees. </p>
+
 </div>
 </div>
 <a id="a686071bbe701beee16a9aa5f1f268fa9"></a>
@@ -547,6 +628,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default maximum deviation from the acceptor's preferred X-bonding direction in degrees. </p>
 
 </div>
 </div>

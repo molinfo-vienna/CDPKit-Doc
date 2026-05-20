@@ -111,7 +111,7 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#a0ab4a0c4d2d252625bce550596b03ebfa7f84f85b08abf7337fd615239725bd7d">GEOM_REF_ATOM2_FLAG</a> = 0x08
 <br />
  }</td></tr>
-<tr class="memdesc:a0ab4a0c4d2d252625bce550596b03ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags used to label the role of an atom in a feature substructure pattern.  <a href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#a0ab4a0c4d2d252625bce550596b03ebf">More...</a><br /></td></tr>
+<tr class="memdesc:a0ab4a0c4d2d252625bce550596b03ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Role-flags assigned (via the atom-mapping-ID property) to atoms of feature substructure patterns added through <a class="el" href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#ace6cc4527a73d6e672dacfbcda3ee1da" title="Appends a new feature substructure include pattern to the current set of patterns.">addIncludePattern()</a>. The flags are bit-OR-combinable so that a single pattern atom can act in several roles simultaneously.  <a href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#a0ab4a0c4d2d252625bce550596b03ebf">More...</a><br /></td></tr>
 <tr class="separator:a0ab4a0c4d2d252625bce550596b03ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a575c30e5eb09bef494400e0be3bc1477"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html">PatternBasedFeatureGenerator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#a575c30e5eb09bef494400e0be3bc1477">SharedPointer</a></td></tr>
 <tr class="memdesc:a575c30e5eb09bef494400e0be3bc1477"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>PatternBasedFeatureGenerator</code> instances.  <a href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#a575c30e5eb09bef494400e0be3bc1477">More...</a><br /></td></tr>
@@ -248,15 +248,15 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Flags used to label the role of an atom in a feature substructure pattern. </p>
+<p>Role-flags assigned (via the atom-mapping-ID property) to atoms of feature substructure patterns added through <a class="el" href="classCDPL_1_1Pharm_1_1PatternBasedFeatureGenerator.html#ace6cc4527a73d6e672dacfbcda3ee1da" title="Appends a new feature substructure include pattern to the current set of patterns.">addIncludePattern()</a>. The flags are bit-OR-combinable so that a single pattern atom can act in several roles simultaneously. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa0d0cdb31d0286f3c72e8de6e85cc2d9b"></a>FEATURE_ATOM_FLAG&#160;</td><td class="fielddoc"><p>The atom contributes to the feature substructure. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa0d0cdb31d0286f3c72e8de6e85cc2d9b"></a>FEATURE_ATOM_FLAG&#160;</td><td class="fielddoc"><p>The atom is part of the generated feature's substructure. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa3a33e567781a28442e4f3e2655430e98"></a>POS_REF_ATOM_FLAG&#160;</td><td class="fielddoc"><p>The atom defines the feature's 3D position. </p>
+<tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa3a33e567781a28442e4f3e2655430e98"></a>POS_REF_ATOM_FLAG&#160;</td><td class="fielddoc"><p>The atom contributes (via centroid averaging) to the feature's 3D position. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa4970a835737a6b3d7cc9b16098de963d"></a>GEOM_REF_ATOM1_FLAG&#160;</td><td class="fielddoc"><p>The atom defines the first orientation reference for vector- and plane-type features. </p>
+<tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa4970a835737a6b3d7cc9b16098de963d"></a>GEOM_REF_ATOM1_FLAG&#160;</td><td class="fielddoc"><p>The atom defines the first orientation reference (used by both vector- and plane-type features). </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa7f84f85b08abf7337fd615239725bd7d"></a>GEOM_REF_ATOM2_FLAG&#160;</td><td class="fielddoc"><p>The atom defines the second orientation reference for plane-type features. </p>
+<tr><td class="fieldname"><a id="a0ab4a0c4d2d252625bce550596b03ebfa7f84f85b08abf7337fd615239725bd7d"></a>GEOM_REF_ATOM2_FLAG&#160;</td><td class="fielddoc"><p>The atom defines the second orientation reference (used by plane-type features). </p>
 </td></tr>
 </table>
 

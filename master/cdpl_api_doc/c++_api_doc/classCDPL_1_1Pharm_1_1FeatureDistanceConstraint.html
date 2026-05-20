@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html" title="FeatureDistanceConstraint.">FeatureDistanceConstraint</a>.  
+<p>Constraint functor that accepts a pair of features whose 3D-position distance lies within a configured [min, max] interval.  
  <a href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FeatureDistanceConstraint_8hpp_source.html">FeatureDistanceConstraint.hpp</a>&gt;</code></p>
@@ -101,14 +101,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a944b63358d24b9b5ca0a33867a83386f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>FeatureDistanceConstraint</code> functor with a minimum feature distance of <em>min_dist</em> and maximum distance of <em>max_dist</em>.  <a href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#a944b63358d24b9b5ca0a33867a83386f">More...</a><br /></td></tr>
 <tr class="separator:a944b63358d24b9b5ca0a33867a83386f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad19c40a59b4dd808cc4e725f07d7751a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#ad19c40a59b4dd808cc4e725f07d7751a">getMinDistance</a> () const</td></tr>
+<tr class="memdesc:ad19c40a59b4dd808cc4e725f07d7751a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured minimum feature pair distance.  <a href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#ad19c40a59b4dd808cc4e725f07d7751a">More...</a><br /></td></tr>
 <tr class="separator:ad19c40a59b4dd808cc4e725f07d7751a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07013022321471a672100a49cc363ef2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#a07013022321471a672100a49cc363ef2">getMaxDistance</a> () const</td></tr>
+<tr class="memdesc:a07013022321471a672100a49cc363ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured maximum feature pair distance.  <a href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#a07013022321471a672100a49cc363ef2">More...</a><br /></td></tr>
 <tr class="separator:a07013022321471a672100a49cc363ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00bc8968ad4cf33bae2505038e56e347"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#a00bc8968ad4cf33bae2505038e56e347">operator()</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr1, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const</td></tr>
+<tr class="memdesc:a00bc8968ad4cf33bae2505038e56e347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests whether the 3D-position distance between <em>ftr1</em> and <em>ftr2</em> lies within the configured [min, max] interval.  <a href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html#a00bc8968ad4cf33bae2505038e56e347">More...</a><br /></td></tr>
 <tr class="separator:a00bc8968ad4cf33bae2505038e56e347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FeatureDistanceConstraint.html" title="FeatureDistanceConstraint.">FeatureDistanceConstraint</a>. </p>
+<div class="textblock"><p>Constraint functor that accepts a pair of features whose 3D-position distance lies within a configured [min, max] interval. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a944b63358d24b9b5ca0a33867a83386f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a944b63358d24b9b5ca0a33867a83386f">&#9670;&nbsp;</a></span>FeatureDistanceConstraint()</h2>
@@ -171,6 +174,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the currently configured minimum feature pair distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The minimum distance. </dd></dl>
+
 </div>
 </div>
 <a id="a07013022321471a672100a49cc363ef2"></a>
@@ -187,6 +193,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured maximum feature pair distance. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum distance. </dd></dl>
 
 </div>
 </div>
@@ -215,6 +224,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tests whether the 3D-position distance between <em>ftr1</em> and <em>ftr2</em> lies within the configured [min, max] interval. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ftr1</td><td>The first feature. </td></tr>
+    <tr><td class="paramname">ftr2</td><td>The second feature. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the constraint is satisfied, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>

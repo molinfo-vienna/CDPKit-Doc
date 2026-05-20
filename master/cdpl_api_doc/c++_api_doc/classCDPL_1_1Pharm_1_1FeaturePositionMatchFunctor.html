@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html" title="FeaturePositionMatchFunctor.">FeaturePositionMatchFunctor</a>.  
+<p>Match functor that quantifies the goodness of the 3D-position match between two pharmacophore features by comparing their separation against the configured per-feature tolerance.  
  <a href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FeaturePositionMatchFunctor_8hpp_source.html">FeaturePositionMatchFunctor.hpp</a>&gt;</code></p>
@@ -90,8 +90,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ff5dcb96ca90695804cd29053689d22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#a7ff5dcb96ca90695804cd29053689d22">FeaturePositionMatchFunctor</a> (<a class="el" href="classbool.html">bool</a> query_mode)</td></tr>
+<tr class="memdesc:a7ff5dcb96ca90695804cd29053689d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>FeaturePositionMatchFunctor</code> instance.  <a href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#a7ff5dcb96ca90695804cd29053689d22">More...</a><br /></td></tr>
 <tr class="separator:a7ff5dcb96ca90695804cd29053689d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a986ab5b0cfb03c84f5e3aaa7e65d430d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#a986ab5b0cfb03c84f5e3aaa7e65d430d">queryMode</a> () const</td></tr>
+<tr class="memdesc:a986ab5b0cfb03c84f5e3aaa7e65d430d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the functor operates in query mode.  <a href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#a986ab5b0cfb03c84f5e3aaa7e65d430d">More...</a><br /></td></tr>
 <tr class="separator:a986ab5b0cfb03c84f5e3aaa7e65d430d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf92d9c41496342972cf25483aadcf3d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#acf92d9c41496342972cf25483aadcf3d">operator()</a> (const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr1, const <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> &amp;ftr2) const</td></tr>
 <tr class="memdesc:acf92d9c41496342972cf25483aadcf3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the distance between <em>ftr1</em> and <em>ftr2</em> is below the allowed maximum and calculates a score reflecting their proximity.  <a href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html#acf92d9c41496342972cf25483aadcf3d">More...</a><br /></td></tr>
@@ -101,7 +103,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7e929b8d5e91697156e961c67b4649f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Pharm_1_1FeaturePositionMatchFunctor.html" title="FeaturePositionMatchFunctor.">FeaturePositionMatchFunctor</a>. </p>
+<div class="textblock"><p>Match functor that quantifies the goodness of the 3D-position match between two pharmacophore features by comparing their separation against the configured per-feature tolerance. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7ff5dcb96ca90695804cd29053689d22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ff5dcb96ca90695804cd29053689d22">&#9670;&nbsp;</a></span>FeaturePositionMatchFunctor()</h2>
@@ -127,6 +129,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>FeaturePositionMatchFunctor</code> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">query_mode</td><td>If <code>true</code>, the tolerance of the first feature defines the allowed maximum distance; if <code>false</code>, the maximum of the two feature tolerances is used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -144,6 +154,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the functor operates in query mode. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if query mode is active, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
