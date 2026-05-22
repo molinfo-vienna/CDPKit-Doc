@@ -111,10 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa3dada4e4553f89c1ca7742a0fbd1b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data of the regular spatial grid <em>grid</em> to the output stream specified in the constructor.  <a href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#aa3dada4e4553f89c1ca7742a0fbd1b09">More...</a><br /></td></tr>
 <tr class="separator:aa3dada4e4553f89c1ca7742a0fbd1b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1ee0c3eaffceafbfd6c2c8d59a47438"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#ad1ee0c3eaffceafbfd6c2c8d59a47438">operator const void *</a> () const</td></tr>
-<tr class="memdesc:ad1ee0c3eaffceafbfd6c2c8d59a47438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer whose value indicates the error state of the writer.  <a href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#ad1ee0c3eaffceafbfd6c2c8d59a47438">More...</a><br /></td></tr>
+<tr class="memdesc:ad1ee0c3eaffceafbfd6c2c8d59a47438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a good (writable) state.  <a href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#ad1ee0c3eaffceafbfd6c2c8d59a47438">More...</a><br /></td></tr>
 <tr class="separator:ad1ee0c3eaffceafbfd6c2c8d59a47438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a055fc89d038fa451b797d8f7c3933aea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#a055fc89d038fa451b797d8f7c3933aea">operator!</a> () const</td></tr>
-<tr class="memdesc:a055fc89d038fa451b797d8f7c3933aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a bad state.  <a href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#a055fc89d038fa451b797d8f7c3933aea">More...</a><br /></td></tr>
+<tr class="memdesc:a055fc89d038fa451b797d8f7c3933aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the writer is in a bad (non-writable) state.  <a href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#a055fc89d038fa451b797d8f7c3933aea">More...</a><br /></td></tr>
 <tr class="separator:a055fc89d038fa451b797d8f7c3933aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Base_1_1DataWriter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Base_1_1DataWriter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html">CDPL::Base::DataWriter&lt; DRegularGrid &gt;</a></td></tr>
 <tr class="memitem:a85e18719ef01ecb576dbd1c2e54d3aa8 inherit pub_methods_classCDPL_1_1Base_1_1DataWriter"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html">DataWriter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a85e18719ef01ecb576dbd1c2e54d3aa8">write</a> (const <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a8e95bfc74f86c11207ed5f8dd3fb5f69">DataType</a> &amp;obj)=0</td></tr>
@@ -421,12 +421,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a pointer whose value indicates the error state of the writer. </p>
-<p>The operator allows to write expressions like: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (writer) { ... </div>
-<div class="line"><span class="keywordflow">if</span> (writer.write(...)) { ...</div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd>A non-<em>null</em> pointer if the writer is in a good state, a <em>null</em> pointer otherwise. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The returned pointer is not meant to be dereferenced, it is just a state indicator. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Grid_1_1CDFDRegularGridWriter.html#a055fc89d038fa451b797d8f7c3933aea" title="Tells whether the writer is in a bad state.">operator!()</a> </dd></dl>
+<p>Tells whether the writer is in a good (writable) state. </p>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>nullptr</code> pointer if the writer is in a good state, and <code>nullptr</code> otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a42e0aa437204d3e71f60df6f778e3d51">CDPL::Base::DataWriter&lt; DRegularGrid &gt;</a>.</p>
 
@@ -455,11 +451,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether the writer is in a bad state. </p>
-<p>The operator allows to write expressions like: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span> (!writer) { ... </div>
-<div class="line"><span class="keywordflow">if</span> (!writer.write(...)) { ...</div>
-</div><!-- fragment --><dl class="section return"><dt>Returns</dt><dd><code>false</code> if the writer is in a good state, and <code>true</code> otherwise. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>operator const void*() </dd></dl>
+<p>Tells whether the writer is in a bad (non-writable) state. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the writer is in a bad state, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#ab8dd69c41af9fd3a01e4bdbd72d5fdb6">CDPL::Base::DataWriter&lt; DRegularGrid &gt;</a>.</p>
 

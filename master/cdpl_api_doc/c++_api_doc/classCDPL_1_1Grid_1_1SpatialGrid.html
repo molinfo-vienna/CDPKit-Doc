@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html" title="SpatialGrid.">SpatialGrid</a>.  
+<p>Abstract base class for attributed grids whose elements have a defined 3D position in space.  
  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="SpatialGrid_8hpp_source.html">SpatialGrid.hpp</a>&gt;</code></p>
@@ -100,12 +100,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a837fa317ab4bacb48df919dfac028c5b"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html">SpatialGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a837fa317ab4bacb48df919dfac028c5b">SharedPointer</a></td></tr>
+<tr class="memdesc:a837fa317ab4bacb48df919dfac028c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>SpatialGrid</code> instances.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#a837fa317ab4bacb48df919dfac028c5b">More...</a><br /></td></tr>
 <tr class="separator:a837fa317ab4bacb48df919dfac028c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a041230f981dea80981d38125c37365cc"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a041230f981dea80981d38125c37365cc">ValueType</a></td></tr>
+<tr class="memdesc:a041230f981dea80981d38125c37365cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The grid element value type.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#a041230f981dea80981d38125c37365cc">More...</a><br /></td></tr>
 <tr class="separator:a041230f981dea80981d38125c37365cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ad65554ec500fe37b27c1cd91d743cb"><td class="memItemLeft" align="right" valign="top">typedef CVT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a6ad65554ec500fe37b27c1cd91d743cb">CoordinatesValueType</a></td></tr>
+<tr class="memdesc:a6ad65554ec500fe37b27c1cd91d743cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The coordinate value type.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#a6ad65554ec500fe37b27c1cd91d743cb">More...</a><br /></td></tr>
 <tr class="separator:a6ad65554ec500fe37b27c1cd91d743cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05a0e477bb5b466ecaef7af96460ac5a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1CVector.html">Math::CVector</a>&lt; CVT, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a05a0e477bb5b466ecaef7af96460ac5a">CoordinatesType</a></td></tr>
+<tr class="memdesc:a05a0e477bb5b466ecaef7af96460ac5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fixed-size 3D coordinate vector type.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#a05a0e477bb5b466ecaef7af96460ac5a">More...</a><br /></td></tr>
 <tr class="separator:a05a0e477bb5b466ecaef7af96460ac5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Grid_1_1AttributedGrid"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Grid_1_1AttributedGrid')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html">CDPL::Grid::AttributedGrid</a></td></tr>
 <tr class="memitem:a2f3f5c72eddee1174095a8443ebaed0a inherit pub_types_classCDPL_1_1Grid_1_1AttributedGrid"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html">AttributedGrid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html#a2f3f5c72eddee1174095a8443ebaed0a">SharedPointer</a></td></tr>
@@ -122,10 +126,13 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad020287b204b4876c213590d363b0171"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a041230f981dea80981d38125c37365cc">ValueType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#ad020287b204b4876c213590d363b0171">operator()</a> (std::size_t i)=0</td></tr>
+<tr class="memdesc:ad020287b204b4876c213590d363b0171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the grid element at linear index <em>i</em>.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#ad020287b204b4876c213590d363b0171">More...</a><br /></td></tr>
 <tr class="separator:ad020287b204b4876c213590d363b0171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae26059b4b587fbce747e62bae521087"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a041230f981dea80981d38125c37365cc">ValueType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#aae26059b4b587fbce747e62bae521087">operator()</a> (std::size_t i) const =0</td></tr>
+<tr class="memdesc:aae26059b4b587fbce747e62bae521087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the grid element at linear index <em>i</em>.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#aae26059b4b587fbce747e62bae521087">More...</a><br /></td></tr>
 <tr class="separator:aae26059b4b587fbce747e62bae521087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe1c8de626311d538701a45e1c9a499d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#afe1c8de626311d538701a45e1c9a499d">getCoordinates</a> (std::size_t i, <a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html#a05a0e477bb5b466ecaef7af96460ac5a">CoordinatesType</a> &amp;coords) const =0</td></tr>
+<tr class="memdesc:afe1c8de626311d538701a45e1c9a499d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the 3D coordinates of the grid element at linear index <em>i</em>.  <a href="classCDPL_1_1Grid_1_1SpatialGrid.html#afe1c8de626311d538701a45e1c9a499d">More...</a><br /></td></tr>
 <tr class="separator:afe1c8de626311d538701a45e1c9a499d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Grid_1_1AttributedGrid"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Grid_1_1AttributedGrid')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html">CDPL::Grid::AttributedGrid</a></td></tr>
 <tr class="memitem:a49aa0d4fde1aa0b86441e66dd6ce1ca4 inherit pub_methods_classCDPL_1_1Grid_1_1AttributedGrid"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Grid_1_1AttributedGrid.html#a49aa0d4fde1aa0b86441e66dd6ce1ca4">~AttributedGrid</a> ()</td></tr>
@@ -216,7 +223,15 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T, typename CVT = T&gt;<br />
 class CDPL::Grid::SpatialGrid&lt; T, CVT &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Grid_1_1SpatialGrid.html" title="SpatialGrid.">SpatialGrid</a>. </p>
+<p>Abstract base class for attributed grids whose elements have a defined 3D position in space. </p>
+<p>Concrete subclasses (e.g. <a class="el" href="classCDPL_1_1Grid_1_1RegularGrid.html" title="A regular spatial grid implementation of the SpatialGrid interface.">Grid::RegularGrid</a>) implement element access and the mapping from a linear element index to the corresponding 3D world coordinates.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The grid element value type. </td></tr>
+    <tr><td class="paramname">CVT</td><td>The coordinate value type (defaults to <em>T</em>). </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a837fa317ab4bacb48df919dfac028c5b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a837fa317ab4bacb48df919dfac028c5b">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -231,6 +246,8 @@ template&lt;typename T , typename CVT  = T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>SpatialGrid</code> instances. </p>
 
 </div>
 </div>
@@ -248,6 +265,8 @@ template&lt;typename T , typename CVT  = T&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The grid element value type. </p>
+
 </div>
 </div>
 <a id="a6ad65554ec500fe37b27c1cd91d743cb"></a>
@@ -264,6 +283,8 @@ template&lt;typename T , typename CVT  = T&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The coordinate value type. </p>
+
 </div>
 </div>
 <a id="a05a0e477bb5b466ecaef7af96460ac5a"></a>
@@ -279,6 +300,8 @@ template&lt;typename T , typename CVT  = T&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The fixed-size 3D coordinate vector type. </p>
 
 </div>
 </div>
@@ -309,6 +332,15 @@ template&lt;typename T , typename CVT  = T&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a reference to the grid element at linear index <em>i</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The linear element index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the grid element. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCDPL_1_1Grid_1_1RegularGrid.html#a0c180afcb86763d8c97945170d191720">CDPL::Grid::RegularGrid&lt; T, CVT &gt;</a>.</p>
 
 </div>
@@ -338,6 +370,15 @@ template&lt;typename T , typename CVT  = T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a <code>const</code> reference to the grid element at linear index <em>i</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The linear element index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the grid element. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Grid_1_1RegularGrid.html#a92b5843a81bdd0f4b46b66c5cab85add">CDPL::Grid::RegularGrid&lt; T, CVT &gt;</a>.</p>
 
@@ -378,6 +419,15 @@ template&lt;typename T , typename CVT  = T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the 3D coordinates of the grid element at linear index <em>i</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The linear element index. </td></tr>
+    <tr><td class="paramname">coords</td><td>The output coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

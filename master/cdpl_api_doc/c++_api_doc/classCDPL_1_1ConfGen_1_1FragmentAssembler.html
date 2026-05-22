@@ -83,73 +83,105 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Driver for the fragment-based generation of 3D structures: decomposes a molecular graph into chain and ring fragments, looks up pre-built conformers from a <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentLibrary.html" title="A library of pre-generated conformations for molecular fragments, indexed by canonical-fragment hash ...">ConfGen::FragmentLibrary</a> for each fragment and assembles them into one or more full 3D conformers.  
+ <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="FragmentAssembler_8hpp_source.html">FragmentAssembler.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a9bb70b14b5377785abf02aa31dd42076"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ConformerDataArray::const_iterator, const <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerData.html">ConformerData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9bb70b14b5377785abf02aa31dd42076">ConstConformerIterator</a></td></tr>
+<tr class="memdesc:a9bb70b14b5377785abf02aa31dd42076"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the assembled conformers.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9bb70b14b5377785abf02aa31dd42076">More...</a><br /></td></tr>
 <tr class="separator:a9bb70b14b5377785abf02aa31dd42076"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a360abd635cfc62920d0a9d28a0572718"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ConformerDataArray::const_iterator, <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerData.html">ConformerData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a360abd635cfc62920d0a9d28a0572718">ConformerIterator</a></td></tr>
+<tr class="memdesc:a360abd635cfc62920d0a9d28a0572718"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable iterator over the assembled conformers.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a360abd635cfc62920d0a9d28a0572718">More...</a><br /></td></tr>
 <tr class="separator:a360abd635cfc62920d0a9d28a0572718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7c28188574f7703585beab3fa62de815"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7c28188574f7703585beab3fa62de815">FragmentAssembler</a> ()</td></tr>
+<tr class="memdesc:a7c28188574f7703585beab3fa62de815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>FragmentAssembler</code> instance.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7c28188574f7703585beab3fa62de815">More...</a><br /></td></tr>
 <tr class="separator:a7c28188574f7703585beab3fa62de815"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54638d0aeebda1a690180de6ce94bdd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a54638d0aeebda1a690180de6ce94bdd4">FragmentAssembler</a> (const <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html">FragmentAssembler</a> &amp;)=delete</td></tr>
 <tr class="separator:a54638d0aeebda1a690180de6ce94bdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c31932e270bff5b83ab2d722968408"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a38c31932e270bff5b83ab2d722968408">~FragmentAssembler</a> ()</td></tr>
+<tr class="memdesc:a38c31932e270bff5b83ab2d722968408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a38c31932e270bff5b83ab2d722968408">More...</a><br /></td></tr>
 <tr class="separator:a38c31932e270bff5b83ab2d722968408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10e6f7cef9724c78ae6d8b8915a13228"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html">FragmentAssembler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a10e6f7cef9724c78ae6d8b8915a13228">operator=</a> (const <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html">FragmentAssembler</a> &amp;)=delete</td></tr>
 <tr class="separator:a10e6f7cef9724c78ae6d8b8915a13228"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25280a543292a55a64505f1cdb17d0d7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssemblerSettings.html">FragmentAssemblerSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a25280a543292a55a64505f1cdb17d0d7">getSettings</a> () const</td></tr>
+<tr class="memdesc:a25280a543292a55a64505f1cdb17d0d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current assembler settings.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a25280a543292a55a64505f1cdb17d0d7">More...</a><br /></td></tr>
 <tr class="separator:a25280a543292a55a64505f1cdb17d0d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd49ed9d6f7ad4365bd9a477d8aa6591"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssemblerSettings.html">FragmentAssemblerSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#abd49ed9d6f7ad4365bd9a477d8aa6591">getSettings</a> ()</td></tr>
+<tr class="memdesc:abd49ed9d6f7ad4365bd9a477d8aa6591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current assembler settings (mutable).  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#abd49ed9d6f7ad4365bd9a477d8aa6591">More...</a><br /></td></tr>
 <tr class="separator:abd49ed9d6f7ad4365bd9a477d8aa6591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a1aeef8ac4763d59da24058190f67e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a5a1aeef8ac4763d59da24058190f67e1">clearFragmentLibraries</a> ()</td></tr>
+<tr class="memdesc:a5a1aeef8ac4763d59da24058190f67e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all configured fragment libraries.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a5a1aeef8ac4763d59da24058190f67e1">More...</a><br /></td></tr>
 <tr class="separator:a5a1aeef8ac4763d59da24058190f67e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1df087fdd1eada06ccfbe12a5ba52f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ace1df087fdd1eada06ccfbe12a5ba52f">addFragmentLibrary</a> (const <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentLibrary.html#a0bf3581e16bbc5b53c8c0e65888dc5e4">FragmentLibrary::SharedPointer</a> &amp;lib)</td></tr>
+<tr class="memdesc:ace1df087fdd1eada06ccfbe12a5ba52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds <em>lib</em> to the list of fragment libraries consulted during assembly.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ace1df087fdd1eada06ccfbe12a5ba52f">More...</a><br /></td></tr>
 <tr class="separator:ace1df087fdd1eada06ccfbe12a5ba52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac400e80711d5e2d4edcbf320ef941f95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac400e80711d5e2d4edcbf320ef941f95">setAbortCallback</a> (const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a968d3e18fe747b0a20f849a7e6417590">CallbackFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:ac400e80711d5e2d4edcbf320ef941f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback invoked periodically to allow the assembly to be aborted by the user.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac400e80711d5e2d4edcbf320ef941f95">More...</a><br /></td></tr>
 <tr class="separator:ac400e80711d5e2d4edcbf320ef941f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a417fd139f5abc539b21e3dda9dad7239"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a968d3e18fe747b0a20f849a7e6417590">CallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a417fd139f5abc539b21e3dda9dad7239">getAbortCallback</a> () const</td></tr>
+<tr class="memdesc:a417fd139f5abc539b21e3dda9dad7239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured abort-check callback.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a417fd139f5abc539b21e3dda9dad7239">More...</a><br /></td></tr>
 <tr class="separator:a417fd139f5abc539b21e3dda9dad7239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83303d422c3306fdb7bf92e89f6f3a5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a83303d422c3306fdb7bf92e89f6f3a5a">setTimeoutCallback</a> (const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a968d3e18fe747b0a20f849a7e6417590">CallbackFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a83303d422c3306fdb7bf92e89f6f3a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback invoked when the configured timeout is reached.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a83303d422c3306fdb7bf92e89f6f3a5a">More...</a><br /></td></tr>
 <tr class="separator:a83303d422c3306fdb7bf92e89f6f3a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad24c0b0775c76ef2ebf8d4299c37aef4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a968d3e18fe747b0a20f849a7e6417590">CallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ad24c0b0775c76ef2ebf8d4299c37aef4">getTimeoutCallback</a> () const</td></tr>
+<tr class="memdesc:ad24c0b0775c76ef2ebf8d4299c37aef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured timeout callback.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ad24c0b0775c76ef2ebf8d4299c37aef4">More...</a><br /></td></tr>
 <tr class="separator:ad24c0b0775c76ef2ebf8d4299c37aef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9db5780f9957e5676b0061dc361c9146"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9db5780f9957e5676b0061dc361c9146">setLogMessageCallback</a> (const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a7cc4316376445c28af28d61dc992635a">LogMessageCallbackFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a9db5780f9957e5676b0061dc361c9146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback receiving log messages emitted by the assembler.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9db5780f9957e5676b0061dc361c9146">More...</a><br /></td></tr>
 <tr class="separator:a9db5780f9957e5676b0061dc361c9146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64c7d34f89b74ff56f3452b36e0fb25e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a7cc4316376445c28af28d61dc992635a">LogMessageCallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a64c7d34f89b74ff56f3452b36e0fb25e">getLogMessageCallback</a> () const</td></tr>
+<tr class="memdesc:a64c7d34f89b74ff56f3452b36e0fb25e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured log-message callback.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a64c7d34f89b74ff56f3452b36e0fb25e">More...</a><br /></td></tr>
 <tr class="separator:a64c7d34f89b74ff56f3452b36e0fb25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c33e91475b8f7b3e8183c0fadab0128"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a0c33e91475b8f7b3e8183c0fadab0128">assemble</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:a0c33e91475b8f7b3e8183c0fadab0128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles 3D conformer(s) for <em>molgraph</em> from fragment building blocks.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a0c33e91475b8f7b3e8183c0fadab0128">More...</a><br /></td></tr>
 <tr class="separator:a0c33e91475b8f7b3e8183c0fadab0128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb9ec69b3012cc8b60a5473fbb9ca7cb"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#afb9ec69b3012cc8b60a5473fbb9ca7cb">assemble</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;fixed_substr, const <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;fixed_substr_coords)</td></tr>
+<tr class="memdesc:afb9ec69b3012cc8b60a5473fbb9ca7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assembles 3D conformer(s) for <em>molgraph</em> while keeping the substructure <em>fixed_substr</em> at the supplied 3D coordinates.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#afb9ec69b3012cc8b60a5473fbb9ca7cb">More...</a><br /></td></tr>
 <tr class="separator:afb9ec69b3012cc8b60a5473fbb9ca7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac55b05bdc20842cb600b41162d725c58"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac55b05bdc20842cb600b41162d725c58">getNumConformers</a> () const</td></tr>
+<tr class="memdesc:ac55b05bdc20842cb600b41162d725c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of assembled conformers.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac55b05bdc20842cb600b41162d725c58">More...</a><br /></td></tr>
 <tr class="separator:ac55b05bdc20842cb600b41162d725c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a767eb62e2b6787a3b995a3c9b9db61af"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerData.html">ConformerData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a767eb62e2b6787a3b995a3c9b9db61af">getConformer</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a767eb62e2b6787a3b995a3c9b9db61af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the conformer at index <em>idx</em>.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a767eb62e2b6787a3b995a3c9b9db61af">More...</a><br /></td></tr>
 <tr class="separator:a767eb62e2b6787a3b995a3c9b9db61af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdf8fab6db6dc3ccfa4b5e4ba4cae752"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1ConformerData.html">ConformerData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#abdf8fab6db6dc3ccfa4b5e4ba4cae752">getConformer</a> (std::size_t idx)</td></tr>
+<tr class="memdesc:abdf8fab6db6dc3ccfa4b5e4ba4cae752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the conformer at index <em>idx</em>.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#abdf8fab6db6dc3ccfa4b5e4ba4cae752">More...</a><br /></td></tr>
 <tr class="separator:abdf8fab6db6dc3ccfa4b5e4ba4cae752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c6d8e2acc61a611f926eb2fdd7ddb58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9bb70b14b5377785abf02aa31dd42076">ConstConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7c6d8e2acc61a611f926eb2fdd7ddb58">getConformersBegin</a> () const</td></tr>
+<tr class="memdesc:a7c6d8e2acc61a611f926eb2fdd7ddb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first conformer.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7c6d8e2acc61a611f926eb2fdd7ddb58">More...</a><br /></td></tr>
 <tr class="separator:a7c6d8e2acc61a611f926eb2fdd7ddb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e7bc3a749dbed97f607152e7114d7f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9bb70b14b5377785abf02aa31dd42076">ConstConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7e7bc3a749dbed97f607152e7114d7f5">getConformersEnd</a> () const</td></tr>
+<tr class="memdesc:a7e7bc3a749dbed97f607152e7114d7f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last conformer.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7e7bc3a749dbed97f607152e7114d7f5">More...</a><br /></td></tr>
 <tr class="separator:a7e7bc3a749dbed97f607152e7114d7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad618e20d1be6fbc75c1a8296b9311da9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a360abd635cfc62920d0a9d28a0572718">ConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ad618e20d1be6fbc75c1a8296b9311da9">getConformersBegin</a> ()</td></tr>
+<tr class="memdesc:ad618e20d1be6fbc75c1a8296b9311da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the first conformer.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ad618e20d1be6fbc75c1a8296b9311da9">More...</a><br /></td></tr>
 <tr class="separator:ad618e20d1be6fbc75c1a8296b9311da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae87b598dd00b70f3804c8d1572f8b87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a360abd635cfc62920d0a9d28a0572718">ConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#aae87b598dd00b70f3804c8d1572f8b87">getConformersEnd</a> ()</td></tr>
+<tr class="memdesc:aae87b598dd00b70f3804c8d1572f8b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last conformer.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#aae87b598dd00b70f3804c8d1572f8b87">More...</a><br /></td></tr>
 <tr class="separator:aae87b598dd00b70f3804c8d1572f8b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bdd4208a9cfd32282badd48a6864226"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9bb70b14b5377785abf02aa31dd42076">ConstConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a8bdd4208a9cfd32282badd48a6864226">begin</a> () const</td></tr>
+<tr class="memdesc:a8bdd4208a9cfd32282badd48a6864226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first conformer (range-based for support).  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a8bdd4208a9cfd32282badd48a6864226">More...</a><br /></td></tr>
 <tr class="separator:a8bdd4208a9cfd32282badd48a6864226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7738527dfdae11bdf3575205fe664625"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9bb70b14b5377785abf02aa31dd42076">ConstConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7738527dfdae11bdf3575205fe664625">end</a> () const</td></tr>
+<tr class="memdesc:a7738527dfdae11bdf3575205fe664625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last conformer (range-based for support).  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a7738527dfdae11bdf3575205fe664625">More...</a><br /></td></tr>
 <tr class="separator:a7738527dfdae11bdf3575205fe664625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff90c300d1ff86d90e77b605d9e7cb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a360abd635cfc62920d0a9d28a0572718">ConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a4ff90c300d1ff86d90e77b605d9e7cb3">begin</a> ()</td></tr>
+<tr class="memdesc:a4ff90c300d1ff86d90e77b605d9e7cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the first conformer (range-based for support).  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a4ff90c300d1ff86d90e77b605d9e7cb3">More...</a><br /></td></tr>
 <tr class="separator:a4ff90c300d1ff86d90e77b605d9e7cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00705ebf253dcefdb508740df6fa8bae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a360abd635cfc62920d0a9d28a0572718">ConformerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a00705ebf253dcefdb508740df6fa8bae">end</a> ()</td></tr>
+<tr class="memdesc:a00705ebf253dcefdb508740df6fa8bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last conformer (range-based for support).  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a00705ebf253dcefdb508740df6fa8bae">More...</a><br /></td></tr>
 <tr class="separator:a00705ebf253dcefdb508740df6fa8bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Driver for the fragment-based generation of 3D structures: decomposes a molecular graph into chain and ring fragments, looks up pre-built conformers from a <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentLibrary.html" title="A library of pre-generated conformations for molecular fragments, indexed by canonical-fragment hash ...">ConfGen::FragmentLibrary</a> for each fragment and assembles them into one or more full 3D conformers. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9bb70b14b5377785abf02aa31dd42076"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9bb70b14b5377785abf02aa31dd42076">&#9670;&nbsp;</a></span>ConstConformerIterator</h2>
 
@@ -161,6 +193,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant iterator over the assembled conformers. </p>
 
 </div>
 </div>
@@ -175,6 +209,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A mutable iterator over the assembled conformers. </p>
 
 </div>
 </div>
@@ -193,6 +229,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs the <code>FragmentAssembler</code> instance. </p>
 
 </div>
 </div>
@@ -236,6 +274,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -281,6 +321,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current assembler settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the settings. </dd></dl>
+
 </div>
 </div>
 <a id="abd49ed9d6f7ad4365bd9a477d8aa6591"></a>
@@ -298,6 +341,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current assembler settings (mutable). </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the settings. </dd></dl>
+
 </div>
 </div>
 <a id="a5a1aeef8ac4763d59da24058190f67e1"></a>
@@ -314,6 +360,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes all configured fragment libraries. </p>
 
 </div>
 </div>
@@ -333,6 +381,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds <em>lib</em> to the list of fragment libraries consulted during assembly. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lib</td><td>The fragment library to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac400e80711d5e2d4edcbf320ef941f95"></a>
@@ -351,6 +407,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the callback invoked periodically to allow the assembly to be aborted by the user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The abort-check callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a417fd139f5abc539b21e3dda9dad7239"></a>
@@ -367,6 +431,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured abort-check callback. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the abort-check callback. </dd></dl>
 
 </div>
 </div>
@@ -386,6 +453,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the callback invoked when the configured timeout is reached. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The timeout callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad24c0b0775c76ef2ebf8d4299c37aef4"></a>
@@ -402,6 +477,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured timeout callback. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the timeout callback. </dd></dl>
 
 </div>
 </div>
@@ -421,6 +499,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the callback receiving log messages emitted by the assembler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The log-message callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a64c7d34f89b74ff56f3452b36e0fb25e"></a>
@@ -437,6 +523,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured log-message callback. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the log-message callback. </dd></dl>
 
 </div>
 </div>
@@ -455,6 +544,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Assembles 3D conformer(s) for <em>molgraph</em> from fragment building blocks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The input molecular graph. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="namespaceCDPL_1_1ConfGen_1_1ReturnCode.html" title="Provides constants that are used to describe the result of operations related to conformer generation...">ConfGen::ReturnCode</a> value reporting the outcome of the assembly. </dd></dl>
 
 </div>
 </div>
@@ -490,6 +588,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Assembles 3D conformer(s) for <em>molgraph</em> while keeping the substructure <em>fixed_substr</em> at the supplied 3D coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The input molecular graph. </td></tr>
+    <tr><td class="paramname">fixed_substr</td><td>The substructure that must retain the supplied 3D coordinates. </td></tr>
+    <tr><td class="paramname">fixed_substr_coords</td><td>The 3D coordinates assigned to <em>fixed_substr</em>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="namespaceCDPL_1_1ConfGen_1_1ReturnCode.html" title="Provides constants that are used to describe the result of operations related to conformer generation...">ConfGen::ReturnCode</a> value reporting the outcome of the assembly. </dd></dl>
+<dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
+
 </div>
 </div>
 <a id="ac55b05bdc20842cb600b41162d725c58"></a>
@@ -506,6 +616,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of assembled conformers. </p>
+<dl class="section return"><dt>Returns</dt><dd>The conformer count. </dd></dl>
 
 </div>
 </div>
@@ -525,6 +638,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the conformer at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based conformer index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the conformer data. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of conformers is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac55b05bdc20842cb600b41162d725c58" title="Returns the number of assembled conformers.">getNumConformers()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abdf8fab6db6dc3ccfa4b5e4ba4cae752"></a>
@@ -543,6 +671,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the conformer at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based conformer index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the conformer data. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of conformers is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac55b05bdc20842cb600b41162d725c58" title="Returns the number of assembled conformers.">getNumConformers()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7c6d8e2acc61a611f926eb2fdd7ddb58"></a>
@@ -559,6 +702,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first conformer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first conformer. </dd></dl>
 
 </div>
 </div>
@@ -577,6 +723,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last conformer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last conformer. </dd></dl>
+
 </div>
 </div>
 <a id="ad618e20d1be6fbc75c1a8296b9311da9"></a>
@@ -593,6 +742,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing to the first conformer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the first conformer. </dd></dl>
 
 </div>
 </div>
@@ -611,6 +763,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing one past the last conformer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing one past the last conformer. </dd></dl>
+
 </div>
 </div>
 <a id="a8bdd4208a9cfd32282badd48a6864226"></a>
@@ -627,6 +782,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first conformer (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first conformer. </dd></dl>
 
 </div>
 </div>
@@ -645,6 +803,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last conformer (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last conformer. </dd></dl>
+
 </div>
 </div>
 <a id="a4ff90c300d1ff86d90e77b605d9e7cb3"></a>
@@ -662,6 +823,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing to the first conformer (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the first conformer. </dd></dl>
+
 </div>
 </div>
 <a id="a00705ebf253dcefdb508740df6fa8bae"></a>
@@ -678,6 +842,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing one past the last conformer (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing one past the last conformer. </dd></dl>
 
 </div>
 </div>

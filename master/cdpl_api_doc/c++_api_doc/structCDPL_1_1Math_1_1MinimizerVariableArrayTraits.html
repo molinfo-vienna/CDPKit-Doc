@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Traits template that adapts arbitrary variable-array types to the linear-algebra operations required by minimizer implementations (<code>dot</code>, <code>norm2</code>, <code>axpy</code>, <code>clear</code>, <code>assign</code>, <code>multiply</code>, <code>sub</code>).  
+ <a href="structCDPL_1_1Math_1_1MinimizerVariableArrayTraits.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="MinimizerVariableArrayTraits_8hpp_source.html">MinimizerVariableArrayTraits.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Math::MinimizerVariableArrayTraits&lt; A &gt;:</div>
@@ -123,7 +126,19 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d9e3b7a75e856cb1a847cc0af4a3da4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1MinimizerVariableArrayTraits.html#a3d9e3b7a75e856cb1a847cc0af4a3da4">sub</a> (<a class="el" href="structCDPL_1_1Math_1_1MinimizerVariableArrayTraits.html#a5a93b1e8715a5a22a716da8b3c15a46c">ArrayType</a> &amp;a1, const <a class="el" href="structCDPL_1_1Math_1_1MinimizerVariableArrayTraits.html#a5a93b1e8715a5a22a716da8b3c15a46c">ArrayType</a> &amp;a2)</td></tr>
 <tr class="separator:a3d9e3b7a75e856cb1a847cc0af4a3da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename A&gt;<br />
+struct CDPL::Math::MinimizerVariableArrayTraits&lt; A &gt;</h3>
+
+<p>Traits template that adapts arbitrary variable-array types to the linear-algebra operations required by minimizer implementations (<code>dot</code>, <code>norm2</code>, <code>axpy</code>, <code>clear</code>, <code>assign</code>, <code>multiply</code>, <code>sub</code>). </p>
+<p>The primary template assumes <em>A</em> behaves like a <a class="el" href="classCDPL_1_1Math_1_1Vector.html" title="Dynamically-sized dense vector with configurable underlying storage.">Math::Vector</a> (provides <code>getSize</code>, <code>clear</code>, <code>assign</code>, <code>plusAssign/<code>minusAssign</code>,</code> <code>innerProd</code> and arithmetic operators). Specializations adapt other array-of-vector storage types.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">A</td><td>The variable-array type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5a93b1e8715a5a22a716da8b3c15a46c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a93b1e8715a5a22a716da8b3c15a46c">&#9670;&nbsp;</a></span>ArrayType</h2>
 

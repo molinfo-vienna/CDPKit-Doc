@@ -84,69 +84,102 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Constructs geometric constraints (distance, planarity, volume) for distance-geometry-based 3D structure generation.  
+ <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="DGConstraintGenerator_8hpp_source.html">DGConstraintGenerator.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:aa329564f8781b665553bb56cdf33a95f"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; std::size_t, <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">Chem::StereoDescriptor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aa329564f8781b665553bb56cdf33a95f">StereoCenterData</a></td></tr>
+<tr class="memdesc:aa329564f8781b665553bb56cdf33a95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pair holding an atom or bond index plus the associated stereo descriptor.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aa329564f8781b665553bb56cdf33a95f">More...</a><br /></td></tr>
 <tr class="separator:aa329564f8781b665553bb56cdf33a95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71695b6304daa1ac2810b4d6d33bb2a0"><td class="memItemLeft" align="right" valign="top">typedef StereoCenterDataArray::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a71695b6304daa1ac2810b4d6d33bb2a0">ConstStereoCenterDataIterator</a></td></tr>
+<tr class="memdesc:a71695b6304daa1ac2810b4d6d33bb2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over StereoCenterData entries.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a71695b6304daa1ac2810b4d6d33bb2a0">More...</a><br /></td></tr>
 <tr class="separator:a71695b6304daa1ac2810b4d6d33bb2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8937602d723fe978fe49ca67364c67e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a8937602d723fe978fe49ca67364c67e9">DGConstraintGenerator</a> ()</td></tr>
+<tr class="memdesc:a8937602d723fe978fe49ca67364c67e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>DGConstraintGenerator</code> instance.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a8937602d723fe978fe49ca67364c67e9">More...</a><br /></td></tr>
 <tr class="separator:a8937602d723fe978fe49ca67364c67e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf8d6f4c6f05a5c3632bd55013e7bd3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGeneratorSettings.html">DGConstraintGeneratorSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#acf8d6f4c6f05a5c3632bd55013e7bd3c">getSettings</a> ()</td></tr>
+<tr class="memdesc:acf8d6f4c6f05a5c3632bd55013e7bd3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the constraint-generation settings.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#acf8d6f4c6f05a5c3632bd55013e7bd3c">More...</a><br /></td></tr>
 <tr class="separator:acf8d6f4c6f05a5c3632bd55013e7bd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75fbaf244a07115d2e3b11ddb87d5e97"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGeneratorSettings.html">DGConstraintGeneratorSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a75fbaf244a07115d2e3b11ddb87d5e97">getSettings</a> () const</td></tr>
+<tr class="memdesc:a75fbaf244a07115d2e3b11ddb87d5e97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the constraint-generation settings.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a75fbaf244a07115d2e3b11ddb87d5e97">More...</a><br /></td></tr>
 <tr class="separator:a75fbaf244a07115d2e3b11ddb87d5e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaade08cdbd610eed8f6c5621aed087b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aaade08cdbd610eed8f6c5621aed087b7">addAtomStereoCenter</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;atom, const <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">Chem::StereoDescriptor</a> &amp;descr)</td></tr>
+<tr class="memdesc:aaade08cdbd610eed8f6c5621aed087b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an atom stereo center to be constrained.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aaade08cdbd610eed8f6c5621aed087b7">More...</a><br /></td></tr>
 <tr class="separator:aaade08cdbd610eed8f6c5621aed087b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66505c51a6ad78daa5a4c44b450ab890"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a66505c51a6ad78daa5a4c44b450ab890">addBondStereoCenter</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Chem::Bond</a> &amp;bond, const <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">Chem::StereoDescriptor</a> &amp;descr)</td></tr>
+<tr class="memdesc:a66505c51a6ad78daa5a4c44b450ab890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a bond stereo center to be constrained.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a66505c51a6ad78daa5a4c44b450ab890">More...</a><br /></td></tr>
 <tr class="separator:a66505c51a6ad78daa5a4c44b450ab890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd73ee9684f7fb7b6646bfa8f52ce07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a9dd73ee9684f7fb7b6646bfa8f52ce07">setup</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:a9dd73ee9684f7fb7b6646bfa8f52ce07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator for the molecular graph <em>molgraph</em> using default geometry data.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a9dd73ee9684f7fb7b6646bfa8f52ce07">More...</a><br /></td></tr>
 <tr class="separator:a9dd73ee9684f7fb7b6646bfa8f52ce07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49427549d2449392d02664999057cc7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a49427549d2449392d02664999057cc7b">setup</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">ForceField::MMFF94InteractionData</a> &amp;ia_data)</td></tr>
+<tr class="memdesc:a49427549d2449392d02664999057cc7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the generator for the molecular graph <em>molgraph</em> using bond lengths and angles obtained from <em>ia_data</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a49427549d2449392d02664999057cc7b">More...</a><br /></td></tr>
 <tr class="separator:a49427549d2449392d02664999057cc7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2bcfef39848863c400b464ac32e7493"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ab2bcfef39848863c400b464ac32e7493">getExcludedHydrogenMask</a> () const</td></tr>
+<tr class="memdesc:ab2bcfef39848863c400b464ac32e7493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit mask of hydrogen atoms that have been excluded from constraint generation.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ab2bcfef39848863c400b464ac32e7493">More...</a><br /></td></tr>
 <tr class="separator:ab2bcfef39848863c400b464ac32e7493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8ba076a85c9781d218b2ccb1474fdeb"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ad8ba076a85c9781d218b2ccb1474fdeb">getNumAtomStereoCenters</a> () const</td></tr>
+<tr class="memdesc:ad8ba076a85c9781d218b2ccb1474fdeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of registered atom stereo centers.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ad8ba076a85c9781d218b2ccb1474fdeb">More...</a><br /></td></tr>
 <tr class="separator:ad8ba076a85c9781d218b2ccb1474fdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a781b045488e46ac03e37eaa7f5442248"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a781b045488e46ac03e37eaa7f5442248">getNumBondStereoCenters</a> () const</td></tr>
+<tr class="memdesc:a781b045488e46ac03e37eaa7f5442248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of registered bond stereo centers.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a781b045488e46ac03e37eaa7f5442248">More...</a><br /></td></tr>
 <tr class="separator:a781b045488e46ac03e37eaa7f5442248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a3f53592a1400ce6341f8b7714ddf9f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aa329564f8781b665553bb56cdf33a95f">StereoCenterData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a5a3f53592a1400ce6341f8b7714ddf9f">getAtomStereoCenterData</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a5a3f53592a1400ce6341f8b7714ddf9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the stereo-center data for the atom stereo center at index <em>idx</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a5a3f53592a1400ce6341f8b7714ddf9f">More...</a><br /></td></tr>
 <tr class="separator:a5a3f53592a1400ce6341f8b7714ddf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab46ea9362a03ab3ad415075b49370b89"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aa329564f8781b665553bb56cdf33a95f">StereoCenterData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ab46ea9362a03ab3ad415075b49370b89">getBondStereoCenterData</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:ab46ea9362a03ab3ad415075b49370b89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the stereo-center data for the bond stereo center at index <em>idx</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ab46ea9362a03ab3ad415075b49370b89">More...</a><br /></td></tr>
 <tr class="separator:ab46ea9362a03ab3ad415075b49370b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad37b71c9a1f38e13361127d17b2bd249"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a71695b6304daa1ac2810b4d6d33bb2a0">ConstStereoCenterDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ad37b71c9a1f38e13361127d17b2bd249">getAtomStereoCenterDataBegin</a> () const</td></tr>
+<tr class="memdesc:ad37b71c9a1f38e13361127d17b2bd249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first atom stereo center.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ad37b71c9a1f38e13361127d17b2bd249">More...</a><br /></td></tr>
 <tr class="separator:ad37b71c9a1f38e13361127d17b2bd249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa818f951577af614aea73ff2ce4d8d88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a71695b6304daa1ac2810b4d6d33bb2a0">ConstStereoCenterDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aa818f951577af614aea73ff2ce4d8d88">getAtomStereoCenterDataEnd</a> () const</td></tr>
+<tr class="memdesc:aa818f951577af614aea73ff2ce4d8d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last atom stereo center.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#aa818f951577af614aea73ff2ce4d8d88">More...</a><br /></td></tr>
 <tr class="separator:aa818f951577af614aea73ff2ce4d8d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84c76fb236cf0b306ce889506c5b3dfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a71695b6304daa1ac2810b4d6d33bb2a0">ConstStereoCenterDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a84c76fb236cf0b306ce889506c5b3dfc">getBondStereoCenterDataBegin</a> () const</td></tr>
+<tr class="memdesc:a84c76fb236cf0b306ce889506c5b3dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first bond stereo center.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a84c76fb236cf0b306ce889506c5b3dfc">More...</a><br /></td></tr>
 <tr class="separator:a84c76fb236cf0b306ce889506c5b3dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a013aa74cd5466daba58a521b6f38f0b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a71695b6304daa1ac2810b4d6d33bb2a0">ConstStereoCenterDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a013aa74cd5466daba58a521b6f38f0b0">getBondStereoCenterDataEnd</a> () const</td></tr>
+<tr class="memdesc:a013aa74cd5466daba58a521b6f38f0b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last bond stereo center.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a013aa74cd5466daba58a521b6f38f0b0">More...</a><br /></td></tr>
 <tr class="separator:a013aa74cd5466daba58a521b6f38f0b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e2a25c14079fcecb82f4f2961095311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a1e2a25c14079fcecb82f4f2961095311">addFixedSubstructureConstraints</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">Chem::AtomContainer</a> &amp;atoms, const <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;coords, <a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a1e2a25c14079fcecb82f4f2961095311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds distance and volume constraints that fix the supplied substructure to the given coordinates.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a1e2a25c14079fcecb82f4f2961095311">More...</a><br /></td></tr>
 <tr class="separator:a1e2a25c14079fcecb82f4f2961095311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a612f3406ab7a3b06414e3df1aec4569c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a612f3406ab7a3b06414e3df1aec4569c">addBondLengthConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a612f3406ab7a3b06414e3df1aec4569c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds bond-length distance constraints to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a612f3406ab7a3b06414e3df1aec4569c">More...</a><br /></td></tr>
 <tr class="separator:a612f3406ab7a3b06414e3df1aec4569c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54681db6e4295d904322f2275ffa515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ae54681db6e4295d904322f2275ffa515">addBondAngleConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:ae54681db6e4295d904322f2275ffa515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds bond-angle (1,3) distance constraints to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ae54681db6e4295d904322f2275ffa515">More...</a><br /></td></tr>
 <tr class="separator:ae54681db6e4295d904322f2275ffa515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a15cf3c9b8f7a8aa785f1cb83318989"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a5a15cf3c9b8f7a8aa785f1cb83318989">add14DistanceConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a5a15cf3c9b8f7a8aa785f1cb83318989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds 1,4-distance constraints (cis/trans bounds) to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a5a15cf3c9b8f7a8aa785f1cb83318989">More...</a><br /></td></tr>
 <tr class="separator:a5a15cf3c9b8f7a8aa785f1cb83318989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46fbc6881cf9e42c2d5c20f78c4f2c02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a46fbc6881cf9e42c2d5c20f78c4f2c02">addDefaultDistanceConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a46fbc6881cf9e42c2d5c20f78c4f2c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds default (van der Waals-derived) lower/upper distance constraints between all non-bonded atom pairs to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a46fbc6881cf9e42c2d5c20f78c4f2c02">More...</a><br /></td></tr>
 <tr class="separator:a46fbc6881cf9e42c2d5c20f78c4f2c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a121c38e9795c3d9bedc8dec46307bbfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a121c38e9795c3d9bedc8dec46307bbfc">addAtomConfigurationConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a121c38e9795c3d9bedc8dec46307bbfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds volume constraints enforcing the registered atom stereo-center configurations to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a121c38e9795c3d9bedc8dec46307bbfc">More...</a><br /></td></tr>
 <tr class="separator:a121c38e9795c3d9bedc8dec46307bbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a42f83a3500de836107f225d9aafc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ac9a42f83a3500de836107f225d9aafc3">addBondConfigurationConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:ac9a42f83a3500de836107f225d9aafc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds distance and volume constraints enforcing the registered bond stereo-center configurations to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ac9a42f83a3500de836107f225d9aafc3">More...</a><br /></td></tr>
 <tr class="separator:ac9a42f83a3500de836107f225d9aafc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a5fc6cadabd9c6fc845e39412aac239"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a6a5fc6cadabd9c6fc845e39412aac239">addAtomPlanarityConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a6a5fc6cadabd9c6fc845e39412aac239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds planarity (zero-volume) constraints for sp2-hybridized / aromatic atoms to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a6a5fc6cadabd9c6fc845e39412aac239">More...</a><br /></td></tr>
 <tr class="separator:a6a5fc6cadabd9c6fc845e39412aac239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26daa7eb7d5e417561e0614de31747b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a26daa7eb7d5e417561e0614de31747b8">addBondPlanarityConstraints</a> (<a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2">Util::DG3DCoordinatesGenerator</a> &amp;coords_gen)</td></tr>
+<tr class="memdesc:a26daa7eb7d5e417561e0614de31747b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds planarity (zero-volume) constraints for double and aromatic bonds to <em>coords_gen</em>.  <a href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a26daa7eb7d5e417561e0614de31747b8">More...</a><br /></td></tr>
 <tr class="separator:a26daa7eb7d5e417561e0614de31747b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Constructs geometric constraints (distance, planarity, volume) for distance-geometry-based 3D structure generation. </p>
+<p>Given a molecular graph (and optionally an MMFF94 force-field interaction parameter set) the generator derives ideal bond lengths, bond angles and 1,4-distances, identifies atom and bond stereo centers and emits the corresponding constraints into a <a class="el" href="namespaceCDPL_1_1Util.html#a6d40110048b97f9f477bb12aef442eb2" title="Convenience alias for the 3D coordinates generator with double-precision values.">Util::DG3DCoordinatesGenerator</a>. The constraint set is used by <a class="el" href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html" title="Distance-geometry-based generator of an initial 3D structure for a molecular graph.">ConfGen::DGStructureGenerator</a> to produce a 3D embedding of the molecular graph. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa329564f8781b665553bb56cdf33a95f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa329564f8781b665553bb56cdf33a95f">&#9670;&nbsp;</a></span>StereoCenterData</h2>
 
@@ -158,6 +191,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pair holding an atom or bond index plus the associated stereo descriptor. </p>
 
 </div>
 </div>
@@ -172,6 +207,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant iterator over StereoCenterData entries. </p>
 
 </div>
 </div>
@@ -191,6 +228,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the <code>DGConstraintGenerator</code> instance. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -209,6 +248,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a reference to the constraint-generation settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the settings. </dd></dl>
+
 </div>
 </div>
 <a id="a75fbaf244a07115d2e3b11ddb87d5e97"></a>
@@ -225,6 +267,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a <code>const</code> reference to the constraint-generation settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the settings. </dd></dl>
 
 </div>
 </div>
@@ -254,6 +299,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Registers an atom stereo center to be constrained. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom</td><td>The stereogenic atom. </td></tr>
+    <tr><td class="paramname">descr</td><td>The stereo descriptor specifying the desired configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a66505c51a6ad78daa5a4c44b450ab890"></a>
@@ -282,6 +336,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Registers a bond stereo center to be constrained. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bond</td><td>The stereogenic bond. </td></tr>
+    <tr><td class="paramname">descr</td><td>The stereo descriptor specifying the desired configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9dd73ee9684f7fb7b6646bfa8f52ce07"></a>
@@ -299,6 +362,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initializes the generator for the molecular graph <em>molgraph</em> using default geometry data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph to process. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -328,6 +399,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes the generator for the molecular graph <em>molgraph</em> using bond lengths and angles obtained from <em>ia_data</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph to process. </td></tr>
+    <tr><td class="paramname">ia_data</td><td>MMFF94 interaction data providing the reference bond lengths and angles. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab2bcfef39848863c400b464ac32e7493"></a>
@@ -344,6 +424,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the bit mask of hydrogen atoms that have been excluded from constraint generation. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the excluded-hydrogen bit mask. </dd></dl>
 
 </div>
 </div>
@@ -362,6 +445,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of registered atom stereo centers. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of atom stereo centers. </dd></dl>
+
 </div>
 </div>
 <a id="a781b045488e46ac03e37eaa7f5442248"></a>
@@ -378,6 +464,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of registered bond stereo centers. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of bond stereo centers. </dd></dl>
 
 </div>
 </div>
@@ -397,6 +486,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the stereo-center data for the atom stereo center at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based stereo-center index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the stereo-center data. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of atom stereo centers is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#ad8ba076a85c9781d218b2ccb1474fdeb" title="Returns the number of registered atom stereo centers.">getNumAtomStereoCenters()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab46ea9362a03ab3ad415075b49370b89"></a>
@@ -415,6 +519,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the stereo-center data for the bond stereo center at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based stereo-center index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the stereo-center data. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of bond stereo centers is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1ConfGen_1_1DGConstraintGenerator.html#a781b045488e46ac03e37eaa7f5442248" title="Returns the number of registered bond stereo centers.">getNumBondStereoCenters()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad37b71c9a1f38e13361127d17b2bd249"></a>
@@ -431,6 +550,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first atom stereo center. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first atom stereo center. </dd></dl>
 
 </div>
 </div>
@@ -449,6 +571,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last atom stereo center. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last atom stereo center. </dd></dl>
+
 </div>
 </div>
 <a id="a84c76fb236cf0b306ce889506c5b3dfc"></a>
@@ -466,6 +591,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first bond stereo center. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first bond stereo center. </dd></dl>
+
 </div>
 </div>
 <a id="a013aa74cd5466daba58a521b6f38f0b0"></a>
@@ -482,6 +610,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing one past the last bond stereo center. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last bond stereo center. </dd></dl>
 
 </div>
 </div>
@@ -517,6 +648,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds distance and volume constraints that fix the supplied substructure to the given coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atoms</td><td>The atoms whose positions shall be fixed. </td></tr>
+    <tr><td class="paramname">coords</td><td>The 3D coordinates to fix the atoms to. </td></tr>
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
+
 </div>
 </div>
 <a id="a612f3406ab7a3b06414e3df1aec4569c"></a>
@@ -534,6 +676,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds bond-length distance constraints to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -553,6 +703,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds bond-angle (1,3) distance constraints to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5a15cf3c9b8f7a8aa785f1cb83318989"></a>
@@ -570,6 +728,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds 1,4-distance constraints (cis/trans bounds) to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -589,6 +755,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds default (van der Waals-derived) lower/upper distance constraints between all non-bonded atom pairs to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a121c38e9795c3d9bedc8dec46307bbfc"></a>
@@ -606,6 +780,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds volume constraints enforcing the registered atom stereo-center configurations to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -625,6 +807,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds distance and volume constraints enforcing the registered bond stereo-center configurations to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a6a5fc6cadabd9c6fc845e39412aac239"></a>
@@ -643,6 +833,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds planarity (zero-volume) constraints for sp2-hybridized / aromatic atoms to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a26daa7eb7d5e417561e0614de31747b8"></a>
@@ -660,6 +858,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds planarity (zero-volume) constraints for double and aromatic bonds to <em>coords_gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_gen</td><td>The coordinates generator to add the constraints to. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

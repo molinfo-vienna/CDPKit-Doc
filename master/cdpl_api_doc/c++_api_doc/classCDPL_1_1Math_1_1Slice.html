@@ -84,6 +84,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>An index slice ( \( start, stride, size \)) used for strided slicing of vector and matrix expressions.  
+ <a href="classCDPL_1_1Math_1_1Slice.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Slice_8hpp_source.html">Slice.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Math::Slice&lt; S, D &gt;:</div>
@@ -97,39 +100,65 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a227ebc7a902187d2165432ef1e2fc125"><td class="memItemLeft" align="right" valign="top">typedef S&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a></td></tr>
+<tr class="memdesc:a227ebc7a902187d2165432ef1e2fc125"><td class="mdescLeft">&#160;</td><td class="mdescRight">The integral size/index type.  <a href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">More...</a><br /></td></tr>
 <tr class="separator:a227ebc7a902187d2165432ef1e2fc125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb6e0a3eba795e8a0302220dd615c865"><td class="memItemLeft" align="right" valign="top">typedef D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#aeb6e0a3eba795e8a0302220dd615c865">DifferenceType</a></td></tr>
+<tr class="memdesc:aeb6e0a3eba795e8a0302220dd615c865"><td class="mdescLeft">&#160;</td><td class="mdescRight">The signed difference type used for the stride.  <a href="classCDPL_1_1Math_1_1Slice.html#aeb6e0a3eba795e8a0302220dd615c865">More...</a><br /></td></tr>
 <tr class="separator:aeb6e0a3eba795e8a0302220dd615c865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a393ed7b3fa9011ef5a545adc54219950"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a393ed7b3fa9011ef5a545adc54219950">Slice</a> ()</td></tr>
+<tr class="memdesc:a393ed7b3fa9011ef5a545adc54219950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty slice ( \( 0, 0, 0 \)).  <a href="classCDPL_1_1Math_1_1Slice.html#a393ed7b3fa9011ef5a545adc54219950">More...</a><br /></td></tr>
 <tr class="separator:a393ed7b3fa9011ef5a545adc54219950"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae794494efeb1c2a46ead76894515a0dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#ae794494efeb1c2a46ead76894515a0dc">Slice</a> (<a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a> start, <a class="el" href="classCDPL_1_1Math_1_1Slice.html#aeb6e0a3eba795e8a0302220dd615c865">DifferenceType</a> stride, <a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a> size)</td></tr>
+<tr class="memdesc:ae794494efeb1c2a46ead76894515a0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the slice (<em>start</em>, <em>stride</em>, <em>size</em>).  <a href="classCDPL_1_1Math_1_1Slice.html#ae794494efeb1c2a46ead76894515a0dc">More...</a><br /></td></tr>
 <tr class="separator:ae794494efeb1c2a46ead76894515a0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf2131f14864cede2636bc4062fefb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a0bf2131f14864cede2636bc4062fefb5">operator()</a> (<a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a> i) const</td></tr>
+<tr class="memdesc:a0bf2131f14864cede2636bc4062fefb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the local position <em>i</em> to the global index \( start + i \cdot stride \).  <a href="classCDPL_1_1Math_1_1Slice.html#a0bf2131f14864cede2636bc4062fefb5">More...</a><br /></td></tr>
 <tr class="separator:a0bf2131f14864cede2636bc4062fefb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445c6c3924d0b7b5069734aa420a4975"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a445c6c3924d0b7b5069734aa420a4975">getStart</a> () const</td></tr>
+<tr class="memdesc:a445c6c3924d0b7b5069734aa420a4975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the starting global index.  <a href="classCDPL_1_1Math_1_1Slice.html#a445c6c3924d0b7b5069734aa420a4975">More...</a><br /></td></tr>
 <tr class="separator:a445c6c3924d0b7b5069734aa420a4975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad314837198de68068cf06c6cbec7705b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#aeb6e0a3eba795e8a0302220dd615c865">DifferenceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#ad314837198de68068cf06c6cbec7705b">getStride</a> () const</td></tr>
+<tr class="memdesc:ad314837198de68068cf06c6cbec7705b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the signed step size between consecutive entries.  <a href="classCDPL_1_1Math_1_1Slice.html#ad314837198de68068cf06c6cbec7705b">More...</a><br /></td></tr>
 <tr class="separator:ad314837198de68068cf06c6cbec7705b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1a15b48da6efb9d374b5b14386bb5f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a227ebc7a902187d2165432ef1e2fc125">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#ab1a15b48da6efb9d374b5b14386bb5f7">getSize</a> () const</td></tr>
+<tr class="memdesc:ab1a15b48da6efb9d374b5b14386bb5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the slice.  <a href="classCDPL_1_1Math_1_1Slice.html#ab1a15b48da6efb9d374b5b14386bb5f7">More...</a><br /></td></tr>
 <tr class="separator:ab1a15b48da6efb9d374b5b14386bb5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af868eae32c20cf7f01ae0901454910a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#af868eae32c20cf7f01ae0901454910a5">isEmpty</a> () const</td></tr>
+<tr class="memdesc:af868eae32c20cf7f01ae0901454910a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the slice is empty.  <a href="classCDPL_1_1Math_1_1Slice.html#af868eae32c20cf7f01ae0901454910a5">More...</a><br /></td></tr>
 <tr class="separator:af868eae32c20cf7f01ae0901454910a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab133dc4764e34a4c66a2d453608a1f6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#ab133dc4764e34a4c66a2d453608a1f6a">operator==</a> (const <a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a> &amp;s) const</td></tr>
+<tr class="memdesc:ab133dc4764e34a4c66a2d453608a1f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison.  <a href="classCDPL_1_1Math_1_1Slice.html#ab133dc4764e34a4c66a2d453608a1f6a">More...</a><br /></td></tr>
 <tr class="separator:ab133dc4764e34a4c66a2d453608a1f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35551d4b96aa251faa0185b6118f47f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a35551d4b96aa251faa0185b6118f47f4">operator!=</a> (const <a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a> &amp;s) const</td></tr>
+<tr class="memdesc:a35551d4b96aa251faa0185b6118f47f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality comparison.  <a href="classCDPL_1_1Math_1_1Slice.html#a35551d4b96aa251faa0185b6118f47f4">More...</a><br /></td></tr>
 <tr class="separator:a35551d4b96aa251faa0185b6118f47f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbabf3784f924f0aa5ffd6cbc922998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#aedbabf3784f924f0aa5ffd6cbc922998">swap</a> (<a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a> &amp;s)</td></tr>
+<tr class="memdesc:aedbabf3784f924f0aa5ffd6cbc922998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the contents of <code>*this</code> and <em>s</em>.  <a href="classCDPL_1_1Math_1_1Slice.html#aedbabf3784f924f0aa5ffd6cbc922998">More...</a><br /></td></tr>
 <tr class="separator:aedbabf3784f924f0aa5ffd6cbc922998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a2070183a297aeca814c91554bb330b03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Slice.html#a2070183a297aeca814c91554bb330b03">swap</a> (<a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a> &amp;s1, <a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a> &amp;s2)</td></tr>
+<tr class="memdesc:a2070183a297aeca814c91554bb330b03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free-function swap overload.  <a href="classCDPL_1_1Math_1_1Slice.html#a2070183a297aeca814c91554bb330b03">More...</a><br /></td></tr>
 <tr class="separator:a2070183a297aeca814c91554bb330b03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename S, typename D&gt;<br />
+class CDPL::Math::Slice&lt; S, D &gt;</h3>
+
+<p>An index slice ( \( start, stride, size \)) used for strided slicing of vector and matrix expressions. </p>
+<p>Local position <em>i</em> is mapped to the global index \( start + i \cdot stride \). Negative strides (reverse iteration) are supported as long as the resulting indices stay non-negative.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">S</td><td>The integral size/index type. </td></tr>
+    <tr><td class="paramname">D</td><td>The signed difference type used for the stride. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a227ebc7a902187d2165432ef1e2fc125"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a227ebc7a902187d2165432ef1e2fc125">&#9670;&nbsp;</a></span>SizeType</h2>
 
@@ -143,6 +172,8 @@ template&lt;typename S , typename D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The integral size/index type. </p>
 
 </div>
 </div>
@@ -159,6 +190,8 @@ template&lt;typename S , typename D &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The signed difference type used for the stride. </p>
 
 </div>
 </div>
@@ -187,6 +220,8 @@ template&lt;typename S , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs an empty slice ( \( 0, 0, 0 \)). </p>
 
 </div>
 </div>
@@ -232,6 +267,22 @@ template&lt;typename S , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs the slice (<em>start</em>, <em>stride</em>, <em>size</em>). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>The starting global index. </td></tr>
+    <tr><td class="paramname">stride</td><td>The signed step size between consecutive entries. </td></tr>
+    <tr><td class="paramname">size</td><td>The number of entries. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1RangeError.html" title="Thrown to indicate that a value is out of range.">Base::RangeError</a></td><td>if the slice would produce a negative global index. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -261,6 +312,21 @@ template&lt;typename S , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Maps the local position <em>i</em> to the global index \( start + i \cdot stride \). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The zero-based local position. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The global index. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>i</em> is not in the range \( [0, size) \). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a445c6c3924d0b7b5069734aa420a4975"></a>
@@ -287,6 +353,9 @@ template&lt;typename S , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the starting global index. </p>
+<dl class="section return"><dt>Returns</dt><dd>The starting index. </dd></dl>
 
 </div>
 </div>
@@ -315,6 +384,9 @@ template&lt;typename S , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the signed step size between consecutive entries. </p>
+<dl class="section return"><dt>Returns</dt><dd>The stride. </dd></dl>
+
 </div>
 </div>
 <a id="ab1a15b48da6efb9d374b5b14386bb5f7"></a>
@@ -342,6 +414,9 @@ template&lt;typename S , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of entries in the slice. </p>
+<dl class="section return"><dt>Returns</dt><dd>The slice size. </dd></dl>
+
 </div>
 </div>
 <a id="af868eae32c20cf7f01ae0901454910a5"></a>
@@ -368,6 +443,9 @@ template&lt;typename S , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Tells whether the slice is empty. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the slice contains no entries, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -397,6 +475,15 @@ template&lt;typename S , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Equality comparison. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The other slice. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if both slices have the same start, stride and size, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a35551d4b96aa251faa0185b6118f47f4"></a>
@@ -425,6 +512,15 @@ template&lt;typename S , typename D &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Inequality comparison. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The other slice. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the slices differ in start, stride or size, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="aedbabf3784f924f0aa5ffd6cbc922998"></a>
@@ -452,6 +548,14 @@ template&lt;typename S , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Swaps the contents of <code>*this</code> and <em>s</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The other slice. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -491,6 +595,15 @@ template&lt;typename S , typename D &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Free-function swap overload. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>The first slice. </td></tr>
+    <tr><td class="paramname">s2</td><td>The second slice. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

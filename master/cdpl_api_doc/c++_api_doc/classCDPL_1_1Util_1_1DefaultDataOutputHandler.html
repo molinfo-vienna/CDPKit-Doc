@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html" title="DefaultDataOutputHandler.">DefaultDataOutputHandler</a>.  
+<p>Default <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html" title="A factory interface providing methods for the creation of Base::DataWriter instances handling a parti...">Base::DataOutputHandler</a> implementation that exposes a fixed <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> and instantiates writers of the supplied stream-based <em>WriterImpl</em> type (file-based writers are produced by wrapping it in <a class="el" href="classCDPL_1_1Util_1_1FileDataWriter.html" title="Convenience wrapper that adapts a stream-based writer implementation WriterImpl into a file-based Bas...">Util::FileDataWriter</a>).  
  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="DefaultDataOutputHandler_8hpp_source.html">DefaultDataOutputHandler.hpp</a>&gt;</code></p>
@@ -99,6 +99,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac07586eac4bea10b436bc7adf8706e8d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html">Base::DataOutputHandler</a>&lt; DataType &gt;::<a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#ac07586eac4bea10b436bc7adf8706e8d">WriterType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#ac07586eac4bea10b436bc7adf8706e8d">WriterType</a></td></tr>
+<tr class="memdesc:ac07586eac4bea10b436bc7adf8706e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> specialization produced by this handler.  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#ac07586eac4bea10b436bc7adf8706e8d">More...</a><br /></td></tr>
 <tr class="separator:ac07586eac4bea10b436bc7adf8706e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1DataOutputHandler"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1DataOutputHandler')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html">CDPL::Base::DataOutputHandler&lt; typename WriterImpl::DataType &gt;</a></td></tr>
 <tr class="memitem:a892f02405c2aca61f72c9f5db2d3380e inherit pub_types_classCDPL_1_1Base_1_1DataOutputHandler"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html">DataWriter</a>&lt; typename WriterImpl::DataType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html#a892f02405c2aca61f72c9f5db2d3380e">WriterType</a></td></tr>
@@ -109,13 +110,13 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0dac3f1bd28da552b063be477c673416"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html">Base::DataFormat</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a0dac3f1bd28da552b063be477c673416">getDataFormat</a> () const</td></tr>
-<tr class="memdesc:a0dac3f1bd28da552b063be477c673416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> object that provides information about the handled output data format.  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a0dac3f1bd28da552b063be477c673416">More...</a><br /></td></tr>
+<tr class="memdesc:a0dac3f1bd28da552b063be477c673416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data format advertised by this handler.  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a0dac3f1bd28da552b063be477c673416">More...</a><br /></td></tr>
 <tr class="separator:a0dac3f1bd28da552b063be477c673416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a782698bb526c9f2a3d5b763ddbea4556"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a9c076171ff81c4c0b59b802a31f3e05e">WriterType::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a782698bb526c9f2a3d5b763ddbea4556">createWriter</a> (std::ostream &amp;os) const</td></tr>
-<tr class="memdesc:a782698bb526c9f2a3d5b763ddbea4556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> instance that will write the data to the output stream <em>os</em>.  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a782698bb526c9f2a3d5b763ddbea4556">More...</a><br /></td></tr>
+<tr class="memdesc:a782698bb526c9f2a3d5b763ddbea4556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a writer that writes to the output stream <em>os</em>.  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a782698bb526c9f2a3d5b763ddbea4556">More...</a><br /></td></tr>
 <tr class="separator:a782698bb526c9f2a3d5b763ddbea4556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e73c98cec0388139038a5d8c70b1b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1DataWriter.html#a9c076171ff81c4c0b59b802a31f3e05e">WriterType::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a12e73c98cec0388139038a5d8c70b1b1">createWriter</a> (const std::string &amp;file_name, std::ios_base::openmode mode) const</td></tr>
-<tr class="memdesc:a12e73c98cec0388139038a5d8c70b1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> instance that will write the data to the file specified by <em>file_name</em>.  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a12e73c98cec0388139038a5d8c70b1b1">More...</a><br /></td></tr>
+<tr class="memdesc:a12e73c98cec0388139038a5d8c70b1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a writer that writes to the file <em>file_name</em> (opened in mode <em>mode</em>).  <a href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html#a12e73c98cec0388139038a5d8c70b1b1">More...</a><br /></td></tr>
 <tr class="separator:a12e73c98cec0388139038a5d8c70b1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Base_1_1DataOutputHandler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Base_1_1DataOutputHandler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html">CDPL::Base::DataOutputHandler&lt; typename WriterImpl::DataType &gt;</a></td></tr>
 <tr class="memitem:a609aab1e3c9e6060617a8be839d414ea inherit pub_methods_classCDPL_1_1Base_1_1DataOutputHandler"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html#a609aab1e3c9e6060617a8be839d414ea">~DataOutputHandler</a> ()</td></tr>
@@ -126,7 +127,15 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename WriterImpl, const Base::DataFormat &amp; FORMAT, typename DataType = typename WriterImpl::DataType&gt;<br />
 class CDPL::Util::DefaultDataOutputHandler&lt; WriterImpl, FORMAT, DataType &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Util_1_1DefaultDataOutputHandler.html" title="DefaultDataOutputHandler.">DefaultDataOutputHandler</a>. </p>
+<p>Default <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html" title="A factory interface providing methods for the creation of Base::DataWriter instances handling a parti...">Base::DataOutputHandler</a> implementation that exposes a fixed <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> and instantiates writers of the supplied stream-based <em>WriterImpl</em> type (file-based writers are produced by wrapping it in <a class="el" href="classCDPL_1_1Util_1_1FileDataWriter.html" title="Convenience wrapper that adapts a stream-based writer implementation WriterImpl into a file-based Bas...">Util::FileDataWriter</a>). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">WriterImpl</td><td>The underlying stream-based writer implementation type. </td></tr>
+    <tr><td class="paramname">FORMAT</td><td>A reference to the <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> constant advertised by the handler. </td></tr>
+    <tr><td class="paramname">DataType</td><td>The data type written by <em>WriterImpl</em>. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac07586eac4bea10b436bc7adf8706e8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac07586eac4bea10b436bc7adf8706e8d">&#9670;&nbsp;</a></span>WriterType</h2>
@@ -141,6 +150,8 @@ template&lt;typename WriterImpl , const Base::DataFormat &amp; FORMAT, typename 
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of the <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> specialization produced by this handler. </p>
 
 </div>
 </div>
@@ -170,8 +181,8 @@ template&lt;typename WriterImpl , const Base::DataFormat &amp; FORMAT, typename 
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> object that provides information about the handled output data format. </p>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> object that provides information about the handled data format. </dd></dl>
+<p>Returns the data format advertised by this handler. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the fixed <a class="el" href="classCDPL_1_1Base_1_1DataFormat.html" title="Provides meta-information about a particular data storage format.">Base::DataFormat</a> <em>FORMAT</em>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html#a74ca42688769ad56dba09267cbd24c1d">CDPL::Base::DataOutputHandler&lt; typename WriterImpl::DataType &gt;</a>.</p>
 
@@ -203,14 +214,14 @@ template&lt;typename WriterImpl , const Base::DataFormat &amp; FORMAT, typename 
 </table>
 </div><div class="memdoc">
 
-<p>Creates a <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> instance that will write the data to the output stream <em>os</em>. </p>
+<p>Creates a writer that writes to the output stream <em>os</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">os</td><td>The output stream to write to. </td></tr>
+    <tr><td class="paramname">os</td><td>The output stream to wrap. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to a freshly constructed <em>WriterImpl</em>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html#a3b324d7d149f13fa80c32a165f452b16">CDPL::Base::DataOutputHandler&lt; typename WriterImpl::DataType &gt;</a>.</p>
 
@@ -252,15 +263,15 @@ template&lt;typename WriterImpl , const Base::DataFormat &amp; FORMAT, typename 
 </table>
 </div><div class="memdoc">
 
-<p>Creates a <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> instance that will write the data to the file specified by <em>file_name</em>. </p>
+<p>Creates a writer that writes to the file <em>file_name</em> (opened in mode <em>mode</em>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">file_name</td><td>The full path of the file to write to. </td></tr>
-    <tr><td class="paramname">mode</td><td>Flags specifying the file open-mode. </td></tr>
+    <tr><td class="paramname">file_name</td><td>The path of the output file. </td></tr>
+    <tr><td class="paramname">mode</td><td>The open mode of the underlying file stream. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the created <a class="el" href="classCDPL_1_1Base_1_1DataWriter.html" title="An interface for writing data objects of a given type to an arbitrary data sink.">Base::DataWriter</a> instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to a freshly constructed <a class="el" href="classCDPL_1_1Util_1_1FileDataWriter.html" title="Convenience wrapper that adapts a stream-based writer implementation WriterImpl into a file-based Bas...">Util::FileDataWriter</a> wrapping a <em>WriterImpl</em>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Base_1_1DataOutputHandler.html#acef750e171dc1502df897ba086a7f85b">CDPL::Base::DataOutputHandler&lt; typename WriterImpl::DataType &gt;</a>.</p>
 

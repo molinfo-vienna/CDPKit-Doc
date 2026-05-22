@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Proxy that exposes a single (key, value) entry of a sparse container as a writable reference.  
+ <a href="classCDPL_1_1Math_1_1SparseContainerElement.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="SparseContainerElement_8hpp_source.html">SparseContainerElement.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -132,7 +135,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3b1538ae5abadaf6b1d1ae66b6b5f44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseContainerElement.html#ab3b1538ae5abadaf6b1d1ae66b6b5f44">operator ConstReference</a> () const</td></tr>
 <tr class="separator:ab3b1538ae5abadaf6b1d1ae66b6b5f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename C, typename K = typename C::KeyType&gt;<br />
+class CDPL::Math::SparseContainerElement&lt; C, K &gt;</h3>
+
+<p>Proxy that exposes a single (key, value) entry of a sparse container as a writable reference. </p>
+<p>Reading the proxy returns the value associated with <em>key</em> (or a default-constructed value if no entry exists). Writing to the proxy inserts/updates the entry; assigning the default-constructed value removes the entry from the underlying sparse storage.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">C</td><td>The sparse container type (must expose <code>KeyType</code>, <code>ValueType</code>, <code>SizeType</code>, <code>ConstReference</code>, <code>ArrayType</code> and <code>getData()</code>). </td></tr>
+    <tr><td class="paramname">K</td><td>The key type (defaults to <code>C::KeyType</code>). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="af51127b1d14e1ae95a199a1752960faf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af51127b1d14e1ae95a199a1752960faf">&#9670;&nbsp;</a></span>ContainerType</h2>
 
