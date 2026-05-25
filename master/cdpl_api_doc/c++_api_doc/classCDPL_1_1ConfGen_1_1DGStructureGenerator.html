@@ -102,7 +102,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a79ce8cb876b8baa81b98187c877e1193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit mask of hydrogens excluded from the coordinate-generation step.  <a href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html#a79ce8cb876b8baa81b98187c877e1193">More...</a><br /></td></tr>
 <tr class="separator:a79ce8cb876b8baa81b98187c877e1193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4575e32bf22f595cc1e96f1faea6a4df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html#a4575e32bf22f595cc1e96f1faea6a4df">setup</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a4575e32bf22f595cc1e96f1faea6a4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the generator for <em>molgraph</em> using force-field parameters perceived on the fly.  <a href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html#a4575e32bf22f595cc1e96f1faea6a4df">More...</a><br /></td></tr>
+<tr class="memdesc:a4575e32bf22f595cc1e96f1faea6a4df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the generator for <em>molgraph</em> using geometry defaults derived from each atom's element number and hybridization state.  <a href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html#a4575e32bf22f595cc1e96f1faea6a4df">More...</a><br /></td></tr>
 <tr class="separator:a4575e32bf22f595cc1e96f1faea6a4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a894ee872a2f61eee022f16cf8ad2ec21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html#a894ee872a2f61eee022f16cf8ad2ec21">setup</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">ForceField::MMFF94InteractionData</a> &amp;ia_data)</td></tr>
 <tr class="memdesc:a894ee872a2f61eee022f16cf8ad2ec21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the generator for <em>molgraph</em> using the supplied MMFF94 interaction data.  <a href="classCDPL_1_1ConfGen_1_1DGStructureGenerator.html#a894ee872a2f61eee022f16cf8ad2ec21">More...</a><br /></td></tr>
@@ -232,7 +232,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets up the generator for <em>molgraph</em> using force-field parameters perceived on the fly. </p>
+<p>Sets up the generator for <em>molgraph</em> using geometry defaults derived from each atom's element number and hybridization state. </p>
+<p>No MMFF94 parameterization is carried out; reference bond lengths and angles are taken from element-/hybridization-based lookup tables.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The input molecular graph. </td></tr>

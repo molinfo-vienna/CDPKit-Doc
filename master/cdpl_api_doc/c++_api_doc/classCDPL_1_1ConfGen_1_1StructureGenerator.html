@@ -145,7 +145,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af99b4ae1c800009b546a9cb080c8732c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a single 3D structure for <em>molgraph</em> while keeping the substructure <em>fixed_substr</em> at the supplied 3D coordinates <em>fixed_substr_coords</em>.  <a href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#af99b4ae1c800009b546a9cb080c8732c">More...</a><br /></td></tr>
 <tr class="separator:af99b4ae1c800009b546a9cb080c8732c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b996a374043ecdfa662415a207c91fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#a9b996a374043ecdfa662415a207c91fc">setCoordinates</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph) const</td></tr>
-<tr class="memdesc:a9b996a374043ecdfa662415a207c91fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers the generated 3D coordinates onto <em>molgraph</em> (sets the <code>ATOM_COORDINATES_3D</code> atom properties).  <a href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#a9b996a374043ecdfa662415a207c91fc">More...</a><br /></td></tr>
+<tr class="memdesc:a9b996a374043ecdfa662415a207c91fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers the generated 3D coordinates onto the atoms of <em>molgraph</em> (via <a class="el" href="namespaceCDPL_1_1Chem.html#a720b79bf43d9b95d5326fd679c29e5f3">Chem::set3DCoordinates</a>).  <a href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#a9b996a374043ecdfa662415a207c91fc">More...</a><br /></td></tr>
 <tr class="separator:a9b996a374043ecdfa662415a207c91fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2c287d21dedaea7b7de9ad10c849537"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerData.html">ConformerData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#af2c287d21dedaea7b7de9ad10c849537">getCoordinates</a> () const</td></tr>
 <tr class="memdesc:af2c287d21dedaea7b7de9ad10c849537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the conformer data produced by the most recent <a class="el" href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#a603d94c2de52a2399a4fc085eb643a21" title="Generates a single 3D structure for molgraph.">generate()</a> call.  <a href="classCDPL_1_1ConfGen_1_1StructureGenerator.html#af2c287d21dedaea7b7de9ad10c849537">More...</a><br /></td></tr>
@@ -153,7 +153,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>High-level driver for the generation of a single low-energy 3D structure from a molecular graph. </p>
-<p>Internally delegates to the same pipeline as <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html" title="High-level driver for the systematic generation of low-energy 3D conformer ensembles from a molecular...">ConfGen::ConformerGenerator</a> but stops after the first acceptable conformer has been produced. </p>
+<p>Internally delegates to the same pipeline as <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html" title="High-level driver for the generation of low-energy 3D conformer ensembles from a molecular graph.">ConfGen::ConformerGenerator</a> but stops after the first acceptable conformer has been produced. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ffe52fb5a0a3acaf4d49dc6062600e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ffe52fb5a0a3acaf4d49dc6062600e6">&#9670;&nbsp;</a></span>StructureGenerator() <span class="overload">[1/2]</span></h2>
@@ -642,7 +642,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Transfers the generated 3D coordinates onto <em>molgraph</em> (sets the <code>ATOM_COORDINATES_3D</code> atom properties). </p>
+<p>Transfers the generated 3D coordinates onto the atoms of <em>molgraph</em> (via <a class="el" href="namespaceCDPL_1_1Chem.html#a720b79bf43d9b95d5326fd679c29e5f3">Chem::set3DCoordinates</a>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph receiving the 3D coordinates. </td></tr>

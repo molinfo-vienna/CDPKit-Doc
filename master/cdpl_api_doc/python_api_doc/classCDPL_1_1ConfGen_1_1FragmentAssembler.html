@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Driver for the fragment-based generation of 3D structures: decomposes a molecular graph into chain and ring fragments, looks up pre-built conformers from a <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentLibrary.html" title="A library of pre-generated conformations for molecular fragments, indexed by canonical-fragment hash ...">ConfGen.FragmentLibrary</a> for each fragment and assembles them into one or more full 3D conformers.  
+<p>Driver for the fragment-based generation of 3D starting conformers.  
  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.ConfGen.FragmentAssembler:</div>
@@ -98,7 +98,7 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac97d8693434cad4186c671473c5f8845"><td class="memItemLeft" align="right" valign="top"><a id="ac97d8693434cad4186c671473c5f8845"></a>
 None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#ac97d8693434cad4186c671473c5f8845">__init__</a> ()</td></tr>
-<tr class="memdesc:ac97d8693434cad4186c671473c5f8845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html" title="Driver for the fragment-based generation of 3D structures: decomposes a molecular graph into chain an...">FragmentAssembler</a></code> instance. <br /></td></tr>
+<tr class="memdesc:ac97d8693434cad4186c671473c5f8845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html" title="Driver for the fragment-based generation of 3D starting conformers.">FragmentAssembler</a></code> instance. <br /></td></tr>
 <tr class="separator:ac97d8693434cad4186c671473c5f8845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d8fb8c7c5df057bedc59859094dd9a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9d8fb8c7c5df057bedc59859094dd9a0">getObjectID</a> ()</td></tr>
 <tr class="memdesc:a9d8fb8c7c5df057bedc59859094dd9a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1ConfGen_1_1FragmentAssembler.html#a9d8fb8c7c5df057bedc59859094dd9a0">More...</a><br /></td></tr>
@@ -167,7 +167,9 @@ Properties</h2></td></tr>
 <tr class="separator:a3e9c341b7aab2a6d682592c4be81a4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Driver for the fragment-based generation of 3D structures: decomposes a molecular graph into chain and ring fragments, looks up pre-built conformers from a <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentLibrary.html" title="A library of pre-generated conformations for molecular fragments, indexed by canonical-fragment hash ...">ConfGen.FragmentLibrary</a> for each fragment and assembles them into one or more full 3D conformers. </p>
+<div class="textblock"><p>Driver for the fragment-based generation of 3D starting conformers. </p>
+<p>The assembler decomposes a molecular graph into chain and ring fragments, looks up pre-built conformers from a <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentLibrary.html" title="A library of pre-generated conformations for molecular fragments, indexed by canonical-fragment hash ...">ConfGen.FragmentLibrary</a> for each fragment (generating them on the fly when no library entry is available) and reassembles them into full 3D structures. The conformers produced this way are intended to serve as <em>starting conformers</em> for subsequent torsion driving — they are not (in general) a final conformer ensemble.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1ConfGen_1_1TorsionDriver.html" title="Driver for the systematic enumeration of conformers obtained by rotating around rotatable bonds of a ...">ConfGen.TorsionDriver</a>, <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html" title="High-level driver for the generation of low-energy 3D conformer ensembles from a molecular graph.">ConfGen.ConformerGenerator</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9d8fb8c7c5df057bedc59859094dd9a0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d8fb8c7c5df057bedc59859094dd9a0">&#9670;&nbsp;</a></span>getObjectID()</h2>

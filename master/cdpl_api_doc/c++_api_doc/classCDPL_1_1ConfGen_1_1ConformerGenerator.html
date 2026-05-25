@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>High-level driver for the systematic generation of low-energy 3D conformer ensembles from a molecular graph.  
+<p>High-level driver for the generation of low-energy 3D conformer ensembles from a molecular graph.  
  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ConformerGenerator_8hpp_source.html">ConformerGenerator.hpp</a>&gt;</code></p>
@@ -155,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a58c3f4a656e2ce111c0b9284e17e9370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a conformer ensemble for <em>molgraph</em> while keeping the substructure <em>fixed_substr</em> at the supplied 3D coordinates <em>fixed_substr_coords</em>.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a58c3f4a656e2ce111c0b9284e17e9370">More...</a><br /></td></tr>
 <tr class="separator:a58c3f4a656e2ce111c0b9284e17e9370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed959ca9350d79d4060f38d42208bf29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#aed959ca9350d79d4060f38d42208bf29">setConformers</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph) const</td></tr>
-<tr class="memdesc:aed959ca9350d79d4060f38d42208bf29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers the generated conformer ensemble onto <em>molgraph</em> (adds Chem::MolecularGraphProperty::CONFORMER_DATA entries).  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#aed959ca9350d79d4060f38d42208bf29">More...</a><br /></td></tr>
+<tr class="memdesc:aed959ca9350d79d4060f38d42208bf29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers the generated conformer ensemble onto <em>molgraph</em>.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#aed959ca9350d79d4060f38d42208bf29">More...</a><br /></td></tr>
 <tr class="separator:aed959ca9350d79d4060f38d42208bf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b8f5e99e7818b4bb6632c31d33d87cf"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a2b8f5e99e7818b4bb6632c31d33d87cf">getNumConformers</a> () const</td></tr>
 <tr class="memdesc:a2b8f5e99e7818b4bb6632c31d33d87cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of generated conformers.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a2b8f5e99e7818b4bb6632c31d33d87cf">More...</a><br /></td></tr>
@@ -192,8 +192,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a873ed2336d51f2f5a710f703d6d44871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>High-level driver for the systematic generation of low-energy 3D conformer ensembles from a molecular graph. </p>
-<p>The generator coordinates the full pipeline: 2D-to-3D fragment-based structure generation, torsion-driven conformer enumeration, MMFF94-based energy minimization, RMSD-based clustering and final selection. Pipeline behaviour is controlled via the embedded Settings instance, the configured fragment and torsion libraries and optional abort/timeout/log callbacks. </p>
+<div class="textblock"><p>High-level driver for the generation of low-energy 3D conformer ensembles from a molecular graph. </p>
+<p>The generator implements two complementary sampling strategies (selectable via the embedded <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGeneratorSettings.html" title="Bundle of configuration parameters for ConfGen::ConformerGenerator.">ConformerGeneratorSettings</a>) for assembling the conformer ensemble: </p><ul>
+<li>a systematic strategy that performs fragment-based 2D-to-3D structure generation followed by exhaustive torsion-driving of all flexible bonds, and </li>
+<li>a stochastic strategy that draws conformations randomly from the rotatable-bond torsion-angle distributions (typically applied to large/highly-flexible molecules).</li>
+</ul>
+<p>Both strategies share a common downstream pipeline of MMFF94-based energy minimization, RMSD-based clustering and energy-window filtering. Behaviour is controlled by the embedded Settings instance, the configured fragment and torsion libraries and the optional abort/timeout/log callbacks.</p>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#CFRG">CFRG</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aad3bc83fcb94f28bb74912af4a6df00f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad3bc83fcb94f28bb74912af4a6df00f">&#9670;&nbsp;</a></span>ConstConformerIterator</h2>
@@ -715,10 +720,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Transfers the generated conformer ensemble onto <em>molgraph</em> (adds Chem::MolecularGraphProperty::CONFORMER_DATA entries). </p>
+<p>Transfers the generated conformer ensemble onto <em>molgraph</em>. </p>
+<p>The per-conformer 3D coordinates are written to each atom's 3D-coordinates array (via <a class="el" href="namespaceCDPL_1_1Chem.html#ac3208daa72e8f7a101d105e5e08931e9">Chem::set3DCoordinatesArray</a>) and the corresponding per-conformer energies are attached to the molecular graph (via <a class="el" href="namespaceCDPL_1_1Chem.html#ab2c88e78abdcc0d1ac2764658ae27bdf">Chem::setConformerEnergies</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The molecular graph receiving the conformer data. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The molecular graph that receives the conformer coordinates and energies. </td></tr>
   </table>
   </dd>
 </dl>
