@@ -117,7 +117,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:aa163cd32738529942d438e73eda10c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the proximity-check pruning is enabled.  <a href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#aa163cd32738529942d438e73eda10c80">More...</a><br /></td></tr>
 <tr class="separator:aa163cd32738529942d438e73eda10c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fff34713b65664026d053e15395347e"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a6fff34713b65664026d053e15395347e">setRadiusScalingFactor</a> (float factor)</td></tr>
-<tr class="memdesc:a6fff34713b65664026d053e15395347e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scaling factor applied to van der Waals radii during the proximity check.  <a href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a6fff34713b65664026d053e15395347e">More...</a><br /></td></tr>
+<tr class="memdesc:a6fff34713b65664026d053e15395347e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scaling factor applied to Van der Waals radii during the proximity check.  <a href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a6fff34713b65664026d053e15395347e">More...</a><br /></td></tr>
 <tr class="separator:a6fff34713b65664026d053e15395347e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b47d6f25affacbb833c66676076c17e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a9b47d6f25affacbb833c66676076c17e">getRadiusScalingFactor</a> ()</td></tr>
 <tr class="memdesc:a9b47d6f25affacbb833c66676076c17e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured radius scaling factor.  <a href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a9b47d6f25affacbb833c66676076c17e">More...</a><br /></td></tr>
@@ -176,7 +176,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a193678fa0bfa073e54069f8aa82d1d61"><td class="memItemLeft" align="right" valign="top"><a id="a193678fa0bfa073e54069f8aa82d1d61"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a193678fa0bfa073e54069f8aa82d1d61">DEF_RADIUS_SCALING_FACTOR</a> = 1.4</td></tr>
-<tr class="memdesc:a193678fa0bfa073e54069f8aa82d1d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default scaling factor applied to van der Waals radii for the proximity-check pruning. <br /></td></tr>
+<tr class="memdesc:a193678fa0bfa073e54069f8aa82d1d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default scaling factor applied to Van der Waals radii for the proximity-check pruning. <br /></td></tr>
 <tr class="separator:a193678fa0bfa073e54069f8aa82d1d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -204,7 +204,7 @@ Properties</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classCDPL_1_1Shape_1_1GaussianShapeOverlapFunction.html" title="Abstract base class for functions evaluating the overlap between two Gaussian shape functions.">Shape.GaussianShapeOverlapFunction</a> implementation that uses two approximation techniques to trade some accuracy for a substantial speedup compared to <a class="el" href="classCDPL_1_1Shape_1_1ExactGaussianShapeOverlapFunction.html" title="Shape.GaussianShapeOverlapFunction implementation that evaluates the overlap analytically using the f...">Shape.ExactGaussianShapeOverlapFunction</a>. </p>
 <p>Two independent acceleration features can be enabled:</p><ul>
-<li><b>Proximity optimization</b> prunes Gaussian-product pair contributions based on a scaled van-der-Waals proximity test (see <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a6fff34713b65664026d053e15395347e" title="Sets the scaling factor applied to van der Waals radii during the proximity check.">setRadiusScalingFactor()</a>).</li>
+<li><b>Proximity optimization</b> prunes Gaussian-product pair contributions based on a scaled van-der-Waals proximity test (see <a class="el" href="classCDPL_1_1Shape_1_1FastGaussianShapeOverlapFunction.html#a6fff34713b65664026d053e15395347e" title="Sets the scaling factor applied to Van der Waals radii during the proximity check.">setRadiusScalingFactor()</a>).</li>
 <li><b>Fast exponential function</b> replaces the expensive <code>std::exp</code> call with a fast approximation that is accurate enough for screening-style overlap evaluation. </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -361,7 +361,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the scaling factor applied to van der Waals radii during the proximity check. </p>
+<p>Sets the scaling factor applied to Van der Waals radii during the proximity check. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">factor</td><td>The new radius scaling factor. </td></tr>

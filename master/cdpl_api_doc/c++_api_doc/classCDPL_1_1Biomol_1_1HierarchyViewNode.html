@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html" title="HierarchyViewNode.">HierarchyViewNode</a>.  
+<p>Abstract base class for nodes of the <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure allowing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a> tree (models, chains, residues).  
  <a href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HierarchyViewNode_8hpp_source.html">HierarchyViewNode.hpp</a>&gt;</code></p>
@@ -99,6 +99,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a60ae2bbe6e8b02e6181c3c092af1ab5c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Biomol_1_1ResidueList.html">ResidueList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a60ae2bbe6e8b02e6181c3c092af1ab5c">getResidues</a> () const</td></tr>
+<tr class="memdesc:a60ae2bbe6e8b02e6181c3c092af1ab5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of residues belonging to this node (lazily perceived on first access).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a60ae2bbe6e8b02e6181c3c092af1ab5c">More...</a><br /></td></tr>
 <tr class="separator:a60ae2bbe6e8b02e6181c3c092af1ab5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Chem_1_1Fragment"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Chem_1_1Fragment')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">CDPL::Chem::Fragment</a></td></tr>
 <tr class="memitem:aee3d4893853684f53f387d311c6e1ca4 inherit pub_methods_classCDPL_1_1Chem_1_1Fragment"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Fragment.html#aee3d4893853684f53f387d311c6e1ca4">Fragment</a> ()</td></tr>
@@ -480,7 +481,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a39a6504972478d4fa267691549f0d241 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html" title="HierarchyViewNode.">HierarchyViewNode</a>. </p>
+<div class="textblock"><p>Abstract base class for nodes of the <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure allowing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a> tree (models, chains, residues). </p>
+<p>Stores the residue list of the node and the mutex protecting the lazy initialization of the node-specific child lists (chains / residues). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5928600e06b8b766f42ec956349e9474"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5928600e06b8b766f42ec956349e9474">&#9670;&nbsp;</a></span>HierarchyViewNode()</h2>
@@ -547,6 +549,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the list of residues belonging to this node (lazily perceived on first access). </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the residue list. </dd></dl>
 
 </div>
 </div>

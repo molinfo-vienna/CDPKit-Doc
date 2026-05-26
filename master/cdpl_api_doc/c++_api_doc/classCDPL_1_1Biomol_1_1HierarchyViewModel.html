@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html" title="HierarchyViewModel.">HierarchyViewModel</a>.  
+<p>A single NMR/ensemble model of a <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure allowing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a>, holding the constituent chains.  
  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HierarchyViewModel_8hpp_source.html">HierarchyViewModel.hpp</a>&gt;</code></p>
@@ -100,6 +100,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:aac5ee2a2d826407234cc115750bf4509"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ChainList::const_iterator, const <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html">HierarchyViewChain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#aac5ee2a2d826407234cc115750bf4509">ConstChainIterator</a></td></tr>
+<tr class="memdesc:aac5ee2a2d826407234cc115750bf4509"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the contained chains.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#aac5ee2a2d826407234cc115750bf4509">More...</a><br /></td></tr>
 <tr class="separator:aac5ee2a2d826407234cc115750bf4509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1Fragment"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1Fragment')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">CDPL::Chem::Fragment</a></td></tr>
 <tr class="memitem:ae05e297f551ab2ea544eca1a7001fade inherit pub_types_classCDPL_1_1Chem_1_1Fragment"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Fragment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Fragment.html#ae05e297f551ab2ea544eca1a7001fade">SharedPointer</a></td></tr>
@@ -153,23 +154,32 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a99c9660bc1a3637679898c86b4246483"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a99c9660bc1a3637679898c86b4246483">getNumChains</a> () const</td></tr>
+<tr class="memdesc:a99c9660bc1a3637679898c86b4246483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of chains in this model.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a99c9660bc1a3637679898c86b4246483">More...</a><br /></td></tr>
 <tr class="separator:a99c9660bc1a3637679898c86b4246483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3e45b51e3bcacad42d6593a51e9f4bf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html">HierarchyViewChain</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#ac3e45b51e3bcacad42d6593a51e9f4bf">getChain</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:ac3e45b51e3bcacad42d6593a51e9f4bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the chain at index <em>idx</em>.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#ac3e45b51e3bcacad42d6593a51e9f4bf">More...</a><br /></td></tr>
 <tr class="separator:ac3e45b51e3bcacad42d6593a51e9f4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab013b58ffb1a5c1802bf28dc19fee549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#ab013b58ffb1a5c1802bf28dc19fee549">hasChainWithID</a> (const std::string &amp;id) const</td></tr>
+<tr class="memdesc:ab013b58ffb1a5c1802bf28dc19fee549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether this model contains a chain with the given PDB chain ID.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#ab013b58ffb1a5c1802bf28dc19fee549">More...</a><br /></td></tr>
 <tr class="separator:ab013b58ffb1a5c1802bf28dc19fee549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35a0a2dd8ed0422ef1792b6b626de440"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html">HierarchyViewChain</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a35a0a2dd8ed0422ef1792b6b626de440">getChainByID</a> (const std::string &amp;id) const</td></tr>
+<tr class="memdesc:a35a0a2dd8ed0422ef1792b6b626de440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the chain identified by the given PDB chain ID.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a35a0a2dd8ed0422ef1792b6b626de440">More...</a><br /></td></tr>
 <tr class="separator:a35a0a2dd8ed0422ef1792b6b626de440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adad1ded9371d99bebbf58dee6b6ff46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#aac5ee2a2d826407234cc115750bf4509">ConstChainIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#adad1ded9371d99bebbf58dee6b6ff46a">getChainsBegin</a> () const</td></tr>
+<tr class="memdesc:adad1ded9371d99bebbf58dee6b6ff46a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first chain.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#adad1ded9371d99bebbf58dee6b6ff46a">More...</a><br /></td></tr>
 <tr class="separator:adad1ded9371d99bebbf58dee6b6ff46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a598ed8a34e4f65be01c7ed158dbef04a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#aac5ee2a2d826407234cc115750bf4509">ConstChainIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a598ed8a34e4f65be01c7ed158dbef04a">getChainsEnd</a> () const</td></tr>
+<tr class="memdesc:a598ed8a34e4f65be01c7ed158dbef04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last chain.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a598ed8a34e4f65be01c7ed158dbef04a">More...</a><br /></td></tr>
 <tr class="separator:a598ed8a34e4f65be01c7ed158dbef04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b152811766efa6cf4f47a260506d692"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#aac5ee2a2d826407234cc115750bf4509">ConstChainIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a9b152811766efa6cf4f47a260506d692">begin</a> () const</td></tr>
+<tr class="memdesc:a9b152811766efa6cf4f47a260506d692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first chain (range-based for support).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a9b152811766efa6cf4f47a260506d692">More...</a><br /></td></tr>
 <tr class="separator:a9b152811766efa6cf4f47a260506d692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aab36a9a8d29041ee93d712c9e67b8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#aac5ee2a2d826407234cc115750bf4509">ConstChainIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a9aab36a9a8d29041ee93d712c9e67b8d">end</a> () const</td></tr>
+<tr class="memdesc:a9aab36a9a8d29041ee93d712c9e67b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last chain (range-based for support).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a9aab36a9a8d29041ee93d712c9e67b8d">More...</a><br /></td></tr>
 <tr class="separator:a9aab36a9a8d29041ee93d712c9e67b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html">CDPL::Biomol::HierarchyViewNode</a></td></tr>
 <tr class="memitem:a60ae2bbe6e8b02e6181c3c092af1ab5c inherit pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Biomol_1_1ResidueList.html">ResidueList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a60ae2bbe6e8b02e6181c3c092af1ab5c">getResidues</a> () const</td></tr>
+<tr class="memdesc:a60ae2bbe6e8b02e6181c3c092af1ab5c inherit pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of residues belonging to this node (lazily perceived on first access).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a60ae2bbe6e8b02e6181c3c092af1ab5c">More...</a><br /></td></tr>
 <tr class="separator:a60ae2bbe6e8b02e6181c3c092af1ab5c inherit pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Chem_1_1Fragment"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Chem_1_1Fragment')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">CDPL::Chem::Fragment</a></td></tr>
 <tr class="memitem:aee3d4893853684f53f387d311c6e1ca4 inherit pub_methods_classCDPL_1_1Chem_1_1Fragment"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Fragment.html#aee3d4893853684f53f387d311c6e1ca4">Fragment</a> ()</td></tr>
@@ -506,7 +516,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html" title="HierarchyViewModel.">HierarchyViewModel</a>. </p>
+<div class="textblock"><p>A single NMR/ensemble model of a <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure allowing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a>, holding the constituent chains. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aac5ee2a2d826407234cc115750bf4509"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac5ee2a2d826407234cc115750bf4509">&#9670;&nbsp;</a></span>ConstChainIterator</h2>
@@ -519,6 +529,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant iterator over the contained chains. </p>
 
 </div>
 </div>
@@ -538,6 +550,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of chains in this model. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of chains. </dd></dl>
+
 </div>
 </div>
 <a id="ac3e45b51e3bcacad42d6593a51e9f4bf"></a>
@@ -555,6 +570,21 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the chain at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based chain index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the chain. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of chains is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewModel.html#a99c9660bc1a3637679898c86b4246483" title="Returns the number of chains in this model.">getNumChains()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -574,6 +604,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Tells whether this model contains a chain with the given PDB chain ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The PDB chain ID. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if such a chain exists, and <code>false</code> otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="a35a0a2dd8ed0422ef1792b6b626de440"></a>
@@ -592,6 +631,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the chain identified by the given PDB chain ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The PDB chain ID. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the chain. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a></td><td>if no chain with the requested ID exists. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="adad1ded9371d99bebbf58dee6b6ff46a"></a>
@@ -608,6 +662,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first chain. </dd></dl>
 
 </div>
 </div>
@@ -626,6 +683,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last chain. </dd></dl>
+
 </div>
 </div>
 <a id="a9b152811766efa6cf4f47a260506d692"></a>
@@ -643,6 +703,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first chain (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first chain. </dd></dl>
+
 </div>
 </div>
 <a id="a9aab36a9a8d29041ee93d712c9e67b8d"></a>
@@ -659,6 +722,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing one past the last chain (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last chain. </dd></dl>
 
 </div>
 </div>

@@ -261,7 +261,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Pharm_1_1PharmacophoreFitScore.html" title="Scoring functor that quantifies how well a candidate set of features fits a reference pharmacophore,...">Pharm::PharmacophoreFitScore</a> specialization that scores a <a class="el" href="classCDPL_1_1Pharm_1_1ScreeningProcessor_1_1SearchHit.html" title="A single alignment hit produced by the screening processor, bundling the source pharmacophore/molecul...">Pharm::ScreeningProcessor::SearchHit</a> by applying the underlying pharmacophore-fit score to its query and hit features.  <a href="classCDPL_1_1Pharm_1_1PharmacophoreFitScreeningScore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1PharmacophoreGenerator.html">PharmacophoreGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespaceCDPL_1_1Base.html" title="Contains core framework classes and functions.">Base</a> class for pharmacophore generators that orchestrate per-feature-type <a class="el" href="classCDPL_1_1Pharm_1_1FeatureGenerator.html" title="Abstract base class for generators that perceive one type of pharmacophore feature (e....">Pharm::FeatureGenerator</a> instances to produce the features of a <a class="el" href="classCDPL_1_1Pharm_1_1Pharmacophore.html" title="Abstract base class for mutable containers of Pharm::Feature instances representing a pharmacophore m...">Pharm::Pharmacophore</a> from a <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a>.  <a href="classCDPL_1_1Pharm_1_1PharmacophoreGenerator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for pharmacophore generators that orchestrate per-feature-type <a class="el" href="classCDPL_1_1Pharm_1_1FeatureGenerator.html" title="Abstract base class for generators that perceive one type of pharmacophore feature (e....">Pharm::FeatureGenerator</a> instances to produce the features of a <a class="el" href="classCDPL_1_1Pharm_1_1Pharmacophore.html" title="Abstract base class for mutable containers of Pharm::Feature instances representing a pharmacophore m...">Pharm::Pharmacophore</a> from a <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a>.  <a href="classCDPL_1_1Pharm_1_1PharmacophoreGenerator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1PMLFeatureContainerWriter.html">PMLFeatureContainerWriter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A writer for feature container data in the native I/O format of <em>LigandScout</em>.  <a href="classCDPL_1_1Pharm_1_1PMLFeatureContainerWriter.html#details">More...</a><br /></td></tr>
@@ -1867,14 +1867,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Tests whether the exclusion-volume features in <em>ftr_cntnr</em> remain clash-free with respect to the transformed atom positions of <em>atom_cntnr</em>. </p>
-<p>Each enabled feature of type <a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#ae882092fa1e3d5fb5a95926262f78ada" title="Specifies an excluded-volume feature.">Pharm::FeatureType::EXCLUSION_VOLUME</a> is checked against every atom of <em>atom_cntnr:</em> a clash is reported as soon as the distance between feature and atom is smaller than the sum of the feature's position tolerance and <em>vdw_factor</em> times the atom's van der Waals radius.</p>
+<p>Each enabled feature of type <a class="el" href="namespaceCDPL_1_1Pharm_1_1FeatureType.html#ae882092fa1e3d5fb5a95926262f78ada" title="Specifies an excluded-volume feature.">Pharm::FeatureType::EXCLUSION_VOLUME</a> is checked against every atom of <em>atom_cntnr:</em> a clash is reported as soon as the distance between feature and atom is smaller than the sum of the feature's position tolerance and <em>vdw_factor</em> times the atom's Van der Waals radius.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ftr_cntnr</td><td>The feature container providing the exclusion-volume features. </td></tr>
     <tr><td class="paramname">atom_cntnr</td><td>The atom container providing the test atoms. </td></tr>
     <tr><td class="paramname">coords_func</td><td>The function returning the 3D coordinates of an atom. </td></tr>
     <tr><td class="paramname">xform</td><td>The 4x4 transformation applied to the atom coordinates before the clash test. </td></tr>
-    <tr><td class="paramname">vdw_factor</td><td>Scaling factor for the per-atom van der Waals radii; if &le; 0 the atoms are treated as point particles. </td></tr>
+    <tr><td class="paramname">vdw_factor</td><td>Scaling factor for the per-atom Van der Waals radii; if &le; 0 the atoms are treated as point particles. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3820,7 +3820,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">pharm</td><td>The pharmacophore to filter. </td></tr>
     <tr><td class="paramname">cntnr</td><td>The atom container providing the clash partners. </td></tr>
     <tr><td class="paramname">coords_func</td><td>The function returning the 3D coordinates of an atom. </td></tr>
-    <tr><td class="paramname">vdw_scaling_fact</td><td>Scaling factor applied to the per-atom van der Waals radius during the clash test. </td></tr>
+    <tr><td class="paramname">vdw_scaling_fact</td><td>Scaling factor applied to the per-atom Van der Waals radius during the clash test. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3872,7 +3872,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">pharm</td><td>The pharmacophore to modify. </td></tr>
     <tr><td class="paramname">cntnr</td><td>The atom container providing the clash partners. </td></tr>
     <tr><td class="paramname">coords_func</td><td>The function returning the 3D coordinates of an atom. </td></tr>
-    <tr><td class="paramname">vdw_scaling_fact</td><td>Scaling factor applied to the per-atom van der Waals radius during the clash test. </td></tr>
+    <tr><td class="paramname">vdw_scaling_fact</td><td>Scaling factor applied to the per-atom Van der Waals radius during the clash test. </td></tr>
   </table>
   </dd>
 </dl>

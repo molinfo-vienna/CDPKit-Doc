@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="FragmentGenerator.">FragmentGenerator</a>.  
+<p>Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching user-defined SMARTS fragmentation rules.  
  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Chem.FragmentGenerator:</div>
@@ -98,64 +98,85 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html">ExcludePattern</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pattern overriding a fragmentation rule: bonds matching the pattern are not cleaved.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentationRule.html">FragmentationRule</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single fragmentation rule, consisting of a SMARTS match pattern and a numeric rule ID.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentationRule.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentLink.html">FragmentLink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the connectivity between two fragments produced by a single bond cleavage.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentLink.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a051baabafa790b662813e0e49f95c49d"><td class="memItemLeft" align="right" valign="top"><a id="a051baabafa790b662813e0e49f95c49d"></a>
 None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a051baabafa790b662813e0e49f95c49d">__init__</a> ()</td></tr>
-<tr class="memdesc:a051baabafa790b662813e0e49f95c49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="FragmentGenerator.">FragmentGenerator</a></code> instance. <br /></td></tr>
+<tr class="memdesc:a051baabafa790b662813e0e49f95c49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching u...">FragmentGenerator</a></code> instance. <br /></td></tr>
 <tr class="separator:a051baabafa790b662813e0e49f95c49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef445a7682a6d92827738d5c182b78a"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a4ef445a7682a6d92827738d5c182b78a">__init__</a> (<a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html">FragmentGenerator</a> gen)</td></tr>
-<tr class="memdesc:a4ef445a7682a6d92827738d5c182b78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a copy of the <code>FragmentGenerator</code> instance <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a4ef445a7682a6d92827738d5c182b78a">More...</a><br /></td></tr>
+<tr class="memdesc:a4ef445a7682a6d92827738d5c182b78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching u...">FragmentGenerator</a></code> instance <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a4ef445a7682a6d92827738d5c182b78a">More...</a><br /></td></tr>
 <tr class="separator:a4ef445a7682a6d92827738d5c182b78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeed534aeb88731c6e81a474fb86bf25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#adeed534aeb88731c6e81a474fb86bf25">getObjectID</a> ()</td></tr>
 <tr class="memdesc:adeed534aeb88731c6e81a474fb86bf25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#adeed534aeb88731c6e81a474fb86bf25">More...</a><br /></td></tr>
 <tr class="separator:adeed534aeb88731c6e81a474fb86bf25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e6c5570d1b7ba896dec11539b62b2ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html">FragmentGenerator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a3e6c5570d1b7ba896dec11539b62b2ef">assign</a> (<a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html">FragmentGenerator</a> gen)</td></tr>
-<tr class="memdesc:a3e6c5570d1b7ba896dec11539b62b2ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>FragmentGenerator</code> instance <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a3e6c5570d1b7ba896dec11539b62b2ef">More...</a><br /></td></tr>
+<tr class="memdesc:a3e6c5570d1b7ba896dec11539b62b2ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the state of this generator by a copy of the state of <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a3e6c5570d1b7ba896dec11539b62b2ef">More...</a><br /></td></tr>
 <tr class="separator:a3e6c5570d1b7ba896dec11539b62b2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbc66b235c71bf7853174f1c2c6119e6"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afbc66b235c71bf7853174f1c2c6119e6">addFragmentationRule</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> match_ptn, int rule_id)</td></tr>
+<tr class="memdesc:afbc66b235c71bf7853174f1c2c6119e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new fragmentation rule by its SMARTS match pattern and rule ID.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afbc66b235c71bf7853174f1c2c6119e6">More...</a><br /></td></tr>
 <tr class="separator:afbc66b235c71bf7853174f1c2c6119e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b76d3137e36130a1093682a874fa190"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a2b76d3137e36130a1093682a874fa190">addFragmentationRule</a> (<a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentationRule.html">FragmentationRule</a> rule)</td></tr>
+<tr class="memdesc:a2b76d3137e36130a1093682a874fa190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of the pre-built fragmentation rule <em>rule</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a2b76d3137e36130a1093682a874fa190">More...</a><br /></td></tr>
 <tr class="separator:a2b76d3137e36130a1093682a874fa190"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af334c71527428f0fa7b06820165c526c"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#af334c71527428f0fa7b06820165c526c">removeFragmentationRule</a> (int idx)</td></tr>
+<tr class="memdesc:af334c71527428f0fa7b06820165c526c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the fragmentation rule at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#af334c71527428f0fa7b06820165c526c">More...</a><br /></td></tr>
 <tr class="separator:af334c71527428f0fa7b06820165c526c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a766a1e65ec58d9151f1b52a440211ec5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentationRule.html">FragmentationRule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a766a1e65ec58d9151f1b52a440211ec5">getFragmentationRule</a> (int idx)</td></tr>
+<tr class="memdesc:a766a1e65ec58d9151f1b52a440211ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fragmentation rule at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a766a1e65ec58d9151f1b52a440211ec5">More...</a><br /></td></tr>
 <tr class="separator:a766a1e65ec58d9151f1b52a440211ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac52ad3314987a4e6660222f20459ac8d"><td class="memItemLeft" align="right" valign="top"><a id="ac52ad3314987a4e6660222f20459ac8d"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>clearFragmentationRules</b> ()</td></tr>
+None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ac52ad3314987a4e6660222f20459ac8d">clearFragmentationRules</a> ()</td></tr>
+<tr class="memdesc:ac52ad3314987a4e6660222f20459ac8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all registered fragmentation rules. <br /></td></tr>
 <tr class="separator:ac52ad3314987a4e6660222f20459ac8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f43a07268aa59defb85bcfb16c222bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a2f43a07268aa59defb85bcfb16c222bb">getNumFragmentationRules</a> ()</td></tr>
+<tr class="memdesc:a2f43a07268aa59defb85bcfb16c222bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of registered fragmentation rules.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a2f43a07268aa59defb85bcfb16c222bb">More...</a><br /></td></tr>
 <tr class="separator:a2f43a07268aa59defb85bcfb16c222bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19728182073d5489ced0f21cdba2473f"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a19728182073d5489ced0f21cdba2473f">addExcludePattern</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> match_ptn, int rule_id)</td></tr>
+<tr class="memdesc:a19728182073d5489ced0f21cdba2473f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a rule-specific exclude pattern.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a19728182073d5489ced0f21cdba2473f">More...</a><br /></td></tr>
 <tr class="separator:a19728182073d5489ced0f21cdba2473f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab419aff9f3156b9c464003dee4572a8c"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ab419aff9f3156b9c464003dee4572a8c">addExcludePattern</a> (<a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html">ExcludePattern</a> excl_ptn)</td></tr>
+<tr class="memdesc:ab419aff9f3156b9c464003dee4572a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of the pre-built exclude pattern <em>excl_ptn</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ab419aff9f3156b9c464003dee4572a8c">More...</a><br /></td></tr>
 <tr class="separator:ab419aff9f3156b9c464003dee4572a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27da1b22d2e1221ac3943e7ab0c8bc83"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a27da1b22d2e1221ac3943e7ab0c8bc83">removeExcludePattern</a> (int idx)</td></tr>
+<tr class="memdesc:a27da1b22d2e1221ac3943e7ab0c8bc83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the exclude pattern at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a27da1b22d2e1221ac3943e7ab0c8bc83">More...</a><br /></td></tr>
 <tr class="separator:a27da1b22d2e1221ac3943e7ab0c8bc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c1157c10112e22832322feb21e90c2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html">ExcludePattern</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a8c1157c10112e22832322feb21e90c2a">getExcludePattern</a> (int idx)</td></tr>
+<tr class="memdesc:a8c1157c10112e22832322feb21e90c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exclude pattern at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a8c1157c10112e22832322feb21e90c2a">More...</a><br /></td></tr>
 <tr class="separator:a8c1157c10112e22832322feb21e90c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8c5bee49f4e6c5358d561d91c16a2a4"><td class="memItemLeft" align="right" valign="top"><a id="ad8c5bee49f4e6c5358d561d91c16a2a4"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>clearExcludePatterns</b> ()</td></tr>
+None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ad8c5bee49f4e6c5358d561d91c16a2a4">clearExcludePatterns</a> ()</td></tr>
+<tr class="memdesc:ad8c5bee49f4e6c5358d561d91c16a2a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all registered exclude patterns. <br /></td></tr>
 <tr class="separator:ad8c5bee49f4e6c5358d561d91c16a2a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe7576cb34c03d1da11e2ff679482c31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afe7576cb34c03d1da11e2ff679482c31">getNumExcludePatterns</a> ()</td></tr>
+<tr class="memdesc:afe7576cb34c03d1da11e2ff679482c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of registered exclude patterns.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afe7576cb34c03d1da11e2ff679482c31">More...</a><br /></td></tr>
 <tr class="separator:afe7576cb34c03d1da11e2ff679482c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0ff0fce1dc8b3168ecc7fce05e3c771"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ad0ff0fce1dc8b3168ecc7fce05e3c771">setFragmentFilterFunction</a> (<a class="el" href="classCDPL_1_1Chem_1_1BoolConstMolecularGraphFunctor.html">BoolConstMolecularGraphFunctor</a> func)</td></tr>
+<tr class="memdesc:ad0ff0fce1dc8b3168ecc7fce05e3c771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the predicate used to filter the generated fragments (fragments for which the predicate returns <code>False</code> are discarded).  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ad0ff0fce1dc8b3168ecc7fce05e3c771">More...</a><br /></td></tr>
 <tr class="separator:ad0ff0fce1dc8b3168ecc7fce05e3c771"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af34af50317bb43fcb15449eeafede721"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BoolConstMolecularGraphFunctor.html">BoolConstMolecularGraphFunctor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#af34af50317bb43fcb15449eeafede721">getFragmentFilterFunction</a> ()</td></tr>
+<tr class="memdesc:af34af50317bb43fcb15449eeafede721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the predicate used to filter the generated fragments.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#af34af50317bb43fcb15449eeafede721">More...</a><br /></td></tr>
 <tr class="separator:af34af50317bb43fcb15449eeafede721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3f9a6aa7bd3a883e461ea3b6e555428"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#aa3f9a6aa7bd3a883e461ea3b6e555428">generate</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> molgraph, <a class="el" href="classCDPL_1_1Chem_1_1FragmentList.html">FragmentList</a> frag_list, bool append=False)</td></tr>
+<tr class="memdesc:aa3f9a6aa7bd3a883e461ea3b6e555428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the fragmentation of <em>molgraph</em> and writes the resulting fragments to <em>frag_list</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#aa3f9a6aa7bd3a883e461ea3b6e555428">More...</a><br /></td></tr>
 <tr class="separator:aa3f9a6aa7bd3a883e461ea3b6e555428"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace703dee5ce4d55ff4989f1e0d3f6df6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentLink.html">FragmentLink</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ace703dee5ce4d55ff4989f1e0d3f6df6">getFragmentLink</a> (int idx)</td></tr>
+<tr class="memdesc:ace703dee5ce4d55ff4989f1e0d3f6df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fragment link at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#ace703dee5ce4d55ff4989f1e0d3f6df6">More...</a><br /></td></tr>
 <tr class="separator:ace703dee5ce4d55ff4989f1e0d3f6df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a121c123624167d758257242ed543afe0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a121c123624167d758257242ed543afe0">getNumFragmentLinks</a> ()</td></tr>
+<tr class="memdesc:a121c123624167d758257242ed543afe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of fragment links produced by the most recent <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#aa3f9a6aa7bd3a883e461ea3b6e555428" title="Performs the fragmentation of molgraph and writes the resulting fragments to frag_list.">generate()</a> call.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a121c123624167d758257242ed543afe0">More...</a><br /></td></tr>
 <tr class="separator:a121c123624167d758257242ed543afe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af331ef82c0ab028c2d36849ef4b3d5fe"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#af331ef82c0ab028c2d36849ef4b3d5fe">includeSplitBonds</a> (bool include)</td></tr>
+<tr class="memdesc:af331ef82c0ab028c2d36849ef4b3d5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the split (cleaved) bonds shall be retained in the output fragments.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator.html#af331ef82c0ab028c2d36849ef4b3d5fe">More...</a><br /></td></tr>
 <tr class="separator:af331ef82c0ab028c2d36849ef4b3d5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -180,7 +201,8 @@ Properties</h2></td></tr>
 <tr class="separator:a55bd9b3f53ea67e8805cadc10ee75eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="FragmentGenerator.">FragmentGenerator</a>. </p>
+<div class="textblock"><p>Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching user-defined SMARTS fragmentation rules. </p>
+<p>Fragmentation rules are added via <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afbc66b235c71bf7853174f1c2c6119e6" title="Registers a new fragmentation rule by its SMARTS match pattern and rule ID.">addFragmentationRule()</a> (each rule has a SMARTS pattern matching a bond plus a numeric rule ID). Bonds matching any registered rule are scheduled for splitting, unless a registered exclude pattern overrides the split. The optional fragment filter rejects generated fragments based on a user-supplied predicate. The connectivity between the resulting fragments is exposed via the <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1FragmentLink.html" title="Records the connectivity between two fragments produced by a single bond cleavage.">FragmentLink</a> list, recording for each cleaved bond the two adjacent fragment indices, the cleaved bond, the matching rule and per-side atom labels. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ef445a7682a6d92827738d5c182b78a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ef445a7682a6d92827738d5c182b78a">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -198,10 +220,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a copy of the <code>FragmentGenerator</code> instance <em>gen</em>. </p>
+<p>Constructs a copy of the <code><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching u...">FragmentGenerator</a></code> instance <em>gen</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gen</td><td>The <code>FragmentGenerator</code> instance to copy. </td></tr>
+    <tr><td class="paramname">gen</td><td>The <code><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching u...">FragmentGenerator</a></code> to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -246,10 +268,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state of <em>self</em> with a copy of the state of the <code>FragmentGenerator</code> instance <em>gen</em>. </p>
+<p>Replaces the state of this generator by a copy of the state of <em>gen</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gen</td><td>The <code>FragmentGenerator</code> instance to copy. </td></tr>
+    <tr><td class="paramname">gen</td><td>The source <code><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html" title="Generic rule-based molecule fragmentation engine that splits a molecular graph along bonds matching u...">FragmentGenerator</a></code>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -282,10 +304,12 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Registers a new fragmentation rule by its SMARTS match pattern and rule ID. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">match_ptn</td><td></td></tr>
-    <tr><td class="paramname">rule_id</td><td></td></tr>
+    <tr><td class="paramname">match_ptn</td><td>The SMARTS match pattern (must match a single bond to be cleaved). </td></tr>
+    <tr><td class="paramname">rule_id</td><td>The rule identifier. </td></tr>
   </table>
   </dd>
 </dl>
@@ -307,9 +331,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Appends a copy of the pre-built fragmentation rule <em>rule</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rule</td><td></td></tr>
+    <tr><td class="paramname">rule</td><td>The rule to copy and register. </td></tr>
   </table>
   </dd>
 </dl>
@@ -331,9 +357,17 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the fragmentation rule at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based rule index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of rules is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a2f43a07268aa59defb85bcfb16c222bb" title="Returns the number of registered fragmentation rules.">getNumFragmentationRules()</a> - 1]. </td></tr>
   </table>
   </dd>
 </dl>
@@ -355,13 +389,21 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the fragmentation rule at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based rule index.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the rule.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of rules is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a2f43a07268aa59defb85bcfb16c222bb" title="Returns the number of registered fragmentation rules.">getNumFragmentationRules()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -379,7 +421,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the number of registered fragmentation rules. </p>
+<dl class="section return"><dt>Returns</dt><dd>The rule count. </dd></dl>
 
 </div>
 </div>
@@ -408,10 +452,12 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Registers a rule-specific exclude pattern. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">match_ptn</td><td></td></tr>
-    <tr><td class="paramname">rule_id</td><td></td></tr>
+    <tr><td class="paramname">match_ptn</td><td>The SMARTS match pattern. </td></tr>
+    <tr><td class="paramname">rule_id</td><td>The rule ID this exclusion applies to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -433,9 +479,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Appends a copy of the pre-built exclude pattern <em>excl_ptn</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">excl_ptn</td><td></td></tr>
+    <tr><td class="paramname">excl_ptn</td><td>The exclude pattern to copy and register. </td></tr>
   </table>
   </dd>
 </dl>
@@ -457,9 +505,17 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the exclude pattern at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based pattern index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of exclude patterns is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afe7576cb34c03d1da11e2ff679482c31" title="Returns the number of registered exclude patterns.">getNumExcludePatterns()</a> - 1]. </td></tr>
   </table>
   </dd>
 </dl>
@@ -481,13 +537,21 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the exclude pattern at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based pattern index.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the exclude pattern.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of exclude patterns is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#afe7576cb34c03d1da11e2ff679482c31" title="Returns the number of registered exclude patterns.">getNumExcludePatterns()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -505,7 +569,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the number of registered exclude patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>The exclude-pattern count. </dd></dl>
 
 </div>
 </div>
@@ -524,9 +590,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the predicate used to filter the generated fragments (fragments for which the predicate returns <code>False</code> are discarded). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td></td></tr>
+    <tr><td class="paramname">func</td><td>The new fragment-filter function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -547,7 +615,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the predicate used to filter the generated fragments. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the fragment-filter function. </dd></dl>
 
 </div>
 </div>
@@ -582,11 +652,13 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Performs the fragmentation of <em>molgraph</em> and writes the resulting fragments to <em>frag_list</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td></td></tr>
-    <tr><td class="paramname">frag_list</td><td></td></tr>
-    <tr><td class="paramname">append</td><td></td></tr>
+    <tr><td class="paramname">molgraph</td><td>The molecular graph to fragment. </td></tr>
+    <tr><td class="paramname">frag_list</td><td>The output fragment list. </td></tr>
+    <tr><td class="paramname">append</td><td>If <code>True</code>, new fragments are appended to <em>frag_list</em>; otherwise the list is cleared first. </td></tr>
   </table>
   </dd>
 </dl>
@@ -608,13 +680,21 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the fragment link at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td></td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based link index.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the fragment link.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of fragment links is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#a121c123624167d758257242ed543afe0" title="Returns the number of fragment links produced by the most recent generate() call.">getNumFragmentLinks()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -632,7 +712,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the number of fragment links produced by the most recent <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator.html#aa3f9a6aa7bd3a883e461ea3b6e555428" title="Performs the fragmentation of molgraph and writes the resulting fragments to frag_list.">generate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>The fragment-link count. </dd></dl>
 
 </div>
 </div>
@@ -651,9 +733,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Specifies whether the split (cleaved) bonds shall be retained in the output fragments. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">include</td><td></td></tr>
+    <tr><td class="paramname">include</td><td>If <code>True</code>, the cleaved bonds remain part of the adjacent output fragments. </td></tr>
   </table>
   </dd>
 </dl>

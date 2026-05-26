@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>High-level driver for the generation of low-energy 3D conformer ensembles from a molecular graph.  
+<p>High-level driver for the generation of low-energy conformer ensembles of molecular graphs.  
  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ConformerGenerator_8hpp_source.html">ConformerGenerator.hpp</a>&gt;</code></p>
@@ -134,10 +134,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afdddf9ace8f2303025c0ee146b297fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured abort-check callback.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#afdddf9ace8f2303025c0ee146b297fca">More...</a><br /></td></tr>
 <tr class="separator:afdddf9ace8f2303025c0ee146b297fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c3f84d40690031c6787cf90fc07e7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a9c3f84d40690031c6787cf90fc07e7f2">setTimeoutCallback</a> (const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a968d3e18fe747b0a20f849a7e6417590">CallbackFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:a9c3f84d40690031c6787cf90fc07e7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback invoked when the configured timeout is reached.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a9c3f84d40690031c6787cf90fc07e7f2">More...</a><br /></td></tr>
+<tr class="memdesc:a9c3f84d40690031c6787cf90fc07e7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback invoked periodically to check whether the configured timeout has elapsed.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a9c3f84d40690031c6787cf90fc07e7f2">More...</a><br /></td></tr>
 <tr class="separator:a9c3f84d40690031c6787cf90fc07e7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33563919e75fd05eee167089dad2ec96"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a968d3e18fe747b0a20f849a7e6417590">CallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a33563919e75fd05eee167089dad2ec96">getTimeoutCallback</a> () const</td></tr>
-<tr class="memdesc:a33563919e75fd05eee167089dad2ec96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured timeout callback.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a33563919e75fd05eee167089dad2ec96">More...</a><br /></td></tr>
+<tr class="memdesc:a33563919e75fd05eee167089dad2ec96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured timeout-check callback.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a33563919e75fd05eee167089dad2ec96">More...</a><br /></td></tr>
 <tr class="separator:a33563919e75fd05eee167089dad2ec96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68efd7e5b89c1c2539f070b9a46fad40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a68efd7e5b89c1c2539f070b9a46fad40">setLogMessageCallback</a> (const <a class="el" href="namespaceCDPL_1_1ConfGen.html#a7cc4316376445c28af28d61dc992635a">LogMessageCallbackFunction</a> &amp;func)</td></tr>
 <tr class="memdesc:a68efd7e5b89c1c2539f070b9a46fad40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback receiving log messages emitted by the generator.  <a href="classCDPL_1_1ConfGen_1_1ConformerGenerator.html#a68efd7e5b89c1c2539f070b9a46fad40">More...</a><br /></td></tr>
@@ -192,12 +192,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a873ed2336d51f2f5a710f703d6d44871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>High-level driver for the generation of low-energy 3D conformer ensembles from a molecular graph. </p>
-<p>The generator implements two complementary sampling strategies (selectable via the embedded <a class="el" href="classCDPL_1_1ConfGen_1_1ConformerGeneratorSettings.html" title="Bundle of configuration parameters for ConfGen::ConformerGenerator.">ConformerGeneratorSettings</a>) for assembling the conformer ensemble: </p><ul>
-<li>a systematic strategy that performs fragment-based 2D-to-3D structure generation followed by exhaustive torsion-driving of all flexible bonds, and </li>
-<li>a stochastic strategy that draws conformations randomly from the rotatable-bond torsion-angle distributions (typically applied to large/highly-flexible molecules).</li>
+<div class="textblock"><p>High-level driver for the generation of low-energy conformer ensembles of molecular graphs. </p>
+<p>The generator implements two complementary sampling strategies for producing the conformer ensemble: </p><ul>
+<li>a systematic strategy that performs a fragment-based 3D structure generation followed by exhaustive torsion-driving of all rotatable bonds, and </li>
+<li>a stochastic strategy that picks conformations randomly from the conformational space of the molecule (by default used only for flexible macrocyclic molecules).</li>
 </ul>
-<p>Both strategies share a common downstream pipeline of MMFF94-based energy minimization, RMSD-based clustering and energy-window filtering. Behaviour is controlled by the embedded Settings instance, the configured fragment and torsion libraries and the optional abort/timeout/log callbacks.</p>
+<p>Both strategies share a common downstream pipeline of MMFF94-based energy minimization, RMSD-based clustering and energy-window filtering. Behaviour is controlled by the embedded conformer generation settings instance, the configured fragment and torsion libraries and the optional abort/timeout/log callbacks.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#CFRG">CFRG</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aad3bc83fcb94f28bb74912af4a6df00f"></a>
@@ -516,10 +516,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the callback invoked when the configured timeout is reached. </p>
+<p>Sets the callback invoked periodically to check whether the configured timeout has elapsed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The timeout callback. </td></tr>
+    <tr><td class="paramname">func</td><td>The timeout-check callback. </td></tr>
   </table>
   </dd>
 </dl>
@@ -541,8 +541,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the currently configured timeout callback. </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the timeout callback. </dd></dl>
+<p>Returns the currently configured timeout-check callback. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the timeout-check callback. </dd></dl>
 
 </div>
 </div>

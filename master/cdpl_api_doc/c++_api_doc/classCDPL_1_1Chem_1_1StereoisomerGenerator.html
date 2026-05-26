@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html" title="StereoisomerGenerator.">StereoisomerGenerator</a>.  
+<p>Enumerates the stereoisomers of a molecular graph by flipping the configurations of selected atom and bond stereocenters.  
  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="StereoisomerGenerator_8hpp_source.html">StereoisomerGenerator.hpp</a>&gt;</code></p>
@@ -91,63 +91,90 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ad6e7021a667d5095a79bc9db892f0d1f"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html">StereoisomerGenerator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ad6e7021a667d5095a79bc9db892f0d1f">SharedPointer</a></td></tr>
+<tr class="memdesc:ad6e7021a667d5095a79bc9db892f0d1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>StereoisomerGenerator</code> instances.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ad6e7021a667d5095a79bc9db892f0d1f">More...</a><br /></td></tr>
 <tr class="separator:ad6e7021a667d5095a79bc9db892f0d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8399df3904ecee11d67f064d2d3491b1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Util_1_1Array.html">Util::Array</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">StereoDescriptor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a8399df3904ecee11d67f064d2d3491b1">StereoDescriptorArray</a></td></tr>
+<tr class="memdesc:a8399df3904ecee11d67f064d2d3491b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">StereoDescriptor</a> values (one per atom or one per bond of the input molecular graph).  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a8399df3904ecee11d67f064d2d3491b1">More...</a><br /></td></tr>
 <tr class="separator:a8399df3904ecee11d67f064d2d3491b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6edbb23cacaca9d0a9afa546b718b5f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a6edbb23cacaca9d0a9afa546b718b5f8">setAtomPredicate</a> (const <a class="el" href="namespaceCDPL_1_1Chem.html#a1b729368df2d5e54bcaf02a2ffbf6b9b">AtomPredicate</a> &amp;pred)</td></tr>
+<tr class="memdesc:a6edbb23cacaca9d0a9afa546b718b5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the predicate used to filter atom stereocenters considered during enumeration.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a6edbb23cacaca9d0a9afa546b718b5f8">More...</a><br /></td></tr>
 <tr class="separator:a6edbb23cacaca9d0a9afa546b718b5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5fddbb672d468d2155aff5364cc048c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Chem.html#a1b729368df2d5e54bcaf02a2ffbf6b9b">AtomPredicate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#af5fddbb672d468d2155aff5364cc048c">getAtomPredicate</a> () const</td></tr>
+<tr class="memdesc:af5fddbb672d468d2155aff5364cc048c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured atom predicate.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#af5fddbb672d468d2155aff5364cc048c">More...</a><br /></td></tr>
 <tr class="separator:af5fddbb672d468d2155aff5364cc048c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11076272d54e064b21dd1f909b8f4c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a11076272d54e064b21dd1f909b8f4c4b">setBondPredicate</a> (const <a class="el" href="namespaceCDPL_1_1Chem.html#aa7237d68423e9c14a88fdeea6008400b">BondPredicate</a> &amp;pred)</td></tr>
+<tr class="memdesc:a11076272d54e064b21dd1f909b8f4c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the predicate used to filter bond stereocenters considered during enumeration.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a11076272d54e064b21dd1f909b8f4c4b">More...</a><br /></td></tr>
 <tr class="separator:a11076272d54e064b21dd1f909b8f4c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83da5eff035ba690e17deb4aa0e430da"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Chem.html#aa7237d68423e9c14a88fdeea6008400b">BondPredicate</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a83da5eff035ba690e17deb4aa0e430da">getBondPredicate</a> () const</td></tr>
+<tr class="memdesc:a83da5eff035ba690e17deb4aa0e430da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured bond predicate.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a83da5eff035ba690e17deb4aa0e430da">More...</a><br /></td></tr>
 <tr class="separator:a83da5eff035ba690e17deb4aa0e430da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a213292128a02faaa8b24c8bc68d8a955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a213292128a02faaa8b24c8bc68d8a955">enumerateAtomConfig</a> (<a class="el" href="classbool.html">bool</a> enumerate)</td></tr>
+<tr class="memdesc:a213292128a02faaa8b24c8bc68d8a955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether atom-stereocenter configurations shall be enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a213292128a02faaa8b24c8bc68d8a955">More...</a><br /></td></tr>
 <tr class="separator:a213292128a02faaa8b24c8bc68d8a955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac73e18a586db5fdf89ea7e54c690ae32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ac73e18a586db5fdf89ea7e54c690ae32">atomConfigEnumerated</a> () const</td></tr>
+<tr class="memdesc:ac73e18a586db5fdf89ea7e54c690ae32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether atom-stereocenter configurations are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ac73e18a586db5fdf89ea7e54c690ae32">More...</a><br /></td></tr>
 <tr class="separator:ac73e18a586db5fdf89ea7e54c690ae32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ed7436e54937c6f0a2ce4e32b06f8cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7ed7436e54937c6f0a2ce4e32b06f8cb">enumerateBondConfig</a> (<a class="el" href="classbool.html">bool</a> enumerate)</td></tr>
+<tr class="memdesc:a7ed7436e54937c6f0a2ce4e32b06f8cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether bond-stereocenter configurations shall be enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7ed7436e54937c6f0a2ce4e32b06f8cb">More...</a><br /></td></tr>
 <tr class="separator:a7ed7436e54937c6f0a2ce4e32b06f8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab674aa49f1ceca7d2abc722e4d24289d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ab674aa49f1ceca7d2abc722e4d24289d">bondConfigEnumerated</a> () const</td></tr>
+<tr class="memdesc:ab674aa49f1ceca7d2abc722e4d24289d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether bond-stereocenter configurations are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ab674aa49f1ceca7d2abc722e4d24289d">More...</a><br /></td></tr>
 <tr class="separator:ab674aa49f1ceca7d2abc722e4d24289d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a442f78a0e0e761e28944e22b574f4b05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a442f78a0e0e761e28944e22b574f4b05">includeSpecifiedCenters</a> (<a class="el" href="classbool.html">bool</a> include)</td></tr>
+<tr class="memdesc:a442f78a0e0e761e28944e22b574f4b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether stereocenters with explicitly specified configurations shall be enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a442f78a0e0e761e28944e22b574f4b05">More...</a><br /></td></tr>
 <tr class="separator:a442f78a0e0e761e28944e22b574f4b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79148bb9da17370bc0468fda0c0dcbde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a79148bb9da17370bc0468fda0c0dcbde">specifiedCentersIncluded</a> () const</td></tr>
+<tr class="memdesc:a79148bb9da17370bc0468fda0c0dcbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether specified stereocenters are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a79148bb9da17370bc0468fda0c0dcbde">More...</a><br /></td></tr>
 <tr class="separator:a79148bb9da17370bc0468fda0c0dcbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26c574d8dde75419b7401779644adccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a26c574d8dde75419b7401779644adccc">includeSymmetricCenters</a> (<a class="el" href="classbool.html">bool</a> include)</td></tr>
+<tr class="memdesc:a26c574d8dde75419b7401779644adccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether topologically-symmetric stereocenters shall be enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a26c574d8dde75419b7401779644adccc">More...</a><br /></td></tr>
 <tr class="separator:a26c574d8dde75419b7401779644adccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5aa5ebbf30407e33a365590cc102e5bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a5aa5ebbf30407e33a365590cc102e5bb">symmetricCentersIncluded</a> () const</td></tr>
+<tr class="memdesc:a5aa5ebbf30407e33a365590cc102e5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether topologically-symmetric stereocenters are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a5aa5ebbf30407e33a365590cc102e5bb">More...</a><br /></td></tr>
 <tr class="separator:a5aa5ebbf30407e33a365590cc102e5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70862db36b6a49fa2129ab4299bd24c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a70862db36b6a49fa2129ab4299bd24c2">includeBridgeheadAtoms</a> (<a class="el" href="classbool.html">bool</a> include)</td></tr>
+<tr class="memdesc:a70862db36b6a49fa2129ab4299bd24c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether bridgehead atoms in fused ring systems shall be enumerated as stereocenters.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a70862db36b6a49fa2129ab4299bd24c2">More...</a><br /></td></tr>
 <tr class="separator:a70862db36b6a49fa2129ab4299bd24c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4d78efab96887b98ee2d438a0b34720"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ae4d78efab96887b98ee2d438a0b34720">bridgeheadAtomsIncluded</a> () const</td></tr>
+<tr class="memdesc:ae4d78efab96887b98ee2d438a0b34720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether bridgehead atoms are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ae4d78efab96887b98ee2d438a0b34720">More...</a><br /></td></tr>
 <tr class="separator:ae4d78efab96887b98ee2d438a0b34720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a994f547db5f4c3b214e2d160d4103f00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a994f547db5f4c3b214e2d160d4103f00">includeInvertibleNitrogens</a> (<a class="el" href="classbool.html">bool</a> include)</td></tr>
+<tr class="memdesc:a994f547db5f4c3b214e2d160d4103f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether invertible (pyramidal) nitrogen stereocenters shall be enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a994f547db5f4c3b214e2d160d4103f00">More...</a><br /></td></tr>
 <tr class="separator:a994f547db5f4c3b214e2d160d4103f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f8d7bc6b95bdacd0231d01d396cbf50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7f8d7bc6b95bdacd0231d01d396cbf50">invertibleNitrogensIncluded</a> () const</td></tr>
+<tr class="memdesc:a7f8d7bc6b95bdacd0231d01d396cbf50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether invertible nitrogen stereocenters are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7f8d7bc6b95bdacd0231d01d396cbf50">More...</a><br /></td></tr>
 <tr class="separator:a7f8d7bc6b95bdacd0231d01d396cbf50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf425541ee1d7d153eaca66d494c8fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#addf425541ee1d7d153eaca66d494c8fb">includeRingBonds</a> (<a class="el" href="classbool.html">bool</a> include)</td></tr>
+<tr class="memdesc:addf425541ee1d7d153eaca66d494c8fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether ring bonds (large enough to allow cis/trans isomerism) shall be enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#addf425541ee1d7d153eaca66d494c8fb">More...</a><br /></td></tr>
 <tr class="separator:addf425541ee1d7d153eaca66d494c8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57efd423fd2dd64ac84901ec063d01ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a57efd423fd2dd64ac84901ec063d01ac">ringBondsIncluded</a> () const</td></tr>
+<tr class="memdesc:a57efd423fd2dd64ac84901ec063d01ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether ring bonds are enumerated.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a57efd423fd2dd64ac84901ec063d01ac">More...</a><br /></td></tr>
 <tr class="separator:a57efd423fd2dd64ac84901ec063d01ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38cba1997e06d0e966e23a55b2ccdb39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a38cba1997e06d0e966e23a55b2ccdb39">setMinRingSize</a> (std::size_t min_size)</td></tr>
+<tr class="memdesc:a38cba1997e06d0e966e23a55b2ccdb39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum ring size for a ring bond to be eligible as a stereocenter.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a38cba1997e06d0e966e23a55b2ccdb39">More...</a><br /></td></tr>
 <tr class="separator:a38cba1997e06d0e966e23a55b2ccdb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ba5b07c2f7e6da95ba243fbfeb9c445"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0ba5b07c2f7e6da95ba243fbfeb9c445">getMinRingSize</a> () const</td></tr>
+<tr class="memdesc:a0ba5b07c2f7e6da95ba243fbfeb9c445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum ring size for a ring bond to be eligible as a stereocenter.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0ba5b07c2f7e6da95ba243fbfeb9c445">More...</a><br /></td></tr>
 <tr class="separator:a0ba5b07c2f7e6da95ba243fbfeb9c445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81f6124eb8f27932c5e54fabc738cf9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a81f6124eb8f27932c5e54fabc738cf9b">setup</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:a81f6124eb8f27932c5e54fabc738cf9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the generator for enumerating the stereoisomers of <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a81f6124eb8f27932c5e54fabc738cf9b">More...</a><br /></td></tr>
 <tr class="separator:a81f6124eb8f27932c5e54fabc738cf9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7434ae1ddac3c0e010876f49e624be2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7434ae1ddac3c0e010876f49e624be2d">generate</a> ()</td></tr>
+<tr class="memdesc:a7434ae1ddac3c0e010876f49e624be2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the enumeration by one step and updates the per-atom/per-bond stereo-descriptor arrays.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7434ae1ddac3c0e010876f49e624be2d">More...</a><br /></td></tr>
 <tr class="separator:a7434ae1ddac3c0e010876f49e624be2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace78023d7ee02d82cbcb0f2edc30e541"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a8399df3904ecee11d67f064d2d3491b1">StereoDescriptorArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ace78023d7ee02d82cbcb0f2edc30e541">getAtomDescriptors</a> ()</td></tr>
+<tr class="memdesc:ace78023d7ee02d82cbcb0f2edc30e541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the per-atom stereo descriptors for the current stereoisomer.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ace78023d7ee02d82cbcb0f2edc30e541">More...</a><br /></td></tr>
 <tr class="separator:ace78023d7ee02d82cbcb0f2edc30e541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1084bbb3d99bc9350b39341af4ce4e8e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a8399df3904ecee11d67f064d2d3491b1">StereoDescriptorArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a1084bbb3d99bc9350b39341af4ce4e8e">getBondDescriptors</a> ()</td></tr>
+<tr class="memdesc:a1084bbb3d99bc9350b39341af4ce4e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the per-bond stereo descriptors for the current stereoisomer.  <a href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a1084bbb3d99bc9350b39341af4ce4e8e">More...</a><br /></td></tr>
 <tr class="separator:a1084bbb3d99bc9350b39341af4ce4e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html" title="StereoisomerGenerator.">StereoisomerGenerator</a>. </p>
+<div class="textblock"><p>Enumerates the stereoisomers of a molecular graph by flipping the configurations of selected atom and bond stereocenters. </p>
+<p>After calling <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a81f6124eb8f27932c5e54fabc738cf9b" title="Prepares the generator for enumerating the stereoisomers of molgraph.">setup()</a> for an input molecular graph, each call to <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7434ae1ddac3c0e010876f49e624be2d" title="Advances the enumeration by one step and updates the per-atom/per-bond stereo-descriptor arrays.">generate()</a> yields the next stereoisomer (encoded as per-atom and per-bond <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">StereoDescriptor</a> arrays accessible via <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#ace78023d7ee02d82cbcb0f2edc30e541" title="Returns the per-atom stereo descriptors for the current stereoisomer.">getAtomDescriptors()</a> / <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a1084bbb3d99bc9350b39341af4ce4e8e" title="Returns the per-bond stereo descriptors for the current stereoisomer.">getBondDescriptors()</a>); <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a7434ae1ddac3c0e010876f49e624be2d" title="Advances the enumeration by one step and updates the per-atom/per-bond stereo-descriptor arrays.">generate()</a> returns <code>false</code> when the enumeration is exhausted. <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Atom</a> and bond predicates plus a number of inclusion flags control which stereocenters are enumerated.</p>
 <dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ad6e7021a667d5095a79bc9db892f0d1f"></a>
@@ -162,6 +189,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>StereoisomerGenerator</code> instances. </p>
+
 </div>
 </div>
 <a id="a8399df3904ecee11d67f064d2d3491b1"></a>
@@ -175,6 +204,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Array of <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="A data structure for the storage and retrieval of stereochemical information about atoms and bonds.">StereoDescriptor</a> values (one per atom or one per bond of the input molecular graph). </p>
 
 </div>
 </div>
@@ -195,6 +226,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the predicate used to filter atom stereocenters considered during enumeration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pred</td><td>The new atom predicate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af5fddbb672d468d2155aff5364cc048c"></a>
@@ -211,6 +250,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured atom predicate. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the atom predicate. </dd></dl>
 
 </div>
 </div>
@@ -230,6 +272,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the predicate used to filter bond stereocenters considered during enumeration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pred</td><td>The new bond predicate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a83da5eff035ba690e17deb4aa0e430da"></a>
@@ -246,6 +296,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently configured bond predicate. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the bond predicate. </dd></dl>
 
 </div>
 </div>
@@ -265,6 +318,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether atom-stereocenter configurations shall be enumerated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enumerate</td><td>If <code>true</code>, atom configurations are flipped during enumeration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac73e18a586db5fdf89ea7e54c690ae32"></a>
@@ -281,6 +342,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether atom-stereocenter configurations are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if atom configurations are enumerated, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -300,6 +364,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether bond-stereocenter configurations shall be enumerated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enumerate</td><td>If <code>true</code>, bond configurations are flipped during enumeration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab674aa49f1ceca7d2abc722e4d24289d"></a>
@@ -316,6 +388,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether bond-stereocenter configurations are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if bond configurations are enumerated, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -335,6 +410,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether stereocenters with explicitly specified configurations shall be enumerated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">include</td><td>If <code>true</code>, specified stereocenters are also flipped. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a79148bb9da17370bc0468fda0c0dcbde"></a>
@@ -351,6 +434,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether specified stereocenters are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if specified stereocenters are included, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -370,6 +456,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether topologically-symmetric stereocenters shall be enumerated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">include</td><td>If <code>true</code>, symmetric stereocenters are also flipped. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5aa5ebbf30407e33a365590cc102e5bb"></a>
@@ -386,6 +480,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether topologically-symmetric stereocenters are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if symmetric stereocenters are included, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -405,6 +502,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether bridgehead atoms in fused ring systems shall be enumerated as stereocenters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">include</td><td>If <code>true</code>, bridgehead atoms are included. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae4d78efab96887b98ee2d438a0b34720"></a>
@@ -421,6 +526,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether bridgehead atoms are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if bridgehead atoms are included, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -440,6 +548,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether invertible (pyramidal) nitrogen stereocenters shall be enumerated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">include</td><td>If <code>true</code>, invertible nitrogens are included. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7f8d7bc6b95bdacd0231d01d396cbf50"></a>
@@ -456,6 +572,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether invertible nitrogen stereocenters are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if invertible nitrogens are included, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -475,6 +594,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether ring bonds (large enough to allow cis/trans isomerism) shall be enumerated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">include</td><td>If <code>true</code>, ring bonds whose ring is at least <a class="el" href="classCDPL_1_1Chem_1_1StereoisomerGenerator.html#a0ba5b07c2f7e6da95ba243fbfeb9c445" title="Returns the minimum ring size for a ring bond to be eligible as a stereocenter.">getMinRingSize()</a> atoms in size are included. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a57efd423fd2dd64ac84901ec063d01ac"></a>
@@ -491,6 +618,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether ring bonds are enumerated. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if ring bonds are included, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -510,6 +640,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the minimum ring size for a ring bond to be eligible as a stereocenter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min_size</td><td>The new minimum ring size (in atoms). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0ba5b07c2f7e6da95ba243fbfeb9c445"></a>
@@ -526,6 +664,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the minimum ring size for a ring bond to be eligible as a stereocenter. </p>
+<dl class="section return"><dt>Returns</dt><dd>The minimum ring size. </dd></dl>
 
 </div>
 </div>
@@ -545,6 +686,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the generator for enumerating the stereoisomers of <em>molgraph</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The input molecular graph. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7434ae1ddac3c0e010876f49e624be2d"></a>
@@ -561,6 +710,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Advances the enumeration by one step and updates the per-atom/per-bond stereo-descriptor arrays. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a new stereoisomer was generated, and <code>false</code> if the enumeration is exhausted. </dd></dl>
 
 </div>
 </div>
@@ -579,6 +731,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the per-atom stereo descriptors for the current stereoisomer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the atom-stereo-descriptor array. </dd></dl>
+
 </div>
 </div>
 <a id="a1084bbb3d99bc9350b39341af4ce4e8e"></a>
@@ -595,6 +750,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the per-bond stereo descriptors for the current stereoisomer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the bond-stereo-descriptor array. </dd></dl>
 
 </div>
 </div>
