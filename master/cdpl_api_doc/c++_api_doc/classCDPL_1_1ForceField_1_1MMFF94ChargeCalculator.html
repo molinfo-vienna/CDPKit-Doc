@@ -109,10 +109,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa1d08dbeb670c96f525412058c1c3fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the partial bond charge increment table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#aa1d08dbeb670c96f525412058c1c3fc7">More...</a><br /></td></tr>
 <tr class="separator:aa1d08dbeb670c96f525412058c1c3fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0076624a3ac98e25db58843523096ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#aa0076624a3ac98e25db58843523096ad">setAtomTypePropertyTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AtomTypePropertyTable.html#a679de6da7ccc82f1348dd9a654501b9a">MMFF94AtomTypePropertyTable::SharedPointer</a> &amp;table)</td></tr>
-<tr class="memdesc:aa0076624a3ac98e25db58843523096ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the atom-type property table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#aa0076624a3ac98e25db58843523096ad">More...</a><br /></td></tr>
+<tr class="memdesc:aa0076624a3ac98e25db58843523096ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the MMFF94 atom type property table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#aa0076624a3ac98e25db58843523096ad">More...</a><br /></td></tr>
 <tr class="separator:aa0076624a3ac98e25db58843523096ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b15c0abb049d32cdae2657e3b46ff28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#a0b15c0abb049d32cdae2657e3b46ff28">setFormalChargeDefinitionTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94FormalAtomChargeDefinitionTable.html#ae7eeed369ca3d6c769a9f47ba7c5b9d8">MMFF94FormalAtomChargeDefinitionTable::SharedPointer</a> &amp;table)</td></tr>
-<tr class="memdesc:a0b15c0abb049d32cdae2657e3b46ff28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the formal-charge definition table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#a0b15c0abb049d32cdae2657e3b46ff28">More...</a><br /></td></tr>
+<tr class="memdesc:a0b15c0abb049d32cdae2657e3b46ff28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the formal charge definition table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#a0b15c0abb049d32cdae2657e3b46ff28">More...</a><br /></td></tr>
 <tr class="separator:a0b15c0abb049d32cdae2657e3b46ff28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2062ef74e27e3b4a1fcd13f21c554e92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#a2062ef74e27e3b4a1fcd13f21c554e92">setAromaticRingSetFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#a8fb539a425fee1c9ac65c5b3890c0aa8">MMFF94RingSetFunction</a> &amp;func)</td></tr>
 <tr class="memdesc:a2062ef74e27e3b4a1fcd13f21c554e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the function used to retrieve the aromatic ring set of a molecular graph.  <a href="classCDPL_1_1ForceField_1_1MMFF94ChargeCalculator.html#a2062ef74e27e3b4a1fcd13f21c554e92">More...</a><br /></td></tr>
@@ -210,7 +210,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to calculate partial atomic charges. </td></tr>
     <tr><td class="paramname">charges</td><td>The output array storing the calculated partial charges. </td></tr>
-    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization is performed (and may fail). </td></tr>
+    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization is performed (and may fail). Otherwise, in case of parameterization problems, fallback strategies take effect. </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,10 +286,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the atom-type property table to use. </p>
+<p>Sets the MMFF94 atom type property table to use. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">table</td><td>The table providing per-atom-type properties. </td></tr>
+    <tr><td class="paramname">table</td><td>The table providing atom type properties. </td></tr>
   </table>
   </dd>
 </dl>
@@ -312,10 +312,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the formal-charge definition table to use. </p>
+<p>Sets the formal charge definition table to use. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">table</td><td>The table providing formal-charge definitions. </td></tr>
+    <tr><td class="paramname">table</td><td>The table providing formal charge definitions. </td></tr>
   </table>
   </dd>
 </dl>
@@ -466,7 +466,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to calculate partial atomic charges. </td></tr>
     <tr><td class="paramname">charges</td><td>The output array storing the calculated partial charges. </td></tr>
-    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization will be peformed that might fail. </td></tr>
+    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization will be peformed that might fail. Otherwise, in case of parameterization problems, fallback strategies take effect. </td></tr>
   </table>
   </dd>
 </dl>

@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Assigns MMFF94 bond-type indices (0 or 1) to the bonds of a molecular graph.  
+<p>Assigns MMFF94 bond type indices to the bonds of a molecular graph.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94BondTyper_8hpp_source.html">MMFF94BondTyper.hpp</a>&gt;</code></p>
@@ -96,10 +96,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acb597968d1d30f592386310396a7c87c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code>MMFF94BondTyper</code> instance and immediately perceives the bond types of <em>molgraph</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#acb597968d1d30f592386310396a7c87c">More...</a><br /></td></tr>
 <tr class="separator:acb597968d1d30f592386310396a7c87c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf355771aeec087d357259f3b17d27e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#acf355771aeec087d357259f3b17d27e5">setAtomTypePropertyTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AtomTypePropertyTable.html#a679de6da7ccc82f1348dd9a654501b9a">MMFF94AtomTypePropertyTable::SharedPointer</a> &amp;table)</td></tr>
-<tr class="memdesc:acf355771aeec087d357259f3b17d27e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the table providing the per-numeric-atom-type property data (used to look up the <code>sbmb</code> flag).  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#acf355771aeec087d357259f3b17d27e5">More...</a><br /></td></tr>
+<tr class="memdesc:acf355771aeec087d357259f3b17d27e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the table providing the MMFF94 numeric atom type property data (used to look up the <code>sbmb</code> flag).  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#acf355771aeec087d357259f3b17d27e5">More...</a><br /></td></tr>
 <tr class="separator:acf355771aeec087d357259f3b17d27e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f998ee8f334c2adfec660e6122fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#a72f998ee8f334c2adfec660e6122fe70">setAromaticRingSetFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#a8fb539a425fee1c9ac65c5b3890c0aa8">MMFF94RingSetFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:a72f998ee8f334c2adfec660e6122fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used to obtain the set of MMFF94-aromatic rings of the input molecular graph.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#a72f998ee8f334c2adfec660e6122fe70">More...</a><br /></td></tr>
+<tr class="memdesc:a72f998ee8f334c2adfec660e6122fe70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used to obtain the set of MMFF94 aromatic rings of the input molecular graph.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#a72f998ee8f334c2adfec660e6122fe70">More...</a><br /></td></tr>
 <tr class="separator:a72f998ee8f334c2adfec660e6122fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5e5833bdf67e5c7540e97a1600b921c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#ae5e5833bdf67e5c7540e97a1600b921c">setAtomTypeFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#a3477c01ec740b06a3c6b5914dfdc7534">MMFF94NumericAtomTypeFunction</a> &amp;func)</td></tr>
 <tr class="memdesc:ae5e5833bdf67e5c7540e97a1600b921c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used to look up the MMFF94 numeric atom type of an atom.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondTyper.html#ae5e5833bdf67e5c7540e97a1600b921c">More...</a><br /></td></tr>
@@ -109,7 +109,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae687d0047b7255a046b0b5544847567b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Assigns MMFF94 bond-type indices (0 or 1) to the bonds of a molecular graph. </p>
+<div class="textblock"><p>Assigns MMFF94 bond type indices to the bonds of a molecular graph. </p>
 <p>A bond receives the nonstandard type index <em>1</em> when it is a single bond between two non-aromatic atoms whose MMFF94 atom-type properties carry an <code>sbmb</code> flag, or when it connects two atoms that belong to two different aromatic rings (as in the central C-C bond of biphenyl). All other bonds receive the standard type index <em>0</em>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae14c895e761e43ab17ad53433d889e54"></a>
@@ -167,8 +167,8 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to be typed. </td></tr>
-    <tr><td class="paramname">types</td><td>Output array receiving the perceived MMFF94 bond-type indices. </td></tr>
-    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization will be performed that might fail. </td></tr>
+    <tr><td class="paramname">types</td><td>Output array receiving the perceived MMFF94 bond type indices. </td></tr>
+    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization will be performed that might fail. Otherwise, bonds with parameterization problems receive the type index <em>0</em>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -192,10 +192,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the table providing the per-numeric-atom-type property data (used to look up the <code>sbmb</code> flag). </p>
+<p>Sets the table providing the MMFF94 numeric atom type property data (used to look up the <code>sbmb</code> flag). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">table</td><td>The new atom-type property table. </td></tr>
+    <tr><td class="paramname">table</td><td>The new atom type property table. </td></tr>
   </table>
   </dd>
 </dl>
@@ -218,10 +218,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the function used to obtain the set of MMFF94-aromatic rings of the input molecular graph. </p>
+<p>Sets the function used to obtain the set of MMFF94 aromatic rings of the input molecular graph. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The new aromatic-ring-set function. </td></tr>
+    <tr><td class="paramname">func</td><td>The new aromatic ring set retrieval function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +247,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets the function used to look up the MMFF94 numeric atom type of an atom. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The new numeric-atom-type lookup function. </td></tr>
+    <tr><td class="paramname">func</td><td>The new numeric atom type lookup function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -292,7 +292,7 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to assign bond type indices </td></tr>
     <tr><td class="paramname">types</td><td>The output array storing the determined bond type indices. </td></tr>
-    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization will be peformed that might fail. </td></tr>
+    <tr><td class="paramname">strict</td><td>If <code>true</code>, strict parameterization will be peformed that might fail. Otherwise, bonds with parameterization problems receive the type index <em>0</em>. </td></tr>
   </table>
   </dd>
 </dl>

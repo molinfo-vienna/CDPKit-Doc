@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Evaluates the total MMFF94 force-field energy and its gradient with respect to the atomic coordinates.  
+<p>Calculates the total MMFF94 force field energy and its gradient for a set of atom 3D coordinates.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94GradientCalculator_8hpp_source.html">MMFF94GradientCalculator.hpp</a>&gt;</code></p>
@@ -90,10 +90,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac5e6531477ad91a424d0eab7df99826e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">MMFF94GradientCalculator</a> ()</td></tr>
-<tr class="memdesc:ac5e6531477ad91a424d0eab7df99826e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the calculator without any associated interaction data.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">More...</a><br /></td></tr>
+<tr class="memdesc:ac5e6531477ad91a424d0eab7df99826e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the calculator without an associated <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">More...</a><br /></td></tr>
 <tr class="separator:ac5e6531477ad91a424d0eab7df99826e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a797475e2c846669bb3dabbc1f56fbc23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">MMFF94GradientCalculator</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a> &amp;ia_data, std::size_t num_atoms)</td></tr>
-<tr class="memdesc:a797475e2c846669bb3dabbc1f56fbc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the calculator and associates it with the supplied MMFF94 interaction data.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">More...</a><br /></td></tr>
+<tr class="memdesc:a797475e2c846669bb3dabbc1f56fbc23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the calculator and associates it with the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">More...</a><br /></td></tr>
 <tr class="separator:a797475e2c846669bb3dabbc1f56fbc23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c20123e98fc1d22b832f3ba41fd7155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">setEnabledInteractionTypes</a> (unsigned int types)</td></tr>
 <tr class="memdesc:a3c20123e98fc1d22b832f3ba41fd7155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables/disables specific MMFF94 interaction-type contributions.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">More...</a><br /></td></tr>
@@ -102,15 +102,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a34a53a54343b7002215fb7c758e01092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently enabled interaction-type contributions.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">More...</a><br /></td></tr>
 <tr class="separator:a34a53a54343b7002215fb7c758e01092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29103698ce9ee06234c6fcb280851092"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">setup</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a> &amp;ia_data, std::size_t num_atoms)</td></tr>
-<tr class="memdesc:a29103698ce9ee06234c6fcb280851092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates the calculator with the supplied MMFF94 interaction data and atom count.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">More...</a><br /></td></tr>
+<tr class="memdesc:a29103698ce9ee06234c6fcb280851092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associates the calculator with the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance and atom count.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">More...</a><br /></td></tr>
 <tr class="separator:a29103698ce9ee06234c6fcb280851092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d675be778e8cccfd1c1045066b0e3fb"><td class="memTemplParams" colspan="2">template&lt;typename CoordsArray &gt; </td></tr>
 <tr class="memitem:a1d675be778e8cccfd1c1045066b0e3fb"><td class="memTemplItemLeft" align="right" valign="top">const ValueType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">operator()</a> (const CoordsArray &amp;coords)</td></tr>
-<tr class="memdesc:a1d675be778e8cccfd1c1045066b0e3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the total MMFF94 energy of the conformation <em>coords</em> without evaluating the gradient.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">More...</a><br /></td></tr>
+<tr class="memdesc:a1d675be778e8cccfd1c1045066b0e3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the total MMFF94 energy of the conformation specified by <em>coords</em> without calculating the gradient.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">More...</a><br /></td></tr>
 <tr class="separator:a1d675be778e8cccfd1c1045066b0e3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1485588085036d9c01438aaccbcd762e"><td class="memTemplParams" colspan="2">template&lt;typename CoordsArray , typename GradVector &gt; </td></tr>
 <tr class="memitem:a1485588085036d9c01438aaccbcd762e"><td class="memTemplItemLeft" align="right" valign="top">const ValueType &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">operator()</a> (const CoordsArray &amp;coords, GradVector &amp;grad)</td></tr>
-<tr class="memdesc:a1485588085036d9c01438aaccbcd762e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the total MMFF94 energy and the per-atom gradient of the conformation <em>coords</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">More...</a><br /></td></tr>
+<tr class="memdesc:a1485588085036d9c01438aaccbcd762e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the total MMFF94 energy and the per-atom gradient of the conformation specified by <em>coords</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">More...</a><br /></td></tr>
 <tr class="separator:a1485588085036d9c01438aaccbcd762e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd2fe8053e88bc0e6419033a324cc11b"><td class="memItemLeft" align="right" valign="top">const ValueType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">getTotalEnergy</a> () const</td></tr>
 <tr class="memdesc:acd2fe8053e88bc0e6419033a324cc11b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total MMFF94 energy computed by the most recent operator() call.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">More...</a><br /></td></tr>
@@ -140,7 +140,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af330c5827da912bbd369156e0c13c136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit mask flagging atoms whose gradient components are zeroed after evaluation.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">More...</a><br /></td></tr>
 <tr class="separator:af330c5827da912bbd369156e0c13c136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a348e3cbdded2a947b70b0d15a84e56bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">setFixedAtomMask</a> (const <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;mask)</td></tr>
-<tr class="memdesc:a348e3cbdded2a947b70b0d15a84e56bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bit mask flagging atoms whose gradient components shall be zeroed after evaluation.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">More...</a><br /></td></tr>
+<tr class="memdesc:a348e3cbdded2a947b70b0d15a84e56bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bit mask flagging atoms whose gradient components shall be zeroed after calculation.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">More...</a><br /></td></tr>
 <tr class="separator:a348e3cbdded2a947b70b0d15a84e56bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a639e34cfb20758d7580f341b534c9ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">resetFixedAtomMask</a> ()</td></tr>
 <tr class="memdesc:a639e34cfb20758d7580f341b534c9ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the fixed-atom mask so that all atoms contribute to the gradient.  <a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">More...</a><br /></td></tr>
@@ -150,11 +150,11 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ValueType&gt;<br />
 class CDPL::ForceField::MMFF94GradientCalculator&lt; ValueType &gt;</h3>
 
-<p>Evaluates the total MMFF94 force-field energy and its gradient with respect to the atomic coordinates. </p>
-<p>The calculator takes a <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance and the atom count of the molecule and computes both the total MMFF94 energy and the analytical Cartesian gradient \( \partial E / \partial \mathbf{r}_i \) for each atom. The per-component energies are retained and made available via the dedicated accessors. A bit mask can be set to mark atoms whose gradient contributions are zeroed, freezing them during an energy minimization.</p>
+<p>Calculates the total MMFF94 force field energy and its gradient for a set of atom 3D coordinates. </p>
+<p>The calculator takes a <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance and the atom count of the molecule and computes both the total MMFF94 energy and the analytical Cartesian gradient \( \partial E / \partial \mathbf{r}_i \) for each atom. The per-component energies are retained and made available via the dedicated accessors. A bit mask can be set to mark atoms whose gradient contributions are zeroed, freezing them during an energy minimization run.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">ValueType</td><td>The floating-point value type used to represent the computed energies and gradients. </td></tr>
+    <tr><td class="paramname">ValueType</td><td>The floating-point value type used to represent the computed energies and gradient vector elements. </td></tr>
   </table>
   </dd>
 </dl>
@@ -176,8 +176,8 @@ template&lt;typename ValueType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs the calculator without any associated interaction data. </p>
-<p>Operator() will return zero until <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092" title="Associates the calculator with the supplied MMFF94 interaction data and atom count.">setup()</a> has been called. </p>
+<p>Constructs the calculator without an associated <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance. </p>
+<p>Operator() will return zero until <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092" title="Associates the calculator with the supplied ForceField::MMFF94InteractionData instance and atom count...">setup()</a> has been called. </p>
 
 </div>
 </div>
@@ -209,10 +209,10 @@ template&lt;typename ValueType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs the calculator and associates it with the supplied MMFF94 interaction data. </p>
+<p>Constructs the calculator and associates it with the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ia_data</td><td>The MMFF94 interaction data to use during energy/gradient evaluation. </td></tr>
+    <tr><td class="paramname">ia_data</td><td>The MMFF94 interaction data to use during energy/gradient calculation. </td></tr>
     <tr><td class="paramname">num_atoms</td><td>The number of atoms in the parameterized molecular graph. </td></tr>
   </table>
   </dd>
@@ -242,10 +242,11 @@ template&lt;typename ValueType &gt; </div>
 <p>Enables/disables specific MMFF94 interaction-type contributions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">types</td><td>Bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html" title="Provides flags for the specification of a set of force field interaction types.">ForceField::InteractionType</a> flags. Only the listed contributions are evaluated. </td></tr>
+    <tr><td class="paramname">types</td><td>Bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html" title="Provides flags for the specification of a set of force field interaction types.">ForceField::InteractionType</a> flags. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Only enabled contributions are evaluated. </dd></dl>
 
 </div>
 </div>
@@ -299,10 +300,10 @@ template&lt;typename ValueType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Associates the calculator with the supplied MMFF94 interaction data and atom count. </p>
+<p>Associates the calculator with the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> instance and atom count. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ia_data</td><td>The new MMFF94 interaction data. </td></tr>
+    <tr><td class="paramname">ia_data</td><td>The new MMFF94 interaction data to use for energy/gradient calculation. </td></tr>
     <tr><td class="paramname">num_atoms</td><td>The number of atoms in the parameterized molecular graph. </td></tr>
   </table>
   </dd>
@@ -330,10 +331,10 @@ template&lt;typename CoordsArray &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the total MMFF94 energy of the conformation <em>coords</em> without evaluating the gradient. </p>
+<p>Computes the total MMFF94 energy of the conformation specified by <em>coords</em> without calculating the gradient. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">CoordsArray</td><td>The coordinate-array type. </td></tr>
+    <tr><td class="paramname">CoordsArray</td><td>The atom coordinate array type. </td></tr>
   </table>
   </dd>
 </dl>
@@ -377,18 +378,18 @@ template&lt;typename CoordsArray , typename GradVector &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the total MMFF94 energy and the per-atom gradient of the conformation <em>coords</em>. </p>
-<p>Gradients of atoms marked in the fixed-atom mask (see <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf" title="Sets the bit mask flagging atoms whose gradient components shall be zeroed after evaluation.">setFixedAtomMask()</a>) are zeroed after evaluation.</p>
+<p>Computes the total MMFF94 energy and the per-atom gradient of the conformation specified by <em>coords</em>. </p>
+<p>Gradients of atoms marked in the fixed-atom mask (see <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf" title="Sets the bit mask flagging atoms whose gradient components shall be zeroed after calculation.">setFixedAtomMask()</a>) are zeroed after calculation.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">CoordsArray</td><td>The coordinate-array type. </td></tr>
-    <tr><td class="paramname">GradVector</td><td>The gradient-vector type (must satisfy <a class="el" href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html">ForceField::GradientVectorTraits</a> requirements). </td></tr>
+    <tr><td class="paramname">CoordsArray</td><td>The atom coordinate array type. </td></tr>
+    <tr><td class="paramname">GradVector</td><td>The gradient vector type (must satisfy <a class="el" href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html">ForceField::GradientVectorTraits</a> requirements). </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">coords</td><td>The 3D coordinates of the molecule. </td></tr>
+    <tr><td class="paramname">coords</td><td>The atom 3D coordinates. </td></tr>
     <tr><td class="paramname">grad</td><td>The output gradient vector. </td></tr>
   </table>
   </dd>
@@ -613,7 +614,7 @@ template&lt;typename ValueType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the bit mask flagging atoms whose gradient components shall be zeroed after evaluation. </p>
+<p>Sets the bit mask flagging atoms whose gradient components shall be zeroed after calculation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mask</td><td>The new fixed-atom bit mask (bit <em>i</em> set freezes atom <em>i</em> during minimization). </td></tr>

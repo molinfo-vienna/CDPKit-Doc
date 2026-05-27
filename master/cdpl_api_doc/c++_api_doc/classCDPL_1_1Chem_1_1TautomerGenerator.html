@@ -106,13 +106,13 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7adddf3890a1c7b1c0f8309d51de99017e">EXHAUSTIVE</a>
 <br />
  }</td></tr>
-<tr class="memdesc:ab8c01c6ce58d9c808e5949af679603f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects the duplicate-filtering strategy applied during tautomer enumeration.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7">More...</a><br /></td></tr>
+<tr class="memdesc:ab8c01c6ce58d9c808e5949af679603f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants specifying the output tautomer filtering strategy.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7">More...</a><br /></td></tr>
 <tr class="separator:ab8c01c6ce58d9c808e5949af679603f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0098b806fee6d3bc9632a53ad7bb2e15"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html">TautomerGenerator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a0098b806fee6d3bc9632a53ad7bb2e15">SharedPointer</a></td></tr>
 <tr class="memdesc:a0098b806fee6d3bc9632a53ad7bb2e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>TautomerGenerator</code> instances.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a0098b806fee6d3bc9632a53ad7bb2e15">More...</a><br /></td></tr>
 <tr class="separator:a0098b806fee6d3bc9632a53ad7bb2e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a94625353b8d13f0fb2273ee393558f"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a7a94625353b8d13f0fb2273ee393558f">CallbackFunction</a></td></tr>
-<tr class="memdesc:a7a94625353b8d13f0fb2273ee393558f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the callback invoked for every accepted tautomer (returning <code>false</code> aborts the enumeration).  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a7a94625353b8d13f0fb2273ee393558f">More...</a><br /></td></tr>
+<tr class="memdesc:a7a94625353b8d13f0fb2273ee393558f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the callback invoked for every generated tautomer (returning <code>false</code> aborts the enumeration).  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a7a94625353b8d13f0fb2273ee393558f">More...</a><br /></td></tr>
 <tr class="separator:a7a94625353b8d13f0fb2273ee393558f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa0cff391436c5d7f8555805e2b5a735"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#afa0cff391436c5d7f8555805e2b5a735">CustomSetupFunction</a></td></tr>
 <tr class="memdesc:afa0cff391436c5d7f8555805e2b5a735"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the optional setup function invoked on the input molecular graph before enumeration starts.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#afa0cff391436c5d7f8555805e2b5a735">More...</a><br /></td></tr>
@@ -145,31 +145,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5b8f95a53c2f4dec01fbb059822da327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of registered tautomerization rules.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a5b8f95a53c2f4dec01fbb059822da327">More...</a><br /></td></tr>
 <tr class="separator:a5b8f95a53c2f4dec01fbb059822da327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e64291da3bf7127dd60d9e7cc8883fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a2e64291da3bf7127dd60d9e7cc8883fc">setCallbackFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a7a94625353b8d13f0fb2273ee393558f">CallbackFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:a2e64291da3bf7127dd60d9e7cc8883fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback invoked for every accepted tautomer.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a2e64291da3bf7127dd60d9e7cc8883fc">More...</a><br /></td></tr>
+<tr class="memdesc:a2e64291da3bf7127dd60d9e7cc8883fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the callback invoked for every accepted output tautomer.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a2e64291da3bf7127dd60d9e7cc8883fc">More...</a><br /></td></tr>
 <tr class="separator:a2e64291da3bf7127dd60d9e7cc8883fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aece5af7e99956ce6a45e6c151cf3f750"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a7a94625353b8d13f0fb2273ee393558f">CallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aece5af7e99956ce6a45e6c151cf3f750">getCallbackFunction</a> () const</td></tr>
 <tr class="memdesc:aece5af7e99956ce6a45e6c151cf3f750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured callback.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aece5af7e99956ce6a45e6c151cf3f750">More...</a><br /></td></tr>
 <tr class="separator:aece5af7e99956ce6a45e6c151cf3f750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1bb734cceb64fe8095cfce2422e28b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ac1bb734cceb64fe8095cfce2422e28b0">setMode</a> (<a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7">Mode</a> mode)</td></tr>
-<tr class="memdesc:ac1bb734cceb64fe8095cfce2422e28b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the duplicate-filtering mode.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ac1bb734cceb64fe8095cfce2422e28b0">More...</a><br /></td></tr>
+<tr class="memdesc:ac1bb734cceb64fe8095cfce2422e28b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the tautomer duplicate filtering mode.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ac1bb734cceb64fe8095cfce2422e28b0">More...</a><br /></td></tr>
 <tr class="separator:ac1bb734cceb64fe8095cfce2422e28b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1fadcd69ebe8802d028a66e859e50b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ab8c01c6ce58d9c808e5949af679603f7">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ad1fadcd69ebe8802d028a66e859e50b0">getMode</a> () const</td></tr>
-<tr class="memdesc:ad1fadcd69ebe8802d028a66e859e50b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured duplicate-filtering mode.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ad1fadcd69ebe8802d028a66e859e50b0">More...</a><br /></td></tr>
+<tr class="memdesc:ad1fadcd69ebe8802d028a66e859e50b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured tautomer duplicate filtering mode.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ad1fadcd69ebe8802d028a66e859e50b0">More...</a><br /></td></tr>
 <tr class="separator:ad1fadcd69ebe8802d028a66e859e50b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a716edbd0ecdb32588ee01f3a59caa63c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a716edbd0ecdb32588ee01f3a59caa63c">regardStereochemistry</a> (<a class="el" href="classbool.html">bool</a> regard)</td></tr>
-<tr class="memdesc:a716edbd0ecdb32588ee01f3a59caa63c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether tautomer stereochemistry shall be preserved/regarded during duplicate filtering.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a716edbd0ecdb32588ee01f3a59caa63c">More...</a><br /></td></tr>
+<tr class="memdesc:a716edbd0ecdb32588ee01f3a59caa63c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether atom/bond stereochemistry shall be regarded by the tautomer duplicate detection algorithm.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a716edbd0ecdb32588ee01f3a59caa63c">More...</a><br /></td></tr>
 <tr class="separator:a716edbd0ecdb32588ee01f3a59caa63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61546501bc91116f390b6144ca97a6ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a61546501bc91116f390b6144ca97a6ae">stereochemistryRegarded</a> () const</td></tr>
-<tr class="memdesc:a61546501bc91116f390b6144ca97a6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether stereochemistry is regarded during duplicate filtering.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a61546501bc91116f390b6144ca97a6ae">More...</a><br /></td></tr>
+<tr class="memdesc:a61546501bc91116f390b6144ca97a6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether atom/bond stereochemistry is regarded by the tautomer duplicate detection algorithm.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a61546501bc91116f390b6144ca97a6ae">More...</a><br /></td></tr>
 <tr class="separator:a61546501bc91116f390b6144ca97a6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea6ee082939bf1806143d3f3dd68460c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aea6ee082939bf1806143d3f3dd68460c">regardIsotopes</a> (<a class="el" href="classbool.html">bool</a> regard)</td></tr>
-<tr class="memdesc:aea6ee082939bf1806143d3f3dd68460c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether atom isotope information shall be regarded during duplicate filtering.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aea6ee082939bf1806143d3f3dd68460c">More...</a><br /></td></tr>
+<tr class="memdesc:aea6ee082939bf1806143d3f3dd68460c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether atom isotope information shall be regarded by the tautomer duplicate detection algorithm.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aea6ee082939bf1806143d3f3dd68460c">More...</a><br /></td></tr>
 <tr class="separator:aea6ee082939bf1806143d3f3dd68460c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57ac725992d619230a60010634477dc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a57ac725992d619230a60010634477dc2">isotopesRegarded</a> () const</td></tr>
-<tr class="memdesc:a57ac725992d619230a60010634477dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether isotope information is regarded during duplicate filtering.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a57ac725992d619230a60010634477dc2">More...</a><br /></td></tr>
+<tr class="memdesc:a57ac725992d619230a60010634477dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether atom isotope information is regarded by the tautomer duplicate detection algorithm.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a57ac725992d619230a60010634477dc2">More...</a><br /></td></tr>
 <tr class="separator:a57ac725992d619230a60010634477dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae60397f4906e50bb8a33deaf22592123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ae60397f4906e50bb8a33deaf22592123">clearCoordinates2D</a> (<a class="el" href="classbool.html">bool</a> clear)</td></tr>
-<tr class="memdesc:ae60397f4906e50bb8a33deaf22592123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether 2D atom coordinates shall be cleared from the generated tautomers (the input remains untouched).  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ae60397f4906e50bb8a33deaf22592123">More...</a><br /></td></tr>
+<tr class="memdesc:ae60397f4906e50bb8a33deaf22592123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether 2D atom coordinates shall be cleared from the generated tautomers.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ae60397f4906e50bb8a33deaf22592123">More...</a><br /></td></tr>
 <tr class="separator:ae60397f4906e50bb8a33deaf22592123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdb3ce8195d614ba35d9b66d7077a6a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#abdb3ce8195d614ba35d9b66d7077a6a6">coordinates2DCleared</a> () const</td></tr>
 <tr class="memdesc:abdb3ce8195d614ba35d9b66d7077a6a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether 2D atom coordinates are cleared from the generated tautomers.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#abdb3ce8195d614ba35d9b66d7077a6a6">More...</a><br /></td></tr>
@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0a38cb5eedf586831f930cafbc75aa4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether resonance-only duplicates are filtered out.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a0a38cb5eedf586831f930cafbc75aa4f">More...</a><br /></td></tr>
 <tr class="separator:a0a38cb5eedf586831f930cafbc75aa4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea016f4aa034dc2e04798fdbcfb655ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aea016f4aa034dc2e04798fdbcfb655ca">setCustomSetupFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#afa0cff391436c5d7f8555805e2b5a735">CustomSetupFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:aea016f4aa034dc2e04798fdbcfb655ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the optional setup function invoked on the input molecular graph before enumeration starts.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aea016f4aa034dc2e04798fdbcfb655ca">More...</a><br /></td></tr>
+<tr class="memdesc:aea016f4aa034dc2e04798fdbcfb655ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the optional setup function invoked on the generated tautomers.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#aea016f4aa034dc2e04798fdbcfb655ca">More...</a><br /></td></tr>
 <tr class="separator:aea016f4aa034dc2e04798fdbcfb655ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fcb1bbffa75179a23efb178ba328de1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a8fcb1bbffa75179a23efb178ba328de1">generate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
 <tr class="memdesc:a8fcb1bbffa75179a23efb178ba328de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the tautomers of <em>molgraph</em> and reports each accepted one to the registered callback.  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a8fcb1bbffa75179a23efb178ba328de1">More...</a><br /></td></tr>
@@ -195,7 +195,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="TautomerizationRule.">Chem::TautomerizationRule</a> instances and reporting each accepted tautomer to a user-supplied callback. </p>
-<p>After registering tautomerization rules (via <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ad868aa20e3108c29873ef886e1e311ea" title="Registers a new tautomerization rule.">addTautomerizationRule()</a>) and a callback (via <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a2e64291da3bf7127dd60d9e7cc8883fc" title="Sets the callback invoked for every accepted tautomer.">setCallbackFunction()</a>), each call to <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a8fcb1bbffa75179a23efb178ba328de1" title="Enumerates the tautomers of molgraph and reports each accepted one to the registered callback.">generate()</a> seeds the enumeration with the input molecular graph, applies every registered rule to every intermediate tautomer to derive the next generation, and reports each newly-generated tautomer to the callback. The Mode setting controls how aggressively duplicates are filtered. </p>
+<p>After registering tautomerization rules (via <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ad868aa20e3108c29873ef886e1e311ea" title="Registers a new tautomerization rule.">addTautomerizationRule()</a>) and a callback (via <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a2e64291da3bf7127dd60d9e7cc8883fc" title="Sets the callback invoked for every accepted output tautomer.">setCallbackFunction()</a>), each call to <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a8fcb1bbffa75179a23efb178ba328de1" title="Enumerates the tautomers of molgraph and reports each accepted one to the registered callback.">generate()</a> seeds the enumeration with the input molecular graph, applies every registered rule to every intermediate tautomer to derive the next generation, and reports each newly-generated tautomer to the callback. The Mode setting controls how various types of duplicates shall be handled. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a0098b806fee6d3bc9632a53ad7bb2e15"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0098b806fee6d3bc9632a53ad7bb2e15">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -225,7 +225,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type of the callback invoked for every accepted tautomer (returning <code>false</code> aborts the enumeration). </p>
+<p>Type of the callback invoked for every generated tautomer (returning <code>false</code> aborts the enumeration). </p>
 
 </div>
 </div>
@@ -258,13 +258,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Selects the duplicate-filtering strategy applied during tautomer enumeration. </p>
+<p>Constants specifying the output tautomer filtering strategy. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab8c01c6ce58d9c808e5949af679603f7a86b5ce5d3759df9c81edb28caa732a0d"></a>TOPOLOGICALLY_UNIQUE&#160;</td><td class="fielddoc"><p>Two tautomers are considered equal if they share the same constitutional (topological) connection table. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab8c01c6ce58d9c808e5949af679603f7a86b5ce5d3759df9c81edb28caa732a0d"></a>TOPOLOGICALLY_UNIQUE&#160;</td><td class="fielddoc"><p>Report a generated tautomer only if its molecular graph is not topologically equivalent to an already reported one. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ab8c01c6ce58d9c808e5949af679603f7af4936645bbe06259c6dfcfc09015cfc5"></a>GEOMETRICALLY_UNIQUE&#160;</td><td class="fielddoc"><p>Two tautomers are considered equal if they share the same connection table AND the same stereo-configuration. </p>
+<tr><td class="fieldname"><a id="ab8c01c6ce58d9c808e5949af679603f7af4936645bbe06259c6dfcfc09015cfc5"></a>GEOMETRICALLY_UNIQUE&#160;</td><td class="fielddoc"><p>Report a generated tautomer only if its ordinary H-deplete molecular graph connection table is different from already reported ones. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ab8c01c6ce58d9c808e5949af679603f7adddf3890a1c7b1c0f8309d51de99017e"></a>EXHAUSTIVE&#160;</td><td class="fielddoc"><p>Every accepted tautomer is reported, even if topologically/geometrically equivalent to an already-reported one. </p>
+<tr><td class="fieldname"><a id="ab8c01c6ce58d9c808e5949af679603f7adddf3890a1c7b1c0f8309d51de99017e"></a>EXHAUSTIVE&#160;</td><td class="fielddoc"><p>Report a generated tautomer only if its molecular graph connection table is different from already reported ones. </p>
 </td></tr>
 </table>
 
@@ -498,7 +498,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the callback invoked for every accepted tautomer. </p>
+<p>Sets the callback invoked for every accepted output tautomer. </p>
 <p>The callback receives the tautomer molecular graph as its argument and returns a boolean: returning <code>false</code> aborts the enumeration.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -545,10 +545,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the duplicate-filtering mode. </p>
+<p>Sets the tautomer duplicate filtering mode. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mode</td><td>The new Mode value. </td></tr>
+    <tr><td class="paramname">mode</td><td>The new duplicate filtering mode. </td></tr>
   </table>
   </dd>
 </dl>
@@ -570,8 +570,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the currently configured duplicate-filtering mode. </p>
-<dl class="section return"><dt>Returns</dt><dd>The Mode value. </dd></dl>
+<p>Returns the currently configured tautomer duplicate filtering mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current duplicate filtering mode. </dd></dl>
 
 </div>
 </div>
@@ -591,10 +591,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Specifies whether tautomer stereochemistry shall be preserved/regarded during duplicate filtering. </p>
+<p>Specifies whether atom/bond stereochemistry shall be regarded by the tautomer duplicate detection algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">regard</td><td>If <code>true</code>, stereo-configurations are taken into account. </td></tr>
+    <tr><td class="paramname">regard</td><td>If <code>true</code>, atom/bond stereo configurations are taken into account. </td></tr>
   </table>
   </dd>
 </dl>
@@ -616,7 +616,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether stereochemistry is regarded during duplicate filtering. </p>
+<p>Tells whether atom/bond stereochemistry is regarded by the tautomer duplicate detection algorithm. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if stereochemistry is regarded, and <code>false</code> otherwise. </dd></dl>
 
 </div>
@@ -637,10 +637,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Specifies whether atom isotope information shall be regarded during duplicate filtering. </p>
+<p>Specifies whether atom isotope information shall be regarded by the tautomer duplicate detection algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">regard</td><td>If <code>true</code>, isotopes are taken into account. </td></tr>
+    <tr><td class="paramname">regard</td><td>If <code>true</code>, atom isotope information is taken into account. </td></tr>
   </table>
   </dd>
 </dl>
@@ -662,8 +662,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether isotope information is regarded during duplicate filtering. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if isotopes are regarded, and <code>false</code> otherwise. </dd></dl>
+<p>Tells whether atom isotope information is regarded by the tautomer duplicate detection algorithm. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if atom isotope information is regarded, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -683,7 +683,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Specifies whether 2D atom coordinates shall be cleared from the generated tautomers (the input remains untouched). </p>
+<p>Specifies whether 2D atom coordinates shall be cleared from the generated tautomers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">clear</td><td>If <code>true</code>, the output tautomers have no 2D coordinates. </td></tr>
@@ -827,11 +827,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the optional setup function invoked on the input molecular graph before enumeration starts. </p>
-<p>The setup function may modify the input (e.g. add explicit hydrogens, perceive aromaticity) prior to enumeration.</p>
+<p>Sets the optional setup function invoked on the generated tautomers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The new custom-setup function. </td></tr>
+    <tr><td class="paramname">func</td><td>The new custom setup function. </td></tr>
   </table>
   </dd>
 </dl>

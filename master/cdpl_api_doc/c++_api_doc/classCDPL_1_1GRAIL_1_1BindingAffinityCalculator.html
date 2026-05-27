@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Predicts the binding affinity of a ligand pose from its <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> descriptor vector.  
+<p>Predicts the binding affinity of a ligand pose from its <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor vector.  
  <a href="classCDPL_1_1GRAIL_1_1BindingAffinityCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BindingAffinityCalculator_8hpp_source.html">BindingAffinityCalculator.hpp</a>&gt;</code></p>
@@ -107,12 +107,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a68c4f9a44d3d8e730b4e80e0ea37e3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BindingAffinityCalculator</code> instance.  <a href="classCDPL_1_1GRAIL_1_1BindingAffinityCalculator.html#a68c4f9a44d3d8e730b4e80e0ea37e3c6">More...</a><br /></td></tr>
 <tr class="separator:a68c4f9a44d3d8e730b4e80e0ea37e3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75fd99a7b55a70a603abb16201f1189d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1GRAIL_1_1BindingAffinityCalculator.html#a75fd99a7b55a70a603abb16201f1189d">operator()</a> (const <a class="el" href="namespaceCDPL_1_1Math.html#aa0f8de983c137cc1c6f28982d61e64fa">Math::DVector</a> &amp;grail_descr, <a class="el" href="classCDPL_1_1GRAIL_1_1BindingAffinityCalculator.html#a9d88d3bbc64916355dc34b5376dd3db0">AffinityMeasure</a> measure) const</td></tr>
-<tr class="memdesc:a75fd99a7b55a70a603abb16201f1189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predicts the binding affinity from the given <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> descriptor.  <a href="classCDPL_1_1GRAIL_1_1BindingAffinityCalculator.html#a75fd99a7b55a70a603abb16201f1189d">More...</a><br /></td></tr>
+<tr class="memdesc:a75fd99a7b55a70a603abb16201f1189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predicts the binding affinity from the given <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor.  <a href="classCDPL_1_1GRAIL_1_1BindingAffinityCalculator.html#a75fd99a7b55a70a603abb16201f1189d">More...</a><br /></td></tr>
 <tr class="separator:a75fd99a7b55a70a603abb16201f1189d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Predicts the binding affinity of a ligand pose from its <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> descriptor vector. </p>
-<p>The prediction is performed using a pre-trained regression model that takes a <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> descriptor as input and returns a binding affinity estimate. The targeted affinity measure ( \( pK_d \), \( pK_i \), or a combined \( pK_d/pK_i \) model) is selected at call time via the AffinityMeasure argument. </p>
+<div class="textblock"><p>Predicts the binding affinity of a ligand pose from its <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor vector. </p>
+<p>The prediction is performed using a pre-trained regression model that takes a <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor as input and returns a binding affinity estimate. The targeted affinity measure ( \( pK_d \), \( pK_i \), or a combined \( pK_d/pK_i \) model) is selected at call time via the AffinityMeasure argument. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a9d88d3bbc64916355dc34b5376dd3db0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d88d3bbc64916355dc34b5376dd3db0">&#9670;&nbsp;</a></span>AffinityMeasure</h2>
@@ -193,10 +193,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Predicts the binding affinity from the given <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> descriptor. </p>
+<p>Predicts the binding affinity from the given <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">grail_descr</td><td>The <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL].">GRAIL</a> descriptor vector of the ligand pose. </td></tr>
+    <tr><td class="paramname">grail_descr</td><td>The <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor vector of the ligand pose. </td></tr>
     <tr><td class="paramname">measure</td><td>The targeted affinity measure. </td></tr>
   </table>
   </dd>
