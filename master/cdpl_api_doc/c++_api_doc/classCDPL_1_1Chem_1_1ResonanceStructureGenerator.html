@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html" title="ResonanceStructureGenerator.">ResonanceStructureGenerator</a>.  
+<p>Enumerates the resonance structures of a molecular graph by redistributing &pi;-electrons across the resonance-active bonds.  
  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ResonanceStructureGenerator_8hpp_source.html">ResonanceStructureGenerator.hpp</a>&gt;</code></p>
@@ -92,13 +92,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator_1_1StructureData.html">StructureData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the per-atom formal charges and per-bond bond-orders that define a single resonance structure.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator_1_1StructureData.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a023b1da45fbe20e37a401bcbd0451d42"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html">ResonanceStructureGenerator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a023b1da45fbe20e37a401bcbd0451d42">SharedPointer</a></td></tr>
+<tr class="memdesc:a023b1da45fbe20e37a401bcbd0451d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>ResonanceStructureGenerator</code> instances.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a023b1da45fbe20e37a401bcbd0451d42">More...</a><br /></td></tr>
 <tr class="separator:a023b1da45fbe20e37a401bcbd0451d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e3c5edf01a3f6d14a3dc5c4b1b90a81"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; StructureDataList::const_iterator, const <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator_1_1StructureData.html">StructureData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8e3c5edf01a3f6d14a3dc5c4b1b90a81">ConstStructureDataIterator</a></td></tr>
+<tr class="memdesc:a8e3c5edf01a3f6d14a3dc5c4b1b90a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the generated resonance-structure records.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8e3c5edf01a3f6d14a3dc5c4b1b90a81">More...</a><br /></td></tr>
 <tr class="separator:a8e3c5edf01a3f6d14a3dc5c4b1b90a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -107,53 +110,75 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8b62da125dcfb9e7a7a1982c3bdfd73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>ResonanceStructureGenerator</code> instance.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8b62da125dcfb9e7a7a1982c3bdfd73a">More...</a><br /></td></tr>
 <tr class="separator:a8b62da125dcfb9e7a7a1982c3bdfd73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16fd1150af6f4118d6840ab4b3dcfc11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a16fd1150af6f4118d6840ab4b3dcfc11">ResonanceStructureGenerator</a> (const <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html">ResonanceStructureGenerator</a> &amp;gen)</td></tr>
+<tr class="memdesc:a16fd1150af6f4118d6840ab4b3dcfc11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code>ResonanceStructureGenerator</code> instance <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a16fd1150af6f4118d6840ab4b3dcfc11">More...</a><br /></td></tr>
 <tr class="separator:a16fd1150af6f4118d6840ab4b3dcfc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6dbdeafcbdaadae86dcb0f31ae92c19"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ae6dbdeafcbdaadae86dcb0f31ae92c19">~ResonanceStructureGenerator</a> ()</td></tr>
+<tr class="memdesc:ae6dbdeafcbdaadae86dcb0f31ae92c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ae6dbdeafcbdaadae86dcb0f31ae92c19">More...</a><br /></td></tr>
 <tr class="separator:ae6dbdeafcbdaadae86dcb0f31ae92c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79bcb6ccab3011ca31f4d32a0f12f987"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html">ResonanceStructureGenerator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a79bcb6ccab3011ca31f4d32a0f12f987">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html">ResonanceStructureGenerator</a> &amp;gen)</td></tr>
+<tr class="memdesc:a79bcb6ccab3011ca31f4d32a0f12f987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the state of this generator by a copy of the state of <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a79bcb6ccab3011ca31f4d32a0f12f987">More...</a><br /></td></tr>
 <tr class="separator:a79bcb6ccab3011ca31f4d32a0f12f987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d9fcec4b6cbee1c4292b21d2dfc00dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a2d9fcec4b6cbee1c4292b21d2dfc00dc">getOctetRuleCheckAtomTypes</a> ()</td></tr>
+<tr class="memdesc:a2d9fcec4b6cbee1c4292b21d2dfc00dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit mask of atom types subjected to the octet-rule check during minimization.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a2d9fcec4b6cbee1c4292b21d2dfc00dc">More...</a><br /></td></tr>
 <tr class="separator:a2d9fcec4b6cbee1c4292b21d2dfc00dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa751a766e27bba8c5dc52b4175acbb7d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#aa751a766e27bba8c5dc52b4175acbb7d">getOctetRuleCheckAtomTypes</a> () const</td></tr>
+<tr class="memdesc:aa751a766e27bba8c5dc52b4175acbb7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit mask of atom types subjected to the octet-rule check during minimization.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#aa751a766e27bba8c5dc52b4175acbb7d">More...</a><br /></td></tr>
 <tr class="separator:aa751a766e27bba8c5dc52b4175acbb7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1af332adbdbf968401c4a0190e0a7bf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a1af332adbdbf968401c4a0190e0a7bf4">minimizeOctetRuleViolations</a> (<a class="el" href="classbool.html">bool</a> minimize)</td></tr>
+<tr class="memdesc:a1af332adbdbf968401c4a0190e0a7bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether resonance structures violating the octet rule shall be filtered out.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a1af332adbdbf968401c4a0190e0a7bf4">More...</a><br /></td></tr>
 <tr class="separator:a1af332adbdbf968401c4a0190e0a7bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e7b810bb8923505425c8b96c6038594"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a1e7b810bb8923505425c8b96c6038594">octetRuleViolationsMinimized</a> () const</td></tr>
+<tr class="memdesc:a1e7b810bb8923505425c8b96c6038594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether octet-rule violations are minimized.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a1e7b810bb8923505425c8b96c6038594">More...</a><br /></td></tr>
 <tr class="separator:a1e7b810bb8923505425c8b96c6038594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f23e7039e0241b58113e559bbdec7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#af3f23e7039e0241b58113e559bbdec7a">minimizeSP1GeometryViolations</a> (<a class="el" href="classbool.html">bool</a> minimize)</td></tr>
+<tr class="memdesc:af3f23e7039e0241b58113e559bbdec7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether resonance structures with sp-hybridization-geometry violations shall be filtered out.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#af3f23e7039e0241b58113e559bbdec7a">More...</a><br /></td></tr>
 <tr class="separator:af3f23e7039e0241b58113e559bbdec7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f3584f4711db31a0025abda401bc620"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8f3584f4711db31a0025abda401bc620">sp1GeometryViolationsMinimized</a> () const</td></tr>
+<tr class="memdesc:a8f3584f4711db31a0025abda401bc620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether sp-hybridization-geometry violations are minimized.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8f3584f4711db31a0025abda401bc620">More...</a><br /></td></tr>
 <tr class="separator:a8f3584f4711db31a0025abda401bc620"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3eb2c91b304f3c3cfbca52d85ecde83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ae3eb2c91b304f3c3cfbca52d85ecde83">minimizeCarbonBond12Charges</a> (<a class="el" href="classbool.html">bool</a> minimize)</td></tr>
+<tr class="memdesc:ae3eb2c91b304f3c3cfbca52d85ecde83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether resonance structures with 1,2-charge separations on adjacent carbon atoms shall be filtered out.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ae3eb2c91b304f3c3cfbca52d85ecde83">More...</a><br /></td></tr>
 <tr class="separator:ae3eb2c91b304f3c3cfbca52d85ecde83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4f7763ea04780db2e71025fd645083e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ab4f7763ea04780db2e71025fd645083e">carbonBond12ChargesMinimized</a> () const</td></tr>
+<tr class="memdesc:ab4f7763ea04780db2e71025fd645083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether 1,2-charge separations on adjacent carbon atoms are minimized.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ab4f7763ea04780db2e71025fd645083e">More...</a><br /></td></tr>
 <tr class="separator:ab4f7763ea04780db2e71025fd645083e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51f71a1d38a1ee52e7502f73c4d065ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a51f71a1d38a1ee52e7502f73c4d065ea">setChargeCountWindow</a> (std::size_t win_size)</td></tr>
+<tr class="memdesc:a51f71a1d38a1ee52e7502f73c4d065ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum allowed difference between the lowest and highest formal-charge count of accepted resonance structures.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a51f71a1d38a1ee52e7502f73c4d065ea">More...</a><br /></td></tr>
 <tr class="separator:a51f71a1d38a1ee52e7502f73c4d065ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac55924a5d70259c3dedad62308346f01"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ac55924a5d70259c3dedad62308346f01">getChargeCountWindow</a> () const</td></tr>
+<tr class="memdesc:ac55924a5d70259c3dedad62308346f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the configured charge-count window size.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ac55924a5d70259c3dedad62308346f01">More...</a><br /></td></tr>
 <tr class="separator:ac55924a5d70259c3dedad62308346f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b9af43a2a846ece2460b97c950535d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#af2b9af43a2a846ece2460b97c950535d">setMaxNumGeneratedStructures</a> (std::size_t max_num)</td></tr>
+<tr class="memdesc:af2b9af43a2a846ece2460b97c950535d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the upper limit on the number of resonance structures generated per molecule.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#af2b9af43a2a846ece2460b97c950535d">More...</a><br /></td></tr>
 <tr class="separator:af2b9af43a2a846ece2460b97c950535d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53f227545919f8deaab0f8e88935f3ca"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a53f227545919f8deaab0f8e88935f3ca">getMaxNumGeneratedStructures</a> () const</td></tr>
+<tr class="memdesc:a53f227545919f8deaab0f8e88935f3ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the upper limit on the number of resonance structures generated per molecule.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a53f227545919f8deaab0f8e88935f3ca">More...</a><br /></td></tr>
 <tr class="separator:a53f227545919f8deaab0f8e88935f3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4be3f1f8d31d5767ff71ba2325d26a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ab4be3f1f8d31d5767ff71ba2325d26a5">generate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:ab4be3f1f8d31d5767ff71ba2325d26a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates all unique resonanceStructures of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ab4be3f1f8d31d5767ff71ba2325d26a5">More...</a><br /></td></tr>
+<tr class="memdesc:ab4be3f1f8d31d5767ff71ba2325d26a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates all unique resonance structures of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#ab4be3f1f8d31d5767ff71ba2325d26a5">More...</a><br /></td></tr>
 <tr class="separator:ab4be3f1f8d31d5767ff71ba2325d26a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff14c418b8921b0d81f22c6ebe951ecb"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#aff14c418b8921b0d81f22c6ebe951ecb">getNumStructures</a> () const</td></tr>
+<tr class="memdesc:aff14c418b8921b0d81f22c6ebe951ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of generated resonance structures.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#aff14c418b8921b0d81f22c6ebe951ecb">More...</a><br /></td></tr>
 <tr class="separator:aff14c418b8921b0d81f22c6ebe951ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87ec16c7128a9b4bced1c010be79b871"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator_1_1StructureData.html">StructureData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a87ec16c7128a9b4bced1c010be79b871">getStructureData</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a87ec16c7128a9b4bced1c010be79b871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the resonance-structure record at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a87ec16c7128a9b4bced1c010be79b871">More...</a><br /></td></tr>
 <tr class="separator:a87ec16c7128a9b4bced1c010be79b871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92b75ccb80cf02924d5aaca45b4c8e2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8e3c5edf01a3f6d14a3dc5c4b1b90a81">ConstStructureDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a92b75ccb80cf02924d5aaca45b4c8e2a">getStructureDataBegin</a> () const</td></tr>
+<tr class="memdesc:a92b75ccb80cf02924d5aaca45b4c8e2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first generated resonance-structure record.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a92b75ccb80cf02924d5aaca45b4c8e2a">More...</a><br /></td></tr>
 <tr class="separator:a92b75ccb80cf02924d5aaca45b4c8e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a592f7babe4a9c497a8029eafd80de9e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8e3c5edf01a3f6d14a3dc5c4b1b90a81">ConstStructureDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a592f7babe4a9c497a8029eafd80de9e7">getStructureDataEnd</a> () const</td></tr>
+<tr class="memdesc:a592f7babe4a9c497a8029eafd80de9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last generated resonance-structure record.  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a592f7babe4a9c497a8029eafd80de9e7">More...</a><br /></td></tr>
 <tr class="separator:a592f7babe4a9c497a8029eafd80de9e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b87318d7592fce85f3c69b302e8c70b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8e3c5edf01a3f6d14a3dc5c4b1b90a81">ConstStructureDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a0b87318d7592fce85f3c69b302e8c70b">begin</a> () const</td></tr>
+<tr class="memdesc:a0b87318d7592fce85f3c69b302e8c70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first generated record (range-based for support).  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a0b87318d7592fce85f3c69b302e8c70b">More...</a><br /></td></tr>
 <tr class="separator:a0b87318d7592fce85f3c69b302e8c70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a666c8de21a264343bcec266f16248302"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a8e3c5edf01a3f6d14a3dc5c4b1b90a81">ConstStructureDataIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a666c8de21a264343bcec266f16248302">end</a> () const</td></tr>
+<tr class="memdesc:a666c8de21a264343bcec266f16248302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last generated record (range-based for support).  <a href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#a666c8de21a264343bcec266f16248302">More...</a><br /></td></tr>
 <tr class="separator:a666c8de21a264343bcec266f16248302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html" title="ResonanceStructureGenerator.">ResonanceStructureGenerator</a>. </p>
+<div class="textblock"><p>Enumerates the resonance structures of a molecular graph by redistributing &pi;-electrons across the resonance-active bonds. </p>
+<p>For each generated resonance structure the per-atom formal charges and per-bond bond-orders are reported as a <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator_1_1StructureData.html" title="Holds the per-atom formal charges and per-bond bond-orders that define a single resonance structure.">Chem::ResonanceStructureGenerator::StructureData</a> record. Optional post-processing minimizes octet-rule violations, sp-hybridization-geometry violations, and 1,2-charge separations on adjacent carbon atoms. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a023b1da45fbe20e37a401bcbd0451d42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a023b1da45fbe20e37a401bcbd0451d42">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -166,6 +191,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>ResonanceStructureGenerator</code> instances. </p>
 
 </div>
 </div>
@@ -180,6 +207,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A constant iterator over the generated resonance-structure records. </p>
 
 </div>
 </div>
@@ -219,6 +248,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a copy of the <code>ResonanceStructureGenerator</code> instance <em>gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gen</td><td>The <code>ResonanceStructureGenerator</code> to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae6dbdeafcbdaadae86dcb0f31ae92c19"></a>
@@ -244,6 +281,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Virtual destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -263,6 +302,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Replaces the state of this generator by a copy of the state of <em>gen</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gen</td><td>The source <code>ResonanceStructureGenerator</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
+
 </div>
 </div>
 <a id="a2d9fcec4b6cbee1c4292b21d2dfc00dc"></a>
@@ -280,6 +328,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the bit mask of atom types subjected to the octet-rule check during minimization. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the bit mask (indexed by <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html" title="Provides constants for the specification of the chemical element or generic type of an atom.">Chem::AtomType</a> value). </dd></dl>
+
 </div>
 </div>
 <a id="aa751a766e27bba8c5dc52b4175acbb7d"></a>
@@ -296,6 +347,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the bit mask of atom types subjected to the octet-rule check during minimization. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the bit mask (indexed by <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomType.html" title="Provides constants for the specification of the chemical element or generic type of an atom.">Chem::AtomType</a> value). </dd></dl>
 
 </div>
 </div>
@@ -315,6 +369,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether resonance structures violating the octet rule shall be filtered out. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minimize</td><td>If <code>true</code>, structures with octet-rule violations on the configured atom types are minimized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1e7b810bb8923505425c8b96c6038594"></a>
@@ -331,6 +393,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether octet-rule violations are minimized. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if octet-rule violations are minimized, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -350,6 +415,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether resonance structures with sp-hybridization-geometry violations shall be filtered out. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minimize</td><td>If <code>true</code>, sp-hybridization-geometry violations are minimized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a8f3584f4711db31a0025abda401bc620"></a>
@@ -366,6 +439,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether sp-hybridization-geometry violations are minimized. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if sp-geometry violations are minimized, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -385,6 +461,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether resonance structures with 1,2-charge separations on adjacent carbon atoms shall be filtered out. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minimize</td><td>If <code>true</code>, 1,2-charged C&minus;C resonance forms are minimized. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab4f7763ea04780db2e71025fd645083e"></a>
@@ -401,6 +485,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether 1,2-charge separations on adjacent carbon atoms are minimized. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if 1,2-charged C&minus;C resonance forms are minimized, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -420,6 +507,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the maximum allowed difference between the lowest and highest formal-charge count of accepted resonance structures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win_size</td><td>The new charge-count window size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac55924a5d70259c3dedad62308346f01"></a>
@@ -436,6 +531,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the configured charge-count window size. </p>
+<dl class="section return"><dt>Returns</dt><dd>The charge-count window size. </dd></dl>
 
 </div>
 </div>
@@ -455,6 +553,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the upper limit on the number of resonance structures generated per molecule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">max_num</td><td>The new output-structure limit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a53f227545919f8deaab0f8e88935f3ca"></a>
@@ -471,6 +577,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the upper limit on the number of resonance structures generated per molecule. </p>
+<dl class="section return"><dt>Returns</dt><dd>The output-structure limit. </dd></dl>
 
 </div>
 </div>
@@ -490,10 +599,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates all unique resonanceStructures of the molecular graph <em>molgraph</em>. </p>
+<p>Generates all unique resonance structures of the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The molecular graph for which to generate the resonanceStructures. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The molecular graph for which to generate the resonance structures. </td></tr>
   </table>
   </dd>
 </dl>
@@ -515,6 +624,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of generated resonance structures. </p>
+<dl class="section return"><dt>Returns</dt><dd>The resonance-structure count. </dd></dl>
+
 </div>
 </div>
 <a id="a87ec16c7128a9b4bced1c010be79b871"></a>
@@ -533,6 +645,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the resonance-structure record at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based structure index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the resonance-structure record. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of resonance structures is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1ResonanceStructureGenerator.html#aff14c418b8921b0d81f22c6ebe951ecb" title="Returns the number of generated resonance structures.">getNumStructures()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a92b75ccb80cf02924d5aaca45b4c8e2a"></a>
@@ -549,6 +676,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the first generated resonance-structure record. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first record. </dd></dl>
 
 </div>
 </div>
@@ -567,6 +697,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last generated resonance-structure record. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last record. </dd></dl>
+
 </div>
 </div>
 <a id="a0b87318d7592fce85f3c69b302e8c70b"></a>
@@ -584,6 +717,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the first generated record (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first record. </dd></dl>
+
 </div>
 </div>
 <a id="a666c8de21a264343bcec266f16248302"></a>
@@ -600,6 +736,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing one past the last generated record (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last record. </dd></dl>
 
 </div>
 </div>

@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Harmonic distance-restraint potential between a pair of atoms.  
+<p>Stores parameters for a harmonic distance-restraint potential between a pair of atoms.  
  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ElasticPotential_8hpp_source.html">ElasticPotential.hpp</a>&gt;</code></p>
@@ -93,10 +93,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3668d166274a49c329839d525ddb7115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the elastic potential between atoms <em>atom1_idx</em> and <em>atom2_idx</em> with the specified force constant and reference length.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a3668d166274a49c329839d525ddb7115">More...</a><br /></td></tr>
 <tr class="separator:a3668d166274a49c329839d525ddb7115"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9495ea417c631fa2d2f67e66f0bf29e1"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">getAtom1Index</a> () const</td></tr>
-<tr class="memdesc:a9495ea417c631fa2d2f67e66f0bf29e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zero-based index of the first restrained atom.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">More...</a><br /></td></tr>
+<tr class="memdesc:a9495ea417c631fa2d2f67e66f0bf29e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zero-based index of the first atom.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a9495ea417c631fa2d2f67e66f0bf29e1">More...</a><br /></td></tr>
 <tr class="separator:a9495ea417c631fa2d2f67e66f0bf29e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7233d21621b93e54ae343239a206ea90"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">getAtom2Index</a> () const</td></tr>
-<tr class="memdesc:a7233d21621b93e54ae343239a206ea90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zero-based index of the second restrained atom.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">More...</a><br /></td></tr>
+<tr class="memdesc:a7233d21621b93e54ae343239a206ea90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the zero-based index of the second atom.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#a7233d21621b93e54ae343239a206ea90">More...</a><br /></td></tr>
 <tr class="separator:a7233d21621b93e54ae343239a206ea90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf7c98d06305d580927197161fa9eda6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">getForceConstant</a> () const</td></tr>
 <tr class="memdesc:aaf7c98d06305d580927197161fa9eda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the force constant of the potential.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#aaf7c98d06305d580927197161fa9eda6">More...</a><br /></td></tr>
@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae414f4c8d35bef424fbbb9049c86a3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Harmonic distance-restraint potential between a pair of atoms. </p>
-<p>The potential evaluates to \( \frac{1}{2} k (r - r_0)^2 \), where <em>k</em> is the force constant, \( r_0 \) the reference length and <em>r</em> the current distance between the two atoms. It is used by <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94EnergyCalculator.html" title="Calculates the total MMFF94 force field energy for a set of atom 3D coordinates.">ForceField::MMFF94EnergyCalculator</a>/ForceField::MMFF94GradientCalculator as an auxiliary restraint to bias the energy minimization toward a desired geometry.</p>
+<div class="textblock"><p>Stores parameters for a harmonic distance-restraint potential between a pair of atoms. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceCDPL_1_1ForceField.html#a095fb8bf3d3496b1a952aa3a33c20afc">ForceField::calcElasticPotentialEnergy()</a> </dd></dl>
 <dl class="section since"><dt>Since</dt><dd>1.1 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3668d166274a49c329839d525ddb7115"></a>
@@ -196,7 +196,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the zero-based index of the first restrained atom. </p>
+<p>Returns the zero-based index of the first atom. </p>
 <dl class="section return"><dt>Returns</dt><dd>The first atom index. </dd></dl>
 
 </div>
@@ -224,7 +224,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the zero-based index of the second restrained atom. </p>
+<p>Returns the zero-based index of the second atom. </p>
 <dl class="section return"><dt>Returns</dt><dd>The second atom index. </dd></dl>
 
 </div>

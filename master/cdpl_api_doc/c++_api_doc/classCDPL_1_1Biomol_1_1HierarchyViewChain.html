@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A single chain of a <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure allowing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a> model, holding the constituent contiguous fragments (separated by chain breaks).  
+<p>A data structure for the representation of biological macromolecule chains.  
  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HierarchyViewChain_8hpp_source.html">HierarchyViewChain.hpp</a>&gt;</code></p>
@@ -100,7 +100,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a8cd03b082848f8050d0ad7db5ffe511f"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; FragmentList::const_iterator, const <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewFragment.html">HierarchyViewFragment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">ConstFragmentIterator</a></td></tr>
-<tr class="memdesc:a8cd03b082848f8050d0ad7db5ffe511f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the contained fragments.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">More...</a><br /></td></tr>
+<tr class="memdesc:a8cd03b082848f8050d0ad7db5ffe511f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the chain fragments.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">More...</a><br /></td></tr>
 <tr class="separator:a8cd03b082848f8050d0ad7db5ffe511f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1Fragment"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1Fragment')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">CDPL::Chem::Fragment</a></td></tr>
 <tr class="memitem:ae05e297f551ab2ea544eca1a7001fade inherit pub_types_classCDPL_1_1Chem_1_1Fragment"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Fragment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Fragment.html#ae05e297f551ab2ea544eca1a7001fade">SharedPointer</a></td></tr>
@@ -154,22 +154,22 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8679ece4c233b48f1973091798b6258d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8679ece4c233b48f1973091798b6258d">getNumFragments</a> () const</td></tr>
-<tr class="memdesc:a8679ece4c233b48f1973091798b6258d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of contiguous fragments in this chain.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8679ece4c233b48f1973091798b6258d">More...</a><br /></td></tr>
+<tr class="memdesc:a8679ece4c233b48f1973091798b6258d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of fragments this chain consists of.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8679ece4c233b48f1973091798b6258d">More...</a><br /></td></tr>
 <tr class="separator:a8679ece4c233b48f1973091798b6258d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae56643bb83689fd202840a3e519512cf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewFragment.html">HierarchyViewFragment</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#ae56643bb83689fd202840a3e519512cf">getFragment</a> (std::size_t idx) const</td></tr>
-<tr class="memdesc:ae56643bb83689fd202840a3e519512cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fragment at index <em>idx</em>.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#ae56643bb83689fd202840a3e519512cf">More...</a><br /></td></tr>
+<tr class="memdesc:ae56643bb83689fd202840a3e519512cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the chain fragment at index <em>idx</em>.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#ae56643bb83689fd202840a3e519512cf">More...</a><br /></td></tr>
 <tr class="separator:ae56643bb83689fd202840a3e519512cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a524a9b29ed08942c74b6a3fd554f4fbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">ConstFragmentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a524a9b29ed08942c74b6a3fd554f4fbf">getFragmentsBegin</a> () const</td></tr>
-<tr class="memdesc:a524a9b29ed08942c74b6a3fd554f4fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first fragment.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a524a9b29ed08942c74b6a3fd554f4fbf">More...</a><br /></td></tr>
+<tr class="memdesc:a524a9b29ed08942c74b6a3fd554f4fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first chain fragment.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a524a9b29ed08942c74b6a3fd554f4fbf">More...</a><br /></td></tr>
 <tr class="separator:a524a9b29ed08942c74b6a3fd554f4fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afec1d4dd06c0f00ae2c651b4b27dcc9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">ConstFragmentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#afec1d4dd06c0f00ae2c651b4b27dcc9e">getFragmentsEnd</a> () const</td></tr>
-<tr class="memdesc:afec1d4dd06c0f00ae2c651b4b27dcc9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last fragment.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#afec1d4dd06c0f00ae2c651b4b27dcc9e">More...</a><br /></td></tr>
+<tr class="memdesc:afec1d4dd06c0f00ae2c651b4b27dcc9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last chain fragment.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#afec1d4dd06c0f00ae2c651b4b27dcc9e">More...</a><br /></td></tr>
 <tr class="separator:afec1d4dd06c0f00ae2c651b4b27dcc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3b4496b265d5dfd2bf4371d98294949"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">ConstFragmentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#ab3b4496b265d5dfd2bf4371d98294949">begin</a> () const</td></tr>
-<tr class="memdesc:ab3b4496b265d5dfd2bf4371d98294949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first fragment (range-based for support).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#ab3b4496b265d5dfd2bf4371d98294949">More...</a><br /></td></tr>
+<tr class="memdesc:ab3b4496b265d5dfd2bf4371d98294949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the first chain fragment (range-based for support).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#ab3b4496b265d5dfd2bf4371d98294949">More...</a><br /></td></tr>
 <tr class="separator:ab3b4496b265d5dfd2bf4371d98294949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c850cd5c3da047faf778f7dfc9d9773"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8cd03b082848f8050d0ad7db5ffe511f">ConstFragmentIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a6c850cd5c3da047faf778f7dfc9d9773">end</a> () const</td></tr>
-<tr class="memdesc:a6c850cd5c3da047faf778f7dfc9d9773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last fragment (range-based for support).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a6c850cd5c3da047faf778f7dfc9d9773">More...</a><br /></td></tr>
+<tr class="memdesc:a6c850cd5c3da047faf778f7dfc9d9773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last chain fragment (range-based for support).  <a href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a6c850cd5c3da047faf778f7dfc9d9773">More...</a><br /></td></tr>
 <tr class="separator:a6c850cd5c3da047faf778f7dfc9d9773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html">CDPL::Biomol::HierarchyViewNode</a></td></tr>
 <tr class="memitem:a60ae2bbe6e8b02e6181c3c092af1ab5c inherit pub_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Biomol_1_1ResidueList.html">ResidueList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a60ae2bbe6e8b02e6181c3c092af1ab5c">getResidues</a> () const</td></tr>
@@ -465,10 +465,13 @@ Friends</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html">CDPL::Biomol::HierarchyViewNode</a></td></tr>
 <tr class="memitem:a5928600e06b8b766f42ec956349e9474 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a5928600e06b8b766f42ec956349e9474">HierarchyViewNode</a> ()</td></tr>
+<tr class="memdesc:a5928600e06b8b766f42ec956349e9474 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>HierarchyViewNode</code> instance.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a5928600e06b8b766f42ec956349e9474">More...</a><br /></td></tr>
 <tr class="separator:a5928600e06b8b766f42ec956349e9474 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4d9c5bff4a0fff98b4efc397ed217f7 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#ae4d9c5bff4a0fff98b4efc397ed217f7">~HierarchyViewNode</a> ()</td></tr>
-<tr class="separator:ae4d9c5bff4a0fff98b4efc397ed217f7 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003fa598d1f4f16d098608df713047c8 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a003fa598d1f4f16d098608df713047c8">~HierarchyViewNode</a> ()</td></tr>
+<tr class="memdesc:a003fa598d1f4f16d098608df713047c8 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a003fa598d1f4f16d098608df713047c8">More...</a><br /></td></tr>
+<tr class="separator:a003fa598d1f4f16d098608df713047c8 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d2604c38ed05470b5b996bfd58c7333 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memItemLeft" align="right" valign="top">std::mutex &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a7d2604c38ed05470b5b996bfd58c7333">getMutex</a> () const</td></tr>
+<tr class="memdesc:a7d2604c38ed05470b5b996bfd58c7333 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>std::mutex</code> instance for the thread-safe lazy initialization of data in this and any derived classes.  <a href="classCDPL_1_1Biomol_1_1HierarchyViewNode.html#a7d2604c38ed05470b5b996bfd58c7333">More...</a><br /></td></tr>
 <tr class="separator:a7d2604c38ed05470b5b996bfd58c7333 inherit pro_methods_classCDPL_1_1Biomol_1_1HierarchyViewNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Chem_1_1MolecularGraph')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></td></tr>
 <tr class="memitem:adf57d010f784ef81699912e64c7455f4 inherit pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#adf57d010f784ef81699912e64c7455f4">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
@@ -510,7 +513,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A single chain of a <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure allowing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a> model, holding the constituent contiguous fragments (separated by chain breaks). </p>
+<div class="textblock"><p>A data structure for the representation of biological macromolecule chains. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Biomol_1_1HierarchyView.html" title="A data structure providing a hierarchical view on biological macromolecules.">Biomol::HierarchyView</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8cd03b082848f8050d0ad7db5ffe511f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8cd03b082848f8050d0ad7db5ffe511f">&#9670;&nbsp;</a></span>ConstFragmentIterator</h2>
@@ -524,7 +528,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A constant iterator over the contained fragments. </p>
+<p>A constant iterator over the chain fragments. </p>
 
 </div>
 </div>
@@ -544,8 +548,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of contiguous fragments in this chain. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of fragments. </dd></dl>
+<p>Returns the number of fragments this chain consists of. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of chain fragments. </dd></dl>
 
 </div>
 </div>
@@ -565,17 +569,17 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the fragment at index <em>idx</em>. </p>
+<p>Returns the chain fragment at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td>The zero-based fragment index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the fragment. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the chain fragment. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of fragments is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8679ece4c233b48f1973091798b6258d" title="Returns the number of contiguous fragments in this chain.">getNumFragments()</a> - 1]. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of chain fragments is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Biomol_1_1HierarchyViewChain.html#a8679ece4c233b48f1973091798b6258d" title="Returns the number of fragments this chain consists of.">getNumFragments()</a> - 1]. </td></tr>
   </table>
   </dd>
 </dl>
@@ -597,8 +601,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the first fragment. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first fragment. </dd></dl>
+<p>Returns a constant iterator pointing to the first chain fragment. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first chain fragment. </dd></dl>
 
 </div>
 </div>
@@ -617,8 +621,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing one past the last fragment. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last fragment. </dd></dl>
+<p>Returns a constant iterator pointing one past the last chain fragment. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last chain fragment. </dd></dl>
 
 </div>
 </div>
@@ -637,8 +641,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the first fragment (range-based for support). </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first fragment. </dd></dl>
+<p>Returns a constant iterator pointing to the first chain fragment (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the first chain fragment. </dd></dl>
 
 </div>
 </div>
@@ -657,8 +661,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing one past the last fragment (range-based for support). </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last fragment. </dd></dl>
+<p>Returns a constant iterator pointing one past the last chain fragment (range-based for support). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing one past the last chain fragment. </dd></dl>
 
 </div>
 </div>

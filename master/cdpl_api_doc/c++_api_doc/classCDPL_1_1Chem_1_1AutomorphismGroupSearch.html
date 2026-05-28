@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html" title="AutomorphismGroupSearch.">AutomorphismGroupSearch</a>.  
+<p>Enumerates the atom/bond automorphisms of a molecular graph.  
  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AutomorphismGroupSearch_8hpp_source.html">AutomorphismGroupSearch.hpp</a>&gt;</code></p>
@@ -93,6 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a58a919d2eb150e757f52911222379a32"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html">AutomorphismGroupSearch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a58a919d2eb150e757f52911222379a32">SharedPointer</a></td></tr>
+<tr class="memdesc:a58a919d2eb150e757f52911222379a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>AutomorphismGroupSearch</code> instances.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a58a919d2eb150e757f52911222379a32">More...</a><br /></td></tr>
 <tr class="separator:a58a919d2eb150e757f52911222379a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae13df0789fe242f670d44dfa42789170"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html#acf09bdf1ba996fd2f21ea491bd6f520a">SubstructureSearch::MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">MappingIterator</a></td></tr>
 <tr class="memdesc:ae13df0789fe242f670d44dfa42789170"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">More...</a><br /></td></tr>
@@ -101,6 +102,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a0f56e75e43bfe69ae95b3c74591765fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">More...</a><br /></td></tr>
 <tr class="separator:a0f56e75e43bfe69ae95b3c74591765fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">MappingCallbackFunction</a></td></tr>
+<tr class="memdesc:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the callback invoked for every found mapping (return <code>false</code> to abort the search).  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">More...</a><br /></td></tr>
 <tr class="separator:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -113,16 +115,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d05386b4f016124847b236a1331c73f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html">AutomorphismGroupSearch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0d05386b4f016124847b236a1331c73f">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html">AutomorphismGroupSearch</a> &amp;)=delete</td></tr>
 <tr class="separator:a0d05386b4f016124847b236a1331c73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaf3f635fb7d1ca1ef0974ea17ae29be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aeaf3f635fb7d1ca1ef0974ea17ae29be">setAtomPropertyFlags</a> (unsigned int flags)</td></tr>
+<tr class="memdesc:aeaf3f635fb7d1ca1ef0974ea17ae29be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the atomic properties considered for atom matching during automorphism search.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aeaf3f635fb7d1ca1ef0974ea17ae29be">More...</a><br /></td></tr>
 <tr class="separator:aeaf3f635fb7d1ca1ef0974ea17ae29be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a751998bdb951a1edd713a4c17230b13b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a751998bdb951a1edd713a4c17230b13b">getAtomPropertyFlags</a> () const</td></tr>
+<tr class="memdesc:a751998bdb951a1edd713a4c17230b13b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the atomic properties currently considered for atom matching.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a751998bdb951a1edd713a4c17230b13b">More...</a><br /></td></tr>
 <tr class="separator:a751998bdb951a1edd713a4c17230b13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a751914c3638cd7ede206357f31b42505"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a751914c3638cd7ede206357f31b42505">setBondPropertyFlags</a> (unsigned int flags)</td></tr>
+<tr class="memdesc:a751914c3638cd7ede206357f31b42505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies the bond properties considered for bond matching during automorphism search.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a751914c3638cd7ede206357f31b42505">More...</a><br /></td></tr>
 <tr class="separator:a751914c3638cd7ede206357f31b42505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae08babf9b73ef9e4ffec4a276f50aa2d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae08babf9b73ef9e4ffec4a276f50aa2d">getBondPropertyFlags</a> () const</td></tr>
+<tr class="memdesc:ae08babf9b73ef9e4ffec4a276f50aa2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bond properties currently considered for bond matching.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae08babf9b73ef9e4ffec4a276f50aa2d">More...</a><br /></td></tr>
 <tr class="separator:ae08babf9b73ef9e4ffec4a276f50aa2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20becce87546f8d8ddb935062b8e2120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a20becce87546f8d8ddb935062b8e2120">includeIdentityMapping</a> (<a class="el" href="classbool.html">bool</a> include)</td></tr>
+<tr class="memdesc:a20becce87546f8d8ddb935062b8e2120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies whether the identity mapping shall be included in the search results.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a20becce87546f8d8ddb935062b8e2120">More...</a><br /></td></tr>
 <tr class="separator:a20becce87546f8d8ddb935062b8e2120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a1483033ec7f85f506a9bf14189037f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0a1483033ec7f85f506a9bf14189037f">identityMappingIncluded</a> () const</td></tr>
+<tr class="memdesc:a0a1483033ec7f85f506a9bf14189037f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the identity mapping is included in the search results.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0a1483033ec7f85f506a9bf14189037f">More...</a><br /></td></tr>
 <tr class="separator:a0a1483033ec7f85f506a9bf14189037f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1df541d3002b9efc0c7b087429fc9643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643">findMappings</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
 <tr class="memdesc:a1df541d3002b9efc0c7b087429fc9643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643">More...</a><br /></td></tr>
@@ -195,7 +203,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a13e2f2942c2329c21f27004b369a6419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html" title="AutomorphismGroupSearch.">AutomorphismGroupSearch</a>. </p>
+<div class="textblock"><p>Enumerates the atom/bond automorphisms of a molecular graph. </p>
+<p>The automorphism group of a molecular graph is the set of self-mappings (atom-permutations and the induced bond-permutations) that preserve the molecular graph structure under the configured atom and bond property flags. <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Atom</a> and bond matching is configurable via the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> and <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> bit masks. Found mappings are stored as <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="A data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects and can be iterated or accessed by index. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a58a919d2eb150e757f52911222379a32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58a919d2eb150e757f52911222379a32">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -208,6 +217,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>AutomorphismGroupSearch</code> instances. </p>
 
 </div>
 </div>
@@ -255,6 +266,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Type of the callback invoked for every found mapping (return <code>false</code> to abort the search). </p>
+
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -285,6 +298,13 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs and initializes a <code>AutomorphismGroupSearch</code> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom_flags</td><td>The bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> values considered for atom matching. </td></tr>
+    <tr><td class="paramname">bond_flags</td><td>The bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> values considered for bond matching. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -357,6 +377,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies the atomic properties considered for atom matching during automorphism search. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags</td><td>The new bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> values. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a751998bdb951a1edd713a4c17230b13b"></a>
@@ -373,6 +401,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the atomic properties currently considered for atom matching. </p>
+<dl class="section return"><dt>Returns</dt><dd>The bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> values. </dd></dl>
 
 </div>
 </div>
@@ -392,6 +423,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies the bond properties considered for bond matching during automorphism search. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">flags</td><td>The new bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> values. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae08babf9b73ef9e4ffec4a276f50aa2d"></a>
@@ -408,6 +447,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the bond properties currently considered for bond matching. </p>
+<dl class="section return"><dt>Returns</dt><dd>The bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> values. </dd></dl>
 
 </div>
 </div>
@@ -427,6 +469,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Specifies whether the identity mapping shall be included in the search results. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">include</td><td>If <code>true</code>, the identity mapping is also reported. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0a1483033ec7f85f506a9bf14189037f"></a>
@@ -443,6 +493,9 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Tells whether the identity mapping is included in the search results. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the identity mapping is included, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
