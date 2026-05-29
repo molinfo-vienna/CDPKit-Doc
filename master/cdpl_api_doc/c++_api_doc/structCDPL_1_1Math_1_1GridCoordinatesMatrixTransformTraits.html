@@ -82,6 +82,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Reusable transformation traits used by <a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html" title="A regular 3D spatial grid combining a Math::Grid data store with a coordinate-system transformation t...">Math::RegularSpatialGrid</a> when the coordinate transform is a 4x4 matrix.  
+ <a href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="RegularSpatialGrid_8hpp_source.html">RegularSpatialGrid.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Math::GridCoordinatesMatrixTransformTraits&lt; MatrixType &gt;:</div>
@@ -95,15 +98,29 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a63d9899df571961bfec4f784023eeff7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#a63d9899df571961bfec4f784023eeff7">init</a> (MatrixType &amp;mtx)</td></tr>
+<tr class="memdesc:a63d9899df571961bfec4f784023eeff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <em>mtx</em> to the 4x4 identity matrix.  <a href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#a63d9899df571961bfec4f784023eeff7">More...</a><br /></td></tr>
 <tr class="separator:a63d9899df571961bfec4f784023eeff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6221fb396737a3721b3bdcdfad8012c1"><td class="memTemplParams" colspan="2">template&lt;typename M &gt; </td></tr>
 <tr class="memitem:a6221fb396737a3721b3bdcdfad8012c1"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#a6221fb396737a3721b3bdcdfad8012c1">invert</a> (const MatrixType &amp;mtx, M &amp;inv_mtx)</td></tr>
+<tr class="memdesc:a6221fb396737a3721b3bdcdfad8012c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes <em>inv_mtx</em> as the inverse of <em>mtx</em>.  <a href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#a6221fb396737a3721b3bdcdfad8012c1">More...</a><br /></td></tr>
 <tr class="separator:a6221fb396737a3721b3bdcdfad8012c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae289a252d1987a62740fd4e438eed2e6"><td class="memTemplParams" colspan="2">template&lt;typename V , typename R &gt; </td></tr>
 <tr class="memitem:ae289a252d1987a62740fd4e438eed2e6"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#ae289a252d1987a62740fd4e438eed2e6">transform</a> (const MatrixType &amp;mtx, const V &amp;v, R &amp;r)</td></tr>
+<tr class="memdesc:ae289a252d1987a62740fd4e438eed2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes <em>r</em> as <code>mtx * v</code>.  <a href="structCDPL_1_1Math_1_1GridCoordinatesMatrixTransformTraits.html#ae289a252d1987a62740fd4e438eed2e6">More...</a><br /></td></tr>
 <tr class="separator:ae289a252d1987a62740fd4e438eed2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename MatrixType&gt;<br />
+struct CDPL::Math::GridCoordinatesMatrixTransformTraits&lt; MatrixType &gt;</h3>
+
+<p>Reusable transformation traits used by <a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html" title="A regular 3D spatial grid combining a Math::Grid data store with a coordinate-system transformation t...">Math::RegularSpatialGrid</a> when the coordinate transform is a 4x4 matrix. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MatrixType</td><td>The 4x4 transformation matrix type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a63d9899df571961bfec4f784023eeff7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63d9899df571961bfec4f784023eeff7">&#9670;&nbsp;</a></span>init()</h2>
 
@@ -129,6 +146,14 @@ template&lt;typename MatrixType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initializes <em>mtx</em> to the 4x4 identity matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mtx</td><td>The matrix to initialize. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -169,6 +194,22 @@ template&lt;typename M &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Computes <em>inv_mtx</em> as the inverse of <em>mtx</em>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">M</td><td>The output matrix type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mtx</td><td>The matrix to invert. </td></tr>
+    <tr><td class="paramname">inv_mtx</td><td>The output matrix receiving the inverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>mtx</em> is invertible, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -215,6 +256,23 @@ template&lt;typename V , typename R &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Computes <em>r</em> as <code>mtx * v</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">V</td><td>The input vector type. </td></tr>
+    <tr><td class="paramname">R</td><td>The output vector type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mtx</td><td>The transformation matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>The input vector. </td></tr>
+    <tr><td class="paramname">r</td><td>The output vector receiving the transformed result. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

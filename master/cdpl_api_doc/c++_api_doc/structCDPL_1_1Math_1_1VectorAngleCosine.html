@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Functor returning the cosine of the angle between two vectors (optionally clamped to <code>[-1, 1]</code>).  
+ <a href="structCDPL_1_1Math_1_1VectorAngleCosine.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Functional_8hpp_source.html">Functional.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Math::VectorAngleCosine&lt; V1, V2, T &gt;:</div>
@@ -104,9 +107,23 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a18036ff7df761d3b776a311529330f56"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structCDPL_1_1Math_1_1VectorScalarBinaryFunctor.html#aa9d67a5bc17196bd32063a4a675fb0ee">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1VectorAngleCosine.html#a18036ff7df761d3b776a311529330f56">apply</a> (const <a class="el" href="classCDPL_1_1Math_1_1VectorExpression.html">VectorExpression</a>&lt; V1 &gt; &amp;e1, const <a class="el" href="classCDPL_1_1Math_1_1VectorExpression.html">VectorExpression</a>&lt; V2 &gt; &amp;e2, const T &amp;sd, <a class="el" href="classbool.html">bool</a> clamp)</td></tr>
+<tr class="memdesc:a18036ff7df761d3b776a311529330f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cosine of the angle between <em>e1</em> and <em>e2</em>.  <a href="structCDPL_1_1Math_1_1VectorAngleCosine.html#a18036ff7df761d3b776a311529330f56">More...</a><br /></td></tr>
 <tr class="separator:a18036ff7df761d3b776a311529330f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename V1, typename V2, typename T&gt;<br />
+struct CDPL::Math::VectorAngleCosine&lt; V1, V2, T &gt;</h3>
+
+<p>Functor returning the cosine of the angle between two vectors (optionally clamped to <code>[-1, 1]</code>). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">V1</td><td>The first vector expression type. </td></tr>
+    <tr><td class="paramname">V2</td><td>The second vector expression type. </td></tr>
+    <tr><td class="paramname">T</td><td>The norm-product scalar type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aeb4dd7ed133fca19c4ca43a6070c6ccf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb4dd7ed133fca19c4ca43a6070c6ccf">&#9670;&nbsp;</a></span>ResultType</h2>
 
@@ -171,6 +188,18 @@ template&lt;typename V1 , typename V2 , typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the cosine of the angle between <em>e1</em> and <em>e2</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e1</td><td>The first vector expression. </td></tr>
+    <tr><td class="paramname">e2</td><td>The second vector expression. </td></tr>
+    <tr><td class="paramname">sd</td><td>The precomputed product \( \|e_1\| \cdot \|e_2\| \) of the two vector magnitudes. </td></tr>
+    <tr><td class="paramname">clamp</td><td>If <code>true</code>, the result is clamped to the range <code>[-1, 1]</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The (optionally clamped) cosine of the angle. </dd></dl>
 
 </div>
 </div>

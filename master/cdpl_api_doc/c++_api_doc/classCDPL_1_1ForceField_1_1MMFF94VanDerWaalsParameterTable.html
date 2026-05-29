@@ -85,65 +85,93 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Lookup table mapping numeric MMFF94 atom types to per-atom-type Van der Waals parameters (atomic polarizability, effective electron number, scaling factors A/G, and H-donor/-acceptor classification).  
+ <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="MMFF94VanDerWaalsParameterTable_8hpp_source.html">MMFF94VanDerWaalsParameterTable.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html">Entry</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single per-atom-type Van der Waals parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a9f9fb57180aa0ba440668d02e62dbf3d"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html">MMFF94VanDerWaalsParameterTable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9f9fb57180aa0ba440668d02e62dbf3d">SharedPointer</a></td></tr>
+<tr class="memdesc:a9f9fb57180aa0ba440668d02e62dbf3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MMFF94VanDerWaalsParameterTable</code> instances.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9f9fb57180aa0ba440668d02e62dbf3d">More...</a><br /></td></tr>
 <tr class="separator:a9f9fb57180aa0ba440668d02e62dbf3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49b03499f8d99fe5b712122c4a47fc09"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsInteraction.html#ac9242090ccf7b1ea5c8c731cb83d9d6e">MMFF94VanDerWaalsInteraction::HDonorAcceptorType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a49b03499f8d99fe5b712122c4a47fc09">HDonorAcceptorType</a></td></tr>
+<tr class="memdesc:a49b03499f8d99fe5b712122c4a47fc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the H-donor/-acceptor classification enum defined on <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsInteraction.html" title="Stores parameters for a single MMFF94 Van der Waals interaction between two non-bonded atoms.">MMFF94VanDerWaalsInteraction</a>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a49b03499f8d99fe5b712122c4a47fc09">More...</a><br /></td></tr>
 <tr class="separator:a49b03499f8d99fe5b712122c4a47fc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47fdceef90ef8e51200bc1944ffb8638"><td class="memItemLeft" align="right" valign="top">typedef boost::transform_iterator&lt; std::function&lt; const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html">Entry</a> &amp;(const DataStorage::value_type &amp;)&gt;, DataStorage::const_iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a47fdceef90ef8e51200bc1944ffb8638">ConstEntryIterator</a></td></tr>
+<tr class="memdesc:a47fdceef90ef8e51200bc1944ffb8638"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the entries of the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a47fdceef90ef8e51200bc1944ffb8638">More...</a><br /></td></tr>
 <tr class="separator:a47fdceef90ef8e51200bc1944ffb8638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ecaf32076a3d5f678930c46dfd215e7"><td class="memItemLeft" align="right" valign="top">typedef boost::transform_iterator&lt; std::function&lt; <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html">Entry</a> &amp;(DataStorage::value_type &amp;)&gt;, DataStorage::iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a></td></tr>
+<tr class="memdesc:a0ecaf32076a3d5f678930c46dfd215e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable iterator over the entries of the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">More...</a><br /></td></tr>
 <tr class="separator:a0ecaf32076a3d5f678930c46dfd215e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1ce47b676faf8c9ea1acb38eb06dd15e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a1ce47b676faf8c9ea1acb38eb06dd15e">MMFF94VanDerWaalsParameterTable</a> ()</td></tr>
+<tr class="memdesc:a1ce47b676faf8c9ea1acb38eb06dd15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94VanDerWaalsParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a1ce47b676faf8c9ea1acb38eb06dd15e">More...</a><br /></td></tr>
 <tr class="separator:a1ce47b676faf8c9ea1acb38eb06dd15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab18c24bc4beba0b7d8370476b2c27cae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ab18c24bc4beba0b7d8370476b2c27cae">addEntry</a> (unsigned int atom_type, double atom_pol, double eff_el_num, double fact_a, double fact_g, <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsInteraction.html#ac9242090ccf7b1ea5c8c731cb83d9d6e">HDonorAcceptorType</a> don_acc_type)</td></tr>
+<tr class="memdesc:ab18c24bc4beba0b7d8370476b2c27cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ab18c24bc4beba0b7d8370476b2c27cae">More...</a><br /></td></tr>
 <tr class="separator:ab18c24bc4beba0b7d8370476b2c27cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49fd95bc3b27a1094b3812477ae561cb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a49fd95bc3b27a1094b3812477ae561cb">getEntry</a> (unsigned int atom_type) const</td></tr>
+<tr class="memdesc:a49fd95bc3b27a1094b3812477ae561cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a49fd95bc3b27a1094b3812477ae561cb">More...</a><br /></td></tr>
 <tr class="separator:a49fd95bc3b27a1094b3812477ae561cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afccfb7c3930ae1dea02ff7c39a7e2f26"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#afccfb7c3930ae1dea02ff7c39a7e2f26">getNumEntries</a> () const</td></tr>
+<tr class="memdesc:afccfb7c3930ae1dea02ff7c39a7e2f26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#afccfb7c3930ae1dea02ff7c39a7e2f26">More...</a><br /></td></tr>
 <tr class="separator:afccfb7c3930ae1dea02ff7c39a7e2f26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849f59e0f4b11fc17d9996bf92fff156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a849f59e0f4b11fc17d9996bf92fff156">clear</a> ()</td></tr>
+<tr class="memdesc:a849f59e0f4b11fc17d9996bf92fff156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a849f59e0f4b11fc17d9996bf92fff156">More...</a><br /></td></tr>
 <tr class="separator:a849f59e0f4b11fc17d9996bf92fff156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0e24e56999257cfbf85ba4545de0f79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ae0e24e56999257cfbf85ba4545de0f79">removeEntry</a> (unsigned int atom_type)</td></tr>
+<tr class="memdesc:ae0e24e56999257cfbf85ba4545de0f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ae0e24e56999257cfbf85ba4545de0f79">More...</a><br /></td></tr>
 <tr class="separator:ae0e24e56999257cfbf85ba4545de0f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c2d3a267b2a91f5b09ada22af104785"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0c2d3a267b2a91f5b09ada22af104785">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a> &amp;it)</td></tr>
+<tr class="memdesc:a0c2d3a267b2a91f5b09ada22af104785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0c2d3a267b2a91f5b09ada22af104785">More...</a><br /></td></tr>
 <tr class="separator:a0c2d3a267b2a91f5b09ada22af104785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4f91b40f32555c8af9f60565e43e3f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a47fdceef90ef8e51200bc1944ffb8638">ConstEntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa4f91b40f32555c8af9f60565e43e3f1">getEntriesBegin</a> () const</td></tr>
+<tr class="memdesc:aa4f91b40f32555c8af9f60565e43e3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the entry list.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa4f91b40f32555c8af9f60565e43e3f1">More...</a><br /></td></tr>
 <tr class="separator:aa4f91b40f32555c8af9f60565e43e3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f483eec5308657deaca31058f575a37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a47fdceef90ef8e51200bc1944ffb8638">ConstEntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5f483eec5308657deaca31058f575a37">getEntriesEnd</a> () const</td></tr>
+<tr class="memdesc:a5f483eec5308657deaca31058f575a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5f483eec5308657deaca31058f575a37">More...</a><br /></td></tr>
 <tr class="separator:a5f483eec5308657deaca31058f575a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88b14f39fc3c332c31af4110da382f85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a88b14f39fc3c332c31af4110da382f85">getEntriesBegin</a> ()</td></tr>
+<tr class="memdesc:a88b14f39fc3c332c31af4110da382f85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the entry list.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a88b14f39fc3c332c31af4110da382f85">More...</a><br /></td></tr>
 <tr class="separator:a88b14f39fc3c332c31af4110da382f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aded50e6c8da07540fdca5c114fa8a1ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aded50e6c8da07540fdca5c114fa8a1ad">getEntriesEnd</a> ()</td></tr>
+<tr class="memdesc:aded50e6c8da07540fdca5c114fa8a1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aded50e6c8da07540fdca5c114fa8a1ad">More...</a><br /></td></tr>
 <tr class="separator:aded50e6c8da07540fdca5c114fa8a1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae14d3528f9928e761d4bf1a9a87f2e62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a47fdceef90ef8e51200bc1944ffb8638">ConstEntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ae14d3528f9928e761d4bf1a9a87f2e62">begin</a> () const</td></tr>
+<tr class="memdesc:ae14d3528f9928e761d4bf1a9a87f2e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the entry list (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a88b14f39fc3c332c31af4110da382f85" title="Returns a mutable iterator pointing to the beginning of the entry list.">getEntriesBegin()</a>).  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ae14d3528f9928e761d4bf1a9a87f2e62">More...</a><br /></td></tr>
 <tr class="separator:ae14d3528f9928e761d4bf1a9a87f2e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d6a90c3ebaa28785b2a9efee557e2bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a47fdceef90ef8e51200bc1944ffb8638">ConstEntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9d6a90c3ebaa28785b2a9efee557e2bc">end</a> () const</td></tr>
+<tr class="memdesc:a9d6a90c3ebaa28785b2a9efee557e2bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing one past the last entry (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aded50e6c8da07540fdca5c114fa8a1ad" title="Returns a mutable iterator pointing one past the last entry.">getEntriesEnd()</a>).  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9d6a90c3ebaa28785b2a9efee557e2bc">More...</a><br /></td></tr>
 <tr class="separator:a9d6a90c3ebaa28785b2a9efee557e2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4c30271b31bf85952d6ff4827865a88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa4c30271b31bf85952d6ff4827865a88">begin</a> ()</td></tr>
+<tr class="memdesc:aa4c30271b31bf85952d6ff4827865a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the entry list (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a88b14f39fc3c332c31af4110da382f85" title="Returns a mutable iterator pointing to the beginning of the entry list.">getEntriesBegin()</a>).  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa4c30271b31bf85952d6ff4827865a88">More...</a><br /></td></tr>
 <tr class="separator:aa4c30271b31bf85952d6ff4827865a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4cf0bf43ff3e7205f39bbb862973582"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0ecaf32076a3d5f678930c46dfd215e7">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa4cf0bf43ff3e7205f39bbb862973582">end</a> ()</td></tr>
+<tr class="memdesc:aa4cf0bf43ff3e7205f39bbb862973582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing one past the last entry (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aded50e6c8da07540fdca5c114fa8a1ad" title="Returns a mutable iterator pointing one past the last entry.">getEntriesEnd()</a>).  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa4cf0bf43ff3e7205f39bbb862973582">More...</a><br /></td></tr>
 <tr class="separator:aa4cf0bf43ff3e7205f39bbb862973582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af872071a74a335712b00c623298c0680"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#af872071a74a335712b00c623298c0680">setExponent</a> (double value)</td></tr>
+<tr class="memdesc:af872071a74a335712b00c623298c0680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the global exponent used in the buffered 14-7 Van der Waals energy expression.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#af872071a74a335712b00c623298c0680">More...</a><br /></td></tr>
 <tr class="separator:af872071a74a335712b00c623298c0680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55db80b93981c889a04414a409576fdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a55db80b93981c889a04414a409576fdc">setBeta</a> (double value)</td></tr>
+<tr class="memdesc:a55db80b93981c889a04414a409576fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the global <em>beta</em> value used in the buffered 14-7 Van der Waals energy expression.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a55db80b93981c889a04414a409576fdc">More...</a><br /></td></tr>
 <tr class="separator:a55db80b93981c889a04414a409576fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac761ed3de5ff9bade86849fa8355b694"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ac761ed3de5ff9bade86849fa8355b694">setFactorB</a> (double value)</td></tr>
+<tr class="memdesc:ac761ed3de5ff9bade86849fa8355b694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the global <em>B</em> factor used in the buffered 14-7 Van der Waals energy expression.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ac761ed3de5ff9bade86849fa8355b694">More...</a><br /></td></tr>
 <tr class="separator:ac761ed3de5ff9bade86849fa8355b694"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62df142343973284f2beec0ba983d72a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a62df142343973284f2beec0ba983d72a">setFactorDARAD</a> (double value)</td></tr>
+<tr class="memdesc:a62df142343973284f2beec0ba983d72a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the global <em>DARAD</em> factor used in the buffered 14-7 Van der Waals energy expression.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a62df142343973284f2beec0ba983d72a">More...</a><br /></td></tr>
 <tr class="separator:a62df142343973284f2beec0ba983d72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fcc42b116faf751a19480b6f777826a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a4fcc42b116faf751a19480b6f777826a">setFactorDAEPS</a> (double value)</td></tr>
+<tr class="memdesc:a4fcc42b116faf751a19480b6f777826a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the global <em>DAEPS</em> factor used in the buffered 14-7 Van der Waals energy expression.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a4fcc42b116faf751a19480b6f777826a">More...</a><br /></td></tr>
 <tr class="separator:a4fcc42b116faf751a19480b6f777826a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09990160d91e7a28fc1224a252d3bdf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ae09990160d91e7a28fc1224a252d3bdf">getExponent</a> () const</td></tr>
 <tr class="memdesc:ae09990160d91e7a28fc1224a252d3bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exponent used in the calculation of Van der Waals interaction energies.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ae09990160d91e7a28fc1224a252d3bdf">More...</a><br /></td></tr>
@@ -161,18 +189,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa171310584f4b5f49eae7400740289f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <em>DAEPS</em> factor used in the calculation of Van der Waals interaction energies.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aa171310584f4b5f49eae7400740289f6">More...</a><br /></td></tr>
 <tr class="separator:aa171310584f4b5f49eae7400740289f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f92dac739cfe260874d08a8687b079"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a73f92dac739cfe260874d08a8687b079">load</a> (std::istream &amp;is)</td></tr>
+<tr class="memdesc:a73f92dac739cfe260874d08a8687b079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads table entries from the input stream <em>is</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a73f92dac739cfe260874d08a8687b079">More...</a><br /></td></tr>
 <tr class="separator:a73f92dac739cfe260874d08a8687b079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ed682a97b2a486b6e59cf75f6185373"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5ed682a97b2a486b6e59cf75f6185373">loadDefaults</a> ()</td></tr>
+<tr class="memdesc:a5ed682a97b2a486b6e59cf75f6185373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default Van der Waals parameter entries and global scalar parameters.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5ed682a97b2a486b6e59cf75f6185373">More...</a><br /></td></tr>
 <tr class="separator:a5ed682a97b2a486b6e59cf75f6185373"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0571539b5234fa735349498da168b93e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0571539b5234fa735349498da168b93e">set</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9f9fb57180aa0ba440668d02e62dbf3d">SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a0571539b5234fa735349498da168b93e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the process-wide default table by <em>table</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a0571539b5234fa735349498da168b93e">More...</a><br /></td></tr>
 <tr class="separator:a0571539b5234fa735349498da168b93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dc96da41c89da3f4d579df036042b3b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9f9fb57180aa0ba440668d02e62dbf3d">SharedPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a1dc96da41c89da3f4d579df036042b3b">get</a> ()</td></tr>
+<tr class="memdesc:a1dc96da41c89da3f4d579df036042b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the process-wide default table (lazily initialized on first call).  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a1dc96da41c89da3f4d579df036042b3b">More...</a><br /></td></tr>
 <tr class="separator:a1dc96da41c89da3f4d579df036042b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Lookup table mapping numeric MMFF94 atom types to per-atom-type Van der Waals parameters (atomic polarizability, effective electron number, scaling factors A/G, and H-donor/-acceptor classification). </p>
+<p>In addition to the per-atom-type entries, the table also stores the five global scalar parameters (exponent, B, beta, DARAD, DAEPS) used by the buffered 14-7 MMFF94 Van der Waals energy expression. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9f9fb57180aa0ba440668d02e62dbf3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f9fb57180aa0ba440668d02e62dbf3d">&#9670;&nbsp;</a></span>SharedPointer</h2>
 
@@ -184,6 +219,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MMFF94VanDerWaalsParameterTable</code> instances. </p>
 
 </div>
 </div>
@@ -199,6 +236,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Alias for the H-donor/-acceptor classification enum defined on <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsInteraction.html" title="Stores parameters for a single MMFF94 Van der Waals interaction between two non-bonded atoms.">MMFF94VanDerWaalsInteraction</a>. </p>
+
 </div>
 </div>
 <a id="a47fdceef90ef8e51200bc1944ffb8638"></a>
@@ -213,6 +252,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A constant iterator over the entries of the table. </p>
+
 </div>
 </div>
 <a id="a0ecaf32076a3d5f678930c46dfd215e7"></a>
@@ -226,6 +267,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A mutable iterator over the entries of the table. </p>
 
 </div>
 </div>
@@ -244,6 +287,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs an empty <code>MMFF94VanDerWaalsParameterTable</code> instance. </p>
 
 </div>
 </div>
@@ -298,6 +343,19 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds (or overwrites) the entry for the numeric MMFF94 atom type <em>atom_type</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom_type</td><td>The numeric MMFF94 atom type. </td></tr>
+    <tr><td class="paramname">atom_pol</td><td>The atomic polarizability parameter. </td></tr>
+    <tr><td class="paramname">eff_el_num</td><td>The Slater-Kirkwood effective number of valence electrons. </td></tr>
+    <tr><td class="paramname">fact_a</td><td>The scaling factor <code>A</code>. </td></tr>
+    <tr><td class="paramname">fact_g</td><td>The scaling factor <code>G</code>. </td></tr>
+    <tr><td class="paramname">don_acc_type</td><td>The H-donor/-acceptor classification of the atom type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a49fd95bc3b27a1094b3812477ae561cb"></a>
@@ -316,6 +374,15 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the entry for the numeric MMFF94 atom type <em>atom_type</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom_type</td><td>The numeric MMFF94 atom type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+
 </div>
 </div>
 <a id="afccfb7c3930ae1dea02ff7c39a7e2f26"></a>
@@ -333,6 +400,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of entries in the table. </p>
+<dl class="section return"><dt>Returns</dt><dd>The entry count. </dd></dl>
+
 </div>
 </div>
 <a id="a849f59e0f4b11fc17d9996bf92fff156"></a>
@@ -349,6 +419,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes all entries from the table. </p>
 
 </div>
 </div>
@@ -368,6 +440,15 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes the entry for the numeric MMFF94 atom type <em>atom_type</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom_type</td><td>The numeric MMFF94 atom type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a matching entry was removed, and <code>false</code> if no such entry existed. </dd></dl>
+
 </div>
 </div>
 <a id="a0c2d3a267b2a91f5b09ada22af104785"></a>
@@ -386,6 +467,15 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes the entry pointed to by the iterator <em>it</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>An iterator pointing to the entry to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterator pointing to the entry immediately following the removed one. </dd></dl>
+
 </div>
 </div>
 <a id="aa4f91b40f32555c8af9f60565e43e3f1"></a>
@@ -402,6 +492,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the beginning of the entry list. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator to the first entry. </dd></dl>
 
 </div>
 </div>
@@ -420,6 +513,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last entry. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator to the end of the entry list. </dd></dl>
+
 </div>
 </div>
 <a id="a88b14f39fc3c332c31af4110da382f85"></a>
@@ -436,6 +532,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing to the beginning of the entry list. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator to the first entry. </dd></dl>
 
 </div>
 </div>
@@ -454,6 +553,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing one past the last entry. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator to the end of the entry list. </dd></dl>
+
 </div>
 </div>
 <a id="ae14d3528f9928e761d4bf1a9a87f2e62"></a>
@@ -470,6 +572,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the beginning of the entry list (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a88b14f39fc3c332c31af4110da382f85" title="Returns a mutable iterator pointing to the beginning of the entry list.">getEntriesBegin()</a>). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator to the first entry. </dd></dl>
 
 </div>
 </div>
@@ -488,6 +593,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing one past the last entry (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aded50e6c8da07540fdca5c114fa8a1ad" title="Returns a mutable iterator pointing one past the last entry.">getEntriesEnd()</a>). </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator to the end of the entry list. </dd></dl>
+
 </div>
 </div>
 <a id="aa4c30271b31bf85952d6ff4827865a88"></a>
@@ -505,6 +613,9 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing to the beginning of the entry list (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a88b14f39fc3c332c31af4110da382f85" title="Returns a mutable iterator pointing to the beginning of the entry list.">getEntriesBegin()</a>). </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator to the first entry. </dd></dl>
+
 </div>
 </div>
 <a id="aa4cf0bf43ff3e7205f39bbb862973582"></a>
@@ -521,6 +632,9 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing one past the last entry (alias of <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#aded50e6c8da07540fdca5c114fa8a1ad" title="Returns a mutable iterator pointing one past the last entry.">getEntriesEnd()</a>). </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator to the end of the entry list. </dd></dl>
 
 </div>
 </div>
@@ -540,6 +654,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the global exponent used in the buffered 14-7 Van der Waals energy expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new exponent value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a55db80b93981c889a04414a409576fdc"></a>
@@ -557,6 +679,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the global <em>beta</em> value used in the buffered 14-7 Van der Waals energy expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new <em>beta</em> value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -576,6 +706,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the global <em>B</em> factor used in the buffered 14-7 Van der Waals energy expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new <em>B</em> factor value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a62df142343973284f2beec0ba983d72a"></a>
@@ -594,6 +732,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the global <em>DARAD</em> factor used in the buffered 14-7 Van der Waals energy expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new <em>DARAD</em> factor value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4fcc42b116faf751a19480b6f777826a"></a>
@@ -611,6 +757,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the global <em>DAEPS</em> factor used in the buffered 14-7 Van der Waals energy expression. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The new <em>DAEPS</em> factor value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -730,6 +884,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Loads table entries from the input stream <em>is</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>The input stream to read from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5ed682a97b2a486b6e59cf75f6185373"></a>
@@ -746,6 +908,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Loads the built-in default Van der Waals parameter entries and global scalar parameters. </p>
 
 </div>
 </div>
@@ -773,6 +937,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Replaces the process-wide default table by <em>table</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new default table (a <code>nullptr</code> resets to the built-in default). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1dc96da41c89da3f4d579df036042b3b"></a>
@@ -797,6 +969,9 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the process-wide default table (lazily initialized on first call). </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the default-table shared pointer. </dd></dl>
 
 </div>
 </div>
