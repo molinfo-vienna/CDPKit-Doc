@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="TautomerizationRule.">Chem::TautomerizationRule</a> instances and reporting each accepted tautomer to a user-supplied callback.  
+<p>Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a> instances and reporting each accepted tautomer to a user-supplied callback.  
  <a href="classCDPL_1_1Chem_1_1TautomerGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TautomerGenerator_8hpp_source.html">TautomerGenerator.hpp</a>&gt;</code></p>
@@ -194,7 +194,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8fcb1bbffa75179a23efb178ba328de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="TautomerizationRule.">Chem::TautomerizationRule</a> instances and reporting each accepted tautomer to a user-supplied callback. </p>
+<div class="textblock"><p>Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a> instances and reporting each accepted tautomer to a user-supplied callback. </p>
 <p>After registering tautomerization rules (via <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#ad868aa20e3108c29873ef886e1e311ea" title="Registers a new tautomerization rule.">addTautomerizationRule()</a>) and a callback (via <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a2e64291da3bf7127dd60d9e7cc8883fc" title="Sets the callback invoked for every accepted output tautomer.">setCallbackFunction()</a>), each call to <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html#a8fcb1bbffa75179a23efb178ba328de1" title="Enumerates the tautomers of molgraph and reports each accepted one to the registered callback.">generate()</a> seeds the enumeration with the input molecular graph, applies every registered rule to every intermediate tautomer to derive the next generation, and reports each newly-generated tautomer to the callback. The Mode setting controls how various types of duplicates shall be handled. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a0098b806fee6d3bc9632a53ad7bb2e15"></a>

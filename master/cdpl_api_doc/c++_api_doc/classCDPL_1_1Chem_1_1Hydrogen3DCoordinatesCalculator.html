@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html" title="Hydrogen3DCoordinatesCalculator.">Hydrogen3DCoordinatesCalculator</a>.  
+<p>Generates 3D coordinates for the hydrogen atoms of a molecular graph from the existing positions of their heavy-atom neighbors.  
  <a href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Hydrogen3DCoordinatesCalculator_8hpp_source.html">Hydrogen3DCoordinatesCalculator.hpp</a>&gt;</code></p>
@@ -114,15 +114,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7faf7003447a9cc07838db002d144cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the function that was registered for the retrieval of atom 3D-coordinates.  <a href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#a7faf7003447a9cc07838db002d144cbc">More...</a><br /></td></tr>
 <tr class="separator:a7faf7003447a9cc07838db002d144cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad3f27faa61a7aec610d4db728f4617c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#aad3f27faa61a7aec610d4db728f4617c">setup</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
+<tr class="memdesc:aad3f27faa61a7aec610d4db728f4617c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the calculator for the molecular graph <em>molgraph</em> (perceives hydrogen-bearing centers and prepares the working state) without yet writing any coordinates.  <a href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#aad3f27faa61a7aec610d4db728f4617c">More...</a><br /></td></tr>
 <tr class="separator:aad3f27faa61a7aec610d4db728f4617c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d2fcf8f5a42f754a0bebe2ff0ab2b53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#a4d2fcf8f5a42f754a0bebe2ff0ab2b53">calculate</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;coords, <a class="el" href="classbool.html">bool</a> init_coords=true)</td></tr>
 <tr class="memdesc:a4d2fcf8f5a42f754a0bebe2ff0ab2b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates 3D-coordinates for the hydrogen atoms of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#a4d2fcf8f5a42f754a0bebe2ff0ab2b53">More...</a><br /></td></tr>
 <tr class="separator:a4d2fcf8f5a42f754a0bebe2ff0ab2b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d3c35facaa68eb19af25fb96a889e25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#a8d3c35facaa68eb19af25fb96a889e25">calculate</a> (<a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;coords, <a class="el" href="classbool.html">bool</a> init_coords=true)</td></tr>
+<tr class="memdesc:a8d3c35facaa68eb19af25fb96a889e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates 3D-coordinates for the hydrogen atoms of the molecular graph previously specified via <a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#aad3f27faa61a7aec610d4db728f4617c" title="Initializes the calculator for the molecular graph molgraph (perceives hydrogen-bearing centers and p...">setup()</a>.  <a href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#a8d3c35facaa68eb19af25fb96a889e25">More...</a><br /></td></tr>
 <tr class="separator:a8d3c35facaa68eb19af25fb96a889e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html" title="Hydrogen3DCoordinatesCalculator.">Hydrogen3DCoordinatesCalculator</a>. </p>
+<div class="textblock"><p>Generates 3D coordinates for the hydrogen atoms of a molecular graph from the existing positions of their heavy-atom neighbors. </p>
+<p>For every hydrogen-bearing center the calculator picks a coordination geometry (linear, trigonal-planar, tetrahedral, square-planar, trigonal-/pentagonal-bipyramidal or octahedral) consistent with the heavy-atom neighborhood and places the hydrogens at appropriate template positions, oriented to avoid clashes with already-positioned substituents. Heavy-atom coordinates can be supplied through user-defined accessor functions; by default only hydrogens without 3D coordinates are placed (see <a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#af23dd50b71ccc8716f57bb9c9ec927e5" title="Allows to specify whether already defined hydrogen atom coordinates have to be recalculated or are le...">undefinedOnly()</a>). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acfd7f6b1549992ad9e84b64875c5249a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfd7f6b1549992ad9e84b64875c5249a">&#9670;&nbsp;</a></span>Hydrogen3DCoordinatesCalculator() <span class="overload">[1/2]</span></h2>
@@ -344,6 +347,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes the calculator for the molecular graph <em>molgraph</em> (perceives hydrogen-bearing centers and prepares the working state) without yet writing any coordinates. </p>
+<p>Call <a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#a8d3c35facaa68eb19af25fb96a889e25" title="Calculates 3D-coordinates for the hydrogen atoms of the molecular graph previously specified via setu...">calculate(Math::Vector3DArray&amp;, bool)</a> afterwards to perform the placement.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph for which to set up the calculation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4d2fcf8f5a42f754a0bebe2ff0ab2b53"></a>
@@ -415,6 +427,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculates 3D-coordinates for the hydrogen atoms of the molecular graph previously specified via <a class="el" href="classCDPL_1_1Chem_1_1Hydrogen3DCoordinatesCalculator.html#aad3f27faa61a7aec610d4db728f4617c" title="Initializes the calculator for the molecular graph molgraph (perceives hydrogen-bearing centers and p...">setup()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>An array containing the heavy atom and calculated hydrogen 3D-coordinates. The coordinates are stored in the same order as the atoms appear in the atom list of the molecular graph (i.e. the coordinates of an atom are accessible via its index). </td></tr>
+    <tr><td class="paramname">init_coords</td><td>If <code>false</code>, defined atom coordinates are already present in <em>coords</em> and thus won't get assigned again. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

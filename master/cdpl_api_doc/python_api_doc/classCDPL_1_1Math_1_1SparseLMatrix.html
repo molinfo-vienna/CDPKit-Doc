@@ -98,13 +98,13 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae01bbf03e4d1805cb2d2a9605d0270c3"><td class="memItemLeft" align="right" valign="top"><a id="ae01bbf03e4d1805cb2d2a9605d0270c3"></a>
 None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#ae01bbf03e4d1805cb2d2a9605d0270c3">__init__</a> ()</td></tr>
-<tr class="memdesc:ae01bbf03e4d1805cb2d2a9605d0270c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <code>SparseLMatrix</code> instance. <br /></td></tr>
+<tr class="memdesc:ae01bbf03e4d1805cb2d2a9605d0270c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty sparse matrix (zero rows, zero columns, no stored entries). <br /></td></tr>
 <tr class="separator:ae01bbf03e4d1805cb2d2a9605d0270c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b3f7bdac00749c3b0166f524e30d2e2"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a2b3f7bdac00749c3b0166f524e30d2e2">__init__</a> (<a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a> m)</td></tr>
-<tr class="memdesc:a2b3f7bdac00749c3b0166f524e30d2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a copy of the <code>SparseLMatrix</code> instance <em>m</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a2b3f7bdac00749c3b0166f524e30d2e2">More...</a><br /></td></tr>
+<tr class="memdesc:a2b3f7bdac00749c3b0166f524e30d2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-constructs a sparse matrix from <em>m</em> (<em>m</em> is left in a valid empty state).  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a2b3f7bdac00749c3b0166f524e30d2e2">More...</a><br /></td></tr>
 <tr class="separator:a2b3f7bdac00749c3b0166f524e30d2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ee70097eba31f352d81cfc43a03ef8a"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a5ee70097eba31f352d81cfc43a03ef8a">__init__</a> (int m, int n)</td></tr>
-<tr class="memdesc:a5ee70097eba31f352d81cfc43a03ef8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <code>SparseLMatrix</code> instance.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a5ee70097eba31f352d81cfc43a03ef8a">More...</a><br /></td></tr>
+<tr class="memdesc:a5ee70097eba31f352d81cfc43a03ef8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a sparse matrix of size \( m \times n \) with no stored entries.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a5ee70097eba31f352d81cfc43a03ef8a">More...</a><br /></td></tr>
 <tr class="separator:a5ee70097eba31f352d81cfc43a03ef8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51fee326b6a62473ed7e0525ab5439a3"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a51fee326b6a62473ed7e0525ab5439a3">__init__</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstFMatrixExpression.html">ConstFMatrixExpression</a> e)</td></tr>
 <tr class="memdesc:a51fee326b6a62473ed7e0525ab5439a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <code>SparseLMatrix</code> instance.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a51fee326b6a62473ed7e0525ab5439a3">More...</a><br /></td></tr>
@@ -122,48 +122,56 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a5fea32d358965a92d2bba17f09f20dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <code>SparseLMatrix</code> instance.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a5fea32d358965a92d2bba17f09f20dce">More...</a><br /></td></tr>
 <tr class="separator:a5fea32d358965a92d2bba17f09f20dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0967a41b1376fb603d8987ec4add9271"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a0967a41b1376fb603d8987ec4add9271">resize</a> (int m, int n)</td></tr>
+<tr class="memdesc:a0967a41b1376fb603d8987ec4add9271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the logical dimensions to \( m \times n \), dropping any stored entries that fall outside the new bounds.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a0967a41b1376fb603d8987ec4add9271">More...</a><br /></td></tr>
 <tr class="separator:a0967a41b1376fb603d8987ec4add9271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a435267b71dd190f255aa514f20b0d3fa"><td class="memItemLeft" align="right" valign="top"><a id="a435267b71dd190f255aa514f20b0d3fa"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a435267b71dd190f255aa514f20b0d3fa">clear</a> ()</td></tr>
+<tr class="memdesc:a435267b71dd190f255aa514f20b0d3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all explicitly stored entries (the logical dimensions remain unchanged). <br /></td></tr>
 <tr class="separator:a435267b71dd190f255aa514f20b0d3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5d71e8b2349552f9023552a696db1e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#af5d71e8b2349552f9023552a696db1e6">getNumElements</a> ()</td></tr>
+<tr class="memdesc:af5d71e8b2349552f9023552a696db1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of explicitly stored (non-default) entries.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#af5d71e8b2349552f9023552a696db1e6">More...</a><br /></td></tr>
 <tr class="separator:af5d71e8b2349552f9023552a696db1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ce941395d22c1a01bf4b1b1efc6a7f6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a0ce941395d22c1a01bf4b1b1efc6a7f6">getObjectID</a> ()</td></tr>
 <tr class="memdesc:a0ce941395d22c1a01bf4b1b1efc6a7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a0ce941395d22c1a01bf4b1b1efc6a7f6">More...</a><br /></td></tr>
 <tr class="separator:a0ce941395d22c1a01bf4b1b1efc6a7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7386df5e7cfbc563c15c4d828668fa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#aa7386df5e7cfbc563c15c4d828668fa3">assign</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstFMatrixExpression.html">ConstFMatrixExpression</a> e)</td></tr>
-<tr class="memdesc:aa7386df5e7cfbc563c15c4d828668fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstFMatrixExpression</code> instance <em>e</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#aa7386df5e7cfbc563c15c4d828668fa3">More...</a><br /></td></tr>
+<tr class="memdesc:aa7386df5e7cfbc563c15c4d828668fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#aa7386df5e7cfbc563c15c4d828668fa3">More...</a><br /></td></tr>
 <tr class="separator:aa7386df5e7cfbc563c15c4d828668fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac884d911d3256b1c64e7cf2beef8ae4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#ac884d911d3256b1c64e7cf2beef8ae4c">assign</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstDMatrixExpression.html">ConstDMatrixExpression</a> e)</td></tr>
-<tr class="memdesc:ac884d911d3256b1c64e7cf2beef8ae4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstDMatrixExpression</code> instance <em>e</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#ac884d911d3256b1c64e7cf2beef8ae4c">More...</a><br /></td></tr>
+<tr class="memdesc:ac884d911d3256b1c64e7cf2beef8ae4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#ac884d911d3256b1c64e7cf2beef8ae4c">More...</a><br /></td></tr>
 <tr class="separator:ac884d911d3256b1c64e7cf2beef8ae4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18cd514d52bf937de3213d8a9c0c2907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a18cd514d52bf937de3213d8a9c0c2907">assign</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstLMatrixExpression.html">ConstLMatrixExpression</a> e)</td></tr>
-<tr class="memdesc:a18cd514d52bf937de3213d8a9c0c2907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstLMatrixExpression</code> instance <em>e</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a18cd514d52bf937de3213d8a9c0c2907">More...</a><br /></td></tr>
+<tr class="memdesc:a18cd514d52bf937de3213d8a9c0c2907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a18cd514d52bf937de3213d8a9c0c2907">More...</a><br /></td></tr>
 <tr class="separator:a18cd514d52bf937de3213d8a9c0c2907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85f54db430842f9a255f5e0eada9e040"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a85f54db430842f9a255f5e0eada9e040">assign</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixExpression.html">ConstULMatrixExpression</a> e)</td></tr>
-<tr class="memdesc:a85f54db430842f9a255f5e0eada9e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstULMatrixExpression</code> instance <em>e</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a85f54db430842f9a255f5e0eada9e040">More...</a><br /></td></tr>
+<tr class="memdesc:a85f54db430842f9a255f5e0eada9e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a85f54db430842f9a255f5e0eada9e040">More...</a><br /></td></tr>
 <tr class="separator:a85f54db430842f9a255f5e0eada9e040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3879bba3107d8e5e3236e82953fa97fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a3879bba3107d8e5e3236e82953fa97fd">assign</a> (<a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a> m)</td></tr>
-<tr class="memdesc:a3879bba3107d8e5e3236e82953fa97fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>SparseLMatrix</code> instance <em>m</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a3879bba3107d8e5e3236e82953fa97fd">More...</a><br /></td></tr>
+<tr class="memdesc:a3879bba3107d8e5e3236e82953fa97fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns the contents of <em>m</em> to this sparse matrix.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a3879bba3107d8e5e3236e82953fa97fd">More...</a><br /></td></tr>
 <tr class="separator:a3879bba3107d8e5e3236e82953fa97fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f6d0007d21cf87e808edd6ca397c89d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a4f6d0007d21cf87e808edd6ca397c89d">assign</a> (object a)</td></tr>
 <tr class="memdesc:a4f6d0007d21cf87e808edd6ca397c89d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state of <em>self</em> with a copy of the state of the <code>object</code> instance <em>a</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a4f6d0007d21cf87e808edd6ca397c89d">More...</a><br /></td></tr>
 <tr class="separator:a4f6d0007d21cf87e808edd6ca397c89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8ef4bd3b5b86a804e148e1ffbe787d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#ac8ef4bd3b5b86a804e148e1ffbe787d7">getSize1</a> ()</td></tr>
+<tr class="memdesc:ac8ef4bd3b5b86a804e148e1ffbe787d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the logical number of rows.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#ac8ef4bd3b5b86a804e148e1ffbe787d7">More...</a><br /></td></tr>
 <tr class="separator:ac8ef4bd3b5b86a804e148e1ffbe787d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e51d0246f3a49f614884b29e395eeee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a5e51d0246f3a49f614884b29e395eeee">getSize2</a> ()</td></tr>
+<tr class="memdesc:a5e51d0246f3a49f614884b29e395eeee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the logical number of columns.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a5e51d0246f3a49f614884b29e395eeee">More...</a><br /></td></tr>
 <tr class="separator:a5e51d0246f3a49f614884b29e395eeee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b96068300699d98679f3e64dcf33a68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a6b96068300699d98679f3e64dcf33a68">isEmpty</a> ()</td></tr>
+<tr class="memdesc:a6b96068300699d98679f3e64dcf33a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the matrix is empty (zero rows or zero columns).  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a6b96068300699d98679f3e64dcf33a68">More...</a><br /></td></tr>
 <tr class="separator:a6b96068300699d98679f3e64dcf33a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6596d5d1f3cccf61049ff94b6b17f199"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a6596d5d1f3cccf61049ff94b6b17f199">getElement</a> (int i, int j)</td></tr>
 <tr class="separator:a6596d5d1f3cccf61049ff94b6b17f199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26b0802b408b5e7133299297eb8beed0"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a26b0802b408b5e7133299297eb8beed0">toArray</a> ()</td></tr>
 <tr class="separator:a26b0802b408b5e7133299297eb8beed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cdf1c317cf10b2baad490c8b9c63e3a"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a2cdf1c317cf10b2baad490c8b9c63e3a">swap</a> (<a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html">SparseLMatrix</a> m)</td></tr>
+<tr class="memdesc:a2cdf1c317cf10b2baad490c8b9c63e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the contents of this sparse matrix with those of <em>m</em>.  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a2cdf1c317cf10b2baad490c8b9c63e3a">More...</a><br /></td></tr>
 <tr class="separator:a2cdf1c317cf10b2baad490c8b9c63e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac29fd941a794f1ab3cb04085475fbc95"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#ac29fd941a794f1ab3cb04085475fbc95">setElement</a> (int i, int j, int v)</td></tr>
 <tr class="separator:ac29fd941a794f1ab3cb04085475fbc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83fd9de95de2108f17f4078a2aadb96b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a83fd9de95de2108f17f4078a2aadb96b">__call__</a> (int i, int j)</td></tr>
+<tr class="memdesc:a83fd9de95de2108f17f4078a2aadb96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the element at (<em>i</em>, <em>j</em>).  <a href="classCDPL_1_1Math_1_1SparseLMatrix.html#a83fd9de95de2108f17f4078a2aadb96b">More...</a><br /></td></tr>
 <tr class="separator:a83fd9de95de2108f17f4078a2aadb96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a040d361cc0698d2bafc3be0400241d02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1SparseLMatrix.html#a040d361cc0698d2bafc3be0400241d02">__getitem__</a> (tuple ij)</td></tr>
 <tr class="separator:a040d361cc0698d2bafc3be0400241d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,10 +277,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a copy of the <code>SparseLMatrix</code> instance <em>m</em>. </p>
+<p>Move-constructs a sparse matrix from <em>m</em> (<em>m</em> is left in a valid empty state). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>The <code>SparseLMatrix</code> instance to copy. </td></tr>
+    <tr><td class="paramname">m</td><td>The sparse matrix to move from. </td></tr>
   </table>
   </dd>
 </dl>
@@ -305,11 +313,17 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the <code>SparseLMatrix</code> instance. </p>
+<p>Constructs a sparse matrix of size \( m \times n \) with no stored entries. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
-    <tr><td class="paramname">n</td><td></td></tr>
+    <tr><td class="paramname">m</td><td>The number of rows. </td></tr>
+    <tr><td class="paramname">n</td><td>The number of columns.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1SizeError.html" title="Thrown to indicate that the size of a (multidimensional) array is not correct.">Base.SizeError</a></td><td>if \( m \cdot n \) exceeds the underlying container's capacity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -472,10 +486,18 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resizes the logical dimensions to \( m \times n \), dropping any stored entries that fall outside the new bounds. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
-    <tr><td class="paramname">n</td><td></td></tr>
+    <tr><td class="paramname">m</td><td>The new row count. </td></tr>
+    <tr><td class="paramname">n</td><td>The new column count.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1SizeError.html" title="Thrown to indicate that the size of a (multidimensional) array is not correct.">Base.SizeError</a></td><td>if \( m \cdot n \) exceeds the underlying container's capacity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -496,7 +518,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the number of explicitly stored (non-default) entries. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of stored entries. </dd></dl>
 
 </div>
 </div>
@@ -537,10 +561,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstFMatrixExpression</code> instance <em>e</em>. </p>
+<p>Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>The <code>ConstFMatrixExpression</code> instance to copy. </td></tr>
+    <tr><td class="paramname">e</td><td>The source matrix expression.</td></tr>
   </table>
   </dd>
 </dl>
@@ -564,10 +588,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstDMatrixExpression</code> instance <em>e</em>. </p>
+<p>Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>The <code>ConstDMatrixExpression</code> instance to copy. </td></tr>
+    <tr><td class="paramname">e</td><td>The source matrix expression.</td></tr>
   </table>
   </dd>
 </dl>
@@ -591,10 +615,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstLMatrixExpression</code> instance <em>e</em>. </p>
+<p>Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>The <code>ConstLMatrixExpression</code> instance to copy. </td></tr>
+    <tr><td class="paramname">e</td><td>The source matrix expression.</td></tr>
   </table>
   </dd>
 </dl>
@@ -618,10 +642,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state of <em>self</em> with a copy of the state of the <code>ConstULMatrixExpression</code> instance <em>e</em>. </p>
+<p>Resizes this matrix to match <em>e</em> and assigns its elements without intermediate temporary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">e</td><td>The <code>ConstULMatrixExpression</code> instance to copy. </td></tr>
+    <tr><td class="paramname">e</td><td>The source matrix expression.</td></tr>
   </table>
   </dd>
 </dl>
@@ -645,10 +669,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state of <em>self</em> with a copy of the state of the <code>SparseLMatrix</code> instance <em>m</em>. </p>
+<p>Move-assigns the contents of <em>m</em> to this sparse matrix. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>The <code>SparseLMatrix</code> instance to copy. </td></tr>
+    <tr><td class="paramname">m</td><td>The source sparse matrix (left in a valid but unspecified state).</td></tr>
   </table>
   </dd>
 </dl>
@@ -697,7 +721,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the logical number of rows. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of rows. </dd></dl>
 
 </div>
 </div>
@@ -715,7 +741,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Returns the logical number of columns. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of columns. </dd></dl>
 
 </div>
 </div>
@@ -733,7 +761,9 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Tells whether the matrix is empty (zero rows or zero columns). </p>
+<dl class="section return"><dt>Returns</dt><dd><code>True</code> if either dimension is zero, and <code>False</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -806,9 +836,11 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Swaps the contents of this sparse matrix with those of <em>m</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td></td></tr>
+    <tr><td class="paramname">m</td><td>The sparse matrix to swap with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -882,14 +914,22 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a reference to the element at (<em>i</em>, <em>j</em>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td></td></tr>
-    <tr><td class="paramname">j</td><td></td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based row index. </td></tr>
+    <tr><td class="paramname">j</td><td>The zero-based column index.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the stored value, or to the zero element if no entry exists at (<em>i</em>, <em>j</em>).</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if either index is out of range. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

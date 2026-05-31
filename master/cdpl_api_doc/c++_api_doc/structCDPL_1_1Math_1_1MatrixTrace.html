@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Functor returning the trace (sum of diagonal entries) of a matrix expression.  
+ <a href="structCDPL_1_1Math_1_1MatrixTrace.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Functional_8hpp_source.html">Functional.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Math::MatrixTrace&lt; M &gt;:</div>
@@ -104,9 +107,21 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab1689cbfb879c45ad670933068ea172a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structCDPL_1_1Math_1_1MatrixScalarUnaryFunctor.html#ac4999f88c76f62a537f8b125b472ec5c">ResultType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1MatrixTrace.html#ab1689cbfb879c45ad670933068ea172a">apply</a> (const <a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html">MatrixExpression</a>&lt; M &gt; &amp;e)</td></tr>
+<tr class="memdesc:ab1689cbfb879c45ad670933068ea172a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the trace of <em>e</em>.  <a href="structCDPL_1_1Math_1_1MatrixTrace.html#ab1689cbfb879c45ad670933068ea172a">More...</a><br /></td></tr>
 <tr class="separator:ab1689cbfb879c45ad670933068ea172a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename M&gt;<br />
+struct CDPL::Math::MatrixTrace&lt; M &gt;</h3>
+
+<p>Functor returning the trace (sum of diagonal entries) of a matrix expression. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">M</td><td>The matrix expression type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa578a48c865f612efe5af4f957ee4f64"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa578a48c865f612efe5af4f957ee4f64">&#9670;&nbsp;</a></span>ResultType</h2>
 
@@ -149,6 +164,21 @@ template&lt;typename M &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the trace of <em>e</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>The matrix expression. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>\( \sum_i e(i, i) \). </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1SizeError.html" title="Thrown to indicate that the size of a (multidimensional) array is not correct.">Base::SizeError</a></td><td>if <em>e</em> is not square. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

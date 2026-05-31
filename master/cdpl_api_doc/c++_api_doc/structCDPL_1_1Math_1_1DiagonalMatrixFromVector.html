@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Functor producing the diagonal-matrix entry at (<em>i</em>, <em>j</em>) from a vector expression ( \( e(i) \) on the diagonal, <code>0</code> elsewhere).  
+ <a href="structCDPL_1_1Math_1_1DiagonalMatrixFromVector.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Functional_8hpp_source.html">Functional.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Math::DiagonalMatrixFromVector&lt; V &gt;:</div>
@@ -109,9 +112,21 @@ Public Types</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a473f77072f9d2e409fb3d9909f186a9e"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; </td></tr>
 <tr class="memitem:a473f77072f9d2e409fb3d9909f186a9e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structCDPL_1_1Math_1_1VectorMatrixUnaryFunctor.html#ab6f52a72b33b6842e229de13d537eeaa">ResultType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structCDPL_1_1Math_1_1DiagonalMatrixFromVector.html#a473f77072f9d2e409fb3d9909f186a9e">apply</a> (const <a class="el" href="classCDPL_1_1Math_1_1VectorExpression.html">VectorExpression</a>&lt; E &gt; &amp;e, <a class="el" href="structCDPL_1_1Math_1_1VectorMatrixUnaryFunctor.html#acb29e569c241b985a1cf6f443681ea46">SizeType</a> i, <a class="el" href="structCDPL_1_1Math_1_1VectorMatrixUnaryFunctor.html#acb29e569c241b985a1cf6f443681ea46">SizeType</a> j)</td></tr>
+<tr class="memdesc:a473f77072f9d2e409fb3d9909f186a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns \( e(i) \) if <em>i</em> equals <em>j</em>, otherwise <code>0</code>.  <a href="structCDPL_1_1Math_1_1DiagonalMatrixFromVector.html#a473f77072f9d2e409fb3d9909f186a9e">More...</a><br /></td></tr>
 <tr class="separator:a473f77072f9d2e409fb3d9909f186a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename V&gt;<br />
+struct CDPL::Math::DiagonalMatrixFromVector&lt; V &gt;</h3>
+
+<p>Functor producing the diagonal-matrix entry at (<em>i</em>, <em>j</em>) from a vector expression ( \( e(i) \) on the diagonal, <code>0</code> elsewhere). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">V</td><td>The vector expression type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab214b1f53af59ec7dd69787c368a9477"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab214b1f53af59ec7dd69787c368a9477">&#9670;&nbsp;</a></span>ResultType</h2>
 
@@ -188,6 +203,23 @@ template&lt;typename E &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns \( e(i) \) if <em>i</em> equals <em>j</em>, otherwise <code>0</code>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">E</td><td>The vector expression type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>The vector expression. </td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based row index. </td></tr>
+    <tr><td class="paramname">j</td><td>The zero-based column index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The diagonal-matrix entry. </dd></dl>
 
 </div>
 </div>
