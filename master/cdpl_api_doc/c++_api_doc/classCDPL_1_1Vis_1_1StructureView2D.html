@@ -251,7 +251,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements the 2D visualization of chemical structures. </p>
 <p><code>StructureView2D</code> visualizes chemical structures in the form of 2D structure diagrams (also known as skeletal formulas [<a class="el" href="References.html#WSKF">WSKF</a>] or structural formulas [<a class="el" href="References.html#WSTF">WSTF</a>]) that allow for an easy perception of important chemical characteristics like constitution, connectivity and stereochemistry.</p>
-<p>Graphical details of the generated structure diagrams (colors, fonts, line-widths etc.) are configurable on a <code>StructureView2D</code> instance level by control-parameters and on a visualized data object level by setting appropriate <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a>, <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> or <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> properties. Properties of the visualized data objects have a higher priority than equivalent control-parameters of the <code>StructureView2D</code> instance and properties of <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> or <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> objects override corresponding properties of the parent <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance.</p>
+<p>Graphical details of the generated structure diagrams (colors, fonts, line-widths etc.) are configurable on a <code>StructureView2D</code> instance level by control-parameters and on a visualized data object level by setting appropriate <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a>, <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> or <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> properties. Properties of the visualized data objects have a higher priority than equivalent control-parameters of the <code>StructureView2D</code> instance and properties of <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> or <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects override corresponding properties of the parent <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance.</p>
 <p><code>StructureView2D</code> supports the following control-parameters:</p>
 <table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
 <tr bgcolor="#DDDDDD" align="center" valign="middle">
@@ -467,10 +467,10 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="namespaceCDPL_1_1Vis_1_1MolecularGraphProperty.html#af57da6210636ae320be895ffcec26d1e" title="Specifies the pen to use for drawing bond highlighting area outlines.">Vis::MolecularGraphProperty::BOND_HIGHLIGHT_AREA_OUTLINE_PEN</a> </td><td>Specifies the pen to use for drawing bond highlighting area outlines  </td></tr>
 </table>
-<p>Supported <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> properties:</p>
+<p>Supported <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> properties:</p>
 <table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
 <tr bgcolor="#DDDDDD" align="center" valign="middle">
-<th><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a> Property </th><th>Description  </th></tr>
+<th><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> Property </th><th>Description  </th></tr>
 <tr>
 <td><a class="el" href="namespaceCDPL_1_1Vis_1_1AtomProperty.html#aef17f98fcec713b0390884cd75585506" title="Specifies the color of text labels.">Vis::AtomProperty::COLOR</a> </td><td>Specifies the color of text labels  </td></tr>
 <tr>
@@ -502,10 +502,10 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="namespaceCDPL_1_1Vis_1_1AtomProperty.html#aa03e83b40b0982afea22f929ac515566" title="Specifies the pen to use for drawing atom highlighting area outlines. Value Type: Vis::Pen.">Vis::AtomProperty::HIGHLIGHT_AREA_OUTLINE_PEN</a> </td><td>Specifies the pen to use for drawing highlighting area outlines  </td></tr>
 </table>
-<p>Supported <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> properties:</p>
+<p>Supported <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> properties:</p>
 <table width="95%" bgcolor="#FAFAFA" border="1" align="center" rules="all" cellpadding="3">
 <tr bgcolor="#DDDDDD" align="center" valign="middle">
-<th><a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a> Property </th><th>Description  </th></tr>
+<th><a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> Property </th><th>Description  </th></tr>
 <tr>
 <td><a class="el" href="namespaceCDPL_1_1Vis_1_1BondProperty.html#af121df05ecddfb7490c6e869d4ca8110" title="Specifies the color of the bond.">Vis::BondProperty::COLOR</a> </td><td>Specifies the color of the bond  </td></tr>
 <tr>

@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html" title="MaxCommonBondSubstructureSearch.">MaxCommonBondSubstructureSearch</a>.  
+<p>Computes the maximum common bond substructure between a query and a target molecular graph by reducing the problem to maximum-clique enumeration on a bond-based association graph.  
  <a href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MaxCommonBondSubstructureSearch_8hpp_source.html">MaxCommonBondSubstructureSearch.hpp</a>&gt;</code></p>
@@ -92,6 +92,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a83b238149318d3f468084d05073cc5a4"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html">MaxCommonBondSubstructureSearch</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#a83b238149318d3f468084d05073cc5a4">SharedPointer</a></td></tr>
+<tr class="memdesc:a83b238149318d3f468084d05073cc5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MaxCommonBondSubstructureSearch</code> instances.  <a href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#a83b238149318d3f468084d05073cc5a4">More...</a><br /></td></tr>
 <tr class="separator:a83b238149318d3f468084d05073cc5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5fac4f6856411db1a3cfc4a80477cd"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ABMappingList::iterator, <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#aff5fac4f6856411db1a3cfc4a80477cd">MappingIterator</a></td></tr>
 <tr class="memdesc:aff5fac4f6856411db1a3cfc4a80477cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#aff5fac4f6856411db1a3cfc4a80477cd">More...</a><br /></td></tr>
@@ -177,7 +178,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a01b9d2346269b4785e2c15e21005db67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html" title="MaxCommonBondSubstructureSearch.">MaxCommonBondSubstructureSearch</a>. </p>
+<div class="textblock"><p>Computes the maximum common bond substructure between a query and a target molecular graph by reducing the problem to maximum-clique enumeration on a bond-based association graph. </p>
+<p>Unlike <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonAtomSubstructureSearch.html" title="Computes the maximum common atom substructure between a query and a target molecular graph by reducin...">Chem::MaxCommonAtomSubstructureSearch</a> — which maximises shared atoms — this class enumerates substructures with the maximum number of shared bonds (and, in findMaxAtomMappings(), the maximum number of shared atoms within those). The usual interface applies: <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#acfc841b9f569a34acb602d7b301dc9f1" title="Allows to specify a new query structure.">setQuery()</a> to set the query graph, <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#adea65cb3c547aef083f0a32080267fd2" title="Searches for a common substructure between the query and the specified target molecular graph.">mappingExists()</a> for a yes/no answer with the <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#a7bb6b7e571092f17969b5cdeb87dd7cd" title="Allows to specify the minimum accepted common substructure size.">setMinSubstructureSize()</a> lower bound on bond count, and the result set is bounded by <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#a10f6d7f566dbef7e6f4686241cd832d6" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a> and <a class="el" href="classCDPL_1_1Chem_1_1MaxCommonBondSubstructureSearch.html#a8376c76a87fc34431fb1afa447b406a7" title="Allows to specify whether or not to store only unique atom/bond mappings.">uniqueMappingsOnly()</a>.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#MCESA">MCESA</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a83b238149318d3f468084d05073cc5a4"></a>
@@ -191,6 +193,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MaxCommonBondSubstructureSearch</code> instances. </p>
 
 </div>
 </div>

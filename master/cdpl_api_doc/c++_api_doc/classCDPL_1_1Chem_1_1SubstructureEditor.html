@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html" title="SubstructureEditor.">SubstructureEditor</a>.  
+<p>Pattern-driven editor that rewrites matched substructures of a <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> using a result template, with optional exclude patterns guarding sites that must not be touched.  
  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="SubstructureEditor_8hpp_source.html">SubstructureEditor.hpp</a>&gt;</code></p>
@@ -92,10 +92,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a9fc34ec6338536e7ffae7145f6352ce1"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html">SubstructureEditor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a9fc34ec6338536e7ffae7145f6352ce1">SharedPointer</a></td></tr>
+<tr class="memdesc:a9fc34ec6338536e7ffae7145f6352ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>SubstructureEditor</code> instances.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a9fc34ec6338536e7ffae7145f6352ce1">More...</a><br /></td></tr>
 <tr class="separator:a9fc34ec6338536e7ffae7145f6352ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe56ac1add0c25a3f3b7fd717561a425"><td class="memItemLeft" align="right" valign="top">typedef boost::transform_iterator&lt; GetMolGraphFunc, PatternList::const_iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#abe56ac1add0c25a3f3b7fd717561a425">ConstPatternIterator</a></td></tr>
+<tr class="memdesc:abe56ac1add0c25a3f3b7fd717561a425"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator over the molecular graphs of the stored search/exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#abe56ac1add0c25a3f3b7fd717561a425">More...</a><br /></td></tr>
 <tr class="separator:abe56ac1add0c25a3f3b7fd717561a425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4571a4c123e9413026f5eeff05aea8fa"><td class="memItemLeft" align="right" valign="top">typedef boost::transform_iterator&lt; GetMolGraphFunc, PatternList::iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a></td></tr>
+<tr class="memdesc:a4571a4c123e9413026f5eeff05aea8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable iterator over the molecular graphs of the stored search/exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">More...</a><br /></td></tr>
 <tr class="separator:a4571a4c123e9413026f5eeff05aea8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -113,63 +116,84 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab818809d2d10c2b52e681e313ca2ec2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a new substructure search pattern to the current set of patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ab818809d2d10c2b52e681e313ca2ec2e">More...</a><br /></td></tr>
 <tr class="separator:ab818809d2d10c2b52e681e313ca2ec2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfb0dd9e22084ca3e1e9ffd3a18f330f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#acfb0dd9e22084ca3e1e9ffd3a18f330f">getNumSearchPatterns</a> () const</td></tr>
+<tr class="memdesc:acfb0dd9e22084ca3e1e9ffd3a18f330f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored substructure-search patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#acfb0dd9e22084ca3e1e9ffd3a18f330f">More...</a><br /></td></tr>
 <tr class="separator:acfb0dd9e22084ca3e1e9ffd3a18f330f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b2b5fecc208d023b0bcec0b8107049c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a2b2b5fecc208d023b0bcec0b8107049c">getSearchPattern</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a2b2b5fecc208d023b0bcec0b8107049c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the molecular graph of the search pattern at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a2b2b5fecc208d023b0bcec0b8107049c">More...</a><br /></td></tr>
 <tr class="separator:a2b2b5fecc208d023b0bcec0b8107049c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a533465d16c27033c9d75044434265d39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a533465d16c27033c9d75044434265d39">removeSearchPattern</a> (std::size_t idx)</td></tr>
+<tr class="memdesc:a533465d16c27033c9d75044434265d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the search pattern at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a533465d16c27033c9d75044434265d39">More...</a><br /></td></tr>
 <tr class="separator:a533465d16c27033c9d75044434265d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4d7d206d589b2c40a0b9f0aefdb572b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af4d7d206d589b2c40a0b9f0aefdb572b">removeSearchPattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a> &amp;it)</td></tr>
+<tr class="memdesc:af4d7d206d589b2c40a0b9f0aefdb572b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the search pattern pointed to by <em>it</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af4d7d206d589b2c40a0b9f0aefdb572b">More...</a><br /></td></tr>
 <tr class="separator:af4d7d206d589b2c40a0b9f0aefdb572b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae328e36a9e298a92ec6e6826ef79cfc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ae328e36a9e298a92ec6e6826ef79cfc6">clearSearchPatterns</a> ()</td></tr>
 <tr class="memdesc:ae328e36a9e298a92ec6e6826ef79cfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current set of substructuresearch patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ae328e36a9e298a92ec6e6826ef79cfc6">More...</a><br /></td></tr>
 <tr class="separator:ae328e36a9e298a92ec6e6826ef79cfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61c0a13e9934200bd2b4615a7cc7853b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a61c0a13e9934200bd2b4615a7cc7853b">getSearchPatternsBegin</a> ()</td></tr>
+<tr class="memdesc:a61c0a13e9934200bd2b4615a7cc7853b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored search patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a61c0a13e9934200bd2b4615a7cc7853b">More...</a><br /></td></tr>
 <tr class="separator:a61c0a13e9934200bd2b4615a7cc7853b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee92a38e0636c52501493599cc4d56b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a6ee92a38e0636c52501493599cc4d56b">getSearchPatternsEnd</a> ()</td></tr>
+<tr class="memdesc:a6ee92a38e0636c52501493599cc4d56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored search patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a6ee92a38e0636c52501493599cc4d56b">More...</a><br /></td></tr>
 <tr class="separator:a6ee92a38e0636c52501493599cc4d56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaef2c7b4c299e6a055ff9746880c8907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#abe56ac1add0c25a3f3b7fd717561a425">ConstPatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#aaef2c7b4c299e6a055ff9746880c8907">getSearchPatternsBegin</a> () const</td></tr>
+<tr class="memdesc:aaef2c7b4c299e6a055ff9746880c8907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored search patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#aaef2c7b4c299e6a055ff9746880c8907">More...</a><br /></td></tr>
 <tr class="separator:aaef2c7b4c299e6a055ff9746880c8907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e26792998e68e01610f269d2b866691"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#abe56ac1add0c25a3f3b7fd717561a425">ConstPatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a8e26792998e68e01610f269d2b866691">getSearchPatternsEnd</a> () const</td></tr>
+<tr class="memdesc:a8e26792998e68e01610f269d2b866691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored search patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a8e26792998e68e01610f269d2b866691">More...</a><br /></td></tr>
 <tr class="separator:a8e26792998e68e01610f269d2b866691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e3fe8b5db94f8ee38103bf23422cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a44e3fe8b5db94f8ee38103bf23422cb9">addExcludePattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;molgraph)</td></tr>
 <tr class="memdesc:a44e3fe8b5db94f8ee38103bf23422cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a new substructure exclude pattern to the current set of patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a44e3fe8b5db94f8ee38103bf23422cb9">More...</a><br /></td></tr>
 <tr class="separator:a44e3fe8b5db94f8ee38103bf23422cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af135d1a4315cf5dfaa02d9a6bde20b2a"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af135d1a4315cf5dfaa02d9a6bde20b2a">getNumExcludePatterns</a> () const</td></tr>
+<tr class="memdesc:af135d1a4315cf5dfaa02d9a6bde20b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored substructure-exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af135d1a4315cf5dfaa02d9a6bde20b2a">More...</a><br /></td></tr>
 <tr class="separator:af135d1a4315cf5dfaa02d9a6bde20b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5eef5b1134e356d26e54340201c64b4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ad5eef5b1134e356d26e54340201c64b4">getExcludePattern</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:ad5eef5b1134e356d26e54340201c64b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the molecular graph of the exclude pattern at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ad5eef5b1134e356d26e54340201c64b4">More...</a><br /></td></tr>
 <tr class="separator:ad5eef5b1134e356d26e54340201c64b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af32011513448eba239016289770462c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af32011513448eba239016289770462c6">removeExcludePattern</a> (std::size_t idx)</td></tr>
+<tr class="memdesc:af32011513448eba239016289770462c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the exclude pattern at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af32011513448eba239016289770462c6">More...</a><br /></td></tr>
 <tr class="separator:af32011513448eba239016289770462c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5059a1b2ac7a1ef484b2a05e98880ad9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a5059a1b2ac7a1ef484b2a05e98880ad9">removeExcludePattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a> &amp;it)</td></tr>
+<tr class="memdesc:a5059a1b2ac7a1ef484b2a05e98880ad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the exclude pattern pointed to by <em>it</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a5059a1b2ac7a1ef484b2a05e98880ad9">More...</a><br /></td></tr>
 <tr class="separator:a5059a1b2ac7a1ef484b2a05e98880ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0c3e86ba6761fd4d1e1ae4ab1c31da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af0c3e86ba6761fd4d1e1ae4ab1c31da3">clearExcludePatterns</a> ()</td></tr>
 <tr class="memdesc:af0c3e86ba6761fd4d1e1ae4ab1c31da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current set of substructure exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af0c3e86ba6761fd4d1e1ae4ab1c31da3">More...</a><br /></td></tr>
 <tr class="separator:af0c3e86ba6761fd4d1e1ae4ab1c31da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f9ac4ebde382aa0a7b1766b009edf99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a6f9ac4ebde382aa0a7b1766b009edf99">getExcludePatternsBegin</a> ()</td></tr>
+<tr class="memdesc:a6f9ac4ebde382aa0a7b1766b009edf99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a6f9ac4ebde382aa0a7b1766b009edf99">More...</a><br /></td></tr>
 <tr class="separator:a6f9ac4ebde382aa0a7b1766b009edf99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a043b3c96051610c376006c64fae76d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a4571a4c123e9413026f5eeff05aea8fa">PatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a043b3c96051610c376006c64fae76d9c">getExcludePatternsEnd</a> ()</td></tr>
+<tr class="memdesc:a043b3c96051610c376006c64fae76d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a043b3c96051610c376006c64fae76d9c">More...</a><br /></td></tr>
 <tr class="separator:a043b3c96051610c376006c64fae76d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10e3b0572814793ce33b4e73ed58ca18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#abe56ac1add0c25a3f3b7fd717561a425">ConstPatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a10e3b0572814793ce33b4e73ed58ca18">getExcludePatternsBegin</a> () const</td></tr>
+<tr class="memdesc:a10e3b0572814793ce33b4e73ed58ca18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a10e3b0572814793ce33b4e73ed58ca18">More...</a><br /></td></tr>
 <tr class="separator:a10e3b0572814793ce33b4e73ed58ca18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16aca5fe0b968bf24c6d0b148cddf3e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#abe56ac1add0c25a3f3b7fd717561a425">ConstPatternIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a16aca5fe0b968bf24c6d0b148cddf3e8">getExcludePatternsEnd</a> () const</td></tr>
+<tr class="memdesc:a16aca5fe0b968bf24c6d0b148cddf3e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a16aca5fe0b968bf24c6d0b148cddf3e8">More...</a><br /></td></tr>
 <tr class="separator:a16aca5fe0b968bf24c6d0b148cddf3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60c14d24de5d7e5fbab707be197e45c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a60c14d24de5d7e5fbab707be197e45c9">setResultPattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;pattern)</td></tr>
+<tr class="memdesc:a60c14d24de5d7e5fbab707be197e45c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the result pattern that defines how each matched search-pattern instance will be rewritten.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a60c14d24de5d7e5fbab707be197e45c9">More...</a><br /></td></tr>
 <tr class="separator:a60c14d24de5d7e5fbab707be197e45c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c06961a82dc0306757b94ccc60f9e58"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a3c06961a82dc0306757b94ccc60f9e58">getResultPattern</a> () const</td></tr>
+<tr class="memdesc:a3c06961a82dc0306757b94ccc60f9e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently set result pattern.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a3c06961a82dc0306757b94ccc60f9e58">More...</a><br /></td></tr>
 <tr class="separator:a3c06961a82dc0306757b94ccc60f9e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c6b06f6e3805bf18a4b9f0d24d22096"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a9c6b06f6e3805bf18a4b9f0d24d22096">clear</a> ()</td></tr>
 <tr class="memdesc:a9c6b06f6e3805bf18a4b9f0d24d22096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current editing result pattern and the sets of substructure search and exclude patterns.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a9c6b06f6e3805bf18a4b9f0d24d22096">More...</a><br /></td></tr>
 <tr class="separator:a9c6b06f6e3805bf18a4b9f0d24d22096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4f90e0e63fd47ec3901c7cdc91c4295"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af4f90e0e63fd47ec3901c7cdc91c4295">edit</a> (<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol)</td></tr>
+<tr class="memdesc:af4f90e0e63fd47ec3901c7cdc91c4295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits <em>mol</em> in place by applying the result pattern at every search-pattern match that is not covered by an exclude pattern; repeats until no further changes occur.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af4f90e0e63fd47ec3901c7cdc91c4295">More...</a><br /></td></tr>
 <tr class="separator:af4f90e0e63fd47ec3901c7cdc91c4295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5137f1cd34f6938c129da37daa0fe4d7"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a5137f1cd34f6938c129da37daa0fe4d7">edit</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;res_mol)</td></tr>
+<tr class="memdesc:a5137f1cd34f6938c129da37daa0fe4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <em>molgraph</em> into <em>res_mol</em> and then edits <em>res_mol</em> via <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af4f90e0e63fd47ec3901c7cdc91c4295" title="Edits mol in place by applying the result pattern at every search-pattern match that is not covered b...">edit(Molecule&amp;)</a>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#a5137f1cd34f6938c129da37daa0fe4d7">More...</a><br /></td></tr>
 <tr class="separator:a5137f1cd34f6938c129da37daa0fe4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9dfb9bddca3ad6dd7f2b988cd9a3955"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html">SubstructureEditor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ac9dfb9bddca3ad6dd7f2b988cd9a3955">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html">SubstructureEditor</a> &amp;gen)</td></tr>
 <tr class="memdesc:ac9dfb9bddca3ad6dd7f2b988cd9a3955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the state of the <code>SubstructureEditor</code> instance <em>gen</em>.  <a href="classCDPL_1_1Chem_1_1SubstructureEditor.html#ac9dfb9bddca3ad6dd7f2b988cd9a3955">More...</a><br /></td></tr>
 <tr class="separator:ac9dfb9bddca3ad6dd7f2b988cd9a3955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html" title="SubstructureEditor.">SubstructureEditor</a>. </p>
+<div class="textblock"><p>Pattern-driven editor that rewrites matched substructures of a <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> using a result template, with optional exclude patterns guarding sites that must not be touched. </p>
+<p>Search patterns supply the substructures the editor will look for; the (single) result pattern defines what each match is rewritten to; exclude patterns mark matches that must be skipped (a search match is discarded when its atoms/bonds form a subset of any exclude match). The editor iterates until no further matches can be transformed and returns the number of applied edits.</p>
 <dl class="section since"><dt>Since</dt><dd>1.3.0 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9fc34ec6338536e7ffae7145f6352ce1"></a>
@@ -183,6 +207,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>SubstructureEditor</code> instances. </p>
 
 </div>
 </div>
@@ -198,6 +224,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A constant iterator over the molecular graphs of the stored search/exclude patterns. </p>
+
 </div>
 </div>
 <a id="a4571a4c123e9413026f5eeff05aea8fa"></a>
@@ -211,6 +239,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A mutable iterator over the molecular graphs of the stored search/exclude patterns. </p>
 
 </div>
 </div>
@@ -321,6 +351,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of stored substructure-search patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of stored search patterns. </dd></dl>
+
 </div>
 </div>
 <a id="a2b2b5fecc208d023b0bcec0b8107049c"></a>
@@ -338,6 +371,21 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the molecular graph of the search pattern at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based search-pattern index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The molecular graph of the search pattern at index <em>idx</em>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#acfb0dd9e22084ca3e1e9ffd3a18f330f" title="Returns the number of stored substructure-search patterns.">getNumSearchPatterns()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -357,6 +405,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes the search pattern at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based search-pattern index to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#acfb0dd9e22084ca3e1e9ffd3a18f330f" title="Returns the number of stored substructure-search patterns.">getNumSearchPatterns()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af4d7d206d589b2c40a0b9f0aefdb572b"></a>
@@ -374,6 +436,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the search pattern pointed to by <em>it</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>An iterator pointing to the search pattern to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1RangeError.html" title="Thrown to indicate that a value is out of range.">Base::RangeError</a></td><td>if <em>it</em> does not point into the current search-pattern range. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -411,6 +487,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing to the beginning of the stored search patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored search patterns. </dd></dl>
+
 </div>
 </div>
 <a id="a6ee92a38e0636c52501493599cc4d56b"></a>
@@ -427,6 +506,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing to the end of the stored search patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored search patterns. </dd></dl>
 
 </div>
 </div>
@@ -445,6 +527,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the beginning of the stored search patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored search patterns. </dd></dl>
+
 </div>
 </div>
 <a id="a8e26792998e68e01610f269d2b866691"></a>
@@ -461,6 +546,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the end of the stored search patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored search patterns. </dd></dl>
 
 </div>
 </div>
@@ -505,6 +593,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of stored substructure-exclude patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of stored exclude patterns. </dd></dl>
+
 </div>
 </div>
 <a id="ad5eef5b1134e356d26e54340201c64b4"></a>
@@ -522,6 +613,21 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the molecular graph of the exclude pattern at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based exclude-pattern index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The molecular graph of the exclude pattern at index <em>idx</em>. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af135d1a4315cf5dfaa02d9a6bde20b2a" title="Returns the number of stored substructure-exclude patterns.">getNumExcludePatterns()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -541,6 +647,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes the exclude pattern at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based exclude-pattern index to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af135d1a4315cf5dfaa02d9a6bde20b2a" title="Returns the number of stored substructure-exclude patterns.">getNumExcludePatterns()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5059a1b2ac7a1ef484b2a05e98880ad9"></a>
@@ -558,6 +678,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the exclude pattern pointed to by <em>it</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">it</td><td>An iterator pointing to the exclude pattern to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1RangeError.html" title="Thrown to indicate that a value is out of range.">Base::RangeError</a></td><td>if <em>it</em> does not point into the current exclude-pattern range. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -595,6 +729,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a mutable iterator pointing to the beginning of the stored exclude patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored exclude patterns. </dd></dl>
+
 </div>
 </div>
 <a id="a043b3c96051610c376006c64fae76d9c"></a>
@@ -611,6 +748,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a mutable iterator pointing to the end of the stored exclude patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored exclude patterns. </dd></dl>
 
 </div>
 </div>
@@ -629,6 +769,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a constant iterator pointing to the beginning of the stored exclude patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored exclude patterns. </dd></dl>
+
 </div>
 </div>
 <a id="a16aca5fe0b968bf24c6d0b148cddf3e8"></a>
@@ -645,6 +788,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a constant iterator pointing to the end of the stored exclude patterns. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored exclude patterns. </dd></dl>
 
 </div>
 </div>
@@ -664,6 +810,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the result pattern that defines how each matched search-pattern instance will be rewritten. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pattern</td><td>The molecular graph of the result pattern. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a3c06961a82dc0306757b94ccc60f9e58"></a>
@@ -680,6 +834,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the currently set result pattern. </p>
+<dl class="section return"><dt>Returns</dt><dd>The currently set result pattern, or a null pointer if none has been set. </dd></dl>
 
 </div>
 </div>
@@ -718,6 +875,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Edits <em>mol</em> in place by applying the result pattern at every search-pattern match that is not covered by an exclude pattern; repeats until no further changes occur. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mol</td><td>The molecule to edit. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of applied transformations. </dd></dl>
+
 </div>
 </div>
 <a id="a5137f1cd34f6938c129da37daa0fe4d7"></a>
@@ -745,6 +911,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copies <em>molgraph</em> into <em>res_mol</em> and then edits <em>res_mol</em> via <a class="el" href="classCDPL_1_1Chem_1_1SubstructureEditor.html#af4f90e0e63fd47ec3901c7cdc91c4295" title="Edits mol in place by applying the result pattern at every search-pattern match that is not covered b...">edit(Molecule&amp;)</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The source molecular graph. </td></tr>
+    <tr><td class="paramname">res_mol</td><td>The molecule receiving the edited result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of applied transformations. </dd></dl>
 
 </div>
 </div>

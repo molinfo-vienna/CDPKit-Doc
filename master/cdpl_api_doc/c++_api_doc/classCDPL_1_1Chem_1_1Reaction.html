@@ -86,7 +86,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Reaction</a>.  
+<p>Abstract base class for chemical reactions composed of role-tagged <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> components.  
  <a href="classCDPL_1_1Chem_1_1Reaction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Reaction_8hpp_source.html">Reaction.hpp</a>&gt;</code></p>
@@ -111,6 +111,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a0385578180475ccb512bf57b8872712b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the components of the reaction.  <a href="classCDPL_1_1Chem_1_1Reaction.html#a0385578180475ccb512bf57b8872712b">More...</a><br /></td></tr>
 <tr class="separator:a0385578180475ccb512bf57b8872712b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a003bf2bc4855bb199c89af6708a2846a"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a003bf2bc4855bb199c89af6708a2846a">CopyPostprocessingFunction</a></td></tr>
+<tr class="memdesc:a003bf2bc4855bb199c89af6708a2846a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of a functor invoked after a reaction copy operation to post-process the target reaction (first argument) using information from the source reaction (second argument).  <a href="classCDPL_1_1Chem_1_1Reaction.html#a003bf2bc4855bb199c89af6708a2846a">More...</a><br /></td></tr>
 <tr class="separator:a003bf2bc4855bb199c89af6708a2846a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1PropertyContainer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html">CDPL::Base::PropertyContainer</a></td></tr>
 <tr class="memitem:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">typedef PropertyMap::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#acc027f2de46dabd56830a522690efac9">PropertyEntry</a></td></tr>
@@ -274,11 +275,13 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c8578b4697dea3813ab5171d9c140e3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a1c8578b4697dea3813ab5171d9c140e3">registerCopyPostprocessingFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a003bf2bc4855bb199c89af6708a2846a">CopyPostprocessingFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a1c8578b4697dea3813ab5171d9c140e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a global post-processing function invoked after every reaction copy operation.  <a href="classCDPL_1_1Chem_1_1Reaction.html#a1c8578b4697dea3813ab5171d9c140e3">More...</a><br /></td></tr>
 <tr class="separator:a1c8578b4697dea3813ab5171d9c140e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a364e86731469c32869995159858c6560"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a364e86731469c32869995159858c6560">invokeCopyPostprocessingFunctions</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;src_rxn)</td></tr>
+<tr class="memdesc:a364e86731469c32869995159858c6560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes all registered copy post-processing functions with <code>*this</code> as the target reaction and <em>src_rxn</em> as the source.  <a href="classCDPL_1_1Chem_1_1Reaction.html#a364e86731469c32869995159858c6560">More...</a><br /></td></tr>
 <tr class="separator:a364e86731469c32869995159858c6560"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Base_1_1PropertyContainer')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html">CDPL::Base::PropertyContainer</a></td></tr>
 <tr class="memitem:a0f91961a5356052978a8224d6ee58576 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#a0f91961a5356052978a8224d6ee58576">PropertyContainer</a> ()</td></tr>
@@ -295,7 +298,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Reaction</a>. </p>
+<div class="textblock"><p>Abstract base class for chemical reactions composed of role-tagged <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> components. </p>
+<p>Each component carries a <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a> (<code>REACTANT</code>, <code>AGENT</code> or <code>PRODUCT</code>); the role is the primary indexing axis exposed by <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#af12a9c9142739700fdf69ac0d8c1db2a" title="Returns the reaction role of the specified component.">getComponentRole()</a>, getNumComponents(role), getComponent(idx, role) and the role-restricted iterator pair getComponentsBegin(role)/getComponentsEnd(role). Editing methods (addComponent, removeComponent, swapComponentRoles, clear) are pure virtual and supplied by concrete subclasses such as <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html" title="Default concrete implementation of the Chem::Reaction abstract interface.">Chem::BasicReaction</a>. Properties common to all components are inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html" title="A class providing methods for the storage and lookup of object properties.">Base::PropertyContainer</a>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a44418819b40175d1557e73016dd4d864"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44418819b40175d1557e73016dd4d864">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -356,6 +360,9 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Type of a functor invoked after a reaction copy operation to post-process the target reaction (first argument) using information from the source reaction (second argument). </p>
+<p>Functions registered with <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a1c8578b4697dea3813ab5171d9c140e3" title="Registers a global post-processing function invoked after every reaction copy operation.">registerCopyPostprocessingFunction()</a> are run by <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a364e86731469c32869995159858c6560" title="Invokes all registered copy post-processing functions with *this as the target reaction and src_rxn a...">invokeCopyPostprocessingFunctions()</a> inside subclasses' <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#aea58575d408e56c3636b0d33e0563ed0" title="Replaces the current set of reaction components and properties by a copy of the components and proper...">copy()</a> implementations. </p>
 
 </div>
 </div>
@@ -1479,6 +1486,14 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Registers a global post-processing function invoked after every reaction copy operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The function to register. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a364e86731469c32869995159858c6560"></a>
@@ -1504,6 +1519,14 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Invokes all registered copy post-processing functions with <code>*this</code> as the target reaction and <em>src_rxn</em> as the source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src_rxn</td><td>The source reaction the copy was made from. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

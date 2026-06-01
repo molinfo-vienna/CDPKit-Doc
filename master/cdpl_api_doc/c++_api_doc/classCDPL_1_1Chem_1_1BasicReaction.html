@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Default concrete implementation of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> abstract interface.  
+<p>Default concrete implementation of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> abstract interface.  
  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BasicReaction_8hpp_source.html">BasicReaction.hpp</a>&gt;</code></p>
@@ -102,10 +102,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a6b846d800fdbc0efde343061865e8128"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>BasicReaction</code> instances.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a6b846d800fdbc0efde343061865e8128">More...</a><br /></td></tr>
 <tr class="separator:a6b846d800fdbc0efde343061865e8128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cfa60823eb881c8b424a55f1e639128"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ComponentList::iterator, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">ComponentIterator</a></td></tr>
-<tr class="memdesc:a2cfa60823eb881c8b424a55f1e639128"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">More...</a><br /></td></tr>
+<tr class="memdesc:a2cfa60823eb881c8b424a55f1e639128"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="Concrete Chem::Molecule implementation that owns Chem::BasicAtom and Chem::BasicBond instances.">Chem::BasicMolecule</a> reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a2cfa60823eb881c8b424a55f1e639128">More...</a><br /></td></tr>
 <tr class="separator:a2cfa60823eb881c8b424a55f1e639128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ComponentList::const_iterator, const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">ConstComponentIterator</a></td></tr>
-<tr class="memdesc:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">More...</a><br /></td></tr>
+<tr class="memdesc:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="Concrete Chem::Molecule implementation that owns Chem::BasicAtom and Chem::BasicBond instances.">Chem::BasicMolecule</a> reaction components.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a0f304bd8c30e34f77d07f1a9b3d7f753">More...</a><br /></td></tr>
 <tr class="separator:a0f304bd8c30e34f77d07f1a9b3d7f753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1Reaction"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1Reaction')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">CDPL::Chem::Reaction</a></td></tr>
 <tr class="memitem:a44418819b40175d1557e73016dd4d864 inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a44418819b40175d1557e73016dd4d864">SharedPointer</a></td></tr>
@@ -118,6 +118,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a0385578180475ccb512bf57b8872712b inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the components of the reaction.  <a href="classCDPL_1_1Chem_1_1Reaction.html#a0385578180475ccb512bf57b8872712b">More...</a><br /></td></tr>
 <tr class="separator:a0385578180475ccb512bf57b8872712b inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a003bf2bc4855bb199c89af6708a2846a inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a003bf2bc4855bb199c89af6708a2846a">CopyPostprocessingFunction</a></td></tr>
+<tr class="memdesc:a003bf2bc4855bb199c89af6708a2846a inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of a functor invoked after a reaction copy operation to post-process the target reaction (first argument) using information from the source reaction (second argument).  <a href="classCDPL_1_1Chem_1_1Reaction.html#a003bf2bc4855bb199c89af6708a2846a">More...</a><br /></td></tr>
 <tr class="separator:a003bf2bc4855bb199c89af6708a2846a inherit pub_types_classCDPL_1_1Chem_1_1Reaction"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1PropertyContainer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html">CDPL::Base::PropertyContainer</a></td></tr>
 <tr class="memitem:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">typedef PropertyMap::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#acc027f2de46dabd56830a522690efac9">PropertyEntry</a></td></tr>
@@ -136,7 +137,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a08773b1bc077f39eba1c5380ffd09061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code>BasicReaction</code> instance <em>rxn</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a08773b1bc077f39eba1c5380ffd09061">More...</a><br /></td></tr>
 <tr class="separator:a08773b1bc077f39eba1c5380ffd09061"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86828a8ce0b06a75acac1a3fdb8ec3d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a86828a8ce0b06a75acac1a3fdb8ec3d5">BasicReaction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn)</td></tr>
-<tr class="memdesc:a86828a8ce0b06a75acac1a3fdb8ec3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> instance <em>rxn</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a86828a8ce0b06a75acac1a3fdb8ec3d5">More...</a><br /></td></tr>
+<tr class="memdesc:a86828a8ce0b06a75acac1a3fdb8ec3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> instance <em>rxn</em>.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#a86828a8ce0b06a75acac1a3fdb8ec3d5">More...</a><br /></td></tr>
 <tr class="separator:a86828a8ce0b06a75acac1a3fdb8ec3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba382fd71aa480fa7a0405b562b5025c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#aba382fd71aa480fa7a0405b562b5025c">~BasicReaction</a> ()</td></tr>
 <tr class="memdesc:aba382fd71aa480fa7a0405b562b5025c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classCDPL_1_1Chem_1_1BasicReaction.html#aba382fd71aa480fa7a0405b562b5025c">More...</a><br /></td></tr>
@@ -334,9 +335,11 @@ Public Member Functions</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classCDPL_1_1Chem_1_1Reaction"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classCDPL_1_1Chem_1_1Reaction')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">CDPL::Chem::Reaction</a></td></tr>
 <tr class="memitem:a1c8578b4697dea3813ab5171d9c140e3 inherit pub_static_methods_classCDPL_1_1Chem_1_1Reaction"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a1c8578b4697dea3813ab5171d9c140e3">registerCopyPostprocessingFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a003bf2bc4855bb199c89af6708a2846a">CopyPostprocessingFunction</a> &amp;func)</td></tr>
+<tr class="memdesc:a1c8578b4697dea3813ab5171d9c140e3 inherit pub_static_methods_classCDPL_1_1Chem_1_1Reaction"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a global post-processing function invoked after every reaction copy operation.  <a href="classCDPL_1_1Chem_1_1Reaction.html#a1c8578b4697dea3813ab5171d9c140e3">More...</a><br /></td></tr>
 <tr class="separator:a1c8578b4697dea3813ab5171d9c140e3 inherit pub_static_methods_classCDPL_1_1Chem_1_1Reaction"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Chem_1_1Reaction"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Chem_1_1Reaction')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">CDPL::Chem::Reaction</a></td></tr>
 <tr class="memitem:a364e86731469c32869995159858c6560 inherit pro_methods_classCDPL_1_1Chem_1_1Reaction"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a364e86731469c32869995159858c6560">invokeCopyPostprocessingFunctions</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;src_rxn)</td></tr>
+<tr class="memdesc:a364e86731469c32869995159858c6560 inherit pro_methods_classCDPL_1_1Chem_1_1Reaction"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes all registered copy post-processing functions with <code>*this</code> as the target reaction and <em>src_rxn</em> as the source.  <a href="classCDPL_1_1Chem_1_1Reaction.html#a364e86731469c32869995159858c6560">More...</a><br /></td></tr>
 <tr class="separator:a364e86731469c32869995159858c6560 inherit pro_methods_classCDPL_1_1Chem_1_1Reaction"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Base_1_1PropertyContainer')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html">CDPL::Base::PropertyContainer</a></td></tr>
 <tr class="memitem:a0f91961a5356052978a8224d6ee58576 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#a0f91961a5356052978a8224d6ee58576">PropertyContainer</a> ()</td></tr>
@@ -353,8 +356,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Default concrete implementation of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> abstract interface. </p>
-<p><code>BasicReaction</code> stores reaction components as <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> instances grouped by reaction role (reactant, agent, product). Components are pooled via a <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html" title="A data structure that caches instances of type T up to a user specified amount.">Util::ObjectPool</a> to minimize allocation overhead in batch processing scenarios. </p>
+<div class="textblock"><p>Default concrete implementation of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> abstract interface. </p>
+<p><code>BasicReaction</code> stores reaction components as <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="Concrete Chem::Molecule implementation that owns Chem::BasicAtom and Chem::BasicBond instances.">Chem::BasicMolecule</a> instances grouped by reaction role (reactant, agent, product). Components are pooled via a <a class="el" href="classCDPL_1_1Util_1_1ObjectPool.html" title="A data structure that caches instances of type T up to a user specified amount.">Util::ObjectPool</a> to minimize allocation overhead in batch processing scenarios. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6b846d800fdbc0efde343061865e8128"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b846d800fdbc0efde343061865e8128">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -384,7 +387,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components. </p>
+<p>A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="Concrete Chem::Molecule implementation that owns Chem::BasicAtom and Chem::BasicBond instances.">Chem::BasicMolecule</a> reaction components. </p>
 
 </div>
 </div>
@@ -400,7 +403,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="BasicMolecule.">Chem::BasicMolecule</a> reaction components. </p>
+<p>A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html" title="Concrete Chem::Molecule implementation that owns Chem::BasicAtom and Chem::BasicBond instances.">Chem::BasicMolecule</a> reaction components. </p>
 
 </div>
 </div>
@@ -466,10 +469,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> instance <em>rxn</em>. </p>
+<p>Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> instance <em>rxn</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rxn</td><td>The other <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem::Reaction</a> instance to copy. </td></tr>
+    <tr><td class="paramname">rxn</td><td>The other <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> instance to copy. </td></tr>
   </table>
   </dd>
 </dl>

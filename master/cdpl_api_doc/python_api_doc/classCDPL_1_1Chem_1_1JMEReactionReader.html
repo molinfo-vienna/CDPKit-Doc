@@ -245,11 +245,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A reader for reaction data in the native I/O format of the <em>JME Molecular Editor</em> [<a class="el" href="References.html#JME">JME</a>] java applet. </p>
-<p><code><a class="el" href="classCDPL_1_1Chem_1_1JMEReactionReader.html" title="A reader for reaction data in the native I/O format of the JME Molecular Editor [JME] java applet.">JMEReactionReader</a></code> implements the reading of <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Reaction.">Chem.Reaction</a> objects from a <code>std::istream</code> instance that provides the reaction data in the native I/O format used by the <em>JME Molecular Editor</em> applet.</p>
-<p><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Atom</a> and bond attributes of a read reaction component are stored as properties of allocated <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem.Atom</a> and <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem.Bond</a> objects. The affected properties are summarized in the tables below:</p>
+<p><code><a class="el" href="classCDPL_1_1Chem_1_1JMEReactionReader.html" title="A reader for reaction data in the native I/O format of the JME Molecular Editor [JME] java applet.">JMEReactionReader</a></code> implements the reading of <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem.Molecule components.">Chem.Reaction</a> objects from a <code>std::istream</code> instance that provides the reaction data in the native I/O format used by the <em>JME Molecular Editor</em> applet.</p>
+<p><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Atom</a> and bond attributes of a read reaction component are stored as properties of allocated <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem.Atom</a> and <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem.Atom instances.">Chem.Bond</a> objects. The affected properties are summarized in the tables below:</p>
 <table class="doxtable">
 <tr>
-<th><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem.Atom</a> Property</th><th>Description</th><th>Notes </th></tr>
+<th><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem.Atom</a> Property</th><th>Description</th><th>Notes </th></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomProperty.html#a11047f529e262027a348c726610d5045" title="Specifies the substructure matching constraints associated with the atom.">Chem.AtomProperty.MATCH_CONSTRAINTS</a></td><td>Specifies atom matching constraints</td><td>Only set if constraints have been specified </td></tr>
 <tr>
@@ -265,21 +265,21 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <table class="doxtable">
 <tr>
-<th><a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem.Bond</a> Property</th><th>Description </th></tr>
+<th><a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem.Atom instances.">Chem.Bond</a> Property</th><th>Description </th></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1BondProperty.html#a5045e5feb69dd85afe9aa6d6ca703800" title="Specifies the bond order.">Chem.BondProperty.ORDER</a></td><td>Specifies the order of the bond </td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1BondProperty.html#ad5a46e3ede38daf2f624dd7a3cff536a" title="Specifies the 2D stereo flag of the bond (see namespace Chem.BondStereoFlag).">Chem.BondProperty.STEREO_2D_FLAG</a></td><td>Specifies the 2D stereo bond type (see <a class="el" href="classCDPL_1_1Chem_1_1BondStereoFlag.html" title="Provides constants for the specification of stereo bonds in 2D depictions of chemical structures.">Chem.BondStereoFlag</a>) </td></tr>
 </table>
-<p>Beside the editing of conventional chemical structures, the <em>JME</em> applet allows to some extent the specification of atom matching constraints for the definition of substructure search queries. If such constraints are encountered during the processing of an atom specification, the constraint primitives are converted to corresponding <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="MatchConstraint.">Chem.MatchConstraint</a> objects and stored as the value of the <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem.Atom</a> property <a class="el" href="classCDPL_1_1Chem_1_1AtomProperty.html#a11047f529e262027a348c726610d5045" title="Specifies the substructure matching constraints associated with the atom.">Chem.AtomProperty.MATCH_CONSTRAINTS</a> in a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> data structure.</p>
-<p>The following table lists all of the supported <em>JME</em> atom matching constraints and specifies how they are represented by <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="MatchConstraint.">Chem.MatchConstraint</a> instances (in the table <em>&lt;n&gt;</em> denotes a positive integer value and <em><s> the symbol of a chemical element):</s></em></p>
+<p>Beside the editing of conventional chemical structures, the <em>JME</em> applet allows to some extent the specification of atom matching constraints for the definition of substructure search queries. If such constraints are encountered during the processing of an atom specification, the constraint primitives are converted to corresponding <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="Describes a single attribute-comparison constraint between a query and a target object used by molecu...">Chem.MatchConstraint</a> objects and stored as the value of the <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem.Atom</a> property <a class="el" href="classCDPL_1_1Chem_1_1AtomProperty.html#a11047f529e262027a348c726610d5045" title="Specifies the substructure matching constraints associated with the atom.">Chem.AtomProperty.MATCH_CONSTRAINTS</a> in a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> data structure.</p>
+<p>The following table lists all of the supported <em>JME</em> atom matching constraints and specifies how they are represented by <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="Describes a single attribute-comparison constraint between a query and a target object used by molecu...">Chem.MatchConstraint</a> instances (in the table <em>&lt;n&gt;</em> denotes a positive integer value and <em><s> the symbol of a chemical element):</s></em></p>
 <p><em><s> </p><table class="doxtable">
 <tr>
-<th>Expression Primitive</th><th>Description</th><th>Mapped <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="MatchConstraint.">Chem.MatchConstraint</a> object </th></tr>
+<th>Expression Primitive</th><th>Description</th><th>Mapped <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraint.html" title="Describes a single attribute-comparison constraint between a query and a target object used by molecu...">Chem.MatchConstraint</a> object </th></tr>
 <tr>
 <th>Constraint ID</th><th>Operator</th><th>Value </th></tr>
 <tr>
-<td>c</td><td>Aromatic carbon</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>c</td><td>Aromatic carbon</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -287,7 +287,7 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>True</code> </td></tr>
 <tr>
-<td>n</td><td>Aromatic nitrogen</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>n</td><td>Aromatic nitrogen</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -295,7 +295,7 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>True</code> </td></tr>
 <tr>
-<td>o</td><td>Aromatic oxygen</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>o</td><td>Aromatic oxygen</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -303,7 +303,7 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>True</code> </td></tr>
 <tr>
-<td>s</td><td>Aromatic sulfur</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>s</td><td>Aromatic sulfur</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -311,7 +311,7 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>True</code> </td></tr>
 <tr>
-<td>p</td><td>Aromatic phosphorus</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>p</td><td>Aromatic phosphorus</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -319,7 +319,7 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>True</code> </td></tr>
 <tr>
-<td>a</td><td>Any aromatic atom</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>a</td><td>Any aromatic atom</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -327,7 +327,7 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>True</code> </td></tr>
 <tr>
-<td>A</td><td>Any non-aromatic atom</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </td></tr>
+<td>A</td><td>Any non-aromatic atom</td><td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></td><td>Chem.MatchConstraint.EQUAL</td><td>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </td></tr>
 <tr>
 <td>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </td></tr>
 <tr>
@@ -335,11 +335,11 @@ Additional Inherited Members</h2></td></tr>
 <tr>
 <td><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></td><td>Chem.MatchConstraint.EQUAL</td><td><code>False</code> </td></tr>
 <tr>
-<td><em><s></s></em></td><td><em><s>A non-aromatic atom of element <s></s></s></em></td><td><em><s><s><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></s></s></em></td><td><em><s><s>Chem.MatchConstraint.EQUAL</s></s></em></td><td><em><s><s>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="MatchConstraintList.">Chem.MatchConstraintList</a> object </s></s></em></td></tr>
+<td><em><s></s></em></td><td><em><s>A non-aromatic atom of element <s></s></s></em></td><td><em><s><s><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a57b73dc5a5754e3cdfa94576fcdc9472" title="Specifies a constraint which requires the target atom to fulfill additional constraints specified by ...">Chem.AtomMatchConstraint.CONSTRAINT_LIST</a></s></s></em></td><td><em><s><s>Chem.MatchConstraint.EQUAL</s></s></em></td><td><em><s><s>A reference to a <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html" title="A list of Chem.MatchConstraint instances combined with a logical Type (AND_LIST, NOT_AND_LIST,...">Chem.MatchConstraintList</a> object </s></s></em></td></tr>
 <tr>
 <td><em><s><s>The sub-constraint list has the logical type Chem.MatchConstraintList.AND_LIST and contains the elements: </s></s></em></td></tr>
 <tr>
-<td><em><s><s><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#ae60c0171a0a770304e6d106c4fd2804f" title="Specifies a constraint on the type of the target atom.">Chem.AtomMatchConstraint.TYPE</a></s></s></em></td><td><em><s><s>Chem.MatchConstraint.EQUAL</s></s></em></td><td><em><s><s><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Atom</a> type associated with the element <s> </s></s></s></em></td></tr>
+<td><em><s><s><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#ae60c0171a0a770304e6d106c4fd2804f" title="Specifies a constraint on the type of the target atom.">Chem.AtomMatchConstraint.TYPE</a></s></s></em></td><td><em><s><s>Chem.MatchConstraint.EQUAL</s></s></em></td><td><em><s><s><a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Atom</a> type associated with the element <s> </s></s></s></em></td></tr>
 <tr>
 <td><em><s><s><s><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchConstraint.html#a37360c4396c80ae53149a22bb11d4441" title="Specifies a constraint on the aromaticity of the target atom.">Chem.AtomMatchConstraint.AROMATICITY</a></s></s></s></em></td><td><em><s><s><s>Chem.MatchConstraint.EQUAL</s></s></s></em></td><td><em><s><s><s><code>False</code> </s></s></s></em></td></tr>
 <tr>

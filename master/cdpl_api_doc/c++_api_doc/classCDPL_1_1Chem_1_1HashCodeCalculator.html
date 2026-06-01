@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a>.  
+<p>Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bond properties.  
  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HashCodeCalculator_8hpp_source.html">HashCodeCalculator.hpp</a>&gt;</code></p>
@@ -143,7 +143,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a769281bc99aaff6a3c1e1bbf641478bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a>. </p>
+<div class="textblock"><p>Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bond properties. </p>
+<p>The algorithm assigns initial seeds to each atom and bond through the user-replaceable functors <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a3e9e5ba52db7ae6c6f20f39ccbc996f5" title="Type of the generic functor class used to store user-defined functions or function objects for the ge...">HashCodeCalculator::AtomHashSeedFunction</a> and <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#adcfc8ef82615c585d59d2f5d04a04c82" title="Type of the generic functor class used to store user-defined functions or function objects for the ge...">HashCodeCalculator::BondHashSeedFunction</a>, iteratively propagates the seeds over the graph topology in the spirit of Morgan-style extended-connectivity hashing, and finally folds the per-atom hash codes into a single <code>std::uint64_t</code> result via an SHA-style mixing step. The default seed functors (<a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html" title="The default functor for the generation of atom hash seeds.">DefAtomHashSeedFunctor</a>, <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html" title="The default functor for the generation of bond hash seeds.">DefBondHashSeedFunctor</a>) take into account the property flags combined into DEF_ATOM_PROPERTY_FLAGS and DEF_BOND_PROPERTY_FLAGS, respectively.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#MHASH">MHASH</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3e9e5ba52db7ae6c6f20f39ccbc996f5"></a>
@@ -159,7 +160,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of the generic functor class used to store user-defined functions or function objects for the generation of initial atom hash codes. </p>
-<p>Functions or function objects for the generation of atom hash seeds are required to take the atom (as a <code>const</code> reference to <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem::Atom</a>) as argument and return the hash seed as an integer of type <code>std::uint64_t</code> (see [<a class="el" href="References.html#FUNWRP">FUNWRP</a>]). </p>
+<p>Functions or function objects for the generation of atom hash seeds are required to take the atom (as a <code>const</code> reference to <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a>) as argument and return the hash seed as an integer of type <code>std::uint64_t</code> (see [<a class="el" href="References.html#FUNWRP">FUNWRP</a>]). </p>
 
 </div>
 </div>
@@ -176,7 +177,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of the generic functor class used to store user-defined functions or function objects for the generation of initial bond hash codes. </p>
-<p>Functions or function objects for the generation of bond hash seeds are required to take the bond (as a <code>const</code> reference to <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem::Bond</a>) as argument and return the hash seed as an integer of type <code>std::uint64_t</code> (see [<a class="el" href="References.html#FUNWRP">FUNWRP</a>]). </p>
+<p>Functions or function objects for the generation of bond hash seeds are required to take the bond (as a <code>const</code> reference to <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a>) as argument and return the hash seed as an integer of type <code>std::uint64_t</code> (see [<a class="el" href="References.html#FUNWRP">FUNWRP</a>]). </p>
 
 </div>
 </div>

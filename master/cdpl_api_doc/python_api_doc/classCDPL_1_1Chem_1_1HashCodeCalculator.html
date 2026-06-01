@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a>.  
+<p>Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bond properties.  
  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Chem.HashCodeCalculator:</div>
@@ -109,10 +109,10 @@ Classes</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bc4c76d0e264a929a2fd598f95091a7"><td class="memItemLeft" align="right" valign="top"><a id="a6bc4c76d0e264a929a2fd598f95091a7"></a>
 None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a6bc4c76d0e264a929a2fd598f95091a7">__init__</a> ()</td></tr>
-<tr class="memdesc:a6bc4c76d0e264a929a2fd598f95091a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a></code> instance. <br /></td></tr>
+<tr class="memdesc:a6bc4c76d0e264a929a2fd598f95091a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bo...">HashCodeCalculator</a></code> instance. <br /></td></tr>
 <tr class="separator:a6bc4c76d0e264a929a2fd598f95091a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a218a1f0588b2eb037b8275e7f5704d34"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a218a1f0588b2eb037b8275e7f5704d34">__init__</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> molgraph)</td></tr>
-<tr class="memdesc:a218a1f0588b2eb037b8275e7f5704d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a></code> instance and calculates the hash code of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a218a1f0588b2eb037b8275e7f5704d34">More...</a><br /></td></tr>
+<tr class="memdesc:a218a1f0588b2eb037b8275e7f5704d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bo...">HashCodeCalculator</a></code> instance and calculates the hash code of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a218a1f0588b2eb037b8275e7f5704d34">More...</a><br /></td></tr>
 <tr class="separator:a218a1f0588b2eb037b8275e7f5704d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bd2bd40e8986eee8821b09b92f00563"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a0bd2bd40e8986eee8821b09b92f00563">getObjectID</a> ()</td></tr>
 <tr class="memdesc:a0bd2bd40e8986eee8821b09b92f00563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a0bd2bd40e8986eee8821b09b92f00563">More...</a><br /></td></tr>
@@ -153,7 +153,8 @@ Properties</h2></td></tr>
 <tr class="separator:a405bb2ff014fc1ed3f27a19299065028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a>. </p>
+<div class="textblock"><p>Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bond properties. </p>
+<p>The algorithm assigns initial seeds to each atom and bond through the user-replaceable functors HashCodeCalculator.AtomHashSeedFunction and HashCodeCalculator.BondHashSeedFunction, iteratively propagates the seeds over the graph topology in the spirit of Morgan-style extended-connectivity hashing, and finally folds the per-atom hash codes into a single <code>std::uint64_t</code> result via an SHA-style mixing step. The default seed functors (<a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html" title="The default functor for the generation of atom hash seeds.">DefAtomHashSeedFunctor</a>, <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html" title="The default functor for the generation of bond hash seeds.">DefBondHashSeedFunctor</a>) take into account the property flags combined into DEF_ATOM_PROPERTY_FLAGS and DEF_BOND_PROPERTY_FLAGS, respectively.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#MHASH">MHASH</a>] </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a218a1f0588b2eb037b8275e7f5704d34"></a>
@@ -172,7 +173,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="HashCodeCalculator.">HashCodeCalculator</a></code> instance and calculates the hash code of the molecular graph <em>molgraph</em>. </p>
+<p>Constructs the <code><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html" title="Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bo...">HashCodeCalculator</a></code> instance and calculates the hash code of the molecular graph <em>molgraph</em>. </p>
 <p>The calculated hash code can be retrieved by a call to <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#adb7c6a0fa778f92e12eaaf1d90e6fe06" title="Returns the result of the last hash code calculation.">getResult()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

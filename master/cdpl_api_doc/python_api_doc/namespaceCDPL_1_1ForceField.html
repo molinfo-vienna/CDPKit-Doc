@@ -88,10 +88,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1AtomProperty.html">AtomProperty</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides keys for built-in <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Atom.">Chem.Atom</a> properties.  <a href="classCDPL_1_1ForceField_1_1AtomProperty.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides keys for built-in <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem.Atom</a> properties.  <a href="classCDPL_1_1ForceField_1_1AtomProperty.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1BondProperty.html">BondProperty</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides keys for built-in <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Bond.">Chem.Bond</a> properties.  <a href="classCDPL_1_1ForceField_1_1BondProperty.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides keys for built-in <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem.Atom instances.">Chem.Bond</a> properties.  <a href="classCDPL_1_1ForceField_1_1BondProperty.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1ElasticPotential.html">ElasticPotential</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores parameters for a harmonic distance-restraint potential between a pair of atoms.  <a href="classCDPL_1_1ForceField_1_1ElasticPotential.html#details">More...</a><br /></td></tr>
@@ -2789,7 +2789,7 @@ Functions</h2></td></tr>
 <p>\( \frac{\partial EA_{ijk}}{\partial \vec{p_x}} = \frac{\partial EA_{ijk}}{\partial \vartheta_{ijk}} \: \frac{\partial \vartheta_{ijk}}{\partial \cos(\vartheta_{ijk})} \: \frac{\partial \cos(\vartheta_{ijk})}{\vec{p_x}} \)<br  />
 </p>
 <p>\( \frac{\partial EA_{ijk}}{\partial \vartheta_{ijk}} = -ka_{IJK} \: (86.58992538 \: \vartheta_{ijk}^2 - 3.022558594 \: \vartheta_{ijk} \: \vartheta_{IJK}^0 - 143.9313616 \: \vartheta_{ijk} + 0.02637679965 \: \vartheta_{IJK}^{0^2} + 2.512076157 \: \vartheta_{IJK}^0) \)<br  />
-<br  />
+ <br  />
  \( \frac{\partial \vartheta_{ijk}}{\partial \cos(\vartheta_{ijk})} = \frac{-1}{\sqrt{1 - \cos(\vartheta_{ijk})^2}} \)<br  />
 </p>
 <p>for the calculation of the partial derivatives \( \frac{\partial \cos(\vartheta_{ijk})}{\vec{p_x}} \) see <a class="el" href="namespaceCDPL_1_1ForceField.html#aa9d04121cf48f54d95f3519b40e7b6d7" title="Calculates the partial derivatives  of the of the cosine of the angle  between the bonds i-j and j-k.">calcBondAngleCosDerivatives()</a>.</p>

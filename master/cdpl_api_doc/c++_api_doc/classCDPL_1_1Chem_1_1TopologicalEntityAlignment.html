@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html" title="TopologicalEntityAlignment.">TopologicalEntityAlignment</a>.  
+<p>Computes a topological alignment between two sets of entities by reducing the alignment problem to a maximum-common-subgraph search on a compatibility graph.  
  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TopologicalEntityAlignment_8hpp_source.html">TopologicalEntityAlignment.hpp</a>&gt;</code></p>
@@ -156,13 +156,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0090de2f8a6df2386f7317800a413d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for the next alignment solution and stores the corresponding mapping of the entities in the first set to the entities in the second set in the map provided as an argument.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c">More...</a><br /></td></tr>
 <tr class="separator:a0090de2f8a6df2386f7317800a413d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9cc8ed3bdf16ebb333f04b35cdd1f00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ab9cc8ed3bdf16ebb333f04b35cdd1f00">reset</a> ()</td></tr>
+<tr class="memdesc:ab9cc8ed3bdf16ebb333f04b35cdd1f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards the current alignment-search state so that the next call to <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> restarts the compatibility-graph search from scratch.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ab9cc8ed3bdf16ebb333f04b35cdd1f00">More...</a><br /></td></tr>
 <tr class="separator:ab9cc8ed3bdf16ebb333f04b35cdd1f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
 class CDPL::Chem::TopologicalEntityAlignment&lt; T &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html" title="TopologicalEntityAlignment.">TopologicalEntityAlignment</a>. </p>
+<p>Computes a topological alignment between two sets of entities by reducing the alignment problem to a maximum-common-subgraph search on a compatibility graph. </p>
+<p>The compatibility graph is built from the two stored entity sets: a node <code></code>(i, j) is created for every pair of entities that satisfies the optional EntityMatchFunction, and edges connect mutually compatible node pairs (compatibility being decided by the optional EntityPairMatchFunction, which always sees pairs whose first/second entities already match). Each call to <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> advances the underlying <a class="el" href="classCDPL_1_1Util_1_1BronKerboschAlgorithm.html" title="Implementation of the Bron-Kerbosch clique-detection algorithm [BKA].">Util::BronKerboschAlgorithm</a> one maximal clique forward and reports the corresponding entity mapping; <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ab9cc8ed3bdf16ebb333f04b35cdd1f00" title="Discards the current alignment-search state so that the next call to nextAlignment() restarts the com...">reset()</a> forces a fresh search on the next <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> call.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The entity type to align. </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a76162d530ab58cbb0cd049be008e7ef9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76162d530ab58cbb0cd049be008e7ef9">&#9670;&nbsp;</a></span>EntityType</h2>
@@ -651,6 +659,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Discards the current alignment-search state so that the next call to <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> restarts the compatibility-graph search from scratch. </p>
 
 </div>
 </div>
