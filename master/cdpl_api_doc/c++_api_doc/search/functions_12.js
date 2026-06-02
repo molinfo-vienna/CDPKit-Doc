@@ -626,7 +626,7 @@ var searchData=
   ['setsecondaryatomlabelfontparameter_13742',['setSecondaryAtomLabelFontParameter',['../namespaceCDPL_1_1Vis.html#a66b5cdf1df3e791abe9ec978d6c60fb7',1,'CDPL::Vis']]],
   ['setsecondaryatomlabelsize_13743',['setSecondaryAtomLabelSize',['../namespaceCDPL_1_1Vis.html#ae60325d216fda27a3c75074ed2693e1f',1,'CDPL::Vis']]],
   ['setsecondaryatomlabelsizeparameter_13744',['setSecondaryAtomLabelSizeParameter',['../namespaceCDPL_1_1Vis.html#a6957fb11b487c5936784fa3d6825177c',1,'CDPL::Vis']]],
-  ['setsecondarylabelfont_13745',['setSecondaryLabelFont',['../namespaceCDPL_1_1Vis.html#aac78b0085ec2f9a7a3b8ab34e12b5bcd',1,'CDPL::Vis']]],
+  ['setsecondarylabelfont_13745',['setSecondaryLabelFont',['../namespaceCDPL_1_1Vis.html#a9fd76b92f16b7b1f4fe6607f2455afb0',1,'CDPL::Vis']]],
   ['setsecondarylabelsize_13746',['setSecondaryLabelSize',['../namespaceCDPL_1_1Vis.html#a800830fa52df3bee3648bcf5945d9da1',1,'CDPL::Vis']]],
   ['setserialnumber_13747',['setSerialNumber',['../namespaceCDPL_1_1Biomol.html#a0ce8d5b736a43e91d4c7dadfa7228f97',1,'CDPL::Biomol']]],
   ['setshape_13748',['setShape',['../classCDPL_1_1Shape_1_1GaussianShapeFunction.html#a1e415cdeaab2970270e15c4d2baf332c',1,'CDPL::Shape::GaussianShapeFunction::setShape()'],['../namespaceCDPL_1_1Vis.html#a871fb55cf0c9e8c3f00cc4172a954623',1,'CDPL::Vis::setShape()']]],

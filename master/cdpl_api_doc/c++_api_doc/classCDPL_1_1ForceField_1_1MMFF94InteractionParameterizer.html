@@ -83,81 +83,120 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>One-stop MMFF94 parameterizer that combines atom typing, bond typing, partial-charge assignment and per-interaction-type parameter look-up into a single <code><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5f4ee750a1c2b592d0530fe5cea0564f" title="Parameterizes the MMFF94 force-field interactions for molgraph and stores them in ia_data.">parameterize()</a></code> call.  
+ <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="MMFF94InteractionParameterizer_8hpp_source.html">MMFF94InteractionParameterizer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a74e6eb3f95e6b98340b0c1dfb1644f50"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html">MMFF94InteractionParameterizer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a74e6eb3f95e6b98340b0c1dfb1644f50">SharedPointer</a></td></tr>
+<tr class="memdesc:a74e6eb3f95e6b98340b0c1dfb1644f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MMFF94InteractionParameterizer</code> instances.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a74e6eb3f95e6b98340b0c1dfb1644f50">More...</a><br /></td></tr>
 <tr class="separator:a74e6eb3f95e6b98340b0c1dfb1644f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4406f1b33d458de7d6dbd032c4b7262e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a4406f1b33d458de7d6dbd032c4b7262e">MMFF94InteractionParameterizer</a> (unsigned int param_set=<a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html#a07a32170ce3c8b3b8a5f84d6c4636746">MMFF94ParameterSet::STATIC</a>)</td></tr>
+<tr class="memdesc:a4406f1b33d458de7d6dbd032c4b7262e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the parameterizer with the default tables for the chosen MMFF94 parameter set.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a4406f1b33d458de7d6dbd032c4b7262e">More...</a><br /></td></tr>
 <tr class="separator:a4406f1b33d458de7d6dbd032c4b7262e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41761e4c865232cb9167672771e4d10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ae41761e4c865232cb9167672771e4d10">MMFF94InteractionParameterizer</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html">MMFF94InteractionParameterizer</a> &amp;parameterizer)</td></tr>
+<tr class="memdesc:ae41761e4c865232cb9167672771e4d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the parameterizer <em>parameterizer</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ae41761e4c865232cb9167672771e4d10">More...</a><br /></td></tr>
 <tr class="separator:ae41761e4c865232cb9167672771e4d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31a46d0723288d8c3331099c5bd0061a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a31a46d0723288d8c3331099c5bd0061a">setBondStretchingFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#afc88ed1c43aa1f0c02d4e9aabe3706ba">InteractionFilterFunction2</a> &amp;func)</td></tr>
+<tr class="memdesc:a31a46d0723288d8c3331099c5bd0061a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate bond-stretching interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a31a46d0723288d8c3331099c5bd0061a">More...</a><br /></td></tr>
 <tr class="separator:a31a46d0723288d8c3331099c5bd0061a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74a1a9ff501b3cc3c8f9349ea1a420ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a74a1a9ff501b3cc3c8f9349ea1a420ae">setAngleBendingFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#aa8c4e9451c5b421066c55ac067d743f1">InteractionFilterFunction3</a> &amp;func)</td></tr>
+<tr class="memdesc:a74a1a9ff501b3cc3c8f9349ea1a420ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate angle-bending interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a74a1a9ff501b3cc3c8f9349ea1a420ae">More...</a><br /></td></tr>
 <tr class="separator:a74a1a9ff501b3cc3c8f9349ea1a420ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a721c2820e927a6b2ce5830aec7059ff2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a721c2820e927a6b2ce5830aec7059ff2">setStretchBendFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#aa8c4e9451c5b421066c55ac067d743f1">InteractionFilterFunction3</a> &amp;func)</td></tr>
+<tr class="memdesc:a721c2820e927a6b2ce5830aec7059ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate stretch-bend interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a721c2820e927a6b2ce5830aec7059ff2">More...</a><br /></td></tr>
 <tr class="separator:a721c2820e927a6b2ce5830aec7059ff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0b116a953a9bcd381b23578f7cf3099"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#aa0b116a953a9bcd381b23578f7cf3099">setOutOfPlaneBendingFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#acdbdfc6a2dd97c5c705c7db86c681827">InteractionFilterFunction4</a> &amp;func)</td></tr>
+<tr class="memdesc:aa0b116a953a9bcd381b23578f7cf3099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate out-of-plane bending interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#aa0b116a953a9bcd381b23578f7cf3099">More...</a><br /></td></tr>
 <tr class="separator:aa0b116a953a9bcd381b23578f7cf3099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d13ea274c38be850faf80c207d6ed51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a0d13ea274c38be850faf80c207d6ed51">setTorsionFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#acdbdfc6a2dd97c5c705c7db86c681827">InteractionFilterFunction4</a> &amp;func)</td></tr>
+<tr class="memdesc:a0d13ea274c38be850faf80c207d6ed51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate torsion interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a0d13ea274c38be850faf80c207d6ed51">More...</a><br /></td></tr>
 <tr class="separator:a0d13ea274c38be850faf80c207d6ed51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8badbc5663440dcd98a8d4cf126af36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#af8badbc5663440dcd98a8d4cf126af36">setElectrostaticFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#afc88ed1c43aa1f0c02d4e9aabe3706ba">InteractionFilterFunction2</a> &amp;func)</td></tr>
+<tr class="memdesc:af8badbc5663440dcd98a8d4cf126af36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate electrostatic interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#af8badbc5663440dcd98a8d4cf126af36">More...</a><br /></td></tr>
 <tr class="separator:af8badbc5663440dcd98a8d4cf126af36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d667527a8bca5e910dc27359d66dfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#aa2d667527a8bca5e910dc27359d66dfd">setVanDerWaalsFilterFunction</a> (const <a class="el" href="namespaceCDPL_1_1ForceField.html#afc88ed1c43aa1f0c02d4e9aabe3706ba">InteractionFilterFunction2</a> &amp;func)</td></tr>
+<tr class="memdesc:aa2d667527a8bca5e910dc27359d66dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs a filter that decides whether a candidate van-der-Waals interaction is kept.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#aa2d667527a8bca5e910dc27359d66dfd">More...</a><br /></td></tr>
 <tr class="separator:aa2d667527a8bca5e910dc27359d66dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d5a040a81db3c64368aca00eefcab49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a0d5a040a81db3c64368aca00eefcab49">clearFilterFunctions</a> ()</td></tr>
+<tr class="memdesc:a0d5a040a81db3c64368aca00eefcab49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes every previously installed interaction-filter function.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a0d5a040a81db3c64368aca00eefcab49">More...</a><br /></td></tr>
 <tr class="separator:a0d5a040a81db3c64368aca00eefcab49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af135ccaa60aa8c5c6c3e4655dff54fb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#af135ccaa60aa8c5c6c3e4655dff54fb7">setSymbolicAtomTypePatternTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94SymbolicAtomTypePatternTable.html#a20b8e3e924e6e404c001a4d789890237">MMFF94SymbolicAtomTypePatternTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:af135ccaa60aa8c5c6c3e4655dff54fb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the symbolic-atom-type pattern table to use during atom typing.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#af135ccaa60aa8c5c6c3e4655dff54fb7">More...</a><br /></td></tr>
 <tr class="separator:af135ccaa60aa8c5c6c3e4655dff54fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac621225b38c24022f3a83dbb4128ecdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ac621225b38c24022f3a83dbb4128ecdf">setHeavyToHydrogenAtomTypeMap</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a49007a37a93833199f55ceede547e002">MMFF94HeavyToHydrogenAtomTypeMap::SharedPointer</a> &amp;map)</td></tr>
+<tr class="memdesc:ac621225b38c24022f3a83dbb4128ecdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the heavy-to-hydrogen atom-type map used to derive hydrogen atom types from their non-hydrogen neighbors.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ac621225b38c24022f3a83dbb4128ecdf">More...</a><br /></td></tr>
 <tr class="separator:ac621225b38c24022f3a83dbb4128ecdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a025b572f9fc121f11329d5efee69c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a2a025b572f9fc121f11329d5efee69c5">setSymbolicToNumericAtomTypeMap</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94SymbolicToNumericAtomTypeMap.html#aeb400cee4b35accd648076a7f74261ed">MMFF94SymbolicToNumericAtomTypeMap::SharedPointer</a> &amp;map)</td></tr>
+<tr class="memdesc:a2a025b572f9fc121f11329d5efee69c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the symbolic-to-numeric atom-type map used to convert symbolic types to numeric ones.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a2a025b572f9fc121f11329d5efee69c5">More...</a><br /></td></tr>
 <tr class="separator:a2a025b572f9fc121f11329d5efee69c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a766c0a246aaa2e6142e35cf7173b4d8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a766c0a246aaa2e6142e35cf7173b4d8a">setAromaticAtomTypeDefinitionTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AromaticAtomTypeDefinitionTable.html#a7db854bb6894a0fbc2eb45189c5e4b56">MMFF94AromaticAtomTypeDefinitionTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a766c0a246aaa2e6142e35cf7173b4d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the aromatic-atom-type definition table used to override types of aromatic atoms.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a766c0a246aaa2e6142e35cf7173b4d8a">More...</a><br /></td></tr>
 <tr class="separator:a766c0a246aaa2e6142e35cf7173b4d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd888a393f7327a8c0deac6dde8c08d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#acd888a393f7327a8c0deac6dde8c08d2">setAtomTypePropertyTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AtomTypePropertyTable.html#a679de6da7ccc82f1348dd9a654501b9a">MMFF94AtomTypePropertyTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:acd888a393f7327a8c0deac6dde8c08d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the atom-type property table used to resolve per-numeric-type properties.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#acd888a393f7327a8c0deac6dde8c08d2">More...</a><br /></td></tr>
 <tr class="separator:acd888a393f7327a8c0deac6dde8c08d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96dd4abe08ec28bbe8a3134ee94f72c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a96dd4abe08ec28bbe8a3134ee94f72c5">setFormalAtomChargeDefinitionTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94FormalAtomChargeDefinitionTable.html#ae7eeed369ca3d6c769a9f47ba7c5b9d8">MMFF94FormalAtomChargeDefinitionTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a96dd4abe08ec28bbe8a3134ee94f72c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the formal-atomic-charge definition table used during charge assignment.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a96dd4abe08ec28bbe8a3134ee94f72c5">More...</a><br /></td></tr>
 <tr class="separator:a96dd4abe08ec28bbe8a3134ee94f72c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8127606ab8fe2a10586c9762a4b790e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a8127606ab8fe2a10586c9762a4b790e5">setBondChargeIncrementTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondChargeIncrementTable.html#ae9f159a6480a633abe650c63d6a01232">MMFF94BondChargeIncrementTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a8127606ab8fe2a10586c9762a4b790e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bond charge-increment table used during partial-charge calculation.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a8127606ab8fe2a10586c9762a4b790e5">More...</a><br /></td></tr>
 <tr class="separator:a8127606ab8fe2a10586c9762a4b790e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2b0ad07ab8f25f32ec7e099f48f56f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ad2b0ad07ab8f25f32ec7e099f48f56f9">setPartialBondChargeIncrementTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a973b7f27cfa27e4b63bef949f01f0f78">MMFF94PartialBondChargeIncrementTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:ad2b0ad07ab8f25f32ec7e099f48f56f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the partial bond charge-increment table used during partial-charge calculation.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ad2b0ad07ab8f25f32ec7e099f48f56f9">More...</a><br /></td></tr>
 <tr class="separator:ad2b0ad07ab8f25f32ec7e099f48f56f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaabc4a5ec766ff1927d3b34d738d747"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#adaabc4a5ec766ff1927d3b34d738d747">setPrimaryToParameterAtomTypeMap</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PrimaryToParameterAtomTypeMap.html#a446fc72d144def8c3716417d54228ee6">MMFF94PrimaryToParameterAtomTypeMap::SharedPointer</a> &amp;map)</td></tr>
+<tr class="memdesc:adaabc4a5ec766ff1927d3b34d738d747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the primary-to-parameter atom-type map used by the parameter look-ups.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#adaabc4a5ec766ff1927d3b34d738d747">More...</a><br /></td></tr>
 <tr class="separator:adaabc4a5ec766ff1927d3b34d738d747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16d831971ef377096dec4cab709a75b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a16d831971ef377096dec4cab709a75b0">setAngleBendingParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#af513d36c2d739d30e316e8ed688d30d3">MMFF94AngleBendingParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a16d831971ef377096dec4cab709a75b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the angle-bending parameter table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a16d831971ef377096dec4cab709a75b0">More...</a><br /></td></tr>
 <tr class="separator:a16d831971ef377096dec4cab709a75b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eac40425d98e2c0efc847b3056f1f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a8eac40425d98e2c0efc847b3056f1f69">setBondStretchingParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#ac2af703f4e5b5e451d23cbe2925c3186">MMFF94BondStretchingParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a8eac40425d98e2c0efc847b3056f1f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bond-stretching parameter table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a8eac40425d98e2c0efc847b3056f1f69">More...</a><br /></td></tr>
 <tr class="separator:a8eac40425d98e2c0efc847b3056f1f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad998faa15b0d4938d49c7798219721f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ad998faa15b0d4938d49c7798219721f6">setBondStretchingRuleParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#ab47f271cc01038aed7f0db0103eb8497">MMFF94BondStretchingRuleParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:ad998faa15b0d4938d49c7798219721f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bond-stretching rule parameter table used as a fallback when no explicit bond-stretching entry is available.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ad998faa15b0d4938d49c7798219721f6">More...</a><br /></td></tr>
 <tr class="separator:ad998faa15b0d4938d49c7798219721f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad10e3feb01b222884d2947fd91c3ad41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ad10e3feb01b222884d2947fd91c3ad41">setStretchBendParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94StretchBendParameterTable.html#a7f8999e4897f5671db83059ab34b078d">MMFF94StretchBendParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:ad10e3feb01b222884d2947fd91c3ad41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the stretch-bend parameter table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ad10e3feb01b222884d2947fd91c3ad41">More...</a><br /></td></tr>
 <tr class="separator:ad10e3feb01b222884d2947fd91c3ad41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5844d48348a4219be31db36bd4c22f1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5844d48348a4219be31db36bd4c22f1e">setDefaultStretchBendParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a9ab1f9fcd7a84abda17a0aec4b988baf">MMFF94DefaultStretchBendParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a5844d48348a4219be31db36bd4c22f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default stretch-bend parameter table used as a periodic-row fallback.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5844d48348a4219be31db36bd4c22f1e">More...</a><br /></td></tr>
 <tr class="separator:a5844d48348a4219be31db36bd4c22f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a393cea8df99b14a544a0a5fdad701552"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a393cea8df99b14a544a0a5fdad701552">setOutOfPlaneBendingParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#aeff2b74a5ceff8c2db1ddb158c201d52">MMFF94OutOfPlaneBendingParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:a393cea8df99b14a544a0a5fdad701552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the out-of-plane bending parameter table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a393cea8df99b14a544a0a5fdad701552">More...</a><br /></td></tr>
 <tr class="separator:a393cea8df99b14a544a0a5fdad701552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb4527b40e22bbbde595229b47a2ddd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#afb4527b40e22bbbde595229b47a2ddd9">setTorsionParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a244798ce0f11b8931281edc4dd55e852">MMFF94TorsionParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:afb4527b40e22bbbde595229b47a2ddd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the torsion parameter table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#afb4527b40e22bbbde595229b47a2ddd9">More...</a><br /></td></tr>
 <tr class="separator:afb4527b40e22bbbde595229b47a2ddd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5dcd89d69c15c015fc7e58d12ef6347"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ae5dcd89d69c15c015fc7e58d12ef6347">setVanDerWaalsParameterTable</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a9f9fb57180aa0ba440668d02e62dbf3d">MMFF94VanDerWaalsParameterTable::SharedPointer</a> &amp;table)</td></tr>
+<tr class="memdesc:ae5dcd89d69c15c015fc7e58d12ef6347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the van-der-Waals parameter table to use.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ae5dcd89d69c15c015fc7e58d12ef6347">More...</a><br /></td></tr>
 <tr class="separator:ae5dcd89d69c15c015fc7e58d12ef6347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d5971776bb49797ddf2e9104185be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a39d5971776bb49797ddf2e9104185be1">setDielectricConstant</a> (double de_const)</td></tr>
+<tr class="memdesc:a39d5971776bb49797ddf2e9104185be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the dielectric constant used by the electrostatic interaction parameterizer.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a39d5971776bb49797ddf2e9104185be1">More...</a><br /></td></tr>
 <tr class="separator:a39d5971776bb49797ddf2e9104185be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48600316e3ad15ddd45d175fcab97d42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a48600316e3ad15ddd45d175fcab97d42">setDistanceExponent</a> (double dist_expo)</td></tr>
+<tr class="memdesc:a48600316e3ad15ddd45d175fcab97d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the distance exponent used by the electrostatic interaction parameterizer.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a48600316e3ad15ddd45d175fcab97d42">More...</a><br /></td></tr>
 <tr class="separator:a48600316e3ad15ddd45d175fcab97d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7be787b5dee3e50aa488e4148f66264"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ab7be787b5dee3e50aa488e4148f66264">setParameterSet</a> (unsigned int param_set)</td></tr>
+<tr class="memdesc:ab7be787b5dee3e50aa488e4148f66264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the active MMFF94 parameter-set variant and reinstalls the matching default tables.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ab7be787b5dee3e50aa488e4148f66264">More...</a><br /></td></tr>
 <tr class="separator:ab7be787b5dee3e50aa488e4148f66264"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ac59a2dc229d731876a87c129d2f801"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html">MMFF94InteractionParameterizer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a7ac59a2dc229d731876a87c129d2f801">operator=</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html">MMFF94InteractionParameterizer</a> &amp;parameterizer)</td></tr>
+<tr class="memdesc:a7ac59a2dc229d731876a87c129d2f801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the state of <em>parameterizer</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a7ac59a2dc229d731876a87c129d2f801">More...</a><br /></td></tr>
 <tr class="separator:a7ac59a2dc229d731876a87c129d2f801"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f4ee750a1c2b592d0530fe5cea0564f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5f4ee750a1c2b592d0530fe5cea0564f">parameterize</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem::MolecularGraph</a> &amp;molgraph, <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a> &amp;ia_data, unsigned int ia_types=<a class="el" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a5c7e963acf889f35caddd93033ad1103">InteractionType::ALL</a>, <a class="el" href="classbool.html">bool</a> strict=true)</td></tr>
+<tr class="memdesc:a5f4ee750a1c2b592d0530fe5cea0564f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameterizes the MMFF94 force-field interactions for <em>molgraph</em> and stores them in <em>ia_data</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5f4ee750a1c2b592d0530fe5cea0564f">More...</a><br /></td></tr>
 <tr class="separator:a5f4ee750a1c2b592d0530fe5cea0564f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>One-stop MMFF94 parameterizer that combines atom typing, bond typing, partial-charge assignment and per-interaction-type parameter look-up into a single <code><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5f4ee750a1c2b592d0530fe5cea0564f" title="Parameterizes the MMFF94 force-field interactions for molgraph and stores them in ia_data.">parameterize()</a></code> call. </p>
+<p>The constructor installs default parameter tables and atom-/bond-typing helpers for the selected <a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides flags for the specification of the MMFF94 parameter set to use.">ForceField::MMFF94ParameterSet</a> variant (<code>STATIC</code>, <code>DYNAMIC</code>, etc.); every table, map and filter function can be overridden via the corresponding setter. Calling <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a5f4ee750a1c2b592d0530fe5cea0564f" title="Parameterizes the MMFF94 force-field interactions for molgraph and stores them in ia_data.">parameterize()</a> runs atom typing, bond typing, formal/partial-charge assignment, aromaticity perception and topological-distance calculation, then dispatches to the seven per-interaction MMFF94*InteractionParameterizer members and stores the resulting interaction lists in the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField::MMFF94InteractionData</a> object. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a74e6eb3f95e6b98340b0c1dfb1644f50"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a74e6eb3f95e6b98340b0c1dfb1644f50">&#9670;&nbsp;</a></span>SharedPointer</h2>
 
@@ -169,6 +208,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MMFF94InteractionParameterizer</code> instances. </p>
 
 </div>
 </div>
@@ -189,6 +230,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs the parameterizer with the default tables for the chosen MMFF94 parameter set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param_set</td><td>The parameter-set variant (see namespace <a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides flags for the specification of the MMFF94 parameter set to use.">ForceField::MMFF94ParameterSet</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ae41761e4c865232cb9167672771e4d10"></a>
@@ -206,6 +255,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a copy of the parameterizer <em>parameterizer</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameterizer</td><td>The parameterizer to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -226,6 +283,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Installs a filter that decides whether a candidate bond-stretching interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a74a1a9ff501b3cc3c8f9349ea1a420ae"></a>
@@ -243,6 +308,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Installs a filter that decides whether a candidate angle-bending interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -262,6 +335,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Installs a filter that decides whether a candidate stretch-bend interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aa0b116a953a9bcd381b23578f7cf3099"></a>
@@ -279,6 +360,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Installs a filter that decides whether a candidate out-of-plane bending interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -298,6 +387,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Installs a filter that decides whether a candidate torsion interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af8badbc5663440dcd98a8d4cf126af36"></a>
@@ -315,6 +412,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Installs a filter that decides whether a candidate electrostatic interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -334,6 +439,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Installs a filter that decides whether a candidate van-der-Waals interaction is kept. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>The filter functor (returns <code>true</code> to keep the interaction). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0d5a040a81db3c64368aca00eefcab49"></a>
@@ -350,6 +463,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes every previously installed interaction-filter function. </p>
 
 </div>
 </div>
@@ -369,6 +484,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the symbolic-atom-type pattern table to use during atom typing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new symbolic-atom-type pattern table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac621225b38c24022f3a83dbb4128ecdf"></a>
@@ -386,6 +509,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the heavy-to-hydrogen atom-type map used to derive hydrogen atom types from their non-hydrogen neighbors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>The new heavy-to-hydrogen atom-type map. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -405,6 +536,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the symbolic-to-numeric atom-type map used to convert symbolic types to numeric ones. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>The new symbolic-to-numeric atom-type map. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a766c0a246aaa2e6142e35cf7173b4d8a"></a>
@@ -422,6 +561,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the aromatic-atom-type definition table used to override types of aromatic atoms. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new aromatic-atom-type definition table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -441,6 +588,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the atom-type property table used to resolve per-numeric-type properties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new atom-type property table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a96dd4abe08ec28bbe8a3134ee94f72c5"></a>
@@ -458,6 +613,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the formal-atomic-charge definition table used during charge assignment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new formal-atomic-charge definition table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -477,6 +640,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the bond charge-increment table used during partial-charge calculation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new bond-charge-increment table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad2b0ad07ab8f25f32ec7e099f48f56f9"></a>
@@ -494,6 +665,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the partial bond charge-increment table used during partial-charge calculation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new partial-bond-charge-increment table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -513,6 +692,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the primary-to-parameter atom-type map used by the parameter look-ups. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>The new primary-to-parameter atom-type map. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a16d831971ef377096dec4cab709a75b0"></a>
@@ -530,6 +717,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the angle-bending parameter table to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new angle-bending parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -549,6 +744,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the bond-stretching parameter table to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new bond-stretching parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ad998faa15b0d4938d49c7798219721f6"></a>
@@ -566,6 +769,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the bond-stretching rule parameter table used as a fallback when no explicit bond-stretching entry is available. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new bond-stretching rule parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -585,6 +796,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the stretch-bend parameter table to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new stretch-bend parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5844d48348a4219be31db36bd4c22f1e"></a>
@@ -602,6 +821,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the default stretch-bend parameter table used as a periodic-row fallback. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new default stretch-bend parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -621,6 +848,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the out-of-plane bending parameter table to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new out-of-plane bending parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afb4527b40e22bbbde595229b47a2ddd9"></a>
@@ -638,6 +873,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the torsion parameter table to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new torsion parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -657,6 +900,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the van-der-Waals parameter table to use. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>The new van-der-Waals parameter table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a39d5971776bb49797ddf2e9104185be1"></a>
@@ -674,6 +925,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the dielectric constant used by the electrostatic interaction parameterizer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">de_const</td><td>The new dielectric constant. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -693,6 +952,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the distance exponent used by the electrostatic interaction parameterizer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist_expo</td><td>The new distance exponent. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab7be787b5dee3e50aa488e4148f66264"></a>
@@ -711,6 +978,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Switches the active MMFF94 parameter-set variant and reinstalls the matching default tables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param_set</td><td>The new parameter-set variant (see namespace <a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides flags for the specification of the MMFF94 parameter set to use.">ForceField::MMFF94ParameterSet</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7ac59a2dc229d731876a87c129d2f801"></a>
@@ -728,6 +1003,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Copies the state of <em>parameterizer</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameterizer</td><td>The parameterizer to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 
 </div>
 </div>
@@ -768,6 +1052,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parameterizes the MMFF94 force-field interactions for <em>molgraph</em> and stores them in <em>ia_data</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph to parameterize. </td></tr>
+    <tr><td class="paramname">ia_data</td><td>The output container receiving the perceived interactions. </td></tr>
+    <tr><td class="paramname">ia_types</td><td>A bitmask of <a class="el" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html" title="Provides flags for the specification of a set of force field interaction types.">ForceField::InteractionType</a> flags selecting which interaction types are parameterized. </td></tr>
+    <tr><td class="paramname">strict</td><td>If <code>true</code>, the parameterization fails when any required parameter is missing; otherwise fallback strategies (rule-based parameters, default values) are used. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

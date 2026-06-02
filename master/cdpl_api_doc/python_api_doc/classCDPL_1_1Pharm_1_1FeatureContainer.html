@@ -114,7 +114,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a1f3d8acf37208059f548e70a90076114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orders the stored features according to criteria implemented by the provided feature comparison function.  <a href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a1f3d8acf37208059f548e70a90076114">More...</a><br /></td></tr>
 <tr class="separator:a1f3d8acf37208059f548e70a90076114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97737d896f6fee7f95010c704dd9f521"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html">Chem.Entity3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a97737d896f6fee7f95010c704dd9f521">getEntity</a> (int idx)</td></tr>
-<tr class="memdesc:a97737d896f6fee7f95010c704dd9f521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entity at index <em>idx</em>.  <a href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a97737d896f6fee7f95010c704dd9f521">More...</a><br /></td></tr>
+<tr class="memdesc:a97737d896f6fee7f95010c704dd9f521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html" title="Base class for objects that have a position in 3D space (e.g.">Chem.Entity3D</a> at index <em>idx</em>.  <a href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a97737d896f6fee7f95010c704dd9f521">More...</a><br /></td></tr>
 <tr class="separator:a97737d896f6fee7f95010c704dd9f521"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a201a38a29489139e703532f5c7014b4e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a201a38a29489139e703532f5c7014b4e">getNumEntities</a> ()</td></tr>
 <tr class="memdesc:a201a38a29489139e703532f5c7014b4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html" title="Base class for objects that have a position in 3D space (e.g.">Chem.Entity3D</a> objects.  <a href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a201a38a29489139e703532f5c7014b4e">More...</a><br /></td></tr>
@@ -377,17 +377,18 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the entity at index <em>idx</em>. </p>
+<p>Returns a reference to the <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html" title="Base class for objects that have a position in 3D space (e.g.">Chem.Entity3D</a> at index <em>idx</em>. </p>
+<p>Forwards to <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html#ad3dfdf990744f1a208225306b3b9bcb4" title="Returns a reference to the pharmacophore feature at index idx.">getFeature()</a> and exists to satisfy the <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html" title="A common interface for data-structures that support a random access to stored Chem....">Chem.Entity3DContainer</a> interface.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based index of the <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html" title="Base class for objects that have a position in 3D space (e.g.">Chem.Entity3D</a> instance to return.</td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based entity index.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the entity at the specified index.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of entities is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html#a201a38a29489139e703532f5c7014b4e" title="Returns the number of stored Chem.Entity3D objects.">getNumEntities()</a> - 1]. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if the number of features is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html#ade70268021c0cc035fe4046d2e84249f" title="Returns the number of contained features.">getNumFeatures()</a> - 1]. </td></tr>
   </table>
   </dd>
 </dl>
@@ -414,7 +415,8 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the number of stored <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html" title="Base class for objects that have a position in 3D space (e.g.">Chem.Entity3D</a> objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of stored <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html" title="Base class for objects that have a position in 3D space (e.g.">Chem.Entity3D</a> objects. </dd></dl>
+<p>Forwards to <a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html#ade70268021c0cc035fe4046d2e84249f" title="Returns the number of contained features.">getNumFeatures()</a> and exists to satisfy the <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html" title="A common interface for data-structures that support a random access to stored Chem....">Chem.Entity3DContainer</a> interface.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of contained features. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html#a8b4eb25c2ab947a964759bd4698094ca">CDPL.Chem.Entity3DContainer</a>.</p>
 
