@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>An interface that provides methods for low level 2D drawing operations.  
+<p>Interface providing methods for low level 2D drawing operations.  
  <a href="classCDPL_1_1Vis_1_1Renderer2D.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Renderer2D_8hpp_source.html">Renderer2D.hpp</a>&gt;</code></p>
@@ -149,13 +149,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a63d92ce761d97c88549731058ea04402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the specified text at the position <em>(x, y)</em>.  <a href="classCDPL_1_1Vis_1_1Renderer2D.html#a63d92ce761d97c88549731058ea04402">More...</a><br /></td></tr>
 <tr class="separator:a63d92ce761d97c88549731058ea04402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb1790e4dfd5ade771f681522c54287a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#afb1790e4dfd5ade771f681522c54287a">setClipPath</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html">Path2D</a> &amp;path)=0</td></tr>
+<tr class="memdesc:afb1790e4dfd5ade771f681522c54287a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables clipping and establishes a new clip region.  <a href="classCDPL_1_1Vis_1_1Renderer2D.html#afb1790e4dfd5ade771f681522c54287a">More...</a><br /></td></tr>
 <tr class="separator:afb1790e4dfd5ade771f681522c54287a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af44e235b3ef30b9f7d05dcdff5aaffe9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#af44e235b3ef30b9f7d05dcdff5aaffe9">clearClipPath</a> ()=0</td></tr>
 <tr class="memdesc:af44e235b3ef30b9f7d05dcdff5aaffe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables clipping.  <a href="classCDPL_1_1Vis_1_1Renderer2D.html#af44e235b3ef30b9f7d05dcdff5aaffe9">More...</a><br /></td></tr>
 <tr class="separator:af44e235b3ef30b9f7d05dcdff5aaffe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interface that provides methods for low level 2D drawing operations. </p>
+<div class="textblock"><p>Interface providing methods for low level 2D drawing operations. </p>
 <p>For the drawing of graphical primitives the following methods are provided:</p><ul>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#af63c706cb77b35448824ffadc8aa86a2" title="Draws a point at the position (x, y).">drawPoint()</a> for drawing points</li>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a6a63f38bbaafa1357750719d3d229f6a" title="Draws a line segment from (x1, y1) to (x2, y2).">drawLine()</a> for drawing single line segments</li>
@@ -166,7 +167,7 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a9185a691b98cd4b240d938151bc34122" title="Draws the given path.">drawPath()</a> for drawing arbitrary shapes</li>
 <li>and <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a63d92ce761d97c88549731058ea04402" title="Draws the specified text at the position (x, y).">drawText()</a> for drawing text</li>
 </ul>
-<p>Drawing operations can be clipped to arbitrary shapes defined by a <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html" title="Provides a container for painting operations, enabling arbitrary graphical shapes to be constructed a...">Vis::Path2D</a> object. A new clip region is set by calling the method <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#afb1790e4dfd5ade771f681522c54287a">setClipPath()</a> and disabled by calling <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#af44e235b3ef30b9f7d05dcdff5aaffe9" title="Disables clipping.">clearClipPath()</a>.</p>
+<p>Drawing operations can be clipped to arbitrary shapes defined by a <a class="el" href="classCDPL_1_1Vis_1_1Path2D.html" title="Provides a container for painting operations, enabling arbitrary graphical shapes to be constructed a...">Vis::Path2D</a> object. A new clip region is set by calling the method <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#afb1790e4dfd5ade771f681522c54287a" title="Enables clipping and establishes a new clip region.">setClipPath()</a> and disabled by calling <a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#af44e235b3ef30b9f7d05dcdff5aaffe9" title="Disables clipping.">clearClipPath()</a>.</p>
 <p>Coordinates of points that define the geometry of graphical primitives are normally directly mapped to the coordinate system of the drawing device (e.g. an off-screen image buffer). This 1:1 mapping can be changed by applying affine transformations to the input coordinates.</p>
 <p>Affine coordinate transformations can be specified by calling the methods:</p><ul>
 <li><a class="el" href="classCDPL_1_1Vis_1_1Renderer2D.html#a5f79e8324ff2190a698fd0d3afeb00fd" title="Sets the applied affine transformation matrix to xform.">setTransform()</a></li>
@@ -917,6 +918,15 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Enables clipping and establishes a new clip region. </p>
+<p>The set clip region will affect all drawing operations by effectively masking out any changes to the drawing surface that are outside of the specified region.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The path specifying the shape of the clip region. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Vis_1_1QtRenderer2D.html#ace302a3827ae3ab243f880125fccb7a7">CDPL::Vis::QtRenderer2D</a>, and <a class="el" href="classCDPL_1_1Vis_1_1CairoRenderer2D.html#ac7a5f3579b9bf4c80850cc7c5b8238ce">CDPL::Vis::CairoRenderer2D</a>.</p>
 

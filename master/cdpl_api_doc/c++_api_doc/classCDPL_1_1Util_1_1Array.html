@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A dynamic array class providing amortized constant time access to arbitrary elements.  
+<p>Dynamic array class providing amortized constant time access to arbitrary elements.  
  <a href="classCDPL_1_1Util_1_1Array.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Array_8hpp_source.html">Array.hpp</a>&gt;</code></p>
@@ -301,7 +301,7 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ValueType&gt;<br />
 class CDPL::Util::Array&lt; ValueType &gt;</h3>
 
-<p>A dynamic array class providing amortized constant time access to arbitrary elements. </p>
+<p>Dynamic array class providing amortized constant time access to arbitrary elements. </p>
 <p><code>Array</code> is essentially a wrapper around <code>std::vector</code> and provides similar (but differently named) methods with the same semantics. Therefore, <code>Array</code> also models a sequence that supports random access to elements, constant time insertion and removal of elements at the end, and linear time insertion and removal of elements at the beginning or in the middle. The number of elements in the array may vary dynamically and memory management is done automatically. However, in contrast to a STL vector, <code>Array</code> provides a virtual destructor which makes it safe to use <code>Array</code> as a public base class. Furthermore, element indices and iterators are generally checked for validity which makes data access safer and bugs easier to detect.</p>
 <dl class="section note"><dt>Note</dt><dd>Memory will be reallocated automatically if the current capacity of the array is exceeded. Reallocation does not change the size nor does it change the values of any elements in the array. However, reallocation invalidates any iterators that point into the array and accessing an element via an invalid iterator results in undefined behaviour. To avoid a memory reallocation, <a class="el" href="classCDPL_1_1Util_1_1Array.html#a1d3d9d915dc0d71b4b8d18338f13549c" title="Preallocates memory for (at least) num_elem elements.">reserve()</a> can be used to allocate enough memory in advance.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -397,7 +397,7 @@ template&lt;typename ValueType &gt; </div>
 
 <p>Specifies for derived classes the type of the <code>Array</code> base class. </p>
 <p>In this case, the base class is <code>Array</code> itself.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1IndirectArray.html" title="A dynamic array class for the storage of object pointers with an indirected query interface.">Util::IndirectArray</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1IndirectArray.html" title="Dynamic array class for the storage of object pointers with an indirected query interface.">Util::IndirectArray</a> </dd></dl>
 
 </div>
 </div>
@@ -683,7 +683,7 @@ template&lt;typename ValueType &gt; </div>
 
 <p>Returns a non-<code>const</code> reference to itself. </p>
 <dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to itself. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1IndirectArray.html" title="A dynamic array class for the storage of object pointers with an indirected query interface.">Util::IndirectArray</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1IndirectArray.html" title="Dynamic array class for the storage of object pointers with an indirected query interface.">Util::IndirectArray</a> </dd></dl>
 
 </div>
 </div>
@@ -703,7 +703,7 @@ template&lt;typename ValueType &gt; </div>
 
 <p>Returns a <code>const</code> reference to itself. </p>
 <dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to itself. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1IndirectArray.html" title="A dynamic array class for the storage of object pointers with an indirected query interface.">Util::IndirectArray</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Util_1_1IndirectArray.html" title="Dynamic array class for the storage of object pointers with an indirected query interface.">Util::IndirectArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2137,7 +2137,7 @@ template&lt;typename ValueType &gt; </div>
 <div class="line">      <span class="keywordflow">return</span> <span class="stringliteral">&quot;MyArray&quot;</span>;</div>
 <div class="line">   }</div>
 <div class="line">};</div>
-<div class="ttc" id="aclassCDPL_1_1Util_1_1Array_html"><div class="ttname"><a href="classCDPL_1_1Util_1_1Array.html">CDPL::Util::Array</a></div><div class="ttdoc">A dynamic array class providing amortized constant time access to arbitrary elements.</div><div class="ttdef"><b>Definition:</b> Array.hpp:92</div></div>
+<div class="ttc" id="aclassCDPL_1_1Util_1_1Array_html"><div class="ttname"><a href="classCDPL_1_1Util_1_1Array.html">CDPL::Util::Array</a></div><div class="ttdoc">Dynamic array class providing amortized constant time access to arbitrary elements.</div><div class="ttdef"><b>Definition:</b> Array.hpp:92</div></div>
 <div class="ttc" id="aclassCDPL_1_1Util_1_1Array_html_a0f8a06b8703c4519b8c400620ba4a9b1"><div class="ttname"><a href="classCDPL_1_1Util_1_1Array.html#a0f8a06b8703c4519b8c400620ba4a9b1">CDPL::Util::Array::getClassName</a></div><div class="ttdeci">virtual const char * getClassName() const</div><div class="ttdoc">Returns the name of the (derived) array class.</div><div class="ttdef"><b>Definition:</b> Array.hpp:1050</div></div>
 </div><!-- fragment --><p>If, for example, the index in an element access is out of bounds, the error message of the thrown <a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a> will now start with "MyArray: ...." instead of the default "Array: ....". This small difference already makes the message much more informative and the bug easier to locate.</p>
 <dl class="section return"><dt>Returns</dt><dd>The name of the class as a C-string. </dd></dl>

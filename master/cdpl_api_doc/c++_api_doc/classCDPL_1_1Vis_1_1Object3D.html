@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html" title="Object3D.">Object3D</a>.  
+<p>Hierarchical 3D scene object that owns a list of nested sub-objects and inherits its property bag from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html" title="Base class providing methods for the storage and lookup of object properties.">Base::PropertyContainer</a>.  
  <a href="classCDPL_1_1Vis_1_1Object3D.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Object3D_8hpp_source.html">Object3D.hpp</a>&gt;</code></p>
@@ -103,7 +103,7 @@ Public Types</h2></td></tr>
 <tr class="separator:a240b6595c30f44421bb965b0554b622a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1PropertyContainer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html">CDPL::Base::PropertyContainer</a></td></tr>
 <tr class="memitem:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">typedef PropertyMap::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#acc027f2de46dabd56830a522690efac9">PropertyEntry</a></td></tr>
-<tr class="memdesc:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="classCDPL_1_1Base_1_1LookupKey.html" title="An unique lookup key for control-parameter and property values.">Base::LookupKey</a> / <a class="el" href="classCDPL_1_1Base_1_1Any.html" title="A safe, type checked container for arbitrary data of variable type.">Base::Any</a> pair that stores the property value for a given property key.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#acc027f2de46dabd56830a522690efac9">More...</a><br /></td></tr>
+<tr class="memdesc:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="classCDPL_1_1Base_1_1LookupKey.html" title="Unique lookup key for control-parameter and property values.">Base::LookupKey</a> / <a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Base::Any</a> pair that stores the property value for a given property key.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#acc027f2de46dabd56830a522690efac9">More...</a><br /></td></tr>
 <tr class="separator:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39a6504972478d4fa267691549f0d241 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">typedef PropertyMap::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#a39a6504972478d4fa267691549f0d241">ConstPropertyIterator</a></td></tr>
 <tr class="memdesc:a39a6504972478d4fa267691549f0d241 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant iterator used to iterate over the property entries.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#a39a6504972478d4fa267691549f0d241">More...</a><br /></td></tr>
@@ -124,8 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab918712507896315b586562dba22449e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="classCDPL_1_1Vis_1_1Object3D.html#ab918712507896315b586562dba22449e">More...</a><br /></td></tr>
 <tr class="separator:ab918712507896315b586562dba22449e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefafe0d3153fe083ccda185870adc69a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aefafe0d3153fe083ccda185870adc69a">clear</a> ()</td></tr>
+<tr class="memdesc:aefafe0d3153fe083ccda185870adc69a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all sub-objects and clears all properties of this object.  <a href="classCDPL_1_1Vis_1_1Object3D.html#aefafe0d3153fe083ccda185870adc69a">More...</a><br /></td></tr>
 <tr class="separator:aefafe0d3153fe083ccda185870adc69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeafb227a28eefe17f231ec2a1b6786c6"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aeafb227a28eefe17f231ec2a1b6786c6">getNumSubObjects</a> () const</td></tr>
+<tr class="memdesc:aeafb227a28eefe17f231ec2a1b6786c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of sub-objects directly owned by this object.  <a href="classCDPL_1_1Vis_1_1Object3D.html#aeafb227a28eefe17f231ec2a1b6786c6">More...</a><br /></td></tr>
 <tr class="separator:aeafb227a28eefe17f231ec2a1b6786c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a3ea3cb28a81d6bbb26bfc769ad701e"><td class="memItemLeft" align="right" valign="top">ConstObject3DIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#a0a3ea3cb28a81d6bbb26bfc769ad701e">getSubObjectsBegin</a> () const</td></tr>
 <tr class="memdesc:a0a3ea3cb28a81d6bbb26bfc769ad701e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the sub-objects.  <a href="classCDPL_1_1Vis_1_1Object3D.html#a0a3ea3cb28a81d6bbb26bfc769ad701e">More...</a><br /></td></tr>
@@ -152,14 +154,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afa0865046556604cfa26b738f8df7bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the sub-objects.  <a href="classCDPL_1_1Vis_1_1Object3D.html#afa0865046556604cfa26b738f8df7bb3">More...</a><br /></td></tr>
 <tr class="separator:afa0865046556604cfa26b738f8df7bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b1f7d8e8cfdc1132bcce7ac3e291676"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#a0b1f7d8e8cfdc1132bcce7ac3e291676">getSubObject</a> (std::size_t idx) const</td></tr>
+<tr class="memdesc:a0b1f7d8e8cfdc1132bcce7ac3e291676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the sub-object at index <em>idx</em>.  <a href="classCDPL_1_1Vis_1_1Object3D.html#a0b1f7d8e8cfdc1132bcce7ac3e291676">More...</a><br /></td></tr>
 <tr class="separator:a0b1f7d8e8cfdc1132bcce7ac3e291676"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cfe132681fe0e58a16e54dd28579d61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#a1cfe132681fe0e58a16e54dd28579d61">getSubObject</a> (std::size_t idx)</td></tr>
+<tr class="memdesc:a1cfe132681fe0e58a16e54dd28579d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the sub-object at index <em>idx</em>.  <a href="classCDPL_1_1Vis_1_1Object3D.html#a1cfe132681fe0e58a16e54dd28579d61">More...</a><br /></td></tr>
 <tr class="separator:a1cfe132681fe0e58a16e54dd28579d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee8e48149757dbc922e664b245b8a780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aee8e48149757dbc922e664b245b8a780">addSubObject</a> ()</td></tr>
+<tr class="memdesc:aee8e48149757dbc922e664b245b8a780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new empty sub-object and appends it to the sub-object list.  <a href="classCDPL_1_1Vis_1_1Object3D.html#aee8e48149757dbc922e664b245b8a780">More...</a><br /></td></tr>
 <tr class="separator:aee8e48149757dbc922e664b245b8a780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af278e01af43ec37ac93fd2fec5d5dda7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html">Object3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#af278e01af43ec37ac93fd2fec5d5dda7">addSubObject</a> (const <a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#a240b6595c30f44421bb965b0554b622a">SharedPointer</a> &amp;object)</td></tr>
+<tr class="memdesc:af278e01af43ec37ac93fd2fec5d5dda7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the supplied <em>object</em> to the sub-object list.  <a href="classCDPL_1_1Vis_1_1Object3D.html#af278e01af43ec37ac93fd2fec5d5dda7">More...</a><br /></td></tr>
 <tr class="separator:af278e01af43ec37ac93fd2fec5d5dda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed55c428b59a6fd9bae7f746f0c7eb70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aed55c428b59a6fd9bae7f746f0c7eb70">removeSubObject</a> (std::size_t idx)</td></tr>
+<tr class="memdesc:aed55c428b59a6fd9bae7f746f0c7eb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the sub-object at index <em>idx</em>.  <a href="classCDPL_1_1Vis_1_1Object3D.html#aed55c428b59a6fd9bae7f746f0c7eb70">More...</a><br /></td></tr>
 <tr class="separator:aed55c428b59a6fd9bae7f746f0c7eb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af751aef54ce02b9532c77c5b277a0746"><td class="memItemLeft" align="right" valign="top">Object3DIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#af751aef54ce02b9532c77c5b277a0746">removeSubObject</a> (const Object3DIterator &amp;it)</td></tr>
 <tr class="memdesc:af751aef54ce02b9532c77c5b277a0746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the sub-object specified by the iterator <em>it</em>.  <a href="classCDPL_1_1Vis_1_1Object3D.html#af751aef54ce02b9532c77c5b277a0746">More...</a><br /></td></tr>
@@ -234,7 +241,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Vis_1_1Object3D.html" title="Object3D.">Object3D</a>. </p>
+<div class="textblock"><p>Hierarchical 3D scene object that owns a list of nested sub-objects and inherits its property bag from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html" title="Base class providing methods for the storage and lookup of object properties.">Base::PropertyContainer</a>. </p>
+<p>Concrete 3D representations (e.g. those produced by <a class="el" href="classCDPL_1_1Vis_1_1FeatureContainerObject3DFactory.html" title="Class implementing the creation of Vis::Object3D instances providing a 3D representation of Pharm::Fe...">Vis::FeatureContainerObject3DFactory</a>) are typically assembled as trees of nested <code>Object3D</code> instances annotated with rendering-relevant properties.</p>
 <dl class="section since"><dt>Since</dt><dd>1.3 </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a240b6595c30f44421bb965b0554b622a"></a>
@@ -369,6 +377,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes all sub-objects and clears all properties of this object. </p>
+
 </div>
 </div>
 <a id="aeafb227a28eefe17f231ec2a1b6786c6"></a>
@@ -385,6 +395,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the number of sub-objects directly owned by this object. </p>
+<dl class="section return"><dt>Returns</dt><dd>The sub-object count. </dd></dl>
 
 </div>
 </div>
@@ -564,6 +577,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a <code>const</code> reference to the sub-object at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based sub-object index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the sub-object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of sub-objects is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aeafb227a28eefe17f231ec2a1b6786c6" title="Returns the number of sub-objects directly owned by this object.">getNumSubObjects()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1cfe132681fe0e58a16e54dd28579d61"></a>
@@ -582,6 +610,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a non-<code>const</code> reference to the sub-object at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based sub-object index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the sub-object. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of sub-objects is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aeafb227a28eefe17f231ec2a1b6786c6" title="Returns the number of sub-objects directly owned by this object.">getNumSubObjects()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aee8e48149757dbc922e664b245b8a780"></a>
@@ -598,6 +641,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new empty sub-object and appends it to the sub-object list. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the newly created sub-object. </dd></dl>
 
 </div>
 </div>
@@ -617,6 +663,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Appends the supplied <em>object</em> to the sub-object list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>A smart pointer to the sub-object to append. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the appended sub-object. </dd></dl>
+
 </div>
 </div>
 <a id="aed55c428b59a6fd9bae7f746f0c7eb70"></a>
@@ -634,6 +689,20 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the sub-object at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based index of the sub-object to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of sub-objects is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Vis_1_1Object3D.html#aeafb227a28eefe17f231ec2a1b6786c6" title="Returns the number of sub-objects directly owned by this object.">getNumSubObjects()</a> - 1]. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

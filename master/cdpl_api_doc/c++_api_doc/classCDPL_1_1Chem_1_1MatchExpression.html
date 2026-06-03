@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A generic boolean expression interface for the implementation of query/target object equivalence tests in molecular graph matching algorithms.  
+<p>Generic boolean expression interface for the implementation of query/target object equivalence tests in molecular graph matching algorithms.  
  <a href="classCDPL_1_1Chem_1_1MatchExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MatchExpression_8hpp_source.html">MatchExpression.hpp</a>&gt;</code></p>
@@ -121,7 +121,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ObjType1, typename ObjType2 = void&gt;<br />
 class CDPL::Chem::MatchExpression&lt; ObjType1, ObjType2 &gt;</h3>
 
-<p>A generic boolean expression interface for the implementation of query/target object equivalence tests in molecular graph matching algorithms. </p>
+<p>Generic boolean expression interface for the implementation of query/target object equivalence tests in molecular graph matching algorithms. </p>
 <p>The <code>MatchExpression</code> interface abstracts the task of checking a set of constraints on the attributes of target objects when performing query object equivalence tests in molecular graph matching procedures. Subclasses of <code>MatchExpression</code> must override one (or all, if required) of the provided function call operators to implement the logic of the constraint checks. The first form of the two operators gets called in the pre-mapping stage of the graph matching algorithm where all feasible query/target object pairings are determined. In this pre-mapping stage all sorts of query constraints can be checked that are invariant with respect to the final mapping between any of the other query and target objects. The second type of operator is invoked immediately after a complete graph mapping solution has been found and can be used to re-evaluate the validity of a given query/target object pairing in the context of the provided matching result. As soon as a pairing is found to be invalid, the current mapping solution is rejected and the algorithm proceeds to find the next possible query to target graph mapping (if any). For efficiency reasons, subclasses of <code>MatchExpression</code> which implement the post-mapping function call operator must explicitly enable its invocation by additionally overriding the <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html#ac8f9f6bd0029d43c9db637d0f32b7b97" title="Tells whether the expression must be reevaluated after a query to target atom/bond mapping candidate ...">MatchExpression::requiresAtomBondMapping()</a> method. Its implementation simply has to return <code>true</code> (the default implementation returns <code>false</code>) to request the invocation of the operator.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">

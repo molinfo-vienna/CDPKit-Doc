@@ -82,6 +82,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract base class for writers that render <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> or <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> instances into a raster/vector image via an internal Cairo surface.  
+ <a href="classCDPL_1_1Vis_1_1ImageWriter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ImageWriter_8hpp_source.html">ImageWriter.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL::Vis::ImageWriter:</div>
@@ -111,7 +114,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a89df9ed045f852db756e74cb9cf89cad"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="CairoPointer_8hpp.html#a17d877b06bebaf368693c73860584555">cairo_surface_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Vis_1_1ImageWriter.html#a89df9ed045f852db756e74cb9cf89cad">createCairoSurface</a> () const =0</td></tr>
 <tr class="separator:a89df9ed045f852db756e74cb9cf89cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base class for writers that render <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> or <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged Chem::Molecule components.">Chem::Reaction</a> instances into a raster/vector image via an internal Cairo surface. </p>
+<p>Concrete subclasses (e.g. PNG, SVG, PS and PDF writers) implement <a class="el" href="classCDPL_1_1Vis_1_1ImageWriter.html#aa796566cacd05050bcc7deb8084e0d7e">createCairoSurface()</a> to provide a target surface of the appropriate format. The base class drives the 2D layout via <a class="el" href="classCDPL_1_1Vis_1_1StructureView2D.html" title="Implements the 2D visualization of chemical structures.">StructureView2D</a> / <a class="el" href="classCDPL_1_1Vis_1_1ReactionView2D.html" title="Implements the 2D visualization of chemical reactions.">ReactionView2D</a> and renders onto the supplied surface. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8d78fbe609000e5382170e701f3b091e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d78fbe609000e5382170e701f3b091e">&#9670;&nbsp;</a></span>ImageWriter() <span class="overload">[1/2]</span></h2>
 
