@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping (bond type, atom-type 1, atom-type 2) triples to MMFF94 bond-stretching force-field parameters (force constant and reference bond length).  
+<p>Data structure for the storage and lookup of MMFF94 bond-stretching interaction parameters.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94BondStretchingParameterTable_8hpp_source.html">MMFF94BondStretchingParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single bond-stretching parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single parameter table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1896c8b1c84e9881cbcc6f7b98657803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94BondStretchingParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a1896c8b1c84e9881cbcc6f7b98657803">More...</a><br /></td></tr>
 <tr class="separator:a1896c8b1c84e9881cbcc6f7b98657803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7757de4452ab87c5326d1472bb224d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#ab7757de4452ab87c5326d1472bb224d8">addEntry</a> (unsigned int bond_type_idx, unsigned int atom1_type, unsigned int atom2_type, double force_const, double ref_length)</td></tr>
-<tr class="memdesc:ab7757de4452ab87c5326d1472bb224d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the given (bond type, atom type 1, atom type 2) triple.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#ab7757de4452ab87c5326d1472bb224d8">More...</a><br /></td></tr>
+<tr class="memdesc:ab7757de4452ab87c5326d1472bb224d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the given query and parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#ab7757de4452ab87c5326d1472bb224d8">More...</a><br /></td></tr>
 <tr class="separator:ab7757de4452ab87c5326d1472bb224d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabe9cc6d72f6fc3f8b96dff3dcc26c3b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#aabe9cc6d72f6fc3f8b96dff3dcc26c3b">getEntry</a> (unsigned int bond_type_idx, unsigned int atom1_type, unsigned int atom2_type) const</td></tr>
-<tr class="memdesc:aabe9cc6d72f6fc3f8b96dff3dcc26c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the given (bond type, atom type 1, atom type 2) triple.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#aabe9cc6d72f6fc3f8b96dff3dcc26c3b">More...</a><br /></td></tr>
+<tr class="memdesc:aabe9cc6d72f6fc3f8b96dff3dcc26c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#aabe9cc6d72f6fc3f8b96dff3dcc26c3b">More...</a><br /></td></tr>
 <tr class="separator:aabe9cc6d72f6fc3f8b96dff3dcc26c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f5659afbdf1ec1a60a603f5f6795c80"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a7f5659afbdf1ec1a60a603f5f6795c80">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:a7f5659afbdf1ec1a60a603f5f6795c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a7f5659afbdf1ec1a60a603f5f6795c80">More...</a><br /></td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7b496efeca1826de4ae6e69f176e91eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a7b496efeca1826de4ae6e69f176e91eb">More...</a><br /></td></tr>
 <tr class="separator:a7b496efeca1826de4ae6e69f176e91eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d1cc25c775f87805f10269939eac7f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a3d1cc25c775f87805f10269939eac7f6">removeEntry</a> (unsigned int bond_type_idx, unsigned int atom1_type, unsigned int atom2_type)</td></tr>
-<tr class="memdesc:a3d1cc25c775f87805f10269939eac7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the given (bond type, atom type 1, atom type 2) triple.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a3d1cc25c775f87805f10269939eac7f6">More...</a><br /></td></tr>
+<tr class="memdesc:a3d1cc25c775f87805f10269939eac7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a3d1cc25c775f87805f10269939eac7f6">More...</a><br /></td></tr>
 <tr class="separator:a3d1cc25c775f87805f10269939eac7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdda079cf121db06d38131e0cb0875c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a2e41df24003a3b02a3de3c8749bf45c3">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#afdda079cf121db06d38131e0cb0875c0">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#a2e41df24003a3b02a3de3c8749bf45c3">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:afdda079cf121db06d38131e0cb0875c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingParameterTable.html#afdda079cf121db06d38131e0cb0875c0">More...</a><br /></td></tr>
@@ -172,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a0c8860f76c97f6a4c4b0b80cc138a2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping (bond type, atom-type 1, atom-type 2) triples to MMFF94 bond-stretching force-field parameters (force constant and reference bond length). </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 bond-stretching interaction parameters. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac2af703f4e5b5e451d23cbe2925c3186"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2af703f4e5b5e451d23cbe2925c3186">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -287,7 +287,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the given (bond type, atom type 1, atom type 2) triple. </p>
+<p>Adds a new (or overwrites an existing) entry for the given query and parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bond_type_idx</td><td>The MMFF94 bond type index. </td></tr>
@@ -333,7 +333,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the entry for the given (bond type, atom type 1, atom type 2) triple. </p>
+<p>Returns a reference to the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bond_type_idx</td><td>The MMFF94 bond type index. </td></tr>
@@ -342,7 +342,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -417,7 +417,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the entry for the given (bond type, atom type 1, atom type 2) triple. </p>
+<p>Removes the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bond_type_idx</td><td>The MMFF94 bond type index. </td></tr>

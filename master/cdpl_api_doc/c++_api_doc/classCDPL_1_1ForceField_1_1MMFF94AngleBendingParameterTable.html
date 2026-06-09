@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping (angle type, terminal-atom-1 type, center-atom type, terminal-atom-2 type) quadruples to MMFF94 angle-bending force-field parameters (force constant and reference angle).  
+<p>Data structure for the storage and lookup of MMFF94 angle-bending interaction parameters.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94AngleBendingParameterTable_8hpp_source.html">MMFF94AngleBendingParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single angle-bending parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single parameter table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0e17687bb1e23ce8fa405aa1d3cd2c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94AngleBendingParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a0e17687bb1e23ce8fa405aa1d3cd2c66">More...</a><br /></td></tr>
 <tr class="separator:a0e17687bb1e23ce8fa405aa1d3cd2c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45137074dc49d667b89c647f47d2e8c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a45137074dc49d667b89c647f47d2e8c0">addEntry</a> (unsigned int angle_type_idx, unsigned int term_atom1_type, unsigned int ctr_atom_type, unsigned int term_atom2_type, double force_const, double ref_angle)</td></tr>
-<tr class="memdesc:a45137074dc49d667b89c647f47d2e8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the given (angle type, terminal-atom 1, center atom, terminal-atom 2) quadruple.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a45137074dc49d667b89c647f47d2e8c0">More...</a><br /></td></tr>
+<tr class="memdesc:a45137074dc49d667b89c647f47d2e8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the given query and parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a45137074dc49d667b89c647f47d2e8c0">More...</a><br /></td></tr>
 <tr class="separator:a45137074dc49d667b89c647f47d2e8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48363382084720210afbf1479fea1e11"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a48363382084720210afbf1479fea1e11">getEntry</a> (unsigned int angle_type_idx, unsigned int term_atom1_type, unsigned int ctr_atom_type, unsigned int term_atom2_type) const</td></tr>
-<tr class="memdesc:a48363382084720210afbf1479fea1e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the given (angle type, terminal-atom 1, center atom, terminal-atom 2) quadruple.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a48363382084720210afbf1479fea1e11">More...</a><br /></td></tr>
+<tr class="memdesc:a48363382084720210afbf1479fea1e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a48363382084720210afbf1479fea1e11">More...</a><br /></td></tr>
 <tr class="separator:a48363382084720210afbf1479fea1e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64f1a3c90d63fae5c799aff55803fd89"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a64f1a3c90d63fae5c799aff55803fd89">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:a64f1a3c90d63fae5c799aff55803fd89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a64f1a3c90d63fae5c799aff55803fd89">More...</a><br /></td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a62072b739e1bb9c1331b741d23cc0416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a62072b739e1bb9c1331b741d23cc0416">More...</a><br /></td></tr>
 <tr class="separator:a62072b739e1bb9c1331b741d23cc0416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bac46bf0c516770a3ff80db501900ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a6bac46bf0c516770a3ff80db501900ba">removeEntry</a> (unsigned int angle_type_idx, unsigned int term_atom1_type, unsigned int ctr_atom_type, unsigned int term_atom2_type)</td></tr>
-<tr class="memdesc:a6bac46bf0c516770a3ff80db501900ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the given (angle type, terminal-atom 1, center atom, terminal-atom 2) quadruple.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a6bac46bf0c516770a3ff80db501900ba">More...</a><br /></td></tr>
+<tr class="memdesc:a6bac46bf0c516770a3ff80db501900ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a6bac46bf0c516770a3ff80db501900ba">More...</a><br /></td></tr>
 <tr class="separator:a6bac46bf0c516770a3ff80db501900ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9974ab805ed19bfef825234e7825a3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a6827b3a17e1219028904077485672f16">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#af9974ab805ed19bfef825234e7825a3e">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#a6827b3a17e1219028904077485672f16">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:af9974ab805ed19bfef825234e7825a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94AngleBendingParameterTable.html#af9974ab805ed19bfef825234e7825a3e">More...</a><br /></td></tr>
@@ -172,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:acf0246c2c982a0aed5b349e5175f7b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping (angle type, terminal-atom-1 type, center-atom type, terminal-atom-2 type) quadruples to MMFF94 angle-bending force-field parameters (force constant and reference angle). </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 angle-bending interaction parameters. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="af513d36c2d739d30e316e8ed688d30d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af513d36c2d739d30e316e8ed688d30d3">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -293,7 +293,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the given (angle type, terminal-atom 1, center atom, terminal-atom 2) quadruple. </p>
+<p>Adds a new (or overwrites an existing) entry for the given query and parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">angle_type_idx</td><td>The MMFF94 angle type index. </td></tr>
@@ -346,7 +346,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the entry for the given (angle type, terminal-atom 1, center atom, terminal-atom 2) quadruple. </p>
+<p>Returns a reference to the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">angle_type_idx</td><td>The MMFF94 angle type index. </td></tr>
@@ -356,7 +356,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -437,7 +437,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the entry for the given (angle type, terminal-atom 1, center atom, terminal-atom 2) quadruple. </p>
+<p>Removes the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">angle_type_idx</td><td>The MMFF94 angle type index. </td></tr>

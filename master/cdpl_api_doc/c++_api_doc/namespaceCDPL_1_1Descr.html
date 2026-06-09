@@ -109,7 +109,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation of the <em>Burden</em> matrix of a molecular graph.  <a href="classCDPL_1_1Descr_1_1BurdenMatrixGenerator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1CircularFingerprintGenerator.html">CircularFingerprintGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generation of atom-centered circular substructure fingerprints in the spirit of SciTegic's <em>Extended Connectivity Fingerprints</em> (ECFP) / <em>Functional Class Fingerprints</em> (FCFP).  <a href="classCDPL_1_1Descr_1_1CircularFingerprintGenerator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generation of atom-centered circular substructure fingerprints in the spirit of SciTegic's <em>Extended Connectivity Fingerprints</em> (ECFP).  <a href="classCDPL_1_1Descr_1_1CircularFingerprintGenerator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Descr_1_1FeatureAutoCorrelation3DVectorCalculator.html">FeatureAutoCorrelation3DVectorCalculator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Descr_1_1AutoCorrelation3DVectorCalculator.html" title="Generic implementation of the 3D auto-correlation vector calculation for sequences of entities of arb...">AutoCorrelation3DVectorCalculator</a> specialization for feature-centered 3D auto-correlation vectors of pharmacophores.  <a href="classCDPL_1_1Descr_1_1FeatureAutoCorrelation3DVectorCalculator.html#details">More...</a><br /></td></tr>
@@ -869,7 +869,7 @@ template&lt;typename V &gt; </div>
 <p>Calculates the <em>Cosine Similarity</em> [<a class="el" href="References.html#WCOS">WCOS</a>] of the bitsets <em>bs1</em> and <em>bs2</em>. </p>
 <p>The <em>Cosine Similarity</em> \( S_{ab} \) is calculated by:</p>
 <p class="formulaDsp">
-\[ S_{ab} = \frac{N_{ab}}{\sqrt{N_a * N_b}} \]
+\[ S_{ab} = \frac{N_{ab}}{\sqrt{N_a \: N_b}} \]
 </p>
 <p>where \( N_{ab} \) is the number of bits that are set in both bitsets, \( N_a \) is the number of bits that are set in the first bitset and \( N_b \) is the number of bits that are set in the second bitset.</p>
 <p>If the specified bitsets <em>bs1</em> and <em>bs2</em> are of different size, missing bits at the end of the smaller bitset are assumed to be zero.</p>
@@ -1054,7 +1054,7 @@ template&lt;typename V &gt; </div>
 <p>Calculates the <em>Dice Similarity</em> [<a class="el" href="References.html#GSIM">GSIM</a>] of the bitsets <em>bs1</em> and <em>bs2</em>. </p>
 <p>The <em>Dice Similarity</em> \( S_{ab} \) is calculated by:</p>
 <p class="formulaDsp">
-\[ S_{ab} = \frac{2 * N_{ab}}{N_a + N_b + 2 * N_{ab}} \]
+\[ S_{ab} = \frac{2 \: N_{ab}}{N_a + N_b + 2 \: N_{ab}} \]
 </p>
 <p>where \( N_{ab} \) is the number of bits that are set in both bitsets, \( N_a \) is the number of bits that are only set in the first bitset and \( N_b \) is the number of bits that are only set in the second bitset.</p>
 <p>If the specified bitsets <em>bs1</em> and <em>bs2</em> are of different size, missing bits at the end of the smaller bitset are assumed to be zero.</p>
@@ -1110,10 +1110,10 @@ template&lt;typename V &gt; </div>
 <p>Calculates the <em>Tversky Similarity</em> [<a class="el" href="References.html#GSIM">GSIM</a>] of the bitsets <em>bs1</em> and <em>bs2</em>. </p>
 <p>The <em>Tversky Similarity</em> \( S_{ab} \) is calculated by:</p>
 <p class="formulaDsp">
-\[ S_{ab} = \frac{N_{ab}}{a * N_a + b * N_b + N_{ab}} \]
+\[ S_{ab} = \frac{N_{ab}}{\alpha \: N_a + \beta \: N_b + N_{ab}} \]
 </p>
-<p>where \( N_{ab} \) is the number of bits that are set in both bitsets, \( N_a \) is the number of bits that are only set in the first bitset and \( N_b \) is the number of bits that are only set in the second bitset. \( a \) and \( b \) are bitset contribution weighting factors.</p>
-<p>The <em>Tversky</em> measure is asymmetric. Setting the parameters \( a = b = 1.0 \) makes it identical to the <em>Tanimoto</em> measure.</p>
+<p>where \( N_{ab} \) is the number of bits that are set in both bitsets, \( N_a \) is the number of bits that are only set in the first bitset and \( N_b \) is the number of bits that are only set in the second bitset. \( \alpha \) and \( \beta \) are bitset contribution weighting factors.</p>
+<p>The <em>Tversky</em> measure is asymmetric. Setting the parameters \( \alpha = \beta = 1.0 \) makes it identical to the <em>Tanimoto</em> measure.</p>
 <p>If the specified bitsets <em>bs1</em> and <em>bs2</em> are of different size, missing bits at the end of the smaller bitset are assumed to be zero.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
