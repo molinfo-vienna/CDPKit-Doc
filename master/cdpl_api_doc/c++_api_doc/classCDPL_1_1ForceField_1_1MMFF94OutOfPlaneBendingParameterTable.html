@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping (terminal-atom-1 type, center-atom type, terminal-atom-2 type, out-of-plane-atom type) quadruples to MMFF94 out-of-plane bending force constants.  
+<p>Data structure for the storage and lookup of MMFF94 out-of-plane bending interaction force constants.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94OutOfPlaneBendingParameterTable_8hpp_source.html">MMFF94OutOfPlaneBendingParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single out-of-plane bending parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a11c9cf8595cecfa2ac2b2dec1b5e01fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94OutOfPlaneBendingParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#a11c9cf8595cecfa2ac2b2dec1b5e01fc">More...</a><br /></td></tr>
 <tr class="separator:a11c9cf8595cecfa2ac2b2dec1b5e01fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab04e704f590766c26deccb6988acac62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ab04e704f590766c26deccb6988acac62">addEntry</a> (unsigned int term_atom1_type, unsigned int ctr_atom_type, unsigned int term_atom2_type, unsigned int oop_atom_type, double force_const)</td></tr>
-<tr class="memdesc:ab04e704f590766c26deccb6988acac62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the given (terminal-atom 1, center atom, terminal-atom 2, out-of-plane atom) quadruple.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ab04e704f590766c26deccb6988acac62">More...</a><br /></td></tr>
+<tr class="memdesc:ab04e704f590766c26deccb6988acac62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the given query values and force constant.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ab04e704f590766c26deccb6988acac62">More...</a><br /></td></tr>
 <tr class="separator:ab04e704f590766c26deccb6988acac62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad42a8d0234075ba82a016eb62188effe"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ad42a8d0234075ba82a016eb62188effe">getEntry</a> (unsigned int term_atom1_type, unsigned int ctr_atom_type, unsigned int term_atom2_type, unsigned int oop_atom_type) const</td></tr>
-<tr class="memdesc:ad42a8d0234075ba82a016eb62188effe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the given (terminal-atom 1, center atom, terminal-atom 2, out-of-plane atom) quadruple.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ad42a8d0234075ba82a016eb62188effe">More...</a><br /></td></tr>
+<tr class="memdesc:ad42a8d0234075ba82a016eb62188effe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ad42a8d0234075ba82a016eb62188effe">More...</a><br /></td></tr>
 <tr class="separator:ad42a8d0234075ba82a016eb62188effe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5609a7d7a4e453f9208d7abbdcc7c96"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ab5609a7d7a4e453f9208d7abbdcc7c96">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:ab5609a7d7a4e453f9208d7abbdcc7c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#ab5609a7d7a4e453f9208d7abbdcc7c96">More...</a><br /></td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa55bb00873811cf2fd2b5c4f9a5267d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#aa55bb00873811cf2fd2b5c4f9a5267d7">More...</a><br /></td></tr>
 <tr class="separator:aa55bb00873811cf2fd2b5c4f9a5267d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69a6205ab6cb5e6f50303bc357e74b01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#a69a6205ab6cb5e6f50303bc357e74b01">removeEntry</a> (unsigned int term_atom1_type, unsigned int ctr_atom_type, unsigned int term_atom2_type, unsigned int oop_atom_type)</td></tr>
-<tr class="memdesc:a69a6205ab6cb5e6f50303bc357e74b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the given (terminal-atom 1, center atom, terminal-atom 2, out-of-plane atom) quadruple.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#a69a6205ab6cb5e6f50303bc357e74b01">More...</a><br /></td></tr>
+<tr class="memdesc:a69a6205ab6cb5e6f50303bc357e74b01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#a69a6205ab6cb5e6f50303bc357e74b01">More...</a><br /></td></tr>
 <tr class="separator:a69a6205ab6cb5e6f50303bc357e74b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4a37dfd5ab972b9cbb988fdfd2fe7f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#a926eaf904318147314d4927883136370">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#af4a37dfd5ab972b9cbb988fdfd2fe7f1">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#a926eaf904318147314d4927883136370">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:af4a37dfd5ab972b9cbb988fdfd2fe7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94OutOfPlaneBendingParameterTable.html#af4a37dfd5ab972b9cbb988fdfd2fe7f1">More...</a><br /></td></tr>
@@ -172,8 +172,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a57840817826cc6680a8b19bb9cd52f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping (terminal-atom-1 type, center-atom type, terminal-atom-2 type, out-of-plane-atom type) quadruples to MMFF94 out-of-plane bending force constants. </p>
-<p>The table maintains separate process-wide defaults per MMFF94 parameter set (see Util::MMFF94ParameterSet). </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 out-of-plane bending interaction force constants. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aeff2b74a5ceff8c2db1ddb158c201d52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeff2b74a5ceff8c2db1ddb158c201d52">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -288,7 +287,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the given (terminal-atom 1, center atom, terminal-atom 2, out-of-plane atom) quadruple. </p>
+<p>Adds a new (or overwrites an existing) entry for the given query values and force constant. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">term_atom1_type</td><td>The numeric MMFF94 atom type of the first terminal atom. </td></tr>
@@ -340,7 +339,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the entry for the given (terminal-atom 1, center atom, terminal-atom 2, out-of-plane atom) quadruple. </p>
+<p>Returns a reference to the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">term_atom1_type</td><td>The numeric MMFF94 atom type of the first terminal atom. </td></tr>
@@ -350,7 +349,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -431,7 +430,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the entry for the given (terminal-atom 1, center atom, terminal-atom 2, out-of-plane atom) quadruple. </p>
+<p>Removes the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">term_atom1_type</td><td>The numeric MMFF94 atom type of the first terminal atom. </td></tr>
@@ -722,7 +721,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">table</td><td>The new default table (a <code>nullptr</code> resets to the built-in default). </td></tr>
-    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which default slot to replace. </td></tr>
+    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which default table to replace. </td></tr>
   </table>
   </dd>
 </dl>
@@ -756,11 +755,11 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns the process-wide default table for <em>param_set</em> (lazily initialized on first call). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which default slot to return. </td></tr>
+    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which default table to return. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the selected default-table shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the selected default table. </dd></dl>
 
 </div>
 </div>
