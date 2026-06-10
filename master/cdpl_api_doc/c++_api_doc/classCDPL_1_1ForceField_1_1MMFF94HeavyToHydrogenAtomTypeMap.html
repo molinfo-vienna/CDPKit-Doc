@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping each heavy atom symbolic MMFF94 type to the symbolic MMFF94 type used for hydrogen atoms bonded to it.  
+<p>Data structure for the storage and lookup of heavy-to-hydrogen symbolic MMFF94 atom type mappings.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94HeavyToHydrogenAtomTypeMap_8hpp_source.html">MMFF94HeavyToHydrogenAtomTypeMap.hpp</a>&gt;</code></p>
@@ -101,7 +101,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:ab551be927f9fbed4c8e97f7922003577"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable iterator over the entries of the map.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ab551be927f9fbed4c8e97f7922003577">More...</a><br /></td></tr>
 <tr class="separator:ab551be927f9fbed4c8e97f7922003577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac900c974c8db643843e373ab8b91949d"><td class="memItemLeft" align="right" valign="top">typedef DataStorage::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ac900c974c8db643843e373ab8b91949d">Entry</a></td></tr>
-<tr class="memdesc:ac900c974c8db643843e373ab8b91949d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The map entry type (a (parent type, hydrogen type) key/value pair).  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ac900c974c8db643843e373ab8b91949d">More...</a><br /></td></tr>
+<tr class="memdesc:ac900c974c8db643843e373ab8b91949d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the map entries.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ac900c974c8db643843e373ab8b91949d">More...</a><br /></td></tr>
 <tr class="separator:ac900c974c8db643843e373ab8b91949d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -110,10 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae5a91e27d2600d1675560744bf8e6c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94HeavyToHydrogenAtomTypeMap</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ae5a91e27d2600d1675560744bf8e6c36">More...</a><br /></td></tr>
 <tr class="separator:ae5a91e27d2600d1675560744bf8e6c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8823df143bf8634ab8b0c247e2f49b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a8823df143bf8634ab8b0c247e2f49b47">addEntry</a> (const std::string &amp;parent_type, const std::string &amp;hyd_type)</td></tr>
-<tr class="memdesc:a8823df143bf8634ab8b0c247e2f49b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the heavy atom-to-hydrogen-type mapping for <em>parent_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a8823df143bf8634ab8b0c247e2f49b47">More...</a><br /></td></tr>
+<tr class="memdesc:a8823df143bf8634ab8b0c247e2f49b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) mapping from <em>parent_type</em> to <em>hyd_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a8823df143bf8634ab8b0c247e2f49b47">More...</a><br /></td></tr>
 <tr class="separator:a8823df143bf8634ab8b0c247e2f49b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed977e0c5ebaf03348095c88c7ac58f0"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#aed977e0c5ebaf03348095c88c7ac58f0">getEntry</a> (const std::string &amp;parent_type) const</td></tr>
-<tr class="memdesc:aed977e0c5ebaf03348095c88c7ac58f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hydrogen MMFF94 type associated with the heavy atom type <em>parent_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#aed977e0c5ebaf03348095c88c7ac58f0">More...</a><br /></td></tr>
+<tr class="memdesc:aed977e0c5ebaf03348095c88c7ac58f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the symbolic MMFF94 hydrogen type associated with the heavy atom type <em>parent_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#aed977e0c5ebaf03348095c88c7ac58f0">More...</a><br /></td></tr>
 <tr class="separator:aed977e0c5ebaf03348095c88c7ac58f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae658b306a7ddf96a0875cfc3b867f645"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ae658b306a7ddf96a0875cfc3b867f645">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:ae658b306a7ddf96a0875cfc3b867f645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of mappings stored in the map.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ae658b306a7ddf96a0875cfc3b867f645">More...</a><br /></td></tr>
@@ -122,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afbbedd129eb48a3aea2b0b91bd6ab7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the map.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#afbbedd129eb48a3aea2b0b91bd6ab7f6">More...</a><br /></td></tr>
 <tr class="separator:afbbedd129eb48a3aea2b0b91bd6ab7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c3186d9afb771c89df5dc9626e55eb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a6c3186d9afb771c89df5dc9626e55eb2">removeEntry</a> (const std::string &amp;parent_type)</td></tr>
-<tr class="memdesc:a6c3186d9afb771c89df5dc9626e55eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the mapping for the heavy atom type <em>parent_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a6c3186d9afb771c89df5dc9626e55eb2">More...</a><br /></td></tr>
+<tr class="memdesc:a6c3186d9afb771c89df5dc9626e55eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the mapping for the symbolic MMFF94 heavy atom type <em>parent_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a6c3186d9afb771c89df5dc9626e55eb2">More...</a><br /></td></tr>
 <tr class="separator:a6c3186d9afb771c89df5dc9626e55eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ac359de178f69e14ab6c1286d5c950"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ab551be927f9fbed4c8e97f7922003577">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ac9ac359de178f69e14ab6c1286d5c950">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ab551be927f9fbed4c8e97f7922003577">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:ac9ac359de178f69e14ab6c1286d5c950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#ac9ac359de178f69e14ab6c1286d5c950">More...</a><br /></td></tr>
@@ -155,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a42a81f9755be2b5fb5edae57fbc01dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads map entries from the input stream <em>is</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a42a81f9755be2b5fb5edae57fbc01dd5">More...</a><br /></td></tr>
 <tr class="separator:a42a81f9755be2b5fb5edae57fbc01dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43343849638e3fbb3a808e062d866d43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a43343849638e3fbb3a808e062d866d43">loadDefaults</a> ()</td></tr>
-<tr class="memdesc:a43343849638e3fbb3a808e062d866d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default heavy-to-hydrogen atom type mappings.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a43343849638e3fbb3a808e062d866d43">More...</a><br /></td></tr>
+<tr class="memdesc:a43343849638e3fbb3a808e062d866d43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default MMFF94 heavy-to-hydrogen symbolic atom type mappings.  <a href="classCDPL_1_1ForceField_1_1MMFF94HeavyToHydrogenAtomTypeMap.html#a43343849638e3fbb3a808e062d866d43">More...</a><br /></td></tr>
 <tr class="separator:a43343849638e3fbb3a808e062d866d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -168,7 +168,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aa774bc586cacd71ae2cd08c948c7b0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping each heavy atom symbolic MMFF94 type to the symbolic MMFF94 type used for hydrogen atoms bonded to it. </p>
+<div class="textblock"><p>Data structure for the storage and lookup of heavy-to-hydrogen symbolic MMFF94 atom type mappings. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a49007a37a93833199f55ceede547e002"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49007a37a93833199f55ceede547e002">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -230,7 +230,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The map entry type (a (parent type, hydrogen type) key/value pair). </p>
+<p>The type of the map entries. </p>
 
 </div>
 </div>
@@ -281,11 +281,11 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the heavy atom-to-hydrogen-type mapping for <em>parent_type</em>. </p>
+<p>Adds a new (or overwrites an existing) mapping from <em>parent_type</em> to <em>hyd_type</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent_type</td><td>The symbolic MMFF94 type of the heavy parent atom. </td></tr>
-    <tr><td class="paramname">hyd_type</td><td>The symbolic MMFF94 type to assign to hydrogen atoms bonded to such parents. </td></tr>
+    <tr><td class="paramname">hyd_type</td><td>The symbolic MMFF94 type to assign to bonded hydrogen atoms. </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,7 +308,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the hydrogen MMFF94 type associated with the heavy atom type <em>parent_type</em>. </p>
+<p>Returns the symbolic MMFF94 hydrogen type associated with the heavy atom type <em>parent_type</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent_type</td><td>The symbolic MMFF94 type of the heavy parent atom. </td></tr>
@@ -374,7 +374,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the mapping for the heavy atom type <em>parent_type</em>. </p>
+<p>Removes the mapping for the symbolic MMFF94 heavy atom type <em>parent_type</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parent_type</td><td>The symbolic MMFF94 type of the heavy parent atom. </td></tr>
@@ -613,7 +613,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads the built-in default heavy-to-hydrogen atom type mappings. </p>
+<p>Loads the built-in default MMFF94 heavy-to-hydrogen symbolic atom type mappings. </p>
 
 </div>
 </div>
@@ -675,7 +675,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the process-wide default map (lazily initialized on first call). </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the default-map shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the default table. </dd></dl>
 
 </div>
 </div>

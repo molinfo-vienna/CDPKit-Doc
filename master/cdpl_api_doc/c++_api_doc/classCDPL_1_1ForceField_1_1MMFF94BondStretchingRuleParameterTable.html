@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping (atomic-number 1, atomic-number 2) pairs to fallback MMFF94 bond-stretching parameters used when no atom type-specific entry is available.  
+<p>Data structure for the storage and lookup of MMFF94 bond-stretching interaction fallback parameters.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94BondStretchingRuleParameterTable_8hpp_source.html">MMFF94BondStretchingRuleParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single rule-based bond-stretching parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9849da606913f63b094e7a7f6c5cba8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94BondStretchingRuleParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a9849da606913f63b094e7a7f6c5cba8c">More...</a><br /></td></tr>
 <tr class="separator:a9849da606913f63b094e7a7f6c5cba8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35840a11e55073ac52c6798c33abae2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a35840a11e55073ac52c6798c33abae2e">addEntry</a> (unsigned int atomic_no1, unsigned int atomic_no2, double force_const, double ref_length)</td></tr>
-<tr class="memdesc:a35840a11e55073ac52c6798c33abae2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the given (atomic number 1, atomic number 2) pair.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a35840a11e55073ac52c6798c33abae2e">More...</a><br /></td></tr>
+<tr class="memdesc:a35840a11e55073ac52c6798c33abae2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the given query and parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a35840a11e55073ac52c6798c33abae2e">More...</a><br /></td></tr>
 <tr class="separator:a35840a11e55073ac52c6798c33abae2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b585dec36cff883d6574fdf20138a54"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a1b585dec36cff883d6574fdf20138a54">getEntry</a> (unsigned int atomic_no1, unsigned int atomic_no2) const</td></tr>
-<tr class="memdesc:a1b585dec36cff883d6574fdf20138a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the given (atomic number 1, atomic number 2) pair.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a1b585dec36cff883d6574fdf20138a54">More...</a><br /></td></tr>
+<tr class="memdesc:a1b585dec36cff883d6574fdf20138a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a1b585dec36cff883d6574fdf20138a54">More...</a><br /></td></tr>
 <tr class="separator:a1b585dec36cff883d6574fdf20138a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94b04054910d47dc63f6b36bb8403f40"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a94b04054910d47dc63f6b36bb8403f40">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:a94b04054910d47dc63f6b36bb8403f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a94b04054910d47dc63f6b36bb8403f40">More...</a><br /></td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af3a66117d55dfd335ce51c3e512522e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#af3a66117d55dfd335ce51c3e512522e5">More...</a><br /></td></tr>
 <tr class="separator:af3a66117d55dfd335ce51c3e512522e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8519b7b75216bfba5ff90246404a121"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#aa8519b7b75216bfba5ff90246404a121">removeEntry</a> (unsigned int atomic_no1, unsigned int atomic_no2)</td></tr>
-<tr class="memdesc:aa8519b7b75216bfba5ff90246404a121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the given (atomic number 1, atomic number 2) pair.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#aa8519b7b75216bfba5ff90246404a121">More...</a><br /></td></tr>
+<tr class="memdesc:aa8519b7b75216bfba5ff90246404a121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#aa8519b7b75216bfba5ff90246404a121">More...</a><br /></td></tr>
 <tr class="separator:aa8519b7b75216bfba5ff90246404a121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeacc12c408e82dc70fbf91efdfbafe5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#ad73a94451f5b05f9b551329798a39160">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#aeacc12c408e82dc70fbf91efdfbafe5d">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#ad73a94451f5b05f9b551329798a39160">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:aeacc12c408e82dc70fbf91efdfbafe5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#aeacc12c408e82dc70fbf91efdfbafe5d">More...</a><br /></td></tr>
@@ -159,7 +159,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6ae399c53be67ec17199f6c65320f627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads table entries from the input stream <em>is</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a6ae399c53be67ec17199f6c65320f627">More...</a><br /></td></tr>
 <tr class="separator:a6ae399c53be67ec17199f6c65320f627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c7ddbedee38746398679c67e55346a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a6c7ddbedee38746398679c67e55346a0">loadDefaults</a> ()</td></tr>
-<tr class="memdesc:a6c7ddbedee38746398679c67e55346a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default bond-stretching rule parameter entries.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a6c7ddbedee38746398679c67e55346a0">More...</a><br /></td></tr>
+<tr class="memdesc:a6c7ddbedee38746398679c67e55346a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default MMFF94 bond-stretching rule parameter entries.  <a href="classCDPL_1_1ForceField_1_1MMFF94BondStretchingRuleParameterTable.html#a6c7ddbedee38746398679c67e55346a0">More...</a><br /></td></tr>
 <tr class="separator:a6c7ddbedee38746398679c67e55346a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -172,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a9d493986c8115b471d8c0cdba337ce95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping (atomic-number 1, atomic-number 2) pairs to fallback MMFF94 bond-stretching parameters used when no atom type-specific entry is available. </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 bond-stretching interaction fallback parameters. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab47f271cc01038aed7f0db0103eb8497"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab47f271cc01038aed7f0db0103eb8497">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -281,7 +281,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the given (atomic number 1, atomic number 2) pair. </p>
+<p>Adds a new (or overwrites an existing) entry for the given query and parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atomic_no1</td><td>The atomic number of the first bonded atom. </td></tr>
@@ -320,7 +320,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the entry for the given (atomic number 1, atomic number 2) pair. </p>
+<p>Returns a reference to the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atomic_no1</td><td>The atomic number of the first bonded atom. </td></tr>
@@ -328,7 +328,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -397,7 +397,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the entry for the given (atomic number 1, atomic number 2) pair. </p>
+<p>Removes the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atomic_no1</td><td>The atomic number of the first bonded atom. </td></tr>
@@ -637,7 +637,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads the built-in default bond-stretching rule parameter entries. </p>
+<p>Loads the built-in default MMFF94 bond-stretching rule parameter entries. </p>
 
 </div>
 </div>
@@ -699,7 +699,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the process-wide default table (lazily initialized on first call). </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the default table shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the default table. </dd></dl>
 
 </div>
 </div>

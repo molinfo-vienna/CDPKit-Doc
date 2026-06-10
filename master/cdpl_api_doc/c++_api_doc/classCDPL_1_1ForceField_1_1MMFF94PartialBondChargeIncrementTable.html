@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping numeric MMFF94 atom types to per-atom partial bond charge increments and formal-charge adjustment factors used by the MMFF94 charge model.  
+<p>Data structure for the storage and lookup of MMFF94 per-atom partial bond charge increment and formal charge adjustment factors.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94PartialBondChargeIncrementTable_8hpp_source.html">MMFF94PartialBondChargeIncrementTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single partial-bond-charge-increment record.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aab404a9c4a3a81895abbc2f693a16ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94PartialBondChargeIncrementTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#aab404a9c4a3a81895abbc2f693a16ed8">More...</a><br /></td></tr>
 <tr class="separator:aab404a9c4a3a81895abbc2f693a16ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a624ba9e12357adfdc9b211dff59fe44a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a624ba9e12357adfdc9b211dff59fe44a">addEntry</a> (unsigned int atom_type, double part_bond_chg_inc, double form_chg_adj_factor)</td></tr>
-<tr class="memdesc:a624ba9e12357adfdc9b211dff59fe44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a624ba9e12357adfdc9b211dff59fe44a">More...</a><br /></td></tr>
+<tr class="memdesc:a624ba9e12357adfdc9b211dff59fe44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the numeric MMFF94 atom type <em>atom_type</em> that stores the given parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a624ba9e12357adfdc9b211dff59fe44a">More...</a><br /></td></tr>
 <tr class="separator:a624ba9e12357adfdc9b211dff59fe44a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dcc299236f4fd674db373c118591166"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a7dcc299236f4fd674db373c118591166">getEntry</a> (unsigned int atom_type) const</td></tr>
 <tr class="memdesc:a7dcc299236f4fd674db373c118591166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a7dcc299236f4fd674db373c118591166">More...</a><br /></td></tr>
@@ -159,7 +159,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acbc3df4ab1acd3001a42e2ed3635ae1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads table entries from the input stream <em>is</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#acbc3df4ab1acd3001a42e2ed3635ae1f">More...</a><br /></td></tr>
 <tr class="separator:acbc3df4ab1acd3001a42e2ed3635ae1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a217e3a0440b0d11f0f0d0f92e93939a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a217e3a0440b0d11f0f0d0f92e93939a7">loadDefaults</a> ()</td></tr>
-<tr class="memdesc:a217e3a0440b0d11f0f0d0f92e93939a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default partial-bond-charge-increment entries.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a217e3a0440b0d11f0f0d0f92e93939a7">More...</a><br /></td></tr>
+<tr class="memdesc:a217e3a0440b0d11f0f0d0f92e93939a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default MMFF94 partial bond charge increment and formal charge adjustment factors.  <a href="classCDPL_1_1ForceField_1_1MMFF94PartialBondChargeIncrementTable.html#a217e3a0440b0d11f0f0d0f92e93939a7">More...</a><br /></td></tr>
 <tr class="separator:a217e3a0440b0d11f0f0d0f92e93939a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -172,7 +172,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a588bf8f46f72994ea86efcf1d8c6da16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping numeric MMFF94 atom types to per-atom partial bond charge increments and formal-charge adjustment factors used by the MMFF94 charge model. </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 per-atom partial bond charge increment and formal charge adjustment factors. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a973b7f27cfa27e4b63bef949f01f0f78"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a973b7f27cfa27e4b63bef949f01f0f78">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -275,12 +275,12 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the numeric MMFF94 atom type <em>atom_type</em>. </p>
+<p>Adds a new (or overwrites an existing) entry for the numeric MMFF94 atom type <em>atom_type</em> that stores the given parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom_type</td><td>The numeric MMFF94 atom type. </td></tr>
     <tr><td class="paramname">part_bond_chg_inc</td><td>The partial bond charge increment. </td></tr>
-    <tr><td class="paramname">form_chg_adj_factor</td><td>The formal-charge adjustment factor. </td></tr>
+    <tr><td class="paramname">form_chg_adj_factor</td><td>The formal charge adjustment factor. </td></tr>
   </table>
   </dd>
 </dl>
@@ -310,7 +310,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -608,7 +608,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads the built-in default partial-bond-charge-increment entries. </p>
+<p>Loads the built-in default MMFF94 partial bond charge increment and formal charge adjustment factors. </p>
 
 </div>
 </div>
@@ -670,7 +670,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the process-wide default table (lazily initialized on first call). </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the default table shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the default table. </dd></dl>
 
 </div>
 </div>

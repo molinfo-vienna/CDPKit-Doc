@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping numeric MMFF94 atom types to per-atom type Van der Waals parameters (atomic polarizability, effective electron number, scaling factors A/G, and H-donor/-acceptor classification).  
+<p>Data structure for the storage and lookup of MMFF94 interaction parameters.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94VanDerWaalsParameterTable_8hpp_source.html">MMFF94VanDerWaalsParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single per-atom type Van der Waals parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -117,7 +117,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1ce47b676faf8c9ea1acb38eb06dd15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94VanDerWaalsParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a1ce47b676faf8c9ea1acb38eb06dd15e">More...</a><br /></td></tr>
 <tr class="separator:a1ce47b676faf8c9ea1acb38eb06dd15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab18c24bc4beba0b7d8370476b2c27cae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ab18c24bc4beba0b7d8370476b2c27cae">addEntry</a> (unsigned int atom_type, double atom_pol, double eff_el_num, double fact_a, double fact_g, <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsInteraction.html#ac9242090ccf7b1ea5c8c731cb83d9d6e">HDonorAcceptorType</a> don_acc_type)</td></tr>
-<tr class="memdesc:ab18c24bc4beba0b7d8370476b2c27cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ab18c24bc4beba0b7d8370476b2c27cae">More...</a><br /></td></tr>
+<tr class="memdesc:ab18c24bc4beba0b7d8370476b2c27cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the numeric MMFF94 atom type <em>atom_type</em> that stores the given parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#ab18c24bc4beba0b7d8370476b2c27cae">More...</a><br /></td></tr>
 <tr class="separator:ab18c24bc4beba0b7d8370476b2c27cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49fd95bc3b27a1094b3812477ae561cb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a49fd95bc3b27a1094b3812477ae561cb">getEntry</a> (unsigned int atom_type) const</td></tr>
 <tr class="memdesc:a49fd95bc3b27a1094b3812477ae561cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the numeric MMFF94 atom type <em>atom_type</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a49fd95bc3b27a1094b3812477ae561cb">More...</a><br /></td></tr>
@@ -192,7 +192,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a73f92dac739cfe260874d08a8687b079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads table entries from the input stream <em>is</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a73f92dac739cfe260874d08a8687b079">More...</a><br /></td></tr>
 <tr class="separator:a73f92dac739cfe260874d08a8687b079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ed682a97b2a486b6e59cf75f6185373"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5ed682a97b2a486b6e59cf75f6185373">loadDefaults</a> ()</td></tr>
-<tr class="memdesc:a5ed682a97b2a486b6e59cf75f6185373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default Van der Waals parameter entries and global scalar parameters.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5ed682a97b2a486b6e59cf75f6185373">More...</a><br /></td></tr>
+<tr class="memdesc:a5ed682a97b2a486b6e59cf75f6185373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default MMFF94 Van der Waals parameter entries and global scalar parameters.  <a href="classCDPL_1_1ForceField_1_1MMFF94VanDerWaalsParameterTable.html#a5ed682a97b2a486b6e59cf75f6185373">More...</a><br /></td></tr>
 <tr class="separator:a5ed682a97b2a486b6e59cf75f6185373"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -205,7 +205,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a1dc96da41c89da3f4d579df036042b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping numeric MMFF94 atom types to per-atom type Van der Waals parameters (atomic polarizability, effective electron number, scaling factors A/G, and H-donor/-acceptor classification). </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 interaction parameters. </p>
 <p>In addition to the per-atom type entries, the table also stores the five global scalar parameters (exponent, B, beta, DARAD, DAEPS) used by the buffered 14-7 MMFF94 Van der Waals energy expression. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9f9fb57180aa0ba440668d02e62dbf3d"></a>
@@ -343,7 +343,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the numeric MMFF94 atom type <em>atom_type</em>. </p>
+<p>Adds a new (or overwrites an existing) entry for the numeric MMFF94 atom type <em>atom_type</em> that stores the given parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom_type</td><td>The numeric MMFF94 atom type. </td></tr>
@@ -381,7 +381,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -909,7 +909,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads the built-in default Van der Waals parameter entries and global scalar parameters. </p>
+<p>Loads the built-in default MMFF94 Van der Waals parameter entries and global scalar parameters. </p>
 
 </div>
 </div>
@@ -971,7 +971,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the process-wide default table (lazily initialized on first call). </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the default table shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the default table. </dd></dl>
 
 </div>
 </div>

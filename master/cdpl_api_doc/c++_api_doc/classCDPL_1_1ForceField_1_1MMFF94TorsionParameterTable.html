@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping (torsion type, terminal-atom-1 type, center-atom-1 type, center-atom-2 type, terminal-atom-2 type) quintuples to the three MMFF94 torsion-energy Fourier-series parameters (V1, V2, V3).  
+<p>Data structure for the storage and lookup of MMFF94 torsion interaction parameters.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94TorsionParameterTable_8hpp_source.html">MMFF94TorsionParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single torsion parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:adf61513f51f384d2a730067ad006e19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94TorsionParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#adf61513f51f384d2a730067ad006e19a">More...</a><br /></td></tr>
 <tr class="separator:adf61513f51f384d2a730067ad006e19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4d61bb6fe0082c5f2f8ffc5b979adb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#af4d61bb6fe0082c5f2f8ffc5b979adb8">addEntry</a> (unsigned int tor_type_idx, unsigned int term_atom1_type, unsigned int ctr_atom1_type, unsigned int ctr_atom2_type, unsigned int term_atom2_type, double tor_param1, double tor_param2, double tor_param3)</td></tr>
-<tr class="memdesc:af4d61bb6fe0082c5f2f8ffc5b979adb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the given (torsion type, terminal-atom 1, center-atom 1, center-atom 2, terminal-atom 2) quintuple.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#af4d61bb6fe0082c5f2f8ffc5b979adb8">More...</a><br /></td></tr>
+<tr class="memdesc:af4d61bb6fe0082c5f2f8ffc5b979adb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the given query and parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#af4d61bb6fe0082c5f2f8ffc5b979adb8">More...</a><br /></td></tr>
 <tr class="separator:af4d61bb6fe0082c5f2f8ffc5b979adb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8debae480c43c32d7b4e7c1fae3c1a60"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a8debae480c43c32d7b4e7c1fae3c1a60">getEntry</a> (unsigned int tor_type_idx, unsigned int term_atom1_type, unsigned int ctr_atom1_type, unsigned int ctr_atom2_type, unsigned int term_atom2_type) const</td></tr>
-<tr class="memdesc:a8debae480c43c32d7b4e7c1fae3c1a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the given (torsion type, terminal-atom 1, center-atom 1, center-atom 2, terminal-atom 2) quintuple.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a8debae480c43c32d7b4e7c1fae3c1a60">More...</a><br /></td></tr>
+<tr class="memdesc:a8debae480c43c32d7b4e7c1fae3c1a60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a8debae480c43c32d7b4e7c1fae3c1a60">More...</a><br /></td></tr>
 <tr class="separator:a8debae480c43c32d7b4e7c1fae3c1a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afabc03f8172186d6bedae83504c3d47e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#afabc03f8172186d6bedae83504c3d47e">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:afabc03f8172186d6bedae83504c3d47e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#afabc03f8172186d6bedae83504c3d47e">More...</a><br /></td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0f74a7f1974fb3fe444cfebbce3387fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a0f74a7f1974fb3fe444cfebbce3387fa">More...</a><br /></td></tr>
 <tr class="separator:a0f74a7f1974fb3fe444cfebbce3387fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0170f6291341f1b80fc4ae4a14c341e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a0170f6291341f1b80fc4ae4a14c341e5">removeEntry</a> (unsigned int tor_type_idx, unsigned int term_atom1_type, unsigned int ctr_atom1_type, unsigned int ctr_atom2_type, unsigned int term_atom2_type)</td></tr>
-<tr class="memdesc:a0170f6291341f1b80fc4ae4a14c341e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the given (torsion type, terminal-atom 1, center-atom 1, center-atom 2, terminal-atom 2) quintuple.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a0170f6291341f1b80fc4ae4a14c341e5">More...</a><br /></td></tr>
+<tr class="memdesc:a0170f6291341f1b80fc4ae4a14c341e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#a0170f6291341f1b80fc4ae4a14c341e5">More...</a><br /></td></tr>
 <tr class="separator:a0170f6291341f1b80fc4ae4a14c341e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1a1b2a901e4c9d09638e0fae3bd5854"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#ab9c9ec2538098672a3c5ce63f616f3d0">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#ad1a1b2a901e4c9d09638e0fae3bd5854">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#ab9c9ec2538098672a3c5ce63f616f3d0">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:ad1a1b2a901e4c9d09638e0fae3bd5854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94TorsionParameterTable.html#ad1a1b2a901e4c9d09638e0fae3bd5854">More...</a><br /></td></tr>
@@ -172,8 +172,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:af42da2f1b28558a9b9fea1c0d00c3f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping (torsion type, terminal-atom-1 type, center-atom-1 type, center-atom-2 type, terminal-atom-2 type) quintuples to the three MMFF94 torsion-energy Fourier-series parameters (V1, V2, V3). </p>
-<p>The table maintains separate process-wide defaults per MMFF94 parameter set (see Util::MMFF94ParameterSet). </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 torsion interaction parameters. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a244798ce0f11b8931281edc4dd55e852"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a244798ce0f11b8931281edc4dd55e852">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -306,7 +305,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the given (torsion type, terminal-atom 1, center-atom 1, center-atom 2, terminal-atom 2) quintuple. </p>
+<p>Adds a new (or overwrites an existing) entry for the given query and parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tor_type_idx</td><td>The MMFF94 torsion type index. </td></tr>
@@ -367,7 +366,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the entry for the given (torsion type, terminal-atom 1, center-atom 1, center-atom 2, terminal-atom 2) quintuple. </p>
+<p>Returns a reference to the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tor_type_idx</td><td>The MMFF94 torsion type index. </td></tr>
@@ -378,7 +377,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -465,7 +464,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the entry for the given (torsion type, terminal-atom 1, center-atom 1, center-atom 2, terminal-atom 2) quintuple. </p>
+<p>Removes the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tor_type_idx</td><td>The MMFF94 torsion type index. </td></tr>
@@ -712,7 +711,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Loads the built-in default torsion parameter entries for the specified MMFF94 parameter set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which built-in defaults to load. </td></tr>
+    <tr><td class="paramname">param_set</td><td>The parameter set identifier (see namespace <a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides constants for MMFF94 parameter set variant specification.">ForceField::MMFF94ParameterSet</a>) selecting which built-in defaults to load. </td></tr>
   </table>
   </dd>
 </dl>
@@ -757,7 +756,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">table</td><td>The new default table (a <code>nullptr</code> resets to the built-in default). </td></tr>
-    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which default slot to replace. </td></tr>
+    <tr><td class="paramname">param_set</td><td>The parameter set identifier (see namespace <a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides constants for MMFF94 parameter set variant specification.">ForceField::MMFF94ParameterSet</a>) selecting which default slot to replace. </td></tr>
   </table>
   </dd>
 </dl>
@@ -791,11 +790,11 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns the process-wide default table for <em>param_set</em> (lazily initialized on first call). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">param_set</td><td>The Util::MMFF94ParameterSet identifier selecting which default slot to return. </td></tr>
+    <tr><td class="paramname">param_set</td><td>The parameter set identifier (see namespace <a class="el" href="namespaceCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides constants for MMFF94 parameter set variant specification.">ForceField::MMFF94ParameterSet</a>) selecting which default slot to return. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the selected default table shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the selected default table. </dd></dl>
 
 </div>
 </div>

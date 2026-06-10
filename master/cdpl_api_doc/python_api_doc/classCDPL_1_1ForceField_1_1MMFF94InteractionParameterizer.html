@@ -188,7 +188,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a8e07ecd2d817414560581f720ee391da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the distance exponent used by the electrostatic interaction parameterizer.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a8e07ecd2d817414560581f720ee391da">More...</a><br /></td></tr>
 <tr class="separator:a8e07ecd2d817414560581f720ee391da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab49b7a6f4038c840759f5986d6d25459"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ab49b7a6f4038c840759f5986d6d25459">setParameterSet</a> (int param_set)</td></tr>
-<tr class="memdesc:ab49b7a6f4038c840759f5986d6d25459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the active MMFF94 parameter-set variant and reinstalls the matching default tables.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ab49b7a6f4038c840759f5986d6d25459">More...</a><br /></td></tr>
+<tr class="memdesc:ab49b7a6f4038c840759f5986d6d25459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the active MMFF94 parameter set variant and reinstalls the matching default tables.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#ab49b7a6f4038c840759f5986d6d25459">More...</a><br /></td></tr>
 <tr class="separator:ab49b7a6f4038c840759f5986d6d25459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11107d240a1b851d0e4524f7b5b8428e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html">MMFF94InteractionParameterizer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a11107d240a1b851d0e4524f7b5b8428e">assign</a> (<a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html">MMFF94InteractionParameterizer</a> parameterizer)</td></tr>
 <tr class="memdesc:a11107d240a1b851d0e4524f7b5b8428e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the state of <em>parameterizer</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a11107d240a1b851d0e4524f7b5b8428e">More...</a><br /></td></tr>
@@ -205,7 +205,7 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>One-stop MMFF94 parameterizer that combines atom typing, bond typing, partial-charge assignment and per-interaction-type parameter look-up into a single <code><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a9010057714ade4d41cef30bf4da22b92" title="Parameterizes the MMFF94 force field interactions for molgraph and stores them in ia_data.">parameterize()</a></code> call. </p>
-<p>The constructor installs default parameter tables and atom-/bond-typing helpers for the selected <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides flags for the specification of the MMFF94 parameter set to use.">ForceField.MMFF94ParameterSet</a> variant (<code>STATIC</code>, <code>DYNAMIC</code>, etc.); every table, map and filter function can be overridden via the corresponding setter. Calling <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a9010057714ade4d41cef30bf4da22b92" title="Parameterizes the MMFF94 force field interactions for molgraph and stores them in ia_data.">parameterize()</a> runs atom typing, bond typing, formal/partial-charge assignment, aromaticity perception and topological-distance calculation, then dispatches to the seven per-interaction MMFF94*InteractionParameterizer members and stores the resulting interaction lists in the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField.MMFF94InteractionData</a> object. </p>
+<p>The constructor installs default parameter tables and atom-/bond-typing helpers for the selected <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides constants for the specification of a particular MMFF94 parameter set variant.">ForceField.MMFF94ParameterSet</a> variant (<code>STATIC</code>, <code>DYNAMIC</code>, etc.); every table, map and filter function can be overridden via the corresponding setter. Calling <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionParameterizer.html#a9010057714ade4d41cef30bf4da22b92" title="Parameterizes the MMFF94 force field interactions for molgraph and stores them in ia_data.">parameterize()</a> runs atom typing, bond typing, formal/partial-charge assignment, aromaticity perception and topological-distance calculation, then dispatches to the seven per-interaction MMFF94*InteractionParameterizer members and stores the resulting interaction lists in the supplied <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html" title="Container holding the full set of MMFF94 interaction parameters for a molecular graph.">ForceField.MMFF94InteractionData</a> object. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0587737c2078f29e3ec58d83cfb71506"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0587737c2078f29e3ec58d83cfb71506">&#9670;&nbsp;</a></span>__init__() <span class="overload">[1/2]</span></h2>
@@ -226,7 +226,7 @@ Properties</h2></td></tr>
 <p>Constructs the parameterizer with the default tables for the chosen MMFF94 parameter set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">param_set</td><td>The parameter-set variant (see namespace <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides flags for the specification of the MMFF94 parameter set to use.">ForceField.MMFF94ParameterSet</a>). </td></tr>
+    <tr><td class="paramname">param_set</td><td>The parameter set variant (see namespace <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides constants for the specification of a particular MMFF94 parameter set variant.">ForceField.MMFF94ParameterSet</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -973,10 +973,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Switches the active MMFF94 parameter-set variant and reinstalls the matching default tables. </p>
+<p>Switches the active MMFF94 parameter set variant and reinstalls the matching default tables. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">param_set</td><td>The new parameter-set variant (see namespace <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides flags for the specification of the MMFF94 parameter set to use.">ForceField.MMFF94ParameterSet</a>). </td></tr>
+    <tr><td class="paramname">param_set</td><td>The new parameter set variant (see namespace <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94ParameterSet.html" title="Provides constants for the specification of a particular MMFF94 parameter set variant.">ForceField.MMFF94ParameterSet</a>). </td></tr>
   </table>
   </dd>
 </dl>

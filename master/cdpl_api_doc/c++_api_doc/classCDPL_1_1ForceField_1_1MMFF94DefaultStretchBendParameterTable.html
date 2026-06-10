@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Lookup table mapping (terminal-atom-1 PTE row, center-atom PTE row, terminal-atom-2 PTE row) triples to fallback MMFF94 stretch-bend coupling force constants used when no atom type-specific entry is available.  
+<p>Data structure for the storage and lookup of MMFF94 stretch-bend interaction fallback parameters.  
  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MMFF94DefaultStretchBendParameterTable_8hpp_source.html">MMFF94DefaultStretchBendParameterTable.hpp</a>&gt;</code></p>
@@ -93,7 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable_1_1Entry.html">Entry</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single PTE-row-based default stretch-bend parameter record.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure for the storage of values associated with a single table entry.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable_1_1Entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -114,10 +114,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8b9aecdb70f948580e76f571806f5245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty <code>MMFF94DefaultStretchBendParameterTable</code> instance.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a8b9aecdb70f948580e76f571806f5245">More...</a><br /></td></tr>
 <tr class="separator:a8b9aecdb70f948580e76f571806f5245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82f1ad599bd339f9f0b3520944f87009"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a82f1ad599bd339f9f0b3520944f87009">addEntry</a> (unsigned int term_atom1_pte_row, unsigned int ctr_atom_pte_row, unsigned int term_atom2_pte_row, double ijk_force_const, double kji_force_const)</td></tr>
-<tr class="memdesc:a82f1ad599bd339f9f0b3520944f87009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds (or overwrites) the entry for the given (terminal-atom 1 PTE row, center-atom PTE row, terminal-atom 2 PTE row) triple.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a82f1ad599bd339f9f0b3520944f87009">More...</a><br /></td></tr>
+<tr class="memdesc:a82f1ad599bd339f9f0b3520944f87009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new (or overwrites an existing) entry for the given query and parameter values.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a82f1ad599bd339f9f0b3520944f87009">More...</a><br /></td></tr>
 <tr class="separator:a82f1ad599bd339f9f0b3520944f87009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a319cabcfcdaf64eb6f0ca4fce97b1468"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable_1_1Entry.html">Entry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a319cabcfcdaf64eb6f0ca4fce97b1468">getEntry</a> (unsigned int term_atom1_pte_row, unsigned int ctr_atom_pte_row, unsigned int term_atom2_pte_row) const</td></tr>
-<tr class="memdesc:a319cabcfcdaf64eb6f0ca4fce97b1468"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the entry for the given (terminal-atom 1 PTE row, center-atom PTE row, terminal-atom 2 PTE row) triple.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a319cabcfcdaf64eb6f0ca4fce97b1468">More...</a><br /></td></tr>
+<tr class="memdesc:a319cabcfcdaf64eb6f0ca4fce97b1468"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a319cabcfcdaf64eb6f0ca4fce97b1468">More...</a><br /></td></tr>
 <tr class="separator:a319cabcfcdaf64eb6f0ca4fce97b1468"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a032237d1dbea2564123ab207c3f41a8d"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a032237d1dbea2564123ab207c3f41a8d">getNumEntries</a> () const</td></tr>
 <tr class="memdesc:a032237d1dbea2564123ab207c3f41a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a032237d1dbea2564123ab207c3f41a8d">More...</a><br /></td></tr>
@@ -126,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6d61667106423ab408a33612e9c3f053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entries from the table.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a6d61667106423ab408a33612e9c3f053">More...</a><br /></td></tr>
 <tr class="separator:a6d61667106423ab408a33612e9c3f053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac2349e19a9ba26c1495ce0465c8cfd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#aac2349e19a9ba26c1495ce0465c8cfd9">removeEntry</a> (unsigned int term_atom1_pte_row, unsigned int ctr_atom_pte_row, unsigned int term_atom2_pte_row)</td></tr>
-<tr class="memdesc:aac2349e19a9ba26c1495ce0465c8cfd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry for the given (terminal-atom 1 PTE row, center-atom PTE row, terminal-atom 2 PTE row) triple.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#aac2349e19a9ba26c1495ce0465c8cfd9">More...</a><br /></td></tr>
+<tr class="memdesc:aac2349e19a9ba26c1495ce0465c8cfd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry matching the specified query values.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#aac2349e19a9ba26c1495ce0465c8cfd9">More...</a><br /></td></tr>
 <tr class="separator:aac2349e19a9ba26c1495ce0465c8cfd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc517e0174ea1cf0e5eedc8c9f66d1cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#afc67fb49ba33160770977a149db3cb30">EntryIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#abc517e0174ea1cf0e5eedc8c9f66d1cd">removeEntry</a> (const <a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#afc67fb49ba33160770977a149db3cb30">EntryIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:abc517e0174ea1cf0e5eedc8c9f66d1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the entry pointed to by the iterator <em>it</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#abc517e0174ea1cf0e5eedc8c9f66d1cd">More...</a><br /></td></tr>
@@ -159,7 +159,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a82a2bfa9703180b07ec6aff4ff575cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads table entries from the input stream <em>is</em>.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a82a2bfa9703180b07ec6aff4ff575cc5">More...</a><br /></td></tr>
 <tr class="separator:a82a2bfa9703180b07ec6aff4ff575cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ad516e2fbfbe8c139268b25fd3ad4d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a4ad516e2fbfbe8c139268b25fd3ad4d1">loadDefaults</a> ()</td></tr>
-<tr class="memdesc:a4ad516e2fbfbe8c139268b25fd3ad4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default stretch-bend fallback entries.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a4ad516e2fbfbe8c139268b25fd3ad4d1">More...</a><br /></td></tr>
+<tr class="memdesc:a4ad516e2fbfbe8c139268b25fd3ad4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the built-in default MMFF94 stretch-bend fallback parameter entries.  <a href="classCDPL_1_1ForceField_1_1MMFF94DefaultStretchBendParameterTable.html#a4ad516e2fbfbe8c139268b25fd3ad4d1">More...</a><br /></td></tr>
 <tr class="separator:a4ad516e2fbfbe8c139268b25fd3ad4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -172,8 +172,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aa307fa956a753660f338c925e07e92d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Lookup table mapping (terminal-atom-1 PTE row, center-atom PTE row, terminal-atom-2 PTE row) triples to fallback MMFF94 stretch-bend coupling force constants used when no atom type-specific entry is available. </p>
-<p>The PTE row of an atom is the row index in the periodic table of the elements. Two directional force constants are stored per entry (<code>IJK</code> and <code>KJI</code>) — see Util::MMFF94StretchBendParameterTable for the coupling semantics. </p>
+<div class="textblock"><p>Data structure for the storage and lookup of MMFF94 stretch-bend interaction fallback parameters. </p>
+<p>The PTE row of an atom is the row index in the periodic table of the elements. Two directional force constants are stored per entry (<code>IJK</code> and <code>KJI</code>) — see ForceFIeld::MMFF94StretchBendParameterTable for the coupling semantics. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a9ab1f9fcd7a84abda17a0aec4b988baf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ab1f9fcd7a84abda17a0aec4b988baf">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -288,7 +288,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds (or overwrites) the entry for the given (terminal-atom 1 PTE row, center-atom PTE row, terminal-atom 2 PTE row) triple. </p>
+<p>Adds a new (or overwrites an existing) entry for the given query and parameter values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">term_atom1_pte_row</td><td>The PTE row of the first terminal atom. </td></tr>
@@ -334,7 +334,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the entry for the given (terminal-atom 1 PTE row, center-atom PTE row, terminal-atom 2 PTE row) triple. </p>
+<p>Returns a reference to the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">term_atom1_pte_row</td><td>The PTE row of the first terminal atom. </td></tr>
@@ -343,7 +343,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry, or to an uninitialized entry (whose <code>operator bool()</code> returns <code>false</code>) if no match exists. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the matching entry or to an uninitialized entry if no matching entry exists. </dd></dl>
 
 </div>
 </div>
@@ -418,7 +418,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Removes the entry for the given (terminal-atom 1 PTE row, center-atom PTE row, terminal-atom 2 PTE row) triple. </p>
+<p>Removes the entry matching the specified query values. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">term_atom1_pte_row</td><td>The PTE row of the first terminal atom. </td></tr>
@@ -659,7 +659,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads the built-in default stretch-bend fallback entries. </p>
+<p>Loads the built-in default MMFF94 stretch-bend fallback parameter entries. </p>
 
 </div>
 </div>
@@ -721,7 +721,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the process-wide default table (lazily initialized on first call). </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the default table shared pointer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A shared pointer to the default table. </dd></dl>
 
 </div>
 </div>
