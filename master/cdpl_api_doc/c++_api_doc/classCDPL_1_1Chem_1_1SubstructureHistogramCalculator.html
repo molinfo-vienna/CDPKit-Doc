@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Counts occurrences of registered SMARTS substructure queries in a molecular graph, emitting the per-pattern hit counts into a user-supplied histogram container.  
+<p>Counts occurrences of registered substructure patterns in a molecular graph, emitting the per-pattern hit counts into a user-supplied histogram container.  
  <a href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="SubstructureHistogramCalculator_8hpp_source.html">SubstructureHistogramCalculator.hpp</a>&gt;</code></p>
@@ -92,7 +92,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator_1_1Pattern.html">Pattern</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a single SMARTS query pattern, its histogram ID, its priority and match-handling flags.  <a href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator_1_1Pattern.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a single substructure query molecular graph, its histogram ID, its priority and match-handling flags.  <a href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator_1_1Pattern.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -169,8 +169,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a19d06ff2d0e3f85b3e7f72ed636efc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Counts occurrences of registered SMARTS substructure queries in a molecular graph, emitting the per-pattern hit counts into a user-supplied histogram container. </p>
-<p>Patterns are added via <a class="el" href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator.html#a69cffa962f4c2e05a7615dc7394c6afa" title="Registers a new pattern by its query molecular graph and per-pattern settings.">addPattern()</a> (each pattern carries a numeric ID, a priority and match-handling flags). On <a class="el" href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator.html#ac8503ef4c1543f5f6f13448c857ef3b4" title="Counts substructure occurrences in molgraph and writes the per-pattern hit counts to histo.">calculate()</a> the registered patterns are run in priority order against the input molecular graph; matched atom/bond regions are masked so that subsequent lower-priority patterns cannot re-count overlapping substructures. The per-pattern hit count is then forwarded to the histogram via the expression <code>histo</code>[id]++ for every accepted match. </p>
+<div class="textblock"><p>Counts occurrences of registered substructure patterns in a molecular graph, emitting the per-pattern hit counts into a user-supplied histogram container. </p>
+<p>Patterns are added via <a class="el" href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator.html#a69cffa962f4c2e05a7615dc7394c6afa" title="Registers a new pattern by its query molecular graph and per-pattern settings.">addPattern()</a> (each pattern carries a query molecular graph, a numeric ID, a priority and match-handling flags). On <a class="el" href="classCDPL_1_1Chem_1_1SubstructureHistogramCalculator.html#ac8503ef4c1543f5f6f13448c857ef3b4" title="Counts substructure occurrences in molgraph and writes the per-pattern hit counts to histo.">calculate()</a> the registered patterns are run in priority order against the input molecular graph. Matched atom/bond regions are masked so that subsequent lower-priority patterns cannot re-count overlapping substructures. The per-pattern hit count is then forwarded to the histogram via the expression <code>histo</code>[id]++ for every accepted match. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aea293932884b8c8b9d01de4cea4eb5bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea293932884b8c8b9d01de4cea4eb5bd">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -314,10 +314,10 @@ Public Member Functions</h2></td></tr>
 <p>Registers a new pattern by its query molecular graph and per-pattern settings. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The SMARTS query molecular graph. </td></tr>
-    <tr><td class="paramname">id</td><td>The histogram-bin ID to which matches of this pattern contribute. </td></tr>
-    <tr><td class="paramname">priority</td><td>The pattern's priority; higher-priority patterns are evaluated first. </td></tr>
-    <tr><td class="paramname">all_matches</td><td>If <code>true</code>, every match of the query is processed; otherwise only the first. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The query molecular graph. </td></tr>
+    <tr><td class="paramname">id</td><td>The histogram bin ID to which matches of this pattern contribute. </td></tr>
+    <tr><td class="paramname">priority</td><td>The pattern's priority (higher priority patterns are evaluated first). </td></tr>
+    <tr><td class="paramname">all_matches</td><td>If <code>true</code>, every match of the query is processed. Otherwise, only the first. </td></tr>
     <tr><td class="paramname">unique_matches</td><td>If <code>true</code>, only one of multiple equivalent substructure mappings is processed per match. </td></tr>
   </table>
   </dd>

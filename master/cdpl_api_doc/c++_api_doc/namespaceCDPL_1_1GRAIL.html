@@ -158,7 +158,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aed2b3109e4f15e67b2c7be5b8f3f8398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perceives the <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> extended pharmacophore feature type of the given <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html" title="Abstract base class representing a single pharmacophore feature within a parent Pharm::Pharmacophore.">Pharm::Feature</a> instance.  <a href="namespaceCDPL_1_1GRAIL.html#aed2b3109e4f15e67b2c7be5b8f3f8398">More...</a><br /></td></tr>
 <tr class="separator:aed2b3109e4f15e67b2c7be5b8f3f8398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816daa17951f036fe5c095c4f01d33c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="GRAIL_2APIPrefix_8hpp.html#aceeb36cc616239bb7f3d5f110eb7c16c">CDPL_GRAIL_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1GRAIL.html#a816daa17951f036fe5c095c4f01d33c4">prepareForGRAILDescriptorCalculation</a> (<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Chem::Molecule</a> &amp;mol, <a class="el" href="classbool.html">bool</a> std_prot_state=false)</td></tr>
-<tr class="memdesc:a816daa17951f036fe5c095c4f01d33c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a molecule for <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor calculation.  <a href="namespaceCDPL_1_1GRAIL.html#a816daa17951f036fe5c095c4f01d33c4">More...</a><br /></td></tr>
+<tr class="memdesc:a816daa17951f036fe5c095c4f01d33c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecule <em>mol</em> for <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor calculation.  <a href="namespaceCDPL_1_1GRAIL.html#a816daa17951f036fe5c095c4f01d33c4">More...</a><br /></td></tr>
 <tr class="separator:a816daa17951f036fe5c095c4f01d33c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -428,7 +428,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">feature</td><td>The feature for which to perceive the extended type. </td></tr>
-    <tr><td class="paramname">lig_side</td><td>If <code>true</code>, the perception is performed assuming the feature is part of a ligand; otherwise it is assumed to be part of a target structure. </td></tr>
+    <tr><td class="paramname">lig_side</td><td>If <code>true</code>, the perception is performed assuming the feature is part of a ligand. Otherwise, it is assumed to be part of a target structure. </td></tr>
   </table>
   </dd>
 </dl>
@@ -462,12 +462,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prepares a molecule for <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor calculation. </p>
-<p>Performs the pre-processing steps (e.g. ring perception, atom typing, hydrogen handling) required by <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDescriptorCalculator.html" title="Calculation of GRAIL descriptors for protein-ligand complexes.">GRAIL::GRAILDescriptorCalculator</a> on the molecular structure.</p>
+<p>Prepares the molecule <em>mol</em> for <a class="el" href="namespaceCDPL_1_1GRAIL.html" title="Contains classes and functions related to the GRAIL method [GRAIL, GRADE].">GRAIL</a> descriptor calculation. </p>
+<p>Performs all molecular structure preprocessing steps (e.g. ring perception, atom typing, hydrogen handling) required by the descriptor calculation procedure (implemented by <a class="el" href="classCDPL_1_1GRAIL_1_1GRAILDescriptorCalculator.html" title="Calculation of GRAIL descriptors for protein-ligand complexes.">GRAIL::GRAILDescriptorCalculator</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule to prepare. The molecule is modified in place. </td></tr>
-    <tr><td class="paramname">std_prot_state</td><td>If <code>true</code>, the standard protonation state of the molecule is assigned prior to the GRAIL-specific pre-processing. </td></tr>
+    <tr><td class="paramname">std_prot_state</td><td>If <code>true</code>, the standard protonation state of the molecule is assigned prior to the GRAIL-specific preprocessing. </td></tr>
   </table>
   </dd>
 </dl>

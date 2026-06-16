@@ -195,7 +195,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single match of a <a class="el" href="classCDPL_1_1ConfGen_1_1TorsionRule.html" title="Data structure for the representation of single torsion library rules.">ConfGen::TorsionRule</a> against a rotatable bond: the rule, the bond and the four atoms that span the torsion.  <a href="classCDPL_1_1ConfGen_1_1TorsionRuleMatch.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1TorsionRuleMatcher.html">TorsionRuleMatcher</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds torsion rules from a <a class="el" href="classCDPL_1_1ConfGen_1_1TorsionLibrary.html" title="Data structure representing a hierarchical library of torsion rules organized into categories.">TorsionLibrary</a> that apply to a given rotatable bond.  <a href="classCDPL_1_1ConfGen_1_1TorsionRuleMatcher.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds torsion rules from a <a class="el" href="classCDPL_1_1ConfGen_1_1TorsionLibrary.html" title="Data structure representing a hierarchical library of torsion rules organized into categories.">ConfGen::TorsionLibrary</a> instance that match a given rotatable bond.  <a href="classCDPL_1_1ConfGen_1_1TorsionRuleMatcher.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -267,7 +267,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a506fbf8bd1005763157582fbd891c9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <em>molgraph</em> as a fixed-substructure pattern matched against the supplied <em>tmplt</em> template.  <a href="namespaceCDPL_1_1ConfGen.html#a506fbf8bd1005763157582fbd891c9f3">More...</a><br /></td></tr>
 <tr class="separator:a506fbf8bd1005763157582fbd891c9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3693957895a8765a51e9655b03ec7bcd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ConfGen_2APIPrefix_8hpp.html#af43cd2adb404d4c1b31fb8dbd7eb0d7f">CDPL_CONFGEN_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ConfGen.html#a3693957895a8765a51e9655b03ec7bcd">prepareForConformerGeneration</a> (<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Chem::Molecule</a> &amp;mol, <a class="el" href="classbool.html">bool</a> canonicalize=false)</td></tr>
-<tr class="memdesc:a3693957895a8765a51e9655b03ec7bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares <em>mol</em> for conformer generation by completing its hydrogens, perceiving SSSR, ring flags, implicit hydrogen counts, hybridization states, aromaticity and (optionally) canonicalizing the atom ordering.  <a href="namespaceCDPL_1_1ConfGen.html#a3693957895a8765a51e9655b03ec7bcd">More...</a><br /></td></tr>
+<tr class="memdesc:a3693957895a8765a51e9655b03ec7bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecule <em>mol</em> for conformer generation.  <a href="namespaceCDPL_1_1ConfGen.html#a3693957895a8765a51e9655b03ec7bcd">More...</a><br /></td></tr>
 <tr class="separator:a3693957895a8765a51e9655b03ec7bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -1094,7 +1094,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prepares <em>mol</em> for conformer generation by completing its hydrogens, perceiving SSSR, ring flags, implicit hydrogen counts, hybridization states, aromaticity and (optionally) canonicalizing the atom ordering. </p>
+<p>Prepares the molecule <em>mol</em> for conformer generation. </p>
+<p>The molecules gets prepared by completing its hydrogens, perceiving the SSSR, ring flags, implicit hydrogen counts, hybridization states, aromaticity and (optionally) canonicalizing the atom ordering.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule to prepare (modified in place). </td></tr>

@@ -201,7 +201,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single match of a <a class="el" href="classCDPL_1_1ConfGen_1_1TorsionRule.html" title="Data structure for the representation of single torsion library rules.">ConfGen.TorsionRule</a> against a rotatable bond: the rule, the bond and the four atoms that span the torsion.  <a href="classCDPL_1_1ConfGen_1_1TorsionRuleMatch.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1ConfGen_1_1TorsionRuleMatcher.html">TorsionRuleMatcher</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds torsion rules from a <a class="el" href="classCDPL_1_1ConfGen_1_1TorsionLibrary.html" title="Data structure representing a hierarchical library of torsion rules organized into categories.">TorsionLibrary</a> that apply to a given rotatable bond.  <a href="classCDPL_1_1ConfGen_1_1TorsionRuleMatcher.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds torsion rules from a <a class="el" href="classCDPL_1_1ConfGen_1_1TorsionLibrary.html" title="Data structure representing a hierarchical library of torsion rules organized into categories.">ConfGen.TorsionLibrary</a> instance that match a given rotatable bond.  <a href="classCDPL_1_1ConfGen_1_1TorsionRuleMatcher.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -237,7 +237,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad816516c1236e43075e5aedcf4203475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classifies <em>molgraph</em> as a <a class="el" href="classCDPL_1_1ConfGen_1_1FragmentType.html" title="Provides constants that are used to describe the nature of fragments used to build-up molecule 3D mod...">ConfGen.FragmentType</a> (chain, flexible ring, rigid ring, etc.).  <a href="namespaceCDPL_1_1ConfGen.html#ad816516c1236e43075e5aedcf4203475">More...</a><br /></td></tr>
 <tr class="separator:ad816516c1236e43075e5aedcf4203475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20494804510edc8076a3abd633f61fb5"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ConfGen.html#a20494804510edc8076a3abd633f61fb5">prepareForConformerGeneration</a> (<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Chem.Molecule</a> mol, bool canonicalize=False)</td></tr>
-<tr class="memdesc:a20494804510edc8076a3abd633f61fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares <em>mol</em> for conformer generation by completing its hydrogens, perceiving SSSR, ring flags, implicit hydrogen counts, hybridization states, aromaticity and (optionally) canonicalizing the atom ordering.  <a href="namespaceCDPL_1_1ConfGen.html#a20494804510edc8076a3abd633f61fb5">More...</a><br /></td></tr>
+<tr class="memdesc:a20494804510edc8076a3abd633f61fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecule <em>mol</em> for conformer generation.  <a href="namespaceCDPL_1_1ConfGen.html#a20494804510edc8076a3abd633f61fb5">More...</a><br /></td></tr>
 <tr class="separator:a20494804510edc8076a3abd633f61fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fddf597d6b3f45cac545d992b40092f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1ConfGen.html#a3fddf597d6b3f45cac545d992b40092f">setupFixedSubstructureData</a> (<a class="el" href="classCDPL_1_1Chem_1_1CommonConnectedSubstructureSearch.html">Chem.CommonConnectedSubstructureSearch</a> sub_search, int max_num_matches, <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">Chem.MolecularGraph</a> molgraph, <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> fixed_substr, <a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> fixed_substr_coords=0)</td></tr>
 <tr class="memdesc:a3fddf597d6b3f45cac545d992b40092f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the fixed-substructure handling of <em>molgraph</em> using the matches produced by <em>sub_search</em>.  <a href="namespaceCDPL_1_1ConfGen.html#a3fddf597d6b3f45cac545d992b40092f">More...</a><br /></td></tr>
@@ -741,7 +741,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prepares <em>mol</em> for conformer generation by completing its hydrogens, perceiving SSSR, ring flags, implicit hydrogen counts, hybridization states, aromaticity and (optionally) canonicalizing the atom ordering. </p>
+<p>Prepares the molecule <em>mol</em> for conformer generation. </p>
+<p>The molecules gets prepared by completing its hydrogens, perceiving the SSSR, ring flags, implicit hydrogen counts, hybridization states, aromaticity and (optionally) canonicalizing the atom ordering.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule to prepare (modified in place). </td></tr>

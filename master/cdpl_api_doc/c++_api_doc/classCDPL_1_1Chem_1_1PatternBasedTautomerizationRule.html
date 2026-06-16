@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>SMARTS-pattern-based implementation of a <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a>.  
+<p>Match pattern-based implementation of the <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a> interface.  
  <a href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PatternBasedTautomerizationRule_8hpp_source.html">PatternBasedTautomerizationRule.hpp</a>&gt;</code></p>
@@ -126,10 +126,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aadb94741ac07749e6551674ca3d9ad73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4342b333eb0800c324762db35d0faf62"><td class="memTemplParams" colspan="2">template&lt;typename Iter &gt; </td></tr>
 <tr class="memitem:a4342b333eb0800c324762db35d0faf62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a4342b333eb0800c324762db35d0faf62">addTransformationPattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;molgraph, Iter bond_chgs_beg, Iter bond_chgs_end)</td></tr>
-<tr class="memdesc:a4342b333eb0800c324762db35d0faf62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new transformation pattern together with the associated bond-order changes.  <a href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a4342b333eb0800c324762db35d0faf62">More...</a><br /></td></tr>
+<tr class="memdesc:a4342b333eb0800c324762db35d0faf62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new transformation pattern.  <a href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a4342b333eb0800c324762db35d0faf62">More...</a><br /></td></tr>
 <tr class="separator:a4342b333eb0800c324762db35d0faf62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ef06b1168a1fe5e786785743991426b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a1ef06b1168a1fe5e786785743991426b">addExcludePattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a1ef06b1168a1fe5e786785743991426b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an exclude pattern: when this substructure is present in the parent molecular graph, the matching transformation will not be applied.  <a href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a1ef06b1168a1fe5e786785743991426b">More...</a><br /></td></tr>
+<tr class="memdesc:a1ef06b1168a1fe5e786785743991426b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a rule exclude pattern.  <a href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a1ef06b1168a1fe5e786785743991426b">More...</a><br /></td></tr>
 <tr class="separator:a1ef06b1168a1fe5e786785743991426b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32d4e42b423c24082e984d3843fb828f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a32d4e42b423c24082e984d3843fb828f">addExcludePatterns</a> (const <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html">PatternBasedTautomerizationRule</a> &amp;rule)</td></tr>
 <tr class="memdesc:a32d4e42b423c24082e984d3843fb828f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies all exclude patterns of <em>rule</em> into this rule.  <a href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a32d4e42b423c24082e984d3843fb828f">More...</a><br /></td></tr>
@@ -155,8 +155,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a14b3ecfbbf47d63cde33e52ec7c15d4f inherit pub_methods_classCDPL_1_1Chem_1_1TautomerizationRule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SMARTS-pattern-based implementation of a <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a>. </p>
-<p>The rule is configured with a set of <em>transformation patterns</em> (SMARTS queries describing the source substructure together with per-atom-pair bond-order changes that apply when the pattern matches) plus optional <em>exclude patterns</em> (substructures that, when present, suppress the application of the rule). The <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a7dbd6e208a2e6c01359183bfe8ed4e45" title="Prepares the rule for tautomer enumeration on parent_molgraph.">setup()</a> / <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#ae9369ee792e620a1b5c97163fe15843f" title="Writes the next tautomer reachable from the parent molecular graph into tautomer.">generate()</a> pair from the base class then enumerates the tautomers reachable from the parent molecular graph by applying the configured transformations. </p>
+<div class="textblock"><p>Match pattern-based implementation of the <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a> interface. </p>
+<p>The rule is configured with a set of <em>transformation patterns</em> describing the source substructure together with per-atom pair bond order changes that apply when the pattern matches plus optional <em>exclude patterns</em> (substructures that, when present, suppress the application of the rule). The <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a7dbd6e208a2e6c01359183bfe8ed4e45" title="Prepares the rule for tautomer enumeration on parent_molgraph.">setup()</a> / <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#ae9369ee792e620a1b5c97163fe15843f" title="Writes the next tautomer reachable from the parent molecular graph into tautomer.">generate()</a> pair from the base class then enumerates the tautomers reachable from the parent molecular graph by applying the configured transformations. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a865b6873a310760dbf060554f4784b2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a865b6873a310760dbf060554f4784b2f">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -297,8 +297,8 @@ template&lt;typename Iter &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Registers a new transformation pattern together with the associated bond-order changes. </p>
-<p>Bond-order changes are read from the iterator range [<em>bond_chgs_beg</em>, <em>bond_chgs_end</em>); each element must be a <a class="el" href="structCDPL_1_1Chem_1_1PatternBasedTautomerizationRule_1_1BondOrderChange.html" title="Encodes a single bond-order change between two pattern atoms applied when the parent transformation p...">BondOrderChange</a> value referring to atom IDs of <em>molgraph</em>.</p>
+<p>Registers a new transformation pattern. </p>
+<p><a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Bond</a> order changes are read from the iterator range [<em>bond_chgs_beg</em>, <em>bond_chgs_end</em>). Each element must be a value of type <a class="el" href="structCDPL_1_1Chem_1_1PatternBasedTautomerizationRule_1_1BondOrderChange.html" title="Encodes a single bond-order change between two pattern atoms applied when the parent transformation p...">BondOrderChange</a> referring to atom IDs of <em>molgraph</em>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Iter</td><td>Input iterator type yielding <a class="el" href="structCDPL_1_1Chem_1_1PatternBasedTautomerizationRule_1_1BondOrderChange.html" title="Encodes a single bond-order change between two pattern atoms applied when the parent transformation p...">BondOrderChange</a> values. </td></tr>
@@ -307,9 +307,9 @@ template&lt;typename Iter &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The SMARTS transformation pattern. </td></tr>
-    <tr><td class="paramname">bond_chgs_beg</td><td>Iterator pointing to the first bond-order change. </td></tr>
-    <tr><td class="paramname">bond_chgs_end</td><td>Iterator pointing one past the last bond-order change. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The match pattern specifying the substructure to transform. </td></tr>
+    <tr><td class="paramname">bond_chgs_beg</td><td>Iterator pointing to the first bond order change. </td></tr>
+    <tr><td class="paramname">bond_chgs_end</td><td>Iterator pointing one past the last bond order change. </td></tr>
   </table>
   </dd>
 </dl>
@@ -332,10 +332,11 @@ template&lt;typename Iter &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Registers an exclude pattern: when this substructure is present in the parent molecular graph, the matching transformation will not be applied. </p>
+<p>Registers a rule exclude pattern. </p>
+<p>When this substructure is present in the parent molecular graph then the matching transformation will not be applied.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The exclude SMARTS pattern. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The exclude pattern. </td></tr>
   </table>
   </dd>
 </dl>
@@ -515,7 +516,7 @@ template&lt;typename Iter &gt; </div>
 </div><div class="memdoc">
 
 <p>Creates and returns a deep copy of this rule. </p>
-<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the cloned <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the cloned <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html" title="Abstract base class for all tautomerization rule implementations used by the Chem::TautomerGenerator.">Chem::TautomerizationRule</a> instance. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a8bcde7feed518f5ae13d40cdacf9f342">CDPL::Chem::TautomerizationRule</a>.</p>
 

@@ -133,7 +133,7 @@ Public Member Functions</h2></td></tr>
 class CDPL::Chem::AtomSSSRRingSizeMatchExpression&lt; MatchFunc &gt;</h3>
 
 <p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target atoms by the size of the SSSR ring(s) containing them. </p>
-<p>For each target atom the expression iterates the perceived SSSR of the target molecular graph and applies the supplied binary functor <em>MatchFunc</em> to compare the target ring size against the configured query ring size. Used in SMARTS substructure searches with ring-size atom constraints (e.g. <code></code>[R6]).</p>
+<p>For each target atom the expression iterates the perceived SSSR of the target molecular graph and applies the supplied binary functor <em>MatchFunc</em> to compare the target ring size against the configured query ring size. Used in <em>SMARTS</em> substructure searches with ring-size atom constraints (e.g. <code></code>[R6]).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">MatchFunc</td><td>The type of a binary functor class that implements the logic of testing the size of rings containing the target atom against the query ring size. The overloaded function call operator is required to take the target ring size as its first argument and the query ring size as the second argument (both provided as values of type <code>std::size_t</code>). The returned result must be implicitly convertible to type <code>bool</code> (<code>true</code> indicates a match, <code>false</code> a mismatch). </td></tr>

@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Assigns numeric labels to the atoms of a molecular graph by SMARTS-pattern matching.  
+<p>Assigns numeric labels to specific atoms of a molecular graph that are described by substructure patterns.  
  <a href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PatternAtomTyper_8hpp_source.html">PatternAtomTyper.hpp</a>&gt;</code></p>
@@ -92,7 +92,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper_1_1Pattern.html">Pattern</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds a single SMARTS query pattern, its atom-label value, its priority and match-handling flags.  <a href="classCDPL_1_1Chem_1_1PatternAtomTyper_1_1Pattern.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a single substructure query molecular graph, its atom label value, its priority and match-handling flags.  <a href="classCDPL_1_1Chem_1_1PatternAtomTyper_1_1Pattern.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -177,8 +177,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aed4de3051bc361fcb6f8507d7e56f795"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Assigns numeric labels to the atoms of a molecular graph by SMARTS-pattern matching. </p>
-<p>Patterns are added via <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#aa53ac25c7012c0d3cf8e4477083fc4dc" title="Registers a new pattern by its query molecular graph and per-pattern settings.">addPattern()</a> (each pattern carries an atom-label value, a priority and match-handling flags). On <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a> the typer iterates the registered patterns in priority order, runs each as a substructure query and assigns the corresponding atom label to every matched atom unless the atom has already received a label from a higher-priority pattern. </p>
+<div class="textblock"><p>Assigns numeric labels to specific atoms of a molecular graph that are described by substructure patterns. </p>
+<p>Patterns are added via <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#aa53ac25c7012c0d3cf8e4477083fc4dc" title="Registers a new pattern by its query molecular graph and per-pattern settings.">addPattern()</a> (each pattern carries a query molecular graph, an atom-label value, a priority and match-handling flags). On <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a> the typer iterates the registered patterns in priority order, runs each as a substructure query and assigns the corresponding atom label to every matched atom unless the atom has already received a label from a pattern with higher priority. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a216b2eaaddc15e40c53e3ecdc22ab167"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a216b2eaaddc15e40c53e3ecdc22ab167">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -322,10 +322,10 @@ Public Member Functions</h2></td></tr>
 <p>Registers a new pattern by its query molecular graph and per-pattern settings. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The SMARTS query molecular graph. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The query molecular graph. </td></tr>
     <tr><td class="paramname">atom_label</td><td>The atom label to assign to matched atoms. </td></tr>
-    <tr><td class="paramname">priority</td><td>The pattern's priority; higher-priority patterns are evaluated first. </td></tr>
-    <tr><td class="paramname">all_matches</td><td>If <code>true</code>, every match of the query is processed; otherwise only the first. </td></tr>
+    <tr><td class="paramname">priority</td><td>The pattern's priority (higher priority patterns are evaluated first). </td></tr>
+    <tr><td class="paramname">all_matches</td><td>If <code>true</code>, every match of the query is processed. Otherwise, only the first. </td></tr>
     <tr><td class="paramname">unique_matches</td><td>If <code>true</code>, only one of multiple equivalent substructure mappings is processed per match. </td></tr>
   </table>
   </dd>

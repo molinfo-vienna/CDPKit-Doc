@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A pattern overriding a fragmentation rule: bonds matching the pattern are not cleaved.  
+<p>A pattern descriptor specifying bonds that shall not be cleaved.  
  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="FragmentGenerator_8hpp_source.html">FragmentGenerator.hpp</a>&gt;</code></p>
@@ -96,10 +96,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac6cf780494f0ec067d752a32c095b996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a generic exclude pattern (applies to all fragmentation rules).  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#ac6cf780494f0ec067d752a32c095b996">More...</a><br /></td></tr>
 <tr class="separator:ac6cf780494f0ec067d752a32c095b996"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade472b9f2cc8f5e669b8e1da85479b23"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#ade472b9f2cc8f5e669b8e1da85479b23">getMatchPattern</a> () const</td></tr>
-<tr class="memdesc:ade472b9f2cc8f5e669b8e1da85479b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the SMARTS match pattern.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#ade472b9f2cc8f5e669b8e1da85479b23">More...</a><br /></td></tr>
+<tr class="memdesc:ade472b9f2cc8f5e669b8e1da85479b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the substructure match pattern.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#ade472b9f2cc8f5e669b8e1da85479b23">More...</a><br /></td></tr>
 <tr class="separator:ade472b9f2cc8f5e669b8e1da85479b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6">setMatchPattern</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;ptn)</td></tr>
-<tr class="memdesc:a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the SMARTS match pattern.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6">More...</a><br /></td></tr>
+<tr class="memdesc:a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the substructure match pattern.  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6">More...</a><br /></td></tr>
 <tr class="separator:a5fa4b0eb3f7943b8c2bf8e7c57d9f6e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d3b52b5341a8938e04c1f2eac401095"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#a4d3b52b5341a8938e04c1f2eac401095">getRuleID</a> () const</td></tr>
 <tr class="memdesc:a4d3b52b5341a8938e04c1f2eac401095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the rule ID this exclusion applies to (only meaningful when <a class="el" href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#a4f1a3082485b1b42741eb78b56eeba35" title="Tells whether this exclude pattern applies to all rules (generic) or only to a specific one.">isGeneric()</a> is <code>false</code>).  <a href="classCDPL_1_1Chem_1_1FragmentGenerator_1_1ExcludePattern.html#a4d3b52b5341a8938e04c1f2eac401095">More...</a><br /></td></tr>
@@ -115,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abe33091f13719b0a67b38f518732cfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A pattern overriding a fragmentation rule: bonds matching the pattern are not cleaved. </p>
+<div class="textblock"><p>A pattern descriptor specifying bonds that shall not be cleaved. </p>
 <p>An exclude pattern is either rule-specific (only the matching rule is suppressed) or generic (all rules are suppressed for the matching bonds). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a18f1f611967a2737f4a262f6b76237ef"></a>
@@ -147,7 +147,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a rule-specific exclude pattern. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">match_ptn</td><td>The SMARTS match pattern. </td></tr>
+    <tr><td class="paramname">match_ptn</td><td>The substructure match pattern. </td></tr>
     <tr><td class="paramname">rule_id</td><td>The rule ID this exclusion applies to. </td></tr>
   </table>
   </dd>
@@ -174,7 +174,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a generic exclude pattern (applies to all fragmentation rules). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">match_ptn</td><td>The SMARTS match pattern. </td></tr>
+    <tr><td class="paramname">match_ptn</td><td>The substructure match pattern. </td></tr>
   </table>
   </dd>
 </dl>
@@ -197,8 +197,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the SMARTS match pattern. </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the pattern smart pointer. </dd></dl>
+<p>Returns the substructure match pattern. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> shared pointer to the match pattern molecular graph. </dd></dl>
 
 </div>
 </div>
@@ -218,10 +218,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the SMARTS match pattern. </p>
+<p>Sets the substructure match pattern. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ptn</td><td>The new pattern. </td></tr>
+    <tr><td class="paramname">ptn</td><td>The new substructure match pattern. </td></tr>
   </table>
   </dd>
 </dl>
@@ -313,7 +313,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets whether this exclude pattern is generic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">generic</td><td>If <code>true</code>, the pattern applies to all rules; if <code>false</code>, only to the configured rule ID. </td></tr>
+    <tr><td class="paramname">generic</td><td>If <code>true</code>, the pattern applies to all rules. If <code>false</code>, only to the configured rule ID. </td></tr>
   </table>
   </dd>
 </dl>
