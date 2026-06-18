@@ -120,356 +120,356 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">namespace </span>ForceField</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html">   60</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html">MMFF94GradientCalculator</a></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">   69</a></span>&#160;            <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">MMFF94GradientCalculator</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">   76</a></span>&#160;            <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">MMFF94GradientCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a>&amp; ia_data, std::size_t num_atoms);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">   83</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">setEnabledInteractionTypes</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> types);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">   89</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">getEnabledInteractionTypes</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">   96</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">setup</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a>&amp; ia_data, std::size_t num_atoms);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray&gt;</div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">  105</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">  119</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">  125</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">getTotalEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">  131</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">getBondStretchingEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab44d67baed41a4aab1edb5b2849ea3b3">  137</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab44d67baed41a4aab1edb5b2849ea3b3">getAngleBendingEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a996a55ea06e962732bae1ef5815f44d1">  143</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a996a55ea06e962732bae1ef5815f44d1">getStretchBendEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac8d25708558e6cce3fc0a24d7e01b680">  149</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac8d25708558e6cce3fc0a24d7e01b680">getOutOfPlaneBendingEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">  155</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">getTorsionEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a56c4de7da10379ec4ecbd0c17868650f">  161</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a56c4de7da10379ec4ecbd0c17868650f">getElectrostaticEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab2d9365918e855acb22e3a6e429035bc">  167</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab2d9365918e855acb22e3a6e429035bc">getVanDerWaalsEnergy</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">  173</a></span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">getFixedAtomMask</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">  179</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">setFixedAtomMask</a>(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; mask);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">  184</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">resetFixedAtomMask</a>();</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;          <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a>* interactionData;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            std::size_t                  numAtoms;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            ValueType                    totalEnergy;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            ValueType                    bondStretchingEnergy;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            ValueType                    angleBendingEnergy;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            ValueType                    stretchBendEnergy;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            ValueType                    outOfPlaneEnergy;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            ValueType                    torsionEnergy;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            ValueType                    electrostaticEnergy;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            ValueType                    vanDerWaalsEnergy;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                 interactionTypes;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>                 fixedAtomMask;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        };</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;} <span class="comment">// namespace CDPL</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html">   61</a></span>&#160;        <span class="keyword">class </span><a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html">MMFF94GradientCalculator</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">   70</a></span>&#160;            <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">MMFF94GradientCalculator</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">   77</a></span>&#160;            <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a797475e2c846669bb3dabbc1f56fbc23">MMFF94GradientCalculator</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a>&amp; ia_data, std::size_t num_atoms);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">   84</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">setEnabledInteractionTypes</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> types);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">   90</a></span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">getEnabledInteractionTypes</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">   97</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">setup</a>(<span class="keyword">const</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a>&amp; ia_data, std::size_t num_atoms);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">  106</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">  120</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">  126</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">getTotalEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">  132</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">getBondStretchingEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab44d67baed41a4aab1edb5b2849ea3b3">  138</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab44d67baed41a4aab1edb5b2849ea3b3">getAngleBendingEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a996a55ea06e962732bae1ef5815f44d1">  144</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a996a55ea06e962732bae1ef5815f44d1">getStretchBendEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac8d25708558e6cce3fc0a24d7e01b680">  150</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac8d25708558e6cce3fc0a24d7e01b680">getOutOfPlaneBendingEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">  156</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">getTorsionEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a56c4de7da10379ec4ecbd0c17868650f">  162</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a56c4de7da10379ec4ecbd0c17868650f">getElectrostaticEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab2d9365918e855acb22e3a6e429035bc">  168</a></span>&#160;            <span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab2d9365918e855acb22e3a6e429035bc">getVanDerWaalsEnergy</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">  174</a></span>&#160;            <span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">getFixedAtomMask</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">  180</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">setFixedAtomMask</a>(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; mask);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">  185</a></span>&#160;            <span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">resetFixedAtomMask</a>();</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;          <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keyword">const</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">MMFF94InteractionData</a>* interactionData;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            std::size_t                  numAtoms;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            ValueType                    totalEnergy;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            ValueType                    bondStretchingEnergy;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            ValueType                    angleBendingEnergy;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            ValueType                    stretchBendEnergy;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            ValueType                    outOfPlaneEnergy;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            ValueType                    torsionEnergy;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            ValueType                    electrostaticEnergy;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            ValueType                    vanDerWaalsEnergy;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>                 interactionTypes;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>                 fixedAtomMask;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        };</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    } <span class="comment">// namespace ForceField</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;} <span class="comment">// namespace CDPL</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">// Implementation</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::MMFF94GradientCalculator</a>():</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    interactionData(0), numAtoms(0), totalEnergy(), bondStretchingEnergy(), angleBendingEnergy(),</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    stretchBendEnergy(), outOfPlaneEnergy(), torsionEnergy(), electrostaticEnergy(),</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    vanDerWaalsEnergy(), interactionTypes(InteractionType::<a class="code" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a76d464368f037f78ad8306d69d4115db">ALL</a>)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;{}</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::MMFF94GradientCalculator</a>(<span class="keyword">const</span> MMFF94InteractionData&amp; ia_data, std::size_t num_atoms):</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    interactionData(&amp;ia_data), numAtoms(num_atoms), totalEnergy(), bondStretchingEnergy(), angleBendingEnergy(),</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    stretchBendEnergy(), outOfPlaneEnergy(), torsionEnergy(), electrostaticEnergy(),</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    vanDerWaalsEnergy(), interactionTypes(InteractionType::<a class="code" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a76d464368f037f78ad8306d69d4115db">ALL</a>)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{}</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::setEnabledInteractionTypes</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> types)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;{</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    interactionTypes = types;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getEnabledInteractionTypes</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> interactionTypes;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::setup</a>(<span class="keyword">const</span> MMFF94InteractionData&amp; ia_data, std::size_t num_atoms)</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;{</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    interactionData = &amp;ia_data;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    numAtoms        = num_atoms;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray&gt;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;{</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">if</span> (!interactionData) {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        totalEnergy          = ValueType();</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        bondStretchingEnergy = ValueType();</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        angleBendingEnergy   = ValueType();</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        stretchBendEnergy    = ValueType();</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        outOfPlaneEnergy     = ValueType();</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        torsionEnergy        = ValueType();</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        electrostaticEnergy  = ValueType();</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        vanDerWaalsEnergy    = ValueType();</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">return</span> totalEnergy;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    totalEnergy = ValueType();</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#adfd2e025941505c4a0475ad6b1839f1d">InteractionType::BOND_STRETCHING</a>) {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        bondStretchingEnergy = calcMMFF94BondStretchingEnergy&lt;ValueType&gt;(interactionData-&gt;getBondStretchingInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                                                                         interactionData-&gt;getBondStretchingInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                                                                         coords);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        totalEnergy += bondStretchingEnergy;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        bondStretchingEnergy = ValueType();</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">// Implementation</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">// \cond DOC_IMPL_DETAILS</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::MMFF94GradientCalculator</a>():</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    interactionData(0), numAtoms(0), totalEnergy(), bondStretchingEnergy(), angleBendingEnergy(),</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    stretchBendEnergy(), outOfPlaneEnergy(), torsionEnergy(), electrostaticEnergy(),</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    vanDerWaalsEnergy(), interactionTypes(InteractionType::<a class="code" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a76d464368f037f78ad8306d69d4115db">ALL</a>)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{}</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac5e6531477ad91a424d0eab7df99826e">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::MMFF94GradientCalculator</a>(<span class="keyword">const</span> MMFF94InteractionData&amp; ia_data, std::size_t num_atoms):</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    interactionData(&amp;ia_data), numAtoms(num_atoms), totalEnergy(), bondStretchingEnergy(), angleBendingEnergy(),</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    stretchBendEnergy(), outOfPlaneEnergy(), torsionEnergy(), electrostaticEnergy(),</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    vanDerWaalsEnergy(), interactionTypes(InteractionType::<a class="code" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a76d464368f037f78ad8306d69d4115db">ALL</a>)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{}</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a3c20123e98fc1d22b832f3ba41fd7155">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::setEnabledInteractionTypes</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> types)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;{</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    interactionTypes = types;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a34a53a54343b7002215fb7c758e01092">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getEnabledInteractionTypes</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordflow">return</span> interactionTypes;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;}</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::setup</a>(<span class="keyword">const</span> MMFF94InteractionData&amp; ia_data, std::size_t num_atoms)</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    interactionData = &amp;ia_data;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    numAtoms        = num_atoms;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray&gt;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;{</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">if</span> (!interactionData) {</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        totalEnergy          = ValueType();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        bondStretchingEnergy = ValueType();</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        angleBendingEnergy   = ValueType();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        stretchBendEnergy    = ValueType();</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        outOfPlaneEnergy     = ValueType();</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        torsionEnergy        = ValueType();</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        electrostaticEnergy  = ValueType();</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        vanDerWaalsEnergy    = ValueType();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> totalEnergy;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    totalEnergy = ValueType();</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#adfd2e025941505c4a0475ad6b1839f1d">InteractionType::BOND_STRETCHING</a>) {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        bondStretchingEnergy = calcMMFF94BondStretchingEnergy&lt;ValueType&gt;(interactionData-&gt;getBondStretchingInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                                                                         interactionData-&gt;getBondStretchingInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                                                                         coords);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        totalEnergy += bondStretchingEnergy;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        bondStretchingEnergy = ValueType();</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#af298d578aa79980cc47196999d51737b">InteractionType::ANGLE_BENDING</a>) {</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        angleBendingEnergy = calcMMFF94AngleBendingEnergy&lt;ValueType&gt;(interactionData-&gt;getAngleBendingInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                                                                     interactionData-&gt;getAngleBendingInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                                                                     coords);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        totalEnergy += angleBendingEnergy;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        angleBendingEnergy = ValueType();</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a05abbc22a1c1dc176a54e3a9853ac51e">InteractionType::STRETCH_BEND</a>) {</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        stretchBendEnergy = calcMMFF94StretchBendEnergy&lt;ValueType&gt;(interactionData-&gt;getStretchBendInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                                                                   interactionData-&gt;getStretchBendInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                                                                   coords);</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        totalEnergy += stretchBendEnergy;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        stretchBendEnergy = ValueType();</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aed3f51734d3c57959338f901a364a2cd">InteractionType::OUT_OF_PLANE_BENDING</a>) {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        outOfPlaneEnergy = calcMMFF94OutOfPlaneBendingEnergy&lt;ValueType&gt;(interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                                                                        interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                                                                        coords);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        totalEnergy += outOfPlaneEnergy;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        outOfPlaneEnergy = ValueType();</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a7c01b8da96e587495ad9edffe366bdeb">InteractionType::TORSION</a>) {</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        torsionEnergy = calcMMFF94TorsionEnergy&lt;ValueType&gt;(interactionData-&gt;getTorsionInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                                                           interactionData-&gt;getTorsionInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                                                           coords);</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        totalEnergy += torsionEnergy;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        torsionEnergy = ValueType();</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aea99fa8281f85cdf9897ae4fa58c4e8a">InteractionType::ELECTROSTATIC</a>) {</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        electrostaticEnergy = calcMMFF94ElectrostaticEnergy&lt;ValueType&gt;(interactionData-&gt;getElectrostaticInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;                                                                       interactionData-&gt;getElectrostaticInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                                                                       coords);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        totalEnergy += electrostaticEnergy;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        electrostaticEnergy = ValueType();</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#ad15b7be61658a84ef409dbfa3af44b17">InteractionType::VAN_DER_WAALS</a>) {</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        vanDerWaalsEnergy = calcMMFF94VanDerWaalsEnergy&lt;ValueType&gt;(interactionData-&gt;getVanDerWaalsInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                                                                   interactionData-&gt;getVanDerWaalsInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                                                   coords);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        totalEnergy += vanDerWaalsEnergy;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        vanDerWaalsEnergy = ValueType();</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">return</span> totalEnergy;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;{</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <a class="code" href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html#aed17fb90217540665574057aa35d3fd6">GradientVectorTraits&lt;GradVector&gt;::clear</a>(grad, numAtoms);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span> (!interactionData) {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        totalEnergy          = ValueType();</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        bondStretchingEnergy = ValueType();</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        angleBendingEnergy   = ValueType();</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        stretchBendEnergy    = ValueType();</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        outOfPlaneEnergy     = ValueType();</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        torsionEnergy        = ValueType();</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        electrostaticEnergy  = ValueType();</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        vanDerWaalsEnergy    = ValueType();</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span> totalEnergy;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    totalEnergy = ValueType();</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#adfd2e025941505c4a0475ad6b1839f1d">InteractionType::BOND_STRETCHING</a>) {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        bondStretchingEnergy = calcMMFF94BondStretchingGradient&lt;ValueType&gt;(interactionData-&gt;getBondStretchingInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                                                                           interactionData-&gt;getBondStretchingInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                                                                           coords, grad);</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        totalEnergy += bondStretchingEnergy;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        bondStretchingEnergy = ValueType();</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#af298d578aa79980cc47196999d51737b">InteractionType::ANGLE_BENDING</a>) {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        angleBendingEnergy = calcMMFF94AngleBendingGradient&lt;ValueType&gt;(interactionData-&gt;getAngleBendingInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                                                                       interactionData-&gt;getAngleBendingInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                                                                       coords, grad);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        totalEnergy += angleBendingEnergy;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        angleBendingEnergy = ValueType();</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a05abbc22a1c1dc176a54e3a9853ac51e">InteractionType::STRETCH_BEND</a>) {</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        stretchBendEnergy = calcMMFF94StretchBendGradient&lt;ValueType&gt;(interactionData-&gt;getStretchBendInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                                                                     interactionData-&gt;getStretchBendInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                                                     coords, grad);</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        totalEnergy += stretchBendEnergy;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        stretchBendEnergy = ValueType();</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aed3f51734d3c57959338f901a364a2cd">InteractionType::OUT_OF_PLANE_BENDING</a>) {</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        outOfPlaneEnergy = calcMMFF94OutOfPlaneBendingGradient&lt;ValueType&gt;(interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                                                                          interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                                                          coords, grad);</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        totalEnergy += outOfPlaneEnergy;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        outOfPlaneEnergy = ValueType();</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a7c01b8da96e587495ad9edffe366bdeb">InteractionType::TORSION</a>) {</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        torsionEnergy = calcMMFF94TorsionGradient&lt;ValueType&gt;(interactionData-&gt;getTorsionInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;                                                             interactionData-&gt;getTorsionInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                                             coords, grad);</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        totalEnergy += torsionEnergy;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        torsionEnergy = ValueType();</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aea99fa8281f85cdf9897ae4fa58c4e8a">InteractionType::ELECTROSTATIC</a>) {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        electrostaticEnergy = calcMMFF94ElectrostaticGradient&lt;ValueType&gt;(interactionData-&gt;getElectrostaticInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                                                                         interactionData-&gt;getElectrostaticInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                                                                         coords, grad);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        totalEnergy += electrostaticEnergy;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        electrostaticEnergy = ValueType();</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#ad15b7be61658a84ef409dbfa3af44b17">InteractionType::VAN_DER_WAALS</a>) {</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        vanDerWaalsEnergy = calcMMFF94VanDerWaalsGradient&lt;ValueType&gt;(interactionData-&gt;getVanDerWaalsInteractions().getElementsBegin(),</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                                                                     interactionData-&gt;getVanDerWaalsInteractions().getElementsEnd(),</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                                                                     coords, grad);</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        totalEnergy += vanDerWaalsEnergy;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    } <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        vanDerWaalsEnergy = ValueType();</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordflow">if</span> (!fixedAtomMask.empty())</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keywordflow">for</span> (Util::BitSet::size_type i = fixedAtomMask.find_first(); i != Util::BitSet::npos; i = fixedAtomMask.find_next(i))</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            grad[i].clear(ValueType());</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keywordflow">return</span> totalEnergy;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;}</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getTotalEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keywordflow">return</span> totalEnergy;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;}</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getBondStretchingEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordflow">return</span> bondStretchingEnergy;</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;}</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab44d67baed41a4aab1edb5b2849ea3b3">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getAngleBendingEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keywordflow">return</span> angleBendingEnergy;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;}</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a996a55ea06e962732bae1ef5815f44d1">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getStretchBendEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keywordflow">return</span> stretchBendEnergy;</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;}</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac8d25708558e6cce3fc0a24d7e01b680">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getOutOfPlaneBendingEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <span class="keywordflow">return</span> outOfPlaneEnergy;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;}</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getTorsionEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordflow">return</span> torsionEnergy;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;}</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a56c4de7da10379ec4ecbd0c17868650f">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getElectrostaticEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="keywordflow">return</span> electrostaticEnergy;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;}</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160; </div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab2d9365918e855acb22e3a6e429035bc">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getVanDerWaalsEnergy</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    <span class="keywordflow">return</span> vanDerWaalsEnergy;</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;}</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">CDPL::Util::BitSet</a>&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getFixedAtomMask</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordflow">return</span> fixedAtomMask;</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;}</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160; </div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::setFixedAtomMask</a>(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; mask)</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;{</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    fixedAtomMask = mask;</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;}</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160; </div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::resetFixedAtomMask</a>()</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;{</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    fixedAtomMask.clear();</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;}</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">// \endcond</span></div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_FORCEFIELD_MMFF94GRADIENTCALCULATOR_HPP</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#af298d578aa79980cc47196999d51737b">InteractionType::ANGLE_BENDING</a>) {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        angleBendingEnergy = calcMMFF94AngleBendingEnergy&lt;ValueType&gt;(interactionData-&gt;getAngleBendingInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                                                                     interactionData-&gt;getAngleBendingInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                                                                     coords);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        totalEnergy += angleBendingEnergy;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        angleBendingEnergy = ValueType();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a05abbc22a1c1dc176a54e3a9853ac51e">InteractionType::STRETCH_BEND</a>) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        stretchBendEnergy = calcMMFF94StretchBendEnergy&lt;ValueType&gt;(interactionData-&gt;getStretchBendInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                                                                   interactionData-&gt;getStretchBendInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                                                                   coords);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        totalEnergy += stretchBendEnergy;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        stretchBendEnergy = ValueType();</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aed3f51734d3c57959338f901a364a2cd">InteractionType::OUT_OF_PLANE_BENDING</a>) {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        outOfPlaneEnergy = calcMMFF94OutOfPlaneBendingEnergy&lt;ValueType&gt;(interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                                                                        interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;                                                                        coords);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        totalEnergy += outOfPlaneEnergy;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        outOfPlaneEnergy = ValueType();</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a7c01b8da96e587495ad9edffe366bdeb">InteractionType::TORSION</a>) {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        torsionEnergy = calcMMFF94TorsionEnergy&lt;ValueType&gt;(interactionData-&gt;getTorsionInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;                                                           interactionData-&gt;getTorsionInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                                                           coords);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        totalEnergy += torsionEnergy;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        torsionEnergy = ValueType();</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aea99fa8281f85cdf9897ae4fa58c4e8a">InteractionType::ELECTROSTATIC</a>) {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        electrostaticEnergy = calcMMFF94ElectrostaticEnergy&lt;ValueType&gt;(interactionData-&gt;getElectrostaticInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;                                                                       interactionData-&gt;getElectrostaticInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;                                                                       coords);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        totalEnergy += electrostaticEnergy;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        electrostaticEnergy = ValueType();</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#ad15b7be61658a84ef409dbfa3af44b17">InteractionType::VAN_DER_WAALS</a>) {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        vanDerWaalsEnergy = calcMMFF94VanDerWaalsEnergy&lt;ValueType&gt;(interactionData-&gt;getVanDerWaalsInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                                                                   interactionData-&gt;getVanDerWaalsInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                                                                   coords);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        totalEnergy += vanDerWaalsEnergy;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        vanDerWaalsEnergy = ValueType();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">return</span> totalEnergy;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;}</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> CoordsArray, <span class="keyword">typename</span> GradVector&gt;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::operator()</a>(<span class="keyword">const</span> CoordsArray&amp; coords, GradVector&amp; grad)</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;{</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html#aed17fb90217540665574057aa35d3fd6">GradientVectorTraits&lt;GradVector&gt;::clear</a>(grad, numAtoms);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordflow">if</span> (!interactionData) {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        totalEnergy          = ValueType();</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        bondStretchingEnergy = ValueType();</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        angleBendingEnergy   = ValueType();</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        stretchBendEnergy    = ValueType();</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        outOfPlaneEnergy     = ValueType();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        torsionEnergy        = ValueType();</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        electrostaticEnergy  = ValueType();</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        vanDerWaalsEnergy    = ValueType();</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">return</span> totalEnergy;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    }</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    totalEnergy = ValueType();</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#adfd2e025941505c4a0475ad6b1839f1d">InteractionType::BOND_STRETCHING</a>) {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        bondStretchingEnergy = calcMMFF94BondStretchingGradient&lt;ValueType&gt;(interactionData-&gt;getBondStretchingInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                                                                           interactionData-&gt;getBondStretchingInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                                                                           coords, grad);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        totalEnergy += bondStretchingEnergy;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        bondStretchingEnergy = ValueType();</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#af298d578aa79980cc47196999d51737b">InteractionType::ANGLE_BENDING</a>) {</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        angleBendingEnergy = calcMMFF94AngleBendingGradient&lt;ValueType&gt;(interactionData-&gt;getAngleBendingInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                                                                       interactionData-&gt;getAngleBendingInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                                                                       coords, grad);</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        totalEnergy += angleBendingEnergy;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        angleBendingEnergy = ValueType();</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a05abbc22a1c1dc176a54e3a9853ac51e">InteractionType::STRETCH_BEND</a>) {</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        stretchBendEnergy = calcMMFF94StretchBendGradient&lt;ValueType&gt;(interactionData-&gt;getStretchBendInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                                                     interactionData-&gt;getStretchBendInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                                                                     coords, grad);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        totalEnergy += stretchBendEnergy;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        stretchBendEnergy = ValueType();</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aed3f51734d3c57959338f901a364a2cd">InteractionType::OUT_OF_PLANE_BENDING</a>) {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        outOfPlaneEnergy = calcMMFF94OutOfPlaneBendingGradient&lt;ValueType&gt;(interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                                                                          interactionData-&gt;getOutOfPlaneBendingInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                                                                          coords, grad);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        totalEnergy += outOfPlaneEnergy;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        outOfPlaneEnergy = ValueType();</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a7c01b8da96e587495ad9edffe366bdeb">InteractionType::TORSION</a>) {</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        torsionEnergy = calcMMFF94TorsionGradient&lt;ValueType&gt;(interactionData-&gt;getTorsionInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;                                                             interactionData-&gt;getTorsionInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                                                             coords, grad);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        totalEnergy += torsionEnergy;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160; </div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        torsionEnergy = ValueType();</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#aea99fa8281f85cdf9897ae4fa58c4e8a">InteractionType::ELECTROSTATIC</a>) {</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        electrostaticEnergy = calcMMFF94ElectrostaticGradient&lt;ValueType&gt;(interactionData-&gt;getElectrostaticInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                                                                         interactionData-&gt;getElectrostaticInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                                                                         coords, grad);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        totalEnergy += electrostaticEnergy;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        electrostaticEnergy = ValueType();</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordflow">if</span> (interactionTypes &amp; <a class="code" href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#ad15b7be61658a84ef409dbfa3af44b17">InteractionType::VAN_DER_WAALS</a>) {</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        vanDerWaalsEnergy = calcMMFF94VanDerWaalsGradient&lt;ValueType&gt;(interactionData-&gt;getVanDerWaalsInteractions().getElementsBegin(),</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                                                                     interactionData-&gt;getVanDerWaalsInteractions().getElementsEnd(),</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                                                                     coords, grad);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        totalEnergy += vanDerWaalsEnergy;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    } <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        vanDerWaalsEnergy = ValueType();</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keywordflow">if</span> (!fixedAtomMask.empty())</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordflow">for</span> (Util::BitSet::size_type i = fixedAtomMask.find_first(); i != Util::BitSet::npos; i = fixedAtomMask.find_next(i))</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            grad[i].clear(ValueType());</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordflow">return</span> totalEnergy;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;}</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#acd2fe8053e88bc0e6419033a324cc11b">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getTotalEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordflow">return</span> totalEnergy;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;}</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getBondStretchingEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keywordflow">return</span> bondStretchingEnergy;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;}</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab44d67baed41a4aab1edb5b2849ea3b3">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getAngleBendingEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keywordflow">return</span> angleBendingEnergy;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;}</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a996a55ea06e962732bae1ef5815f44d1">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getStretchBendEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordflow">return</span> stretchBendEnergy;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;}</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ac8d25708558e6cce3fc0a24d7e01b680">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getOutOfPlaneBendingEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keywordflow">return</span> outOfPlaneEnergy;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;}</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; </div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getTorsionEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">return</span> torsionEnergy;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;}</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a56c4de7da10379ec4ecbd0c17868650f">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getElectrostaticEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keywordflow">return</span> electrostaticEnergy;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;}</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="keyword">const</span> ValueType&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#ab2d9365918e855acb22e3a6e429035bc">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getVanDerWaalsEnergy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordflow">return</span> vanDerWaalsEnergy;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;}</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">CDPL::Util::BitSet</a>&amp; <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::getFixedAtomMask</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordflow">return</span> fixedAtomMask;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;}</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a348e3cbdded2a947b70b0d15a84e56bf">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::setFixedAtomMask</a>(<span class="keyword">const</span> <a class="code" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a>&amp; mask)</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;{</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    fixedAtomMask = mask;</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;}</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueType&gt;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a639e34cfb20758d7580f341b534c9ad8">CDPL::ForceField::MMFF94GradientCalculator&lt;ValueType&gt;::resetFixedAtomMask</a>()</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;{</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    fixedAtomMask.clear();</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;}</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;<span class="comment">// \endcond</span></div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// CDPL_FORCEFIELD_MMFF94GRADIENTCALCULATOR_HPP</span></div>
 <div class="ttc" id="aBitSet_8hpp_html"><div class="ttname"><a href="BitSet_8hpp.html">BitSet.hpp</a></div><div class="ttdoc">Declaration of type CDPL::Util::BitSet.</div></div>
 <div class="ttc" id="aGradientVectorTraits_8hpp_html"><div class="ttname"><a href="GradientVectorTraits_8hpp.html">GradientVectorTraits.hpp</a></div><div class="ttdoc">Definition of class CDPL::ForceField::GradientVectorTraits.</div></div>
 <div class="ttc" id="aInteractionType_8hpp_html"><div class="ttname"><a href="InteractionType_8hpp.html">InteractionType.hpp</a></div><div class="ttdoc">Definition of constants in namespace CDPL::ForceField::InteractionType.</div></div>
 <div class="ttc" id="aMMFF94EnergyFunctions_8hpp_html"><div class="ttname"><a href="MMFF94EnergyFunctions_8hpp.html">MMFF94EnergyFunctions.hpp</a></div><div class="ttdoc">Functions for the calculation of MMFF94 interaction energies.</div></div>
 <div class="ttc" id="aMMFF94GradientFunctions_8hpp_html"><div class="ttname"><a href="MMFF94GradientFunctions_8hpp.html">MMFF94GradientFunctions.hpp</a></div><div class="ttdoc">Functions for the calculation of MMFF94 interaction energy gradients.</div></div>
 <div class="ttc" id="aMMFF94InteractionData_8hpp_html"><div class="ttname"><a href="MMFF94InteractionData_8hpp.html">MMFF94InteractionData.hpp</a></div><div class="ttdoc">Definition of class CDPL::ForceField::MMFF94InteractionData.</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html">CDPL::ForceField::MMFF94GradientCalculator</a></div><div class="ttdoc">Calculates the total MMFF94 force field energy and its gradient for a set of atom 3D coordinates.</div><div class="ttdef"><b>Definition:</b> MMFF94GradientCalculator.hpp:61</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html">CDPL::ForceField::MMFF94GradientCalculator</a></div><div class="ttdoc">Calculates the total MMFF94 force field energy and its gradient for a set of atom 3D coordinates.</div><div class="ttdef"><b>Definition:</b> MMFF94GradientCalculator.hpp:62</div></div>
 <div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html_a1485588085036d9c01438aaccbcd762e"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1485588085036d9c01438aaccbcd762e">CDPL::ForceField::MMFF94GradientCalculator::operator()</a></div><div class="ttdeci">const ValueType &amp; operator()(const CoordsArray &amp;coords, GradVector &amp;grad)</div><div class="ttdoc">Computes the total MMFF94 energy and the per-atom gradient of the conformation specified by coords.</div></div>
 <div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html_a1d675be778e8cccfd1c1045066b0e3fb"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a1d675be778e8cccfd1c1045066b0e3fb">CDPL::ForceField::MMFF94GradientCalculator::operator()</a></div><div class="ttdeci">const ValueType &amp; operator()(const CoordsArray &amp;coords)</div><div class="ttdoc">Computes the total MMFF94 energy of the conformation specified by coords without calculating the grad...</div></div>
 <div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html_a29103698ce9ee06234c6fcb280851092"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#a29103698ce9ee06234c6fcb280851092">CDPL::ForceField::MMFF94GradientCalculator::setup</a></div><div class="ttdeci">void setup(const MMFF94InteractionData &amp;ia_data, std::size_t num_atoms)</div><div class="ttdoc">Associates the calculator with the supplied ForceField::MMFF94InteractionData instance and atom count...</div></div>
@@ -488,7 +488,7 @@ $(function() {
 <div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html_aee08a8a7631484f3b66b8ef78db02243"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#aee08a8a7631484f3b66b8ef78db02243">CDPL::ForceField::MMFF94GradientCalculator::getTorsionEnergy</a></div><div class="ttdeci">const ValueType &amp; getTorsionEnergy() const</div><div class="ttdoc">Returns the torsion energy contribution computed by the most recent operator()() call.</div></div>
 <div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html_af330c5827da912bbd369156e0c13c136"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#af330c5827da912bbd369156e0c13c136">CDPL::ForceField::MMFF94GradientCalculator::getFixedAtomMask</a></div><div class="ttdeci">const Util::BitSet &amp; getFixedAtomMask() const</div><div class="ttdoc">Returns the bit mask flagging atoms whose gradient components are zeroed after evaluation.</div></div>
 <div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94GradientCalculator_html_afa2a62ec52a95f6217e84743d72a8714"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94GradientCalculator.html#afa2a62ec52a95f6217e84743d72a8714">CDPL::ForceField::MMFF94GradientCalculator::getBondStretchingEnergy</a></div><div class="ttdeci">const ValueType &amp; getBondStretchingEnergy() const</div><div class="ttdoc">Returns the bond-stretching energy contribution computed by the most recent operator()() call.</div></div>
-<div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94InteractionData_html"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">CDPL::ForceField::MMFF94InteractionData</a></div><div class="ttdoc">Container holding the full set of MMFF94 interaction parameters for a molecular graph.</div><div class="ttdef"><b>Definition:</b> MMFF94InteractionData.hpp:60</div></div>
+<div class="ttc" id="aclassCDPL_1_1ForceField_1_1MMFF94InteractionData_html"><div class="ttname"><a href="classCDPL_1_1ForceField_1_1MMFF94InteractionData.html">CDPL::ForceField::MMFF94InteractionData</a></div><div class="ttdoc">Container holding the full set of MMFF94 interaction parameter records for a molecular graph.</div><div class="ttdef"><b>Definition:</b> MMFF94InteractionData.hpp:62</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Chem_1_1ReactionRole_html_a76d464368f037f78ad8306d69d4115db"><div class="ttname"><a href="namespaceCDPL_1_1Chem_1_1ReactionRole.html#a76d464368f037f78ad8306d69d4115db">CDPL::Chem::ReactionRole::ALL</a></div><div class="ttdeci">constexpr unsigned int ALL</div><div class="ttdoc">Specifies reactants, agents and products of a reaction.</div><div class="ttdef"><b>Definition:</b> ReactionRole.hpp:74</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1ForceField_1_1InteractionType_html_a05abbc22a1c1dc176a54e3a9853ac51e"><div class="ttname"><a href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a05abbc22a1c1dc176a54e3a9853ac51e">CDPL::ForceField::InteractionType::STRETCH_BEND</a></div><div class="ttdeci">constexpr unsigned int STRETCH_BEND</div><div class="ttdoc">Specifies a stretch-bend coupling interaction.</div><div class="ttdef"><b>Definition:</b> InteractionType.hpp:63</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1ForceField_1_1InteractionType_html_a7c01b8da96e587495ad9edffe366bdeb"><div class="ttname"><a href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#a7c01b8da96e587495ad9edffe366bdeb">CDPL::ForceField::InteractionType::TORSION</a></div><div class="ttdeci">constexpr unsigned int TORSION</div><div class="ttdoc">Specifies a torsion interaction.</div><div class="ttdef"><b>Definition:</b> InteractionType.hpp:73</div></div>
@@ -499,7 +499,7 @@ $(function() {
 <div class="ttc" id="anamespaceCDPL_1_1ForceField_1_1InteractionType_html_af298d578aa79980cc47196999d51737b"><div class="ttname"><a href="namespaceCDPL_1_1ForceField_1_1InteractionType.html#af298d578aa79980cc47196999d51737b">CDPL::ForceField::InteractionType::ANGLE_BENDING</a></div><div class="ttdeci">constexpr unsigned int ANGLE_BENDING</div><div class="ttdoc">Specifies an angle bending interaction.</div><div class="ttdef"><b>Definition:</b> InteractionType.hpp:58</div></div>
 <div class="ttc" id="anamespaceCDPL_1_1Util_html_a51a03f69886fe40c999c05aaa4e7bd0d"><div class="ttname"><a href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">CDPL::Util::BitSet</a></div><div class="ttdeci">boost::dynamic_bitset BitSet</div><div class="ttdoc">Dynamic bitset class.</div><div class="ttdef"><b>Definition:</b> BitSet.hpp:46</div></div>
 <div class="ttc" id="anamespaceCDPL_html"><div class="ttname"><a href="namespaceCDPL.html">CDPL</a></div><div class="ttdoc">The namespace of the Chemical Data Processing Library.</div></div>
-<div class="ttc" id="astructCDPL_1_1ForceField_1_1GradientVectorTraits_html_aed17fb90217540665574057aa35d3fd6"><div class="ttname"><a href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html#aed17fb90217540665574057aa35d3fd6">CDPL::ForceField::GradientVectorTraits::clear</a></div><div class="ttdeci">static void clear(VectorType &amp;g, std::size_t num_elem)</div><div class="ttdoc">Zeroes the first num_elem elements of the container g.</div><div class="ttdef"><b>Definition:</b> GradientVectorTraits.hpp:66</div></div>
+<div class="ttc" id="astructCDPL_1_1ForceField_1_1GradientVectorTraits_html_aed17fb90217540665574057aa35d3fd6"><div class="ttname"><a href="structCDPL_1_1ForceField_1_1GradientVectorTraits.html#aed17fb90217540665574057aa35d3fd6">CDPL::ForceField::GradientVectorTraits::clear</a></div><div class="ttdeci">static void clear(VectorType &amp;g, std::size_t num_elem)</div><div class="ttdoc">Zeroes the first num_elem elements of the container g.</div><div class="ttdef"><b>Definition:</b> GradientVectorTraits.hpp:71</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
