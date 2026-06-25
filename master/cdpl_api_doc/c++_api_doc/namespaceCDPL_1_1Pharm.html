@@ -1723,7 +1723,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The feature container providing the input features. </td></tr>
     <tr><td class="paramname">tgt_set</td><td>The feature set receiving the deduplicated features. </td></tr>
-    <tr><td class="paramname">pos_tol</td><td>The position-equality tolerance in &Aring;ngstrom. Values &le; 0 require an exact position match. </td></tr>
+    <tr><td class="paramname">pos_tol</td><td>The position-equality tolerance in &Aring;ngstrom. Values &le; <em>0</em> require an exact position match. </td></tr>
     <tr><td class="paramname">append</td><td>If <code>false</code>, <em>tgt_set</em> is cleared before adding any features. </td></tr>
   </table>
   </dd>
@@ -1875,7 +1875,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">atom_cntnr</td><td>The atom container providing the test atoms. </td></tr>
     <tr><td class="paramname">coords_func</td><td>The function returning the 3D coordinates of an atom. </td></tr>
     <tr><td class="paramname">xform</td><td>The 4x4 transformation applied to the atom coordinates before the clash test. </td></tr>
-    <tr><td class="paramname">vdw_factor</td><td>Scaling factor for the per-atom Van der Waals radii. If &le; 0 the atoms are treated as point particles. </td></tr>
+    <tr><td class="paramname">vdw_factor</td><td>Scaling factor for the per-atom Van der Waals radii. If &le; <em>0</em> the atoms are treated as point particles. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3548,7 +3548,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pharm</td><td>The pharmacophore to deduplicate. </td></tr>
-    <tr><td class="paramname">pos_tol</td><td>The position-equality tolerance in &Aring;ngstrom. Values &le; 0 require an exact position match. </td></tr>
+    <tr><td class="paramname">pos_tol</td><td>The position-equality tolerance in &Aring;ngstrom. Values &le; <em>0</em> require an exact position match. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3703,7 +3703,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">pharm</td><td>The pharmacophore receiving the new exclusion volumes. </td></tr>
     <tr><td class="paramname">cntnr</td><td>The atom container providing the seed positions. </td></tr>
     <tr><td class="paramname">coords_func</td><td>The function returning the 3D coordinates of an atom. </td></tr>
-    <tr><td class="paramname">tol</td><td>The position tolerance to assign to new exclusion volumes (if &le; 0 the per-atom VdW radius is used). </td></tr>
+    <tr><td class="paramname">tol</td><td>The position tolerance to assign to new exclusion volumes (if &le; <em>0</em> the per-atom VdW radius is used). </td></tr>
     <tr><td class="paramname">min_dist</td><td>Minimum distance (<em>rel_dist</em> controls absolute vs. tolerance-corrected) that a new exclusion volume must keep from existing ones. </td></tr>
     <tr><td class="paramname">rel_dist</td><td>If <code>true</code>, the per-pair tolerance sum is subtracted from the pair distance before testing against <em>min_dist</em>. Otherwise, the absolute distance is tested. </td></tr>
     <tr><td class="paramname">append</td><td>If <code>false</code>, the pharmacophore <em>pharm</em> is cleared before any exclusion volumes are added. </td></tr>
@@ -3768,7 +3768,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">pharm</td><td>The pharmacophore receiving the new exclusion volumes. </td></tr>
     <tr><td class="paramname">cntnr</td><td>The feature container providing the seed positions. </td></tr>
-    <tr><td class="paramname">tol</td><td>The position tolerance to assign to new exclusion volumes (if &le; 0 the per-feature tolerance is used). </td></tr>
+    <tr><td class="paramname">tol</td><td>The position tolerance to assign to new exclusion volumes (if &le; <em>0</em> the per-feature tolerance is used). </td></tr>
     <tr><td class="paramname">min_dist</td><td>Minimum distance (<em>rel_dist</em> controls absolute vs. tolerance-corrected) that a new exclusion volume must keep from existing ones. </td></tr>
     <tr><td class="paramname">rel_dist</td><td>If <code>true</code>, the per-pair tolerance sum is subtracted from the pair distance before testing against <em>min_dist</em>. Otherwise, the absolute distance is tested. </td></tr>
     <tr><td class="paramname">append</td><td>If <code>false</code>, the pharmacophore <em>pharm</em> is cleared before any exclusion volumes are added. </td></tr>
