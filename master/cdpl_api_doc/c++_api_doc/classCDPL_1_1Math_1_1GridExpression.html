@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>CRTP base class for all grid expression types.  
+<p>CRTP base class of all grid expression types.  
  <a href="classCDPL_1_1Math_1_1GridExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Expression_8hpp_source.html">Expression.hpp</a>&gt;</code></p>
@@ -104,16 +104,16 @@ Public Types</h2></td></tr>
 <tr class="separator:a0fec812d643371e141b0d57e1d9f05e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Math_1_1Expression"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Math_1_1Expression')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Math_1_1Expression.html">CDPL::Math::Expression&lt; E &gt;</a></td></tr>
 <tr class="memitem:a24438fa9502542f8fa8a4d9867fb8cf0 inherit pub_types_classCDPL_1_1Math_1_1Expression"><td class="memItemLeft" align="right" valign="top">typedef E&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Expression.html#a24438fa9502542f8fa8a4d9867fb8cf0">ExpressionType</a></td></tr>
-<tr class="memdesc:a24438fa9502542f8fa8a4d9867fb8cf0 inherit pub_types_classCDPL_1_1Math_1_1Expression"><td class="mdescLeft">&#160;</td><td class="mdescRight">The derived expression type (made available to expression-template machinery).  <a href="classCDPL_1_1Math_1_1Expression.html#a24438fa9502542f8fa8a4d9867fb8cf0">More...</a><br /></td></tr>
+<tr class="memdesc:a24438fa9502542f8fa8a4d9867fb8cf0 inherit pub_types_classCDPL_1_1Math_1_1Expression"><td class="mdescLeft">&#160;</td><td class="mdescRight">The derived expression type.  <a href="classCDPL_1_1Math_1_1Expression.html#a24438fa9502542f8fa8a4d9867fb8cf0">More...</a><br /></td></tr>
 <tr class="separator:a24438fa9502542f8fa8a4d9867fb8cf0 inherit pub_types_classCDPL_1_1Math_1_1Expression"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae19fc58c4badc1c3491438b0295c8e6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Math_1_1Expression.html#a24438fa9502542f8fa8a4d9867fb8cf0">ExpressionType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1GridExpression.html#aae19fc58c4badc1c3491438b0295c8e6">operator()</a> () const</td></tr>
-<tr class="memdesc:aae19fc58c4badc1c3491438b0295c8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the derived grid expression.  <a href="classCDPL_1_1Math_1_1GridExpression.html#aae19fc58c4badc1c3491438b0295c8e6">More...</a><br /></td></tr>
+<tr class="memdesc:aae19fc58c4badc1c3491438b0295c8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the derived grid expression class instance.  <a href="classCDPL_1_1Math_1_1GridExpression.html#aae19fc58c4badc1c3491438b0295c8e6">More...</a><br /></td></tr>
 <tr class="separator:aae19fc58c4badc1c3491438b0295c8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a9e2374c0916fa6b279b50fe5a2c0e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Expression.html#a24438fa9502542f8fa8a4d9867fb8cf0">ExpressionType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1GridExpression.html#a9a9e2374c0916fa6b279b50fe5a2c0e8">operator()</a> ()</td></tr>
-<tr class="memdesc:a9a9e2374c0916fa6b279b50fe5a2c0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the derived grid expression.  <a href="classCDPL_1_1Math_1_1GridExpression.html#a9a9e2374c0916fa6b279b50fe5a2c0e8">More...</a><br /></td></tr>
+<tr class="memdesc:a9a9e2374c0916fa6b279b50fe5a2c0e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the derived grid expression class instance.  <a href="classCDPL_1_1Math_1_1GridExpression.html#a9a9e2374c0916fa6b279b50fe5a2c0e8">More...</a><br /></td></tr>
 <tr class="separator:a9a9e2374c0916fa6b279b50fe5a2c0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -132,8 +132,8 @@ Protected Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename E&gt;<br />
 class CDPL::Math::GridExpression&lt; E &gt;</h3>
 
-<p>CRTP base class for all grid expression types. </p>
-<p>Provides downcast access to the concrete derived expression via <code>operator()</code>.</p>
+<p>CRTP base class of all grid expression types. </p>
+<p>Provides downcast access to the concrete derived expression class instance via the function call operator.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">E</td><td>The derived grid expression type. </td></tr>
@@ -240,8 +240,8 @@ template&lt;typename E &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>const</code> reference to the derived grid expression. </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference downcast to ExpressionType. </dd></dl>
+<p>Returns a <code>const</code> reference to the derived grid expression class instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the expression subclass instance. </dd></dl>
 
 </div>
 </div>
@@ -270,8 +270,8 @@ template&lt;typename E &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the derived grid expression. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference downcast to ExpressionType. </dd></dl>
+<p>Returns a reference to the derived grid expression class instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the expression subclass instance. </dd></dl>
 
 </div>
 </div>
