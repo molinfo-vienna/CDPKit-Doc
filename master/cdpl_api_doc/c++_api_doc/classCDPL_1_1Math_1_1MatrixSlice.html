@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Matrix-expression proxy that views a strided rectangular slice of an underlying matrix.  
+<p><a class="el" href="classCDPL_1_1Math_1_1Matrix.html" title="Dynamically-sized dense row-major matrix with configurable underlying storage.">Matrix</a> expression proxy that views a strided rectangular slice of an underlying matrix.  
  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MatrixProxy_8hpp_source.html">MatrixProxy.hpp</a>&gt;</code></p>
@@ -112,10 +112,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a6fbf990fa3eb4a6aaed1d311db0b2289"><td class="mdescLeft">&#160;</td><td class="mdescRight">The element value type of the wrapped matrix.  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#a6fbf990fa3eb4a6aaed1d311db0b2289">More...</a><br /></td></tr>
 <tr class="separator:a6fbf990fa3eb4a6aaed1d311db0b2289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6607d1372a16242fef2ae464e7ac1972"><td class="memItemLeft" align="right" valign="top">typedef M::ConstReference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html#a6607d1372a16242fef2ae464e7ac1972">ConstReference</a></td></tr>
-<tr class="memdesc:a6607d1372a16242fef2ae464e7ac1972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to an element.  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#a6607d1372a16242fef2ae464e7ac1972">More...</a><br /></td></tr>
+<tr class="memdesc:a6607d1372a16242fef2ae464e7ac1972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant element reference type.  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#a6607d1372a16242fef2ae464e7ac1972">More...</a><br /></td></tr>
 <tr class="separator:a6607d1372a16242fef2ae464e7ac1972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf8eb90572b85f11785b6c92e324c25"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; M &gt;::value, typename M::ConstReference, typename M::Reference &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html#aebf8eb90572b85f11785b6c92e324c25">Reference</a></td></tr>
-<tr class="memdesc:aebf8eb90572b85f11785b6c92e324c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>).  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#aebf8eb90572b85f11785b6c92e324c25">More...</a><br /></td></tr>
+<tr class="memdesc:aebf8eb90572b85f11785b6c92e324c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable element reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>).  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#aebf8eb90572b85f11785b6c92e324c25">More...</a><br /></td></tr>
 <tr class="separator:aebf8eb90572b85f11785b6c92e324c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa06c8cc8bbbd0b3d765889e88da1ab30"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; M &gt;::value, typename M::ConstClosureType, typename M::ClosureType &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html#aa06c8cc8bbbd0b3d765889e88da1ab30">MatrixClosureType</a></td></tr>
 <tr class="memdesc:aa06c8cc8bbbd0b3d765889e88da1ab30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used to store the wrapped matrix internally.  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#aa06c8cc8bbbd0b3d765889e88da1ab30">More...</a><br /></td></tr>
@@ -127,7 +127,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:af6d44a4c246e094f5a969659ff615046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used when this proxy appears inside another expression.  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#af6d44a4c246e094f5a969659ff615046">More...</a><br /></td></tr>
 <tr class="separator:af6d44a4c246e094f5a969659ff615046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4666ad29dfcb751dd8e50c244f1f2c6f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a>&lt; <a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html#a89432388a7dba0697420110276c275d3">SizeType</a>, <a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html#a4c9a836eb42beb1c0cc27051ccf7b2df">DifferenceType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html#a4666ad29dfcb751dd8e50c244f1f2c6f">SliceType</a></td></tr>
-<tr class="memdesc:a4666ad29dfcb751dd8e50c244f1f2c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice ( ) used for strided slicing of vector and matrix expressions.">Slice</a> type used to specify the row and column slices (start, stride, size).  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#a4666ad29dfcb751dd8e50c244f1f2c6f">More...</a><br /></td></tr>
+<tr class="memdesc:a4666ad29dfcb751dd8e50c244f1f2c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice (start, stride, size ) used for strided slicing of vector and matrix expressions.">Slice</a> type used to specify the row and column slices (start, stride, size).  <a href="classCDPL_1_1Math_1_1MatrixSlice.html#a4666ad29dfcb751dd8e50c244f1f2c6f">More...</a><br /></td></tr>
 <tr class="separator:a4666ad29dfcb751dd8e50c244f1f2c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Math_1_1MatrixExpression"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Math_1_1MatrixExpression')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html">CDPL::Math::MatrixExpression&lt; MatrixSlice&lt; M &gt; &gt;</a></td></tr>
 <tr class="memitem:a1165c334ed0250fc82fb63e738cd00bd inherit pub_types_classCDPL_1_1Math_1_1MatrixExpression"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1MatrixSlice.html">MatrixSlice</a>&lt; M &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html#a1165c334ed0250fc82fb63e738cd00bd">ExpressionType</a></td></tr>
@@ -245,7 +245,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename M&gt;<br />
 class CDPL::Math::MatrixSlice&lt; M &gt;</h3>
 
-<p>Matrix-expression proxy that views a strided rectangular slice of an underlying matrix. </p>
+<p><a class="el" href="classCDPL_1_1Math_1_1Matrix.html" title="Dynamically-sized dense row-major matrix with configurable underlying storage.">Matrix</a> expression proxy that views a strided rectangular slice of an underlying matrix. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">M</td><td>The wrapped matrix type. </td></tr>
@@ -339,7 +339,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to an element. </p>
+<p>Constant element reference type. </p>
 
 </div>
 </div>
@@ -357,7 +357,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>). </p>
+<p>Mutable element reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>). </p>
 
 </div>
 </div>
@@ -429,7 +429,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice ( ) used for strided slicing of vector and matrix expressions.">Slice</a> type used to specify the row and column slices (start, stride, size). </p>
+<p><a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice (start, stride, size ) used for strided slicing of vector and matrix expressions.">Slice</a> type used to specify the row and column slices (start, stride, size). </p>
 
 </div>
 </div>

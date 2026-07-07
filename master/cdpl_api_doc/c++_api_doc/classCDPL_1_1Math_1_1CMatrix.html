@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Fixed-size dense matrix of dimensions <em>M</em> \( \times \) <em>N</em> backed by a 2D C-array (no dynamic allocation).  
+<p>Fixed-size dense matrix of dimension <em>M&times;N</em> backed by a stack-allocated array.  
  <a href="classCDPL_1_1Math_1_1CMatrix.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Matrix_8hpp_source.html">Matrix.hpp</a>&gt;</code></p>
@@ -104,10 +104,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a5ab5d11a5c35c018e40116c29f7d3281"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scalar value type.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a5ab5d11a5c35c018e40116c29f7d3281">More...</a><br /></td></tr>
 <tr class="separator:a5ab5d11a5c35c018e40116c29f7d3281"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdaddc8ec4e48462e49d45df98d3670e"><td class="memItemLeft" align="right" valign="top">typedef T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#abdaddc8ec4e48462e49d45df98d3670e">Reference</a></td></tr>
-<tr class="memdesc:abdaddc8ec4e48462e49d45df98d3670e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type to an element.  <a href="classCDPL_1_1Math_1_1CMatrix.html#abdaddc8ec4e48462e49d45df98d3670e">More...</a><br /></td></tr>
+<tr class="memdesc:abdaddc8ec4e48462e49d45df98d3670e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable element reference type.  <a href="classCDPL_1_1Math_1_1CMatrix.html#abdaddc8ec4e48462e49d45df98d3670e">More...</a><br /></td></tr>
 <tr class="separator:abdaddc8ec4e48462e49d45df98d3670e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a833030dd92ce5cfd5edb03c548758901"><td class="memItemLeft" align="right" valign="top">typedef const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a833030dd92ce5cfd5edb03c548758901">ConstReference</a></td></tr>
-<tr class="memdesc:a833030dd92ce5cfd5edb03c548758901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to an element.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a833030dd92ce5cfd5edb03c548758901">More...</a><br /></td></tr>
+<tr class="memdesc:a833030dd92ce5cfd5edb03c548758901"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant element reference type.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a833030dd92ce5cfd5edb03c548758901">More...</a><br /></td></tr>
 <tr class="separator:a833030dd92ce5cfd5edb03c548758901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4678a320828cb40e214c111ff0e40f75"><td class="memItemLeft" align="right" valign="top">typedef std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a4678a320828cb40e214c111ff0e40f75">SizeType</a></td></tr>
 <tr class="memdesc:a4678a320828cb40e214c111ff0e40f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unsigned size type.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a4678a320828cb40e214c111ff0e40f75">More...</a><br /></td></tr>
@@ -116,7 +116,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:af6a5d673f5b6091cc039ee0f4cfca4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The signed difference type.  <a href="classCDPL_1_1Math_1_1CMatrix.html#af6a5d673f5b6091cc039ee0f4cfca4f7">More...</a><br /></td></tr>
 <tr class="separator:af6a5d673f5b6091cc039ee0f4cfca4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a197e9d72754c27d40f56e41e014124fd"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a5ab5d11a5c35c018e40116c29f7d3281">ValueType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a197e9d72754c27d40f56e41e014124fd">ArrayType</a>[M][N]</td></tr>
-<tr class="memdesc:a197e9d72754c27d40f56e41e014124fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fixed-size 2D C-array type used for in-memory storage of <em>M</em> \( \times \) <em>N</em> elements.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a197e9d72754c27d40f56e41e014124fd">More...</a><br /></td></tr>
+<tr class="memdesc:a197e9d72754c27d40f56e41e014124fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fixed-size 2D C-array type used for in-memory storage of <em>M&times;N</em> elements.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a197e9d72754c27d40f56e41e014124fd">More...</a><br /></td></tr>
 <tr class="separator:a197e9d72754c27d40f56e41e014124fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a227fd5f62f02dd4d4d194d9eecbb16d5"><td class="memItemLeft" align="right" valign="top">typedef T(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a227fd5f62f02dd4d4d194d9eecbb16d5">ArrayPointer</a>)[N]</td></tr>
 <tr class="memdesc:a227fd5f62f02dd4d4d194d9eecbb16d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer-to-row type for raw access to the element array.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a227fd5f62f02dd4d4d194d9eecbb16d5">More...</a><br /></td></tr>
@@ -137,7 +137,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:ab7b63f30aaddba66bc5528036ca8fefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant closure type used when this matrix appears inside another expression.  <a href="classCDPL_1_1Math_1_1CMatrix.html#ab7b63f30aaddba66bc5528036ca8fefa">More...</a><br /></td></tr>
 <tr class="separator:ab7b63f30aaddba66bc5528036ca8fefa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4cae69b8c5b9156a8984b5c43f9da06"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1BoundedMatrix.html">BoundedMatrix</a>&lt; T, M, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#ad4cae69b8c5b9156a8984b5c43f9da06">MatrixTemporaryType</a></td></tr>
-<tr class="memdesc:ad4cae69b8c5b9156a8984b5c43f9da06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concrete temporary matrix type used by expression-template machinery (a <a class="el" href="classCDPL_1_1Math_1_1BoundedMatrix.html" title="Variable-size matrix with fixed upper capacities M  N stored in a stack-allocated array.">Math::BoundedMatrix</a> of equal capacity).  <a href="classCDPL_1_1Math_1_1CMatrix.html#ad4cae69b8c5b9156a8984b5c43f9da06">More...</a><br /></td></tr>
+<tr class="memdesc:ad4cae69b8c5b9156a8984b5c43f9da06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concrete temporary matrix type used by expression template machinery (a <a class="el" href="classCDPL_1_1Math_1_1BoundedMatrix.html" title="Variable-size matrix with fixed upper dimension M×N backed by a stack-allocated array.">Math::BoundedMatrix</a> of equal capacity).  <a href="classCDPL_1_1Math_1_1CMatrix.html#ad4cae69b8c5b9156a8984b5c43f9da06">More...</a><br /></td></tr>
 <tr class="separator:ad4cae69b8c5b9156a8984b5c43f9da06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a650428161a144cdf970e95a1ff7e3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1BoundedVector.html">BoundedVector</a>&lt; T, M *N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a25a650428161a144cdf970e95a1ff7e3">VectorTemporaryType</a></td></tr>
 <tr class="memdesc:a25a650428161a144cdf970e95a1ff7e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concrete temporary vector type used when assembling vectors from this matrix.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a25a650428161a144cdf970e95a1ff7e3">More...</a><br /></td></tr>
@@ -146,7 +146,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a8ac82d4d7f3e0de7f27b677f113a6bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>CMatrix</code> instances.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a8ac82d4d7f3e0de7f27b677f113a6bb2">More...</a><br /></td></tr>
 <tr class="separator:a8ac82d4d7f3e0de7f27b677f113a6bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1feb390337e1bb6c4d996a4a37a34c96"><td class="memItemLeft" align="right" valign="top">typedef std::initializer_list&lt; std::initializer_list&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a1feb390337e1bb6c4d996a4a37a34c96">InitializerListType</a></td></tr>
-<tr class="memdesc:a1feb390337e1bb6c4d996a4a37a34c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initializer-list-of-rows type accepted by constructors and assignment.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a1feb390337e1bb6c4d996a4a37a34c96">More...</a><br /></td></tr>
+<tr class="memdesc:a1feb390337e1bb6c4d996a4a37a34c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">The initializer list type accepted by constructors and assignment.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a1feb390337e1bb6c4d996a4a37a34c96">More...</a><br /></td></tr>
 <tr class="separator:a1feb390337e1bb6c4d996a4a37a34c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Math_1_1MatrixContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Math_1_1MatrixContainer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Math_1_1MatrixContainer.html">CDPL::Math::MatrixContainer&lt; CMatrix&lt; T, M, N &gt; &gt;</a></td></tr>
 <tr class="memitem:a4320fb670e4597ec9ec502788ef92333 inherit pub_types_classCDPL_1_1Math_1_1MatrixContainer"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html">CMatrix</a>&lt; T, M, N &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixContainer.html#a4320fb670e4597ec9ec502788ef92333">ContainerType</a></td></tr>
@@ -164,10 +164,10 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3980564cc57b5eb400821f42d22a2965"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a3980564cc57b5eb400821f42d22a2965">CMatrix</a> ()</td></tr>
-<tr class="memdesc:a3980564cc57b5eb400821f42d22a2965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a zero-initialized \( M \times N \) matrix.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a3980564cc57b5eb400821f42d22a2965">More...</a><br /></td></tr>
+<tr class="memdesc:a3980564cc57b5eb400821f42d22a2965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a zero-initialized <em>M&times;N</em> matrix.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a3980564cc57b5eb400821f42d22a2965">More...</a><br /></td></tr>
 <tr class="separator:a3980564cc57b5eb400821f42d22a2965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36561b1a7cc9224046ad4f64d882909e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a36561b1a7cc9224046ad4f64d882909e">CMatrix</a> (const <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a5ab5d11a5c35c018e40116c29f7d3281">ValueType</a> &amp;v)</td></tr>
-<tr class="memdesc:a36561b1a7cc9224046ad4f64d882909e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an \( M \times N \) matrix with every element initialized to <em>v</em>.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a36561b1a7cc9224046ad4f64d882909e">More...</a><br /></td></tr>
+<tr class="memdesc:a36561b1a7cc9224046ad4f64d882909e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <em>M&times;N</em> matrix with every element initialized to <em>v</em>.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a36561b1a7cc9224046ad4f64d882909e">More...</a><br /></td></tr>
 <tr class="separator:a36561b1a7cc9224046ad4f64d882909e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fceb80091db5913573a8f12dbeeb9b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a8fceb80091db5913573a8f12dbeeb9b0">CMatrix</a> (const <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html">CMatrix</a> &amp;m)</td></tr>
 <tr class="memdesc:a8fceb80091db5913573a8f12dbeeb9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the fixed-size matrix <em>m</em>.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a8fceb80091db5913573a8f12dbeeb9b0">More...</a><br /></td></tr>
@@ -195,10 +195,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a120e8558b78d4a4245e5589ef8da1cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fixed column count <em>N</em>.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a120e8558b78d4a4245e5589ef8da1cef">More...</a><br /></td></tr>
 <tr class="separator:a120e8558b78d4a4245e5589ef8da1cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70d3250f58a6743b81752dfb307d70ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a4678a320828cb40e214c111ff0e40f75">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a70d3250f58a6743b81752dfb307d70ab">getMaxSize1</a> () const</td></tr>
-<tr class="memdesc:a70d3250f58a6743b81752dfb307d70ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fixed row count <em>M</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimensions M  N backed by a 2D C-array (no dynamic allocation).">Math::CMatrix</a>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a70d3250f58a6743b81752dfb307d70ab">More...</a><br /></td></tr>
+<tr class="memdesc:a70d3250f58a6743b81752dfb307d70ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fixed row count <em>M</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimension M×N backed by a stack-allocated array.">Math::CMatrix</a>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a70d3250f58a6743b81752dfb307d70ab">More...</a><br /></td></tr>
 <tr class="separator:a70d3250f58a6743b81752dfb307d70ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a716bed41cca1a2014c8d027ae9967953"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a4678a320828cb40e214c111ff0e40f75">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a716bed41cca1a2014c8d027ae9967953">getMaxSize2</a> () const</td></tr>
-<tr class="memdesc:a716bed41cca1a2014c8d027ae9967953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fixed column count <em>N</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimensions M  N backed by a 2D C-array (no dynamic allocation).">Math::CMatrix</a>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a716bed41cca1a2014c8d027ae9967953">More...</a><br /></td></tr>
+<tr class="memdesc:a716bed41cca1a2014c8d027ae9967953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fixed column count <em>N</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimension M×N backed by a stack-allocated array.">Math::CMatrix</a>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a716bed41cca1a2014c8d027ae9967953">More...</a><br /></td></tr>
 <tr class="separator:a716bed41cca1a2014c8d027ae9967953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f26485b05b68af7d522d95c251aecd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a227fd5f62f02dd4d4d194d9eecbb16d5">ArrayPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a1f26485b05b68af7d522d95c251aecd0">getData</a> ()</td></tr>
 <tr class="memdesc:a1f26485b05b68af7d522d95c251aecd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable pointer-to-row to the contiguous 2D element array.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a1f26485b05b68af7d522d95c251aecd0">More...</a><br /></td></tr>
@@ -215,7 +215,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a668d50df390261791803cf12039a4067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a120c4883596ca94772971fa51a2fc3d9"><td class="memTemplParams" colspan="2">template&lt;typename T1 &gt; </td></tr>
 <tr class="memitem:a120c4883596ca94772971fa51a2fc3d9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html">CMatrix</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a120c4883596ca94772971fa51a2fc3d9">operator=</a> (<a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a1feb390337e1bb6c4d996a4a37a34c96">InitializerListType</a> l)</td></tr>
-<tr class="memdesc:a120c4883596ca94772971fa51a2fc3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M</em> \( \times \) <em>N</em>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a120c4883596ca94772971fa51a2fc3d9">More...</a><br /></td></tr>
+<tr class="memdesc:a120c4883596ca94772971fa51a2fc3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M&times;N</em>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a120c4883596ca94772971fa51a2fc3d9">More...</a><br /></td></tr>
 <tr class="separator:a120c4883596ca94772971fa51a2fc3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5a718522bbcad80afe4fce0891c8f30"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; </td></tr>
 <tr class="memitem:ae5a718522bbcad80afe4fce0891c8f30"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html">CMatrix</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#ae5a718522bbcad80afe4fce0891c8f30">operator=</a> (const <a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html">MatrixExpression</a>&lt; E &gt; &amp;e)</td></tr>
@@ -256,7 +256,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a90e65a5d2d1224e514c1409b87aa3a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the elements of the matrix expression <em>e</em> to this fixed-size matrix without intermediate temporary.  <a href="classCDPL_1_1Math_1_1CMatrix.html#a90e65a5d2d1224e514c1409b87aa3a90">More...</a><br /></td></tr>
 <tr class="separator:a90e65a5d2d1224e514c1409b87aa3a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a150b98002cf6cbcf4bb0c25720dfddb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html">CMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a150b98002cf6cbcf4bb0c25720dfddb2">assign</a> (<a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#a1feb390337e1bb6c4d996a4a37a34c96">InitializerListType</a> l)</td></tr>
-<tr class="memdesc:a150b98002cf6cbcf4bb0c25720dfddb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M</em> \( \times \) <em>N</em>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a150b98002cf6cbcf4bb0c25720dfddb2">More...</a><br /></td></tr>
+<tr class="memdesc:a150b98002cf6cbcf4bb0c25720dfddb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M&times;N</em>).  <a href="classCDPL_1_1Math_1_1CMatrix.html#a150b98002cf6cbcf4bb0c25720dfddb2">More...</a><br /></td></tr>
 <tr class="separator:a150b98002cf6cbcf4bb0c25720dfddb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee1878a6bae46db950bde2831dcc9830"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; </td></tr>
 <tr class="memitem:aee1878a6bae46db950bde2831dcc9830"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html">CMatrix</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1CMatrix.html#aee1878a6bae46db950bde2831dcc9830">plusAssign</a> (const <a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html">MatrixExpression</a>&lt; E &gt; &amp;e)</td></tr>
@@ -330,7 +330,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T, std::size_t M, std::size_t N&gt;<br />
 class CDPL::Math::CMatrix&lt; T, M, N &gt;</h3>
 
-<p>Fixed-size dense matrix of dimensions <em>M</em> \( \times \) <em>N</em> backed by a 2D C-array (no dynamic allocation). </p>
+<p>Fixed-size dense matrix of dimension <em>M&times;N</em> backed by a stack-allocated array. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The scalar value type. </td></tr>
@@ -372,7 +372,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type to an element. </p>
+<p>Mutable element reference type. </p>
 
 </div>
 </div>
@@ -390,7 +390,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to an element. </p>
+<p>Constant element reference type. </p>
 
 </div>
 </div>
@@ -444,7 +444,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>The fixed-size 2D C-array type used for in-memory storage of <em>M</em> \( \times \) <em>N</em> elements. </p>
+<p>The fixed-size 2D C-array type used for in-memory storage of <em>M&times;N</em> elements. </p>
 
 </div>
 </div>
@@ -570,7 +570,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Concrete temporary matrix type used by expression-template machinery (a <a class="el" href="classCDPL_1_1Math_1_1BoundedMatrix.html" title="Variable-size matrix with fixed upper capacities M  N stored in a stack-allocated array.">Math::BoundedMatrix</a> of equal capacity). </p>
+<p>Concrete temporary matrix type used by expression template machinery (a <a class="el" href="classCDPL_1_1Math_1_1BoundedMatrix.html" title="Variable-size matrix with fixed upper dimension M×N backed by a stack-allocated array.">Math::BoundedMatrix</a> of equal capacity). </p>
 
 </div>
 </div>
@@ -624,7 +624,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>The initializer-list-of-rows type accepted by constructors and assignment. </p>
+<p>The initializer list type accepted by constructors and assignment. </p>
 
 </div>
 </div>
@@ -654,7 +654,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a zero-initialized \( M \times N \) matrix. </p>
+<p>Constructs a zero-initialized <em>M&times;N</em> matrix. </p>
 
 </div>
 </div>
@@ -684,7 +684,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs an \( M \times N \) matrix with every element initialized to <em>v</em>. </p>
+<p>Constructs an <em>M&times;N</em> matrix with every element initialized to <em>v</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The initial element value. </td></tr>
@@ -759,7 +759,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 <p>Constructs a fixed-size matrix with the contents of the initializer list of rows <em>l</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">l</td><td>The initializer list of rows (clipped or zero-padded to <em>M</em> \( \times \) <em>N</em>). </td></tr>
+    <tr><td class="paramname">l</td><td>The initializer list of rows (clipped or zero-padded to <em>M&times;N</em>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1034,7 +1034,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the fixed row count <em>M</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimensions M  N backed by a 2D C-array (no dynamic allocation).">Math::CMatrix</a>). </p>
+<p>Returns the fixed row count <em>M</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimension M×N backed by a stack-allocated array.">Math::CMatrix</a>). </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of rows. </dd></dl>
 
 </div>
@@ -1064,7 +1064,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the fixed column count <em>N</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimensions M  N backed by a 2D C-array (no dynamic allocation).">Math::CMatrix</a>). </p>
+<p>Returns the fixed column count <em>N</em> (capacity equals size for <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimension M×N backed by a stack-allocated array.">Math::CMatrix</a>). </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of columns. </dd></dl>
 
 </div>
@@ -1239,7 +1239,7 @@ template&lt;typename T1 &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M</em> \( \times \) <em>N</em>). </p>
+<p>Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M&times;N</em>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>The initializer list of rows. </td></tr>
@@ -1710,7 +1710,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M</em> \( \times \) <em>N</em>). </p>
+<p>Assigns the rows in <em>l</em> to this fixed-size matrix (clipped or zero-padded to <em>M&times;N</em>). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>The initializer list of rows. </td></tr>
@@ -1720,7 +1720,7 @@ template&lt;typename T , std::size_t M, std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A reference to itself. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1SizeError.html" title="Thrown to indicate that the size of a (multidimensional) array is not correct.">Base::SizeError</a></td><td>if <code>l.size()</code> exceeds <em>M</em> or any row's size exceeds <em>N</em>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1SizeError.html" title="Thrown to indicate that the size of a (multidimensional) array is not correct.">Base::SizeError</a></td><td>if the size of <em>l</em> exceeds <em>M</em> or any row's size exceeds <em>N</em>. </td></tr>
   </table>
   </dd>
 </dl>

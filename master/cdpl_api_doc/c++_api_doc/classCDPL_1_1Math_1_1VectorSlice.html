@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Vector-expression proxy that views a strided slice of an underlying vector.  
+<p><a class="el" href="classCDPL_1_1Math_1_1Vector.html" title="Dynamically-sized dense vector with configurable underlying storage.">Vector</a> expression proxy that views a strided slice of an underlying vector.  
  <a href="classCDPL_1_1Math_1_1VectorSlice.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="VectorProxy_8hpp_source.html">VectorProxy.hpp</a>&gt;</code></p>
@@ -112,10 +112,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a2a39fb2f88bbb6db32ef16843ebc0f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The element value type of the wrapped vector.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a2a39fb2f88bbb6db32ef16843ebc0f42">More...</a><br /></td></tr>
 <tr class="separator:a2a39fb2f88bbb6db32ef16843ebc0f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad58b8a7ceb5bc7e2b5e2ddb02d41e30d"><td class="memItemLeft" align="right" valign="top">typedef V::ConstReference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#ad58b8a7ceb5bc7e2b5e2ddb02d41e30d">ConstReference</a></td></tr>
-<tr class="memdesc:ad58b8a7ceb5bc7e2b5e2ddb02d41e30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to an element.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#ad58b8a7ceb5bc7e2b5e2ddb02d41e30d">More...</a><br /></td></tr>
+<tr class="memdesc:ad58b8a7ceb5bc7e2b5e2ddb02d41e30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant element reference type.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#ad58b8a7ceb5bc7e2b5e2ddb02d41e30d">More...</a><br /></td></tr>
 <tr class="separator:ad58b8a7ceb5bc7e2b5e2ddb02d41e30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bac7a6132fbb2a21a996495d93db562"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; V &gt;::value, typename V::ConstReference, typename V::Reference &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a5bac7a6132fbb2a21a996495d93db562">Reference</a></td></tr>
-<tr class="memdesc:a5bac7a6132fbb2a21a996495d93db562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type (degrades to ConstReference when the wrapped vector is <code>const</code>).  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a5bac7a6132fbb2a21a996495d93db562">More...</a><br /></td></tr>
+<tr class="memdesc:a5bac7a6132fbb2a21a996495d93db562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable element reference type (degrades to ConstReference when the wrapped vector is <code>const</code>).  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a5bac7a6132fbb2a21a996495d93db562">More...</a><br /></td></tr>
 <tr class="separator:a5bac7a6132fbb2a21a996495d93db562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeee5becb3db68557d823698b98e8be8"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; V &gt;::value, typename V::ConstClosureType, typename V::ClosureType &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#aeeee5becb3db68557d823698b98e8be8">VectorClosureType</a></td></tr>
 <tr class="memdesc:aeeee5becb3db68557d823698b98e8be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used to store the wrapped vector internally (mutable or const flavor).  <a href="classCDPL_1_1Math_1_1VectorSlice.html#aeeee5becb3db68557d823698b98e8be8">More...</a><br /></td></tr>
@@ -127,7 +127,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:aff6ef11b7a34272b6347470ec7818598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used when this proxy appears inside another expression.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#aff6ef11b7a34272b6347470ec7818598">More...</a><br /></td></tr>
 <tr class="separator:aff6ef11b7a34272b6347470ec7818598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a170744e938c8926d029214b2b5df162e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1Slice.html">Slice</a>&lt; <a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#ac511f5611f0cdcf36eeeb7243ecb3cac">SizeType</a>, <a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a1490756294306115c8a7999edc60c015">DifferenceType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a170744e938c8926d029214b2b5df162e">SliceType</a></td></tr>
-<tr class="memdesc:a170744e938c8926d029214b2b5df162e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice ( ) used for strided slicing of vector and matrix expressions.">Math::Slice</a> type defining the (start, stride, size) selection.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a170744e938c8926d029214b2b5df162e">More...</a><br /></td></tr>
+<tr class="memdesc:a170744e938c8926d029214b2b5df162e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice (start, stride, size ) used for strided slicing of vector and matrix expressions.">Math::Slice</a> type defining the (start, stride, size) selection.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a170744e938c8926d029214b2b5df162e">More...</a><br /></td></tr>
 <tr class="separator:a170744e938c8926d029214b2b5df162e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Math_1_1VectorExpression"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Math_1_1VectorExpression')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Math_1_1VectorExpression.html">CDPL::Math::VectorExpression&lt; VectorSlice&lt; V &gt; &gt;</a></td></tr>
 <tr class="memitem:aca0f310321041a9633f88784b371c288 inherit pub_types_classCDPL_1_1Math_1_1VectorExpression"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html">VectorSlice</a>&lt; V &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorExpression.html#aca0f310321041a9633f88784b371c288">ExpressionType</a></td></tr>
@@ -150,10 +150,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0c2dd942c9c3dbc527aac18edb06050e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the element at index <em>i</em> of the view.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a0c2dd942c9c3dbc527aac18edb06050e">More...</a><br /></td></tr>
 <tr class="separator:a0c2dd942c9c3dbc527aac18edb06050e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e4e799e39caab0872dfeaea656bbdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a5bac7a6132fbb2a21a996495d93db562">Reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a25e4e799e39caab0872dfeaea656bbdb">operator[]</a> (<a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#ac511f5611f0cdcf36eeeb7243ecb3cac">SizeType</a> i)</td></tr>
-<tr class="memdesc:a25e4e799e39caab0872dfeaea656bbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the element at index <em>i</em> of the view (alias for operator()).  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a25e4e799e39caab0872dfeaea656bbdb">More...</a><br /></td></tr>
+<tr class="memdesc:a25e4e799e39caab0872dfeaea656bbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the element at index <em>i</em> of the view.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a25e4e799e39caab0872dfeaea656bbdb">More...</a><br /></td></tr>
 <tr class="separator:a25e4e799e39caab0872dfeaea656bbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19a7de8308a263e577a616dd74b0b889"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#ad58b8a7ceb5bc7e2b5e2ddb02d41e30d">ConstReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a19a7de8308a263e577a616dd74b0b889">operator[]</a> (<a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#ac511f5611f0cdcf36eeeb7243ecb3cac">SizeType</a> i) const</td></tr>
-<tr class="memdesc:a19a7de8308a263e577a616dd74b0b889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the element at index <em>i</em> of the view (alias for operator()).  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a19a7de8308a263e577a616dd74b0b889">More...</a><br /></td></tr>
+<tr class="memdesc:a19a7de8308a263e577a616dd74b0b889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the element at index <em>i</em> of the view.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a19a7de8308a263e577a616dd74b0b889">More...</a><br /></td></tr>
 <tr class="separator:a19a7de8308a263e577a616dd74b0b889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67e453b4bcb9f09596652500924f4ed7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#ac511f5611f0cdcf36eeeb7243ecb3cac">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1VectorSlice.html#a67e453b4bcb9f09596652500924f4ed7">getStart</a> () const</td></tr>
 <tr class="memdesc:a67e453b4bcb9f09596652500924f4ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the start index of the slice within the wrapped vector.  <a href="classCDPL_1_1Math_1_1VectorSlice.html#a67e453b4bcb9f09596652500924f4ed7">More...</a><br /></td></tr>
@@ -242,7 +242,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename V&gt;<br />
 class CDPL::Math::VectorSlice&lt; V &gt;</h3>
 
-<p>Vector-expression proxy that views a strided slice of an underlying vector. </p>
+<p><a class="el" href="classCDPL_1_1Math_1_1Vector.html" title="Dynamically-sized dense vector with configurable underlying storage.">Vector</a> expression proxy that views a strided slice of an underlying vector. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">V</td><td>The wrapped vector type. </td></tr>
@@ -336,7 +336,7 @@ template&lt;typename V &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to an element. </p>
+<p>Constant element reference type. </p>
 
 </div>
 </div>
@@ -354,7 +354,7 @@ template&lt;typename V &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type (degrades to ConstReference when the wrapped vector is <code>const</code>). </p>
+<p>Mutable element reference type (degrades to ConstReference when the wrapped vector is <code>const</code>). </p>
 
 </div>
 </div>
@@ -426,7 +426,7 @@ template&lt;typename V &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>The <a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice ( ) used for strided slicing of vector and matrix expressions.">Math::Slice</a> type defining the (start, stride, size) selection. </p>
+<p>The <a class="el" href="classCDPL_1_1Math_1_1Slice.html" title="Index slice (start, stride, size ) used for strided slicing of vector and matrix expressions.">Math::Slice</a> type defining the (start, stride, size) selection. </p>
 
 </div>
 </div>
@@ -579,7 +579,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable reference to the element at index <em>i</em> of the view (alias for operator()). </p>
+<p>Returns a mutable reference to the element at index <em>i</em> of the view. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The zero-based index within the view. </td></tr>
@@ -616,7 +616,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>const</code> reference to the element at index <em>i</em> of the view (alias for operator()). </p>
+<p>Returns a <code>const</code> reference to the element at index <em>i</em> of the view. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The zero-based index within the view. </td></tr>

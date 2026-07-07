@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Matrix-expression proxy that views a contiguous rectangular subrange of an underlying matrix.  
+<p><a class="el" href="classCDPL_1_1Math_1_1Matrix.html" title="Dynamically-sized dense row-major matrix with configurable underlying storage.">Matrix</a> expression proxy that views a contiguous rectangular subrange of an underlying matrix.  
  <a href="classCDPL_1_1Math_1_1MatrixRange.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MatrixProxy_8hpp_source.html">MatrixProxy.hpp</a>&gt;</code></p>
@@ -112,10 +112,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a7d0647e969c9a60fc2bec7294b153d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The element value type of the wrapped matrix.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a7d0647e969c9a60fc2bec7294b153d2c">More...</a><br /></td></tr>
 <tr class="separator:a7d0647e969c9a60fc2bec7294b153d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a744aeb31f68a460a939e214331c7e319"><td class="memItemLeft" align="right" valign="top">typedef M::ConstReference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixRange.html#a744aeb31f68a460a939e214331c7e319">ConstReference</a></td></tr>
-<tr class="memdesc:a744aeb31f68a460a939e214331c7e319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to an element.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a744aeb31f68a460a939e214331c7e319">More...</a><br /></td></tr>
+<tr class="memdesc:a744aeb31f68a460a939e214331c7e319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant element reference type.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a744aeb31f68a460a939e214331c7e319">More...</a><br /></td></tr>
 <tr class="separator:a744aeb31f68a460a939e214331c7e319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1db9554b74af6c73fdaceb10d9429bcc"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; M &gt;::value, typename M::ConstReference, typename M::Reference &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixRange.html#a1db9554b74af6c73fdaceb10d9429bcc">Reference</a></td></tr>
-<tr class="memdesc:a1db9554b74af6c73fdaceb10d9429bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>).  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a1db9554b74af6c73fdaceb10d9429bcc">More...</a><br /></td></tr>
+<tr class="memdesc:a1db9554b74af6c73fdaceb10d9429bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable element reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>).  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a1db9554b74af6c73fdaceb10d9429bcc">More...</a><br /></td></tr>
 <tr class="separator:a1db9554b74af6c73fdaceb10d9429bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3435ea86a94e220657c7039850321661"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; M &gt;::value, typename M::ConstClosureType, typename M::ClosureType &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixRange.html#a3435ea86a94e220657c7039850321661">MatrixClosureType</a></td></tr>
 <tr class="memdesc:a3435ea86a94e220657c7039850321661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used to store the wrapped matrix internally.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a3435ea86a94e220657c7039850321661">More...</a><br /></td></tr>
@@ -127,7 +127,7 @@ Public Types</h2></td></tr>
 <tr class="memdesc:aad0bc50bbe3cc80a411761540e677369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used when this proxy appears inside another expression.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#aad0bc50bbe3cc80a411761540e677369">More...</a><br /></td></tr>
 <tr class="separator:aad0bc50bbe3cc80a411761540e677369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7287520bc0f8471a15b8ddd679fc9f85"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1Range.html">Range</a>&lt; <a class="el" href="classCDPL_1_1Math_1_1MatrixRange.html#a1cbb797899239e3fa6a4b9ab03de47ff">SizeType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixRange.html#a7287520bc0f8471a15b8ddd679fc9f85">RangeType</a></td></tr>
-<tr class="memdesc:a7287520bc0f8471a15b8ddd679fc9f85"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Math_1_1Range.html" title="Half-open index range  used for slicing vector and matrix expressions.">Range</a> type used to specify the row and column index ranges.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a7287520bc0f8471a15b8ddd679fc9f85">More...</a><br /></td></tr>
+<tr class="memdesc:a7287520bc0f8471a15b8ddd679fc9f85"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Math_1_1Range.html" title="Half-open index range [start, stop) used for slicing vector and matrix expressions.">Range</a> type used to specify the row and column index ranges.  <a href="classCDPL_1_1Math_1_1MatrixRange.html#a7287520bc0f8471a15b8ddd679fc9f85">More...</a><br /></td></tr>
 <tr class="separator:a7287520bc0f8471a15b8ddd679fc9f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Math_1_1MatrixExpression"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Math_1_1MatrixExpression')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html">CDPL::Math::MatrixExpression&lt; MatrixRange&lt; M &gt; &gt;</a></td></tr>
 <tr class="memitem:a1165c334ed0250fc82fb63e738cd00bd inherit pub_types_classCDPL_1_1Math_1_1MatrixExpression"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Math_1_1MatrixRange.html">MatrixRange</a>&lt; M &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixExpression.html#a1165c334ed0250fc82fb63e738cd00bd">ExpressionType</a></td></tr>
@@ -239,7 +239,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename M&gt;<br />
 class CDPL::Math::MatrixRange&lt; M &gt;</h3>
 
-<p>Matrix-expression proxy that views a contiguous rectangular subrange of an underlying matrix. </p>
+<p><a class="el" href="classCDPL_1_1Math_1_1Matrix.html" title="Dynamically-sized dense row-major matrix with configurable underlying storage.">Matrix</a> expression proxy that views a contiguous rectangular subrange of an underlying matrix. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">M</td><td>The wrapped matrix type. </td></tr>
@@ -333,7 +333,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to an element. </p>
+<p>Constant element reference type. </p>
 
 </div>
 </div>
@@ -351,7 +351,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>). </p>
+<p>Mutable element reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>). </p>
 
 </div>
 </div>
@@ -423,7 +423,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classCDPL_1_1Math_1_1Range.html" title="Half-open index range  used for slicing vector and matrix expressions.">Range</a> type used to specify the row and column index ranges. </p>
+<p><a class="el" href="classCDPL_1_1Math_1_1Range.html" title="Half-open index range [start, stop) used for slicing vector and matrix expressions.">Range</a> type used to specify the row and column index ranges. </p>
 
 </div>
 </div>

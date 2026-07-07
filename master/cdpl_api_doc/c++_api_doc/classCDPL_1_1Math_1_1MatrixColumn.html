@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Vector-expression proxy that views a single column of an underlying matrix.  
+<p><a class="el" href="classCDPL_1_1Math_1_1Vector.html" title="Dynamically-sized dense vector with configurable underlying storage.">Vector</a> expression proxy that views a single column of an underlying matrix.  
  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MatrixProxy_8hpp_source.html">MatrixProxy.hpp</a>&gt;</code></p>
@@ -112,10 +112,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a916d3dba75f35219d4961fb1833d0129"><td class="mdescLeft">&#160;</td><td class="mdescRight">The element value type of the wrapped matrix.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a916d3dba75f35219d4961fb1833d0129">More...</a><br /></td></tr>
 <tr class="separator:a916d3dba75f35219d4961fb1833d0129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e175052c58d4bb6f855fff36434061c"><td class="memItemLeft" align="right" valign="top">typedef M::ConstReference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a0e175052c58d4bb6f855fff36434061c">ConstReference</a></td></tr>
-<tr class="memdesc:a0e175052c58d4bb6f855fff36434061c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to an element.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a0e175052c58d4bb6f855fff36434061c">More...</a><br /></td></tr>
+<tr class="memdesc:a0e175052c58d4bb6f855fff36434061c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant element reference type.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a0e175052c58d4bb6f855fff36434061c">More...</a><br /></td></tr>
 <tr class="separator:a0e175052c58d4bb6f855fff36434061c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2586f3cba9c74d7d8fb74190fca10a55"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; M &gt;::value, typename M::ConstReference, typename M::Reference &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a2586f3cba9c74d7d8fb74190fca10a55">Reference</a></td></tr>
-<tr class="memdesc:a2586f3cba9c74d7d8fb74190fca10a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>).  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a2586f3cba9c74d7d8fb74190fca10a55">More...</a><br /></td></tr>
+<tr class="memdesc:a2586f3cba9c74d7d8fb74190fca10a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable element reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>).  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a2586f3cba9c74d7d8fb74190fca10a55">More...</a><br /></td></tr>
 <tr class="separator:a2586f3cba9c74d7d8fb74190fca10a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fe89670a24f6f78bcf5749d844524c6"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; M &gt;::value, typename M::ConstClosureType, typename M::ClosureType &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a9fe89670a24f6f78bcf5749d844524c6">MatrixClosureType</a></td></tr>
 <tr class="memdesc:a9fe89670a24f6f78bcf5749d844524c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used to store the wrapped matrix internally.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a9fe89670a24f6f78bcf5749d844524c6">More...</a><br /></td></tr>
@@ -147,10 +147,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a63da7cf0d0db55371894f0f1ca3c5b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the element at row <em>i</em> of the column.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a63da7cf0d0db55371894f0f1ca3c5b21">More...</a><br /></td></tr>
 <tr class="separator:a63da7cf0d0db55371894f0f1ca3c5b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a796afe452630b560dcc0085cbeeb2c78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a2586f3cba9c74d7d8fb74190fca10a55">Reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a796afe452630b560dcc0085cbeeb2c78">operator[]</a> (<a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a46d5309d31fd691acc143b1b5fac88e0">SizeType</a> i)</td></tr>
-<tr class="memdesc:a796afe452630b560dcc0085cbeeb2c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the element at row <em>i</em> of the column (alias for operator()).  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a796afe452630b560dcc0085cbeeb2c78">More...</a><br /></td></tr>
+<tr class="memdesc:a796afe452630b560dcc0085cbeeb2c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the element at row <em>i</em> of the column.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a796afe452630b560dcc0085cbeeb2c78">More...</a><br /></td></tr>
 <tr class="separator:a796afe452630b560dcc0085cbeeb2c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27caec2568e7023ebab016d949b7328e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a0e175052c58d4bb6f855fff36434061c">ConstReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a27caec2568e7023ebab016d949b7328e">operator[]</a> (<a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a46d5309d31fd691acc143b1b5fac88e0">SizeType</a> i) const</td></tr>
-<tr class="memdesc:a27caec2568e7023ebab016d949b7328e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the element at row <em>i</em> of the column (alias for operator()).  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a27caec2568e7023ebab016d949b7328e">More...</a><br /></td></tr>
+<tr class="memdesc:a27caec2568e7023ebab016d949b7328e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the element at row <em>i</em> of the column.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a27caec2568e7023ebab016d949b7328e">More...</a><br /></td></tr>
 <tr class="separator:a27caec2568e7023ebab016d949b7328e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5436e27b46287c6f6ef8bca0d3b6310b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a46d5309d31fd691acc143b1b5fac88e0">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1MatrixColumn.html#a5436e27b46287c6f6ef8bca0d3b6310b">getIndex</a> () const</td></tr>
 <tr class="memdesc:a5436e27b46287c6f6ef8bca0d3b6310b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the column index this proxy refers to within the wrapped matrix.  <a href="classCDPL_1_1Math_1_1MatrixColumn.html#a5436e27b46287c6f6ef8bca0d3b6310b">More...</a><br /></td></tr>
@@ -236,7 +236,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename M&gt;<br />
 class CDPL::Math::MatrixColumn&lt; M &gt;</h3>
 
-<p>Vector-expression proxy that views a single column of an underlying matrix. </p>
+<p><a class="el" href="classCDPL_1_1Math_1_1Vector.html" title="Dynamically-sized dense vector with configurable underlying storage.">Vector</a> expression proxy that views a single column of an underlying matrix. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">M</td><td>The wrapped matrix type. </td></tr>
@@ -330,7 +330,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to an element. </p>
+<p>Constant element reference type. </p>
 
 </div>
 </div>
@@ -348,7 +348,7 @@ template&lt;typename M &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>). </p>
+<p>Mutable element reference type (degrades to ConstReference when the wrapped matrix is <code>const</code>). </p>
 
 </div>
 </div>
@@ -555,7 +555,7 @@ template&lt;typename M &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable reference to the element at row <em>i</em> of the column (alias for operator()). </p>
+<p>Returns a mutable reference to the element at row <em>i</em> of the column. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The zero-based row index. </td></tr>
@@ -592,7 +592,7 @@ template&lt;typename M &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>const</code> reference to the element at row <em>i</em> of the column (alias for operator()). </p>
+<p>Returns a <code>const</code> reference to the element at row <em>i</em> of the column. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The zero-based row index. </td></tr>

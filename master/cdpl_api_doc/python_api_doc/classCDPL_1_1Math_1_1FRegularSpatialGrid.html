@@ -112,7 +112,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad191cd721a37e90ddecb29a4704ef61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty grid with isotropic step size <em>s</em> on all three axes.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#ad191cd721a37e90ddecb29a4704ef61b">More...</a><br /></td></tr>
 <tr class="separator:ad191cd721a37e90ddecb29a4704ef61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad456a73b56863cc5a27caf73e76e750"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#aad456a73b56863cc5a27caf73e76e750">resize</a> (int m, int n, int o, bool preserve=True, float v=0.0)</td></tr>
-<tr class="memdesc:aad456a73b56863cc5a27caf73e76e750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the grid to \( m \times n \times o \) cells.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#aad456a73b56863cc5a27caf73e76e750">More...</a><br /></td></tr>
+<tr class="memdesc:aad456a73b56863cc5a27caf73e76e750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the grid to <em>m&times;n&times;o</em> cells.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#aad456a73b56863cc5a27caf73e76e750">More...</a><br /></td></tr>
 <tr class="separator:aad456a73b56863cc5a27caf73e76e750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e14a6078cb0490a02633810d4625e4"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a45e14a6078cb0490a02633810d4625e4">clear</a> (float v=0.0)</td></tr>
 <tr class="memdesc:a45e14a6078cb0490a02633810d4625e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets every cell of the grid to the value <em>v</em>.  <a href="classCDPL_1_1Math_1_1FRegularSpatialGrid.html#a45e14a6078cb0490a02633810d4625e4">More...</a><br /></td></tr>
@@ -652,12 +652,12 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Resizes the grid to \( m \times n \times o \) cells. </p>
+<p>Resizes the grid to <em>m&times;n&times;o</em> cells. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>The new first-dimension size. </td></tr>
-    <tr><td class="paramname">n</td><td>The new second-dimension size. </td></tr>
-    <tr><td class="paramname">o</td><td>The new third-dimension size. </td></tr>
+    <tr><td class="paramname">m</td><td>The new size in the first dimension. </td></tr>
+    <tr><td class="paramname">n</td><td>The new size in the second dimension. </td></tr>
+    <tr><td class="paramname">o</td><td>The new size in the third dimension. </td></tr>
     <tr><td class="paramname">preserve</td><td>If <code>True</code>, existing cell values are kept where the indices remain valid. If <code>False</code>, all cells are set to <em>v</em>. </td></tr>
     <tr><td class="paramname">v</td><td>The fill value used for newly added cells (and for all cells if <em>preserve</em> is <code>False</code>). </td></tr>
   </table>
@@ -1003,9 +1003,9 @@ Properties</h2></td></tr>
 <p>Writes the world-space 3D position of the cell at (<em>i</em>, <em>j</em>, <em>k</em>) into <em>coords</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The first-dimension cell index. </td></tr>
-    <tr><td class="paramname">j</td><td>The second-dimension cell index. </td></tr>
-    <tr><td class="paramname">k</td><td>The third-dimension cell index. </td></tr>
+    <tr><td class="paramname">i</td><td>The first dimension cell index. </td></tr>
+    <tr><td class="paramname">j</td><td>The second dimension cell index. </td></tr>
+    <tr><td class="paramname">k</td><td>The third dimension cell index. </td></tr>
     <tr><td class="paramname">coords</td><td>The output vector receiving the X/Y/Z position. </td></tr>
   </table>
   </dd>
@@ -1096,9 +1096,9 @@ Properties</h2></td></tr>
 <p>Local coordinates are centered at the grid origin (the cell-center cell-index coordinate system before applying the world-space transformation).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The first-dimension cell index. </td></tr>
-    <tr><td class="paramname">j</td><td>The second-dimension cell index. </td></tr>
-    <tr><td class="paramname">k</td><td>The third-dimension cell index. </td></tr>
+    <tr><td class="paramname">i</td><td>The first dimension cell index. </td></tr>
+    <tr><td class="paramname">j</td><td>The second dimension cell index. </td></tr>
+    <tr><td class="paramname">k</td><td>The third dimension cell index. </td></tr>
     <tr><td class="paramname">coords</td><td>The output vector receiving the local X/Y/Z position. </td></tr>
   </table>
   </dd>
@@ -2314,7 +2314,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the size of the grid along the first dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The first-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size in the first dimension. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FRegularGrid.html#a0cb604069799f87ba47ef6bfb12f0579">CDPL.Grid.FRegularGrid</a>.</p>
 
@@ -2336,7 +2336,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the size of the grid along the second dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The second-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size in the second dimension. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FRegularGrid.html#a1d5dd52fc8199e9d9696b64c3da0fc60">CDPL.Grid.FRegularGrid</a>.</p>
 
@@ -2358,7 +2358,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the size of the grid along the third dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The third-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size in the third dimension. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classCDPL_1_1Grid_1_1FRegularGrid.html#a70daf66d67b7f90927c0d566c0900d5b">CDPL.Grid.FRegularGrid</a>.</p>
 
@@ -2647,9 +2647,9 @@ Properties</h2></td></tr>
 <p>Returns a reference to the cell at the (<em>i</em>, <em>j</em>, <em>k</em>) position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The zero-based first-dimension index. </td></tr>
-    <tr><td class="paramname">j</td><td>The zero-based second-dimension index. </td></tr>
-    <tr><td class="paramname">k</td><td>The zero-based third-dimension index.</td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based first dimension index. </td></tr>
+    <tr><td class="paramname">j</td><td>The zero-based second dimension index. </td></tr>
+    <tr><td class="paramname">k</td><td>The zero-based third dimension index.</td></tr>
   </table>
   </dd>
 </dl>

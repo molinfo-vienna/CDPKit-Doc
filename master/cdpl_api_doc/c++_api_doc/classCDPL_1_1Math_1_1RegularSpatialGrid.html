@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>3D grid data structure combining a <a class="el" href="classCDPL_1_1Math_1_1Grid.html" title="Dynamically-sized dense 3D grid ( ) with configurable underlying storage.">Math::Grid</a> data store with a coordinate-system transformation that maps grid-cell indices to 3D world positions.  
+<p>3D grid data structure combining a <a class="el" href="classCDPL_1_1Math_1_1Grid.html" title="Dynamically-sized dense 3D grid with configurable underlying storage.">Math::Grid</a> data store with a coordinate-system transformation that maps grid cell indices to 3D world positions.  
  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="RegularSpatialGrid_8hpp_source.html">RegularSpatialGrid.hpp</a>&gt;</code></p>
@@ -115,10 +115,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a46c0caf51fd41f88a577b690315de63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inverse coordinate transformation type.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a46c0caf51fd41f88a577b690315de63d">More...</a><br /></td></tr>
 <tr class="separator:a46c0caf51fd41f88a577b690315de63d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c657d7a7941d7aa447122b3a9b237a3"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; GD &gt;::value, typename GD::ConstReference, typename GD::Reference &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a3c657d7a7941d7aa447122b3a9b237a3">Reference</a></td></tr>
-<tr class="memdesc:a3c657d7a7941d7aa447122b3a9b237a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type to a grid cell (degrades to ConstReference when the data container is <code>const</code>).  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a3c657d7a7941d7aa447122b3a9b237a3">More...</a><br /></td></tr>
+<tr class="memdesc:a3c657d7a7941d7aa447122b3a9b237a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable grid cell reference type (degrades to ConstReference when the data container is <code>const</code>).  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a3c657d7a7941d7aa447122b3a9b237a3">More...</a><br /></td></tr>
 <tr class="separator:a3c657d7a7941d7aa447122b3a9b237a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a014b769a6e31a6af79a8f36b3f1f49e2"><td class="memItemLeft" align="right" valign="top">typedef GD::ConstReference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a014b769a6e31a6af79a8f36b3f1f49e2">ConstReference</a></td></tr>
-<tr class="memdesc:a014b769a6e31a6af79a8f36b3f1f49e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to a grid cell.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a014b769a6e31a6af79a8f36b3f1f49e2">More...</a><br /></td></tr>
+<tr class="memdesc:a014b769a6e31a6af79a8f36b3f1f49e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant grid cell reference type.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a014b769a6e31a6af79a8f36b3f1f49e2">More...</a><br /></td></tr>
 <tr class="separator:a014b769a6e31a6af79a8f36b3f1f49e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78eb18f340b3164218d044b34979afba"><td class="memItemLeft" align="right" valign="top">typedef GD::SizeType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a78eb18f340b3164218d044b34979afba">SizeType</a></td></tr>
 <tr class="memdesc:a78eb18f340b3164218d044b34979afba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The unsigned size type used by the grid data container.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a78eb18f340b3164218d044b34979afba">More...</a><br /></td></tr>
@@ -326,7 +326,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a61fa736c20f486cb06b37971fca1cd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets every cell of the grid to the value <em>v</em>.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a61fa736c20f486cb06b37971fca1cd8b">More...</a><br /></td></tr>
 <tr class="separator:a61fa736c20f486cb06b37971fca1cd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5f65d067cc83530554ba9eb1fc6a70b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#ac5f65d067cc83530554ba9eb1fc6a70b">resize</a> (<a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a78eb18f340b3164218d044b34979afba">SizeType</a> m, <a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a78eb18f340b3164218d044b34979afba">SizeType</a> n, <a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a78eb18f340b3164218d044b34979afba">SizeType</a> o, <a class="el" href="classbool.html">bool</a> preserve=true, const <a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a34f9135235052f92e5b887b66a1ad470">ValueType</a> &amp;v=<a class="el" href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#a34f9135235052f92e5b887b66a1ad470">ValueType</a>())</td></tr>
-<tr class="memdesc:ac5f65d067cc83530554ba9eb1fc6a70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the grid to \( m \times n \times o \) cells.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#ac5f65d067cc83530554ba9eb1fc6a70b">More...</a><br /></td></tr>
+<tr class="memdesc:ac5f65d067cc83530554ba9eb1fc6a70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the grid to <em>m&times;n&times;o</em> cells.  <a href="classCDPL_1_1Math_1_1RegularSpatialGrid.html#ac5f65d067cc83530554ba9eb1fc6a70b">More...</a><br /></td></tr>
 <tr class="separator:ac5f65d067cc83530554ba9eb1fc6a70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Math_1_1GridExpression"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Math_1_1GridExpression')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Math_1_1GridExpression.html">CDPL::Math::GridExpression&lt; RegularSpatialGrid&lt; T, typename TypeTraits&lt; T &gt;::RealType, Grid&lt; T &gt;, CMatrix&lt; typename TypeTraits&lt; T &gt;::RealType, 4, 4 &gt; &gt; &gt;</a></td></tr>
 <tr class="memitem:aae19fc58c4badc1c3491438b0295c8e6 inherit pub_methods_classCDPL_1_1Math_1_1GridExpression"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Math_1_1Expression.html#a24438fa9502542f8fa8a4d9867fb8cf0">ExpressionType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1GridExpression.html#aae19fc58c4badc1c3491438b0295c8e6">operator()</a> () const</td></tr>
@@ -359,13 +359,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T, typename C = typename TypeTraits&lt;T&gt;::RealType, typename GD = Grid&lt;T&gt;, typename XF = CMatrix&lt;C, 4, 4&gt;&gt;<br />
 class CDPL::Math::RegularSpatialGrid&lt; T, C, GD, XF &gt;</h3>
 
-<p>3D grid data structure combining a <a class="el" href="classCDPL_1_1Math_1_1Grid.html" title="Dynamically-sized dense 3D grid ( ) with configurable underlying storage.">Math::Grid</a> data store with a coordinate-system transformation that maps grid-cell indices to 3D world positions. </p>
+<p>3D grid data structure combining a <a class="el" href="classCDPL_1_1Math_1_1Grid.html" title="Dynamically-sized dense 3D grid with configurable underlying storage.">Math::Grid</a> data store with a coordinate-system transformation that maps grid cell indices to 3D world positions. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The grid cell value type. </td></tr>
     <tr><td class="paramname">C</td><td>The coordinate (real) value type used in the world frame. </td></tr>
-    <tr><td class="paramname">GD</td><td>The underlying grid data container type (default: <a class="el" href="classCDPL_1_1Math_1_1Grid.html" title="Dynamically-sized dense 3D grid ( ) with configurable underlying storage.">Math::Grid</a>). </td></tr>
-    <tr><td class="paramname">XF</td><td>The transformation type that maps cell indices to world coordinates (default: <a class="el" href="classCDPL_1_1Math_1_1CMatrix.html" title="Fixed-size dense matrix of dimensions M  N backed by a 2D C-array (no dynamic allocation).">Math::CMatrix</a> \( 4 \times 4 \)). </td></tr>
+    <tr><td class="paramname">GD</td><td>The underlying grid data container type (default: <a class="el" href="classCDPL_1_1Math_1_1Grid.html" title="Dynamically-sized dense 3D grid with configurable underlying storage.">Math::Grid</a>). </td></tr>
+    <tr><td class="paramname">XF</td><td>The transformation type that maps cell indices to world coordinates. </td></tr>
   </table>
   </dd>
 </dl>
@@ -474,7 +474,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type to a grid cell (degrades to ConstReference when the data container is <code>const</code>). </p>
+<p>Mutable grid cell reference type (degrades to ConstReference when the data container is <code>const</code>). </p>
 
 </div>
 </div>
@@ -492,7 +492,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to a grid cell. </p>
+<p>Constant grid cell reference type. </p>
 
 </div>
 </div>
@@ -1024,9 +1024,9 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 <p>Returns a mutable reference to the cell at the (<em>i</em>, <em>j</em>, <em>k</em>) position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The zero-based first-dimension index. </td></tr>
-    <tr><td class="paramname">j</td><td>The zero-based second-dimension index. </td></tr>
-    <tr><td class="paramname">k</td><td>The zero-based third-dimension index. </td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based first dimension index. </td></tr>
+    <tr><td class="paramname">j</td><td>The zero-based second dimension index. </td></tr>
+    <tr><td class="paramname">k</td><td>The zero-based third dimension index. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1079,9 +1079,9 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 <p>Returns a <code>const</code> reference to the cell at the (<em>i</em>, <em>j</em>, <em>k</em>) position. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The zero-based first-dimension index. </td></tr>
-    <tr><td class="paramname">j</td><td>The zero-based second-dimension index. </td></tr>
-    <tr><td class="paramname">k</td><td>The zero-based third-dimension index. </td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based first dimension index. </td></tr>
+    <tr><td class="paramname">j</td><td>The zero-based second dimension index. </td></tr>
+    <tr><td class="paramname">k</td><td>The zero-based third dimension index. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1145,7 +1145,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </div><div class="memdoc">
 
 <p>Returns the size of the grid along the first dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The first-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size in the first dimension. </dd></dl>
 
 </div>
 </div>
@@ -1175,7 +1175,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </div><div class="memdoc">
 
 <p>Returns the size of the grid along the second dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The second-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size in the second dimension. </dd></dl>
 
 </div>
 </div>
@@ -1205,7 +1205,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </div><div class="memdoc">
 
 <p>Returns the size of the grid along the third dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The third-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size in the third dimension. </dd></dl>
 
 </div>
 </div>
@@ -1265,7 +1265,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </div><div class="memdoc">
 
 <p>Returns the maximum size of the grid along the first dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The maximum first-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum size in the first dimension. </dd></dl>
 
 </div>
 </div>
@@ -1295,7 +1295,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </div><div class="memdoc">
 
 <p>Returns the maximum size of the grid along the second dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The maximum second-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum size in the second dimension. </dd></dl>
 
 </div>
 </div>
@@ -1325,7 +1325,7 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </div><div class="memdoc">
 
 <p>Returns the maximum size of the grid along the third dimension. </p>
-<dl class="section return"><dt>Returns</dt><dd>The maximum third-dimension size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum size in the third dimension. </dd></dl>
 
 </div>
 </div>
@@ -1731,9 +1731,9 @@ template&lt;typename V &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The first-dimension cell index. </td></tr>
-    <tr><td class="paramname">j</td><td>The second-dimension cell index. </td></tr>
-    <tr><td class="paramname">k</td><td>The third-dimension cell index. </td></tr>
+    <tr><td class="paramname">i</td><td>The first dimension cell index. </td></tr>
+    <tr><td class="paramname">j</td><td>The second dimension cell index. </td></tr>
+    <tr><td class="paramname">k</td><td>The third dimension cell index. </td></tr>
     <tr><td class="paramname">coords</td><td>The output vector receiving the X/Y/Z position. </td></tr>
   </table>
   </dd>
@@ -1801,9 +1801,9 @@ template&lt;typename V &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The first-dimension cell index. </td></tr>
-    <tr><td class="paramname">j</td><td>The second-dimension cell index. </td></tr>
-    <tr><td class="paramname">k</td><td>The third-dimension cell index. </td></tr>
+    <tr><td class="paramname">i</td><td>The first dimension cell index. </td></tr>
+    <tr><td class="paramname">j</td><td>The second dimension cell index. </td></tr>
+    <tr><td class="paramname">k</td><td>The third dimension cell index. </td></tr>
     <tr><td class="paramname">coords</td><td>The output vector receiving the local X/Y/Z position. </td></tr>
   </table>
   </dd>
@@ -2799,12 +2799,12 @@ template&lt;typename T , typename C  = typename TypeTraits&lt;T&gt;::RealType, t
 </table>
 </div><div class="memdoc">
 
-<p>Resizes the grid to \( m \times n \times o \) cells. </p>
+<p>Resizes the grid to <em>m&times;n&times;o</em> cells. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>The new first-dimension size. </td></tr>
-    <tr><td class="paramname">n</td><td>The new second-dimension size. </td></tr>
-    <tr><td class="paramname">o</td><td>The new third-dimension size. </td></tr>
+    <tr><td class="paramname">m</td><td>The new size in the first dimension. </td></tr>
+    <tr><td class="paramname">n</td><td>The new size in the second dimension. </td></tr>
+    <tr><td class="paramname">o</td><td>The new size in the third dimension. </td></tr>
     <tr><td class="paramname">preserve</td><td>If <code>true</code>, existing cell values are kept where the indices remain valid. If <code>false</code>, all cells are set to <em>v</em>. </td></tr>
     <tr><td class="paramname">v</td><td>The fill value used for newly added cells (and for all cells if <em>preserve</em> is <code>false</code>). </td></tr>
   </table>

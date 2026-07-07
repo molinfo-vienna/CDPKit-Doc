@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>View adapter that exposes a quaternion as a 4-element vector expression (indices map to the components C1, C2, C3, C4).  
+<p>Adapter that exposes a quaternion as a <em>4</em> element vector expression (indices map to the components C1, C2, C3, C4).  
  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="QuaternionAdapter_8hpp_source.html">QuaternionAdapter.hpp</a>&gt;</code></p>
@@ -112,10 +112,10 @@ Public Types</h2></td></tr>
 <tr class="memdesc:acb482e5020ebab83a6ea5a7cdde1ce12"><td class="mdescLeft">&#160;</td><td class="mdescRight">The element value type of the wrapped quaternion.  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#acb482e5020ebab83a6ea5a7cdde1ce12">More...</a><br /></td></tr>
 <tr class="separator:acb482e5020ebab83a6ea5a7cdde1ce12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4976c2070a926ec6655d62d79dae4d56"><td class="memItemLeft" align="right" valign="top">typedef Q::ConstReference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a4976c2070a926ec6655d62d79dae4d56">ConstReference</a></td></tr>
-<tr class="memdesc:a4976c2070a926ec6655d62d79dae4d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant reference type to an element of the wrapped quaternion.  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a4976c2070a926ec6655d62d79dae4d56">More...</a><br /></td></tr>
+<tr class="memdesc:a4976c2070a926ec6655d62d79dae4d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant element reference type of the wrapped quaternion.  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a4976c2070a926ec6655d62d79dae4d56">More...</a><br /></td></tr>
 <tr class="separator:a4976c2070a926ec6655d62d79dae4d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c18a5b7f566f1ab1ceece9bffbc36c2"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; Q &gt;::value, typename Q::ConstReference, typename Q::Reference &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a8c18a5b7f566f1ab1ceece9bffbc36c2">Reference</a></td></tr>
-<tr class="memdesc:a8c18a5b7f566f1ab1ceece9bffbc36c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference type (degrades to ConstReference when the wrapped quaternion is <code>const</code>).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a8c18a5b7f566f1ab1ceece9bffbc36c2">More...</a><br /></td></tr>
+<tr class="memdesc:a8c18a5b7f566f1ab1ceece9bffbc36c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable element reference type (degrades to ConstReference when the wrapped quaternion is <code>const</code>).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a8c18a5b7f566f1ab1ceece9bffbc36c2">More...</a><br /></td></tr>
 <tr class="separator:a8c18a5b7f566f1ab1ceece9bffbc36c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6708cb5bf612b51d5df778fcc1ecf3d5"><td class="memItemLeft" align="right" valign="top">typedef std::conditional&lt; std::is_const&lt; Q &gt;::value, typename Q::ConstClosureType, typename Q::ClosureType &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a6708cb5bf612b51d5df778fcc1ecf3d5">QuaternionClosureType</a></td></tr>
 <tr class="memdesc:a6708cb5bf612b51d5df778fcc1ecf3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closure type used to store the wrapped quaternion internally (mutable or const flavor).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a6708cb5bf612b51d5df778fcc1ecf3d5">More...</a><br /></td></tr>
@@ -147,16 +147,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac8a8304381f9337950c024757237c095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the quaternion component at index <em>i</em>.  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#ac8a8304381f9337950c024757237c095">More...</a><br /></td></tr>
 <tr class="separator:ac8a8304381f9337950c024757237c095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac63bb823369c5542c92cce0c62ecb7fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a8c18a5b7f566f1ab1ceece9bffbc36c2">Reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#ac63bb823369c5542c92cce0c62ecb7fb">operator[]</a> (<a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a9e82a989877c5941575ca60e94dd4a2c">SizeType</a> i)</td></tr>
-<tr class="memdesc:ac63bb823369c5542c92cce0c62ecb7fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the quaternion component at index <em>i</em> (alias for operator()).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#ac63bb823369c5542c92cce0c62ecb7fb">More...</a><br /></td></tr>
+<tr class="memdesc:ac63bb823369c5542c92cce0c62ecb7fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the quaternion component at index <em>i</em>.  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#ac63bb823369c5542c92cce0c62ecb7fb">More...</a><br /></td></tr>
 <tr class="separator:ac63bb823369c5542c92cce0c62ecb7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a590f4f62059fddd2cf2378317d3bc4c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a4976c2070a926ec6655d62d79dae4d56">ConstReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a590f4f62059fddd2cf2378317d3bc4c6">operator[]</a> (<a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a9e82a989877c5941575ca60e94dd4a2c">SizeType</a> i) const</td></tr>
-<tr class="memdesc:a590f4f62059fddd2cf2378317d3bc4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the quaternion component at index <em>i</em> (alias for operator()).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a590f4f62059fddd2cf2378317d3bc4c6">More...</a><br /></td></tr>
+<tr class="memdesc:a590f4f62059fddd2cf2378317d3bc4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the quaternion component at index <em>i</em>.  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a590f4f62059fddd2cf2378317d3bc4c6">More...</a><br /></td></tr>
 <tr class="separator:a590f4f62059fddd2cf2378317d3bc4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4974b29f042d216fa055300eb76f55e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a9e82a989877c5941575ca60e94dd4a2c">SizeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a4974b29f042d216fa055300eb76f55e7">getSize</a> () const</td></tr>
 <tr class="memdesc:a4974b29f042d216fa055300eb76f55e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimensionality of the view (always <em>4</em>).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a4974b29f042d216fa055300eb76f55e7">More...</a><br /></td></tr>
 <tr class="separator:a4974b29f042d216fa055300eb76f55e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d594a727337a251a1d55dc7f61df8e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a6d594a727337a251a1d55dc7f61df8e6">isEmpty</a> () const</td></tr>
-<tr class="memdesc:a6d594a727337a251a1d55dc7f61df8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the view is empty (always <code>false</code>; the view is fixed-size with 4 components).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a6d594a727337a251a1d55dc7f61df8e6">More...</a><br /></td></tr>
+<tr class="memdesc:a6d594a727337a251a1d55dc7f61df8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the view is empty (always <code>false</code>, the view is fixed-size with 4 components).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a6d594a727337a251a1d55dc7f61df8e6">More...</a><br /></td></tr>
 <tr class="separator:a6d594a727337a251a1d55dc7f61df8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e8f3db5b205f872b98e30d92f32f27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a6708cb5bf612b51d5df778fcc1ecf3d5">QuaternionClosureType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a45e8f3db5b205f872b98e30d92f32f27">getData</a> ()</td></tr>
 <tr class="memdesc:a45e8f3db5b205f872b98e30d92f32f27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the wrapped quaternion (via its stored closure).  <a href="classCDPL_1_1Math_1_1QuaternionVectorAdapter.html#a45e8f3db5b205f872b98e30d92f32f27">More...</a><br /></td></tr>
@@ -233,7 +233,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename Q&gt;<br />
 class CDPL::Math::QuaternionVectorAdapter&lt; Q &gt;</h3>
 
-<p>View adapter that exposes a quaternion as a 4-element vector expression (indices map to the components C1, C2, C3, C4). </p>
+<p>Adapter that exposes a quaternion as a <em>4</em> element vector expression (indices map to the components C1, C2, C3, C4). </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Q</td><td>The wrapped quaternion type. </td></tr>
@@ -327,7 +327,7 @@ template&lt;typename Q &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constant reference type to an element of the wrapped quaternion. </p>
+<p>Constant element reference type of the wrapped quaternion. </p>
 
 </div>
 </div>
@@ -345,7 +345,7 @@ template&lt;typename Q &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Mutable reference type (degrades to ConstReference when the wrapped quaternion is <code>const</code>). </p>
+<p>Mutable element reference type (degrades to ConstReference when the wrapped quaternion is <code>const</code>). </p>
 
 </div>
 </div>
@@ -433,7 +433,7 @@ template&lt;typename Q &gt; </div>
 <p>Constructs the adapter wrapping the quaternion <em>q</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q</td><td>The quaternion to be viewed as a 4-element vector. </td></tr>
+    <tr><td class="paramname">q</td><td>The quaternion to be viewed as a <em>4</em> element vector. </td></tr>
   </table>
   </dd>
 </dl>
@@ -553,7 +553,7 @@ template&lt;typename Q &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable reference to the quaternion component at index <em>i</em> (alias for operator()). </p>
+<p>Returns a mutable reference to the quaternion component at index <em>i</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The zero-based component index. </td></tr>
@@ -596,7 +596,7 @@ template&lt;typename Q &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>const</code> reference to the quaternion component at index <em>i</em> (alias for operator()). </p>
+<p>Returns a <code>const</code> reference to the quaternion component at index <em>i</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>The zero-based component index. </td></tr>
@@ -639,7 +639,7 @@ template&lt;typename Q &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the dimensionality of the view (always <em>4</em>). </p>
-<dl class="section return"><dt>Returns</dt><dd>The size value <em>4</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em>4</em>. </dd></dl>
 
 </div>
 </div>
@@ -668,7 +668,7 @@ template&lt;typename Q &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether the view is empty (always <code>false</code>; the view is fixed-size with 4 components). </p>
+<p>Tells whether the view is empty (always <code>false</code>, the view is fixed-size with 4 components). </p>
 <dl class="section return"><dt>Returns</dt><dd><code>false</code>. </dd></dl>
 
 </div>
