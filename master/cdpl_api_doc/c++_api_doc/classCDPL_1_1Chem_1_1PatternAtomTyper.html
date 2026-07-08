@@ -385,7 +385,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the pattern. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of patterns is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#acc946e5882ef1c8e2cac2aff05053744" title="Returns the number of registered patterns.">getNumPatterns()</a> - 1]. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#acc946e5882ef1c8e2cac2aff05053744" title="Returns the number of registered patterns.">getNumPatterns()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -417,7 +417,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if the number of patterns is zero or <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#acc946e5882ef1c8e2cac2aff05053744" title="Returns the number of registered patterns.">getNumPatterns()</a> - 1]. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#acc946e5882ef1c8e2cac2aff05053744" title="Returns the number of registered patterns.">getNumPatterns()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -449,7 +449,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>it</em> is not in the range [<a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a2ca661910b9f64268109a2bbb1ece9dd" title="Returns a mutable iterator pointing to the first registered pattern.">getPatternsBegin()</a>, <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a23d7724f93f5f2893e37ff058fac0288" title="Returns a mutable iterator pointing one past the last registered pattern.">getPatternsEnd()</a> - 1]. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>it</em> is not in the range [<a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a2ca661910b9f64268109a2bbb1ece9dd" title="Returns a mutable iterator pointing to the first registered pattern.">getPatternsBegin()</a>, <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a23d7724f93f5f2893e37ff058fac0288" title="Returns a mutable iterator pointing one past the last registered pattern.">getPatternsEnd()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -681,7 +681,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the atom carries a label, and <code>false</code> otherwise. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, N - 1], where N is the number of atoms of the molecular graph last processed by <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range <em>[0, N)</em>, where <em>N</em> is the number of atoms of the molecular graph last processed by <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -714,7 +714,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The atom label (zero if no pattern matched the atom). </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, N - 1], where N is the number of atoms of the molecular graph last processed by <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range <em>[0, N)</em>, where <em>N</em> is the number of atoms of the molecular graph last processed by <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -747,7 +747,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The matching pattern index (returns an undefined value if hasAtomLabel(idx) is <code>false</code>). </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, N - 1], where N is the number of atoms of the molecular graph last processed by <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range <em>[0, N)</em>, where <em>N</em> is the number of atoms of the molecular graph last processed by <a class="el" href="classCDPL_1_1Chem_1_1PatternAtomTyper.html#a71f1161b56b0acd3db58d033f207059a" title="Runs the registered patterns against molgraph and assigns atom labels accordingly.">execute()</a>. </td></tr>
   </table>
   </dd>
 </dl>
