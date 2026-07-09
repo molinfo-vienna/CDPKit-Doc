@@ -392,7 +392,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Virtual destructor. </p>
-<p>The parent pointer of any children will be set to <em>null</em> before the instance gets destroyed (see <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#acf3caf6d1545cad7a0e3f6fb0d23e5c4" title="Sets or removes the parent control-parameter container used to resolve requests for missing entries.">setParent()</a>). <br  />
+<p>The parent pointer of any children will be set to <code>nullptr</code> before the instance gets destroyed (see <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#acf3caf6d1545cad7a0e3f6fb0d23e5c4" title="Sets or removes the parent control-parameter container used to resolve requests for missing entries.">setParent()</a>). <br  />
  </p>
 
 </div>
@@ -855,10 +855,10 @@ template&lt;typename T &gt; </div>
 
 <p>Sets or removes the parent control-parameter container used to resolve requests for missing entries. </p>
 <p>A control-parameter container that has been set as a parent gets used whenever a request for a control-parameter value cannot be satisfied locally by the container itself. That is, if a key/value entry for a given control-parameter does not exist, the request is simply forwarded to the parent container (which may also forward the request).</p>
-<p><a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Any</a> callback functions registered by <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#afac7561bd66413028b23fb96e249594d" title="Registers a callback target function that gets invoked when the parent container has been changed or ...">registerParentChangedCallback()</a> will be invoked after the new parent container has been set (or the old container was detached by providing a <em>null</em> pointer). Callbacks of any direct and indirect children also get invoked.</p>
+<p><a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Any</a> callback functions registered by <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#afac7561bd66413028b23fb96e249594d" title="Registers a callback target function that gets invoked when the parent container has been changed or ...">registerParentChangedCallback()</a> will be invoked after the new parent container has been set (or the old container was detached by providing <code>nullptr</code>). Callbacks of any direct and indirect children also get invoked.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cntnr</td><td>A pointer to the parent control-parameter container or <em>null</em>. If the pointer is <em>null</em>, the currently set parent container (if any) gets detached. </td></tr>
+    <tr><td class="paramname">cntnr</td><td>A pointer to the parent control-parameter container or <code>nullptr</code>. If the pointer equals <code>nullptr</code>, the currently set parent container (if any) gets detached. </td></tr>
   </table>
   </dd>
 </dl>
@@ -881,7 +881,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a pointer to the parent control-parameter container. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the parent control-parameter container, or <em>null</em> if no parent container has been set. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the parent control-parameter container, or <code>nullptr</code> if no parent container has been set. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#acf3caf6d1545cad7a0e3f6fb0d23e5c4" title="Sets or removes the parent control-parameter container used to resolve requests for missing entries.">setParent()</a> </dd></dl>
 
 </div>

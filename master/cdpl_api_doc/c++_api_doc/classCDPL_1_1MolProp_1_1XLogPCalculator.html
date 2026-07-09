@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Calculation of the octanol/water partition coefficient ( \( \log P \)) of molecular graphs using the atom-additive method of Wang, Gao and Lai.  
+<p>Calculation of the octanol/water partition coefficient ( \( \log P \)) of molecular graphs using the atom-additive <em>XLogP</em> method of Wang, Gao and Lai [<a class="el" href="References.html#XLOGP">XLOGP</a>].  
  <a href="classCDPL_1_1MolProp_1_1XLogPCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="XLogPCalculator_8hpp_source.html">XLogPCalculator.hpp</a>&gt;</code></p>
@@ -116,9 +116,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a1629038f60e55f932c021599a35050ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Calculation of the octanol/water partition coefficient ( \( \log P \)) of molecular graphs using the atom-additive method of Wang, Gao and Lai. </p>
-<p>The model uses 90 atomic feature types plus 11 correction-factor features (101 features in total), combined linearly into a single \( \log P \) value.</p>
-<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#XLOGP">XLOGP</a>] </dd></dl>
+<div class="textblock"><p>Calculation of the octanol/water partition coefficient ( \( \log P \)) of molecular graphs using the atom-additive <em>XLogP</em> method of Wang, Gao and Lai [<a class="el" href="References.html#XLOGP">XLOGP</a>]. </p>
+<p>The model uses 90 atomic feature types plus 11 correction-factor features (101 features in total), combined linearly into a single \( \log P \) value. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae0c2ab0f7a6aae6ffe453ef7c2ee669c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae0c2ab0f7a6aae6ffe453ef7c2ee669c">&#9670;&nbsp;</a></span>XLogPCalculator() <span class="overload">[1/2]</span></h2>
@@ -252,7 +251,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the contribution of each atom the total obtained by the last \( \log P \) calculation. </p>
-<dl class="section return"><dt>Returns</dt><dd>The contribution of each atom the total \( \log P \). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The contribution of each atom (accessible via it's index in the molecular graph) to the total \( \log P \). </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The sum of the atom contributions does not necessarily equal the calculated molecule \( \log P \) and might be lower! </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1MolProp_1_1XLogPCalculator.html#aa3c14068dab291b5763fe7a399c96640" title="Calculates the  of the molecular graph molgraph.">XLogPCalculator::calculate()</a> </dd></dl>
 

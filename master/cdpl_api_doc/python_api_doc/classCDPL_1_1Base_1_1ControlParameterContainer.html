@@ -680,7 +680,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns a reference to the parent control-parameter container. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the parent control-parameter container, or <em>None</em> if no parent container has been set.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the parent control-parameter container, or <code>None</code> if no parent container has been set.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#ac6b8c89fead591acfcdc6d31996a3b84" title="Sets or removes the parent control-parameter container used to resolve requests for missing entries.">setParent()</a> </dd></dl>
 
 </div>
@@ -703,10 +703,10 @@ Properties</h2></td></tr>
 
 <p>Sets or removes the parent control-parameter container used to resolve requests for missing entries. </p>
 <p>A control-parameter container that has been set as a parent gets used whenever a request for a control-parameter value cannot be satisfied locally by the container itself. That is, if a key/value entry for a given control-parameter does not exist, the request is simply forwarded to the parent container (which may also forward the request).</p>
-<p><a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Any</a> callback functions registered by <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#acf09cf417dfc41787e89825762bb2e32" title="Registers a callback target function that gets invoked when the parent container has been changed or ...">registerParentChangedCallback()</a> will be invoked after the new parent container has been set (or the old container was detached by providing a <em>None</em> reference). Callbacks of any direct and indirect children also get invoked.</p>
+<p><a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Any</a> callback functions registered by <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#acf09cf417dfc41787e89825762bb2e32" title="Registers a callback target function that gets invoked when the parent container has been changed or ...">registerParentChangedCallback()</a> will be invoked after the new parent container has been set (or the old container was detached by providing <code>None</code>). Callbacks of any direct and indirect children also get invoked.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cntnr</td><td>A reference to the parent control-parameter container or <em>None</em>. If the reference is <em>None</em>, the currently set parent container (if any) gets detached. </td></tr>
+    <tr><td class="paramname">cntnr</td><td>A reference to the parent control-parameter container or <code>None</code>. If the reference equals <code>None</code>, the currently set parent container (if any) gets detached. </td></tr>
   </table>
   </dd>
 </dl>
