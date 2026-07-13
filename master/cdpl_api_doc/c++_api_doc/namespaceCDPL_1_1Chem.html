@@ -1059,7 +1059,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aaa02f6a751ceeb2dd3780c7dd84539eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest component-group ID assigned to any atom of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#aaa02f6a751ceeb2dd3780c7dd84539eb">More...</a><br /></td></tr>
 <tr class="separator:aaa02f6a751ceeb2dd3780c7dd84539eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace0604ebfbe5acb272b9ec9bcde5e6fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ace0604ebfbe5acb272b9ec9bcde5e6fe">getMaxAtomMappingID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">AtomContainer</a> &amp;cntnr)</td></tr>
-<tr class="memdesc:ace0604ebfbe5acb272b9ec9bcde5e6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest atom-mapping ID assigned to any atom of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#ace0604ebfbe5acb272b9ec9bcde5e6fe">More...</a><br /></td></tr>
+<tr class="memdesc:ace0604ebfbe5acb272b9ec9bcde5e6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest atom mapping ID assigned to any atom of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#ace0604ebfbe5acb272b9ec9bcde5e6fe">More...</a><br /></td></tr>
 <tr class="separator:ace0604ebfbe5acb272b9ec9bcde5e6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa44b9d0fd845600cb12ff0806cbdeccc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#aa44b9d0fd845600cb12ff0806cbdeccc">createAtomTypeMask</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">AtomContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Util.html#a51a03f69886fe40c999c05aaa4e7bd0d">Util::BitSet</a> &amp;mask, unsigned int type, <a class="el" href="classbool.html">bool</a> reset=true, <a class="el" href="classbool.html">bool</a> strict=true)</td></tr>
 <tr class="memdesc:aa44b9d0fd845600cb12ff0806cbdeccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets bits in <em>mask</em> corresponding to atoms of <em>cntnr</em> whose atom type matches <em>type</em>.  <a href="namespaceCDPL_1_1Chem.html#aa44b9d0fd845600cb12ff0806cbdeccc">More...</a><br /></td></tr>
@@ -2574,19 +2574,19 @@ Functions</h2></td></tr>
 <tr class="memdesc:a713e234ca506eb78db6e8387be7a1f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the 3D coordinates of the entities of <em>cntnr</em> by the affine matrix <em>mtx</em>.  <a href="namespaceCDPL_1_1Chem.html#a713e234ca506eb78db6e8387be7a1f8b">More...</a><br /></td></tr>
 <tr class="separator:a713e234ca506eb78db6e8387be7a1f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a073d9a18e2ddd4da8193b0261a3a6f2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a073d9a18e2ddd4da8193b0261a3a6f2d">align3DCoordinates</a> (<a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html">Entity3DContainer</a> &amp;cntnr, const <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html">Entity3DContainer</a> &amp;ref_entities, const <a class="el" href="namespaceCDPL_1_1Math.html#a2f219d16a380b6b34a0eac3866e50137">Math::Vector3DArray</a> &amp;ref_coords)</td></tr>
-<tr class="memdesc:a073d9a18e2ddd4da8193b0261a3a6f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rigid-body aligns the 3D coordinates of <em>cntnr</em> to the reference geometry defined by the entity-coordinate pair (<em>ref_entities</em>, <em>ref_coords</em>).  <a href="namespaceCDPL_1_1Chem.html#a073d9a18e2ddd4da8193b0261a3a6f2d">More...</a><br /></td></tr>
+<tr class="memdesc:a073d9a18e2ddd4da8193b0261a3a6f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the 3D coordinates of the entities of <em>cntnr</em> by the affine matrix that is calculated for the rigid-body alignment of the 3D coordinates of the entities of <em>ref_entities</em> with the given reference coordinates <em>ref_coords</em>.  <a href="namespaceCDPL_1_1Chem.html#a073d9a18e2ddd4da8193b0261a3a6f2d">More...</a><br /></td></tr>
 <tr class="separator:a073d9a18e2ddd4da8193b0261a3a6f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840092fdbd13252ec3a1dd7adf8fc8e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a840092fdbd13252ec3a1dd7adf8fc8e1">calcCentroid</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html">Entity3DContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;ctr)</td></tr>
-<tr class="memdesc:a840092fdbd13252ec3a1dd7adf8fc8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the geometric centroid of the entities of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#a840092fdbd13252ec3a1dd7adf8fc8e1">More...</a><br /></td></tr>
+<tr class="memdesc:a840092fdbd13252ec3a1dd7adf8fc8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the geometric centroid of the 3D coordinates of the entities of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#a840092fdbd13252ec3a1dd7adf8fc8e1">More...</a><br /></td></tr>
 <tr class="separator:a840092fdbd13252ec3a1dd7adf8fc8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac04bafa1c4a354fe7b8dc36fda2ba131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ac04bafa1c4a354fe7b8dc36fda2ba131">calcBoundingBox</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html">Entity3DContainer</a> &amp;cntnr, <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;min, <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;max, <a class="el" href="classbool.html">bool</a> reset=true)</td></tr>
-<tr class="memdesc:ac04bafa1c4a354fe7b8dc36fda2ba131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the axis-aligned bounding box of the 3D coordinates of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#ac04bafa1c4a354fe7b8dc36fda2ba131">More...</a><br /></td></tr>
+<tr class="memdesc:ac04bafa1c4a354fe7b8dc36fda2ba131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the axis-aligned bounding box of the 3D coordinates of the entities of <em>cntnr</em>.  <a href="namespaceCDPL_1_1Chem.html#ac04bafa1c4a354fe7b8dc36fda2ba131">More...</a><br /></td></tr>
 <tr class="separator:ac04bafa1c4a354fe7b8dc36fda2ba131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39b0ddc4056e4c271383751b133bdf69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a39b0ddc4056e4c271383751b133bdf69">insideBoundingBox</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html">Entity3DContainer</a> &amp;cntnr, const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;min, const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;max)</td></tr>
-<tr class="memdesc:a39b0ddc4056e4c271383751b133bdf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether all entities of <em>cntnr</em> lie within the axis-aligned box defined by <em>min</em> and <em>max</em>.  <a href="namespaceCDPL_1_1Chem.html#a39b0ddc4056e4c271383751b133bdf69">More...</a><br /></td></tr>
+<tr class="memdesc:a39b0ddc4056e4c271383751b133bdf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether all 3D coordinates of the entities of <em>cntnr</em> lie within the axis-aligned bounding box defined by <em>min</em> and <em>max</em>.  <a href="namespaceCDPL_1_1Chem.html#a39b0ddc4056e4c271383751b133bdf69">More...</a><br /></td></tr>
 <tr class="separator:a39b0ddc4056e4c271383751b133bdf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82079fdcd2462a6d3aa8779dd6cccaae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a82079fdcd2462a6d3aa8779dd6cccaae">intersectsBoundingBox</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Entity3DContainer.html">Entity3DContainer</a> &amp;cntnr, const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;min, const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;max)</td></tr>
-<tr class="memdesc:a82079fdcd2462a6d3aa8779dd6cccaae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether at least one entity of <em>cntnr</em> lies within the axis-aligned box defined by <em>min</em> and <em>max</em>.  <a href="namespaceCDPL_1_1Chem.html#a82079fdcd2462a6d3aa8779dd6cccaae">More...</a><br /></td></tr>
+<tr class="memdesc:a82079fdcd2462a6d3aa8779dd6cccaae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether at least one entity of <em>cntnr</em> lies within the axis-aligned bounding box defined by <em>min</em> and <em>max</em>.  <a href="namespaceCDPL_1_1Chem.html#a82079fdcd2462a6d3aa8779dd6cccaae">More...</a><br /></td></tr>
 <tr class="separator:a82079fdcd2462a6d3aa8779dd6cccaae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d75de21ac032eb55724a55456446cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a14d75de21ac032eb55724a55456446cf">get3DCoordinates</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Entity3D.html">Entity3D</a> &amp;entity)</td></tr>
 <tr class="memdesc:a14d75de21ac032eb55724a55456446cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1Entity3DProperty.html#a3801c907011a99be0c3a063a6ce2873f" title="Specifies the 3D position of the entity.">Chem::Entity3DProperty::COORDINATES_3D</a> property of the 3D entity <em>entity</em>.  <a href="namespaceCDPL_1_1Chem.html#a14d75de21ac032eb55724a55456446cf">More...</a><br /></td></tr>
@@ -2673,7 +2673,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab56721e9fe21e6ebb437e8d28673a88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1MolecularGraphProperty.html#aa5fb2a35abccd006b7d8892c00515121" title="Specifies the substructure match expression associated with the molecular graph.">Chem::MolecularGraphProperty::MATCH_EXPRESSION</a> property of the molecular graph <em>molgraph</em> is set.  <a href="namespaceCDPL_1_1Chem.html#ab56721e9fe21e6ebb437e8d28673a88c">More...</a><br /></td></tr>
 <tr class="separator:ab56721e9fe21e6ebb437e8d28673a88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0851f3583ed7514a441dc53f1ade08e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html">MatchExpression</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &gt;::SharedPointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a0851f3583ed7514a441dc53f1ade08e0">generateMatchExpression</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a0851f3583ed7514a441dc53f1ade08e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a top-level match expression from the match constraint list attached to <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a0851f3583ed7514a441dc53f1ade08e0">More...</a><br /></td></tr>
+<tr class="memdesc:a0851f3583ed7514a441dc53f1ade08e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a top-level match expression from the match constraints currently attached to the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a0851f3583ed7514a441dc53f1ade08e0">More...</a><br /></td></tr>
 <tr class="separator:a0851f3583ed7514a441dc53f1ade08e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19c0809bf055b6fcf16b45d853d1eab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html">MatchExpression</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &gt;::SharedPointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a19c0809bf055b6fcf16b45d853d1eab9">generateMatchExpression</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
 <tr class="memdesc:a19c0809bf055b6fcf16b45d853d1eab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds and (optionally) stores the top-level match expression of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a19c0809bf055b6fcf16b45d853d1eab9">More...</a><br /></td></tr>
@@ -2820,7 +2820,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:abbbb5c77dadf54563939fea33a870154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1MolecularGraphProperty.html#a20521afaf1a125ee8b8c075acca99c9f" title="Specifies the 64-bit topological hash code of the molecular graph.">Chem::MolecularGraphProperty::HASH_CODE</a> property of the molecular graph <em>molgraph</em> is set.  <a href="namespaceCDPL_1_1Chem.html#abbbb5c77dadf54563939fea33a870154">More...</a><br /></td></tr>
 <tr class="separator:abbbb5c77dadf54563939fea33a870154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4601bb52949e5dd24ff15fcd448f5dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#aa4601bb52949e5dd24ff15fcd448f5dc">calcHashCode</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, unsigned int atom_flags=<a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a3efc4a2fc1b22dd1b5c63141c3869382">AtomPropertyFlag::DEFAULT</a>, unsigned int bond_flags=<a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#a9477cac41f78e383a15dd5838cc643d8">BondPropertyFlag::DEFAULT</a>, <a class="el" href="classbool.html">bool</a> ord_h_deplete=true)</td></tr>
-<tr class="memdesc:aa4601bb52949e5dd24ff15fcd448f5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a 64-bit hash code for <em>molgraph</em> taking into account the specified atom and bond properties.  <a href="namespaceCDPL_1_1Chem.html#aa4601bb52949e5dd24ff15fcd448f5dc">More...</a><br /></td></tr>
+<tr class="memdesc:aa4601bb52949e5dd24ff15fcd448f5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a 64-bit hash code for the molecular graph <em>molgraph</em> taking into account the specified atom and bond properties.  <a href="namespaceCDPL_1_1Chem.html#aa4601bb52949e5dd24ff15fcd448f5dc">More...</a><br /></td></tr>
 <tr class="separator:aa4601bb52949e5dd24ff15fcd448f5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a851dbf6e09efbf19ccd01955f72e5564"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a851dbf6e09efbf19ccd01955f72e5564">extractReactionCenter</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Fragment</a> &amp;rxn_center)</td></tr>
 <tr class="memdesc:a851dbf6e09efbf19ccd01955f72e5564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects every atom and bond of the molecular graph <em>molgraph</em> that carries a reaction-center flag into the fragment <em>rxn_center</em>.  <a href="namespaceCDPL_1_1Chem.html#a851dbf6e09efbf19ccd01955f72e5564">More...</a><br /></td></tr>
@@ -3072,13 +3072,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae9e05a4e36e2003ef6bc48c6dbdd1a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perceives and (optionally) stores the pi-electron systems of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#ae9e05a4e36e2003ef6bc48c6dbdd1a42">More...</a><br /></td></tr>
 <tr class="separator:ae9e05a4e36e2003ef6bc48c6dbdd1a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af18e49188474b5c5f8ddc57c34b481cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#af18e49188474b5c5f8ddc57c34b481cd">generateSMILES</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, std::string &amp;smiles, <a class="el" href="classbool.html">bool</a> canonical=false, <a class="el" href="classbool.html">bool</a> ord_h_deplete=true, unsigned int atom_flags=<a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html#a3efc4a2fc1b22dd1b5c63141c3869382">AtomPropertyFlag::DEFAULT</a>, unsigned int bond_flags=<a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html#a9477cac41f78e383a15dd5838cc643d8">BondPropertyFlag::DEFAULT</a>)</td></tr>
-<tr class="memdesc:af18e49188474b5c5f8ddc57c34b481cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a <em>SMILES</em> string for <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#af18e49188474b5c5f8ddc57c34b481cd">More...</a><br /></td></tr>
+<tr class="memdesc:af18e49188474b5c5f8ddc57c34b481cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a <em>SMILES</em> string for the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#af18e49188474b5c5f8ddc57c34b481cd">More...</a><br /></td></tr>
 <tr class="separator:af18e49188474b5c5f8ddc57c34b481cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff5b5e70fdd051bd05e9d79d33601cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a4ff5b5e70fdd051bd05e9d79d33601cb">generateINCHI</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, std::string &amp;inchi, const std::string &amp;options=<a class="el" href="namespaceCDPL_1_1Chem_1_1ControlParameterDefault.html#a218bae2f7414afd7759d60fe639119dc">ControlParameterDefault::INCHI_OUTPUT_OPTIONS</a>, std::size_t dim=0)</td></tr>
-<tr class="memdesc:a4ff5b5e70fdd051bd05e9d79d33601cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an InChI string for <em>molgraph</em> using the InChI C-API.  <a href="namespaceCDPL_1_1Chem.html#a4ff5b5e70fdd051bd05e9d79d33601cb">More...</a><br /></td></tr>
+<tr class="memdesc:a4ff5b5e70fdd051bd05e9d79d33601cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an InChI string for the molecular graph <em>molgraph</em> using the InChI C-API.  <a href="namespaceCDPL_1_1Chem.html#a4ff5b5e70fdd051bd05e9d79d33601cb">More...</a><br /></td></tr>
 <tr class="separator:a4ff5b5e70fdd051bd05e9d79d33601cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a156e682a6ad903583f998030b46c9018"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a156e682a6ad903583f998030b46c9018">generateINCHIKey</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, std::string &amp;inchi_key)</td></tr>
-<tr class="memdesc:a156e682a6ad903583f998030b46c9018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an InChIKey for <em>molgraph</em> using the InChI C-API.  <a href="namespaceCDPL_1_1Chem.html#a156e682a6ad903583f998030b46c9018">More...</a><br /></td></tr>
+<tr class="memdesc:a156e682a6ad903583f998030b46c9018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an InChIKey for the molecular graph <em>molgraph</em> using the InChI C-API.  <a href="namespaceCDPL_1_1Chem.html#a156e682a6ad903583f998030b46c9018">More...</a><br /></td></tr>
 <tr class="separator:a156e682a6ad903583f998030b46c9018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab01eab4c3d9d4567962c09ba7e1ea367"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ab01eab4c3d9d4567962c09ba7e1ea367">canonicalize</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, const <a class="el" href="namespaceCDPL_1_1Chem.html#a2150f16de7a0930d6a6808de950efd7b">AtomCompareFunction</a> &amp;func, <a class="el" href="classbool.html">bool</a> atoms=true, <a class="el" href="classbool.html">bool</a> atom_nbrs=true, <a class="el" href="classbool.html">bool</a> bonds=true, <a class="el" href="classbool.html">bool</a> bond_atoms=false)</td></tr>
 <tr class="memdesc:ab01eab4c3d9d4567962c09ba7e1ea367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the atoms (and optionally their neighbors and bonds) of the molecular graph <em>molgraph</em> according to a user-supplied comparator.  <a href="namespaceCDPL_1_1Chem.html#ab01eab4c3d9d4567962c09ba7e1ea367">More...</a><br /></td></tr>
@@ -3087,7 +3087,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ada9946342375a741234aa6de6090242c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the atoms (and optionally their neighbors and bonds) of the molecular graph <em>molgraph</em> according to the canonical-numbering attached to its atoms.  <a href="namespaceCDPL_1_1Chem.html#ada9946342375a741234aa6de6090242c">More...</a><br /></td></tr>
 <tr class="separator:ada9946342375a741234aa6de6090242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13870dc72fd318127b67ae8e09eb5f1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a13870dc72fd318127b67ae8e09eb5f1f">calc2DCoordinates</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:a13870dc72fd318127b67ae8e09eb5f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes 2D atom coordinates for <em>molgraph</em> and stores them as <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#aef38084edd1ea298159009e7b309c4cc" title="Specifies the 2D coordinates of the atom.">Chem::AtomProperty::COORDINATES_2D</a>.  <a href="namespaceCDPL_1_1Chem.html#a13870dc72fd318127b67ae8e09eb5f1f">More...</a><br /></td></tr>
+<tr class="memdesc:a13870dc72fd318127b67ae8e09eb5f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes 2D atom coordinates for the molecular graph <em>molgraph</em> and stores them as <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#aef38084edd1ea298159009e7b309c4cc" title="Specifies the 2D coordinates of the atom.">Chem::AtomProperty::COORDINATES_2D</a>.  <a href="namespaceCDPL_1_1Chem.html#a13870dc72fd318127b67ae8e09eb5f1f">More...</a><br /></td></tr>
 <tr class="separator:a13870dc72fd318127b67ae8e09eb5f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b84a751a682a0cfab085c21ffc78f81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a0b84a751a682a0cfab085c21ffc78f81">align2DCoordinates</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html">AtomContainer</a> &amp;atoms, const <a class="el" href="namespaceCDPL_1_1Math.html#aadce6421a03d3cf185a9a30c825da4b1">Math::Vector2DArray</a> &amp;ref_coords, <a class="el" href="classbool.html">bool</a> fix_bond_stereo=true)</td></tr>
 <tr class="memdesc:a0b84a751a682a0cfab085c21ffc78f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aligns <em>molgraph's</em> 2D coordinates so that the atoms of <em>atoms</em> come to lie at the reference coordinates <em>ref_coords</em>.  <a href="namespaceCDPL_1_1Chem.html#a0b84a751a682a0cfab085c21ffc78f81">More...</a><br /></td></tr>
@@ -3165,16 +3165,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:aef661326951b2e4f12d72b2ebed9a8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the bond-level match constraint list <em>constr</em> on every bond of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#aef661326951b2e4f12d72b2ebed9a8a6">More...</a><br /></td></tr>
 <tr class="separator:aef661326951b2e4f12d72b2ebed9a8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34c5786be359b812b19f3b92412850d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a34c5786be359b812b19f3b92412850d0">generateMatchExpressions</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:a34c5786be359b812b19f3b92412850d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and stores match expressions for every atom, bond and the molecular graph itself.  <a href="namespaceCDPL_1_1Chem.html#a34c5786be359b812b19f3b92412850d0">More...</a><br /></td></tr>
+<tr class="memdesc:a34c5786be359b812b19f3b92412850d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and stores match expressions for every atom, bond and the molecular graph <em>molgraph</em> itself.  <a href="namespaceCDPL_1_1Chem.html#a34c5786be359b812b19f3b92412850d0">More...</a><br /></td></tr>
 <tr class="separator:a34c5786be359b812b19f3b92412850d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dfdd76bda3129c739abe097e1276849"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a8dfdd76bda3129c739abe097e1276849">generateMatchExpressionStrings</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:a8dfdd76bda3129c739abe097e1276849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and stores textual representations of the match expressions of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a8dfdd76bda3129c739abe097e1276849">More...</a><br /></td></tr>
+<tr class="memdesc:a8dfdd76bda3129c739abe097e1276849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and stores textual representations of the atom/bond match expressions of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a8dfdd76bda3129c739abe097e1276849">More...</a><br /></td></tr>
 <tr class="separator:a8dfdd76bda3129c739abe097e1276849"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30a3fb0a48b6828446b6d723db6a4aa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a30a3fb0a48b6828446b6d723db6a4aa7">initSubstructureSearchQuery</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:a30a3fb0a48b6828446b6d723db6a4aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecular graph <em>molgraph</em> for use as a substructure search query (precomputes match expressions and required cached properties).  <a href="namespaceCDPL_1_1Chem.html#a30a3fb0a48b6828446b6d723db6a4aa7">More...</a><br /></td></tr>
+<tr class="memdesc:a30a3fb0a48b6828446b6d723db6a4aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecular graph <em>molgraph</em> for use as a substructure search query.  <a href="namespaceCDPL_1_1Chem.html#a30a3fb0a48b6828446b6d723db6a4aa7">More...</a><br /></td></tr>
 <tr class="separator:a30a3fb0a48b6828446b6d723db6a4aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c57b831d4e4f311f13ef8cdb694641f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a8c57b831d4e4f311f13ef8cdb694641f">initSubstructureSearchTarget</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:a8c57b831d4e4f311f13ef8cdb694641f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecular graph <em>molgraph</em> for use as a substructure search target (precomputes required cached properties).  <a href="namespaceCDPL_1_1Chem.html#a8c57b831d4e4f311f13ef8cdb694641f">More...</a><br /></td></tr>
+<tr class="memdesc:a8c57b831d4e4f311f13ef8cdb694641f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the molecular graph <em>molgraph</em> for use as a substructure search target.  <a href="namespaceCDPL_1_1Chem.html#a8c57b831d4e4f311f13ef8cdb694641f">More...</a><br /></td></tr>
 <tr class="separator:a8c57b831d4e4f311f13ef8cdb694641f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a529d4122b77d83b369505252094e5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a1a529d4122b77d83b369505252094e5a">setAromaticityFlags</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
 <tr class="memdesc:a1a529d4122b77d83b369505252094e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perceives aromaticity and sets the corresponding atom/bond aromaticity flags on the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a1a529d4122b77d83b369505252094e5a">More...</a><br /></td></tr>
@@ -3219,7 +3219,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a97095afe632d731ce55bfa75e59584e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bonds of the molecular graph <em>molgraph</em> whose connected atoms are likewise contained in <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#a97095afe632d731ce55bfa75e59584e2">More...</a><br /></td></tr>
 <tr class="separator:a97095afe632d731ce55bfa75e59584e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad46fc903143d4fe1fa79a9b40475192c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ad46fc903143d4fe1fa79a9b40475192c">calcBasicProperties</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:ad46fc903143d4fe1fa79a9b40475192c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the basic per-atom/per-bond properties (aromaticity, ring info, etc.) of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#ad46fc903143d4fe1fa79a9b40475192c">More...</a><br /></td></tr>
+<tr class="memdesc:ad46fc903143d4fe1fa79a9b40475192c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the basic atom/bond/molecular graph properties (aromaticity, ring info, etc.) of the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#ad46fc903143d4fe1fa79a9b40475192c">More...</a><br /></td></tr>
 <tr class="separator:ad46fc903143d4fe1fa79a9b40475192c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5320cd048dc030cf99f8f54df5e83803"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a5320cd048dc030cf99f8f54df5e83803">editSubstructures</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph, <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;result_mol, const std::string &amp;search_ptns, const std::string &amp;result_ptn, const std::string &amp;exclude_ptns=std::string())</td></tr>
 <tr class="memdesc:a5320cd048dc030cf99f8f54df5e83803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the molecule <em>result_mol</em> from the molecular graph <em>molgraph</em> by replacing all substructures matching the <em>SMARTS</em> patterns in <em>search_ptns</em> with <em>result_ptn</em>.  <a href="namespaceCDPL_1_1Chem.html#a5320cd048dc030cf99f8f54df5e83803">More...</a><br /></td></tr>
@@ -3246,7 +3246,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae31051b354d0cf777243e9bbc14f44ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all atoms of the molecule <em>mol</em> for which the predicate <em>pred</em> returns <code>false</code>.  <a href="namespaceCDPL_1_1Chem.html#ae31051b354d0cf777243e9bbc14f44ac">More...</a><br /></td></tr>
 <tr class="separator:ae31051b354d0cf777243e9bbc14f44ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30783fadce11671d43d5c527e198681c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a30783fadce11671d43d5c527e198681c">editSubstructures</a> (<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol, const std::string &amp;search_ptns, const std::string &amp;result_ptn, const std::string &amp;exclude_ptns=std::string())</td></tr>
-<tr class="memdesc:a30783fadce11671d43d5c527e198681c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits the molecule <em>mol</em> by replacing all substructures matching the <em>SMARTS</em> search patterns in <em>search_ptns</em> with the <em>SMARTS</em> replacement pattern <em>result_ptn</em>, optionally skipping matches that also match <em>exclude_ptns</em>.  <a href="namespaceCDPL_1_1Chem.html#a30783fadce11671d43d5c527e198681c">More...</a><br /></td></tr>
+<tr class="memdesc:a30783fadce11671d43d5c527e198681c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edits the molecule <em>mol</em> by replacing all substructures matching the <em>SMARTS</em> search patterns in <em>search_ptns</em> with the <em>SMILES</em> replacement pattern <em>result_ptn</em>, optionally skipping matches that also match <em>exclude_ptns</em>.  <a href="namespaceCDPL_1_1Chem.html#a30783fadce11671d43d5c527e198681c">More...</a><br /></td></tr>
 <tr class="separator:a30783fadce11671d43d5c527e198681c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bdca84f7bf9a0038ffd803512dbfe53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a1bdca84f7bf9a0038ffd803512dbfe53">getName</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn)</td></tr>
 <tr class="memdesc:a1bdca84f7bf9a0038ffd803512dbfe53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionProperty.html#a6510084be86df38a661c856c6a54be37" title="Specifies the name (or title) of the reaction.">Chem::ReactionProperty::NAME</a> property of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a1bdca84f7bf9a0038ffd803512dbfe53">More...</a><br /></td></tr>
@@ -3297,7 +3297,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a18aedf220a17dfd63d2ac7e032135eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionProperty.html#ac9ed514fd4b3ddae371c1531c4b211b7" title="Specifies the match expression associated with the reaction.">Chem::ReactionProperty::MATCH_EXPRESSION</a> property of the reaction <em>rxn</em> is set.  <a href="namespaceCDPL_1_1Chem.html#a18aedf220a17dfd63d2ac7e032135eef">More...</a><br /></td></tr>
 <tr class="separator:a18aedf220a17dfd63d2ac7e032135eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad90928c0be8787a0ff28aafbbf2be76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html">MatchExpression</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &gt;::SharedPointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#aad90928c0be8787a0ff28aafbbf2be76">generateMatchExpression</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn)</td></tr>
-<tr class="memdesc:aad90928c0be8787a0ff28aafbbf2be76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a reaction-level match expression from the constraints currently attached to the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#aad90928c0be8787a0ff28aafbbf2be76">More...</a><br /></td></tr>
+<tr class="memdesc:aad90928c0be8787a0ff28aafbbf2be76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a reaction-level match expression from the match constraints currently attached to the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#aad90928c0be8787a0ff28aafbbf2be76">More...</a><br /></td></tr>
 <tr class="separator:aad90928c0be8787a0ff28aafbbf2be76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e6f897de4ad8e0f362388b836f5839c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html">MatchExpression</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &gt;::SharedPointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a8e6f897de4ad8e0f362388b836f5839c">generateMatchExpression</a> (<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
 <tr class="memdesc:a8e6f897de4ad8e0f362388b836f5839c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds and (optionally) stores the reaction-level match expression of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a8e6f897de4ad8e0f362388b836f5839c">More...</a><br /></td></tr>
@@ -3453,10 +3453,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5096e1ea347efc59e8e9131bb2c844e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionProperty.html#af9effdd4312aa415b388bd2276287161" title="Specifies the MDL Rxn-File version (see namespace Chem::MDLDataFormatVersion).">Chem::ReactionProperty::MDL_RXN_FILE_VERSION</a> property of the reaction <em>rxn</em> is set.  <a href="namespaceCDPL_1_1Chem.html#a5096e1ea347efc59e8e9131bb2c844e7">More...</a><br /></td></tr>
 <tr class="separator:a5096e1ea347efc59e8e9131bb2c844e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa69ffe25c2bf85954405eb30aff57b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#aaa69ffe25c2bf85954405eb30aff57b6">getMaxComponentGroupID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn)</td></tr>
-<tr class="memdesc:aaa69ffe25c2bf85954405eb30aff57b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest component-group ID found on any of the components of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#aaa69ffe25c2bf85954405eb30aff57b6">More...</a><br /></td></tr>
+<tr class="memdesc:aaa69ffe25c2bf85954405eb30aff57b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest component group ID found for any of the atoms of the components of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#aaa69ffe25c2bf85954405eb30aff57b6">More...</a><br /></td></tr>
 <tr class="separator:aaa69ffe25c2bf85954405eb30aff57b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c57eaf4384b659107d1dfc95e5ffb56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a4c57eaf4384b659107d1dfc95e5ffb56">getMaxAtomMappingID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn)</td></tr>
-<tr class="memdesc:a4c57eaf4384b659107d1dfc95e5ffb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest atom-mapping ID found on any of the atoms in <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a4c57eaf4384b659107d1dfc95e5ffb56">More...</a><br /></td></tr>
+<tr class="memdesc:a4c57eaf4384b659107d1dfc95e5ffb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest atom mapping ID found for any of the atoms of the components of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a4c57eaf4384b659107d1dfc95e5ffb56">More...</a><br /></td></tr>
 <tr class="separator:a4c57eaf4384b659107d1dfc95e5ffb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a869a6427d8689d2c2a19d699485ea6ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a869a6427d8689d2c2a19d699485ea6ec">setAtomMatchConstraints</a> (<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn, const <a class="el" href="classCDPL_1_1Chem_1_1MatchConstraintList.html#a55211e02b2527f86f97137b85e80767a">MatchConstraintList::SharedPointer</a> &amp;constr, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
 <tr class="memdesc:a869a6427d8689d2c2a19d699485ea6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the atom-level match constraint list <em>constr</em> on every atom of every component of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a869a6427d8689d2c2a19d699485ea6ec">More...</a><br /></td></tr>
@@ -3471,13 +3471,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7504f03092256857ebfa5f5b4d44d814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and stores match expressions for the atoms, bonds, components, and the reaction <em>rxn</em> itself.  <a href="namespaceCDPL_1_1Chem.html#a7504f03092256857ebfa5f5b4d44d814">More...</a><br /></td></tr>
 <tr class="separator:a7504f03092256857ebfa5f5b4d44d814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed799fb37071174a6e7f0f7786972aaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#aed799fb37071174a6e7f0f7786972aaf">initSubstructureSearchQuery</a> (<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:aed799fb37071174a6e7f0f7786972aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the reaction <em>rxn</em> for use as a substructure search query (e.g. by pre-computing match expressions and required cached properties).  <a href="namespaceCDPL_1_1Chem.html#aed799fb37071174a6e7f0f7786972aaf">More...</a><br /></td></tr>
+<tr class="memdesc:aed799fb37071174a6e7f0f7786972aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the reaction <em>rxn</em> for use as a reaction substructure search query.  <a href="namespaceCDPL_1_1Chem.html#aed799fb37071174a6e7f0f7786972aaf">More...</a><br /></td></tr>
 <tr class="separator:aed799fb37071174a6e7f0f7786972aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e4886120c660a9a334a0bbf19b6608"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ae2e4886120c660a9a334a0bbf19b6608">initSubstructureSearchTarget</a> (<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:ae2e4886120c660a9a334a0bbf19b6608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the reaction <em>rxn</em> for use as a substructure search target (e.g. by pre-computing required cached properties).  <a href="namespaceCDPL_1_1Chem.html#ae2e4886120c660a9a334a0bbf19b6608">More...</a><br /></td></tr>
+<tr class="memdesc:ae2e4886120c660a9a334a0bbf19b6608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the reaction <em>rxn</em> for use as a reaction substructure search target.  <a href="namespaceCDPL_1_1Chem.html#ae2e4886120c660a9a334a0bbf19b6608">More...</a><br /></td></tr>
 <tr class="separator:ae2e4886120c660a9a334a0bbf19b6608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f3ff39c8678e3f058717b5bfba588c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a8f3ff39c8678e3f058717b5bfba588c7">calcBasicProperties</a> (<a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;rxn, <a class="el" href="classbool.html">bool</a> overwrite)</td></tr>
-<tr class="memdesc:a8f3ff39c8678e3f058717b5bfba588c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the basic per-component properties (aromaticity, ring info, etc.) of every component of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a8f3ff39c8678e3f058717b5bfba588c7">More...</a><br /></td></tr>
+<tr class="memdesc:a8f3ff39c8678e3f058717b5bfba588c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes basic atom/bond/molecular graph properties (aromaticity, ring info, etc.) for every component of the reaction <em>rxn</em>.  <a href="namespaceCDPL_1_1Chem.html#a8f3ff39c8678e3f058717b5bfba588c7">More...</a><br /></td></tr>
 <tr class="separator:a8f3ff39c8678e3f058717b5bfba588c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af60dd04b7e8bc1b513839693d7962d83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a2f977e85d695ab481d0a1e99470e19bc">Molecule::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#af60dd04b7e8bc1b513839693d7962d83">parseSMARTS</a> (const std::string &amp;smarts, <a class="el" href="classbool.html">bool</a> init_qry=true)</td></tr>
 <tr class="memdesc:af60dd04b7e8bc1b513839693d7962d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the <em>SMARTS</em> string <em>smarts</em> into a freshly allocated query <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a>.  <a href="namespaceCDPL_1_1Chem.html#af60dd04b7e8bc1b513839693d7962d83">More...</a><br /></td></tr>
@@ -6109,14 +6109,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the largest atom-mapping ID assigned to any atom of <em>cntnr</em>. </p>
+<p>Returns the largest atom mapping ID assigned to any atom of <em>cntnr</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The atom container. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The largest atom-mapping ID (zero if no atom carries an atom-mapping ID). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The largest atom mapping ID (zero if no atom carries an atom mapping ID). </dd></dl>
 
 </div>
 </div>
@@ -10902,7 +10902,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The stored reactant-to-product atom-mapping ID. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The stored reactant-to-product atom mapping ID. </dd></dl>
 
 </div>
 </div>
@@ -10936,7 +10936,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom</td><td>The atom for which to set the property value. </td></tr>
-    <tr><td class="paramname">id</td><td>The new reactant-to-product atom-mapping ID. </td></tr>
+    <tr><td class="paramname">id</td><td>The new reactant-to-product atom mapping ID. </td></tr>
   </table>
   </dd>
 </dl>
@@ -21822,10 +21822,10 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Rigid-body aligns the 3D coordinates of <em>cntnr</em> to the reference geometry defined by the entity-coordinate pair (<em>ref_entities</em>, <em>ref_coords</em>). </p>
+<p>Transforms the 3D coordinates of the entities of <em>cntnr</em> by the affine matrix that is calculated for the rigid-body alignment of the 3D coordinates of the entities of <em>ref_entities</em> with the given reference coordinates <em>ref_coords</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cntnr</td><td>The entity 3D container whose coordinates are to be aligned. </td></tr>
+    <tr><td class="paramname">cntnr</td><td>The entity 3D container whose coordinates are to be transformed. </td></tr>
     <tr><td class="paramname">ref_entities</td><td>The reference entity 3D container. </td></tr>
     <tr><td class="paramname">ref_coords</td><td>The reference coordinates corresponding to the entities of <em>ref_entities</em>. </td></tr>
   </table>
@@ -21862,7 +21862,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the geometric centroid of the entities of <em>cntnr</em>. </p>
+<p>Calculates the geometric centroid of the 3D coordinates of the entities of <em>cntnr</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The entity 3D container. </td></tr>
@@ -21912,13 +21912,13 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the axis-aligned bounding box of the 3D coordinates of <em>cntnr</em>. </p>
+<p>Calculates the axis-aligned bounding box of the 3D coordinates of the entities of <em>cntnr</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The entity 3D container. </td></tr>
     <tr><td class="paramname">min</td><td>The output vector receiving the per-axis minimum coordinates. </td></tr>
     <tr><td class="paramname">max</td><td>The output vector receiving the per-axis maximum coordinates. </td></tr>
-    <tr><td class="paramname">reset</td><td>If <code>true</code>, <em>min</em> and <em>max</em> are reset before the calculation. If <code>false</code>, the box is extended to include the existing range. </td></tr>
+    <tr><td class="paramname">reset</td><td>If <code>true</code>, <em>min</em> and <em>max</em> are reset before the calculation. If <code>false</code>, the given bounding box is extended. </td></tr>
   </table>
   </dd>
 </dl>
@@ -21957,7 +21957,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether all entities of <em>cntnr</em> lie within the axis-aligned box defined by <em>min</em> and <em>max</em>. </p>
+<p>Tells whether all 3D coordinates of the entities of <em>cntnr</em> lie within the axis-aligned bounding box defined by <em>min</em> and <em>max</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The entity 3D container. </td></tr>
@@ -21966,7 +21966,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if every entity coordinate is inside the box, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if every entity coordinate is inside the bounding box, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -22002,7 +22002,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether at least one entity of <em>cntnr</em> lies within the axis-aligned box defined by <em>min</em> and <em>max</em>. </p>
+<p>Tells whether at least one entity of <em>cntnr</em> lies within the axis-aligned bounding box defined by <em>min</em> and <em>max</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The entity 3D container. </td></tr>
@@ -22011,7 +22011,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if any entity coordinate is inside the box, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if any entity coordinate is inside the bounding box, and <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -22879,7 +22879,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Builds a top-level match expression from the match constraint list attached to <em>molgraph</em>. </p>
+<p>Builds a top-level match expression from the match constraints currently attached to the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to inspect. </td></tr>
@@ -23879,7 +23879,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The perceived component-group fragment list. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The perceived component group fragment list. </dd></dl>
 
 </div>
 </div>
@@ -23913,11 +23913,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to inspect/modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing component-group list. Otherwise, the existing one (if any) is returned unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing component group list. Otherwise, the existing one (if any) is returned unchanged. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The perceived (or pre-existing) component-group list. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The perceived (or pre-existing) component group fragment list. </dd></dl>
 
 </div>
 </div>
@@ -24443,7 +24443,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Computes a 64-bit hash code for <em>molgraph</em> taking into account the specified atom and bond properties. </p>
+<p>Computes a 64-bit hash code for the molecular graph <em>molgraph</em> taking into account the specified atom and bond properties. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to hash. </td></tr>
@@ -27050,13 +27050,13 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Generates a <em>SMILES</em> string for <em>molgraph</em>. </p>
+<p>Generates a <em>SMILES</em> string for the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to encode. </td></tr>
-    <tr><td class="paramname">smiles</td><td>The string to receive the generated SMILES. </td></tr>
-    <tr><td class="paramname">canonical</td><td><code>true</code> to emit a canonical SMILES and <code>false</code> for an arbitrary atom ordering. </td></tr>
-    <tr><td class="paramname">ord_h_deplete</td><td><code>true</code> to suppress ordinary hydrogens. </td></tr>
+    <tr><td class="paramname">smiles</td><td>The string receiving the generated SMILES. </td></tr>
+    <tr><td class="paramname">canonical</td><td><code>true</code> to emit a canonical SMILES. </td></tr>
+    <tr><td class="paramname">ord_h_deplete</td><td><code>true</code> to suppress the output of ordinary hydrogens. </td></tr>
     <tr><td class="paramname">atom_flags</td><td>A bitmask of <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> flags controlling which atomic properties to encode. </td></tr>
     <tr><td class="paramname">bond_flags</td><td>A bitmask of <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> flags controlling which bond properties to encode. </td></tr>
   </table>
@@ -27104,13 +27104,13 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Generates an InChI string for <em>molgraph</em> using the InChI C-API. </p>
+<p>Generates an InChI string for the molecular graph <em>molgraph</em> using the InChI C-API. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to encode. </td></tr>
-    <tr><td class="paramname">inchi</td><td>The string to receive the generated InChI. </td></tr>
+    <tr><td class="paramname">inchi</td><td>The string receiving the generated InChI. </td></tr>
     <tr><td class="paramname">options</td><td>The InChI C-API option string (see <a class="el" href="namespaceCDPL_1_1Chem_1_1ControlParameter.html#a5f9bbc9f535341ea67d9234a3aba685c" title="Specifies options for the output of InChI strings.">Chem::ControlParameter::INCHI_OUTPUT_OPTIONS</a>). </td></tr>
-    <tr><td class="paramname">dim</td><td>The dimensionality of the atomic coordinates to forward to the InChI library (0 = no coordinates). </td></tr>
+    <tr><td class="paramname">dim</td><td>The dimensionality of the atomic coordinates to forward to the InChI library. </td></tr>
   </table>
   </dd>
 </dl>
@@ -27144,11 +27144,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Generates an InChIKey for <em>molgraph</em> using the InChI C-API. </p>
+<p>Generates an InChIKey for the molecular graph <em>molgraph</em> using the InChI C-API. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to encode. </td></tr>
-    <tr><td class="paramname">inchi_key</td><td>The string to receive the generated InChIKey. </td></tr>
+    <tr><td class="paramname">inchi_key</td><td>The string receiving the generated InChIKey. </td></tr>
   </table>
   </dd>
 </dl>
@@ -27305,7 +27305,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Computes 2D atom coordinates for <em>molgraph</em> and stores them as <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#aef38084edd1ea298159009e7b309c4cc" title="Specifies the 2D coordinates of the atom.">Chem::AtomProperty::COORDINATES_2D</a>. </p>
+<p>Computes 2D atom coordinates for the molecular graph <em>molgraph</em> and stores them as <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#aef38084edd1ea298159009e7b309c4cc" title="Specifies the 2D coordinates of the atom.">Chem::AtomProperty::COORDINATES_2D</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to modify. </td></tr>
@@ -28460,11 +28460,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Generates and stores match expressions for every atom, bond and the molecular graph itself. </p>
+<p>Generates and stores match expressions for every atom, bond and the molecular graph <em>molgraph</em> itself. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing match expressions. If <code>false</code>, leaves items that already carry a match expression unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing match expressions. If <code>false</code>, leaves atoms/bonds that already carry a match expression unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -28497,11 +28497,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Generates and stores textual representations of the match expressions of the molecular graph <em>molgraph</em>. </p>
+<p>Generates and stores textual representations of the atom/bond match expressions of the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing match expression strings. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing match expression strings. If <code>false</code>, leaves atoms/bonds that already carry a match expression string unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -28534,11 +28534,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Prepares the molecular graph <em>molgraph</em> for use as a substructure search query (precomputes match expressions and required cached properties). </p>
+<p>Prepares the molecular graph <em>molgraph</em> for use as a substructure search query. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes derived data. If <code>false</code>, leaves up-to-date data unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes and stores any required property values. If <code>false</code>, leaves already available property values unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -28571,11 +28571,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Prepares the molecular graph <em>molgraph</em> for use as a substructure search target (precomputes required cached properties). </p>
+<p>Prepares the molecular graph <em>molgraph</em> for use as a substructure search target. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes derived data. If <code>false</code>, leaves up-to-date data unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes and stores any required property values. If <code>false</code>, leaves already available property values unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -29223,11 +29223,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Computes the basic per-atom/per-bond properties (aromaticity, ring info, etc.) of the molecular graph <em>molgraph</em>. </p>
+<p>Computes the basic atom/bond/molecular graph properties (aromaticity, ring info, etc.) of the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes derived data. If <code>false</code>, leaves up-to-date data unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes and stores basic property values. If <code>false</code>, leaves already available property values unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -29325,7 +29325,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule for which to remove all explicit hydrogen atoms. </td></tr>
-    <tr><td class="paramname">corr_impl_h_count</td><td><code>true</code> if the implicit hydrogen count property of the hydrogen completed atoms shall be corrected, <code>false</code> if the property shall be left unchanged. </td></tr>
+    <tr><td class="paramname">corr_impl_h_count</td><td><code>true</code> if the implicit hydrogen count property of the affected remaining atoms shall be corrected, <code>false</code> if the property shall be left unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -29370,7 +29370,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule for which to remove all explicit ordinary hydrogen atoms. </td></tr>
     <tr><td class="paramname">flags</td><td>Specifies the set of atom properties to check (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a>). </td></tr>
-    <tr><td class="paramname">corr_impl_h_count</td><td><code>true</code> if the implicit hydrogen count property of the hydrogen completed atoms shall be corrected, <code>false</code> if the property shall be left unchanged. </td></tr>
+    <tr><td class="paramname">corr_impl_h_count</td><td><code>true</code> if the implicit hydrogen count property of the affected remaining atoms shall be corrected, <code>false</code> if the property shall be left unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -29409,7 +29409,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule that has to be made hydrogen complete. </td></tr>
-    <tr><td class="paramname">corr_impl_h_count</td><td><code>true</code> if the implicit hydrogen count property of the hydrogen completed atoms shall be set to zero, <code>false</code> if the property shall be left unchanged. </td></tr>
+    <tr><td class="paramname">corr_impl_h_count</td><td><code>true</code> if the implicit hydrogen count property of the hydrogen completed shall be set to zero, <code>false</code> if the property shall be left unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -29452,12 +29452,13 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <p>Adds bonds between atoms of the molecule <em>mol</em> whose 3D distance falls within the covalent-radii sum plus <em>dist_tol</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The molecule whose atoms are to be connected. </td></tr>
+    <tr><td class="paramname">mol</td><td>The molecule whose atoms shall be connected. </td></tr>
     <tr><td class="paramname">dist_tol</td><td>The tolerance added to the sum of the two atoms' covalent radii. </td></tr>
-    <tr><td class="paramname">atom_idx_offs</td><td>Bonds are only added when at least one of the two atom indices is greater than or equal to <em>atom_idx_offs</em> (useful to extend an existing bonding network without re-evaluating already-connected atoms). </td></tr>
+    <tr><td class="paramname">atom_idx_offs</td><td>Bonds are only added when at least one of the two atom indices is greater than or equal to <em>atom_idx_offs</em>. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The minimum atom pair distance is <em>0.5</em> &Aring;. </dd></dl>
 
 </div>
 </div>
@@ -29509,6 +29510,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The minimum atom pair distance is <em>0.5</em> &Aring;. </dd></dl>
 
 </div>
 </div>
@@ -29624,7 +29626,24 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Edits the molecule <em>mol</em> by replacing all substructures matching the <em>SMARTS</em> search patterns in <em>search_ptns</em> with the <em>SMARTS</em> replacement pattern <em>result_ptn</em>, optionally skipping matches that also match <em>exclude_ptns</em>. </p>
+<p>Edits the molecule <em>mol</em> by replacing all substructures matching the <em>SMARTS</em> search patterns in <em>search_ptns</em> with the <em>SMILES</em> replacement pattern <em>result_ptn</em>, optionally skipping matches that also match <em>exclude_ptns</em>. </p>
+<p>A molecule editing operation is specified via a string of one or more <em>SMARTS</em> patterns (<em>search_ptns</em>) describing the substructures to edit, optional substructure exclude patterns (<em>exclude_ptns</em>) and a <em>SMILES</em> string (<em>result_ptn</em>) encoding the specific atom and bond modifications to perform. If multiple search and/or exclude patterns are specified then they need to be separated by a whitespace character.</p>
+<p>In the substructure search pattern(s), any atoms to be edited and/or atoms connected by bonds to be modified must be labeled by a unique non-zero integer number (by means of a colon followed the integer number at the end of the <em>SMARTS</em> atom specification). These numeric ids are used to establish an unambiguous mapping between the atoms/bonds of the search pattern and the <em>SMILES</em> string encoding the editing instructions. As mentioned above, the atom/bond editing operations are all specified by means of a simple <em>SMILES</em> string. For the purpose of substructure editing, the <em>SMILES</em> format has been extended by additional atom type and bond order symbols that allow to mark atom/bonds for deletion or act as a 'do not change' marker for atom type or bond order.</p>
+<p>Editing result <em>SMILES</em> strings have to be composed according to the following rules:</p><ul>
+<li>Atoms of the molecule matching labeled search pattern atoms are referenced by their numeric id (likewise specified by means of a colon followed by the integer number at the end of the <em>SMILES</em> atom specification)</li>
+<li>A bond between two labeled atoms in the result <em>SMILES</em> string will be mapped to the bond of the molecule that matched the corresponding bond of the search pattern</li>
+<li>If such a bond of the molecule does not exist it will be created with the specified bond order</li>
+<li>A molecule bond connecting two atoms that match labeled search pattern atoms which is not occurring in the result <em>SMILES</em> string will be left unchanged</li>
+<li>A molecule atom matching a labeled search pattern atom which is not occurring in the result <em>SMILES</em> string will be left unchanged</li>
+<li>A labeled atom in the result <em>SMILES</em> string with a numeric id that does not occur in the search pattern will be created with specified properties (symbol, form. charge, isotope, chirality, ...)</li>
+<li>Any unlabeled atoms in the result <em>SMILES</em> string will be created with the specified properties (symbol, form. charge, isotope, chirality, ...)</li>
+<li>Bonds to/between unlabeled result <em>SMILES</em> string atoms will be created with the specified bond order</li>
+<li>For a mapped molecule atom only those properties (symbol, form. charge, isotope, chirality, ...) that were specified for the corresponding result <em>SMILES</em> string atom will be modified</li>
+<li>The special result <em>SMILES</em> string atom type symbol <code>x</code> (only valid in brackets) results in the removal of the mapped molecule atom including any incident bonds</li>
+<li>The special result <em>SMILES</em> string atom type symbol <code>~</code> (only valid in brackets) indicates that the type of the mapped molecule atom shall be left unchanged</li>
+<li>The special result <em>SMILES</em> string bond order symbol <code>x</code> results in the removal of the mapped molecule bond</li>
+<li>The special result <em>SMILES</em> string bond order symbol <code>~</code> indicates that the order of the mapped molecule bond shall be left unchanged</li>
+</ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mol</td><td>The molecule to edit in place. </td></tr>
@@ -30123,7 +30142,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Builds a reaction-level match expression from the constraints currently attached to the reaction <em>rxn</em>. </p>
+<p>Builds a reaction-level match expression from the match constraints currently attached to the reaction <em>rxn</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to inspect. </td></tr>
@@ -30164,7 +30183,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to inspect/modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, the generated expression replaces any existing <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionProperty.html#ac9ed514fd4b3ddae371c1531c4b211b7" title="Specifies the match expression associated with the reaction.">Chem::ReactionProperty::MATCH_EXPRESSION</a>. If <code>false</code>, the existing one (if any) is returned unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, the generated expression replaces any existing match expression. Otherwise, the existing one (if any) is returned unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -30429,7 +30448,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The perceived component-group fragment list. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The perceived component group fragment list. </dd></dl>
 
 </div>
 </div>
@@ -30463,11 +30482,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to inspect/modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, the perceived list replaces any existing <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionProperty.html#a6df42ac2f76cc5b8bfa1a496971866f1" title="Specifies the per-component groupings of the reaction&#39;s reactants and products for substructure searc...">Chem::ReactionProperty::COMPONENT_GROUPS</a>. If <code>false</code>, the existing one (if any) is returned unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing component group list. Otherwise, the existing one (if any) is returned unchanged. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The perceived (or pre-existing) component-group fragment list. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The perceived (or pre-existing) component group fragment list. </dd></dl>
 
 </div>
 </div>
@@ -30645,7 +30664,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to inspect/modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, the perceived mapping replaces any existing <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionProperty.html#a7da96fe50e335b58b0751e8ca0db8e31" title="Specifies the atom-atom mapping between the reactant and product molecules of the reaction.">Chem::ReactionProperty::ATOM_MAPPING</a> property. If <code>false</code>, the existing one (if any) is returned unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, the perceived mapping replaces any existing atom mapping. If <code>false</code>, the existing one (if any) is returned unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -30707,9 +30726,9 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to encode. </td></tr>
-    <tr><td class="paramname">smiles</td><td>The string to receive the generated reaction SMILES. </td></tr>
+    <tr><td class="paramname">smiles</td><td>The string to receiving the generated reaction SMILES. </td></tr>
     <tr><td class="paramname">canonical</td><td><code>true</code> to emit a canonical reaction SMILES. </td></tr>
-    <tr><td class="paramname">ord_h_deplete</td><td><code>true</code> to suppress ordinary hydrogens. </td></tr>
+    <tr><td class="paramname">ord_h_deplete</td><td><code>true</code> to suppress the output ordinary hydrogens. </td></tr>
     <tr><td class="paramname">atom_flags</td><td>A bitmask of <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> flags controlling which atomic properties to encode. </td></tr>
     <tr><td class="paramname">bond_flags</td><td>A bitmask of <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> flags controlling which bond properties to encode. </td></tr>
   </table>
@@ -31152,7 +31171,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The stored <em>MDL</em> reaction data block. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The stored reaction data block. </dd></dl>
 
 </div>
 </div>
@@ -31186,7 +31205,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction for which to set the property value. </td></tr>
-    <tr><td class="paramname">data</td><td>The new <em>MDL</em> reaction data block. </td></tr>
+    <tr><td class="paramname">data</td><td>The new reaction data block. </td></tr>
   </table>
   </dd>
 </dl>
@@ -31303,7 +31322,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction for which to set the property value. </td></tr>
-    <tr><td class="paramname">mol_rec</td><td>The new <em>MDL</em> molecule record. </td></tr>
+    <tr><td class="paramname">mol_rec</td><td>The new <em>MDL RD-File</em> molecule record. </td></tr>
   </table>
   </dd>
 </dl>
@@ -31730,14 +31749,14 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Returns the largest component-group ID found on any of the components of the reaction <em>rxn</em>. </p>
+<p>Returns the largest component group ID found for any of the atoms of the components of the reaction <em>rxn</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to scan. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The largest component-group ID, or zero if no IDs are assigned. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The largest component group ID, or zero if no IDs are assigned. </dd></dl>
 
 </div>
 </div>
@@ -31757,14 +31776,14 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Returns the largest atom-mapping ID found on any of the atoms in <em>rxn</em>. </p>
+<p>Returns the largest atom mapping ID found for any of the atoms of the components of the reaction <em>rxn</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to scan. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The largest atom-mapping ID, or zero if no IDs are assigned. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The largest atom mapping ID, or zero if no IDs are assigned. </dd></dl>
 
 </div>
 </div>
@@ -31930,7 +31949,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing match expressions. If <code>false</code>, leaves items that already carry a match expression unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, replaces any existing match expressions. If <code>false</code>, leaves objects that already carry a match expression unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -31963,11 +31982,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Prepares the reaction <em>rxn</em> for use as a substructure search query (e.g. by pre-computing match expressions and required cached properties). </p>
+<p>Prepares the reaction <em>rxn</em> for use as a reaction substructure search query. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes derived data. If <code>false</code>, leaves up-to-date data unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes and stores any required property values. If <code>false</code>, leaves already available property values unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -32000,11 +32019,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Prepares the reaction <em>rxn</em> for use as a substructure search target (e.g. by pre-computing required cached properties). </p>
+<p>Prepares the reaction <em>rxn</em> for use as a reaction substructure search target. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes derived data. If <code>false</code>, leaves up-to-date data unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes and stores any required property values. If <code>false</code>, leaves already available property values unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -32037,11 +32056,11 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
       </table>
 </div><div class="memdoc">
 
-<p>Computes the basic per-component properties (aromaticity, ring info, etc.) of every component of the reaction <em>rxn</em>. </p>
+<p>Computes basic atom/bond/molecular graph properties (aromaticity, ring info, etc.) for every component of the reaction <em>rxn</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rxn</td><td>The reaction to modify. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes derived data. If <code>false</code>, leaves up-to-date data unchanged. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>If <code>true</code>, recomputes and stores basic property values. If <code>false</code>, leaves already available property values unchanged. </td></tr>
   </table>
   </dd>
 </dl>
