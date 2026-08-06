@@ -140,6 +140,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a937fbfdd5537c44a3c474456117a29fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchanges the properties of this container with the properties of the container <em>cntnr</em>.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#a937fbfdd5537c44a3c474456117a29fc">More...</a><br /></td></tr>
 <tr class="separator:a937fbfdd5537c44a3c474456117a29fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb64cc96bd065c5175d03624869f531a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1Any.html">Any</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#acb64cc96bd065c5175d03624869f531a">__getitem__</a> (<a class="el" href="classCDPL_1_1Base_1_1LookupKey.html">LookupKey</a> key)</td></tr>
+<tr class="memdesc:acb64cc96bd065c5175d03624869f531a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the property specified by <em>key</em>.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#acb64cc96bd065c5175d03624869f531a">More...</a><br /></td></tr>
 <tr class="separator:acb64cc96bd065c5175d03624869f531a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd8944347827d38858869ffceb615946"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#abd8944347827d38858869ffceb615946">__contains__</a> (<a class="el" href="classCDPL_1_1Base_1_1LookupKey.html">LookupKey</a> key)</td></tr>
 <tr class="memdesc:abd8944347827d38858869ffceb615946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the membership test operation <code>key in self</code>.  <a href="classCDPL_1_1Base_1_1PropertyContainer.html#abd8944347827d38858869ffceb615946">More...</a><br /></td></tr>
@@ -539,13 +540,22 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the value of the property specified by <em>key</em>. </p>
+<p>If an entry for the specified property exists, the stored value will be returned. Otherwise a <a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base.ItemNotFound</a> exception will be thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">key</td><td>The key of the property value to return.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The stored property value.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base.ItemNotFound</a></td><td>if an entry for the requested property value does not exist. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
