@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Concrete <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> implementation that owns <a class="el" href="classCDPL_1_1Chem_1_1BasicAtom.html" title="Default implementation of the Chem::Atom interface.">Chem::BasicAtom</a> and <a class="el" href="classCDPL_1_1Chem_1_1BasicBond.html" title="Default implementation of the Chem::Bond interface.">Chem::BasicBond</a> instances.  
+<p>Concrete <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a> implementation that owns <a class="el" href="classCDPL_1_1Chem_1_1BasicAtom.html" title="Default implementation of the Chem::Atom interface.">Chem::BasicAtom</a> and <a class="el" href="classCDPL_1_1Chem_1_1BasicBond.html" title="Default implementation of the Chem::Bond interface.">Chem::BasicBond</a> instances.  
  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BasicMolecule_8hpp_source.html">BasicMolecule.hpp</a>&gt;</code></p>
@@ -118,19 +118,19 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a2f977e85d695ab481d0a1e99470e19bc inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>Molecule</code> instances.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a2f977e85d695ab481d0a1e99470e19bc">More...</a><br /></td></tr>
 <tr class="separator:a2f977e85d695ab481d0a1e99470e19bc inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0291690d342dcba6721b6e67b8237060 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a7b1af5a83d88ebdc71fff50e6be3d3a7">AtomContainer::ConstAtomIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a0291690d342dcba6721b6e67b8237060">ConstAtomIterator</a></td></tr>
-<tr class="memdesc:a0291690d342dcba6721b6e67b8237060 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the atoms of the molecule.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a0291690d342dcba6721b6e67b8237060">More...</a><br /></td></tr>
+<tr class="memdesc:a0291690d342dcba6721b6e67b8237060 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a0291690d342dcba6721b6e67b8237060">More...</a><br /></td></tr>
 <tr class="separator:a0291690d342dcba6721b6e67b8237060 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fb31e1e020e6c0203eb9f9a3517e40f inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a3ea86eb3fee8e6c36f55e82b91dba01c">AtomContainer::AtomIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a6fb31e1e020e6c0203eb9f9a3517e40f">AtomIterator</a></td></tr>
-<tr class="memdesc:a6fb31e1e020e6c0203eb9f9a3517e40f inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the atoms of the molecule.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a6fb31e1e020e6c0203eb9f9a3517e40f">More...</a><br /></td></tr>
+<tr class="memdesc:a6fb31e1e020e6c0203eb9f9a3517e40f inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a6fb31e1e020e6c0203eb9f9a3517e40f">More...</a><br /></td></tr>
 <tr class="separator:a6fb31e1e020e6c0203eb9f9a3517e40f inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a66cbbeecfca16470095673c15e0846 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">BondContainer::ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a3a66cbbeecfca16470095673c15e0846">ConstBondIterator</a></td></tr>
-<tr class="memdesc:a3a66cbbeecfca16470095673c15e0846 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the bonds of the molecule.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a3a66cbbeecfca16470095673c15e0846">More...</a><br /></td></tr>
+<tr class="memdesc:a3a66cbbeecfca16470095673c15e0846 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a3a66cbbeecfca16470095673c15e0846">More...</a><br /></td></tr>
 <tr class="separator:a3a66cbbeecfca16470095673c15e0846 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd02e3105ec015a6ccc5000791ee5178 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondContainer::BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#afd02e3105ec015a6ccc5000791ee5178">BondIterator</a></td></tr>
-<tr class="memdesc:afd02e3105ec015a6ccc5000791ee5178 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the bonds of the molecule.  <a href="classCDPL_1_1Chem_1_1Molecule.html#afd02e3105ec015a6ccc5000791ee5178">More...</a><br /></td></tr>
+<tr class="memdesc:afd02e3105ec015a6ccc5000791ee5178 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#afd02e3105ec015a6ccc5000791ee5178">More...</a><br /></td></tr>
 <tr class="separator:afd02e3105ec015a6ccc5000791ee5178 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff372d6f9322433ddf602e340160121 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">CopyPostprocessingFunction</a></td></tr>
-<tr class="memdesc:acff372d6f9322433ddf602e340160121 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of a callback invoked after a molecule has been copied from a source molecular graph (first argument: the freshly populated destination molecule; second argument: the source graph).  <a href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">More...</a><br /></td></tr>
+<tr class="memdesc:acff372d6f9322433ddf602e340160121 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of function invoked after a molecule has been altered due to copying/appending a source molecular graph.  <a href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">More...</a><br /></td></tr>
 <tr class="separator:acff372d6f9322433ddf602e340160121 inherit pub_types_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1MolecularGraph"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1MolecularGraph')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></td></tr>
 <tr class="memitem:a3665294513798bda9b0389054c808581 inherit pub_types_classCDPL_1_1Chem_1_1MolecularGraph"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">SharedPointer</a></td></tr>
@@ -152,10 +152,10 @@ Public Types</h2></td></tr>
 <tr class="separator:a64e21b913a24d9e28fe12296466ec180 inherit pub_types_classCDPL_1_1Chem_1_1Entity3DContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Chem_1_1BondContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Chem_1_1BondContainer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html">CDPL::Chem::BondContainer</a></td></tr>
 <tr class="memitem:aecd00c8187b2681bce80ccc27c2f3a1e inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Util_1_1IndexedElementIterator.html">Util::IndexedElementIterator</a>&lt; const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>, ConstBondAccessor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a></td></tr>
-<tr class="memdesc:aecd00c8187b2681bce80ccc27c2f3a1e inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">More...</a><br /></td></tr>
+<tr class="memdesc:aecd00c8187b2681bce80ccc27c2f3a1e inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">More...</a><br /></td></tr>
 <tr class="separator:aecd00c8187b2681bce80ccc27c2f3a1e inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0abef91586ece1364441c5a986f88583 inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Util_1_1IndexedElementIterator.html">Util::IndexedElementIterator</a>&lt; <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a>, BondAccessor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a></td></tr>
-<tr class="memdesc:a0abef91586ece1364441c5a986f88583 inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">More...</a><br /></td></tr>
+<tr class="memdesc:a0abef91586ece1364441c5a986f88583 inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">More...</a><br /></td></tr>
 <tr class="separator:a0abef91586ece1364441c5a986f88583 inherit pub_types_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classCDPL_1_1Base_1_1PropertyContainer')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html">CDPL::Base::PropertyContainer</a></td></tr>
 <tr class="memitem:acc027f2de46dabd56830a522690efac9 inherit pub_types_classCDPL_1_1Base_1_1PropertyContainer"><td class="memItemLeft" align="right" valign="top">typedef PropertyMap::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html#acc027f2de46dabd56830a522690efac9">PropertyEntry</a></td></tr>
@@ -174,22 +174,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:affca046428d8376654456352760786f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <code>BasicMolecule</code> instance <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#affca046428d8376654456352760786f8">More...</a><br /></td></tr>
 <tr class="separator:affca046428d8376654456352760786f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b9947e27c91a04f621ba8364ef2aa55"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7b9947e27c91a04f621ba8364ef2aa55">BasicMolecule</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol)</td></tr>
-<tr class="memdesc:a7b9947e27c91a04f621ba8364ef2aa55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> instance <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7b9947e27c91a04f621ba8364ef2aa55">More...</a><br /></td></tr>
+<tr class="memdesc:a7b9947e27c91a04f621ba8364ef2aa55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a> instance <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7b9947e27c91a04f621ba8364ef2aa55">More...</a><br /></td></tr>
 <tr class="separator:a7b9947e27c91a04f621ba8364ef2aa55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7aae71c274541f22f5d7e9993cdc37a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#ac7aae71c274541f22f5d7e9993cdc37a">BasicMolecule</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:ac7aae71c274541f22f5d7e9993cdc37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>BasicMolecule</code> instance with copies of the atoms and bonds of the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#ac7aae71c274541f22f5d7e9993cdc37a">More...</a><br /></td></tr>
+<tr class="memdesc:ac7aae71c274541f22f5d7e9993cdc37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>BasicMolecule</code> instance with copies of the atoms and bonds of the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for data structures that represent chemical structures as molecular graphs.">Chem::MolecularGraph</a> instance <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#ac7aae71c274541f22f5d7e9993cdc37a">More...</a><br /></td></tr>
 <tr class="separator:ac7aae71c274541f22f5d7e9993cdc37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefc0a2039add581201fb6d6292cea250"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#aefc0a2039add581201fb6d6292cea250">~BasicMolecule</a> ()</td></tr>
 <tr class="memdesc:aefc0a2039add581201fb6d6292cea250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aefc0a2039add581201fb6d6292cea250">More...</a><br /></td></tr>
 <tr class="separator:aefc0a2039add581201fb6d6292cea250"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38193f4441c1478e7ec55ebc97eed0d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a38193f4441c1478e7ec55ebc97eed0d5">clear</a> ()</td></tr>
-<tr class="memdesc:a38193f4441c1478e7ec55ebc97eed0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all atoms, bonds, and properties of the molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a38193f4441c1478e7ec55ebc97eed0d5">More...</a><br /></td></tr>
+<tr class="memdesc:a38193f4441c1478e7ec55ebc97eed0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all atoms and bonds and clears all properties of the molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a38193f4441c1478e7ec55ebc97eed0d5">More...</a><br /></td></tr>
 <tr class="separator:a38193f4441c1478e7ec55ebc97eed0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f1e06b6ba1aa5cb7d057eb06138c773"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773">getNumAtoms</a> () const</td></tr>
-<tr class="memdesc:a7f1e06b6ba1aa5cb7d057eb06138c773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atoms in the molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773">More...</a><br /></td></tr>
+<tr class="memdesc:a7f1e06b6ba1aa5cb7d057eb06138c773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atoms.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773">More...</a><br /></td></tr>
 <tr class="separator:a7f1e06b6ba1aa5cb7d057eb06138c773"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d57a3ba4aad7971b674add1b5ea4324"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324">getNumBonds</a> () const</td></tr>
-<tr class="memdesc:a8d57a3ba4aad7971b674add1b5ea4324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bonds in the molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324">More...</a><br /></td></tr>
+<tr class="memdesc:a8d57a3ba4aad7971b674add1b5ea4324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bonds.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324">More...</a><br /></td></tr>
 <tr class="separator:a8d57a3ba4aad7971b674add1b5ea4324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac527c8f948449c9d7a0de844bec853fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a7b1af5a83d88ebdc71fff50e6be3d3a7">ConstAtomIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#ac527c8f948449c9d7a0de844bec853fc">getAtomsBegin</a> () const</td></tr>
 <tr class="memdesc:ac527c8f948449c9d7a0de844bec853fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the atoms.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#ac527c8f948449c9d7a0de844bec853fc">More...</a><br /></td></tr>
@@ -219,13 +219,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a678c0c070aa81dc3dbde00f02ee8da9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the atom at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a678c0c070aa81dc3dbde00f02ee8da9d">More...</a><br /></td></tr>
 <tr class="separator:a678c0c070aa81dc3dbde00f02ee8da9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa418f457aac13d3d00cae19d12798bc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicAtom.html">BasicAtom</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa418f457aac13d3d00cae19d12798bc0">getAtom</a> (std::size_t idx)</td></tr>
-<tr class="memdesc:aa418f457aac13d3d00cae19d12798bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the atom at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa418f457aac13d3d00cae19d12798bc0">More...</a><br /></td></tr>
+<tr class="memdesc:aa418f457aac13d3d00cae19d12798bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the atom at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa418f457aac13d3d00cae19d12798bc0">More...</a><br /></td></tr>
 <tr class="separator:aa418f457aac13d3d00cae19d12798bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53ea5577c25ce3480d028fc391d28df5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicAtom.html">BasicAtom</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a53ea5577c25ce3480d028fc391d28df5">addAtom</a> ()</td></tr>
-<tr class="memdesc:a53ea5577c25ce3480d028fc391d28df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and appends a new atom and returns a reference to it.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a53ea5577c25ce3480d028fc391d28df5">More...</a><br /></td></tr>
+<tr class="memdesc:a53ea5577c25ce3480d028fc391d28df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new atom and adds it to the molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a53ea5577c25ce3480d028fc391d28df5">More...</a><br /></td></tr>
 <tr class="separator:a53ea5577c25ce3480d028fc391d28df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01a06b570bcd3ab2d2b6550769acd805"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a01a06b570bcd3ab2d2b6550769acd805">removeAtom</a> (std::size_t idx)</td></tr>
-<tr class="memdesc:a01a06b570bcd3ab2d2b6550769acd805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the atom at index <em>idx</em> (along with any incident bonds).  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a01a06b570bcd3ab2d2b6550769acd805">More...</a><br /></td></tr>
+<tr class="memdesc:a01a06b570bcd3ab2d2b6550769acd805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the atom at the specified index.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a01a06b570bcd3ab2d2b6550769acd805">More...</a><br /></td></tr>
 <tr class="separator:a01a06b570bcd3ab2d2b6550769acd805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86bb63afc10185c06efc82ecde21030a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a3ea86eb3fee8e6c36f55e82b91dba01c">AtomIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a86bb63afc10185c06efc82ecde21030a">removeAtom</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a3ea86eb3fee8e6c36f55e82b91dba01c">AtomIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:a86bb63afc10185c06efc82ecde21030a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the atom specified by the iterator <em>it</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a86bb63afc10185c06efc82ecde21030a">More...</a><br /></td></tr>
@@ -234,34 +234,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a18fc203e3010c38440c145ee53d262b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the bond at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a18fc203e3010c38440c145ee53d262b3">More...</a><br /></td></tr>
 <tr class="separator:a18fc203e3010c38440c145ee53d262b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa22e2e58212217a31c78f80611ab82da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicBond.html">BasicBond</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa22e2e58212217a31c78f80611ab82da">getBond</a> (std::size_t idx)</td></tr>
-<tr class="memdesc:aa22e2e58212217a31c78f80611ab82da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable reference to the bond at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa22e2e58212217a31c78f80611ab82da">More...</a><br /></td></tr>
+<tr class="memdesc:aa22e2e58212217a31c78f80611ab82da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the bond at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa22e2e58212217a31c78f80611ab82da">More...</a><br /></td></tr>
 <tr class="separator:aa22e2e58212217a31c78f80611ab82da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dab8e33434fa24ada39d89b4c1625bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicBond.html">BasicBond</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a0dab8e33434fa24ada39d89b4c1625bf">addBond</a> (std::size_t atom1_idx, std::size_t atom2_idx)</td></tr>
-<tr class="memdesc:a0dab8e33434fa24ada39d89b4c1625bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new bond between the atoms at indices <em>atom1_idx</em> and <em>atom2_idx</em> and returns a reference to it.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a0dab8e33434fa24ada39d89b4c1625bf">More...</a><br /></td></tr>
+<tr class="memdesc:a0dab8e33434fa24ada39d89b4c1625bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new or returns an already existing bond between the atoms specified by <em>atom1_idx</em> and <em>atom2_idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a0dab8e33434fa24ada39d89b4c1625bf">More...</a><br /></td></tr>
 <tr class="separator:a0dab8e33434fa24ada39d89b4c1625bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a945c647df83d9bec3f953a5db62c20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a5a945c647df83d9bec3f953a5db62c20">removeBond</a> (std::size_t idx)</td></tr>
-<tr class="memdesc:a5a945c647df83d9bec3f953a5db62c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the bond at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a5a945c647df83d9bec3f953a5db62c20">More...</a><br /></td></tr>
+<tr class="memdesc:a5a945c647df83d9bec3f953a5db62c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the bond at the specified index.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a5a945c647df83d9bec3f953a5db62c20">More...</a><br /></td></tr>
 <tr class="separator:a5a945c647df83d9bec3f953a5db62c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a320fd5dba3fd0a383e141b93d4098d0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a2e14c50e6659543ef57ebcd017149e80">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a320fd5dba3fd0a383e141b93d4098d0d">removeBond</a> (const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a2e14c50e6659543ef57ebcd017149e80">BondIterator</a> &amp;it)</td></tr>
 <tr class="memdesc:a320fd5dba3fd0a383e141b93d4098d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the bond specified by the iterator <em>it</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a320fd5dba3fd0a383e141b93d4098d0d">More...</a><br /></td></tr>
 <tr class="separator:a320fd5dba3fd0a383e141b93d4098d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcb3325ba2bfc2b747428d3c55f5baea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#adcb3325ba2bfc2b747428d3c55f5baea">containsAtom</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom) const</td></tr>
-<tr class="memdesc:adcb3325ba2bfc2b747428d3c55f5baea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether <em>atom</em> is part of this molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#adcb3325ba2bfc2b747428d3c55f5baea">More...</a><br /></td></tr>
+<tr class="memdesc:adcb3325ba2bfc2b747428d3c55f5baea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the specified atom is part of the atom sequence.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#adcb3325ba2bfc2b747428d3c55f5baea">More...</a><br /></td></tr>
 <tr class="separator:adcb3325ba2bfc2b747428d3c55f5baea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31ed092e4c3f41dbdb8282feb1b7f4dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a31ed092e4c3f41dbdb8282feb1b7f4dd">containsBond</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;bond) const</td></tr>
-<tr class="memdesc:a31ed092e4c3f41dbdb8282feb1b7f4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether <em>bond</em> is part of this molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a31ed092e4c3f41dbdb8282feb1b7f4dd">More...</a><br /></td></tr>
+<tr class="memdesc:a31ed092e4c3f41dbdb8282feb1b7f4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the specified bond is part of the bond sequence.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a31ed092e4c3f41dbdb8282feb1b7f4dd">More...</a><br /></td></tr>
 <tr class="separator:a31ed092e4c3f41dbdb8282feb1b7f4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85f69753c4bfe1f9e2b8f733c013973a"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a85f69753c4bfe1f9e2b8f733c013973a">getAtomIndex</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom) const</td></tr>
-<tr class="memdesc:a85f69753c4bfe1f9e2b8f733c013973a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of atom <em>atom</em> in this molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a85f69753c4bfe1f9e2b8f733c013973a">More...</a><br /></td></tr>
+<tr class="memdesc:a85f69753c4bfe1f9e2b8f733c013973a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the specified atom.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a85f69753c4bfe1f9e2b8f733c013973a">More...</a><br /></td></tr>
 <tr class="separator:a85f69753c4bfe1f9e2b8f733c013973a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16b3e2c9d189ce17ae1fc70f3ef4dea5"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a16b3e2c9d189ce17ae1fc70f3ef4dea5">getBondIndex</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;bond) const</td></tr>
-<tr class="memdesc:a16b3e2c9d189ce17ae1fc70f3ef4dea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of bond <em>bond</em> in this molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a16b3e2c9d189ce17ae1fc70f3ef4dea5">More...</a><br /></td></tr>
+<tr class="memdesc:a16b3e2c9d189ce17ae1fc70f3ef4dea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the specified bond.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a16b3e2c9d189ce17ae1fc70f3ef4dea5">More...</a><br /></td></tr>
 <tr class="separator:a16b3e2c9d189ce17ae1fc70f3ef4dea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06f04ca5ade59fb60f86298cb6ec8c73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a06f04ca5ade59fb60f86298cb6ec8c73">orderAtoms</a> (const <a class="el" href="namespaceCDPL_1_1Chem.html#a2150f16de7a0930d6a6808de950efd7b">AtomCompareFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:a06f04ca5ade59fb60f86298cb6ec8c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the atom list using the binary comparator <em>func</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a06f04ca5ade59fb60f86298cb6ec8c73">More...</a><br /></td></tr>
+<tr class="memdesc:a06f04ca5ade59fb60f86298cb6ec8c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orders the atoms according to criteria implemented by the provided atom comparison function.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a06f04ca5ade59fb60f86298cb6ec8c73">More...</a><br /></td></tr>
 <tr class="separator:a06f04ca5ade59fb60f86298cb6ec8c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fc2422b94c72ac797b3fb51b862eac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6fc2422b94c72ac797b3fb51b862eac0">orderBonds</a> (const <a class="el" href="namespaceCDPL_1_1Chem.html#aefeb22c1caeb1c880cc1238a33ab145d">BondCompareFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:a6fc2422b94c72ac797b3fb51b862eac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the bond list using the binary comparator <em>func</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6fc2422b94c72ac797b3fb51b862eac0">More...</a><br /></td></tr>
+<tr class="memdesc:a6fc2422b94c72ac797b3fb51b862eac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orders the bonds according to criteria implemented by the provided bond comparison function.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6fc2422b94c72ac797b3fb51b862eac0">More...</a><br /></td></tr>
 <tr class="separator:a6fc2422b94c72ac797b3fb51b862eac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ad67f3e125d491db0d6b25f48476d87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8ad67f3e125d491db0d6b25f48476d87">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;mol)</td></tr>
 <tr class="memdesc:a8ad67f3e125d491db0d6b25f48476d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8ad67f3e125d491db0d6b25f48476d87">More...</a><br /></td></tr>
@@ -270,34 +270,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac36485db181c434315e1bc9759b3232f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#ac36485db181c434315e1bc9759b3232f">More...</a><br /></td></tr>
 <tr class="separator:ac36485db181c434315e1bc9759b3232f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa9af9ecb877271af10998122e81784c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#aaa9af9ecb877271af10998122e81784c">clone</a> () const</td></tr>
-<tr class="memdesc:aaa9af9ecb877271af10998122e81784c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep copy of the molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aaa9af9ecb877271af10998122e81784c">More...</a><br /></td></tr>
+<tr class="memdesc:aaa9af9ecb877271af10998122e81784c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep copy of the molecular graph.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aaa9af9ecb877271af10998122e81784c">More...</a><br /></td></tr>
 <tr class="separator:aaa9af9ecb877271af10998122e81784c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9088a2cb07d629328c736cb2aeadca46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a9088a2cb07d629328c736cb2aeadca46">copy</a> (const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;mol)</td></tr>
 <tr class="memdesc:a9088a2cb07d629328c736cb2aeadca46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a9088a2cb07d629328c736cb2aeadca46">More...</a><br /></td></tr>
 <tr class="separator:a9088a2cb07d629328c736cb2aeadca46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e38a04c9fca75b052aa1f61a8450a44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6e38a04c9fca75b052aa1f61a8450a44">copy</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol)</td></tr>
-<tr class="memdesc:a6e38a04c9fca75b052aa1f61a8450a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6e38a04c9fca75b052aa1f61a8450a44">More...</a><br /></td></tr>
+<tr class="memdesc:a6e38a04c9fca75b052aa1f61a8450a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6e38a04c9fca75b052aa1f61a8450a44">More...</a><br /></td></tr>
 <tr class="separator:a6e38a04c9fca75b052aa1f61a8450a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a855b86f63dceb39f8c9a33842c188425"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a855b86f63dceb39f8c9a33842c188425">copy</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a855b86f63dceb39f8c9a33842c188425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a855b86f63dceb39f8c9a33842c188425">More...</a><br /></td></tr>
+<tr class="memdesc:a855b86f63dceb39f8c9a33842c188425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a855b86f63dceb39f8c9a33842c188425">More...</a><br /></td></tr>
 <tr class="separator:a855b86f63dceb39f8c9a33842c188425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9cc38c35040086ce23b7ab3930152ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#af9cc38c35040086ce23b7ab3930152ce">append</a> (const <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html">BasicMolecule</a> &amp;mol)</td></tr>
 <tr class="memdesc:af9cc38c35040086ce23b7ab3930152ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#af9cc38c35040086ce23b7ab3930152ce">More...</a><br /></td></tr>
 <tr class="separator:af9cc38c35040086ce23b7ab3930152ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53c7194ed1de36042d539be8e62c0278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a53c7194ed1de36042d539be8e62c0278">append</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol)</td></tr>
-<tr class="memdesc:a53c7194ed1de36042d539be8e62c0278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the current set of atoms and bonds by a copy of those in <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a53c7194ed1de36042d539be8e62c0278">More...</a><br /></td></tr>
+<tr class="memdesc:a53c7194ed1de36042d539be8e62c0278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a53c7194ed1de36042d539be8e62c0278">More...</a><br /></td></tr>
 <tr class="separator:a53c7194ed1de36042d539be8e62c0278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e0332773053e028fbab6ce492c8daea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a1e0332773053e028fbab6ce492c8daea">append</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a1e0332773053e028fbab6ce492c8daea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the current set of atoms and bonds by a copy of those in <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a1e0332773053e028fbab6ce492c8daea">More...</a><br /></td></tr>
+<tr class="memdesc:a1e0332773053e028fbab6ce492c8daea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a1e0332773053e028fbab6ce492c8daea">More...</a><br /></td></tr>
 <tr class="separator:a1e0332773053e028fbab6ce492c8daea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5c248aa4d9fb82530042e6abc862d94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#af5c248aa4d9fb82530042e6abc862d94">remove</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:af5c248aa4d9fb82530042e6abc862d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the atoms and bonds of <em>molgraph</em> from this molecule.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#af5c248aa4d9fb82530042e6abc862d94">More...</a><br /></td></tr>
+<tr class="memdesc:af5c248aa4d9fb82530042e6abc862d94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes atoms and bonds referenced by the molecular graph <em>molgraph</em> that are part of this <code>Molecule</code> instance.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#af5c248aa4d9fb82530042e6abc862d94">More...</a><br /></td></tr>
 <tr class="separator:af5c248aa4d9fb82530042e6abc862d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d93a7100f8e2076166e999513a36af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa2d93a7100f8e2076166e999513a36af">reserveMemoryForAtoms</a> (std::size_t num_atoms)</td></tr>
-<tr class="memdesc:aa2d93a7100f8e2076166e999513a36af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves storage for at least <em>num_atoms</em> atoms to avoid reallocations on subsequent additions.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa2d93a7100f8e2076166e999513a36af">More...</a><br /></td></tr>
+<tr class="memdesc:aa2d93a7100f8e2076166e999513a36af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves memory for <em>num_atoms</em> atoms.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#aa2d93a7100f8e2076166e999513a36af">More...</a><br /></td></tr>
 <tr class="separator:aa2d93a7100f8e2076166e999513a36af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf96d2889f0c8d2a617d1463ea767456"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#adf96d2889f0c8d2a617d1463ea767456">reserveMemoryForBonds</a> (std::size_t num_bonds)</td></tr>
-<tr class="memdesc:adf96d2889f0c8d2a617d1463ea767456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves storage for at least <em>num_bonds</em> bonds to avoid reallocations on subsequent additions.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#adf96d2889f0c8d2a617d1463ea767456">More...</a><br /></td></tr>
+<tr class="memdesc:adf96d2889f0c8d2a617d1463ea767456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves memory for <em>num_bonds</em> bonds.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#adf96d2889f0c8d2a617d1463ea767456">More...</a><br /></td></tr>
 <tr class="separator:adf96d2889f0c8d2a617d1463ea767456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ca78974763a378d2268624d1deb15bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6ca78974763a378d2268624d1deb15bf">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;mol)</td></tr>
 <tr class="memdesc:a6ca78974763a378d2268624d1deb15bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecule <em>mol</em>.  <a href="classCDPL_1_1Chem_1_1BasicMolecule.html#a6ca78974763a378d2268624d1deb15bf">More...</a><br /></td></tr>
@@ -349,16 +349,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a71657666faab7361dad02bb225e09fc7 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a71657666faab7361dad02bb225e09fc7">More...</a><br /></td></tr>
 <tr class="separator:a71657666faab7361dad02bb225e09fc7 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#ab76df27e81f4bce3d98219149aeb7517">getBondsBegin</a> () const</td></tr>
-<tr class="memdesc:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#ab76df27e81f4bce3d98219149aeb7517">More...</a><br /></td></tr>
+<tr class="memdesc:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#ab76df27e81f4bce3d98219149aeb7517">More...</a><br /></td></tr>
 <tr class="separator:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#af2d5455dcfad54db9d70d2a2c68f464e">getBondsBegin</a> ()</td></tr>
-<tr class="memdesc:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#af2d5455dcfad54db9d70d2a2c68f464e">More...</a><br /></td></tr>
+<tr class="memdesc:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#af2d5455dcfad54db9d70d2a2c68f464e">More...</a><br /></td></tr>
 <tr class="separator:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a87f2c34fcfcb4d42bc22f04a41c00433">getBondsEnd</a> () const</td></tr>
-<tr class="memdesc:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a87f2c34fcfcb4d42bc22f04a41c00433">More...</a><br /></td></tr>
+<tr class="memdesc:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a87f2c34fcfcb4d42bc22f04a41c00433">More...</a><br /></td></tr>
 <tr class="separator:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a410aad7eda390099690b5b03baf79a22">getBondsEnd</a> ()</td></tr>
-<tr class="memdesc:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a410aad7eda390099690b5b03baf79a22">More...</a><br /></td></tr>
+<tr class="memdesc:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1Molecule.html#a410aad7eda390099690b5b03baf79a22">More...</a><br /></td></tr>
 <tr class="separator:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Chem_1_1MolecularGraph')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></td></tr>
 <tr class="memitem:a5ee6e07031ec781ffdab26fd6c48bfb8 inherit pub_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a5ee6e07031ec781ffdab26fd6c48bfb8">~MolecularGraph</a> ()</td></tr>
@@ -437,28 +437,28 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a64756a35ea7afd5a61d421a1bc78f6cc inherit pub_methods_classCDPL_1_1Chem_1_1Entity3DContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCDPL_1_1Chem_1_1BondContainer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html">CDPL::Chem::BondContainer</a></td></tr>
 <tr class="memitem:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#ab76df27e81f4bce3d98219149aeb7517">getBondsBegin</a> () const</td></tr>
-<tr class="memdesc:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#ab76df27e81f4bce3d98219149aeb7517">More...</a><br /></td></tr>
+<tr class="memdesc:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#ab76df27e81f4bce3d98219149aeb7517">More...</a><br /></td></tr>
 <tr class="separator:ab76df27e81f4bce3d98219149aeb7517 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a87f2c34fcfcb4d42bc22f04a41c00433">getBondsEnd</a> () const</td></tr>
-<tr class="memdesc:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a87f2c34fcfcb4d42bc22f04a41c00433">More...</a><br /></td></tr>
+<tr class="memdesc:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a87f2c34fcfcb4d42bc22f04a41c00433">More...</a><br /></td></tr>
 <tr class="separator:a87f2c34fcfcb4d42bc22f04a41c00433 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#af2d5455dcfad54db9d70d2a2c68f464e">getBondsBegin</a> ()</td></tr>
-<tr class="memdesc:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#af2d5455dcfad54db9d70d2a2c68f464e">More...</a><br /></td></tr>
+<tr class="memdesc:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#af2d5455dcfad54db9d70d2a2c68f464e">More...</a><br /></td></tr>
 <tr class="separator:af2d5455dcfad54db9d70d2a2c68f464e inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a410aad7eda390099690b5b03baf79a22">getBondsEnd</a> ()</td></tr>
-<tr class="memdesc:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a410aad7eda390099690b5b03baf79a22">More...</a><br /></td></tr>
+<tr class="memdesc:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a410aad7eda390099690b5b03baf79a22">More...</a><br /></td></tr>
 <tr class="separator:a410aad7eda390099690b5b03baf79a22 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6548f2e1e6b1ac3f49312bf686a8be9 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#ad6548f2e1e6b1ac3f49312bf686a8be9">begin</a> () const</td></tr>
-<tr class="memdesc:ad6548f2e1e6b1ac3f49312bf686a8be9 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#ad6548f2e1e6b1ac3f49312bf686a8be9">More...</a><br /></td></tr>
+<tr class="memdesc:ad6548f2e1e6b1ac3f49312bf686a8be9 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#ad6548f2e1e6b1ac3f49312bf686a8be9">More...</a><br /></td></tr>
 <tr class="separator:ad6548f2e1e6b1ac3f49312bf686a8be9 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347ddc860ee7a24f0c50f20555d6e0c2 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aecd00c8187b2681bce80ccc27c2f3a1e">ConstBondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a347ddc860ee7a24f0c50f20555d6e0c2">end</a> () const</td></tr>
-<tr class="memdesc:a347ddc860ee7a24f0c50f20555d6e0c2 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a347ddc860ee7a24f0c50f20555d6e0c2">More...</a><br /></td></tr>
+<tr class="memdesc:a347ddc860ee7a24f0c50f20555d6e0c2 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a347ddc860ee7a24f0c50f20555d6e0c2">More...</a><br /></td></tr>
 <tr class="separator:a347ddc860ee7a24f0c50f20555d6e0c2 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a233ca6b1a4d83d65cd50323c4b98da25 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a233ca6b1a4d83d65cd50323c4b98da25">begin</a> ()</td></tr>
-<tr class="memdesc:a233ca6b1a4d83d65cd50323c4b98da25 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a233ca6b1a4d83d65cd50323c4b98da25">More...</a><br /></td></tr>
+<tr class="memdesc:a233ca6b1a4d83d65cd50323c4b98da25 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a233ca6b1a4d83d65cd50323c4b98da25">More...</a><br /></td></tr>
 <tr class="separator:a233ca6b1a4d83d65cd50323c4b98da25 inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa776e5be51c8d074a2223b1d8d3707fe inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a0abef91586ece1364441c5a986f88583">BondIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#aa776e5be51c8d074a2223b1d8d3707fe">end</a> ()</td></tr>
-<tr class="memdesc:aa776e5be51c8d074a2223b1d8d3707fe inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two Chem::Atom instances.">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#aa776e5be51c8d074a2223b1d8d3707fe">More...</a><br /></td></tr>
+<tr class="memdesc:aa776e5be51c8d074a2223b1d8d3707fe inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1Bond.html" title="Abstract base class representing a chemical bond between two atoms (represented by Chem::Atom instanc...">Chem::Bond</a> objects.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#aa776e5be51c8d074a2223b1d8d3707fe">More...</a><br /></td></tr>
 <tr class="separator:aa776e5be51c8d074a2223b1d8d3707fe inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59917af17bcc74485ab01aa086328eee inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html">BondContainer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a59917af17bcc74485ab01aa086328eee">getBonds</a> () const</td></tr>
 <tr class="memdesc:a59917af17bcc74485ab01aa086328eee inherit pub_methods_classCDPL_1_1Chem_1_1BondContainer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to itself.  <a href="classCDPL_1_1Chem_1_1BondContainer.html#a59917af17bcc74485ab01aa086328eee">More...</a><br /></td></tr>
@@ -523,11 +523,11 @@ Public Member Functions</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classCDPL_1_1Chem_1_1Molecule"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classCDPL_1_1Chem_1_1Molecule')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">CDPL::Chem::Molecule</a></td></tr>
 <tr class="memitem:ac40ab5307fdcd4ada153f5102d16eb88 inherit pub_static_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#ac40ab5307fdcd4ada153f5102d16eb88">registerCopyPostprocessingFunction</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#acff372d6f9322433ddf602e340160121">CopyPostprocessingFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:ac40ab5307fdcd4ada153f5102d16eb88 inherit pub_static_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new copy-postprocessing function in the global registry.  <a href="classCDPL_1_1Chem_1_1Molecule.html#ac40ab5307fdcd4ada153f5102d16eb88">More...</a><br /></td></tr>
+<tr class="memdesc:ac40ab5307fdcd4ada153f5102d16eb88 inherit pub_static_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new copy postprocessing function in the global registry.  <a href="classCDPL_1_1Chem_1_1Molecule.html#ac40ab5307fdcd4ada153f5102d16eb88">More...</a><br /></td></tr>
 <tr class="separator:ac40ab5307fdcd4ada153f5102d16eb88 inherit pub_static_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Chem_1_1Molecule"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Chem_1_1Molecule')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">CDPL::Chem::Molecule</a></td></tr>
 <tr class="memitem:ae5a96aeff796ddcb3f8ab570be0352fb inherit pro_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#ae5a96aeff796ddcb3f8ab570be0352fb">invokeCopyPostprocessingFunctions</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;src_molgraph)</td></tr>
-<tr class="memdesc:ae5a96aeff796ddcb3f8ab570be0352fb inherit pro_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes all registered copy-postprocessing functions on this molecule with <em>src_molgraph</em> as the source.  <a href="classCDPL_1_1Chem_1_1Molecule.html#ae5a96aeff796ddcb3f8ab570be0352fb">More...</a><br /></td></tr>
+<tr class="memdesc:ae5a96aeff796ddcb3f8ab570be0352fb inherit pro_methods_classCDPL_1_1Chem_1_1Molecule"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes all registered copy postprocessing functions on this molecule with <em>src_molgraph</em> as the source molecular graph.  <a href="classCDPL_1_1Chem_1_1Molecule.html#ae5a96aeff796ddcb3f8ab570be0352fb">More...</a><br /></td></tr>
 <tr class="separator:ae5a96aeff796ddcb3f8ab570be0352fb inherit pro_methods_classCDPL_1_1Chem_1_1Molecule"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCDPL_1_1Chem_1_1MolecularGraph')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">CDPL::Chem::MolecularGraph</a></td></tr>
 <tr class="memitem:adf57d010f784ef81699912e64c7455f4 inherit pro_methods_classCDPL_1_1Chem_1_1MolecularGraph"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#adf57d010f784ef81699912e64c7455f4">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
@@ -569,8 +569,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a5fd07d7cbd45c75781ca38a52e51a5c7 inherit pro_methods_classCDPL_1_1Base_1_1PropertyContainer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Concrete <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> implementation that owns <a class="el" href="classCDPL_1_1Chem_1_1BasicAtom.html" title="Default implementation of the Chem::Atom interface.">Chem::BasicAtom</a> and <a class="el" href="classCDPL_1_1Chem_1_1BasicBond.html" title="Default implementation of the Chem::Bond interface.">Chem::BasicBond</a> instances. </p>
-<p><code>BasicMolecule</code> provides the default in-memory representation of a molecular graph: atoms and bonds are allocated from internal object pools and accessed through random-access iterators. The class implements the full editing interface inherited from <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> (addAtom, addBond, removeAtom, removeBond, copy, append, remove, reserveMemoryForAtoms, reserveMemoryForBonds) and is the standard concrete type used by readers and downstream algorithms throughout CDPKit. </p>
+<div class="textblock"><p>Concrete <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a> implementation that owns <a class="el" href="classCDPL_1_1Chem_1_1BasicAtom.html" title="Default implementation of the Chem::Atom interface.">Chem::BasicAtom</a> and <a class="el" href="classCDPL_1_1Chem_1_1BasicBond.html" title="Default implementation of the Chem::Bond interface.">Chem::BasicBond</a> instances. </p>
+<p><code>BasicMolecule</code> provides the default in-memory representation of a molecular graph: atoms and bonds are allocated from internal object pools and accessed through random-access iterators. The class implements the full editing interface inherited from <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a> (addAtom, addBond, removeAtom, removeBond, copy, append, remove, reserveMemoryForAtoms, reserveMemoryForBonds) and is the standard concrete type used by readers and downstream algorithms throughout the <em>CDPL</em>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a1bee85dcdf1da786ba12f0747463c3b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bee85dcdf1da786ba12f0747463c3b8">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -714,10 +714,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> instance <em>mol</em>. </p>
+<p>Constructs a copy of the <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a> instance <em>mol</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The other <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns its atoms and bonds.">Chem::Molecule</a> instance to copy. </td></tr>
+    <tr><td class="paramname">mol</td><td>The other <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a> instance to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -748,10 +748,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a <code>BasicMolecule</code> instance with copies of the atoms and bonds of the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance <em>molgraph</em>. </p>
+<p>Constructs a <code>BasicMolecule</code> instance with copies of the atoms and bonds of the <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for data structures that represent chemical structures as molecular graphs.">Chem::MolecularGraph</a> instance <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance providing the atoms and bonds to copy. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for data structures that represent chemical structures as molecular graphs.">Chem::MolecularGraph</a> instance providing the atoms and bonds to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -802,7 +802,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes all atoms, bonds, and properties of the molecule. </p>
+<p>Removes all atoms and bonds and clears all properties of the molecule. </p>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#aa29d101ecc1c9e9cfc9c1ba427cbcfc1">CDPL::Chem::Molecule</a>.</p>
 
@@ -831,10 +831,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of atoms in the molecule. </p>
-<dl class="section return"><dt>Returns</dt><dd>The atom count. </dd></dl>
+<p>Returns the number of atoms. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of atoms. </dd></dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a730b96046cecd04afe238933ae6b294e">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a0ae11156c2d8e0eff18f89bdf3656f73">CDPL::Chem::AtomContainer</a>.</p>
 
 </div>
 </div>
@@ -861,10 +861,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of bonds in the molecule. </p>
-<dl class="section return"><dt>Returns</dt><dd>The bond count. </dd></dl>
+<p>Returns the number of bonds. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of bonds. </dd></dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a9a538ac62713e79de71f441cc1d4f9e8">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a1b8f08b6f830b027dc52fca24f9ec316">CDPL::Chem::BondContainer</a>.</p>
 
 </div>
 </div>
@@ -1055,19 +1055,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns a <code>const</code> reference to the atom at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based atom index. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based index of the atom to return. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the atom. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the atom at the specified index. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms in the molecule.">getNumAtoms()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms.">getNumAtoms()</a>). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a97f7c12548e5ddc76a1427e4cbf952d2">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a3f251aebd461d2dfa4b52e8f4b3a814c">CDPL::Chem::AtomContainer</a>.</p>
 
 </div>
 </div>
@@ -1095,22 +1095,22 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable reference to the atom at index <em>idx</em>. </p>
+<p>Returns a non-<code>const</code> reference to the atom at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based atom index. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based index of the atom to return. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A mutable reference to the atom. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the atom at the specified index. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms in the molecule.">getNumAtoms()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms.">getNumAtoms()</a>). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a938fbb3eb13101844bc23d7cc396a9c7">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a30720446a2dca4ca292513480b7a38ef">CDPL::Chem::AtomContainer</a>.</p>
 
 </div>
 </div>
@@ -1137,8 +1137,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates and appends a new atom and returns a reference to it. </p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the newly added atom. </dd></dl>
+<p>Creates a new atom and adds it to the molecule. </p>
+<p>Note that this method does not create any bonds - the returned atom is always unconnected.</p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the newly created atom. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#af0288e06197269bd4ea561ac2d33dbdd">CDPL::Chem::Molecule</a>.</p>
 
@@ -1168,16 +1169,17 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the atom at index <em>idx</em> (along with any incident bonds). </p>
+<p>Removes the atom at the specified index. </p>
+<p>If the specified atom is connected to any other atoms of the molecule then the connecting bonds will also be removed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based atom index. </td></tr>
+    <tr><td class="paramname">idx</td><td>The index of the atom to remove. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms in the molecule.">getNumAtoms()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms.">getNumAtoms()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1203,7 +1205,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Removes the atom specified by the iterator <em>it</em>. </p>
-<p>If the specified atom is connected to any other atoms of the molecule, the connecting bonds will also be removed.</p>
+<p>If the specified atom is connected to any other atoms of the molecule then the connecting bonds will also be removed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">it</td><td>An iterator that specifies the atom to remove. </td></tr>
@@ -1247,19 +1249,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns a <code>const</code> reference to the bond at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based bond index. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based index of the bond to return. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the bond. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the bond at the specified index. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324" title="Returns the number of bonds in the molecule.">getNumBonds()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324" title="Returns the number of bonds.">getNumBonds()</a>). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a18e37108cfd2fc69390d56a7fea92509">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#ab89019cd35242e7ac4034c0e71ae202c">CDPL::Chem::BondContainer</a>.</p>
 
 </div>
 </div>
@@ -1287,22 +1289,22 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable reference to the bond at index <em>idx</em>. </p>
+<p>Returns a non-<code>const</code> reference to the bond at index <em>idx</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based bond index. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based index of the bond to return. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A mutable reference to the bond. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the bond at the specified index. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324" title="Returns the number of bonds in the molecule.">getNumBonds()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324" title="Returns the number of bonds.">getNumBonds()</a>). </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a347ce748e0799b80c803ce74206a4c2b">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a795c3c6579e207d2669925bd30ed9534">CDPL::Chem::BondContainer</a>.</p>
 
 </div>
 </div>
@@ -1340,18 +1342,19 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a new bond between the atoms at indices <em>atom1_idx</em> and <em>atom2_idx</em> and returns a reference to it. </p>
+<p>Creates a new or returns an already existing bond between the atoms specified by <em>atom1_idx</em> and <em>atom2_idx</em>. </p>
+<p>If a bond between the specified atoms already exists then the existing bond will be returned. If a bond does not yet exist, a new bond will be created. The atom specified by <em>atom1_idx</em> becomes the start atom and the atom specified by <em>atom2_idx</em> the end atom of the newly created bond.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">atom1_idx</td><td>The zero-based index of the first end atom. </td></tr>
-    <tr><td class="paramname">atom2_idx</td><td>The zero-based index of the second end atom. </td></tr>
+    <tr><td class="paramname">atom1_idx</td><td>The zero-based index of the first atom of the bond. </td></tr>
+    <tr><td class="paramname">atom2_idx</td><td>The zero-based index of the second atom of the bond. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the newly added bond. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the newly created or already existing bond between the specified atoms. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if either index is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms in the molecule.">getNumAtoms()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>atom1_idx</em> and/or <em>atom2_idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a7f1e06b6ba1aa5cb7d057eb06138c773" title="Returns the number of atoms.">getNumAtoms()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1384,16 +1387,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the bond at index <em>idx</em>. </p>
+<p>Removes the bond at the specified index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">idx</td><td>The zero-based bond index. </td></tr>
+    <tr><td class="paramname">idx</td><td>The zero-based index of the bond to remove. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not less than <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324" title="Returns the number of bonds in the molecule.">getNumBonds()</a>. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a8d57a3ba4aad7971b674add1b5ea4324" title="Returns the number of bonds.">getNumBonds()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -1459,16 +1462,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether <em>atom</em> is part of this molecule. </p>
+<p>Tells whether the specified atom is part of the atom sequence. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">atom</td><td>The atom to look up. </td></tr>
+    <tr><td class="paramname">atom</td><td>The atom to look for. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>atom</em> is in the molecule, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>atom</em> is part of the sequence, and <code>false</code> otherwise. </dd></dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a0145131205f8bd07eff29537ec22d633">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a49b567dd695c3416309ab8696abde4e2">CDPL::Chem::AtomContainer</a>.</p>
 
 </div>
 </div>
@@ -1496,16 +1499,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether <em>bond</em> is part of this molecule. </p>
+<p>Tells whether the specified bond is part of the bond sequence. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bond</td><td>The bond to look up. </td></tr>
+    <tr><td class="paramname">bond</td><td>The bond to look for. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>bond</em> is in the molecule, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>bond</em> is part of the sequence, and <code>false</code> otherwise. </dd></dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a2be29b5b9953b05d6ca6e41daf844a43">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#a27e28f6df29ccc821881f0b243eb4364">CDPL::Chem::BondContainer</a>.</p>
 
 </div>
 </div>
@@ -1533,22 +1536,22 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the index of atom <em>atom</em> in this molecule. </p>
+<p>Returns the index of the specified atom. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">atom</td><td>The atom to look up. </td></tr>
+    <tr><td class="paramname">atom</td><td>The atom for which to return the index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The zero-based atom index. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The zero-based index of the specified atom. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a></td><td>if <em>atom</em> is not part of the molecule. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a></td><td>if the specified atom could not be found. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#ad8c8843c661962ba5ba3f025393a88f3">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1AtomContainer.html#a30b974535a1ad5190702158372133849">CDPL::Chem::AtomContainer</a>.</p>
 
 </div>
 </div>
@@ -1576,22 +1579,22 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the index of bond <em>bond</em> in this molecule. </p>
+<p>Returns the index of the specified bond. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bond</td><td>The bond to look up. </td></tr>
+    <tr><td class="paramname">bond</td><td>The bond for which to return the index. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The zero-based bond index. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The zero-based index of the specified bond. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a></td><td>if <em>bond</em> is not part of the molecule. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a></td><td>if the specified bond could not be found. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a3516e00a1c91c1d2b88dccf276f2d2c7">CDPL::Chem::Molecule</a>.</p>
+<p>Implements <a class="el" href="classCDPL_1_1Chem_1_1BondContainer.html#ae445182358ee37e50b06d4b0eaf493c1">CDPL::Chem::BondContainer</a>.</p>
 
 </div>
 </div>
@@ -1619,10 +1622,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reorders the atom list using the binary comparator <em>func</em>. </p>
+<p>Orders the atoms according to criteria implemented by the provided atom comparison function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The strict-weak-ordering comparator used to sort the atoms. </td></tr>
+    <tr><td class="paramname">func</td><td>The atom comparison function implementing the applied ordering criteria. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1655,10 +1658,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reorders the bond list using the binary comparator <em>func</em>. </p>
+<p>Orders the bonds according to criteria implemented by the provided bond comparison function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The strict-weak-ordering comparator used to sort the bonds. </td></tr>
+    <tr><td class="paramname">func</td><td>The bond comparison function implementing the applied ordering criteria. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1746,8 +1749,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a deep copy of the molecule. </p>
-<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the cloned molecule. </dd></dl>
+<p>Creates a deep copy of the molecular graph. </p>
+<dl class="section return"><dt>Returns</dt><dd>A smart pointer to the copy of the molecular graph. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a81a9f225f63e8a51d1a60b5be058fa60">CDPL::Chem::MolecularGraph</a>.</p>
 
@@ -1803,10 +1806,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Replaces the current set of atoms, bonds and properties by a copy of <em>mol</em>. </p>
+<p>Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecule <em>mol</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The source molecule. </td></tr>
+    <tr><td class="paramname">mol</td><td>The molecule to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1839,10 +1842,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Replaces the current set of atoms, bonds and properties by a copy of <em>molgraph</em>. </p>
+<p>Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties of the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The source molecular graph. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The molecular graph providing the atoms, bonds and properties to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1902,10 +1905,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Extends the current set of atoms and bonds by a copy of those in <em>mol</em>. </p>
+<p>Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecule <em>mol</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mol</td><td>The source molecule. </td></tr>
+    <tr><td class="paramname">mol</td><td>The molecule providing the atoms and bonds to append. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1939,10 +1942,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Extends the current set of atoms and bonds by a copy of those in <em>molgraph</em>. </p>
+<p>Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecular graph <em>molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The source molecular graph. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The molecular graph providing the atoms and bonds to append. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1976,13 +1979,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the atoms and bonds of <em>molgraph</em> from this molecule. </p>
+<p>Removes atoms and bonds referenced by the molecular graph <em>molgraph</em> that are part of this <code>Molecule</code> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph specifying the atoms and bonds to remove. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Does not affect any properties if <code>this != &amp;molgraph</code>. </dd></dl>
 
 <p>Implements <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html#a1a50fb847f5961d94eaa256f6ae7da51">CDPL::Chem::Molecule</a>.</p>
 
@@ -2012,10 +2016,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reserves storage for at least <em>num_atoms</em> atoms to avoid reallocations on subsequent additions. </p>
+<p>Reserves memory for <em>num_atoms</em> atoms. </p>
+<p>Allows implementors to speed up the creation of molecules with a known large number of atoms.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">num_atoms</td><td>The minimum number of atoms to accommodate. </td></tr>
+    <tr><td class="paramname">num_atoms</td><td>The expected number of atoms for which memory shall be allocated in advance. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2048,10 +2053,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reserves storage for at least <em>num_bonds</em> bonds to avoid reallocations on subsequent additions. </p>
+<p>Reserves memory for <em>num_bonds</em> bonds. </p>
+<p>Allows implementors to speed up the creation of molecules with a known large number of bonds.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">num_bonds</td><td>The minimum number of bonds to accommodate. </td></tr>
+    <tr><td class="paramname">num_bonds</td><td>The expected number of bonds for which memory shall be allocated in advance. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2100,7 +2106,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Internally calls <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#a9088a2cb07d629328c736cb2aeadca46" title="Replaces the current set of atoms, bonds and properties by a copy of the atoms, bonds and properties ...">copy()</a> to perform the actual work.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance providing the atoms and bonds to copy. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for data structures that represent chemical structures as molecular graphs.">Chem::MolecularGraph</a> instance providing the atoms and bonds to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2148,7 +2154,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Internally calls <a class="el" href="classCDPL_1_1Chem_1_1BasicMolecule.html#af9cc38c35040086ce23b7ab3930152ce" title="Extends the current set of atoms and bonds by a copy of the atoms and bonds in the molecule mol.">append()</a> to perform the actual work.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">molgraph</td><td>The <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for representations of a chemical structure as a graph of bonded atoms.">Chem::MolecularGraph</a> instance providing the atoms and bonds to append. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html" title="Abstract base class for data structures that represent chemical structures as molecular graphs.">Chem::MolecularGraph</a> instance providing the atoms and bonds to append. </td></tr>
   </table>
   </dd>
 </dl>
