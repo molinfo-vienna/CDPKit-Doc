@@ -299,7 +299,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract base class for chemical reactions composed of role-tagged reaction components of type <a class="el" href="classCDPL_1_1Chem_1_1Molecule.html" title="Abstract base class representing a mutable molecular graph that owns and manages its atoms and bonds.">Chem::Molecule</a>. </p>
-<p>Each component carries a reaction role that is specified by one of the constants declared in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>. Reaction roles divide the components into three differents subsets: reactant, agents/catalysts and products. For component management/access the methods <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#af12a9c9142739700fdf69ac0d8c1db2a" title="Returns the reaction role of the specified component.">getComponentRole()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a2e1180f1bc954c14955ea5e816bfd2f6" title="Returns the total number of reaction components.">getNumComponents()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a70232e6469a4ec8d73ec4c48c8dcae3a" title="Returns a const reference to the reaction component at index idx.">getComponent()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a7051bcbf820cbe0fa29dda588fc55b5d" title="Returns a mutable iterator pointing to the beginning of the reaction components.">getComponentsBegin()</a> and <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#aafb901b5c18556e9f84c331db0ae671b" title="Returns a mutable iterator pointing to the end of the reaction components.">getComponentsEnd()</a> are available. For reaction editing the methods <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#acd39c2b7dc1d7660e60d9b41196f7c04" title="Creates a new reaction component with the specified role.">addComponent()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a2e99812031a8ef379757b040ad665b16" title="Removes the reaction component at the specified index.">removeComponent()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a4f5da73049a7b80a1ca1e10067c560df" title="Swaps the reaction roles of the component sets specified by role1 and role2.">swapComponentRoles()</a> and <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a335a59bafb247312f52b5903ea76b5dd" title="Removes all components and clears all properties of the reaction.">clear()</a>. Reaction properties can be stored/retrieved via methods inherited from <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html" title="Base class providing methods for the storage and lookup of object properties.">Base::PropertyContainer</a>. </p>
+<p>Each component carries a reaction role that is specified by one of the constants declared in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>. Reaction roles divide the components into three different subsets: reactants, agents/catalysts and products. For component management/access the methods <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#af12a9c9142739700fdf69ac0d8c1db2a" title="Returns the reaction role of the specified component.">getComponentRole()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a2e1180f1bc954c14955ea5e816bfd2f6" title="Returns the total number of reaction components.">getNumComponents()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a70232e6469a4ec8d73ec4c48c8dcae3a" title="Returns a const reference to the reaction component at index idx.">getComponent()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a7051bcbf820cbe0fa29dda588fc55b5d" title="Returns a mutable iterator pointing to the beginning of the reaction components.">getComponentsBegin()</a> and <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#aafb901b5c18556e9f84c331db0ae671b" title="Returns a mutable iterator pointing to the end of the reaction components.">getComponentsEnd()</a> are available. For reaction editing the methods <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#acd39c2b7dc1d7660e60d9b41196f7c04" title="Creates a new reaction component with the specified role.">addComponent()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a2e99812031a8ef379757b040ad665b16" title="Removes the reaction component at the specified index.">removeComponent()</a>, <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a4f5da73049a7b80a1ca1e10067c560df" title="Swaps the reaction roles of the component sets specified by role1 and role2.">swapComponentRoles()</a> and <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#a335a59bafb247312f52b5903ea76b5dd" title="Removes all components and clears all properties of the reaction.">clear()</a>. The method <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html#aafc0e559b9fbc7aca96201de8367ba02" title="Creates a deep copy of the current reaction state.">clone()</a> allows the creation of polymorphic deep copies and reaction properties can be stored/retrieved via the methods of the <a class="el" href="classCDPL_1_1Base_1_1PropertyContainer.html" title="Base class providing methods for the storage and lookup of object properties.">Base::PropertyContainer</a> base class. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a44418819b40175d1557e73016dd4d864"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44418819b40175d1557e73016dd4d864">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -481,7 +481,7 @@ Protected Member Functions</h2></td></tr>
 <p>Returns the number of reaction components with the specified role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag that specifies the reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -529,7 +529,7 @@ Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A flag that specifies the reaction role of the component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The reaction role of the component (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1BasicReaction.html#a73fa3c786c148130714eef2681ec9049">CDPL::Chem::BasicReaction</a>.</p>
 
@@ -794,7 +794,7 @@ Protected Member Functions</h2></td></tr>
 <p>Returns a constant iterator pointing to the beginning of the reaction components with the specified role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag that specifies the reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -827,7 +827,7 @@ Protected Member Functions</h2></td></tr>
 <p>Returns a mutable iterator pointing to the beginning of the reaction components with the specified role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag that specifies the reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -860,7 +860,7 @@ Protected Member Functions</h2></td></tr>
 <p>Returns a constant iterator pointing to the end of the reaction components with the specified role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag that specifies the reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -893,7 +893,7 @@ Protected Member Functions</h2></td></tr>
 <p>Returns a mutable iterator pointing to the end of the reaction components with the specified role. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">role</td><td>A flag that specifies the reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
+    <tr><td class="paramname">role</td><td>The reaction role (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). </td></tr>
   </table>
   </dd>
 </dl>
