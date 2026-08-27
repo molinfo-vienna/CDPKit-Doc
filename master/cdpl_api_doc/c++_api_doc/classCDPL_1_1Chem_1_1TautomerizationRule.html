@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Abstract base class for all tautomerization rule implementations used by the <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html" title="Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of Chem::Tau...">Chem::TautomerGenerator</a>.  
+<p>Abstract base class for tautomerization rule implementations employed by the <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html" title="Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of Chem::Tau...">Chem::TautomerGenerator</a> class.  
  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="TautomerizationRule_8hpp_source.html">TautomerizationRule.hpp</a>&gt;</code></p>
@@ -108,20 +108,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a14b3ecfbbf47d63cde33e52ec7c15d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a14b3ecfbbf47d63cde33e52ec7c15d4f">More...</a><br /></td></tr>
 <tr class="separator:a14b3ecfbbf47d63cde33e52ec7c15d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d392754355f9dbd85da4fb3fef25b43"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a5d392754355f9dbd85da4fb3fef25b43">setup</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;parent_molgraph)=0</td></tr>
-<tr class="memdesc:a5d392754355f9dbd85da4fb3fef25b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parent molecular graph for which the rule is to enumerate tautomers.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a5d392754355f9dbd85da4fb3fef25b43">More...</a><br /></td></tr>
+<tr class="memdesc:a5d392754355f9dbd85da4fb3fef25b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs rule-specific setup work for the given molecular graph that shall be tautomerized.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a5d392754355f9dbd85da4fb3fef25b43">More...</a><br /></td></tr>
 <tr class="separator:a5d392754355f9dbd85da4fb3fef25b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d45adef02f674d332c59b6ad801810e"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a3d45adef02f674d332c59b6ad801810e">getID</a> () const =0</td></tr>
-<tr class="memdesc:a3d45adef02f674d332c59b6ad801810e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the rule's identifier (see <a class="el" href="namespaceCDPL_1_1Chem_1_1TautomerizationType.html" title="Provides constants serving as identifiers for built-in Chem::TautomerizationRule implementations.">Chem::TautomerizationType</a>).  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a3d45adef02f674d332c59b6ad801810e">More...</a><br /></td></tr>
+<tr class="memdesc:a3d45adef02f674d332c59b6ad801810e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the rule identifier.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a3d45adef02f674d332c59b6ad801810e">More...</a><br /></td></tr>
 <tr class="separator:a3d45adef02f674d332c59b6ad801810e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb06f8ba5c77e1d20ce766ffd1d2443"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a3fb06f8ba5c77e1d20ce766ffd1d2443">generate</a> (<a class="el" href="classCDPL_1_1Chem_1_1Molecule.html">Molecule</a> &amp;tautomer)=0</td></tr>
-<tr class="memdesc:a3fb06f8ba5c77e1d20ce766ffd1d2443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the next tautomer.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a3fb06f8ba5c77e1d20ce766ffd1d2443">More...</a><br /></td></tr>
+<tr class="memdesc:a3fb06f8ba5c77e1d20ce766ffd1d2443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the next tautomer of the parent molecular graph and stores it in <em>molecule</em>.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a3fb06f8ba5c77e1d20ce766ffd1d2443">More...</a><br /></td></tr>
 <tr class="separator:a3fb06f8ba5c77e1d20ce766ffd1d2443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bcde7feed518f5ae13d40cdacf9f342"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a271ab950067173e1414cbb8e37d841a8">SharedPointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a8bcde7feed518f5ae13d40cdacf9f342">clone</a> () const =0</td></tr>
 <tr class="memdesc:a8bcde7feed518f5ae13d40cdacf9f342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a deep copy of this rule instance.  <a href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a8bcde7feed518f5ae13d40cdacf9f342">More...</a><br /></td></tr>
 <tr class="separator:a8bcde7feed518f5ae13d40cdacf9f342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Abstract base class for all tautomerization rule implementations used by the <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html" title="Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of Chem::Tau...">Chem::TautomerGenerator</a>. </p>
+<div class="textblock"><p>Abstract base class for tautomerization rule implementations employed by the <a class="el" href="classCDPL_1_1Chem_1_1TautomerGenerator.html" title="Enumerates the tautomers of a molecular graph by iteratively applying a configurable set of Chem::Tau...">Chem::TautomerGenerator</a> class. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a271ab950067173e1414cbb8e37d841a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a271ab950067173e1414cbb8e37d841a8">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -192,14 +192,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the parent molecular graph for which the rule is to enumerate tautomers. </p>
+<p>Performs rule-specific setup work for the given molecular graph that shall be tautomerized. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parent_molgraph</td><td>The molecular graph to be tautomerized. </td></tr>
+    <tr><td class="paramname">parent_molgraph</td><td>The molecular graph to tautomerize. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the rule applies to <em>parent_molgraph</em> and the iteration has been initialized, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the rule can be applied to <em>parent_molgraph</em> and has been initialized, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a7dbd6e208a2e6c01359183bfe8ed4e45">CDPL::Chem::PatternBasedTautomerizationRule</a>, and <a class="el" href="classCDPL_1_1Chem_1_1ConjugatedRingBondPatternSwitching.html#a2e8a4a4881fee417fc2eefb70073298f">CDPL::Chem::ConjugatedRingBondPatternSwitching</a>.</p>
 
@@ -228,8 +228,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the rule's identifier (see <a class="el" href="namespaceCDPL_1_1Chem_1_1TautomerizationType.html" title="Provides constants serving as identifiers for built-in Chem::TautomerizationRule implementations.">Chem::TautomerizationType</a>). </p>
-<dl class="section return"><dt>Returns</dt><dd>The rule identifier. </dd></dl>
+<p>Returns the rule identifier. </p>
+<dl class="section return"><dt>Returns</dt><dd>The rule identifier (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1TautomerizationType.html" title="Provides constants serving as numeric identifiers for built-in Chem::TautomerizationRule implementati...">Chem::TautomerizationType</a> for IDs of built-in rules). </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#a63897a023f5c58239912c30955d53cd7">CDPL::Chem::PatternBasedTautomerizationRule</a>, and <a class="el" href="classCDPL_1_1Chem_1_1ConjugatedRingBondPatternSwitching.html#a70b6ab6e6fad2fe4f794179549d3162c">CDPL::Chem::ConjugatedRingBondPatternSwitching</a>.</p>
 
@@ -259,14 +259,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates the next tautomer. </p>
+<p>Generates the next tautomer of the parent molecular graph and stores it in <em>molecule</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tautomer</td><td>The tautomer output molecule object. </td></tr>
+    <tr><td class="paramname">tautomer</td><td>The tautomer output molecule. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a tautomer was generated, <code>false</code> if no more tautomers are available. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if a tautomer was generated, <code>false</code> if no more tautomers could be generated. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1TautomerizationRule.html#a5d392754355f9dbd85da4fb3fef25b43" title="Performs rule-specific setup work for the given molecular graph that shall be tautomerized.">setup()</a> </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1PatternBasedTautomerizationRule.html#ae9369ee792e620a1b5c97163fe15843f">CDPL::Chem::PatternBasedTautomerizationRule</a>, and <a class="el" href="classCDPL_1_1Chem_1_1ConjugatedRingBondPatternSwitching.html#aa58e86d9db38af8241ab1cc62a396998">CDPL::Chem::ConjugatedRingBondPatternSwitching</a>.</p>
 
