@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Abstract base interface for processors that detect and assemble multi-conformer molecules from a stream of successive single-conformer input molecules.  
+<p>Abstract base for classes that detect and assemble multi-conformer molecules from a stream of successive single-conformer input molecules.  
  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MultiConfMoleculeInputProcessor_8hpp_source.html">MultiConfMoleculeInputProcessor.hpp</a>&gt;</code></p>
@@ -99,7 +99,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a7ae9089ce90678f9f1d27ae98bcf14a4"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html">MultiConfMoleculeInputProcessor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a7ae9089ce90678f9f1d27ae98bcf14a4">SharedPointer</a></td></tr>
-<tr class="memdesc:a7ae9089ce90678f9f1d27ae98bcf14a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MultiConfMoleculeInputProcessor</code> implementations.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a7ae9089ce90678f9f1d27ae98bcf14a4">More...</a><br /></td></tr>
+<tr class="memdesc:a7ae9089ce90678f9f1d27ae98bcf14a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MultiConfMoleculeInputProcessor</code> instances.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a7ae9089ce90678f9f1d27ae98bcf14a4">More...</a><br /></td></tr>
 <tr class="separator:a7ae9089ce90678f9f1d27ae98bcf14a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -108,17 +108,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a111332254b7ea29ac4440621b3dc5f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a111332254b7ea29ac4440621b3dc5f51">More...</a><br /></td></tr>
 <tr class="separator:a111332254b7ea29ac4440621b3dc5f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9467d30673f309f75dbc6665f2a22f4e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a9467d30673f309f75dbc6665f2a22f4e">init</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;tgt_molgraph) const =0</td></tr>
-<tr class="memdesc:a9467d30673f309f75dbc6665f2a22f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs initial tests and necessary setup tasks for a newly read-in potential multi-conformer molecule.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a9467d30673f309f75dbc6665f2a22f4e">More...</a><br /></td></tr>
+<tr class="memdesc:a9467d30673f309f75dbc6665f2a22f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs initial tests and setup tasks for <em>tgt_molgraph</em> as the new conformer collection target.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a9467d30673f309f75dbc6665f2a22f4e">More...</a><br /></td></tr>
 <tr class="separator:a9467d30673f309f75dbc6665f2a22f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa77def04b92938103cc27176e3fe5ab9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#aa77def04b92938103cc27176e3fe5ab9">isConformation</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;tgt_molgraph, <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;conf_molgraph) const =0</td></tr>
-<tr class="memdesc:aa77def04b92938103cc27176e3fe5ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <em>conf_molgraph</em> represents a conformation of <em>tgt_molgraph</em>.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#aa77def04b92938103cc27176e3fe5ab9">More...</a><br /></td></tr>
+<tr class="memdesc:aa77def04b92938103cc27176e3fe5ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether <em>conf_molgraph</em> is a conformer of the conformer collection target <em>tgt_molgraph</em>.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#aa77def04b92938103cc27176e3fe5ab9">More...</a><br /></td></tr>
 <tr class="separator:aa77def04b92938103cc27176e3fe5ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d15e9e180b3b1d992cca26b1e690cf4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a0d15e9e180b3b1d992cca26b1e690cf4">addConformation</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;tgt_molgraph, <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;conf_molgraph) const =0</td></tr>
-<tr class="memdesc:a0d15e9e180b3b1d992cca26b1e690cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to append a new conformation to the list of previously read-in conformers of <em>tgt_molgraph</em>.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a0d15e9e180b3b1d992cca26b1e690cf4">More...</a><br /></td></tr>
+<tr class="memdesc:a0d15e9e180b3b1d992cca26b1e690cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the set of atom 3D coordinates of <em>conf_molgraph</em> as a new conformer to <em>tgt_molgraph</em>.  <a href="classCDPL_1_1Chem_1_1MultiConfMoleculeInputProcessor.html#a0d15e9e180b3b1d992cca26b1e690cf4">More...</a><br /></td></tr>
 <tr class="separator:a0d15e9e180b3b1d992cca26b1e690cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Abstract base interface for processors that detect and assemble multi-conformer molecules from a stream of successive single-conformer input molecules. </p>
+<div class="textblock"><p>Abstract base for classes that detect and assemble multi-conformer molecules from a stream of successive single-conformer input molecules. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a7ae9089ce90678f9f1d27ae98bcf14a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ae9089ce90678f9f1d27ae98bcf14a4">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -132,7 +132,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MultiConfMoleculeInputProcessor</code> implementations. </p>
+<p>A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>MultiConfMoleculeInputProcessor</code> instances. </p>
 
 </div>
 </div>
@@ -190,14 +190,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Performs initial tests and necessary setup tasks for a newly read-in potential multi-conformer molecule. </p>
+<p>Performs initial tests and setup tasks for <em>tgt_molgraph</em> as the new conformer collection target. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tgt_molgraph</td><td>The concerned part of the read-in molecule that stores the conformations. </td></tr>
+    <tr><td class="paramname">tgt_molgraph</td><td>The molecular graph that will store the read conformers. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>tgt_molgraph</em> is a possible multi-conformer molecule, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>tgt_molgraph</em> fulfills all prerequisites and was successfully initialized, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1DefaultMultiConfMoleculeInputProcessor.html#a8807c8096dde4e50021b27f43ae19d09">CDPL::Chem::DefaultMultiConfMoleculeInputProcessor</a>.</p>
 
@@ -237,15 +237,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if <em>conf_molgraph</em> represents a conformation of <em>tgt_molgraph</em>. </p>
+<p>Tells whether <em>conf_molgraph</em> is a conformer of the conformer collection target <em>tgt_molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tgt_molgraph</td><td>The molecular graph for which to check if <em>conf_molgraph</em> represents a new conformation. </td></tr>
-    <tr><td class="paramname">conf_molgraph</td><td>A molecular graph representing a possible conformation of <em>tgt_molgraph</em>. </td></tr>
+    <tr><td class="paramname">tgt_molgraph</td><td>The conformer collection target. </td></tr>
+    <tr><td class="paramname">conf_molgraph</td><td>The molecular graph representing the conformer to check. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>false</code> if <em>conf_molgraph</em> does not represent a conformer of <em>tgt_molgraph</em>, and <code>true</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if <em>conf_molgraph</em> could be identified as a conformer of tgt_molgraph, and <code>false</code> otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1DefaultMultiConfMoleculeInputProcessor.html#ade82297bf8c8f78effd5aed3dd16b2f5">CDPL::Chem::DefaultMultiConfMoleculeInputProcessor</a>.</p>
 
@@ -285,15 +285,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tries to append a new conformation to the list of previously read-in conformers of <em>tgt_molgraph</em>. </p>
+<p>Adds the set of atom 3D coordinates of <em>conf_molgraph</em> as a new conformer to <em>tgt_molgraph</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tgt_molgraph</td><td>The concerned part of target molecule that stores the read-in conformations. </td></tr>
-    <tr><td class="paramname">conf_molgraph</td><td>A molecular graph storing the conformation to append. </td></tr>
+    <tr><td class="paramname">tgt_molgraph</td><td>The conformer collection target. </td></tr>
+    <tr><td class="paramname">conf_molgraph</td><td>The molecular graph representing the conformer to add. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>false</code> if <em>conf_molgraph</em> does not represent a conformer of <em>tgt_molgraph</em>, and <code>true</code> if the new conformation was successfully appended. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the conformer was added, and <code>false</code> if the addition failed. </dd></dl>
 
 <p>Implemented in <a class="el" href="classCDPL_1_1Chem_1_1DefaultMultiConfMoleculeInputProcessor.html#a0b074ab65b15a4e388ce61698514de16">CDPL::Chem::DefaultMultiConfMoleculeInputProcessor</a>.</p>
 
