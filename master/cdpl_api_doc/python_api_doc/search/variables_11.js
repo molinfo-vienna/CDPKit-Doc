@@ -2,7 +2,7 @@ var searchData=
 [
   ['q_11924',['Q',['../classCDPL_1_1Chem_1_1AtomType.html#a51b48e8136ba57c0e984f606eab28332',1,'CDPL::Chem::AtomType']]],
   ['qh_11925',['QH',['../classCDPL_1_1Chem_1_1AtomType.html#abbcf5254acaae3645c382749f8fa8188',1,'CDPL::Chem::AtomType']]],
-  ['quarternary_5fn_11926',['QUARTERNARY_N',['../classCDPL_1_1Chem_1_1RECAPRuleID.html#a6785abdc714ab07d6301a7fbb93d377d',1,'CDPL::Chem::RECAPRuleID']]],
-  ['quarternary_5fn_5fc_11927',['QUARTERNARY_N_C',['../classCDPL_1_1Chem_1_1RECAPAtomLabel.html#a515226285a9133568d960d8d2482f8cc',1,'CDPL::Chem::RECAPAtomLabel']]],
-  ['quarternary_5fn_5fn_11928',['QUARTERNARY_N_N',['../classCDPL_1_1Chem_1_1RECAPAtomLabel.html#aec060a91fbf5fd91278932c85a3592c4',1,'CDPL::Chem::RECAPAtomLabel']]]
+  ['quaternary_5fn_11926',['QUATERNARY_N',['../classCDPL_1_1Chem_1_1RECAPRuleID.html#ae3612c8d5ddb0c408c317568b7141380',1,'CDPL::Chem::RECAPRuleID']]],
+  ['quaternary_5fn_5fc_11927',['QUATERNARY_N_C',['../classCDPL_1_1Chem_1_1RECAPAtomLabel.html#a9a90606d7694b12ba90edfa89ae81702',1,'CDPL::Chem::RECAPAtomLabel']]],
+  ['quaternary_5fn_5fn_11928',['QUATERNARY_N_N',['../classCDPL_1_1Chem_1_1RECAPAtomLabel.html#a4d6af580511ac4f39965d8e77e401d90',1,'CDPL::Chem::RECAPAtomLabel']]]
 ];
