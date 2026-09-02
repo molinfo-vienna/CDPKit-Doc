@@ -113,7 +113,7 @@ Friends</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Perceives bond orders of a molecular graph from its 3D structure and atom connectivity. </p>
-<p>The calculator combines per-atom geometry analysis (linear, trigonal-planar, tetrahedral, ...), functional-group substructure matching, conjugated &pi;-system detection, and free-valence accounting to assign single, double, or triple bonds. By default only bonds whose order is currently undefined are assigned; this can be toggled via <a class="el" href="classCDPL_1_1Chem_1_1BondOrderCalculator.html#a533fd56637dc627b39968ded11a0247b" title="Allows to specify whether already defined bond orders should be left unchanged.">undefinedOnly()</a>. </p>
+<p>The calculator combines per-atom geometry analysis (linear, trigonal-planar, tetrahedral, ...), functional group substructure matching, conjugated &pi;-system detection, and free valence accounting to assign single, double, or triple bonds. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa06c0040f97ae245134ff7965b6ac95f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa06c0040f97ae245134ff7965b6ac95f">&#9670;&nbsp;</a></span>BondOrderCalculator() <span class="overload">[1/2]</span></h2>
@@ -167,10 +167,11 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs the <code>BondOrderCalculator</code> instance and perceives the order of the bonds in the molecular graph <em>molgraph</em>. </p>
+<p>The orders are stored in the same sequence as the bonds appear in the bond list of the molecular graph so that the order of a particular bond is accessible via its index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to perceive the bond orders. </td></tr>
-    <tr><td class="paramname">orders</td><td>An array containing the perceived bond orders. The orders are stored in the same sequence as the bonds appear in the input molecular graph, i.e. the order of a particular bond is accessible via its index in the molecular graph. </td></tr>
+    <tr><td class="paramname">orders</td><td>An array containing the perceived bond orders. </td></tr>
     <tr><td class="paramname">undef_only</td><td>Specifies whether or not to perceive only undefined (= unset) bond orders. </td></tr>
   </table>
   </dd>
@@ -198,7 +199,7 @@ Friends</h2></td></tr>
 <p>Allows to specify whether already defined bond orders should be left unchanged. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">undef_only</td><td>Specifies whether or not to perceive only undefined (= unset) bond orders. </td></tr>
+    <tr><td class="paramname">undef_only</td><td>If <code>true</code> only undefined (= unset) bond orders are perceived. </td></tr>
   </table>
   </dd>
 </dl>
@@ -253,10 +254,11 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Perceives the order of the bonds in the molecular graph <em>molgraph</em> from its 3D structure and atom connectivity. </p>
+<p>The orders are stored in the same sequence as the bonds appear in the bond list of the molecular graph so that the order of a particular bond is accessible via its index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to perceive the bond orders. </td></tr>
-    <tr><td class="paramname">orders</td><td>An array containing the perceived bond orders. The orders are stored in the same sequence as the bonds appear in the input molecular graph, i.e. the order of a particular bond is accessible via its index in the molecular graph. </td></tr>
+    <tr><td class="paramname">orders</td><td>An array containing the perceived bond orders. </td></tr>
   </table>
   </dd>
 </dl>
