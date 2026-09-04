@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bond properties.  
+<p>Computes 64-bit hash codes that are characteristic for the topology of a molecular graph and the properties of its atoms and bonds.  
  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="HashCodeCalculator_8hpp_source.html">HashCodeCalculator.hpp</a>&gt;</code></p>
@@ -93,10 +93,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html">DefAtomHashSeedFunctor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default functor for the generation of atom hash seeds.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default functor for the generation of atom hash seeds.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html">DefBondHashSeedFunctor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default functor for the generation of bond hash seeds.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default functor for the generation of bond hash seeds.  <a href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -143,8 +143,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a769281bc99aaff6a3c1e1bbf641478bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Computes a 64-bit hash code that identifies a molecular graph up to a configurable set of atom and bond properties. </p>
-<p>The algorithm assigns initial seeds to each atom and bond through the user-replaceable functors <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a3e9e5ba52db7ae6c6f20f39ccbc996f5" title="Type of the generic functor class used to store user-defined functions or function objects for the ge...">HashCodeCalculator::AtomHashSeedFunction</a> and <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#adcfc8ef82615c585d59d2f5d04a04c82" title="Type of the generic functor class used to store user-defined functions or function objects for the ge...">HashCodeCalculator::BondHashSeedFunction</a>, iteratively propagates the seeds over the graph topology in the spirit of Morgan-style extended-connectivity hashing, and finally folds the per-atom hash codes into a single <code>std::uint64_t</code> result via an SHA-style mixing step. The default seed functors (<a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html" title="The default functor for the generation of atom hash seeds.">DefAtomHashSeedFunctor</a>, <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html" title="The default functor for the generation of bond hash seeds.">DefBondHashSeedFunctor</a>) take into account the property flags combined into DEF_ATOM_PROPERTY_FLAGS and DEF_BOND_PROPERTY_FLAGS, respectively.</p>
+<div class="textblock"><p>Computes 64-bit hash codes that are characteristic for the topology of a molecular graph and the properties of its atoms and bonds. </p>
+<p>The algorithm assigns initial seeds to each atom and bond through the user-replaceable functors <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#a3e9e5ba52db7ae6c6f20f39ccbc996f5" title="Type of the generic functor class used to store user-defined functions or function objects for the ge...">HashCodeCalculator::AtomHashSeedFunction</a> and <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator.html#adcfc8ef82615c585d59d2f5d04a04c82" title="Type of the generic functor class used to store user-defined functions or function objects for the ge...">HashCodeCalculator::BondHashSeedFunction</a>, iteratively propagates the seeds over the graph topology in the spirit of Morgan-style extended connectivity hashing, and finally folds the per-atom hash codes into a single 64-bit unsigned integer result via an SHA-style mixing step. The default seed functors (<a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html" title="Default functor for the generation of atom hash seeds.">DefAtomHashSeedFunctor</a>, <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html" title="Default functor for the generation of bond hash seeds.">DefBondHashSeedFunctor</a>) take into account the property flags specified by the static constants DEF_ATOM_PROPERTY_FLAGS and DEF_BOND_PROPERTY_FLAGS, respectively.</p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#MHASH">MHASH</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3e9e5ba52db7ae6c6f20f39ccbc996f5"></a>
@@ -304,7 +304,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>By default, atom hash seeds are generated by <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html" title="The default functor for the generation of atom hash seeds.">HashCodeCalculator::DefAtomHashSeedFunctor</a>. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>By default, atom hash seeds are generated by <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefAtomHashSeedFunctor.html" title="Default functor for the generation of atom hash seeds.">HashCodeCalculator::DefAtomHashSeedFunctor</a>. </dd></dl>
 
 </div>
 </div>
@@ -331,7 +331,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>By default, bond hash seeds are generated by <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html" title="The default functor for the generation of bond hash seeds.">HashCodeCalculator::DefBondHashSeedFunctor</a>. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>By default, bond hash seeds are generated by <a class="el" href="classCDPL_1_1Chem_1_1HashCodeCalculator_1_1DefBondHashSeedFunctor.html" title="Default functor for the generation of bond hash seeds.">HashCodeCalculator::DefBondHashSeedFunctor</a>. </dd></dl>
 
 </div>
 </div>

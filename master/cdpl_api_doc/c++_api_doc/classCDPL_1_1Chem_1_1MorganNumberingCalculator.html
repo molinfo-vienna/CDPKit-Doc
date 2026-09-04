@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Computes a canonical atom numbering of a molecular graph using a modified Morgan algorithm.  
+<p>Computes canonical atom numberings for molecular graphs using Morgan's algorithm.  
  <a href="classCDPL_1_1Chem_1_1MorganNumberingCalculator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MorganNumberingCalculator_8hpp_source.html">MorganNumberingCalculator.hpp</a>&gt;</code></p>
@@ -105,8 +105,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a711f77e7022868b8cee77c86415330ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Computes a canonical atom numbering of a molecular graph using a modified Morgan algorithm. </p>
-<p>The result is an array of canonical atom indices in the same order as the molecular graph's atom list, so the canonical number of an atom is accessible via its index. Symmetry classes are broken by additional invariants (atomic symbol, formal charge, isotope, bond multiplicity).</p>
+<div class="textblock"><p>Computes canonical atom numberings for molecular graphs using Morgan's algorithm. </p>
 <dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#MOCAN">MOCAN</a>] </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0da371c83fcc1b7a73f4fd99545bdcf2"></a>
@@ -155,10 +154,11 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs the <code>MorganNumberingCalculator</code> instance and performs a canonical numbering of the atoms in the molecular graph <em>molgraph</em>. </p>
+<p>The generated atom labels are stored in the same order as the atoms appear in the atom list of the molecular graph so that the label of an atom is accessible via its index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to perform the canonical numbering. </td></tr>
-    <tr><td class="paramname">numbering</td><td>An array that contains the calculated canonical atom numbering. The numbers are stored in the same order as the atoms appear in the atom list of the molecular graph (i.e. the canonical number of an atom is accessible via its index). </td></tr>
+    <tr><td class="paramname">numbering</td><td>An array that contains the calculated canonical atom numbering. </td></tr>
   </table>
   </dd>
 </dl>
@@ -245,10 +245,11 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Performs a canonical numbering of the atoms in the molecular graph <em>molgraph</em>. </p>
+<p>The generated atom labels are stored in the same order as the atoms appear in the atom list of the molecular graph so that the label of an atom is accessible via its index.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph for which to perform the canonical numbering. </td></tr>
-    <tr><td class="paramname">numbering</td><td>An array that contains the calculated canonical atom numbering. The numbers are stored in the same order as the atoms appear in the atom list of the molecular graph (i.e. the canonical number of an atom is accessible via its index). </td></tr>
+    <tr><td class="paramname">numbering</td><td>An array that contains the calculated canonical atom labels. </td></tr>
   </table>
   </dd>
 </dl>
