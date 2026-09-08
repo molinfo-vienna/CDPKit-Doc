@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Reaction-level analogue of <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html" title="Subgraph-isomorphism search of a query molecular graph against a target molecular graph,...">Chem::SubstructureSearch</a> that locates atom/bond mappings of a query reaction pattern in a target reaction.  
+<p>Searches for substructures of the components of a target reaction that match a given query reaction pattern.  
  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ReactionSubstructureSearch_8hpp_source.html">ReactionSubstructureSearch.hpp</a>&gt;</code></p>
@@ -92,10 +92,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac951ea0d4cddbf5cce5a30f42a4e83ab"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ABMappingList::iterator, <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">MappingIterator</a></td></tr>
-<tr class="memdesc:ac951ea0d4cddbf5cce5a30f42a4e83ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">More...</a><br /></td></tr>
+<tr class="memdesc:ac951ea0d4cddbf5cce5a30f42a4e83ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">More...</a><br /></td></tr>
 <tr class="separator:ac951ea0d4cddbf5cce5a30f42a4e83ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e9247248515ba0ffa5d66d23452104"><td class="memItemLeft" align="right" valign="top">typedef boost::indirect_iterator&lt; ABMappingList::const_iterator, const <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">ConstMappingIterator</a></td></tr>
-<tr class="memdesc:a44e9247248515ba0ffa5d66d23452104"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">More...</a><br /></td></tr>
+<tr class="memdesc:a44e9247248515ba0ffa5d66d23452104"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">More...</a><br /></td></tr>
 <tr class="separator:a44e9247248515ba0ffa5d66d23452104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -104,7 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a02b0514ef14290d1a2fd2f22f6588736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and initializes a <code>ReactionSubstructureSearch</code> instance.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a02b0514ef14290d1a2fd2f22f6588736">More...</a><br /></td></tr>
 <tr class="separator:a02b0514ef14290d1a2fd2f22f6588736"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab01b3e04b9052578566149820fa8237c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ab01b3e04b9052578566149820fa8237c">ReactionSubstructureSearch</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;query)</td></tr>
-<tr class="memdesc:ab01b3e04b9052578566149820fa8237c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and initializes a <code>ReactionSubstructureSearch</code> instance for the specified query reaction pattern.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ab01b3e04b9052578566149820fa8237c">More...</a><br /></td></tr>
+<tr class="memdesc:ab01b3e04b9052578566149820fa8237c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and initializes a <code>ReactionSubstructureSearch</code> instance for the specified query reaction pattern <em>query</em>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ab01b3e04b9052578566149820fa8237c">More...</a><br /></td></tr>
 <tr class="separator:ab01b3e04b9052578566149820fa8237c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6296c23b26f125df4af86deffc3496d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#af6296c23b26f125df4af86deffc3496d">ReactionSubstructureSearch</a> (const <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html">ReactionSubstructureSearch</a> &amp;)=delete</td></tr>
 <tr class="separator:af6296c23b26f125df4af86deffc3496d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,16 +114,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6287f32f115bf8682bf9d0111f8c819e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html">ReactionSubstructureSearch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a6287f32f115bf8682bf9d0111f8c819e">operator=</a> (const <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html">ReactionSubstructureSearch</a> &amp;)=delete</td></tr>
 <tr class="separator:a6287f32f115bf8682bf9d0111f8c819e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2df793a00b3ec4f3d56db0ec01b93862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a2df793a00b3ec4f3d56db0ec01b93862">setQuery</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;query)</td></tr>
-<tr class="memdesc:a2df793a00b3ec4f3d56db0ec01b93862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify a new query reaction pattern.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a2df793a00b3ec4f3d56db0ec01b93862">More...</a><br /></td></tr>
+<tr class="memdesc:a2df793a00b3ec4f3d56db0ec01b93862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets <em>query</em> as the new query reaction pattern.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a2df793a00b3ec4f3d56db0ec01b93862">More...</a><br /></td></tr>
 <tr class="separator:a2df793a00b3ec4f3d56db0ec01b93862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a259d2dc8647789ea02be291a92c3ba3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a259d2dc8647789ea02be291a92c3ba3b">mappingExists</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;target)</td></tr>
-<tr class="memdesc:a259d2dc8647789ea02be291a92c3ba3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the query reaction pattern matches the specified target reaction.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a259d2dc8647789ea02be291a92c3ba3b">More...</a><br /></td></tr>
+<tr class="memdesc:a259d2dc8647789ea02be291a92c3ba3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the query reaction pattern matches the target reaction <em>target</em>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a259d2dc8647789ea02be291a92c3ba3b">More...</a><br /></td></tr>
 <tr class="separator:a259d2dc8647789ea02be291a92c3ba3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bc16b4d0f24834a1f958cbee00416a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9">findMappings</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html">Reaction</a> &amp;target)</td></tr>
-<tr class="memdesc:a3bc16b4d0f24834a1f958cbee00416a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for all possible atom/bond between the query reaction pattern and the specified target reaction.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9">More...</a><br /></td></tr>
+<tr class="memdesc:a3bc16b4d0f24834a1f958cbee00416a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for all possible atom/bond mappings between the query reaction pattern and the target reaction <em>target</em>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9">More...</a><br /></td></tr>
 <tr class="separator:a3bc16b4d0f24834a1f958cbee00416a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c5565d01561b43c8d0a8844b2ab9f13"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a1c5565d01561b43c8d0a8844b2ab9f13">getNumMappings</a> () const</td></tr>
-<tr class="memdesc:a1c5565d01561b43c8d0a8844b2ab9f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a1c5565d01561b43c8d0a8844b2ab9f13">More...</a><br /></td></tr>
+<tr class="memdesc:a1c5565d01561b43c8d0a8844b2ab9f13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a1c5565d01561b43c8d0a8844b2ab9f13">More...</a><br /></td></tr>
 <tr class="separator:a1c5565d01561b43c8d0a8844b2ab9f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa770950c341b84d24a0b6a4df96dc5e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aa770950c341b84d24a0b6a4df96dc5e9">getMapping</a> (std::size_t idx)</td></tr>
 <tr class="memdesc:aa770950c341b84d24a0b6a4df96dc5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the stored atom/bond mapping object at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aa770950c341b84d24a0b6a4df96dc5e9">More...</a><br /></td></tr>
@@ -132,28 +132,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3d817de22f0fc0df0e32d22a6f6f08e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the stored atom/bond mapping object at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3d817de22f0fc0df0e32d22a6f6f08e1">More...</a><br /></td></tr>
 <tr class="separator:a3d817de22f0fc0df0e32d22a6f6f08e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00eff255f3e4585d6ced0a47ad749096"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a00eff255f3e4585d6ced0a47ad749096">getMappingsBegin</a> ()</td></tr>
-<tr class="memdesc:a00eff255f3e4585d6ced0a47ad749096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a00eff255f3e4585d6ced0a47ad749096">More...</a><br /></td></tr>
+<tr class="memdesc:a00eff255f3e4585d6ced0a47ad749096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a00eff255f3e4585d6ced0a47ad749096">More...</a><br /></td></tr>
 <tr class="separator:a00eff255f3e4585d6ced0a47ad749096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff9ea6616cab7006dca543acf0de3732"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aff9ea6616cab7006dca543acf0de3732">getMappingsBegin</a> () const</td></tr>
-<tr class="memdesc:aff9ea6616cab7006dca543acf0de3732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aff9ea6616cab7006dca543acf0de3732">More...</a><br /></td></tr>
+<tr class="memdesc:aff9ea6616cab7006dca543acf0de3732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aff9ea6616cab7006dca543acf0de3732">More...</a><br /></td></tr>
 <tr class="separator:aff9ea6616cab7006dca543acf0de3732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40e4ed0e9fc2e4038c48960afde27edc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a40e4ed0e9fc2e4038c48960afde27edc">getMappingsEnd</a> ()</td></tr>
-<tr class="memdesc:a40e4ed0e9fc2e4038c48960afde27edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a40e4ed0e9fc2e4038c48960afde27edc">More...</a><br /></td></tr>
+<tr class="memdesc:a40e4ed0e9fc2e4038c48960afde27edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a40e4ed0e9fc2e4038c48960afde27edc">More...</a><br /></td></tr>
 <tr class="separator:a40e4ed0e9fc2e4038c48960afde27edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd7c5c65bbf14e30c45afeb0052e075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#affd7c5c65bbf14e30c45afeb0052e075">getMappingsEnd</a> () const</td></tr>
-<tr class="memdesc:affd7c5c65bbf14e30c45afeb0052e075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#affd7c5c65bbf14e30c45afeb0052e075">More...</a><br /></td></tr>
+<tr class="memdesc:affd7c5c65bbf14e30c45afeb0052e075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#affd7c5c65bbf14e30c45afeb0052e075">More...</a><br /></td></tr>
 <tr class="separator:affd7c5c65bbf14e30c45afeb0052e075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aede12af1d6f01396cb539f11eedabb73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aede12af1d6f01396cb539f11eedabb73">begin</a> ()</td></tr>
-<tr class="memdesc:aede12af1d6f01396cb539f11eedabb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aede12af1d6f01396cb539f11eedabb73">More...</a><br /></td></tr>
+<tr class="memdesc:aede12af1d6f01396cb539f11eedabb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aede12af1d6f01396cb539f11eedabb73">More...</a><br /></td></tr>
 <tr class="separator:aede12af1d6f01396cb539f11eedabb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52f205924b86150ba8817a4f214881d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a52f205924b86150ba8817a4f214881d8">begin</a> () const</td></tr>
-<tr class="memdesc:a52f205924b86150ba8817a4f214881d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a52f205924b86150ba8817a4f214881d8">More...</a><br /></td></tr>
+<tr class="memdesc:a52f205924b86150ba8817a4f214881d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a52f205924b86150ba8817a4f214881d8">More...</a><br /></td></tr>
 <tr class="separator:a52f205924b86150ba8817a4f214881d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d6e665aee81486fa351165d1e2437b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#ac951ea0d4cddbf5cce5a30f42a4e83ab">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#af7d6e665aee81486fa351165d1e2437b">end</a> ()</td></tr>
-<tr class="memdesc:af7d6e665aee81486fa351165d1e2437b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#af7d6e665aee81486fa351165d1e2437b">More...</a><br /></td></tr>
+<tr class="memdesc:af7d6e665aee81486fa351165d1e2437b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#af7d6e665aee81486fa351165d1e2437b">More...</a><br /></td></tr>
 <tr class="separator:af7d6e665aee81486fa351165d1e2437b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b1d5fa9e7e6f8b532f6ff66da3122ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a44e9247248515ba0ffa5d66d23452104">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a0b1d5fa9e7e6f8b532f6ff66da3122ec">end</a> () const</td></tr>
-<tr class="memdesc:a0b1d5fa9e7e6f8b532f6ff66da3122ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a0b1d5fa9e7e6f8b532f6ff66da3122ec">More...</a><br /></td></tr>
+<tr class="memdesc:a0b1d5fa9e7e6f8b532f6ff66da3122ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a0b1d5fa9e7e6f8b532f6ff66da3122ec">More...</a><br /></td></tr>
 <tr class="separator:a0b1d5fa9e7e6f8b532f6ff66da3122ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b5de57d9e7f281c043eed8604c96ea1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a6b5de57d9e7f281c043eed8604c96ea1">uniqueMappingsOnly</a> (<a class="el" href="classbool.html">bool</a> unique)</td></tr>
 <tr class="memdesc:a6b5de57d9e7f281c043eed8604c96ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify whether or not to store only unique atom/bond mappings.  <a href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a6b5de57d9e7f281c043eed8604c96ea1">More...</a><br /></td></tr>
@@ -175,8 +175,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af041d7bd0717b129f25b4bf500b16c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Reaction-level analogue of <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html" title="Subgraph-isomorphism search of a query molecular graph against a target molecular graph,...">Chem::SubstructureSearch</a> that locates atom/bond mappings of a query reaction pattern in a target reaction. </p>
-<p>Use <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a2df793a00b3ec4f3d56db0ec01b93862" title="Allows to specify a new query reaction pattern.">setQuery()</a> to fix the query reaction and <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a259d2dc8647789ea02be291a92c3ba3b" title="Tells whether the query reaction pattern matches the specified target reaction.">mappingExists()</a> / <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a> to evaluate it against a target <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged reaction components of type Chem::...">Chem::Reaction</a>. Per-component reaction-role visibility is controlled with <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a434867127d31cf7948534ad9078a98c9" title="Allows the reaction role specific exclusion of query and target components from the search for matchi...">setEnabledReactionRoles()</a> (<a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a> bitmask). The matcher considers atom-, bond-, and reaction-level <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> objects attached to the query reaction's components. The result set is bounded by <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3e698fee5abfc66dc62ba28533939e26" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a> / <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a6b5de57d9e7f281c043eed8604c96ea1" title="Allows to specify whether or not to store only unique atom/bond mappings.">uniqueMappingsOnly()</a> and accessed through the same mapping-iterator interface as <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html" title="Subgraph-isomorphism search of a query molecular graph against a target molecular graph,...">Chem::SubstructureSearch</a>. </p>
+<div class="textblock"><p>Searches for substructures of the components of a target reaction that match a given query reaction pattern. </p>
+<p>Use <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a2df793a00b3ec4f3d56db0ec01b93862" title="Sets query as the new query reaction pattern.">setQuery()</a> to fix the query reaction pattern and <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a259d2dc8647789ea02be291a92c3ba3b" title="Tells whether the query reaction pattern matches the target reaction target.">mappingExists()</a> / <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a> to evaluate it against a specified target <a class="el" href="classCDPL_1_1Chem_1_1Reaction.html" title="Abstract base class for chemical reactions composed of role-tagged reaction components of type Chem::...">Chem::Reaction</a> instance. Found mappings are recorded as <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects that can be accessed via index through the method <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aa770950c341b84d24a0b6a4df96dc5e9" title="Returns a non-const reference to the stored atom/bond mapping object at index idx.">getMapping()</a> or iteration using the iterator pair returned by methods <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#aede12af1d6f01396cb539f11eedabb73" title="Returns a mutable iterator pointing to the beginning of the stored Chem::AtomBondMapping objects.">begin()</a> and <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#af7d6e665aee81486fa351165d1e2437b" title="Returns a mutable iterator pointing to the end of the stored Chem::AtomBondMapping objects.">end()</a>, respectively. Component visibility based on reaction role is controlled with <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a434867127d31cf7948534ad9078a98c9" title="Allows the reaction role specific exclusion of query and target components from the search for matchi...">setEnabledReactionRoles()</a> (see namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>). The search algorithm considers atom-, bond-, and reaction-level <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation instances attached to the query reaction's components as corresponding property values (see <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html" title="Searches for substructures of a target molecular graph that match the topology of a given query molec...">Chem::SubstructureSearch</a>). The result set can be limited by the methods <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3e698fee5abfc66dc62ba28533939e26" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a> and <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a6b5de57d9e7f281c043eed8604c96ea1" title="Allows to specify whether or not to store only unique atom/bond mappings.">uniqueMappingsOnly()</a>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac951ea0d4cddbf5cce5a30f42a4e83ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac951ea0d4cddbf5cce5a30f42a4e83ab">&#9670;&nbsp;</a></span>MappingIterator</h2>
@@ -190,7 +190,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A mutable random access iterator used to iterate over the stored atom/bond mapping objects. </p>
+<p>A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> mapping objects. </p>
 
 </div>
 </div>
@@ -206,7 +206,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A constant random access iterator used to iterate over the stored atom/bond mapping objects. </p>
+<p>A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
 
 </div>
 </div>
@@ -246,7 +246,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs and initializes a <code>ReactionSubstructureSearch</code> instance for the specified query reaction pattern. </p>
+<p>Constructs and initializes a <code>ReactionSubstructureSearch</code> instance for the specified query reaction pattern <em>query</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">query</td><td>The query reaction. </td></tr>
@@ -345,10 +345,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Allows to specify a new query reaction pattern. </p>
+<p>Sets <em>query</em> as the new query reaction pattern. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">query</td><td>Specifies the reaction pattern to search for. </td></tr>
+    <tr><td class="paramname">query</td><td>A reaction that represents the new query. </td></tr>
   </table>
   </dd>
 </dl>
@@ -371,16 +371,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether the query reaction pattern matches the specified target reaction. </p>
-<p>The method does not store any atom/bond mappings between the query and target reaction - it just tells if a complete mapping of the query is possible. If you need access to the atom/bond mappings, use <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a> instead.</p>
+<p>Tells whether the query reaction pattern matches the target reaction <em>target</em>. </p>
+<p>The method does not store any atom/bond mappings between the query and target reaction - it just tells if a complete mapping of the query is possible. If you need access to the atom/bond mappings, use <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a> instead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">target</td><td>The reaction that has to be searched for a match of the query reaction pattern. </td></tr>
+    <tr><td class="paramname">target</td><td>The target reaction that has to be searched for a match of the query. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the query pattern matches the target reaction, and <code>false</code> otherwise. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Any atom/bond mappings that were recorded in a previous call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a> will be discarded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the query matches the target reaction, and <code>false</code> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Any atom/bond mappings that were recorded in a previous call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a> will be discarded. </dd></dl>
 
 </div>
 </div>
@@ -400,16 +400,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Searches for all possible atom/bond between the query reaction pattern and the specified target reaction. </p>
+<p>Searches for all possible atom/bond mappings between the query reaction pattern and the target reaction <em>target</em>. </p>
 <p>The method will store all found atom/bond mapping solutions up to the maximum number of recorded mappings specified by <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3e698fee5abfc66dc62ba28533939e26" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a>. If only unique mappings have to be stored (see <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a6b5de57d9e7f281c043eed8604c96ea1" title="Allows to specify whether or not to store only unique atom/bond mappings.">uniqueMappingsOnly(bool unique)</a>), any duplicates of previously found mappings will be discarded.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">target</td><td>The reaction that has to be searched for matches of the query reaction pattern. </td></tr>
+    <tr><td class="paramname">target</td><td>The target reaction that has to be searched for matches of the query. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the query pattern can be mapped to the specified target reaction, and <code>false</code> otherwise. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Any atom/bond mappings that were recorded in a previous call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a> will be discarded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the query can be mapped to the specified target reaction, and <code>false</code> otherwise. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Any atom/bond mappings that were recorded in a previous call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a> will be discarded. </dd></dl>
 
 </div>
 </div>
@@ -428,8 +428,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a>. </dd></dl>
+<p>Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a>. </dd></dl>
 
 </div>
 </div>
@@ -456,7 +456,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the atom/bond mapping object at index <em>idx</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> object at index <em>idx</em>. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a1c5565d01561b43c8d0a8844b2ab9f13" title="Returns the number of atom/bond mappings that were recorded in the last call to findMappings().">getNumMappings()</a>). </td></tr>
@@ -489,7 +489,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the atom/bond mapping object at index <em>idx</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> object at index <em>idx</em>. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a1c5565d01561b43c8d0a8844b2ab9f13" title="Returns the number of atom/bond mappings that were recorded in the last call to findMappings().">getNumMappings()</a>). </td></tr>
@@ -514,8 +514,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -534,8 +534,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -554,8 +554,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -574,8 +574,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -594,8 +594,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -614,8 +614,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -634,8 +634,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -654,8 +654,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -676,7 +676,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allows to specify whether or not to store only unique atom/bond mappings. </p>
-<p>A mapping of the query pattern to the target reaction is considered to be unique if it differs from all previously found mappings by at least one atom or bond. If the <em>unique</em> argument is <code>true</code> and a newly discovered mapping covers the same atoms and bonds of the target (including all permutations) as a mapping that was found earlier in the search process, it is considered as a duplicate and will be discarded.</p>
+<p>A mapping of the query to the target reaction is considered to be unique if it differs from all previously found mappings by at least one atom or bond. If the <em>unique</em> argument is <code>true</code> and a newly discovered mapping covers the same atoms and bonds of the target (including all permutations) as a mapping that was found earlier in the search process, it is considered as a duplicate and will be discarded.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">unique</td><td>If <code>true</code>, only unique mappings will be stored, and all found mappings otherwise. </td></tr>
@@ -725,7 +725,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allows to specify a limit on the number of stored atom/bond mappings. </p>
-<p>In a call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a> the reaction substructure search will terminate as soon as the specified maximum number of stored atom/bond mappings has been reached. A previously set limit on the number of mappings can be disabled by providing zero for the value of <em>max_num_mappings</em>.</p>
+<p>In a call to <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a> the reaction substructure search will terminate as soon as the specified maximum number of stored atom/bond mappings has been reached. A previously set limit on the number of mappings can be disabled by providing zero for the value of <em>max_num_mappings</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">max_num_mappings</td><td>The maximum number of atom/bond mappings to store. </td></tr>
@@ -753,7 +753,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the specified limit on the number of stored atom/bond mappings. </p>
 <dl class="section return"><dt>Returns</dt><dd>The specified maximum number of stored atom/bond mappings. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3e698fee5abfc66dc62ba28533939e26" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a>, <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond between the query reaction pattern and the specified target react...">findMappings()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3e698fee5abfc66dc62ba28533939e26" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a>, <a class="el" href="classCDPL_1_1Chem_1_1ReactionSubstructureSearch.html#a3bc16b4d0f24834a1f958cbee00416a9" title="Searches for all possible atom/bond mappings between the query reaction pattern and the target reacti...">findMappings()</a> </dd></dl>
 
 </div>
 </div>
@@ -774,7 +774,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allows the reaction role specific exclusion of query and target components from the search for matching reaction substructures. </p>
-<p>The <em>roles</em> argument is a bitwise OR combination of the flags defined in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>. When the flag for a particular reaction role is missing in the provided bitmask, then all reaction components with this role assignment (both in the query and target reaction) will be simply ignored during the reaction substructure search. This has the same effect as 'removing' the affected components from the query and target reaction prior to starting the search and adding them again afterwards.</p>
+<p>The <em>roles</em> argument is a bitwise OR combination of the flags defined in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1ReactionRole.html" title="Provides constants that are used to specify the role of molecules (components) in a chemical reaction...">Chem::ReactionRole</a>. When the flag for a particular reaction role is missing in the provided bitmask then all reaction components with this role assignment (both in the query and target reaction) will be simply ignored during the reaction substructure search. This has the same effect as 'removing' the affected components from the query and target reaction prior to starting the search and adding them again afterwards.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">roles</td><td>A bitmask specifying the non-excluded reaction component roles. </td></tr>
