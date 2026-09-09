@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Enumerates the atom/bond automorphisms of a molecular graph.  
+<p>Enumerates the atom and bond self-mappings (automorphism group) of a molecular graph.  
  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AutomorphismGroupSearch_8hpp_source.html">AutomorphismGroupSearch.hpp</a>&gt;</code></p>
@@ -96,19 +96,19 @@ Public Types</h2></td></tr>
 <tr class="memdesc:a58a919d2eb150e757f52911222379a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference-counted smart pointer [<a class="el" href="References.html#SHPTR">SHPTR</a>] for dynamically allocated <code>AutomorphismGroupSearch</code> instances.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a58a919d2eb150e757f52911222379a32">More...</a><br /></td></tr>
 <tr class="separator:a58a919d2eb150e757f52911222379a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae13df0789fe242f670d44dfa42789170"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html#acf09bdf1ba996fd2f21ea491bd6f520a">SubstructureSearch::MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">MappingIterator</a></td></tr>
-<tr class="memdesc:ae13df0789fe242f670d44dfa42789170"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">More...</a><br /></td></tr>
+<tr class="memdesc:ae13df0789fe242f670d44dfa42789170"><td class="mdescLeft">&#160;</td><td class="mdescRight">A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">More...</a><br /></td></tr>
 <tr class="separator:ae13df0789fe242f670d44dfa42789170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f56e75e43bfe69ae95b3c74591765fe"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html#acc11e6df5c55ae3a77d4741ea1d430ec">SubstructureSearch::ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">ConstMappingIterator</a></td></tr>
-<tr class="memdesc:a0f56e75e43bfe69ae95b3c74591765fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">More...</a><br /></td></tr>
+<tr class="memdesc:a0f56e75e43bfe69ae95b3c74591765fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">More...</a><br /></td></tr>
 <tr class="separator:a0f56e75e43bfe69ae95b3c74591765fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">MappingCallbackFunction</a></td></tr>
-<tr class="memdesc:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the callback invoked for every found mapping (return <code>false</code> to abort the search).  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">More...</a><br /></td></tr>
+<tr class="memdesc:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the callback function invoked for every found mapping.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">More...</a><br /></td></tr>
 <tr class="separator:aacf51974cb29ab8bbcfbe54244b1d8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a02f2e4dd4c3aef72ae5e1c944ae7d5ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a02f2e4dd4c3aef72ae5e1c944ae7d5ad">AutomorphismGroupSearch</a> (unsigned int atom_flags=<a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a89f2fcb1485607d33db6635472a9e614">DEF_ATOM_PROPERTY_FLAGS</a>, unsigned int bond_flags=<a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a13e2f2942c2329c21f27004b369a6419">DEF_BOND_PROPERTY_FLAGS</a>)</td></tr>
-<tr class="memdesc:a02f2e4dd4c3aef72ae5e1c944ae7d5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and initializes a <code>AutomorphismGroupSearch</code> instance.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a02f2e4dd4c3aef72ae5e1c944ae7d5ad">More...</a><br /></td></tr>
+<tr class="memdesc:a02f2e4dd4c3aef72ae5e1c944ae7d5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs and initializes the <code>AutomorphismGroupSearch</code> instance for the specified atom and bond properties.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a02f2e4dd4c3aef72ae5e1c944ae7d5ad">More...</a><br /></td></tr>
 <tr class="separator:a02f2e4dd4c3aef72ae5e1c944ae7d5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a016703641ff1b8949353fbf5b7b4da0f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a016703641ff1b8949353fbf5b7b4da0f">AutomorphismGroupSearch</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html">AutomorphismGroupSearch</a> &amp;)=delete</td></tr>
 <tr class="separator:a016703641ff1b8949353fbf5b7b4da0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,13 +133,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0a1483033ec7f85f506a9bf14189037f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the identity mapping is included in the search results.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0a1483033ec7f85f506a9bf14189037f">More...</a><br /></td></tr>
 <tr class="separator:a0a1483033ec7f85f506a9bf14189037f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1df541d3002b9efc0c7b087429fc9643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643">findMappings</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;molgraph)</td></tr>
-<tr class="memdesc:a1df541d3002b9efc0c7b087429fc9643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643">More...</a><br /></td></tr>
+<tr class="memdesc:a1df541d3002b9efc0c7b087429fc9643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for the possible atom/bond mappings in the automorphism group of the molecular graph <em>molgraph</em>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643">More...</a><br /></td></tr>
 <tr class="separator:a1df541d3002b9efc0c7b087429fc9643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b54294a22c2f6d743729e7c80137b1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a4b54294a22c2f6d743729e7c80137b1a">stopSearch</a> ()</td></tr>
-<tr class="memdesc:a4b54294a22c2f6d743729e7c80137b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts a currently running <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a> call.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a4b54294a22c2f6d743729e7c80137b1a">More...</a><br /></td></tr>
+<tr class="memdesc:a4b54294a22c2f6d743729e7c80137b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts a currently running <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a> call.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a4b54294a22c2f6d743729e7c80137b1a">More...</a><br /></td></tr>
 <tr class="separator:a4b54294a22c2f6d743729e7c80137b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5775dcb45a8dfad79cdf96a4348c86b"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ac5775dcb45a8dfad79cdf96a4348c86b">getNumMappings</a> () const</td></tr>
-<tr class="memdesc:ac5775dcb45a8dfad79cdf96a4348c86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ac5775dcb45a8dfad79cdf96a4348c86b">More...</a><br /></td></tr>
+<tr class="memdesc:ac5775dcb45a8dfad79cdf96a4348c86b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ac5775dcb45a8dfad79cdf96a4348c86b">More...</a><br /></td></tr>
 <tr class="separator:ac5775dcb45a8dfad79cdf96a4348c86b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb239e93e7ee8ff9e04ef384ba78d509"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aeb239e93e7ee8ff9e04ef384ba78d509">getMapping</a> (std::size_t idx)</td></tr>
 <tr class="memdesc:aeb239e93e7ee8ff9e04ef384ba78d509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a non-<code>const</code> reference to the stored atom/bond mapping object at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aeb239e93e7ee8ff9e04ef384ba78d509">More...</a><br /></td></tr>
@@ -148,28 +148,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3dc6895f44c2686b0a5fbc960107c2da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>const</code> reference to the stored atom/bond mapping object at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a3dc6895f44c2686b0a5fbc960107c2da">More...</a><br /></td></tr>
 <tr class="separator:a3dc6895f44c2686b0a5fbc960107c2da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4f29e4855dd6cd03e08a49cd74d47e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af4f29e4855dd6cd03e08a49cd74d47e1">getMappingsBegin</a> ()</td></tr>
-<tr class="memdesc:af4f29e4855dd6cd03e08a49cd74d47e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af4f29e4855dd6cd03e08a49cd74d47e1">More...</a><br /></td></tr>
+<tr class="memdesc:af4f29e4855dd6cd03e08a49cd74d47e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af4f29e4855dd6cd03e08a49cd74d47e1">More...</a><br /></td></tr>
 <tr class="separator:af4f29e4855dd6cd03e08a49cd74d47e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a743c7d8f009d55b6fb02627ed81dc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a3a743c7d8f009d55b6fb02627ed81dc2">getMappingsBegin</a> () const</td></tr>
-<tr class="memdesc:a3a743c7d8f009d55b6fb02627ed81dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a3a743c7d8f009d55b6fb02627ed81dc2">More...</a><br /></td></tr>
+<tr class="memdesc:a3a743c7d8f009d55b6fb02627ed81dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a3a743c7d8f009d55b6fb02627ed81dc2">More...</a><br /></td></tr>
 <tr class="separator:a3a743c7d8f009d55b6fb02627ed81dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0444fa0800ee7cf527e95b031b858698"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0444fa0800ee7cf527e95b031b858698">getMappingsEnd</a> ()</td></tr>
-<tr class="memdesc:a0444fa0800ee7cf527e95b031b858698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0444fa0800ee7cf527e95b031b858698">More...</a><br /></td></tr>
+<tr class="memdesc:a0444fa0800ee7cf527e95b031b858698"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0444fa0800ee7cf527e95b031b858698">More...</a><br /></td></tr>
 <tr class="separator:a0444fa0800ee7cf527e95b031b858698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50bc5b4541ecb7f453b41bdae0711c75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a50bc5b4541ecb7f453b41bdae0711c75">getMappingsEnd</a> () const</td></tr>
-<tr class="memdesc:a50bc5b4541ecb7f453b41bdae0711c75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a50bc5b4541ecb7f453b41bdae0711c75">More...</a><br /></td></tr>
+<tr class="memdesc:a50bc5b4541ecb7f453b41bdae0711c75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a50bc5b4541ecb7f453b41bdae0711c75">More...</a><br /></td></tr>
 <tr class="separator:a50bc5b4541ecb7f453b41bdae0711c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add2c5d3427cdc671014fec008df81f9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#add2c5d3427cdc671014fec008df81f9e">begin</a> ()</td></tr>
-<tr class="memdesc:add2c5d3427cdc671014fec008df81f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#add2c5d3427cdc671014fec008df81f9e">More...</a><br /></td></tr>
+<tr class="memdesc:add2c5d3427cdc671014fec008df81f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#add2c5d3427cdc671014fec008df81f9e">More...</a><br /></td></tr>
 <tr class="separator:add2c5d3427cdc671014fec008df81f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e3a4b9135cf921857f80b20d3b2edc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e3a4b9135cf921857f80b20d3b2edc1">begin</a> () const</td></tr>
-<tr class="memdesc:a9e3a4b9135cf921857f80b20d3b2edc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e3a4b9135cf921857f80b20d3b2edc1">More...</a><br /></td></tr>
+<tr class="memdesc:a9e3a4b9135cf921857f80b20d3b2edc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e3a4b9135cf921857f80b20d3b2edc1">More...</a><br /></td></tr>
 <tr class="separator:a9e3a4b9135cf921857f80b20d3b2edc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e500224a14ebaf3b204a4dafa763ed9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ae13df0789fe242f670d44dfa42789170">MappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1e500224a14ebaf3b204a4dafa763ed9">end</a> ()</td></tr>
-<tr class="memdesc:a1e500224a14ebaf3b204a4dafa763ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1e500224a14ebaf3b204a4dafa763ed9">More...</a><br /></td></tr>
+<tr class="memdesc:a1e500224a14ebaf3b204a4dafa763ed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1e500224a14ebaf3b204a4dafa763ed9">More...</a><br /></td></tr>
 <tr class="separator:a1e500224a14ebaf3b204a4dafa763ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a927f898c22b09f581b690698c6f589fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a0f56e75e43bfe69ae95b3c74591765fe">ConstMappingIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a927f898c22b09f581b690698c6f589fa">end</a> () const</td></tr>
-<tr class="memdesc:a927f898c22b09f581b690698c6f589fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored atom/bond mapping objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a927f898c22b09f581b690698c6f589fa">More...</a><br /></td></tr>
+<tr class="memdesc:a927f898c22b09f581b690698c6f589fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a927f898c22b09f581b690698c6f589fa">More...</a><br /></td></tr>
 <tr class="separator:a927f898c22b09f581b690698c6f589fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cbb882fcf544db960cbdf1b5220aa88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2cbb882fcf544db960cbdf1b5220aa88">setMaxNumMappings</a> (std::size_t max_num_mappings)</td></tr>
 <tr class="memdesc:a2cbb882fcf544db960cbdf1b5220aa88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to specify a limit on the number of stored atom/bond mappings.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2cbb882fcf544db960cbdf1b5220aa88">More...</a><br /></td></tr>
@@ -190,10 +190,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aefe4f5fd8d71367107dbf3887c22323e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all previously defined bond mapping constraints.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aefe4f5fd8d71367107dbf3887c22323e">More...</a><br /></td></tr>
 <tr class="separator:aefe4f5fd8d71367107dbf3887c22323e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e9869d9585aad3a552b231f58583926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e9869d9585aad3a552b231f58583926">setFoundMappingCallback</a> (const <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">MappingCallbackFunction</a> &amp;func)</td></tr>
-<tr class="memdesc:a9e9869d9585aad3a552b231f58583926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a callback that is invoked for every atom/bond mapping found during <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e9869d9585aad3a552b231f58583926">More...</a><br /></td></tr>
+<tr class="memdesc:a9e9869d9585aad3a552b231f58583926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a callback that is invoked for every atom/bond mapping found during <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e9869d9585aad3a552b231f58583926">More...</a><br /></td></tr>
 <tr class="separator:a9e9869d9585aad3a552b231f58583926"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8226ed245b511642dfcbf8f46f892fe4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aacf51974cb29ab8bbcfbe54244b1d8e2">MappingCallbackFunction</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a8226ed245b511642dfcbf8f46f892fe4">getFoundMappingCallback</a> () const</td></tr>
-<tr class="memdesc:a8226ed245b511642dfcbf8f46f892fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently installed found-mapping callback.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a8226ed245b511642dfcbf8f46f892fe4">More...</a><br /></td></tr>
+<tr class="memdesc:a8226ed245b511642dfcbf8f46f892fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently installed callback function invoked for every found atom/bond mapping.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a8226ed245b511642dfcbf8f46f892fe4">More...</a><br /></td></tr>
 <tr class="separator:a8226ed245b511642dfcbf8f46f892fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -206,8 +206,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a13e2f2942c2329c21f27004b369a6419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Enumerates the atom/bond automorphisms of a molecular graph. </p>
-<p>The automorphism group of a molecular graph is the set of self-mappings (atom-permutations and the induced bond-permutations) that preserve the molecular graph structure under the configured atom and bond property flags. <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Atom</a> and bond matching is configurable via the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> and <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> bit masks. Found mappings are stored as <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects and can be iterated or accessed by index. </p>
+<div class="textblock"><p>Enumerates the atom and bond self-mappings (automorphism group) of a molecular graph. </p>
+<p>The automorphism group of a molecular graph is the set of self-mappings (atom permutations and the induced bond permutations) that preserve the molecular graph structure under the configured atom and bond mapping constraints. Atom and bond matching is configurable via bit masks composed by a bitwise-OR combination of the constants defined in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> and <a class="el" href="namespaceCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem::Bond properties.">Chem::BondPropertyFlag</a> that are set using the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aeaf3f635fb7d1ca1ef0974ea17ae29be" title="Specifies the atomic properties considered for atom matching during automorphism search.">setAtomPropertyFlags()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a751914c3638cd7ede206357f31b42505" title="Specifies the bond properties considered for bond matching during automorphism search.">setBondPropertyFlags()</a>, respectively. Found mappings are recorded as <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects that can be accessed via index through the method <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aeb239e93e7ee8ff9e04ef384ba78d509" title="Returns a non-const reference to the stored atom/bond mapping object at index idx.">getMapping()</a> or iteration using the iterator pair returned by the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#add2c5d3427cdc671014fec008df81f9e" title="Returns a mutable iterator pointing to the beginning of the stored Chem::AtomBondMapping objects.">begin()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1e500224a14ebaf3b204a4dafa763ed9" title="Returns a mutable iterator pointing to the end of the stored Chem::AtomBondMapping objects.">end()</a>. The method <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e9869d9585aad3a552b231f58583926" title="Sets a callback that is invoked for every atom/bond mapping found during findMappings().">setFoundMappingCallback()</a> allows to register a user-defined callback function that gets invoked whenever a new mapping has been found. The maximum number of stored solutions can be bounded by <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2cbb882fcf544db960cbdf1b5220aa88" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a4b54294a22c2f6d743729e7c80137b1a" title="Aborts a currently running findMappings() call.">stopSearch()</a> allows an immediate abort of the search process. Furthermore, query &harr; target atom and bond mappings can be restricted to user-defined subsets by the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2048bb06e5c2449862f55b926eb3c24c" title="Adds a constraint on the allowed atom mappings.">addAtomMappingConstraint()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9b3b3e001bd526b0e7f778be0325246a" title="Adds a constraint on the allowed bond mappings.">addBondMappingConstraint()</a>, respectively. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a58a919d2eb150e757f52911222379a32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58a919d2eb150e757f52911222379a32">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -237,7 +237,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A mutable random access iterator used to iterate over the stored atom/bond mapping objects. </p>
+<p>A mutable random access iterator used to iterate over the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
 
 </div>
 </div>
@@ -253,7 +253,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A constant random access iterator used to iterate over the stored atom/bond mapping objects. </p>
+<p>A constant random access iterator used to iterate over the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
 
 </div>
 </div>
@@ -269,7 +269,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type of the callback invoked for every found mapping (return <code>false</code> to abort the search). </p>
+<p>Type of the callback function invoked for every found mapping. </p>
+<p>Returning <code>false</code> discards the mapping. </p>
 
 </div>
 </div>
@@ -300,7 +301,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs and initializes a <code>AutomorphismGroupSearch</code> instance. </p>
+<p>Constructs and initializes the <code>AutomorphismGroupSearch</code> instance for the specified atom and bond properties. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom_flags</td><td>The bitwise-OR combination of <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem::Atom properties.">Chem::AtomPropertyFlag</a> values considered for atom matching. </td></tr>
@@ -518,7 +519,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph. </p>
+<p>Searches for the possible atom/bond mappings in the automorphism group of the molecular graph <em>molgraph</em>. </p>
 <p>The method will store all found mappings up to the maximum number of recorded mappings specified by <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2cbb882fcf544db960cbdf1b5220aa88" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -527,7 +528,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if any mappings of the specified molecular graph have been found, and <code>false</code> otherwise. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Any atom/bond mappings that were recorded in a previous call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a> will be discarded. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Any atom/bond mappings that were recorded in a previous call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a> will be discarded. </dd></dl>
 
 </div>
 </div>
@@ -546,7 +547,7 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Aborts a currently running <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a> call. </p>
+<p>Aborts a currently running <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a> call. </p>
 <p>Intended to be invoked from within the callback installed via <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9e9869d9585aad3a552b231f58583926" title="Sets a callback that is invoked for every atom/bond mapping found during findMappings().">setFoundMappingCallback()</a> to stop the automorphism enumeration early. </p>
 
 </div>
@@ -566,8 +567,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a>. </dd></dl>
+<p>Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>. </dd></dl>
 
 </div>
 </div>
@@ -594,7 +595,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the atom/bond mapping object at index <em>idx</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> object at index <em>idx</em>. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ac5775dcb45a8dfad79cdf96a4348c86b" title="Returns the number of atom/bond mappings that were recorded in the last call to findMappings().">getNumMappings()</a>). </td></tr>
@@ -627,7 +628,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the atom/bond mapping object at index <em>idx</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> object at index <em>idx</em>. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#ac5775dcb45a8dfad79cdf96a4348c86b" title="Returns the number of atom/bond mappings that were recorded in the last call to findMappings().">getNumMappings()</a>). </td></tr>
@@ -652,8 +653,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -672,8 +673,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -692,8 +693,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -712,8 +713,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -732,8 +733,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the beginning of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -752,8 +753,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the beginning of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the beginning of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -772,8 +773,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a mutable iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable iterator pointing to the end of the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -792,8 +793,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a constant iterator pointing to the end of the stored atom/bond mapping objects. </p>
-<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored atom/bond mapping objects. </dd></dl>
+<p>Returns a constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </p>
+<dl class="section return"><dt>Returns</dt><dd>A constant iterator pointing to the end of the stored <code>const</code> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem::AtomBondMapping</a> objects. </dd></dl>
 
 </div>
 </div>
@@ -814,7 +815,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allows to specify a limit on the number of stored atom/bond mappings. </p>
-<p>In a call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a> the automorphism search will terminate as soon as the specified maximum number of stored atom/bond mappings has been reached. A previously set limit on the number of mappings can be disabled by providing zero for the value of <em>max_num_mappings</em>.</p>
+<p>In a call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a> the automorphism search will terminate as soon as the specified maximum number of stored atom/bond mappings has been reached. A previously set limit on the number of mappings can be disabled by providing zero for the value of <em>max_num_mappings</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">max_num_mappings</td><td>The maximum number of atom/bond mappings to store. </td></tr>
@@ -842,7 +843,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the specified limit on the number of stored atom/bond mappings. </p>
 <dl class="section return"><dt>Returns</dt><dd>The specified maximum number of stored atom/bond mappings. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2cbb882fcf544db960cbdf1b5220aa88" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a>, <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a2cbb882fcf544db960cbdf1b5220aa88" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a>, <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a> </dd></dl>
 
 </div>
 </div>
@@ -978,11 +979,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets a callback that is invoked for every atom/bond mapping found during <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the given molecular graph.">findMappings()</a>. </p>
-<p>Returning <code>false</code> from the callback aborts the search (equivalent to calling <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a4b54294a22c2f6d743729e7c80137b1a" title="Aborts a currently running findMappings() call.">stopSearch()</a>).</p>
+<p>Sets a callback that is invoked for every atom/bond mapping found during <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a1df541d3002b9efc0c7b087429fc9643" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>. </p>
+<p>Returning <code>false</code> from the callback discards the found mapping (will not be part of the search results).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td>The new found-mapping callback. </td></tr>
+    <tr><td class="paramname">func</td><td>The new callback function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1004,8 +1005,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the currently installed found-mapping callback. </p>
-<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the found-mapping callback. </dd></dl>
+<p>Returns the currently installed callback function invoked for every found atom/bond mapping. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code>const</code> reference to the installed callback function. </dd></dl>
 
 </div>
 </div>
