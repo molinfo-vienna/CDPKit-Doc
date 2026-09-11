@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Generic <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> specialisation that evaluates a binary comparison between a query- and a target-derived property value retrieved through a user-supplied accessor function.  
+<p>Generic <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> specialization for the binary comparison between a query- and a target-derived property value retrieved through a user-supplied accessor function.  
  <a href="classCDPL_1_1Chem_1_1PropertyMatchExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="PropertyMatchExpression_8hpp_source.html">PropertyMatchExpression.hpp</a>&gt;</code></p>
@@ -135,12 +135,12 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ValueType, typename MatchFunc, typename ObjType1, typename ObjType2 = void&gt;<br />
 class CDPL::Chem::PropertyMatchExpression&lt; ValueType, MatchFunc, ObjType1, ObjType2 &gt;</h3>
 
-<p>Generic <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> specialisation that evaluates a binary comparison between a query- and a target-derived property value retrieved through a user-supplied accessor function. </p>
-<p>The constructor either binds a fixed query value (taken verbatim from the constructor argument) or retrieves the query value through the same accessor as the target value; the actual comparison is delegated to the <em>MatchFunc</em> functor. This class implements the two-object overload (primary plus secondary objects) of <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">MatchExpression</a>.</p>
+<p>Generic <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> specialization for the binary comparison between a query- and a target-derived property value retrieved through a user-supplied accessor function. </p>
+<p>This class implements the two-object overload (primary plus secondary objects) of <a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a>. The constructor either binds a fixed query value (taken verbatim from the constructor argument) or retrieves the query value through the same accessor as the target value. The actual comparison is delegated to the <em>MatchFunc</em> functor whose function call operator takes the target property value as its first argument and the query value as the second argument (both provided as <code>const</code> reference to <code>ValueType</code>). The returned result must be implicitly convertible to type <code>bool</code> (<code>true</code> indicates a match, <code>false</code> a mismatch).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">ValueType</td><td>The type of the checked property values. </td></tr>
-    <tr><td class="paramname">MatchFunc</td><td>The type of a binary functor class that implements the logic of testing the target property values against the query property values. The overloaded function call operator is required to take the target property value as its first argument and the query value as the second argument (both provided as <code>const</code> reference to <code>ValueType</code>). The returned result must be implicitly convertible to type <code>bool</code> (<code>true</code> indicates a match, <code>false</code> a mismatch). </td></tr>
+    <tr><td class="paramname">MatchFunc</td><td>The type of a binary functor class that implements the logic of testing the target property values against the query property values. </td></tr>
     <tr><td class="paramname">ObjType1</td><td>The type of the primary query/target objects for which the expression gets evaluated. </td></tr>
     <tr><td class="paramname">ObjType2</td><td>The type of secondary query/target objects which provide auxiliary information for expression evaluation. </td></tr>
   </table>
@@ -214,7 +214,7 @@ template&lt;typename ValueType , typename MatchFunc , typename ObjType1 , typena
 <p>Constructs a <code>PropertyMatchExpression</code> instance that performs query/target object equivalence tests based on the property values returned by <em>property_func</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">property_func</td><td>A PropertyMatchExpression::PropertyFunction2 instance that wraps the specified property value accessor function. </td></tr>
+    <tr><td class="paramname">property_func</td><td>A PropertyFunction instance that wraps the specified property value accessor function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,7 +261,7 @@ template&lt;typename ValueType , typename MatchFunc , typename ObjType1 , typena
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td>The query property value. </td></tr>
-    <tr><td class="paramname">property_func</td><td>A PropertyMatchExpression::PropertyFunction2 instance that wraps the specified target property value accessor function. </td></tr>
+    <tr><td class="paramname">property_func</td><td>A PropertyFunction instance that wraps the specified target property value accessor function. </td></tr>
   </table>
   </dd>
 </dl>
