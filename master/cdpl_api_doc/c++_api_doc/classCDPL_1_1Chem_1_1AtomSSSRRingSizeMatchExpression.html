@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target atoms by the size of the SSSR ring(s) containing them.  
+<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target atoms by the size of the SSSR ring(s) containing them.  
  <a href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AtomSSSRRingSizeMatchExpression_8hpp_source.html">AtomSSSRRingSizeMatchExpression.hpp</a>&gt;</code></p>
@@ -109,7 +109,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2f2f79580c8cd6de822b402bc7e8d695"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#a2f2f79580c8cd6de822b402bc7e8d695">AtomSSSRRingSizeMatchExpression</a> (std::size_t ring_size)</td></tr>
-<tr class="memdesc:a2f2f79580c8cd6de822b402bc7e8d695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code>AtomSSSRRingSizeMatchExpression</code> instance for the specified query ring size.  <a href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#a2f2f79580c8cd6de822b402bc7e8d695">More...</a><br /></td></tr>
+<tr class="memdesc:a2f2f79580c8cd6de822b402bc7e8d695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>AtomSSSRRingSizeMatchExpression</code> instance for the query ring size <em>ring_size</em>.  <a href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#a2f2f79580c8cd6de822b402bc7e8d695">More...</a><br /></td></tr>
 <tr class="separator:a2f2f79580c8cd6de822b402bc7e8d695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af33d68eb0511a2e3e832e96f0df90243"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#af33d68eb0511a2e3e832e96f0df90243">operator()</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;query_atom, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;query_molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;target_atom, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;target_molgraph, const <a class="el" href="classCDPL_1_1Base_1_1Any.html">Base::Any</a> &amp;aux_data) const</td></tr>
 <tr class="memdesc:af33d68eb0511a2e3e832e96f0df90243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a ring in the SSSR of <em>target_molgraph</em> that contains <em>target_atom</em> matches the query ring size specified in the constructor.  <a href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#af33d68eb0511a2e3e832e96f0df90243">More...</a><br /></td></tr>
@@ -132,8 +132,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename MatchFunc&gt;<br />
 class CDPL::Chem::AtomSSSRRingSizeMatchExpression&lt; MatchFunc &gt;</h3>
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target atoms by the size of the SSSR ring(s) containing them. </p>
-<p>For each target atom the expression iterates the perceived SSSR of the target molecular graph and applies the supplied binary functor <em>MatchFunc</em> to compare the target ring size against the configured query ring size. Used in <em>SMARTS</em> substructure searches with ring-size atom constraints (e.g. <code></code>[R6]).</p>
+<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target atoms by the size of the SSSR ring(s) containing them. </p>
+<p>For each target atom the expression iterates the perceived SSSR of the target molecular graph and applies the supplied binary functor <em>MatchFunc</em> to compare the target ring size against the configured query ring size. Ring size constraints are typically specified as part of atom expressions in <em>Daylight SMARTS</em> patterns <a href="e.g. \c [R6] requiring a matching target atom to be contained in a ring of size \e 6">\ref SMARTS</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">MatchFunc</td><td>The type of a binary functor class that implements the logic of testing the size of rings containing the target atom against the query ring size. The overloaded function call operator is required to take the target ring size as its first argument and the query ring size as the second argument (both provided as values of type <code>std::size_t</code>). The returned result must be implicitly convertible to type <code>bool</code> (<code>true</code> indicates a match, <code>false</code> a mismatch). </td></tr>
@@ -186,7 +186,7 @@ template&lt;typename MatchFunc &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs an <code>AtomSSSRRingSizeMatchExpression</code> instance for the specified query ring size. </p>
+<p>Constructs the <code>AtomSSSRRingSizeMatchExpression</code> instance for the query ring size <em>ring_size</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ring_size</td><td>The query ring size that has to be matched (according to the result returned by the specified matching functor) by rings containing the checked target atoms. </td></tr>

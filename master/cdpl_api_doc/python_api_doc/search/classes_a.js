@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['kekulestructurecalculator_6885',['KekuleStructureCalculator',['../classCDPL_1_1Chem_1_1KekuleStructureCalculator.html',1,'CDPL::Chem']]],
-  ['keteneynoltautomerization_6886',['KeteneYnolTautomerization',['../classCDPL_1_1Chem_1_1KeteneYnolTautomerization.html',1,'CDPL::Chem']]],
-  ['ketoenoltautomerization_6887',['KetoEnolTautomerization',['../classCDPL_1_1Chem_1_1KetoEnolTautomerization.html',1,'CDPL::Chem']]],
-  ['kuvekpocketdescriptorcalculator_6888',['KuvekPocketDescriptorCalculator',['../classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html',1,'CDPL::Descr']]]
+  ['kekulestructurecalculator_6887',['KekuleStructureCalculator',['../classCDPL_1_1Chem_1_1KekuleStructureCalculator.html',1,'CDPL::Chem']]],
+  ['keteneynoltautomerization_6888',['KeteneYnolTautomerization',['../classCDPL_1_1Chem_1_1KeteneYnolTautomerization.html',1,'CDPL::Chem']]],
+  ['ketoenoltautomerization_6889',['KetoEnolTautomerization',['../classCDPL_1_1Chem_1_1KetoEnolTautomerization.html',1,'CDPL::Chem']]],
+  ['kuvekpocketdescriptorcalculator_6890',['KuvekPocketDescriptorCalculator',['../classCDPL_1_1Descr_1_1KuvekPocketDescriptorCalculator.html',1,'CDPL::Descr']]]
 ];

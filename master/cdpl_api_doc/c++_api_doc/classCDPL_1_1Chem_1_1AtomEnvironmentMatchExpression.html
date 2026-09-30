@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target atoms by the structural environment encoded as a <em>SMARTS</em> substructure pattern.  
+<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target atoms by a specified structural environment.  
  <a href="classCDPL_1_1Chem_1_1AtomEnvironmentMatchExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="AtomEnvironmentMatchExpression_8hpp_source.html">AtomEnvironmentMatchExpression.hpp</a>&gt;</code></p>
@@ -109,7 +109,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cff42e8b3d51e2e186865e16e1f18fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomEnvironmentMatchExpression.html#a4cff42e8b3d51e2e186865e16e1f18fc">AtomEnvironmentMatchExpression</a> (const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html#a3665294513798bda9b0389054c808581">MolecularGraph::SharedPointer</a> &amp;env_pattern, <a class="el" href="classbool.html">bool</a> not_match)</td></tr>
-<tr class="memdesc:a4cff42e8b3d51e2e186865e16e1f18fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code>AtomEnvironmentMatchExpression</code> instance for the specified atom environment pattern and matching mode.  <a href="classCDPL_1_1Chem_1_1AtomEnvironmentMatchExpression.html#a4cff42e8b3d51e2e186865e16e1f18fc">More...</a><br /></td></tr>
+<tr class="memdesc:a4cff42e8b3d51e2e186865e16e1f18fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>AtomEnvironmentMatchExpression</code> instance for the specified atom environment pattern and matching logic.  <a href="classCDPL_1_1Chem_1_1AtomEnvironmentMatchExpression.html#a4cff42e8b3d51e2e186865e16e1f18fc">More...</a><br /></td></tr>
 <tr class="separator:a4cff42e8b3d51e2e186865e16e1f18fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2bb5f0b3873615e172cfc0bb2c799d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomEnvironmentMatchExpression.html#ae2bb5f0b3873615e172cfc0bb2c799d9">operator()</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;query_atom, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;query_molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;target_atom, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;target_molgraph, const <a class="el" href="classCDPL_1_1Base_1_1Any.html">Base::Any</a> &amp;aux_data) const</td></tr>
 <tr class="memdesc:ae2bb5f0b3873615e172cfc0bb2c799d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the structural environment of <em>target_atom</em> matches (or does not match) the query environment pattern specified in the constructor.  <a href="classCDPL_1_1Chem_1_1AtomEnvironmentMatchExpression.html#ae2bb5f0b3873615e172cfc0bb2c799d9">More...</a><br /></td></tr>
@@ -129,8 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac8f9f6bd0029d43c9db637d0f32b7b97 inherit pub_methods_classCDPL_1_1Chem_1_1MatchExpression"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target atoms by the structural environment encoded as a <em>SMARTS</em> substructure pattern. </p>
-<p>A target atom matches the expression when the supplied <em>SMARTS</em> environment pattern (anchored on the target atom) is found by an inner <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html" title="Searches for substructures of a target molecular graph that match the topology of a given query molec...">Chem::SubstructureSearch</a> instance. The matching mode (match/not-match) is configurable. </p>
+<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target atoms by a specified structural environment. </p>
+<p>A target atom matches the expression when the supplied atom environment pattern (anchored on the target atom) is found by an inner <a class="el" href="classCDPL_1_1Chem_1_1SubstructureSearch.html" title="Searches for substructures of a target molecular graph that match the topology of a given query molec...">Chem::SubstructureSearch</a> instance. The matching logic (match/not-match) is configurable.</p>
+<p>Environment constraints can be specified as part of atom expressions in <em>Daylight SMARTS</em> patterns by <em>recursive SMARTS</em> using the syntax <code>$(...)</code> [<a class="el" href="References.html#SMARTS">SMARTS</a>]. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3e3e38be5f733079a9e8cc23a38c41b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e3e38be5f733079a9e8cc23a38c41b5">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -175,14 +176,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <code>AtomEnvironmentMatchExpression</code> instance for the specified atom environment pattern and matching mode. </p>
+<p>Constructs the <code>AtomEnvironmentMatchExpression</code> instance for the specified atom environment pattern and matching logic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">env_pattern</td><td>A substructure search pattern that describes the required (or not desired) structural environment of matching target atoms. Note: The substructure pattern has to be formulated in a way that the first atom of the pattern molecule matches the target atoms. </td></tr>
+    <tr><td class="paramname">env_pattern</td><td>A substructure search pattern that describes the required (or not desired) structural environment of matching target atoms. </td></tr>
     <tr><td class="paramname">not_match</td><td>Specifies whether the environment of a target atom actually has to match (<code>true</code>) or <em>not</em> match (<code>false</code>) the given query environment pattern. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The substructure pattern has to be formulated in a way that the first atom of the environment pattern matches the evaluated target atom. </dd></dl>
 
 </div>
 </div>
@@ -242,8 +244,8 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the matching mode is 'not match' (see constructor), the method returns <code>false</code> if the structural environment of the target atom matches the query environment pattern, and <code>true</code> if the pattern is not matched. Otherwise, <code>true</code> is returned if the atom environments match, and <code>false</code> if they do not. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>If an invalid query environment pattern has been specified (<code>nullptr</code> or the atom count is zero), the method will always return <code>true</code> - irrespective of matching mode and target atom environment. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the matching logic is 'not match' (see constructor), the method returns <code>false</code> if the structural environment of the target atom matches the query environment pattern, and <code>true</code> if the pattern is not matched. Otherwise, <code>true</code> is returned if the atom environments match, and <code>false</code> if they do not. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If an invalid query environment pattern has been specified (<code>nullptr</code> or the atom count is zero), the method will always return <code>true</code> - irrespective of matching logic and target atom environment. </dd></dl>
 
 </div>
 </div>

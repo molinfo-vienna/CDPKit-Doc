@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target bonds by their stereo configuration relative to a query bond.  
+<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target bonds by their stereo configuration relative to a query bond.  
  <a href="classCDPL_1_1Chem_1_1BondConfigurationMatchExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BondConfigurationMatchExpression_8hpp_source.html">BondConfigurationMatchExpression.hpp</a>&gt;</code></p>
@@ -109,7 +109,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a99c77cb1fe94eaff26066ccc34a2601f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondConfigurationMatchExpression.html#a99c77cb1fe94eaff26066ccc34a2601f">BondConfigurationMatchExpression</a> (const <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html">StereoDescriptor</a> &amp;query_stereo_descr, const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;query_bond, <a class="el" href="classbool.html">bool</a> not_match, <a class="el" href="classbool.html">bool</a> allow_part_maps)</td></tr>
-<tr class="memdesc:a99c77cb1fe94eaff26066ccc34a2601f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code>BondConfigurationMatchExpression</code> instance for the specified matching mode, cis/trans bond configuration constraints.  <a href="classCDPL_1_1Chem_1_1BondConfigurationMatchExpression.html#a99c77cb1fe94eaff26066ccc34a2601f">More...</a><br /></td></tr>
+<tr class="memdesc:a99c77cb1fe94eaff26066ccc34a2601f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BondConfigurationMatchExpression</code> instance for the specified matching logic and cis/trans bond configuration constraints.  <a href="classCDPL_1_1Chem_1_1BondConfigurationMatchExpression.html#a99c77cb1fe94eaff26066ccc34a2601f">More...</a><br /></td></tr>
 <tr class="separator:a99c77cb1fe94eaff26066ccc34a2601f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8460f2498f5896e7d5b4d6ef785ce55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondConfigurationMatchExpression.html#ae8460f2498f5896e7d5b4d6ef785ce55">operator()</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;query_bond, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;query_molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;target_bond, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;target_molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &amp;mapping, const <a class="el" href="classCDPL_1_1Base_1_1Any.html">Base::Any</a> &amp;aux_data) const</td></tr>
 <tr class="memdesc:ae8460f2498f5896e7d5b4d6ef785ce55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the cis/trans configuration of <em>target_bond</em> satisfies (or does not satisfy) the configuration constraints specified in the constructor.  <a href="classCDPL_1_1Chem_1_1BondConfigurationMatchExpression.html#ae8460f2498f5896e7d5b4d6ef785ce55">More...</a><br /></td></tr>
@@ -129,8 +129,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad511b430dc433796a4c1b9ca325c524c inherit pub_methods_classCDPL_1_1Chem_1_1MatchExpression"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target bonds by their stereo configuration relative to a query bond. </p>
-<p>Used in substructure searches with stereochemistry support: the expression evaluates the target bond's cis/trans stereo configuration (as defined by its <a class="el" href="classCDPL_1_1Chem_1_1StereoDescriptor.html" title="Data structure for the storage and retrieval of stereochemical information about atoms and bonds.">Chem::StereoDescriptor</a>) against the configuration constraint flags derived from the query bond's descriptor. </p>
+<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target bonds by their stereo configuration relative to a query bond. </p>
+<p>The expression evaluates the target bond's cis/trans stereo configuration (as defined by its stereo descriptor) against the configuration constraint flags derived from the query bond's descriptor. The matching logic (match/not-match) and partial mapping tolerance are configurable. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aab8de9928e874f0f3719d9e71fc13109"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab8de9928e874f0f3719d9e71fc13109">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <code>BondConfigurationMatchExpression</code> instance for the specified matching mode, cis/trans bond configuration constraints. </p>
+<p>Constructs the <code>BondConfigurationMatchExpression</code> instance for the specified matching logic and cis/trans bond configuration constraints. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">query_stereo_descr</td><td>The descriptor object specifying the query bond's cis/trans configuration reference atoms and associated configuration constraints on matching target bonds. </td></tr>
@@ -264,8 +264,8 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the matching mode is 'not match' (see constructor), the method returns <code>false</code> if the configuration of the target bond matches one of the specified query configurations, and <code>true</code> if not. Otherwise, the method will return <code>true</code> if the target bond configuration does match one of the specified query configurations, and <code>false</code> if all allowed configurations remain unmatched. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>If no valid query stereo descriptor was specified or <em>query_bond</em> is not identical to the query bond specified in the constrctor, the method will return <code>true</code> - irrespective of matching mode and actual target bond configuration! </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the matching logic is 'not match' (see constructor), the method returns <code>false</code> if the configuration of the target bond matches one of the specified query configurations, and <code>true</code> if not. Otherwise, the method will return <code>true</code> if the target bond configuration does match one of the specified query configurations, and <code>false</code> if all allowed configurations remain unmatched. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If no valid query stereo descriptor was specified or <em>query_bond</em> is not identical to the query bond specified in the constrctor, the method will return <code>true</code> - irrespective of matching logic and actual target bond configuration! </dd></dl>
 
 </div>
 </div>

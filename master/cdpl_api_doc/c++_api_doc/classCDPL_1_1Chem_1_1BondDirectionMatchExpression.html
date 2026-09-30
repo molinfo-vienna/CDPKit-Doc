@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target bonds by their SMILES/SMARTS bond direction.  
+<p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target bonds by their <em>Daylight SMARTS</em> bond direction.  
  <a href="classCDPL_1_1Chem_1_1BondDirectionMatchExpression.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="BondDirectionMatchExpression_8hpp_source.html">BondDirectionMatchExpression.hpp</a>&gt;</code></p>
@@ -109,7 +109,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa651fb8fd5704bf367b157cb4155aa5e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondDirectionMatchExpression.html#aa651fb8fd5704bf367b157cb4155aa5e">BondDirectionMatchExpression</a> (unsigned int dir_flags, <a class="el" href="classbool.html">bool</a> not_match)</td></tr>
-<tr class="memdesc:aa651fb8fd5704bf367b157cb4155aa5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code>BondDirectionMatchExpression</code> instance for the specified matching mode and bond direction constraints.  <a href="classCDPL_1_1Chem_1_1BondDirectionMatchExpression.html#aa651fb8fd5704bf367b157cb4155aa5e">More...</a><br /></td></tr>
+<tr class="memdesc:aa651fb8fd5704bf367b157cb4155aa5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BondDirectionMatchExpression</code> instance for the specified matching logicand bond direction constraints.  <a href="classCDPL_1_1Chem_1_1BondDirectionMatchExpression.html#aa651fb8fd5704bf367b157cb4155aa5e">More...</a><br /></td></tr>
 <tr class="separator:aa651fb8fd5704bf367b157cb4155aa5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bab79cc00d26dbf2fb328b1e2b4325d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1BondDirectionMatchExpression.html#a0bab79cc00d26dbf2fb328b1e2b4325d">operator()</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;query_bond, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;query_molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1Bond.html">Bond</a> &amp;target_bond, const <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> &amp;target_molgraph, const <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> &amp;mapping, const <a class="el" href="classCDPL_1_1Base_1_1Any.html">Base::Any</a> &amp;target_bond_dir) const</td></tr>
 <tr class="memdesc:a0bab79cc00d26dbf2fb328b1e2b4325d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the direction given by <em>target_bond_dir</em> matches (or does not match) the direction constraints specified in the constructor.  <a href="classCDPL_1_1Chem_1_1BondDirectionMatchExpression.html#a0bab79cc00d26dbf2fb328b1e2b4325d">More...</a><br /></td></tr>
@@ -129,8 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac8f9f6bd0029d43c9db637d0f32b7b97 inherit pub_methods_classCDPL_1_1Chem_1_1MatchExpression"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> that constrains target bonds by their SMILES/SMARTS bond direction. </p>
-<p>The expression evaluates the target bond's auxiliary direction value (one of the <a class="el" href="namespaceCDPL_1_1Chem_1_1BondDirection.html" title="Provides constants for the specification of directional bonds in Daylight SMILES and SMARTS strings.">Chem::BondDirection</a> flags, supplied as <code>aux_data</code>) against the configured direction constraint flags. The matching mode (match/not-match) is configurable. </p>
+<div class="textblock"><p><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target bonds by their <em>Daylight SMARTS</em> bond direction. </p>
+<p>The expression evaluates the target bond's direction value (provided as auxiliary matching data) against the configured direction constraint flags. The matching logic (match/not-match) is configurable.</p>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#SMARTS">SMARTS</a>] </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac16d24752ba6d38314124c55766a0a76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac16d24752ba6d38314124c55766a0a76">&#9670;&nbsp;</a></span>SharedPointer</h2>
@@ -175,7 +176,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <code>BondDirectionMatchExpression</code> instance for the specified matching mode and bond direction constraints. </p>
+<p>Constructs the <code>BondDirectionMatchExpression</code> instance for the specified matching logicand bond direction constraints. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dir_flags</td><td>A bitwise-OR combination of the flags defined in namespace <a class="el" href="namespaceCDPL_1_1Chem_1_1BondDirection.html" title="Provides constants for the specification of directional bonds in Daylight SMILES and SMARTS strings.">Chem::BondDirection</a> that specifies constraints on the direction of matching target bonds. </td></tr>
@@ -250,7 +251,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If the matching mode is 'not match' (see constructor), the method returns <code>false</code> if the direction of the target bond (given by <em>target_bond_dir</em>) matches one of the directions specified in the constructor, and <code>true</code> if not. If the matching mode is 'match', the expression evaluates to <code>true</code> if the target bond matches one of the query directions, and <code>false</code> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the matching logic is 'not match' (see constructor), the method returns <code>false</code> if the direction of the target bond (given by <em>target_bond_dir</em>) matches one of the directions specified in the constructor, and <code>true</code> if not. If the matching mode is 'match', the expression evaluates to <code>true</code> if the target bond matches one of the query directions, and <code>false</code> otherwise. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If no valid query direction flags were specified or <em>target_bond_dir</em> does not hold a value, the method will return <code>true</code> - irrespective of matching mode and actual target bond direction! </dd></dl>
 
 </div>
