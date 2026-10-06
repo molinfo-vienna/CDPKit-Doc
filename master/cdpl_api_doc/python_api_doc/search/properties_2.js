@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['specular_12349',['specular',['../classCDPL_1_1Vis_1_1Material.html#a593afa2687de6f0651c967a6e6c2981a',1,'CDPL::Vis::Material']]]
+  ['diffuse_12356',['diffuse',['../classCDPL_1_1Vis_1_1Material.html#a164ebd52c7f065332c8293f733724a89',1,'CDPL::Vis::Material']]]
 ];

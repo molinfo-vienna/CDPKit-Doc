@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="namespaceCDPL_1_1Base.html" title="Contains core framework classes and functions.">Base</a> class providing methods for the storage and lookup of control-parameter values.  
+<p>Base class providing methods for the storage and lookup of control-parameter values.  
  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Base.ControlParameterContainer:</div>
@@ -146,7 +146,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><b>setParameter</b> (<a 
 <tr class="memdesc:aca5b0565223043518608dd7a84cb5e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters the callback specified by <em>id</em>.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#aca5b0565223043518608dd7a84cb5e0f">More...</a><br /></td></tr>
 <tr class="separator:aca5b0565223043518608dd7a84cb5e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d4db56fae26568869b283896b10171a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">ControlParameterContainer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a9d4db56fae26568869b283896b10171a">getParent</a> ()</td></tr>
-<tr class="memdesc:a9d4db56fae26568869b283896b10171a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the parent control-parameter container.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a9d4db56fae26568869b283896b10171a">More...</a><br /></td></tr>
+<tr class="memdesc:a9d4db56fae26568869b283896b10171a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parent control-parameter container.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a9d4db56fae26568869b283896b10171a">More...</a><br /></td></tr>
 <tr class="separator:a9d4db56fae26568869b283896b10171a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6b8c89fead591acfcdc6d31996a3b84"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#ac6b8c89fead591acfcdc6d31996a3b84">setParent</a> (<a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">ControlParameterContainer</a> cntnr)</td></tr>
 <tr class="memdesc:ac6b8c89fead591acfcdc6d31996a3b84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets or removes the parent control-parameter container used to resolve requests for missing entries.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#ac6b8c89fead591acfcdc6d31996a3b84">More...</a><br /></td></tr>
@@ -201,7 +201,7 @@ Properties</h2></td></tr>
 <tr class="separator:ae5dac4690405e4340cbf219d1253a62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="namespaceCDPL_1_1Base.html" title="Contains core framework classes and functions.">Base</a> class providing methods for the storage and lookup of control-parameter values. </p>
+<div class="textblock"><p>Base class providing methods for the storage and lookup of control-parameter values. </p>
 <p>The purpose of <code><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html" title="Base class providing methods for the storage and lookup of control-parameter values.">ControlParameterContainer</a></code> is to provide a common facility for the storage and lookup of dynamic parameter values to subclasses which can be used to control their runtime-behaviour.</p>
 <p>For the explicit assignment of control-parameter values the method setParameter() is provided which expects the key of the control-parameter as its first and the value to assign as the second argument. The availability of a value for a particular control-parameter can be tested by the method <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a936f60db5d2fef8785de089300a49ac1" title="Tells whether or not a value has been assigned to the control-parameter specified by key.">isParameterSet()</a>. For the retrieval of control-parameter values the <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#accb870a95d6210c3d5f82bd053df56fc" title="Returns the value of the control-parameter specified by key.">getParameter()</a> family of overloaded methods is provided which expect the key of the control-parameter as an argument. The method getParameterOrDefault() additionally allows to specify a default value that gets returned if an entry for the requested control-parameter value does not exist. <code><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html" title="Base class providing methods for the storage and lookup of control-parameter values.">ControlParameterContainer</a></code> guarantees that the complexity of these operations is never worse than logarithmic.</p>
 <p>Control-parameter values are stored in an associative map as <a class="el" href="classCDPL_1_1Base_1_1LookupKey.html" title="Unique lookup key for control-parameter and property values.">Base.LookupKey</a> / <a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Base.Any</a> pairs of type ControlParameterContainer.ParameterEntry. The current number of entries can be queried with the method <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a54436a746c70a10dfd6d047dd50d9bfb" title="Returns the number of container entries.">getNumParameters()</a>. Iterators pointing to the beginning and end of the container are obtained via the methods getEntriesBegin() and getEntriesEnd(), respectively.</p>
@@ -353,8 +353,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Erases all container entries. </p>
-<p>For each container entry, any callback functions registered by <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a59d55eed967a82380c8b2ed2cd40405b" title="Registers a callback target function that gets invoked when a control-parameter entry has been remove...">registerParameterRemovedCallback()</a> will be invoked with the key of the removed control-parameter entry as an argument. Callbacks of affected direct and indirect children which do not have an entry for the erased control-parameter also get invoked. <br  />
- </p>
+<p>For each container entry, any callback functions registered by <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a59d55eed967a82380c8b2ed2cd40405b" title="Registers a callback target function that gets invoked when a control-parameter entry has been remove...">registerParameterRemovedCallback()</a> will be invoked with the key of the removed control-parameter entry as an argument. Callbacks of affected direct and indirect children which do not have an entry for the erased control-parameter also get invoked. </p>
 
 </div>
 </div>
@@ -610,7 +609,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the parent control-parameter container. </p>
+<p>Returns the parent control-parameter container. </p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the parent control-parameter container, or <code>None</code> if no parent container has been set.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#ac6b8c89fead591acfcdc6d31996a3b84" title="Sets or removes the parent control-parameter container used to resolve requests for missing entries.">setParent()</a> </dd></dl>
 
