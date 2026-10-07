@@ -148,7 +148,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab7610a9dc9e5afd58d93033831292956"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the control-parameter value entries in the <code>ControlParameterContainer</code> instance <em>cntnr</em>.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#ab7610a9dc9e5afd58d93033831292956">More...</a><br /></td></tr>
 <tr class="separator:ab7610a9dc9e5afd58d93033831292956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bde9e8de4e9b55e01b8814680988c3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a6bde9e8de4e9b55e01b8814680988c3b">copyParameters</a> (const <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html">ControlParameterContainer</a> &amp;cntnr)</td></tr>
-<tr class="memdesc:a6bde9e8de4e9b55e01b8814680988c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set of properties by a copy of the entries in <em>cntnr</em>.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a6bde9e8de4e9b55e01b8814680988c3b">More...</a><br /></td></tr>
+<tr class="memdesc:a6bde9e8de4e9b55e01b8814680988c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current set control-parameters by a copy of the parameters in <em>cntnr</em>.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a6bde9e8de4e9b55e01b8814680988c3b">More...</a><br /></td></tr>
 <tr class="separator:a6bde9e8de4e9b55e01b8814680988c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bd50b9476ffb6e694487c0175032ffe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#ae571bee881376268858411f976cfa2f1">ConstParameterIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a2bd50b9476ffb6e694487c0175032ffe">getParametersBegin</a> () const</td></tr>
 <tr class="memdesc:a2bd50b9476ffb6e694487c0175032ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the entries.  <a href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a2bd50b9476ffb6e694487c0175032ffe">More...</a><br /></td></tr>
@@ -492,7 +492,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the value of the control-parameter specified by <em>key</em>. </p>
-<p>If the container contains an entry for the specified control-parameter, the stored value will be returned. If an entry for the control-parameter does not exist, the results depends on the arguments <em>throw_</em> and <em>local:</em> </p>
+<p>If the container contains an entry for the specified control-parameter, the stored value will be returned. If an entry for the control-parameter does not exist, the result depends on the arguments <em>throw_</em> and <em>local</em>.</p>
 <p>If a parent container has been set and the argument <em>local</em> is <code>false</code>, the request is forwarded to the parent (which may also forward the request). Otherwise an empty <a class="el" href="classCDPL_1_1Base_1_1Any.html" title="Safe, type checked container for arbitrary data of variable type.">Base::Any</a> object is returned if <em>_throw</em> is <code>false</code>, and a <a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base::ItemNotFound</a> exception will be thrown if <em>_throw</em> is <code>true</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -746,7 +746,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current set of properties by a copy of the entries in <em>cntnr</em>. </p>
+<p>Replaces the current set control-parameters by a copy of the parameters in <em>cntnr</em>. </p>
 <p>The assignment is equivalent to first erasing all entries by calling <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a6d73c80f7bd44e999613278803d8f3af" title="Erases all container entries.">clearParameters()</a> and then calling <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a30a9ffde55833d41461ea4037e98c91e" title="Sets the value of the control-parameter specified by key to val.">setParameter()</a> for each key/value entry in <em>cntnr</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1101,7 +1101,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Assignment operator. </p>
-<p>Internally calls <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a6bde9e8de4e9b55e01b8814680988c3b" title="Replaces the current set of properties by a copy of the entries in cntnr.">copyParameters()</a> to perform the actual work.</p>
+<p>Internally calls <a class="el" href="classCDPL_1_1Base_1_1ControlParameterContainer.html#a6bde9e8de4e9b55e01b8814680988c3b" title="Replaces the current set control-parameters by a copy of the parameters in cntnr.">copyParameters()</a> to perform the actual work.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cntnr</td><td>The <code>ControlParameterContainer</code> instance to copy. </td></tr>
