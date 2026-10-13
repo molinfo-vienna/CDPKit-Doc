@@ -109,9 +109,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array storing floating-point values of type <code>double</code>.  <a href="classCDPL_1_1Util_1_1DArray.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG2DCoordinatesGenerator.html">DG2DCoordinatesGenerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic distance-geometry (DG) implementation for the generation of 2D coordinates that fulfill user-provided distance constraints.  <a href="classCDPL_1_1Util_1_1DG2DCoordinatesGenerator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html">DG3DCoordinatesGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience alias for the 3D coordinates generator with double-precision values.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-provided distance and volume constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1GZipIOStream.html">GZipIOStream</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bidirectional stream that transparently (de)compresses gzip data.  <a href="classCDPL_1_1Util_1_1GZipIOStream.html#details">More...</a><br /></td></tr>
@@ -159,8 +160,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4ef8c9116bdc4bc67f1cb7b324a7d3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Folds the bitset <em>bs</em> the specified number of times.  <a href="namespaceCDPL_1_1Util.html#a4ef8c9116bdc4bc67f1cb7b324a7d3aa">More...</a><br /></td></tr>
 <tr class="separator:a4ef8c9116bdc4bc67f1cb7b324a7d3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac95413c3cd2a4f982976e4a0c2c06df5"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Util.html#ac95413c3cd2a4f982976e4a0c2c06df5">forEachPair</a> (object seq1, object seq2, object func)</td></tr>
+<tr class="memdesc:ac95413c3cd2a4f982976e4a0c2c06df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes <code>func(seq1[i], seq2[i])</code> for each <em>i</em> in the range <em>[0, min(len(seq1), len(seq2)))</em>.  <a href="namespaceCDPL_1_1Util.html#ac95413c3cd2a4f982976e4a0c2c06df5">More...</a><br /></td></tr>
 <tr class="separator:ac95413c3cd2a4f982976e4a0c2c06df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9b87b5cfe4194e50a2c538119a01223"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Util.html#aa9b87b5cfe4194e50a2c538119a01223">forEach</a> (object seq, object func)</td></tr>
+<tr class="memdesc:aa9b87b5cfe4194e50a2c538119a01223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes <code>func(e)</code> for each element <em>e</em> of the sequence <em>seq</em>.  <a href="namespaceCDPL_1_1Util.html#aa9b87b5cfe4194e50a2c538119a01223">More...</a><br /></td></tr>
 <tr class="separator:aa9b87b5cfe4194e50a2c538119a01223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ccb521019158ddee3f25c41bd25dc38"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Util.html#a5ccb521019158ddee3f25c41bd25dc38">genCheckedTempFilePath</a> (str dir='', str ptn='%%%%-%%%%-%%%%-%%%%')</td></tr>
 <tr class="memdesc:a5ccb521019158ddee3f25c41bd25dc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a temporary file path inside <em>dir</em> whose basename matches the supplied randomization <em>ptn</em> and that is guaranteed not to collide with any existing file.  <a href="namespaceCDPL_1_1Util.html#a5ccb521019158ddee3f25c41bd25dc38">More...</a><br /></td></tr>
@@ -303,11 +306,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Invokes <code>func(seq1[i], seq2[i])</code> for each <em>i</em> in the range <em>[0, min(len(seq1), len(seq2)))</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">seq1</td><td></td></tr>
-    <tr><td class="paramname">seq2</td><td></td></tr>
-    <tr><td class="paramname">func</td><td></td></tr>
+    <tr><td class="paramname">seq1</td><td>The first object sequence. </td></tr>
+    <tr><td class="paramname">seq2</td><td>The second object sequence. </td></tr>
+    <tr><td class="paramname">func</td><td>The binary function to invoke for each element pair. </td></tr>
   </table>
   </dd>
 </dl>
@@ -339,10 +344,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Invokes <code>func(e)</code> for each element <em>e</em> of the sequence <em>seq</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">seq</td><td></td></tr>
-    <tr><td class="paramname">func</td><td></td></tr>
+    <tr><td class="paramname">seq</td><td>The sequence of objects. </td></tr>
+    <tr><td class="paramname">func</td><td>The unary function to invoke for each element of <em>seq</em>. </td></tr>
   </table>
   </dd>
 </dl>

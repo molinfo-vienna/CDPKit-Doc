@@ -85,7 +85,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Convenience alias for the 3D coordinates generator with double-precision values.  
+<p>Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-provided distance and volume constraints.  
  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Util.DG3DCoordinatesGenerator:</div>
@@ -99,118 +99,129 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraint.html">DistanceConstraint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constraint that pins the distance between two points to the interval [<em>lb</em>, <em>ub</em>].  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraint.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraintList.html">DistanceConstraintList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequence of configured distance constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraintList.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraint.html">VolumeConstraint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constraint that pins the signed tetrahedral volume spanned by four points to the interval [<em>lb</em>, <em>ub</em>].  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraint.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraintList.html">VolumeConstraintList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequence of configured volume constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraintList.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adea4ab5f956c036e19d2c3a7d28adbda"><td class="memItemLeft" align="right" valign="top"><a id="adea4ab5f956c036e19d2c3a7d28adbda"></a>
 None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#adea4ab5f956c036e19d2c3a7d28adbda">__init__</a> ()</td></tr>
-<tr class="memdesc:adea4ab5f956c036e19d2c3a7d28adbda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance. <br /></td></tr>
+<tr class="memdesc:adea4ab5f956c036e19d2c3a7d28adbda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance. <br /></td></tr>
 <tr class="separator:adea4ab5f956c036e19d2c3a7d28adbda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88321c835188b3e783b9af60b5f78cab"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a88321c835188b3e783b9af60b5f78cab">__init__</a> (<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html">DG3DCoordinatesGenerator</a> gen)</td></tr>
-<tr class="memdesc:a88321c835188b3e783b9af60b5f78cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs a copy of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a88321c835188b3e783b9af60b5f78cab">More...</a><br /></td></tr>
+<tr class="memdesc:a88321c835188b3e783b9af60b5f78cab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs a copy of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a88321c835188b3e783b9af60b5f78cab">More...</a><br /></td></tr>
 <tr class="separator:a88321c835188b3e783b9af60b5f78cab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6edfb7137d135b64e7b0d0c2468bc424"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a6edfb7137d135b64e7b0d0c2468bc424">getObjectID</a> ()</td></tr>
 <tr class="memdesc:a6edfb7137d135b64e7b0d0c2468bc424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a6edfb7137d135b64e7b0d0c2468bc424">More...</a><br /></td></tr>
 <tr class="separator:a6edfb7137d135b64e7b0d0c2468bc424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95a22671831296bfcbfa4740378ca80d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html">DG3DCoordinatesGenerator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a95a22671831296bfcbfa4740378ca80d">assign</a> (<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html">DG3DCoordinatesGenerator</a> gen)</td></tr>
-<tr class="memdesc:a95a22671831296bfcbfa4740378ca80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state with a copy of the state of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a95a22671831296bfcbfa4740378ca80d">More...</a><br /></td></tr>
+<tr class="memdesc:a95a22671831296bfcbfa4740378ca80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current state with a copy of the state of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a95a22671831296bfcbfa4740378ca80d">More...</a><br /></td></tr>
 <tr class="separator:a95a22671831296bfcbfa4740378ca80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaed64d017cb96dccf3857d440fc7dfd"><td class="memItemLeft" align="right" valign="top"><a id="abaed64d017cb96dccf3857d440fc7dfd"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>clearDistanceConstraints</b> ()</td></tr>
+None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#abaed64d017cb96dccf3857d440fc7dfd">clearDistanceConstraints</a> ()</td></tr>
+<tr class="memdesc:abaed64d017cb96dccf3857d440fc7dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all configured distance constraints. <br /></td></tr>
 <tr class="separator:abaed64d017cb96dccf3857d440fc7dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac19422b4519a645cc947421a7ec8da30"><td class="memItemLeft" align="right" valign="top"><a id="ac19422b4519a645cc947421a7ec8da30"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumDistanceConstraints</b> ()</td></tr>
+<tr class="memitem:ac19422b4519a645cc947421a7ec8da30"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ac19422b4519a645cc947421a7ec8da30">getNumDistanceConstraints</a> ()</td></tr>
+<tr class="memdesc:ac19422b4519a645cc947421a7ec8da30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of configured distance constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ac19422b4519a645cc947421a7ec8da30">More...</a><br /></td></tr>
 <tr class="separator:ac19422b4519a645cc947421a7ec8da30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae58e61ed0cbaed7cb1c3b7872639a7a5"><td class="memItemLeft" align="right" valign="top"><a id="ae58e61ed0cbaed7cb1c3b7872639a7a5"></a>
-<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraint.html">DistanceConstraint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceConstraint</b> (int idx)</td></tr>
+<tr class="memitem:ae58e61ed0cbaed7cb1c3b7872639a7a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraint.html">DistanceConstraint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ae58e61ed0cbaed7cb1c3b7872639a7a5">getDistanceConstraint</a> (int idx)</td></tr>
+<tr class="memdesc:ae58e61ed0cbaed7cb1c3b7872639a7a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance constraint at index <em>idx</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ae58e61ed0cbaed7cb1c3b7872639a7a5">More...</a><br /></td></tr>
 <tr class="separator:ae58e61ed0cbaed7cb1c3b7872639a7a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24526beb37b43ff6a3565d0ad0ab4677"><td class="memItemLeft" align="right" valign="top"><a id="a24526beb37b43ff6a3565d0ad0ab4677"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>addDistanceConstraint</b> (int pt1_idx, int pt2_idx, float lb, float ub)</td></tr>
+<tr class="memitem:a24526beb37b43ff6a3565d0ad0ab4677"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a24526beb37b43ff6a3565d0ad0ab4677">addDistanceConstraint</a> (int pt1_idx, int pt2_idx, float lb, float ub)</td></tr>
+<tr class="memdesc:a24526beb37b43ff6a3565d0ad0ab4677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a new distance constraint to the list of configured constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a24526beb37b43ff6a3565d0ad0ab4677">More...</a><br /></td></tr>
 <tr class="separator:a24526beb37b43ff6a3565d0ad0ab4677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4465d7ad38fb708fc891f03dda9097"><td class="memItemLeft" align="right" valign="top"><a id="a9b4465d7ad38fb708fc891f03dda9097"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>removeDistanceConstraint</b> (int idx)</td></tr>
+<tr class="memitem:a9b4465d7ad38fb708fc891f03dda9097"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a9b4465d7ad38fb708fc891f03dda9097">removeDistanceConstraint</a> (int idx)</td></tr>
+<tr class="memdesc:a9b4465d7ad38fb708fc891f03dda9097"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the distance constraint at index <em>idx</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a9b4465d7ad38fb708fc891f03dda9097">More...</a><br /></td></tr>
 <tr class="separator:a9b4465d7ad38fb708fc891f03dda9097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5290eae3427c3375307f598cd28758d"><td class="memItemLeft" align="right" valign="top"><a id="af5290eae3427c3375307f598cd28758d"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>setNumCycles</b> (int num_cycles)</td></tr>
+<tr class="memitem:af5290eae3427c3375307f598cd28758d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#af5290eae3427c3375307f598cd28758d">setNumCycles</a> (int num_cycles)</td></tr>
+<tr class="memdesc:af5290eae3427c3375307f598cd28758d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of optimization cycles.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#af5290eae3427c3375307f598cd28758d">More...</a><br /></td></tr>
 <tr class="separator:af5290eae3427c3375307f598cd28758d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6696910887a6656024602789cab4a30d"><td class="memItemLeft" align="right" valign="top"><a id="a6696910887a6656024602789cab4a30d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumCycles</b> ()</td></tr>
+<tr class="memitem:a6696910887a6656024602789cab4a30d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a6696910887a6656024602789cab4a30d">getNumCycles</a> ()</td></tr>
+<tr class="memdesc:a6696910887a6656024602789cab4a30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured number of optimization cycles.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a6696910887a6656024602789cab4a30d">More...</a><br /></td></tr>
 <tr class="separator:a6696910887a6656024602789cab4a30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22bbbe8c296b67cbb0d103ac5daf167e"><td class="memItemLeft" align="right" valign="top"><a id="a22bbbe8c296b67cbb0d103ac5daf167e"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>setCycleStepCountFactor</b> (float fact)</td></tr>
+<tr class="memitem:a22bbbe8c296b67cbb0d103ac5daf167e"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a22bbbe8c296b67cbb0d103ac5daf167e">setCycleStepCountFactor</a> (float fact)</td></tr>
+<tr class="memdesc:a22bbbe8c296b67cbb0d103ac5daf167e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the multiplier that determines the per-cycle step count (steps per cycle = factor * number of constraints).  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a22bbbe8c296b67cbb0d103ac5daf167e">More...</a><br /></td></tr>
 <tr class="separator:a22bbbe8c296b67cbb0d103ac5daf167e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91aeb3c9d45299bdf525bc24f6701840"><td class="memItemLeft" align="right" valign="top"><a id="a91aeb3c9d45299bdf525bc24f6701840"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getCycleStepCountFactor</b> ()</td></tr>
+<tr class="memitem:a91aeb3c9d45299bdf525bc24f6701840"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a91aeb3c9d45299bdf525bc24f6701840">getCycleStepCountFactor</a> ()</td></tr>
+<tr class="memdesc:a91aeb3c9d45299bdf525bc24f6701840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured per-cycle step-count factor.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a91aeb3c9d45299bdf525bc24f6701840">More...</a><br /></td></tr>
 <tr class="separator:a91aeb3c9d45299bdf525bc24f6701840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50cb7d49337349e36cd5f2db85f3ff8"><td class="memItemLeft" align="right" valign="top"><a id="ae50cb7d49337349e36cd5f2db85f3ff8"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>setStartLearningRate</b> (float rate)</td></tr>
+<tr class="memitem:ae50cb7d49337349e36cd5f2db85f3ff8"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ae50cb7d49337349e36cd5f2db85f3ff8">setStartLearningRate</a> (float rate)</td></tr>
+<tr class="memdesc:ae50cb7d49337349e36cd5f2db85f3ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the initial learning rate used by the first optimization cycle.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ae50cb7d49337349e36cd5f2db85f3ff8">More...</a><br /></td></tr>
 <tr class="separator:ae50cb7d49337349e36cd5f2db85f3ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58901928fb51c0e925080b5f3c5f50bf"><td class="memItemLeft" align="right" valign="top"><a id="a58901928fb51c0e925080b5f3c5f50bf"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getStartLearningRate</b> ()</td></tr>
+<tr class="memitem:a58901928fb51c0e925080b5f3c5f50bf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a58901928fb51c0e925080b5f3c5f50bf">getStartLearningRate</a> ()</td></tr>
+<tr class="memdesc:a58901928fb51c0e925080b5f3c5f50bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured initial learning rate.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a58901928fb51c0e925080b5f3c5f50bf">More...</a><br /></td></tr>
 <tr class="separator:a58901928fb51c0e925080b5f3c5f50bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29b17b99e14fb92971f3ceb6d7f5078b"><td class="memItemLeft" align="right" valign="top"><a id="a29b17b99e14fb92971f3ceb6d7f5078b"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>setLearningRateDecrement</b> (float decr)</td></tr>
+<tr class="memitem:a29b17b99e14fb92971f3ceb6d7f5078b"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a29b17b99e14fb92971f3ceb6d7f5078b">setLearningRateDecrement</a> (float decr)</td></tr>
+<tr class="memdesc:a29b17b99e14fb92971f3ceb6d7f5078b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the per-cycle learning rate decrement.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a29b17b99e14fb92971f3ceb6d7f5078b">More...</a><br /></td></tr>
 <tr class="separator:a29b17b99e14fb92971f3ceb6d7f5078b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f2fcd880b49b103bcf7f51701f6464"><td class="memItemLeft" align="right" valign="top"><a id="a54f2fcd880b49b103bcf7f51701f6464"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getLearningRateDecrement</b> ()</td></tr>
+<tr class="memitem:a54f2fcd880b49b103bcf7f51701f6464"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a54f2fcd880b49b103bcf7f51701f6464">getLearningRateDecrement</a> ()</td></tr>
+<tr class="memdesc:a54f2fcd880b49b103bcf7f51701f6464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently configured per-cycle learning rate decrement.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a54f2fcd880b49b103bcf7f51701f6464">More...</a><br /></td></tr>
 <tr class="separator:a54f2fcd880b49b103bcf7f51701f6464"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61697af185ca714bcc1bac180edb341a"><td class="memItemLeft" align="right" valign="top"><a id="a61697af185ca714bcc1bac180edb341a"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>setRandomSeed</b> (int seed)</td></tr>
+<tr class="memitem:a61697af185ca714bcc1bac180edb341a"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a61697af185ca714bcc1bac180edb341a">setRandomSeed</a> (int seed)</td></tr>
+<tr class="memdesc:a61697af185ca714bcc1bac180edb341a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the seed of the internal random number generator used to initialize the coordinates.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a61697af185ca714bcc1bac180edb341a">More...</a><br /></td></tr>
 <tr class="separator:a61697af185ca714bcc1bac180edb341a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7061e32cd1503510e1346d9e04783076"><td class="memItemLeft" align="right" valign="top"><a id="a7061e32cd1503510e1346d9e04783076"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>generate</b> (int num_points, <a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> coords)</td></tr>
+<tr class="memitem:a7061e32cd1503510e1346d9e04783076"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a7061e32cd1503510e1346d9e04783076">generate</a> (int num_points, <a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> coords)</td></tr>
+<tr class="memdesc:a7061e32cd1503510e1346d9e04783076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates <em>num_points</em> coordinate vectors that try to satisfy the configured constraints and stores them in <em>coords</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a7061e32cd1503510e1346d9e04783076">More...</a><br /></td></tr>
 <tr class="separator:a7061e32cd1503510e1346d9e04783076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a042bf7b5eced71cd5f46607394138880"><td class="memItemLeft" align="right" valign="top"><a id="a042bf7b5eced71cd5f46607394138880"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceError</b> (<a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> coords)</td></tr>
+<tr class="memitem:a042bf7b5eced71cd5f46607394138880"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a042bf7b5eced71cd5f46607394138880">getDistanceError</a> (<a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> coords)</td></tr>
+<tr class="memdesc:a042bf7b5eced71cd5f46607394138880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the cumulative squared distance error of <em>coords</em> against the configured distance constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a042bf7b5eced71cd5f46607394138880">More...</a><br /></td></tr>
 <tr class="separator:a042bf7b5eced71cd5f46607394138880"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56aa349e49d3df7c8f465b7a9509ee05"><td class="memItemLeft" align="right" valign="top"><a id="a56aa349e49d3df7c8f465b7a9509ee05"></a>
-<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraintList.html">DistanceConstraintList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceConstraints</b> ()</td></tr>
+<tr class="memitem:a56aa349e49d3df7c8f465b7a9509ee05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraintList.html">DistanceConstraintList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a56aa349e49d3df7c8f465b7a9509ee05">getDistanceConstraints</a> ()</td></tr>
+<tr class="memdesc:a56aa349e49d3df7c8f465b7a9509ee05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list containing the configured distance constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a56aa349e49d3df7c8f465b7a9509ee05">More...</a><br /></td></tr>
 <tr class="separator:a56aa349e49d3df7c8f465b7a9509ee05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2155d2fe23a8db43fe19220b2b176b9"><td class="memItemLeft" align="right" valign="top"><a id="af2155d2fe23a8db43fe19220b2b176b9"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>clearVolumeConstraints</b> ()</td></tr>
+None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#af2155d2fe23a8db43fe19220b2b176b9">clearVolumeConstraints</a> ()</td></tr>
+<tr class="memdesc:af2155d2fe23a8db43fe19220b2b176b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all configured volume constraints. <br /></td></tr>
 <tr class="separator:af2155d2fe23a8db43fe19220b2b176b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42166b0db55a4fb9c77d8138aaad1f50"><td class="memItemLeft" align="right" valign="top"><a id="a42166b0db55a4fb9c77d8138aaad1f50"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumVolumeConstraints</b> ()</td></tr>
+<tr class="memitem:a42166b0db55a4fb9c77d8138aaad1f50"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a42166b0db55a4fb9c77d8138aaad1f50">getNumVolumeConstraints</a> ()</td></tr>
+<tr class="memdesc:a42166b0db55a4fb9c77d8138aaad1f50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of configured volume constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a42166b0db55a4fb9c77d8138aaad1f50">More...</a><br /></td></tr>
 <tr class="separator:a42166b0db55a4fb9c77d8138aaad1f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada31a1f68d1902e3c72d308015ad2e96"><td class="memItemLeft" align="right" valign="top"><a id="ada31a1f68d1902e3c72d308015ad2e96"></a>
-<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraint.html">VolumeConstraint</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVolumeConstraint</b> (int idx)</td></tr>
+<tr class="memitem:ada31a1f68d1902e3c72d308015ad2e96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraint.html">VolumeConstraint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ada31a1f68d1902e3c72d308015ad2e96">getVolumeConstraint</a> (int idx)</td></tr>
+<tr class="memdesc:ada31a1f68d1902e3c72d308015ad2e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the volume constraint at index <em>idx</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ada31a1f68d1902e3c72d308015ad2e96">More...</a><br /></td></tr>
 <tr class="separator:ada31a1f68d1902e3c72d308015ad2e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54ee72b0a3a3e0a3235b37d39c29e60f"><td class="memItemLeft" align="right" valign="top"><a id="a54ee72b0a3a3e0a3235b37d39c29e60f"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>addVolumeConstraint</b> (int pt1_idx, int pt2_idx, int pt3_idx, int pt4_idx, float lb, float ub)</td></tr>
+<tr class="memitem:a54ee72b0a3a3e0a3235b37d39c29e60f"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a54ee72b0a3a3e0a3235b37d39c29e60f">addVolumeConstraint</a> (int pt1_idx, int pt2_idx, int pt3_idx, int pt4_idx, float lb, float ub)</td></tr>
+<tr class="memdesc:a54ee72b0a3a3e0a3235b37d39c29e60f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a new volume constraint to the list of configured constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a54ee72b0a3a3e0a3235b37d39c29e60f">More...</a><br /></td></tr>
 <tr class="separator:a54ee72b0a3a3e0a3235b37d39c29e60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89958fd801ddd7fc4b97a0f12c43726d"><td class="memItemLeft" align="right" valign="top"><a id="a89958fd801ddd7fc4b97a0f12c43726d"></a>
-None&#160;</td><td class="memItemRight" valign="bottom"><b>removeVolumeConstraint</b> (int idx)</td></tr>
+<tr class="memitem:a89958fd801ddd7fc4b97a0f12c43726d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a89958fd801ddd7fc4b97a0f12c43726d">removeVolumeConstraint</a> (int idx)</td></tr>
+<tr class="memdesc:a89958fd801ddd7fc4b97a0f12c43726d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the volume constraint at index <em>idx</em>.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a89958fd801ddd7fc4b97a0f12c43726d">More...</a><br /></td></tr>
 <tr class="separator:a89958fd801ddd7fc4b97a0f12c43726d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89adab09dbe01ab0fbc47ea70151fa92"><td class="memItemLeft" align="right" valign="top"><a id="a89adab09dbe01ab0fbc47ea70151fa92"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getVolumeError</b> (<a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> coords)</td></tr>
+<tr class="memitem:a89adab09dbe01ab0fbc47ea70151fa92"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a89adab09dbe01ab0fbc47ea70151fa92">getVolumeError</a> (<a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a> coords)</td></tr>
+<tr class="memdesc:a89adab09dbe01ab0fbc47ea70151fa92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the cumulative volume error of <em>coords</em> against the configured volume constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a89adab09dbe01ab0fbc47ea70151fa92">More...</a><br /></td></tr>
 <tr class="separator:a89adab09dbe01ab0fbc47ea70151fa92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4f586af80b323323f78402de8edbb1e"><td class="memItemLeft" align="right" valign="top"><a id="aa4f586af80b323323f78402de8edbb1e"></a>
-<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraintList.html">VolumeConstraintList</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getVolumeConstraints</b> ()</td></tr>
+<tr class="memitem:aa4f586af80b323323f78402de8edbb1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraintList.html">VolumeConstraintList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#aa4f586af80b323323f78402de8edbb1e">getVolumeConstraints</a> ()</td></tr>
+<tr class="memdesc:aa4f586af80b323323f78402de8edbb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list containing the configured volume constraints.  <a href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#aa4f586af80b323323f78402de8edbb1e">More...</a><br /></td></tr>
 <tr class="separator:aa4f586af80b323323f78402de8edbb1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a558cf8b98f0d9f101ec142b581dacb2d"><td class="memItemLeft" align="right" valign="top"><a id="a558cf8b98f0d9f101ec142b581dacb2d"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>COORDS_DIM</b> = 3</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a558cf8b98f0d9f101ec142b581dacb2d">COORDS_DIM</a> = 3</td></tr>
+<tr class="memdesc:a558cf8b98f0d9f101ec142b581dacb2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensionality of the coordinate space. <br /></td></tr>
 <tr class="separator:a558cf8b98f0d9f101ec142b581dacb2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fd1e1b196ef12bbbe86f20531b827c3"><td class="memItemLeft" align="right" valign="top"><a id="a4fd1e1b196ef12bbbe86f20531b827c3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_NUM_CYCLES</b> = 50</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a4fd1e1b196ef12bbbe86f20531b827c3">DEF_NUM_CYCLES</a> = 50</td></tr>
+<tr class="memdesc:a4fd1e1b196ef12bbbe86f20531b827c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default number of optimization cycles. <br /></td></tr>
 <tr class="separator:a4fd1e1b196ef12bbbe86f20531b827c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf3160bac34442b8a9365623311047c7"><td class="memItemLeft" align="right" valign="top"><a id="adf3160bac34442b8a9365623311047c7"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_CYCLE_STEP_COUNT_FACTOR</b> = 1.0</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#adf3160bac34442b8a9365623311047c7">DEF_CYCLE_STEP_COUNT_FACTOR</a> = 1.0</td></tr>
+<tr class="memdesc:adf3160bac34442b8a9365623311047c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default per-cycle step-count multiplier (steps per cycle = factor * number of constraints). <br /></td></tr>
 <tr class="separator:adf3160bac34442b8a9365623311047c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af29c582ba0f17d5f4c67270ec5410a5f"><td class="memItemLeft" align="right" valign="top"><a id="af29c582ba0f17d5f4c67270ec5410a5f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_START_LEARNING_RATE</b> = 1.0</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#af29c582ba0f17d5f4c67270ec5410a5f">DEF_START_LEARNING_RATE</a> = 1.0</td></tr>
+<tr class="memdesc:af29c582ba0f17d5f4c67270ec5410a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default initial learning rate. <br /></td></tr>
 <tr class="separator:af29c582ba0f17d5f4c67270ec5410a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a219eb687807eac6d102784550dfb9c56"><td class="memItemLeft" align="right" valign="top"><a id="a219eb687807eac6d102784550dfb9c56"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>DEF_LEARNING_RATE_DECREMENT</b> = 0.019</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a219eb687807eac6d102784550dfb9c56">DEF_LEARNING_RATE_DECREMENT</a> = 0.019</td></tr>
+<tr class="memdesc:a219eb687807eac6d102784550dfb9c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default per-cycle decrement subtracted from the learning rate. <br /></td></tr>
 <tr class="separator:a219eb687807eac6d102784550dfb9c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -219,32 +230,33 @@ Properties</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>objectID</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a6edfb7137d135b64e7b0d0c2468bc424">getObjectID</a>)</td></tr>
 <tr class="separator:acb265cd0fb73c6953a7ebff61d504530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52337dffb715b48e0bcf3d354c1c56ef"><td class="memItemLeft" align="right" valign="top"><a id="a52337dffb715b48e0bcf3d354c1c56ef"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>numCycles</b> = property(getNumCycles, setNumCycles)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>numCycles</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a6696910887a6656024602789cab4a30d">getNumCycles</a>, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#af5290eae3427c3375307f598cd28758d">setNumCycles</a>)</td></tr>
 <tr class="separator:a52337dffb715b48e0bcf3d354c1c56ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83d7ef41eb3dc7978e5c497c8f669dfc"><td class="memItemLeft" align="right" valign="top"><a id="a83d7ef41eb3dc7978e5c497c8f669dfc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>cycleStepCountFactor</b> = property(getCycleStepCountFactor, setCycleStepCountFactor)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>cycleStepCountFactor</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a91aeb3c9d45299bdf525bc24f6701840">getCycleStepCountFactor</a>, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a22bbbe8c296b67cbb0d103ac5daf167e">setCycleStepCountFactor</a>)</td></tr>
 <tr class="separator:a83d7ef41eb3dc7978e5c497c8f669dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a1c8ae35ee4e7b11fdd61a6a552f37"><td class="memItemLeft" align="right" valign="top"><a id="a53a1c8ae35ee4e7b11fdd61a6a552f37"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>startLearningRate</b> = property(getStartLearningRate, setStartLearningRate)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>startLearningRate</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a58901928fb51c0e925080b5f3c5f50bf">getStartLearningRate</a>, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ae50cb7d49337349e36cd5f2db85f3ff8">setStartLearningRate</a>)</td></tr>
 <tr class="separator:a53a1c8ae35ee4e7b11fdd61a6a552f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ca96fe98a0ee320bf262bbb262f047"><td class="memItemLeft" align="right" valign="top"><a id="a22ca96fe98a0ee320bf262bbb262f047"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>learningRateDecrement</b> = property(getLearningRateDecrement, setLearningRateDecrement)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>learningRateDecrement</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a54f2fcd880b49b103bcf7f51701f6464">getLearningRateDecrement</a>, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a29b17b99e14fb92971f3ceb6d7f5078b">setLearningRateDecrement</a>)</td></tr>
 <tr class="separator:a22ca96fe98a0ee320bf262bbb262f047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a934f70f6ace109179286aabe2cfb096d"><td class="memItemLeft" align="right" valign="top"><a id="a934f70f6ace109179286aabe2cfb096d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>numDistanceConstraints</b> = property(getNumDistanceConstraints)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>numDistanceConstraints</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ac19422b4519a645cc947421a7ec8da30">getNumDistanceConstraints</a>)</td></tr>
 <tr class="separator:a934f70f6ace109179286aabe2cfb096d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9718552a134bd38e0e5da572c6fc7b9f"><td class="memItemLeft" align="right" valign="top"><a id="a9718552a134bd38e0e5da572c6fc7b9f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>distanceConstraints</b> = property(getDistanceConstraints)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>distanceConstraints</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a56aa349e49d3df7c8f465b7a9509ee05">getDistanceConstraints</a>)</td></tr>
 <tr class="separator:a9718552a134bd38e0e5da572c6fc7b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8285e6deddcb24fecc42f3bd71f4bd6"><td class="memItemLeft" align="right" valign="top"><a id="af8285e6deddcb24fecc42f3bd71f4bd6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>numVolumeConstraints</b> = property(getNumVolumeConstraints)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>numVolumeConstraints</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a42166b0db55a4fb9c77d8138aaad1f50">getNumVolumeConstraints</a>)</td></tr>
 <tr class="separator:af8285e6deddcb24fecc42f3bd71f4bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fa54819ee20d56a0a359f17407a1d3f"><td class="memItemLeft" align="right" valign="top"><a id="a9fa54819ee20d56a0a359f17407a1d3f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>volumeConstraints</b> = property(getVolumeConstraints)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>volumeConstraints</b> = property(<a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#aa4f586af80b323323f78402de8edbb1e">getVolumeConstraints</a>)</td></tr>
 <tr class="separator:a9fa54819ee20d56a0a359f17407a1d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Convenience alias for the 3D coordinates generator with double-precision values. </p>
+<div class="textblock"><p>Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-provided distance and volume constraints. </p>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#ASPE">ASPE</a>] </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a88321c835188b3e783b9af60b5f78cab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88321c835188b3e783b9af60b5f78cab">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -262,10 +274,10 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Contructs a copy of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>. </p>
+<p>Contructs a copy of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gen</td><td>The <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance to copy. </td></tr>
+    <tr><td class="paramname">gen</td><td>The <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -289,7 +301,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the numeric identifier (ID) of the wrapped C++ class instance. </p>
-<p>Different Python <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
+<p>Different Python <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>The numeric ID of the internally referenced C++ class instance. </dd></dl>
 
 </div>
@@ -310,14 +322,641 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Replaces the current state with a copy of the state of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>. </p>
+<p>Replaces the current state with a copy of the state of the <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance <em>gen</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">gen</td><td>The <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Convenience alias for the 3D coordinates generator with double-precision values.">DG3DCoordinatesGenerator</a></code> instance to copy. </td></tr>
+    <tr><td class="paramname">gen</td><td>The <code><a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html" title="Generic distance-geometry (DG) implementation for the generation of 3D coordinates that fulfill user-...">DG3DCoordinatesGenerator</a></code> instance to copy. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><em>self</em> </dd></dl>
+
+</div>
+</div>
+<a id="ac19422b4519a645cc947421a7ec8da30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac19422b4519a645cc947421a7ec8da30">&#9670;&nbsp;</a></span>getNumDistanceConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int CDPL.Util.DG3DCoordinatesGenerator.getNumDistanceConstraints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of configured distance constraints. </p>
+<dl class="section return"><dt>Returns</dt><dd>The distance-constraint count. </dd></dl>
+
+</div>
+</div>
+<a id="ae58e61ed0cbaed7cb1c3b7872639a7a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae58e61ed0cbaed7cb1c3b7872639a7a5">&#9670;&nbsp;</a></span>getDistanceConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraint.html">DistanceConstraint</a> CDPL.Util.DG3DCoordinatesGenerator.getDistanceConstraint </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the distance constraint at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based constraint index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the distance constraint.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ac19422b4519a645cc947421a7ec8da30" title="Returns the number of configured distance constraints.">getNumDistanceConstraints()</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24526beb37b43ff6a3565d0ad0ab4677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24526beb37b43ff6a3565d0ad0ab4677">&#9670;&nbsp;</a></span>addDistanceConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.addDistanceConstraint </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt1_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt2_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ub</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Appends a new distance constraint to the list of configured constraints. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt1_idx</td><td>The index of the first point. </td></tr>
+    <tr><td class="paramname">pt2_idx</td><td>The index of the second point. </td></tr>
+    <tr><td class="paramname">lb</td><td>The lower distance bound. </td></tr>
+    <tr><td class="paramname">ub</td><td>The upper distance bound. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b4465d7ad38fb708fc891f03dda9097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b4465d7ad38fb708fc891f03dda9097">&#9670;&nbsp;</a></span>removeDistanceConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.removeDistanceConstraint </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the distance constraint at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based constraint index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#ac19422b4519a645cc947421a7ec8da30" title="Returns the number of configured distance constraints.">getNumDistanceConstraints()</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af5290eae3427c3375307f598cd28758d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5290eae3427c3375307f598cd28758d">&#9670;&nbsp;</a></span>setNumCycles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.setNumCycles </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_cycles</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the number of optimization cycles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_cycles</td><td>The new cycle count. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6696910887a6656024602789cab4a30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6696910887a6656024602789cab4a30d">&#9670;&nbsp;</a></span>getNumCycles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int CDPL.Util.DG3DCoordinatesGenerator.getNumCycles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the currently configured number of optimization cycles. </p>
+<dl class="section return"><dt>Returns</dt><dd>The cycle count. </dd></dl>
+
+</div>
+</div>
+<a id="a22bbbe8c296b67cbb0d103ac5daf167e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22bbbe8c296b67cbb0d103ac5daf167e">&#9670;&nbsp;</a></span>setCycleStepCountFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.setCycleStepCountFactor </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fact</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the multiplier that determines the per-cycle step count (steps per cycle = factor * number of constraints). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fact</td><td>The new per-cycle step-count factor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a91aeb3c9d45299bdf525bc24f6701840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91aeb3c9d45299bdf525bc24f6701840">&#9670;&nbsp;</a></span>getCycleStepCountFactor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Util.DG3DCoordinatesGenerator.getCycleStepCountFactor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the currently configured per-cycle step-count factor. </p>
+<dl class="section return"><dt>Returns</dt><dd>The step-count factor. </dd></dl>
+
+</div>
+</div>
+<a id="ae50cb7d49337349e36cd5f2db85f3ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae50cb7d49337349e36cd5f2db85f3ff8">&#9670;&nbsp;</a></span>setStartLearningRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.setStartLearningRate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the initial learning rate used by the first optimization cycle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>The new initial learning rate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a58901928fb51c0e925080b5f3c5f50bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58901928fb51c0e925080b5f3c5f50bf">&#9670;&nbsp;</a></span>getStartLearningRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Util.DG3DCoordinatesGenerator.getStartLearningRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the currently configured initial learning rate. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the initial learning rate. </dd></dl>
+
+</div>
+</div>
+<a id="a29b17b99e14fb92971f3ceb6d7f5078b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b17b99e14fb92971f3ceb6d7f5078b">&#9670;&nbsp;</a></span>setLearningRateDecrement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.setLearningRateDecrement </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>decr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the per-cycle learning rate decrement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">decr</td><td>The new per-cycle learning rate decrement. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54f2fcd880b49b103bcf7f51701f6464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f2fcd880b49b103bcf7f51701f6464">&#9670;&nbsp;</a></span>getLearningRateDecrement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Util.DG3DCoordinatesGenerator.getLearningRateDecrement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the currently configured per-cycle learning rate decrement. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the per-cycle learning rate decrement. </dd></dl>
+
+</div>
+</div>
+<a id="a61697af185ca714bcc1bac180edb341a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61697af185ca714bcc1bac180edb341a">&#9670;&nbsp;</a></span>setRandomSeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.setRandomSeed </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the seed of the internal random number generator used to initialize the coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td>The new random seed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7061e32cd1503510e1346d9e04783076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7061e32cd1503510e1346d9e04783076">&#9670;&nbsp;</a></span>generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.generate </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates <em>num_points</em> coordinate vectors that try to satisfy the configured constraints and stores them in <em>coords</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_points</td><td>The number of points whose coordinates are to be generated. </td></tr>
+    <tr><td class="paramname">coords</td><td>The output coordinate array (resized as needed). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a042bf7b5eced71cd5f46607394138880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042bf7b5eced71cd5f46607394138880">&#9670;&nbsp;</a></span>getDistanceError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Util.DG3DCoordinatesGenerator.getDistanceError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a>&#160;</td>
+          <td class="paramname"><em>coords</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the cumulative squared distance error of <em>coords</em> against the configured distance constraints. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>The input coordinate array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The cumulative distance error. </dd></dl>
+
+</div>
+</div>
+<a id="a56aa349e49d3df7c8f465b7a9509ee05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56aa349e49d3df7c8f465b7a9509ee05">&#9670;&nbsp;</a></span>getDistanceConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1DistanceConstraintList.html">DistanceConstraintList</a> CDPL.Util.DG3DCoordinatesGenerator.getDistanceConstraints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a list containing the configured distance constraints. </p>
+<dl class="section return"><dt>Returns</dt><dd>A list containing the configured distance constraints. </dd></dl>
+
+</div>
+</div>
+<a id="a42166b0db55a4fb9c77d8138aaad1f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42166b0db55a4fb9c77d8138aaad1f50">&#9670;&nbsp;</a></span>getNumVolumeConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int CDPL.Util.DG3DCoordinatesGenerator.getNumVolumeConstraints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of configured volume constraints. </p>
+<dl class="section return"><dt>Returns</dt><dd>The volume-constraint count. </dd></dl>
+
+</div>
+</div>
+<a id="ada31a1f68d1902e3c72d308015ad2e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada31a1f68d1902e3c72d308015ad2e96">&#9670;&nbsp;</a></span>getVolumeConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraint.html">VolumeConstraint</a> CDPL.Util.DG3DCoordinatesGenerator.getVolumeConstraint </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the volume constraint at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based constraint index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the volume constraint.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a42166b0db55a4fb9c77d8138aaad1f50" title="Returns the number of configured volume constraints.">getNumVolumeConstraints()</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54ee72b0a3a3e0a3235b37d39c29e60f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ee72b0a3a3e0a3235b37d39c29e60f">&#9670;&nbsp;</a></span>addVolumeConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.addVolumeConstraint </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt1_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt2_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt3_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pt4_idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ub</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Appends a new volume constraint to the list of configured constraints. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt1_idx</td><td>The index of the first point. </td></tr>
+    <tr><td class="paramname">pt2_idx</td><td>The index of the second point. </td></tr>
+    <tr><td class="paramname">pt3_idx</td><td>The index of the third point. </td></tr>
+    <tr><td class="paramname">pt4_idx</td><td>The index of the fourth point. </td></tr>
+    <tr><td class="paramname">lb</td><td>The lower volume bound. </td></tr>
+    <tr><td class="paramname">ub</td><td>The upper volume bound. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a89958fd801ddd7fc4b97a0f12c43726d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89958fd801ddd7fc4b97a0f12c43726d">&#9670;&nbsp;</a></span>removeVolumeConstraint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Util.DG3DCoordinatesGenerator.removeVolumeConstraint </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes the volume constraint at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based constraint index.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator.html#a42166b0db55a4fb9c77d8138aaad1f50" title="Returns the number of configured volume constraints.">getNumVolumeConstraints()</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a89adab09dbe01ab0fbc47ea70151fa92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89adab09dbe01ab0fbc47ea70151fa92">&#9670;&nbsp;</a></span>getVolumeError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Util.DG3DCoordinatesGenerator.getVolumeError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3DArray.html">Math.Vector3DArray</a>&#160;</td>
+          <td class="paramname"><em>coords</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the cumulative volume error of <em>coords</em> against the configured volume constraints. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords</td><td>The input coordinate array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The cumulative volume error. </dd></dl>
+
+</div>
+</div>
+<a id="aa4f586af80b323323f78402de8edbb1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f586af80b323323f78402de8edbb1e">&#9670;&nbsp;</a></span>getVolumeConstraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Util_1_1DG3DCoordinatesGenerator_1_1VolumeConstraintList.html">VolumeConstraintList</a> CDPL.Util.DG3DCoordinatesGenerator.getVolumeConstraints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a list containing the configured volume constraints. </p>
+<dl class="section return"><dt>Returns</dt><dd>A list containing the configured volume constraints. </dd></dl>
 
 </div>
 </div>
