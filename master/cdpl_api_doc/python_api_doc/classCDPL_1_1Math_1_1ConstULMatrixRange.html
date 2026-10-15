@@ -120,8 +120,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpty</b> ()</td></
 <tr class="memitem:a6104dd1f0614468a36379fe6850950ce"><td class="memItemLeft" align="right" valign="top"><a id="a6104dd1f0614468a36379fe6850950ce"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getElement</b> (int i, int j)</td></tr>
 <tr class="separator:a6104dd1f0614468a36379fe6850950ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40e9f5f3d836f08e015f3a8469de7d50"><td class="memItemLeft" align="right" valign="top"><a id="a40e9f5f3d836f08e015f3a8469de7d50"></a>
-object&#160;</td><td class="memItemRight" valign="bottom"><b>toArray</b> ()</td></tr>
+<tr class="memitem:a40e9f5f3d836f08e015f3a8469de7d50"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#a40e9f5f3d836f08e015f3a8469de7d50">toArray</a> ()</td></tr>
+<tr class="memdesc:a40e9f5f3d836f08e015f3a8469de7d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <code><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html">ConstULMatrixRange</a></code> instance into a corresponding <em>NumPy</em> array.  <a href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#a40e9f5f3d836f08e015f3a8469de7d50">More...</a><br /></td></tr>
 <tr class="separator:a40e9f5f3d836f08e015f3a8469de7d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac627b9e106d4c2af9e6101fe60011ff0"><td class="memItemLeft" align="right" valign="top"><a id="ac627b9e106d4c2af9e6101fe60011ff0"></a>
 <a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixExpression.html">ConstULMatrixExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> ()</td></tr>
@@ -154,7 +154,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>__len__</b> ()</td></t
 <tr class="memdesc:af9ecfdfc5208e060f7fd748448c31fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <em>self</em>.  <a href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#af9ecfdfc5208e060f7fd748448c31fb6">More...</a><br /></td></tr>
 <tr class="separator:af9ecfdfc5208e060f7fd748448c31fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51a88edd03b441bd400dc25b097f566a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixExpression.html">ConstULMatrixExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#a51a88edd03b441bd400dc25b097f566a">__neg__</a> ()</td></tr>
-<tr class="memdesc:a51a88edd03b441bd400dc25b097f566a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negates each element and returns the result.  <a href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#a51a88edd03b441bd400dc25b097f566a">More...</a><br /></td></tr>
+<tr class="memdesc:a51a88edd03b441bd400dc25b097f566a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the operation <code>self * -1</code>.  <a href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#a51a88edd03b441bd400dc25b097f566a">More...</a><br /></td></tr>
 <tr class="separator:a51a88edd03b441bd400dc25b097f566a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af51faf861ee2aee462f7ea7f3edb9995"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixExpression.html">ConstULMatrixExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#af51faf861ee2aee462f7ea7f3edb9995">__add__</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixExpression.html">ConstULMatrixExpression</a> e)</td></tr>
 <tr class="memdesc:af51faf861ee2aee462f7ea7f3edb9995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the addition operation <code>self + e</code>.  <a href="classCDPL_1_1Math_1_1ConstULMatrixRange.html#af51faf861ee2aee462f7ea7f3edb9995">More...</a><br /></td></tr>
@@ -292,6 +292,27 @@ Properties</h2></td></tr>
 <p>Returns the numeric identifier (ID) of the wrapped C++ class instance. </p>
 <p>Different Python <code><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html">ConstULMatrixRange</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html">ConstULMatrixRange</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>The numeric ID of the internally referenced C++ class instance. </dd></dl>
+
+</div>
+</div>
+<a id="a40e9f5f3d836f08e015f3a8469de7d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e9f5f3d836f08e015f3a8469de7d50">&#9670;&nbsp;</a></span>toArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> object CDPL.Math.ConstULMatrixRange.toArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts the <code><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixRange.html">ConstULMatrixRange</a></code> instance into a corresponding <em>NumPy</em> array. </p>
+<dl class="section return"><dt>Returns</dt><dd>The generated <em>NumPy</em> array. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#NUMPY">NUMPY</a>] </dd></dl>
 
 </div>
 </div>
@@ -458,7 +479,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Negates each element and returns the result. </p>
+<p>Returns the result of the operation <code>self * -1</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="classCDPL_1_1Math_1_1ConstULMatrixExpression.html">ConstULMatrixExpression</a></code> instance holding the result of the element negation. </dd></dl>
 
 </div>

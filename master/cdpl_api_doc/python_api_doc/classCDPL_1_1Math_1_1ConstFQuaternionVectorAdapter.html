@@ -111,8 +111,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> ()</td></t
 <tr class="memitem:a7fd83ff3135d2bec39ff4623ece9c3d6"><td class="memItemLeft" align="right" valign="top"><a id="a7fd83ff3135d2bec39ff4623ece9c3d6"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getElement</b> (int i)</td></tr>
 <tr class="separator:a7fd83ff3135d2bec39ff4623ece9c3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0401deb5dbc440c7141fc398d4691ba3"><td class="memItemLeft" align="right" valign="top"><a id="a0401deb5dbc440c7141fc398d4691ba3"></a>
-object&#160;</td><td class="memItemRight" valign="bottom"><b>toArray</b> ()</td></tr>
+<tr class="memitem:a0401deb5dbc440c7141fc398d4691ba3"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#a0401deb5dbc440c7141fc398d4691ba3">toArray</a> ()</td></tr>
+<tr class="memdesc:a0401deb5dbc440c7141fc398d4691ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <code><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html">ConstFQuaternionVectorAdapter</a></code> instance into a corresponding <em>NumPy</em> array.  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#a0401deb5dbc440c7141fc398d4691ba3">More...</a><br /></td></tr>
 <tr class="separator:a0401deb5dbc440c7141fc398d4691ba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fb1af64d065cd6b57886ec76a89fa0e"><td class="memItemLeft" align="right" valign="top"><a id="a5fb1af64d065cd6b57886ec76a89fa0e"></a>
 <a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionExpression.html">ConstFQuaternionExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> ()</td></tr>
@@ -145,7 +145,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>__len__</b> ()</td></t
 <tr class="memdesc:a5a63843ca48bf391868a1381f434ad10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <em>self</em>.  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#a5a63843ca48bf391868a1381f434ad10">More...</a><br /></td></tr>
 <tr class="separator:a5a63843ca48bf391868a1381f434ad10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac167b06a9deff7622545840ba732ddac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstFVectorExpression.html">ConstFVectorExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#ac167b06a9deff7622545840ba732ddac">__neg__</a> ()</td></tr>
-<tr class="memdesc:ac167b06a9deff7622545840ba732ddac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negates each element and returns the result.  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#ac167b06a9deff7622545840ba732ddac">More...</a><br /></td></tr>
+<tr class="memdesc:ac167b06a9deff7622545840ba732ddac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the operation <code>self * -1</code>.  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#ac167b06a9deff7622545840ba732ddac">More...</a><br /></td></tr>
 <tr class="separator:ac167b06a9deff7622545840ba732ddac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab176bf3d86117d4387070d8b8130f517"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstFVectorExpression.html">ConstFVectorExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#ab176bf3d86117d4387070d8b8130f517">__add__</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstFVectorExpression.html">ConstFVectorExpression</a> e)</td></tr>
 <tr class="memdesc:ab176bf3d86117d4387070d8b8130f517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the addition operation <code>self + e</code>.  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#ab176bf3d86117d4387070d8b8130f517">More...</a><br /></td></tr>
@@ -253,6 +253,27 @@ Properties</h2></td></tr>
 <p>Returns the numeric identifier (ID) of the wrapped C++ class instance. </p>
 <p>Different Python <code><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html">ConstFQuaternionVectorAdapter</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html">ConstFQuaternionVectorAdapter</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>The numeric ID of the internally referenced C++ class instance. </dd></dl>
+
+</div>
+</div>
+<a id="a0401deb5dbc440c7141fc398d4691ba3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0401deb5dbc440c7141fc398d4691ba3">&#9670;&nbsp;</a></span>toArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> object CDPL.Math.ConstFQuaternionVectorAdapter.toArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts the <code><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html">ConstFQuaternionVectorAdapter</a></code> instance into a corresponding <em>NumPy</em> array. </p>
+<dl class="section return"><dt>Returns</dt><dd>The generated <em>NumPy</em> array. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#NUMPY">NUMPY</a>] </dd></dl>
 
 </div>
 </div>
@@ -419,7 +440,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Negates each element and returns the result. </p>
+<p>Returns the result of the operation <code>self * -1</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="classCDPL_1_1Math_1_1ConstFVectorExpression.html">ConstFVectorExpression</a></code> instance holding the result of the element negation. </dd></dl>
 
 </div>

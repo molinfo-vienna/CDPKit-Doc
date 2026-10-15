@@ -117,8 +117,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> ()</td></t
 <tr class="memitem:a17bdfd7d31746210b24583cab9fc9237"><td class="memItemLeft" align="right" valign="top"><a id="a17bdfd7d31746210b24583cab9fc9237"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getElement</b> (int i)</td></tr>
 <tr class="separator:a17bdfd7d31746210b24583cab9fc9237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c534119f98453b6d70ba393359d2831"><td class="memItemLeft" align="right" valign="top"><a id="a8c534119f98453b6d70ba393359d2831"></a>
-object&#160;</td><td class="memItemRight" valign="bottom"><b>toArray</b> ()</td></tr>
+<tr class="memitem:a8c534119f98453b6d70ba393359d2831"><td class="memItemLeft" align="right" valign="top">object&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#a8c534119f98453b6d70ba393359d2831">toArray</a> ()</td></tr>
+<tr class="memdesc:a8c534119f98453b6d70ba393359d2831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the <code><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html">ConstLVectorSlice</a></code> instance into a corresponding <em>NumPy</em> array.  <a href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#a8c534119f98453b6d70ba393359d2831">More...</a><br /></td></tr>
 <tr class="separator:a8c534119f98453b6d70ba393359d2831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c677aa8c98d4a6730f1330c3f164f17"><td class="memItemLeft" align="right" valign="top"><a id="a4c677aa8c98d4a6730f1330c3f164f17"></a>
 <a class="el" href="classCDPL_1_1Math_1_1ConstLVectorExpression.html">ConstLVectorExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> ()</td></tr>
@@ -151,7 +151,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>__len__</b> ()</td></t
 <tr class="memdesc:a30472306dc6a8e5f8bc7509ad8d86834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <em>self</em>.  <a href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#a30472306dc6a8e5f8bc7509ad8d86834">More...</a><br /></td></tr>
 <tr class="separator:a30472306dc6a8e5f8bc7509ad8d86834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4760b4ebb2bfcd7846d230b6018c8bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorExpression.html">ConstLVectorExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#a4760b4ebb2bfcd7846d230b6018c8bf9">__neg__</a> ()</td></tr>
-<tr class="memdesc:a4760b4ebb2bfcd7846d230b6018c8bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negates each element and returns the result.  <a href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#a4760b4ebb2bfcd7846d230b6018c8bf9">More...</a><br /></td></tr>
+<tr class="memdesc:a4760b4ebb2bfcd7846d230b6018c8bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the operation <code>self * -1</code>.  <a href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#a4760b4ebb2bfcd7846d230b6018c8bf9">More...</a><br /></td></tr>
 <tr class="separator:a4760b4ebb2bfcd7846d230b6018c8bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae414edc026fc4b531dee0130766b6da4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorExpression.html">ConstLVectorExpression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#ae414edc026fc4b531dee0130766b6da4">__add__</a> (<a class="el" href="classCDPL_1_1Math_1_1ConstLVectorExpression.html">ConstLVectorExpression</a> e)</td></tr>
 <tr class="memdesc:ae414edc026fc4b531dee0130766b6da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the addition operation <code>self + e</code>.  <a href="classCDPL_1_1Math_1_1ConstLVectorSlice.html#ae414edc026fc4b531dee0130766b6da4">More...</a><br /></td></tr>
@@ -276,6 +276,27 @@ Properties</h2></td></tr>
 <p>Returns the numeric identifier (ID) of the wrapped C++ class instance. </p>
 <p>Different Python <code><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html">ConstLVectorSlice</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html">ConstLVectorSlice</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>The numeric ID of the internally referenced C++ class instance. </dd></dl>
+
+</div>
+</div>
+<a id="a8c534119f98453b6d70ba393359d2831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c534119f98453b6d70ba393359d2831">&#9670;&nbsp;</a></span>toArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> object CDPL.Math.ConstLVectorSlice.toArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts the <code><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorSlice.html">ConstLVectorSlice</a></code> instance into a corresponding <em>NumPy</em> array. </p>
+<dl class="section return"><dt>Returns</dt><dd>The generated <em>NumPy</em> array. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#NUMPY">NUMPY</a>] </dd></dl>
 
 </div>
 </div>
@@ -442,7 +463,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Negates each element and returns the result. </p>
+<p>Returns the result of the operation <code>self * -1</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="classCDPL_1_1Math_1_1ConstLVectorExpression.html">ConstLVectorExpression</a></code> instance holding the result of the element negation. </dd></dl>
 
 </div>
