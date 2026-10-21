@@ -83,6 +83,9 @@ $(function() {
 <div class="title">CDPL.Math.Vector3FArrayBFGSMinimizer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of the <em>Broyden-Fletcher-Goldfarb-Shanno (BFGS)</em> algorithm for solving unconstrained nonlinear optimization problems.  
+ <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Math.Vector3FArrayBFGSMinimizer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -95,39 +98,40 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html" title="Status bitmask reported by minimize() and getStatus().">Status</a> bitmask reported by <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4" title="Runs the BFGS minimization loop on x.">minimize()</a> and <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad09ba63be830c13f5ddf93efcb3e2c44" title="Returns the current status of the minimizer.">getStatus()</a>.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a68e06d557b4c1ed8bc1006062d3b2782"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a68e06d557b4c1ed8bc1006062d3b2782">__init__</a> (<a class="el" href="classCDPL_1_1Math_1_1FloatVector3FArrayFunctor.html">FloatVector3FArrayFunctor</a> func, object grad_func)</td></tr>
-<tr class="memdesc:a68e06d557b4c1ed8bc1006062d3b2782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructs the <code><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html">Vector3FArrayBFGSMinimizer</a></code> instance.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a68e06d557b4c1ed8bc1006062d3b2782">More...</a><br /></td></tr>
+<tr class="memdesc:a68e06d557b4c1ed8bc1006062d3b2782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code>BFGSMinimizer</code> instance with the given objective and gradient functions.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a68e06d557b4c1ed8bc1006062d3b2782">More...</a><br /></td></tr>
 <tr class="separator:a68e06d557b4c1ed8bc1006062d3b2782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea0d906bdd13ce1ea9e6c0cae88ca84e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#aea0d906bdd13ce1ea9e6c0cae88ca84e">getObjectID</a> ()</td></tr>
 <tr class="memdesc:aea0d906bdd13ce1ea9e6c0cae88ca84e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#aea0d906bdd13ce1ea9e6c0cae88ca84e">More...</a><br /></td></tr>
 <tr class="separator:aea0d906bdd13ce1ea9e6c0cae88ca84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05e10679294d1eaa03e81235971f517b"><td class="memItemLeft" align="right" valign="top"><a id="a05e10679294d1eaa03e81235971f517b"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getGradientNorm</b> ()</td></tr>
+<tr class="memitem:a05e10679294d1eaa03e81235971f517b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a05e10679294d1eaa03e81235971f517b">getGradientNorm</a> ()</td></tr>
+<tr class="memdesc:a05e10679294d1eaa03e81235971f517b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L2 norm of the gradient at the end of the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> call.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a05e10679294d1eaa03e81235971f517b">More...</a><br /></td></tr>
 <tr class="separator:a05e10679294d1eaa03e81235971f517b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e1e697a7cddfd1f04171c7f5ac69da"><td class="memItemLeft" align="right" valign="top"><a id="a91e1e697a7cddfd1f04171c7f5ac69da"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getFunctionDelta</b> ()</td></tr>
+<tr class="memitem:a91e1e697a7cddfd1f04171c7f5ac69da"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a91e1e697a7cddfd1f04171c7f5ac69da">getFunctionDelta</a> ()</td></tr>
+<tr class="memdesc:a91e1e697a7cddfd1f04171c7f5ac69da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the magnitude of the function-value decrease produced by the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> call.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a91e1e697a7cddfd1f04171c7f5ac69da">More...</a><br /></td></tr>
 <tr class="separator:a91e1e697a7cddfd1f04171c7f5ac69da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a474540db4f1f5b5372febf7d9eb8bd53"><td class="memItemLeft" align="right" valign="top"><a id="a474540db4f1f5b5372febf7d9eb8bd53"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getFunctionValue</b> ()</td></tr>
+<tr class="memitem:a474540db4f1f5b5372febf7d9eb8bd53"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a474540db4f1f5b5372febf7d9eb8bd53">getFunctionValue</a> ()</td></tr>
+<tr class="memdesc:a474540db4f1f5b5372febf7d9eb8bd53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the function value at the end of the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> call.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a474540db4f1f5b5372febf7d9eb8bd53">More...</a><br /></td></tr>
 <tr class="separator:a474540db4f1f5b5372febf7d9eb8bd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad08e459da3a7cdac0613093e973e6614"><td class="memItemLeft" align="right" valign="top"><a id="ad08e459da3a7cdac0613093e973e6614"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumIterations</b> ()</td></tr>
+<tr class="memitem:ad08e459da3a7cdac0613093e973e6614"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad08e459da3a7cdac0613093e973e6614">getNumIterations</a> ()</td></tr>
+<tr class="memdesc:ad08e459da3a7cdac0613093e973e6614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of iterations performed by the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4" title="Runs the BFGS minimization loop on x.">minimize()</a> or <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> loop.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad08e459da3a7cdac0613093e973e6614">More...</a><br /></td></tr>
 <tr class="separator:ad08e459da3a7cdac0613093e973e6614"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad09ba63be830c13f5ddf93efcb3e2c44"><td class="memItemLeft" align="right" valign="top"><a id="ad09ba63be830c13f5ddf93efcb3e2c44"></a>
-<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getStatus</b> ()</td></tr>
+<tr class="memitem:ad09ba63be830c13f5ddf93efcb3e2c44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad09ba63be830c13f5ddf93efcb3e2c44">getStatus</a> ()</td></tr>
+<tr class="memdesc:ad09ba63be830c13f5ddf93efcb3e2c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current status of the minimizer.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad09ba63be830c13f5ddf93efcb3e2c44">More...</a><br /></td></tr>
 <tr class="separator:ad09ba63be830c13f5ddf93efcb3e2c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cea1615421747fa1c381de690c93bd4"><td class="memItemLeft" align="right" valign="top"><a id="a7cea1615421747fa1c381de690c93bd4"></a>
-<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><b>minimize</b> (<a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> x, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> g, int max_iter, float g_norm, float delta_f, bool do_setup=True)</td></tr>
+<tr class="memitem:a7cea1615421747fa1c381de690c93bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4">minimize</a> (<a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> x, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> g, int max_iter, float g_norm, float delta_f, bool do_setup=True)</td></tr>
+<tr class="memdesc:a7cea1615421747fa1c381de690c93bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the BFGS minimization loop on <em>x</em>.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4">More...</a><br /></td></tr>
 <tr class="separator:a7cea1615421747fa1c381de690c93bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3b44a4977c7b0f9cf58e886fd0ca45e"><td class="memItemLeft" align="right" valign="top"><a id="ab3b44a4977c7b0f9cf58e886fd0ca45e"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> (<a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> x, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> g, float step_size=0.001, float tol=0.15)</td></tr>
+<tr class="memitem:ab3b44a4977c7b0f9cf58e886fd0ca45e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ab3b44a4977c7b0f9cf58e886fd0ca45e">setup</a> (<a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> x, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> g, float step_size=0.001, float tol=0.15)</td></tr>
+<tr class="memdesc:ab3b44a4977c7b0f9cf58e886fd0ca45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the minimizer state for a subsequent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> / <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4" title="Runs the BFGS minimization loop on x.">minimize()</a> loop.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ab3b44a4977c7b0f9cf58e886fd0ca45e">More...</a><br /></td></tr>
 <tr class="separator:ab3b44a4977c7b0f9cf58e886fd0ca45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cb1edac672218c10239eabfed4d5d05"><td class="memItemLeft" align="right" valign="top"><a id="a2cb1edac672218c10239eabfed4d5d05"></a>
-tuple&#160;</td><td class="memItemRight" valign="bottom"><b>iterate</b> (float f, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> x, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> g)</td></tr>
+<tr class="memitem:a2cb1edac672218c10239eabfed4d5d05"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05">iterate</a> (float f, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> x, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a> g)</td></tr>
+<tr class="memdesc:a2cb1edac672218c10239eabfed4d5d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a single BFGS iteration: line search along the current search direction, BFGS update of the inverse Hessian approximation, and selection of the new search direction.  <a href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05">More...</a><br /></td></tr>
 <tr class="separator:a2cb1edac672218c10239eabfed4d5d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -136,22 +140,26 @@ Properties</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>objectID</b> = property(<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#aea0d906bdd13ce1ea9e6c0cae88ca84e">getObjectID</a>)</td></tr>
 <tr class="separator:a48cf010775f3c83c426a516ecf2c790a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae57f10237bb1e2e53ecb3f1f37b70b5b"><td class="memItemLeft" align="right" valign="top"><a id="ae57f10237bb1e2e53ecb3f1f37b70b5b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>gradientNorm</b> = property(getGradientNorm)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>gradientNorm</b> = property(<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a05e10679294d1eaa03e81235971f517b">getGradientNorm</a>)</td></tr>
 <tr class="separator:ae57f10237bb1e2e53ecb3f1f37b70b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3feca539a4e584b058769db2060cc021"><td class="memItemLeft" align="right" valign="top"><a id="a3feca539a4e584b058769db2060cc021"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>functionDelta</b> = property(getFunctionDelta)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>functionDelta</b> = property(<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a91e1e697a7cddfd1f04171c7f5ac69da">getFunctionDelta</a>)</td></tr>
 <tr class="separator:a3feca539a4e584b058769db2060cc021"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dbaa193feff41e9a2228789e656f32d"><td class="memItemLeft" align="right" valign="top"><a id="a8dbaa193feff41e9a2228789e656f32d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>functionValue</b> = property(getFunctionValue)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>functionValue</b> = property(<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a474540db4f1f5b5372febf7d9eb8bd53">getFunctionValue</a>)</td></tr>
 <tr class="separator:a8dbaa193feff41e9a2228789e656f32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e68df1e68adfdfcb803a68d31543c7"><td class="memItemLeft" align="right" valign="top"><a id="a34e68df1e68adfdfcb803a68d31543c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>numIterations</b> = property(getNumIterations)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>numIterations</b> = property(<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad08e459da3a7cdac0613093e973e6614">getNumIterations</a>)</td></tr>
 <tr class="separator:a34e68df1e68adfdfcb803a68d31543c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08911d1e195182da6ecd163f908b70bb"><td class="memItemLeft" align="right" valign="top"><a id="a08911d1e195182da6ecd163f908b70bb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>status</b> = property(getStatus)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>status</b> = property(<a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ad09ba63be830c13f5ddf93efcb3e2c44">getStatus</a>)</td></tr>
 <tr class="separator:a08911d1e195182da6ecd163f908b70bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of the <em>Broyden-Fletcher-Goldfarb-Shanno (BFGS)</em> algorithm for solving unconstrained nonlinear optimization problems. </p>
+<p>The base implementation has been taken from the <em>GNU Scientific Library</em>.</p>
+<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="References.html#BFGS">BFGS</a>, <a class="el" href="References.html#GSL">GSL</a>] </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a68e06d557b4c1ed8bc1006062d3b2782"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68e06d557b4c1ed8bc1006062d3b2782">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -178,11 +186,11 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Contructs the <code><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html">Vector3FArrayBFGSMinimizer</a></code> instance. </p>
+<p>Constructs the <code>BFGSMinimizer</code> instance with the given objective and gradient functions. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">func</td><td></td></tr>
-    <tr><td class="paramname">grad_func</td><td></td></tr>
+    <tr><td class="paramname">func</td><td>The objective function. </td></tr>
+    <tr><td class="paramname">grad_func</td><td>The gradient function (also computes the objective value). </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,8 +214,271 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the numeric identifier (ID) of the wrapped C++ class instance. </p>
-<p>Different Python <code><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html">Vector3FArrayBFGSMinimizer</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html">Vector3FArrayBFGSMinimizer</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
+<p>Different Python <code><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html" title="Implementation of the Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm for solving unconstrained non...">Vector3FArrayBFGSMinimizer</a></code> instances may reference the same underlying C++ class instance. The commonly used Python expression <code>a is not b</code> thus cannot tell reliably whether the two <code><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html" title="Implementation of the Broyden-Fletcher-Goldfarb-Shanno (BFGS) algorithm for solving unconstrained non...">Vector3FArrayBFGSMinimizer</a></code> instances <em>a</em> and <em>b</em> reference different C++ objects. The numeric identifier returned by this method allows to correctly implement such an identity test via the simple expression <code>a.getObjectID() != b.getObjectID()</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>The numeric ID of the internally referenced C++ class instance. </dd></dl>
+
+</div>
+</div>
+<a id="a05e10679294d1eaa03e81235971f517b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e10679294d1eaa03e81235971f517b">&#9670;&nbsp;</a></span>getGradientNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Math.Vector3FArrayBFGSMinimizer.getGradientNorm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the L2 norm of the gradient at the end of the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>The gradient norm. </dd></dl>
+
+</div>
+</div>
+<a id="a91e1e697a7cddfd1f04171c7f5ac69da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91e1e697a7cddfd1f04171c7f5ac69da">&#9670;&nbsp;</a></span>getFunctionDelta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Math.Vector3FArrayBFGSMinimizer.getFunctionDelta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the magnitude of the function-value decrease produced by the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>The function-value delta (positive when the function decreased). </dd></dl>
+
+</div>
+</div>
+<a id="a474540db4f1f5b5372febf7d9eb8bd53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a474540db4f1f5b5372febf7d9eb8bd53">&#9670;&nbsp;</a></span>getFunctionValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Math.Vector3FArrayBFGSMinimizer.getFunctionValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the function value at the end of the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> call. </p>
+<dl class="section return"><dt>Returns</dt><dd>The function value. </dd></dl>
+
+</div>
+</div>
+<a id="ad08e459da3a7cdac0613093e973e6614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad08e459da3a7cdac0613093e973e6614">&#9670;&nbsp;</a></span>getNumIterations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int CDPL.Math.Vector3FArrayBFGSMinimizer.getNumIterations </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of iterations performed by the most recent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4" title="Runs the BFGS minimization loop on x.">minimize()</a> or <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> loop. </p>
+<dl class="section return"><dt>Returns</dt><dd>The iteration count. </dd></dl>
+
+</div>
+</div>
+<a id="ad09ba63be830c13f5ddf93efcb3e2c44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09ba63be830c13f5ddf93efcb3e2c44">&#9670;&nbsp;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a> CDPL.Math.Vector3FArrayBFGSMinimizer.getStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current status of the minimizer. </p>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html" title="Status bitmask reported by minimize() and getStatus().">Status</a> bitmask. </dd></dl>
+
+</div>
+</div>
+<a id="a7cea1615421747fa1c381de690c93bd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cea1615421747fa1c381de690c93bd4">&#9670;&nbsp;</a></span>minimize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html">Status</a> CDPL.Math.Vector3FArrayBFGSMinimizer.minimize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_iter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>g_norm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>delta_f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &#160;</td>
+          <td class="paramname"><em>do_setup</em> = <code>True</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs the BFGS minimization loop on <em>x</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The variable vector to be minimized (modified in place). </td></tr>
+    <tr><td class="paramname">g</td><td>The gradient vector (modified in place). </td></tr>
+    <tr><td class="paramname">max_iter</td><td>The maximum number of iterations (<em>0</em> means unlimited). </td></tr>
+    <tr><td class="paramname">g_norm</td><td>The gradient-norm threshold below which the minimization is stopped (negative values disable this stop condition). </td></tr>
+    <tr><td class="paramname">delta_f</td><td>The function-value-delta threshold below which the minimization is stopped (negative values disable this stop condition). </td></tr>
+    <tr><td class="paramname">do_setup</td><td>If <code>True</code>, <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#ab3b44a4977c7b0f9cf58e886fd0ca45e" title="Initializes the minimizer state for a subsequent iterate() / minimize() loop.">setup()</a> is invoked at the start to initialize the minimizer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The terminal <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html" title="Status bitmask reported by minimize() and getStatus().">Status</a> bitmask of the minimization. </dd></dl>
+
+</div>
+</div>
+<a id="ab3b44a4977c7b0f9cf58e886fd0ca45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b44a4977c7b0f9cf58e886fd0ca45e">&#9670;&nbsp;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float CDPL.Math.Vector3FArrayBFGSMinimizer.setup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &#160;</td>
+          <td class="paramname"><em>step_size</em> = <code>0.001</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &#160;</td>
+          <td class="paramname"><em>tol</em> = <code>0.15</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the minimizer state for a subsequent <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a2cb1edac672218c10239eabfed4d5d05" title="Performs a single BFGS iteration: line search along the current search direction, BFGS update of the ...">iterate()</a> / <a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer.html#a7cea1615421747fa1c381de690c93bd4" title="Runs the BFGS minimization loop on x.">minimize()</a> loop. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The starting variable vector. </td></tr>
+    <tr><td class="paramname">g</td><td>The gradient vector (filled with the gradient at <em>x</em>). </td></tr>
+    <tr><td class="paramname">step_size</td><td>The initial step-size guess. </td></tr>
+    <tr><td class="paramname">tol</td><td>The line-search tolerance.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The objective-function value at <em>x</em>. </dd></dl>
+
+</div>
+</div>
+<a id="a2cb1edac672218c10239eabfed4d5d05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb1edac672218c10239eabfed4d5d05">&#9670;&nbsp;</a></span>iterate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> tuple CDPL.Math.Vector3FArrayBFGSMinimizer.iterate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Math_1_1Vector3FArray.html">Vector3FArray</a>&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs a single BFGS iteration: line search along the current search direction, BFGS update of the inverse Hessian approximation, and selection of the new search direction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The current function value (updated in place). </td></tr>
+    <tr><td class="paramname">x</td><td>The current variable vector (updated in place). </td></tr>
+    <tr><td class="paramname">g</td><td>The current gradient vector (updated in place).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classCDPL_1_1Math_1_1Vector3FArrayBFGSMinimizer_1_1Status.html#a4f9f5c67599d8f60caca6e20ded169e9" title="Iteration step completed successfully (no termination condition met yet).">Status.SUCCESS</a> if the iteration produced a step, otherwise the bitmask of stop conditions met. </dd></dl>
 
 </div>
 </div>
