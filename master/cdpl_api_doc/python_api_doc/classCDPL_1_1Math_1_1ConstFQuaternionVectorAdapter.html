@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Adapter that exposes a quaternion as a <em>4</em> element vector expression (indices map to the components C1, C2, C3, C4).  
+<p>Adapter that exposes a quaternion as a <em>4</em> element vector expression (indices map to the components <em>C1</em>, <em>C2</em>, <em>C3</em>, <em>C4</em>).  
  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for CDPL.Math.ConstFQuaternionVectorAdapter:</div>
@@ -106,7 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a493d7c37e59398e38ce3474aa040d11c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the numeric identifier (ID) of the wrapped C++ class instance.  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#a493d7c37e59398e38ce3474aa040d11c">More...</a><br /></td></tr>
 <tr class="separator:a493d7c37e59398e38ce3474aa040d11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd15f94352c87ca92df61b02e426f8e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#afd15f94352c87ca92df61b02e426f8e3">isEmpty</a> ()</td></tr>
-<tr class="memdesc:afd15f94352c87ca92df61b02e426f8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the view is empty (always <code>False</code>, the view is fixed-size with 4 components).  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#afd15f94352c87ca92df61b02e426f8e3">More...</a><br /></td></tr>
+<tr class="memdesc:afd15f94352c87ca92df61b02e426f8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the view is empty (always <code>False</code>).  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#afd15f94352c87ca92df61b02e426f8e3">More...</a><br /></td></tr>
 <tr class="separator:afd15f94352c87ca92df61b02e426f8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cbe53874b00d576cd3bf1e699922696"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#a1cbe53874b00d576cd3bf1e699922696">getSize</a> ()</td></tr>
 <tr class="memdesc:a1cbe53874b00d576cd3bf1e699922696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dimensionality of the view (always <em>4</em>).  <a href="classCDPL_1_1Math_1_1ConstFQuaternionVectorAdapter.html#a1cbe53874b00d576cd3bf1e699922696">More...</a><br /></td></tr>
@@ -185,7 +185,7 @@ Properties</h2></td></tr>
 <tr class="separator:aab415fd4a9b3bb941e60644d5a2fe432"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Adapter that exposes a quaternion as a <em>4</em> element vector expression (indices map to the components C1, C2, C3, C4). </p>
+<div class="textblock"><p>Adapter that exposes a quaternion as a <em>4</em> element vector expression (indices map to the components <em>C1</em>, <em>C2</em>, <em>C3</em>, <em>C4</em>). </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a302a6928407778ad078f0ec26d634da0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a302a6928407778ad078f0ec26d634da0">&#9670;&nbsp;</a></span>__init__() <span class="overload">[1/2]</span></h2>
@@ -276,7 +276,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether the view is empty (always <code>False</code>, the view is fixed-size with 4 components). </p>
+<p>Tells whether the view is empty (always <code>False</code>). </p>
 <dl class="section return"><dt>Returns</dt><dd><code>False</code>. </dd></dl>
 
 </div>
@@ -320,11 +320,11 @@ Properties</h2></td></tr>
 <p>Returns the quaternion component at index <em>i</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The zero-based component index.</td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based component index (<em>0</em> = <em>C1</em>, <em>1</em> = <em>C2</em>, <em>2</em> = <em>C3</em>, <em>3</em> = <em>C4</em>).</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the component.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the component.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>i</em> is not in the range [0, 3]. </td></tr>
@@ -502,11 +502,11 @@ Properties</h2></td></tr>
 <p>Returns the quaternion component at index <em>i</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The zero-based component index (<em>0</em> = C1, <em>1</em> = C2, <em>2</em> = C3, <em>3</em> = C4).</td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based component index (<em>0</em> = <em>C1</em>, <em>1</em> = <em>C2</em>, <em>2</em> = <em>C3</em>, <em>3</em> = <em>C4</em>).</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the component.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the component.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>i</em> is not in the range [0, 3]. </td></tr>
@@ -535,11 +535,11 @@ Properties</h2></td></tr>
 <p>Returns the quaternion component at index <em>i</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The zero-based component index.</td></tr>
+    <tr><td class="paramname">i</td><td>The zero-based component index (<em>0</em> = <em>C1</em>, <em>1</em> = <em>C2</em>, <em>2</em> = <em>C3</em>, <em>3</em> = <em>C4</em>).</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the component.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the component.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>i</em> is not in the range [0, 3]. </td></tr>
