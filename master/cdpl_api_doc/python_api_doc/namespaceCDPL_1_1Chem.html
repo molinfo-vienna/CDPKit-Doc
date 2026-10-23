@@ -2684,6 +2684,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a7aa48ab4fa1b26614f6935110465aab4"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a7aa48ab4fa1b26614f6935110465aab4">calcTopologicalDistanceMatrix</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> molgraph, <a class="el" href="classCDPL_1_1Math_1_1ULMatrix.html">Math.ULMatrix</a> mtx)</td></tr>
 <tr class="memdesc:a7aa48ab4fa1b26614f6935110465aab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the topological distance matrix of the molecular graph <em>molgraph</em> into the supplied matrix <em>mtx</em>.  <a href="namespaceCDPL_1_1Chem.html#a7aa48ab4fa1b26614f6935110465aab4">More...</a><br /></td></tr>
 <tr class="separator:a7aa48ab4fa1b26614f6935110465aab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa516b81b2fb6d2c4b669ecfb0b68d1d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#aa516b81b2fb6d2c4b669ecfb0b68d1d9">calcUnpairedElectronCount</a> (<a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> atom, <a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> molgraph)</td></tr>
+<tr class="memdesc:aa516b81b2fb6d2c4b669ecfb0b68d1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the unpaired (radical) electron count of the atom <em>atom</em> from its implict hydrogen count property value.  <a href="namespaceCDPL_1_1Chem.html#aa516b81b2fb6d2c4b669ecfb0b68d1d9">More...</a><br /></td></tr>
+<tr class="separator:aa516b81b2fb6d2c4b669ecfb0b68d1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ddf8e6752e55374bbc588871edcd6e"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ad6ddf8e6752e55374bbc588871edcd6e">calcUnpairedElectronCounts</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> molgraph, bool overwrite)</td></tr>
+<tr class="memdesc:ad6ddf8e6752e55374bbc588871edcd6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes and stores the unpaired (radical) electron counts for the atoms in the molecular graph <em>molgraph</em>.  <a href="namespaceCDPL_1_1Chem.html#ad6ddf8e6752e55374bbc588871edcd6e">More...</a><br /></td></tr>
+<tr class="separator:ad6ddf8e6752e55374bbc588871edcd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4353886acc4270b9aa0d8a005ed731e6"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a4353886acc4270b9aa0d8a005ed731e6">canonicalize</a> (<a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a> molgraph, bool atoms=True, bool atom_nbrs=True, bool bonds=True, bool bond_atoms=False)</td></tr>
 <tr class="memdesc:a4353886acc4270b9aa0d8a005ed731e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorders the atoms (and optionally their neighbors and bonds) of the molecular graph <em>molgraph</em> according to the canonical number property value of its atoms.  <a href="namespaceCDPL_1_1Chem.html#a4353886acc4270b9aa0d8a005ed731e6">More...</a><br /></td></tr>
 <tr class="separator:a4353886acc4270b9aa0d8a005ed731e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -18109,10 +18115,11 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing formal charge properties should be replaced. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing formal charge properties should be replaced.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceCDPL_1_1Chem.html#aa7db042a698d9342a4a282c424eb63a8" title="Computes the formal charge of the atom atom from its connectivity in the molecular graph molgraph.">calcFormalCharge()</a> </dd></dl>
 
 </div>
 </div>
@@ -18407,10 +18414,11 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing hydrogen count properties should be replaced. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing hydrogen count properties should be replaced.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceCDPL_1_1Chem.html#adb38459bd2250e3771e77b0eb2925cbe" title="Computes the implicit hydrogen count of the atom atom from its connectivity in the molecular graph mo...">calcImplicitHydrogenCount()</a> </dd></dl>
 
 </div>
 </div>
@@ -18726,6 +18734,85 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa516b81b2fb6d2c4b669ecfb0b68d1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa516b81b2fb6d2c4b669ecfb0b68d1d9">&#9670;&nbsp;</a></span>calcUnpairedElectronCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int CDPL.Chem.calcUnpairedElectronCount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a>&#160;</td>
+          <td class="paramname"><em>atom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&#160;</td>
+          <td class="paramname"><em>molgraph</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the unpaired (radical) electron count of the atom <em>atom</em> from its implict hydrogen count property value. </p>
+<p>For atoms without a set implict hydrogen count property the unpaired electron count is considered to be zero.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">atom</td><td>The atom for which to calculate the unpaired electron count. </td></tr>
+    <tr><td class="paramname">molgraph</td><td>The molecular graph providing the structural context.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The computed unpaired electron count.</dd></dl>
+<dl class="section since"><dt>Since</dt><dd>1.4 </dd></dl>
+
+</div>
+</div>
+<a id="ad6ddf8e6752e55374bbc588871edcd6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ddf8e6752e55374bbc588871edcd6e">&#9670;&nbsp;</a></span>calcUnpairedElectronCounts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None CDPL.Chem.calcUnpairedElectronCounts </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCDPL_1_1Chem_1_1MolecularGraph.html">MolecularGraph</a>&#160;</td>
+          <td class="paramname"><em>molgraph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>overwrite</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes and stores the unpaired (radical) electron counts for the atoms in the molecular graph <em>molgraph</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing unpaired electron count properties should be replaced.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceCDPL_1_1Chem.html#aa516b81b2fb6d2c4b669ecfb0b68d1d9" title="Computes the unpaired (radical) electron count of the atom atom from its implict hydrogen count prope...">calcUnpairedElectronCount()</a></dd></dl>
+<dl class="section since"><dt>Since</dt><dd>1.4 </dd></dl>
 
 </div>
 </div>
@@ -22267,10 +22354,11 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
-    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing hybridization state properties should be replaced. </td></tr>
+    <tr><td class="paramname">overwrite</td><td>Specifies whether already existing hybridization state properties should be replaced.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceCDPL_1_1Chem.html#aa2acedb689dfdcd9cbba918a1ecabb86" title="Derives the hybridization state of the atom atom from its connectivity in the molecular graph molgrap...">perceiveHybridizationState()</a> </dd></dl>
 
 </div>
 </div>
