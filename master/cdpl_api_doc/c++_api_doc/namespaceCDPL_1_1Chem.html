@@ -8205,7 +8205,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Computes the unpaired (radical) electron count of the atom <em>atom</em> from its implict hydrogen count property value. </p>
-<p>For atoms without a set implict hydrogen count property the unpaired electron count is considered to be zero.</p>
+<p>This function calculates the number of valence electrons that are not engaged in a bond and thus reduce the total atom valence to a value lower than the allowed maximum (atom element and formal charge dependent).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom</td><td>The atom for which to calculate the unpaired electron count. </td></tr>
@@ -8214,6 +8214,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The computed unpaired electron count. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>For atoms without a set implict hydrogen count property the unpaired electron count is considered to be zero. </dd></dl>
 <dl class="section since"><dt>Since</dt><dd>1.4 </dd></dl>
 
 </div>
@@ -27952,6 +27953,7 @@ template&lt;typename AtomType , typename AtomOutputIterator , typename BondOutpu
 </div><div class="memdoc">
 
 <p>Computes and stores the unpaired (radical) electron counts for the atoms in the molecular graph <em>molgraph</em>. </p>
+<p>For each atom of <em>molgraph</em> this function calculates the number of valence electrons that are not engaged in a bond from the value of the property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#acce8cb9b1590d6da0405211ecafb19a2" title="Specifies the number of implicit hydrogens attached to the atom.">AtomProperty::IMPLICIT_HYDROGEN_COUNT</a> and stores the result as value of the property <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a4917e8a645c64513a5afc5abee07df83" title="Specifies the number of unpaired electrons of the atom.">AtomProperty::UNPAIRED_ELECTRON_COUNT</a> (the treatment of already present property values depends on the flag <em>overwrite</em>). This function can be called after reading molecules from data in formats that do not support explicit atom radical electron count information (e.g. SMILES) in order to generate the missing data (if of relevance for further processing).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">molgraph</td><td>The molecular graph. </td></tr>
