@@ -95,7 +95,7 @@ var searchData=
   ['translatefragments_7397',['translateFragments',['../namespaceCDPL_1_1Chem.html#ac2a1255869f2ce4e1f955b965a027e1e',1,'CDPL::Chem']]],
   ['translationmatrix_7398',['TranslationMatrix',['../classCDPL_1_1Math_1_1TranslationMatrix.html',1,'CDPL::Math::TranslationMatrix&lt; T &gt;'],['../classCDPL_1_1Math_1_1TranslationMatrix.html#a496f660f6c57fc6684530e706fddb504',1,'CDPL::Math::TranslationMatrix::TranslationMatrix(const TranslationMatrix &amp;m)'],['../classCDPL_1_1Math_1_1TranslationMatrix.html#a742eeec5e87270caf8ffaf2fc55afb54',1,'CDPL::Math::TranslationMatrix::TranslationMatrix(SizeType n, const ValueType &amp;tx=ValueType(), const ValueType &amp;ty=ValueType(), const ValueType &amp;tz=ValueType())']]],
   ['transparent_7399',['TRANSPARENT',['../classCDPL_1_1Vis_1_1Color.html#a72fffd8dfd1099d54daa361c78f82e6a',1,'CDPL::Vis::Color']]],
-  ['triang_7400',['triang',['../namespaceCDPL_1_1Math.html#ac5dc5040a3810708e91ba60a6bb486c4',1,'CDPL::Math::triang(const MatrixExpression&lt; E &gt; &amp;e)'],['../namespaceCDPL_1_1Math.html#a59c65b0572c6f0c439b9cf5cf84ce3b5',1,'CDPL::Math::triang(MatrixExpression&lt; E &gt; &amp;e)']]],
+  ['triang_7400',['triang',['../namespaceCDPL_1_1Math.html#ae280f254b226dae50b8e617461e37fec',1,'CDPL::Math::triang(const MatrixExpression&lt; E &gt; &amp;ce)'],['../namespaceCDPL_1_1Math.html#a9a0066ca95414b0fa0792a153d678fb0',1,'CDPL::Math::triang(MatrixExpression&lt; E &gt; &amp;me)']]],
   ['trianglemesh3d_7401',['TriangleMesh3D',['../classCDPL_1_1Vis_1_1TriangleMesh3D.html',1,'CDPL::Vis']]],
   ['trianglemesh3d_2ehpp_7402',['TriangleMesh3D.hpp',['../TriangleMesh3D_8hpp.html',1,'']]],
   ['trianglemesh3dfunctions_2ehpp_7403',['TriangleMesh3DFunctions.hpp',['../TriangleMesh3DFunctions_8hpp.html',1,'']]],
