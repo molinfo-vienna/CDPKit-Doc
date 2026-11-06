@@ -168,7 +168,7 @@ None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a0cd09a174229b0e2d981a81d6a4ace4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a new value to the element at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html#a0cd09a174229b0e2d981a81d6a4ace4e">More...</a><br /></td></tr>
 <tr class="separator:a0cd09a174229b0e2d981a81d6a4ace4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca3a1448b9d0a2a4c983dec06e20f27d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html#aca3a1448b9d0a2a4c983dec06e20f27d">requiresAtomBondMapping</a> ()</td></tr>
-<tr class="memdesc:aca3a1448b9d0a2a4c983dec06e20f27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the expression list requires a reevaluation after a query to target object mapping candidate has been found.  <a href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html#aca3a1448b9d0a2a4c983dec06e20f27d">More...</a><br /></td></tr>
+<tr class="memdesc:aca3a1448b9d0a2a4c983dec06e20f27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the expression list requires a reevaluation after a query to target atom mapping candidate has been found.  <a href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html#aca3a1448b9d0a2a4c983dec06e20f27d">More...</a><br /></td></tr>
 <tr class="separator:aca3a1448b9d0a2a4c983dec06e20f27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6f3fab450dbf0eebff328d925208cb8"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html#af6f3fab450dbf0eebff328d925208cb8">__delitem__</a> (int idx)</td></tr>
 <tr class="memdesc:af6f3fab450dbf0eebff328d925208cb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the element at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html#af6f3fab450dbf0eebff328d925208cb8">More...</a><br /></td></tr>
@@ -211,7 +211,7 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Container for the storage and evaluation of logical match expression lists. </p>
-<p><code><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html" title="Container for the storage and evaluation of logical match expression lists.">AtomMatchExpressionList</a></code> allows for a concatenation of multiple <a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem.AtomMatchExpression</a> instances that get evaluated in turn according to some logic. The actual logic of expression list evaluation has to be implemented by subclasses by overriding the virtual function call operator methods of the <a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem.AtomMatchExpression</a> interface. </p>
+<p><code><a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpressionList.html" title="Container for the storage and evaluation of logical match expression lists.">AtomMatchExpressionList</a></code> allows for a concatenation of multiple <a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpression.html" title="Generic boolean expression interface for the implementation of query/target atom equivalence tests in...">Chem.AtomMatchExpression</a> instances that get evaluated in turn according to some logic. The actual logic of expression list evaluation has to be implemented by subclasses by overriding the virtual function call operator methods of the <a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpression.html" title="Generic boolean expression interface for the implementation of query/target atom equivalence tests in...">Chem.AtomMatchExpression</a> interface. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac93b360a0d3d8927d23714479512bad2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac93b360a0d3d8927d23714479512bad2">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -811,7 +811,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the element at index <em>idx</em>. </p>
-<p>The method is equivalent to <b>getitem</b>(std::size_t).</p>
+<p>The method is equivalent to __getitem__(std::size_t).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">idx</td><td>The zero-based index of the element.</td></tr>
@@ -886,7 +886,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether the expression list requires a reevaluation after a query to target object mapping candidate has been found. </p>
+<p>Tells whether the expression list requires a reevaluation after a query to target atom mapping candidate has been found. </p>
 <dl class="section return"><dt>Returns</dt><dd><code>True</code> if one of the stored expressions requires a reevaluation after a mapping candidate has been found, and <code>False</code> otherwise. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classCDPL_1_1Chem_1_1AtomMatchExpression.html#a523edf63099bb7cfc342edac3b0a51c4">CDPL.Chem.AtomMatchExpression</a>.</p>
