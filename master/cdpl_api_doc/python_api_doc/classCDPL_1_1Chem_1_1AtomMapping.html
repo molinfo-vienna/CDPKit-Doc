@@ -322,7 +322,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the first value associated with the specified key. </p>
-<p>If the map contains the specified entry, the associated value is returned. If the map does not contain the entry and default values are enabled (that is, the template parameter <em>AllowDefValues</em> is <code>True</code>), a reference to a default constructed value object is returned. Otherwise, <a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base.ItemNotFound</a> is thrown to indicate the error.</p>
+<p>If the map contains an entry with the specified key, the associated value is returned. If the map does not contain the entry and default values are enabled (that is, the template parameter <em>AllowDefValues</em> is <code>True</code>), a new map entry is created which associates <em>key</em> with the default constructed value object. Otherwise, <a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base.ItemNotFound</a> is thrown to indicate the error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">key</td><td>The key associated with the requested value.</td></tr>
@@ -332,11 +332,10 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The requested value.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base.ItemNotFound</a></td><td>if <em>AllowDefValues</em> is <code>False</code> and the map does not contain an entry with the specified key.</td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1ItemNotFound.html" title="Thrown to indicate that some requested data item could not be found.">Base.ItemNotFound</a></td><td>if <em>AllowDefValues</em> is <code>False</code> and the map does not contain an entry with the specified key. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>getValue(const Key&amp;) const </dd></dl>
 
 </div>
 </div>
@@ -573,7 +572,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the first value associated with the specified key. </p>
-<p>The method is equivalent to getValue(const Key&amp;) const.</p>
+<p>The method is equivalent to getValue(const Key&amp;).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">key</td><td>The key associated with the requested value.</td></tr>
@@ -587,7 +586,7 @@ Properties</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>getValue(const Key&amp;) const </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>getValue(const Key&amp;) </dd></dl>
 
 </div>
 </div>

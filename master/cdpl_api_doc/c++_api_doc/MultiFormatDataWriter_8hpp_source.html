@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                  std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out |</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                  std::ios_base::trunc | std::ios_base::binary);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">MultiFormatDataWriter</a>(<span class="keyword">const</span> std::string&amp; file_name, <span class="keyword">const</span> std::string&amp; fmt,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">MultiFormatDataWriter</a>(<span class="keyword">const</span> std::string&amp; file_name, <span class="keyword">const</span> std::string&amp; fmt_str,</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                  std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out |</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                                  std::ios_base::trunc | std::ios_base::binary);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
@@ -137,7 +137,7 @@ $(function() {
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                  std::ios_base::openmode mode = std::ios_base::in | std::ios_base::out |</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                  std::ios_base::trunc | std::ios_base::binary);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">MultiFormatDataWriter</a>(std::iostream&amp; ios, <span class="keyword">const</span> std::string&amp; fmt);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">MultiFormatDataWriter</a>(std::iostream&amp; ios, <span class="keyword">const</span> std::string&amp; fmt_str);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">MultiFormatDataWriter</a>(std::iostream&amp; ios, <span class="keyword">const</span> <a class="code" href="classCDPL_1_1Base_1_1DataFormat.html">Base::DataFormat</a>&amp; fmt);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
@@ -185,7 +185,7 @@ $(function() {
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a4c4b878b6e16792492d5ae358e1c8b10">  174</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">CDPL::Util::MultiFormatDataWriter&lt;DataType&gt;::MultiFormatDataWriter</a>(<span class="keyword">const</span> std::string&amp; file_name, <span class="keyword">const</span> std::string&amp; fmt,</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a5774b2d085a5556faa2ef6baabe0a4d3">  174</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">CDPL::Util::MultiFormatDataWriter&lt;DataType&gt;::MultiFormatDataWriter</a>(<span class="keyword">const</span> std::string&amp; file_name, <span class="keyword">const</span> std::string&amp; fmt,</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                                                                   std::ios_base::openmode mode)</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; handler = <a class="code" href="classCDPL_1_1Base_1_1DataIOManager.html">Base::DataIOManager&lt;DataType&gt;::getOutputHandlerByFileExtension</a>(fmt);</div>
@@ -215,7 +215,7 @@ $(function() {
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;}</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataType&gt;</div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#ad4f823b343924fb9870783404e0922ca">  204</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">CDPL::Util::MultiFormatDataWriter&lt;DataType&gt;::MultiFormatDataWriter</a>(std::iostream&amp; ios, <span class="keyword">const</span> std::string&amp; fmt)</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a72729740d3a0ea3e4bcd0aa785525411">  204</a></span>&#160;<a class="code" href="classCDPL_1_1Util_1_1MultiFormatDataWriter.html#a888c4bcba94de89951394b440427dd44">CDPL::Util::MultiFormatDataWriter&lt;DataType&gt;::MultiFormatDataWriter</a>(std::iostream&amp; ios, <span class="keyword">const</span> std::string&amp; fmt)</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; handler = <a class="code" href="classCDPL_1_1Base_1_1DataIOManager.html#aa15cfd94319a3814650c912de5da906c">Base::DataIOManager&lt;DataType&gt;::getOutputHandlerByFileExtension</a>(fmt);</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>

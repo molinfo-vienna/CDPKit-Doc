@@ -231,7 +231,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Interface for writing data objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> to an arbitrary data sink. </p>
 <p><code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html" title="Interface for writing data objects of type Grid.DRegularGrid to an arbitrary data sink.">DRegularGridWriterBase</a></code> is the common interface of classes which write objects of type <a class="el" href="classCDPL_1_1Grid_1_1DRegularGrid.html" title="A regular spatial grid storing double-precision floating-point values.">Grid.DRegularGrid</a> to some data sink (e.g. a file) that expects the data to be encoded in a particular storage format.</p>
 <p>From the <code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html" title="Interface for writing data objects of type Grid.DRegularGrid to an arbitrary data sink.">DRegularGridWriterBase</a></code> interface point of view, the data sink is continuous output stream in which the data objects are written as data records. For the output of a given data object the method <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html#a301ff9d476edd1f5490352e84619e14a" title="Writes the DRegularGrid object grid.">write()</a> has to be called with the object passed as an argument.</p>
-<p>If the <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html#a301ff9d476edd1f5490352e84619e14a" title="Writes the DRegularGrid object grid.">write()</a> operation fails, the writer instance is set into an error state that can be queried by the special methods <b>bool</b>() and <b>nonzero</b>(). Additionally, a <code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html" title="Interface for writing data objects of type Grid.DRegularGrid to an arbitrary data sink.">DRegularGridWriterBase</a></code> implementation may decide to throw an exception of type <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a> to report the error condition. </p>
+<p>If the <a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html#a301ff9d476edd1f5490352e84619e14a" title="Writes the DRegularGrid object grid.">write()</a> operation fails, the writer instance is set into an error state that can be queried by the special methods <b>bool</b>() and <b>nonzero</b>(). Additionally, a <code><a class="el" href="classCDPL_1_1Grid_1_1DRegularGridWriterBase.html" title="Interface for writing data objects of type Grid.DRegularGrid to an arbitrary data sink.">DRegularGridWriterBase</a></code> implementation may decide to throw an exception of type <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a> to report the error condition. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a301ff9d476edd1f5490352e84619e14a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a301ff9d476edd1f5490352e84619e14a">&#9670;&nbsp;</a></span>write()</h2>
@@ -259,7 +259,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><em>self</em>.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -284,7 +284,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Writes format dependent data (if required) to mark the end of output. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>

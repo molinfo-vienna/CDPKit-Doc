@@ -255,7 +255,7 @@ Properties</h2></td></tr>
 <p>From the <code><a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html" title="Interface for reading data objects of type Chem.Molecule from an arbitrary data source.">MoleculeReaderBase</a></code> interface point of view, the data source is organized as an array of logical data records. Each record is addressed by a zero-based sequential record index and contains the data for exactly <em>one</em> data object. The total number of available data records (which is equal to the maximum record index plus <em>1</em>) can be queried by the method <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#aedf59cb63964cb6d497d251acddd4c80" title="Returns the total number of available data records.">getNumRecords()</a>.</p>
 <p>Similar to low-level file I/O, data records may either be read in a sequential or in a random access manner. For sequential access the method read(mol: Molecule) is provided which will read the data record at the 'current' record index (similar to a file reference). The current record index is accessible by the method <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a231d975ed9f1caeac78af72c5b453f20" title="Returns the index of the current data record.">getRecordIndex()</a> and can be modified using the method <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a933834444da46a796b7b34b445d331a1" title="Sets the index of the current data record to idx.">setRecordIndex()</a> (similar to a seek operation).</p>
 <p>For reading data records in a random access manner a special <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521" title="Reads the data record at the current record index and stores the read data in mol.">read()</a> method version is provided that expects the index of the record to read as the first argument.</p>
-<p>If a <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521" title="Reads the data record at the current record index and stores the read data in mol.">read()</a> (or <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a3ef7dd253dc958acd4ff390cd6f3644c" title="Skips the data record at the current record index.">skip()</a>) operation was successful, the current record index is updated to point to the record immediately following the just read (or skipped) data record. If an operation fails, the reader instance is set into an error state that can be queried by the special methods <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a0c35c6c80bb97df0f919168c7eeac4c5" title="Returns a boolean indicating the error state of the reader.">__bool__()</a> and <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a1e30e0f491befd320e95bfcbef8731dd" title="Returns a boolean indicating the error state of the reader.">__nonzero__()</a>. Additionally, a <code><a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html" title="Interface for reading data objects of type Chem.Molecule from an arbitrary data source.">MoleculeReaderBase</a></code> implementation may decide to throw an exception of type <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a> to report the error condition. </p>
+<p>If a <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a07056e4d2a6de5045d59f2356d3d5521" title="Reads the data record at the current record index and stores the read data in mol.">read()</a> (or <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a3ef7dd253dc958acd4ff390cd6f3644c" title="Skips the data record at the current record index.">skip()</a>) operation was successful, the current record index is updated to point to the record immediately following the just read (or skipped) data record. If an operation fails, the reader instance is set into an error state that can be queried by the special methods <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a0c35c6c80bb97df0f919168c7eeac4c5" title="Returns a boolean indicating the error state of the reader.">__bool__()</a> and <a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html#a1e30e0f491befd320e95bfcbef8731dd" title="Returns a boolean indicating the error state of the reader.">__nonzero__()</a>. Additionally, a <code><a class="el" href="classCDPL_1_1Chem_1_1MoleculeReaderBase.html" title="Interface for reading data objects of type Chem.Molecule from an arbitrary data source.">MoleculeReaderBase</a></code> implementation may decide to throw an exception of type <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a> to report the error condition. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a07056e4d2a6de5045d59f2356d3d5521"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07056e4d2a6de5045d59f2356d3d5521">&#9670;&nbsp;</a></span>read() <span class="overload">[1/2]</span></h2>
@@ -295,7 +295,7 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><em>self</em>.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -347,7 +347,7 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><em>self</em>.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is greater or equal to the number of records. <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a> if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is greater or equal to the number of records. <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a> if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -374,7 +374,7 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><em>self</em>.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -400,7 +400,7 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><code>True</code> if there are data records left to read, and <code>False</code> otherwise.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -452,7 +452,7 @@ Properties</h2></td></tr>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is greater or equal to the number of available data records. <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a> if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is greater or equal to the number of available data records. <a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a> if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -478,7 +478,7 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The total number of available data records.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>
@@ -503,7 +503,7 @@ Properties</h2></td></tr>
 <p>Performs a reader specific shutdown operation (if required). </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g.">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IOError.html" title="Thrown to indicate that an I/O operation has failed because of physical (e.g. broken pipe) or logical...">Base.IOError</a></td><td>if an I/O error occurred. </td></tr>
   </table>
   </dd>
 </dl>

@@ -232,7 +232,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm.FeatureInteractionScore</a> implementation that scores a feature pair based on whether their 3D position distance falls within a configured [min, max] interval.  <a href="classCDPL_1_1Pharm_1_1FeatureDistanceScore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureGenerator.html">FeatureGenerator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for generators that perceive one type of pharmacophore feature (e.g.  <a href="classCDPL_1_1Pharm_1_1FeatureGenerator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for generators that perceive one type of pharmacophore feature (e.g. an aromatic ring or H-bond donor) and append the perceived features to a <a class="el" href="classCDPL_1_1Pharm_1_1Pharmacophore.html" title="Abstract base class for mutable containers of Pharm.Feature instances representing a pharmacophore mo...">Pharm.Pharmacophore</a>.  <a href="classCDPL_1_1Pharm_1_1FeatureGenerator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureGeometry.html">FeatureGeometry</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides constants for the specification of the generic geometry of a pharmacophore feature.  <a href="classCDPL_1_1Pharm_1_1FeatureGeometry.html#details">More...</a><br /></td></tr>
@@ -241,7 +241,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Match functor that quantifies the goodness of the spatial orientation match between two pharmacophore features, applying type-specific tolerances for H-bond donor/acceptor, halogen-bond donor/acceptor and aromatic features.  <a href="classCDPL_1_1Pharm_1_1FeatureGeometryMatchFunctor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html">FeatureInteractionScore</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-feature interaction (e.g.  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-feature interaction (e.g. H-bond, ionic, &pi;-&pi; stacking) between two <a class="el" href="classCDPL_1_1Pharm_1_1Feature.html" title="Abstract base class representing a single pharmacophore feature.">Pharm.Feature</a> instances.  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScoreCombiner.html">FeatureInteractionScoreCombiner</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composite <a class="el" href="classCDPL_1_1Pharm_1_1FeatureInteractionScore.html" title="Abstract base class for scoring functors that quantify the strength of a directional pharmacophore-fe...">Pharm.FeatureInteractionScore</a> that combines two underlying interaction scores via a user-supplied binary combination function (default: maximum).  <a href="classCDPL_1_1Pharm_1_1FeatureInteractionScoreCombiner.html#details">More...</a><br /></td></tr>
@@ -465,16 +465,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5353636272e99c6f05ad3272600c15f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string describing the environment residues associated with the feature <em>feature</em>.  <a href="namespaceCDPL_1_1Pharm.html#a5353636272e99c6f05ad3272600c15f4">More...</a><br /></td></tr>
 <tr class="separator:a5353636272e99c6f05ad3272600c15f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a061fddb8f21ddbd83fbfb0879b8c971d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#a061fddb8f21ddbd83fbfb0879b8c971d">setEnvironmentSubstructure</a> (<a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> feature, <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> substruct)</td></tr>
-<tr class="memdesc:a061fddb8f21ddbd83fbfb0879b8c971d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> to <em>substruct</em>.  <a href="namespaceCDPL_1_1Pharm.html#a061fddb8f21ddbd83fbfb0879b8c971d">More...</a><br /></td></tr>
+<tr class="memdesc:a061fddb8f21ddbd83fbfb0879b8c971d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> to <em>substruct</em>.  <a href="namespaceCDPL_1_1Pharm.html#a061fddb8f21ddbd83fbfb0879b8c971d">More...</a><br /></td></tr>
 <tr class="separator:a061fddb8f21ddbd83fbfb0879b8c971d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3932a90ab086be130c6c4687e5705ba6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#a3932a90ab086be130c6c4687e5705ba6">hasEnvironmentSubstructure</a> (<a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> feature)</td></tr>
-<tr class="memdesc:a3932a90ab086be130c6c4687e5705ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> is set.  <a href="namespaceCDPL_1_1Pharm.html#a3932a90ab086be130c6c4687e5705ba6">More...</a><br /></td></tr>
+<tr class="memdesc:a3932a90ab086be130c6c4687e5705ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> is set.  <a href="namespaceCDPL_1_1Pharm.html#a3932a90ab086be130c6c4687e5705ba6">More...</a><br /></td></tr>
 <tr class="separator:a3932a90ab086be130c6c4687e5705ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac639b4905f8f26ccb3ff2b448632ac14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#ac639b4905f8f26ccb3ff2b448632ac14">getEnvironmentSubstructure</a> (<a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> feature)</td></tr>
-<tr class="memdesc:ac639b4905f8f26ccb3ff2b448632ac14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>.  <a href="namespaceCDPL_1_1Pharm.html#ac639b4905f8f26ccb3ff2b448632ac14">More...</a><br /></td></tr>
+<tr class="memdesc:ac639b4905f8f26ccb3ff2b448632ac14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>.  <a href="namespaceCDPL_1_1Pharm.html#ac639b4905f8f26ccb3ff2b448632ac14">More...</a><br /></td></tr>
 <tr class="separator:ac639b4905f8f26ccb3ff2b448632ac14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ddfc4fc526371da641372f749aa729"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#a91ddfc4fc526371da641372f749aa729">clearEnvironmentSubstructure</a> (<a class="el" href="classCDPL_1_1Pharm_1_1Feature.html">Feature</a> feature)</td></tr>
-<tr class="memdesc:a91ddfc4fc526371da641372f749aa729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>.  <a href="namespaceCDPL_1_1Pharm.html#a91ddfc4fc526371da641372f749aa729">More...</a><br /></td></tr>
+<tr class="memdesc:a91ddfc4fc526371da641372f749aa729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>.  <a href="namespaceCDPL_1_1Pharm.html#a91ddfc4fc526371da641372f749aa729">More...</a><br /></td></tr>
 <tr class="separator:a91ddfc4fc526371da641372f749aa729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a881960dd607c909ae1c51a94e65d24a2"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#a881960dd607c909ae1c51a94e65d24a2">getFeatureAtoms</a> (<a class="el" href="classCDPL_1_1Pharm_1_1FeatureContainer.html">FeatureContainer</a> cntnr, <a class="el" href="classCDPL_1_1Chem_1_1Fragment.html">Chem.Fragment</a> atoms, bool append=False)</td></tr>
 <tr class="memdesc:a881960dd607c909ae1c51a94e65d24a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects the atoms of the molecular substructures underlying the features of the feature container <em>cntr</em> into <em>atoms</em>.  <a href="namespaceCDPL_1_1Pharm.html#a881960dd607c909ae1c51a94e65d24a2">More...</a><br /></td></tr>
@@ -486,7 +486,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a41b794ec9acb8d8a9af52e21dfcf4c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of features in the feature container <em>cntr</em> whose type matches <em>type</em>.  <a href="namespaceCDPL_1_1Pharm.html#a41b794ec9acb8d8a9af52e21dfcf4c73">More...</a><br /></td></tr>
 <tr class="separator:a41b794ec9acb8d8a9af52e21dfcf4c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8942e87a3465bb680bc9132bf53f99ee"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#a8942e87a3465bb680bc9132bf53f99ee">getFeatureTypeString</a> (int ftr_type)</td></tr>
-<tr class="memdesc:a8942e87a3465bb680bc9132bf53f99ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a concise human-readable string (e.g.  <a href="namespaceCDPL_1_1Pharm.html#a8942e87a3465bb680bc9132bf53f99ee">More...</a><br /></td></tr>
+<tr class="memdesc:a8942e87a3465bb680bc9132bf53f99ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a concise human-readable string (e.g. <em>"HBD"</em> for H-bond donor) for the given numeric feature type identifier <em>ftr_type</em>.  <a href="namespaceCDPL_1_1Pharm.html#a8942e87a3465bb680bc9132bf53f99ee">More...</a><br /></td></tr>
 <tr class="separator:a8942e87a3465bb680bc9132bf53f99ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c554246695f71d0cd6b39179656651"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Pharm.html#aa5c554246695f71d0cd6b39179656651">getFeatures</a> (<a class="el" href="classCDPL_1_1Pharm_1_1FeatureSet.html">FeatureSet</a> ftr_set, <a class="el" href="classCDPL_1_1Pharm_1_1FeatureMapping.html">FeatureMapping</a> mapping, bool first)</td></tr>
 <tr class="memdesc:aa5c554246695f71d0cd6b39179656651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts features from <em>mapping</em> into the feature set <em>ftr_set</em>.  <a href="namespaceCDPL_1_1Pharm.html#aa5c554246695f71d0cd6b39179656651">More...</a><br /></td></tr>
@@ -912,7 +912,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> to <em>substruct</em>. </p>
+<p>Sets the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> to <em>substruct</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">feature</td><td>The feature for which to set the property value. </td></tr>
@@ -939,7 +939,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> is set. </p>
+<p>Tells whether the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em> is set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">feature</td><td>The feature.</td></tr>
@@ -966,7 +966,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>. </p>
+<p>Returns the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">feature</td><td>The feature for which to get the property value.</td></tr>
@@ -994,7 +994,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clears the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g.">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>. </p>
+<p>Clears the value of the <a class="el" href="classCDPL_1_1Pharm_1_1FeatureProperty.html#acc9914138cb1b558bfb50a83beac4b92" title="Specifies the environment atoms and bonds (e.g. of interacting pocket residues) associated with the f...">Pharm.FeatureProperty.ENVIRONMENT_SUBSTRUCTURE</a> property of the feature <em>feature</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">feature</td><td>The feature for which to clear the property value. </td></tr>
@@ -1130,8 +1130,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a concise human-readable string (e.g. </p>
-<p><em>"HBD"</em> for H-bond donor) for the given numeric feature type identifier <em>ftr_type</em>.</p>
+<p>Returns a concise human-readable string (e.g. <em>"HBD"</em> for H-bond donor) for the given numeric feature type identifier <em>ftr_type</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ftr_type</td><td>The feature type identifier (see namespace <a class="el" href="classCDPL_1_1Pharm_1_1FeatureType.html" title="Provides constants for the specification of the generic type of a pharmacophore feature.">Pharm.FeatureType</a>).</td></tr>
