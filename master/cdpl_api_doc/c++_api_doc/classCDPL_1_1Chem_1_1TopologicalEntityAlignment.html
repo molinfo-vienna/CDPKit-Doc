@@ -135,13 +135,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a06aee2b60e1dcbee6d49be6366682212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the function that was registered for checking the compatibility of entity pairs.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a06aee2b60e1dcbee6d49be6366682212">More...</a><br /></td></tr>
 <tr class="separator:a06aee2b60e1dcbee6d49be6366682212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a564448d383c18b59dbaeef6a6fbab95f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a564448d383c18b59dbaeef6a6fbab95f">addEntity</a> (const <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a76162d530ab58cbb0cd049be008e7ef9">EntityType</a> &amp;entity, <a class="el" href="classbool.html">bool</a> first_set)</td></tr>
-<tr class="memdesc:a564448d383c18b59dbaeef6a6fbab95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an entity to the specified alignment entity set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a564448d383c18b59dbaeef6a6fbab95f">More...</a><br /></td></tr>
+<tr class="memdesc:a564448d383c18b59dbaeef6a6fbab95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an entity to the specified set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a564448d383c18b59dbaeef6a6fbab95f">More...</a><br /></td></tr>
 <tr class="separator:a564448d383c18b59dbaeef6a6fbab95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8b46543fd4d71f730126f63da4af32d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ae8b46543fd4d71f730126f63da4af32d">clearEntities</a> (<a class="el" href="classbool.html">bool</a> first_set)</td></tr>
-<tr class="memdesc:ae8b46543fd4d71f730126f63da4af32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entities in the specified alignment entity set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ae8b46543fd4d71f730126f63da4af32d">More...</a><br /></td></tr>
+<tr class="memdesc:ae8b46543fd4d71f730126f63da4af32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all entities in the specified set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ae8b46543fd4d71f730126f63da4af32d">More...</a><br /></td></tr>
 <tr class="separator:ae8b46543fd4d71f730126f63da4af32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afefb53951d3cd4e59eceee81a7381d84"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#afefb53951d3cd4e59eceee81a7381d84">getNumEntities</a> (<a class="el" href="classbool.html">bool</a> first_set) const</td></tr>
-<tr class="memdesc:afefb53951d3cd4e59eceee81a7381d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entities in the specified alignment entity set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#afefb53951d3cd4e59eceee81a7381d84">More...</a><br /></td></tr>
+<tr class="memdesc:afefb53951d3cd4e59eceee81a7381d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entities in the specified set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#afefb53951d3cd4e59eceee81a7381d84">More...</a><br /></td></tr>
 <tr class="separator:afefb53951d3cd4e59eceee81a7381d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b76bb551a23ca6d97ab438735a42548"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#abd650825e1b0111199c034d00b31e0d8">ConstEntityIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a3b76bb551a23ca6d97ab438735a42548">getEntitiesBegin</a> (<a class="el" href="classbool.html">bool</a> first_set) const</td></tr>
 <tr class="memdesc:a3b76bb551a23ca6d97ab438735a42548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a constant iterator pointing to the beginning of the entities stored in the specified set.  <a href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a3b76bb551a23ca6d97ab438735a42548">More...</a><br /></td></tr>
@@ -164,7 +164,7 @@ Public Member Functions</h2></td></tr>
 class CDPL::Chem::TopologicalEntityAlignment&lt; T &gt;</h3>
 
 <p>Computes a topological alignment between two sets of arbitrary entities by performing a maximum common subgraph search on a entity pair compatibility graph. </p>
-<p>The compatibility graph is built from the two stored entity sets: a node (<em>i</em>, <em>j</em>) is created for every pair of matching entities (checked by an optionally provided EntityMatchFunction instance; default behavior: always matching), and edges connect mutually compatible node pairs (compatibility being decided by an optionally provided EntityPairMatchFunction instance which always sees pairs whose first/second entities already match; default behavior: always compatible). Each call to <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> advances the underlying Bron-Kerbosch algorithm one maximal clique forward and reports the corresponding entity mapping between the first an second set. Via the method <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ab9cc8ed3bdf16ebb333f04b35cdd1f00" title="Discards the current alignment search state so that the next call to nextAlignment() restarts the com...">reset()</a> a fresh search on the next <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> call can be enforced.</p>
+<p>The compatibility graph is built from the two stored entity sets: a node (<em>i</em>, <em>j</em>) is created for every pair of matching entities (checked by an optional entity match function that can be specified via method <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a8b8cf4c7a78dbfcbe94c466da0c6ea91" title="Specifies a function for restricting allowed entity mappings in the search for alignment solutions.">setEntityMatchFunction()</a>; default behavior: always matching), and edges connect mutually compatible node pairs (decided by an optional entity pair match function that can be specified via <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ac114765e3ebb44b128460a0aa32be40c" title="Specifies a function for checking the compatibility of entity pairs in the search for alignment solut...">setEntityPairMatchFunction()</a>; default behavior: always compatible). Each call to <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> advances the underlying Bron-Kerbosch algorithm [<a class="el" href="References.html#BKA">BKA</a>] one maximal clique forward and reports the corresponding entity mapping between the first an second set. Via the method <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#ab9cc8ed3bdf16ebb333f04b35cdd1f00" title="Discards the current alignment search state so that the next call to nextAlignment() restarts the com...">reset()</a> a fresh search on the next <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#a0090de2f8a6df2386f7317800a413d2c" title="Searches for the next alignment solution and stores the corresponding mapping of the entities in the ...">nextAlignment()</a> call can be enforced.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The entity type to align. </td></tr>
@@ -445,11 +445,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Adds an entity to the specified alignment entity set. </p>
+<p>Adds an entity to the specified set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">entity</td><td>The entity to add. </td></tr>
-    <tr><td class="paramname">first_set</td><td>If <code>true</code>, the entity is added to the first entity set, if <code>false</code> to the second one. </td></tr>
+    <tr><td class="paramname">first_set</td><td>If <code>true</code>, the entity is added to the first set, if <code>false</code> to the second one. </td></tr>
   </table>
   </dd>
 </dl>
@@ -475,10 +475,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Removes all entities in the specified alignment entity set. </p>
+<p>Removes all entities in the specified set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">first_set</td><td>If <code>true</code>, the first entity set is cleared, if <code>false</code> the second one. </td></tr>
+    <tr><td class="paramname">first_set</td><td>If <code>true</code>, the first set is cleared, if <code>false</code> the second one. </td></tr>
   </table>
   </dd>
 </dl>
@@ -503,10 +503,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of entities in the specified alignment entity set. </p>
+<p>Returns the number of entities in the specified set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">first_set</td><td>If <code>true</code>, the size of first entity set is returned, if <code>false</code> the size of the second one. </td></tr>
+    <tr><td class="paramname">first_set</td><td>If <code>true</code>, the size of first set is returned, if <code>false</code> the size of the second one. </td></tr>
   </table>
   </dd>
 </dl>
@@ -534,7 +534,7 @@ template&lt;typename T &gt; </div>
 <p>Returns a constant iterator pointing to the beginning of the entities stored in the specified set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">first_set</td><td>If <code>true</code>, an iterator for first entity set is returned, if <code>false</code> for the second one. </td></tr>
+    <tr><td class="paramname">first_set</td><td>If <code>true</code>, an iterator for first set is returned, if <code>false</code> for the second one. </td></tr>
   </table>
   </dd>
 </dl>
@@ -563,7 +563,7 @@ template&lt;typename T &gt; </div>
 <p>Returns a constant iterator pointing to the end of the entities stored in the specified set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">first_set</td><td>If <code>true</code>, an iterator for first entity set is returned, if <code>false</code> for the second one. </td></tr>
+    <tr><td class="paramname">first_set</td><td>If <code>true</code>, an iterator for first set is returned, if <code>false</code> for the second one. </td></tr>
   </table>
   </dd>
 </dl>
@@ -610,7 +610,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A non-<code>const</code> reference to the entity stored at index <em>idx</em> in the specified set. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#afefb53951d3cd4e59eceee81a7381d84" title="Returns the number of entities in the specified alignment entity set.">getNumEntities()</a>). </td></tr>
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base::IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1TopologicalEntityAlignment.html#afefb53951d3cd4e59eceee81a7381d84" title="Returns the number of entities in the specified set.">getNumEntities()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -638,7 +638,7 @@ template&lt;typename T &gt; </div>
 <p>Searches for the next alignment solution and stores the corresponding mapping of the entities in the first set to the entities in the second set in the map provided as an argument. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mapping</td><td>The map where the entitiy mapping of the found alignment solution has to be stored. </td></tr>
+    <tr><td class="paramname">mapping</td><td>The map where the entity mapping of the found alignment solution has to be stored. </td></tr>
   </table>
   </dd>
 </dl>
