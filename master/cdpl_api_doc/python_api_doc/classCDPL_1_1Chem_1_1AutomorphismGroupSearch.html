@@ -156,11 +156,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af730b5b085408557299c4f968515d6b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1BoolMolecularGraphAtomBondMappingFunctor.html">BoolMolecularGraphAtomBondMappingFunctor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af730b5b085408557299c4f968515d6b8">getFoundMappingCallback</a> ()</td></tr>
 <tr class="memdesc:af730b5b085408557299c4f968515d6b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the currently installed callback function invoked for every found atom/bond mapping.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af730b5b085408557299c4f968515d6b8">More...</a><br /></td></tr>
 <tr class="separator:af730b5b085408557299c4f968515d6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b6d85a154d89fc6a55158f99ced1a94"><td class="memItemLeft" align="right" valign="top"><a id="a6b6d85a154d89fc6a55158f99ced1a94"></a>
-<a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><b>__getitem__</b> (int idx)</td></tr>
+<tr class="memitem:a6b6d85a154d89fc6a55158f99ced1a94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a6b6d85a154d89fc6a55158f99ced1a94">__getitem__</a> (int idx)</td></tr>
+<tr class="memdesc:a6b6d85a154d89fc6a55158f99ced1a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem.AtomBondMapping</a> instance at index <em>idx</em>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a6b6d85a154d89fc6a55158f99ced1a94">More...</a><br /></td></tr>
 <tr class="separator:a6b6d85a154d89fc6a55158f99ced1a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa27e0be754a80a1e173c80272b8b6400"><td class="memItemLeft" align="right" valign="top"><a id="aa27e0be754a80a1e173c80272b8b6400"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>__len__</b> ()</td></tr>
+<tr class="memitem:aa27e0be754a80a1e173c80272b8b6400"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aa27e0be754a80a1e173c80272b8b6400">__len__</a> ()</td></tr>
+<tr class="memdesc:aa27e0be754a80a1e173c80272b8b6400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#acb64004dd2ad5bb983ba608cac8d2be6" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aa27e0be754a80a1e173c80272b8b6400">More...</a><br /></td></tr>
 <tr class="separator:aa27e0be754a80a1e173c80272b8b6400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -189,7 +189,7 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Enumerates the atom and bond self-mappings (automorphism group) of a molecular graph. </p>
-<p>The automorphism group of a molecular graph is the set of self-mappings (atom permutations and the induced bond permutations) that preserve the molecular graph structure under the configured atom and bond mapping constraints. <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Atom</a> and bond matching is configurable via bit masks composed by a bitwise-OR combination of the constants defined in namespace <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a> and <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a> that are set using the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a08ea7f00aaa4fa643548d720741874e1" title="Specifies the atomic properties considered for atom matching during automorphism search.">setAtomPropertyFlags()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a41ba8105d996b3b3926b0ef39353913d" title="Specifies the bond properties considered for bond matching during automorphism search.">setBondPropertyFlags()</a>, respectively. Found mappings are recorded as <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem.AtomBondMapping</a> instances that can be accessed via index through the method <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aca0c255b09cea652544d8082ed90e45d" title="Returns the stored Chem.AtomBondMapping instance at index idx.">getMapping()</a> or iteration using the iterator pair returned by the methods begin() and end(). The method <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a240f2a669548479f089f82bf77acdeae" title="Sets a callback function that is invoked for every atom/bond mapping found during findMappings().">setFoundMappingCallback()</a> allows to register a user-defined callback function that gets invoked whenever a new mapping has been found. The maximum number of stored solutions can be bounded by <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af705507c5e9716184395bc6a9f69419b" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a01d96db668f03321d97fe8a86d27c618" title="Aborts a currently running findMappings() call.">stopSearch()</a> allows an immediate abort of the search process. Furthermore, query &harr; target atom and bond mappings can be restricted to user-defined subsets by the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a7bf33bdb4a21e792b9ab46907b41f64f" title="Adds a constraint on the allowed atom mappings.">addAtomMappingConstraint()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9af169efefd9aa923f059411c95f2e5e" title="Adds a constraint on the allowed bond mappings.">addBondMappingConstraint()</a>, respectively. </p>
+<p>The automorphism group of a molecular graph is the set of self-mappings (atom permutations and the induced bond permutations) that preserve the molecular graph structure under the configured atom and bond mapping constraints. Atom and bond matching is configurable via bit masks composed by a bitwise-OR combination of the constants defined in class <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a> and <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a> that are set using the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a08ea7f00aaa4fa643548d720741874e1" title="Specifies the atomic properties considered for atom matching during automorphism search.">setAtomPropertyFlags()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a41ba8105d996b3b3926b0ef39353913d" title="Specifies the bond properties considered for bond matching during automorphism search.">setBondPropertyFlags()</a>, respectively. Found mappings are recorded as <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem.AtomBondMapping</a> instances that can be accessed via index through the method <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#aca0c255b09cea652544d8082ed90e45d" title="Returns the stored Chem.AtomBondMapping instance at index idx.">getMapping()</a>. The method <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a240f2a669548479f089f82bf77acdeae" title="Sets a callback function that is invoked for every atom/bond mapping found during findMappings().">setFoundMappingCallback()</a> allows to register a user-defined callback function that gets invoked whenever a new mapping has been found. The maximum number of stored solutions can be bounded by <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#af705507c5e9716184395bc6a9f69419b" title="Allows to specify a limit on the number of stored atom/bond mappings.">setMaxNumMappings()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a01d96db668f03321d97fe8a86d27c618" title="Aborts a currently running findMappings() call.">stopSearch()</a> allows an immediate abort of the search process. Furthermore, query &harr; target atom and bond mappings can be restricted to user-defined subsets by the methods <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a7bf33bdb4a21e792b9ab46907b41f64f" title="Adds a constraint on the allowed atom mappings.">addAtomMappingConstraint()</a> and <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a9af169efefd9aa923f059411c95f2e5e" title="Adds a constraint on the allowed bond mappings.">addBondMappingConstraint()</a>, respectively. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5a388f2e31c8c141c49332235c72f10f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a388f2e31c8c141c49332235c72f10f">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -220,8 +220,8 @@ Properties</h2></td></tr>
 <p>Constructs and initializes the <code><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html" title="Enumerates the atom and bond self-mappings (automorphism group) of a molecular graph.">AutomorphismGroupSearch</a></code> instance for the specified atom and bond properties. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">atom_flags</td><td>Bitwise-OR combination of <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a> values specifying atomic properties considered for atom matching. </td></tr>
-    <tr><td class="paramname">bond_flags</td><td>Bitwise-OR combination of <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a> values specifying bond properties considered for bond matching. </td></tr>
+    <tr><td class="paramname">atom_flags</td><td>Bitwise-OR combination of constants in class <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a> specifying the set of considered atom properties. </td></tr>
+    <tr><td class="paramname">bond_flags</td><td>Bitwise-OR combination of constants in class <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a> specifying the set of considered bond properties. </td></tr>
   </table>
   </dd>
 </dl>
@@ -269,7 +269,7 @@ Properties</h2></td></tr>
 <p>Specifies the atomic properties considered for atom matching during automorphism search. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">flags</td><td>The new bitwise-OR combination of corresponding <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a> values. </td></tr>
+    <tr><td class="paramname">flags</td><td>Bitwise-OR combination of constants in class <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -292,7 +292,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the atomic properties currently considered for atom matching. </p>
-<dl class="section return"><dt>Returns</dt><dd>The currently set bitwise-OR combination of corresponding <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a> values. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The currently set bitwise-OR combination of constants in class <a class="el" href="classCDPL_1_1Chem_1_1AtomPropertyFlag.html" title="Provides flags for the specification of basic Chem.Atom properties.">Chem.AtomPropertyFlag</a>. </dd></dl>
 
 </div>
 </div>
@@ -315,7 +315,7 @@ Properties</h2></td></tr>
 <p>Specifies the bond properties considered for bond matching during automorphism search. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">flags</td><td>The new bitwise-OR combination of corresponding <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a> values. </td></tr>
+    <tr><td class="paramname">flags</td><td>Bitwise-OR combination of constants in class <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -338,7 +338,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the bond properties currently considered for bond matching. </p>
-<dl class="section return"><dt>Returns</dt><dd>The currently set bitwise-OR combination of corresponding <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a> values. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The currently set bitwise-OR combination of constants in class <a class="el" href="classCDPL_1_1Chem_1_1BondPropertyFlag.html" title="Provides flags for the specification of basic Chem.Bond properties.">Chem.BondPropertyFlag</a>. </dd></dl>
 
 </div>
 </div>
@@ -699,6 +699,59 @@ Properties</h2></td></tr>
 
 <p>Returns the currently installed callback function invoked for every found atom/bond mapping. </p>
 <dl class="section return"><dt>Returns</dt><dd>The installed callback function. </dd></dl>
+
+</div>
+</div>
+<a id="a6b6d85a154d89fc6a55158f99ced1a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6d85a154d89fc6a55158f99ced1a94">&#9670;&nbsp;</a></span>__getitem__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html">AtomBondMapping</a> CDPL.Chem.AutomorphismGroupSearch.__getitem__ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the stored <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem.AtomBondMapping</a> instance at index <em>idx</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idx</td><td>The zero-based index of the <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem.AtomBondMapping</a> instance to return.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classCDPL_1_1Chem_1_1AtomBondMapping.html" title="Data structure for the common storage of related atom to atom and bond to bond mappings.">Chem.AtomBondMapping</a> instance at index <em>idx</em>.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classCDPL_1_1Base_1_1IndexError.html" title="Thrown to indicate that an index is out of range.">Base.IndexError</a></td><td>if <em>idx</em> is not in the range [0, <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#a726f88de0d23542b9d3c20159964f633" title="Returns the number of atom/bond mappings that were recorded in the last call to findMappings().">getNumMappings()</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa27e0be754a80a1e173c80272b8b6400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27e0be754a80a1e173c80272b8b6400">&#9670;&nbsp;</a></span>__len__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int CDPL.Chem.AutomorphismGroupSearch.__len__ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#acb64004dd2ad5bb983ba608cac8d2be6" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of atom/bond mappings that were recorded in the last call to <a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#acb64004dd2ad5bb983ba608cac8d2be6" title="Searches for the possible atom/bond mappings in the automorphism group of the molecular graph molgrap...">findMappings()</a>. </dd></dl>
 
 </div>
 </div>

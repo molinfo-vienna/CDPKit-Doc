@@ -267,7 +267,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that constrains target atoms by the size of the SSSR ring(s) containing them.  <a href="classCDPL_1_1Chem_1_1AtomSSSRRingSizeMatchExpression.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AtomTypeMatchExpression.html">AtomTypeMatchExpression</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">MatchExpression</a> that checks the atom type of a target atom against a query atom type.  <a href="classCDPL_1_1Chem_1_1AtomTypeMatchExpression.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classCDPL_1_1Chem_1_1MatchExpression.html" title="Generic boolean expression interface for the implementation of query/target object equivalence tests ...">Chem::MatchExpression</a> implementation that checks the atom type of a target atom against a query atom type.  <a href="classCDPL_1_1Chem_1_1AtomTypeMatchExpression.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html">AutomorphismGroupSearch</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumerates the atom and bond self-mappings (automorphism group) of a molecular graph.  <a href="classCDPL_1_1Chem_1_1AutomorphismGroupSearch.html#details">More...</a><br /></td></tr>
@@ -657,7 +657,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:adf3061518a4b1246160ae9f098bde308"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; const <a class="el" href="namespaceCDPL_1_1Math.html#aa8a89dbb21b68a064b2994de7d6c4d6b">Math::Vector3D</a> &amp;(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Chem::Atom</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">Atom3DCoordinatesFunction</a></td></tr>
-<tr class="memdesc:adf3061518a4b1246160ae9f098bde308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic wrapper class used to store a user-defined <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> 3D coordinates function.  <a href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">More...</a><br /></td></tr>
+<tr class="memdesc:adf3061518a4b1246160ae9f098bde308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic wrapper class used to store a user-defined atom 3D coordinates retrieval function.  <a href="namespaceCDPL_1_1Chem.html#adf3061518a4b1246160ae9f098bde308">More...</a><br /></td></tr>
 <tr class="separator:adf3061518a4b1246160ae9f098bde308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2150f16de7a0930d6a6808de950efd7b"><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; <a class="el" href="classbool.html">bool</a>(const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;, const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a2150f16de7a0930d6a6808de950efd7b">AtomCompareFunction</a></td></tr>
 <tr class="memdesc:a2150f16de7a0930d6a6808de950efd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic wrapper class used to store a user-defined atom compare function.  <a href="namespaceCDPL_1_1Chem.html#a2150f16de7a0930d6a6808de950efd7b">More...</a><br /></td></tr>
@@ -1410,16 +1410,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:a86d139b950a1bdc5858eb73288dd8861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a462f2718da05d86e80a5556b6322c3e7" title="Specifies the Sybyl MOL2 atom name.">Chem::AtomProperty::MOL2_NAME</a> property of the atom <em>atom</em> is set.  <a href="namespaceCDPL_1_1Chem.html#a86d139b950a1bdc5858eb73288dd8861">More...</a><br /></td></tr>
 <tr class="separator:a86d139b950a1bdc5858eb73288dd8861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb5201f5ffec5dbdac9a9f643e4712e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#adb5201f5ffec5dbdac9a9f643e4712e7">getMOL2Charge</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom)</td></tr>
-<tr class="memdesc:adb5201f5ffec5dbdac9a9f643e4712e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>.  <a href="namespaceCDPL_1_1Chem.html#adb5201f5ffec5dbdac9a9f643e4712e7">More...</a><br /></td></tr>
+<tr class="memdesc:adb5201f5ffec5dbdac9a9f643e4712e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>.  <a href="namespaceCDPL_1_1Chem.html#adb5201f5ffec5dbdac9a9f643e4712e7">More...</a><br /></td></tr>
 <tr class="separator:adb5201f5ffec5dbdac9a9f643e4712e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5308abbf3f77241ebbad8fe150fad3c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a5308abbf3f77241ebbad8fe150fad3c1">setMOL2Charge</a> (<a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom, double charge)</td></tr>
-<tr class="memdesc:a5308abbf3f77241ebbad8fe150fad3c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> to <em>charge</em>.  <a href="namespaceCDPL_1_1Chem.html#a5308abbf3f77241ebbad8fe150fad3c1">More...</a><br /></td></tr>
+<tr class="memdesc:a5308abbf3f77241ebbad8fe150fad3c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> to <em>charge</em>.  <a href="namespaceCDPL_1_1Chem.html#a5308abbf3f77241ebbad8fe150fad3c1">More...</a><br /></td></tr>
 <tr class="separator:a5308abbf3f77241ebbad8fe150fad3c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a794adbf70e1e7b6014b1ae094328c1ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a794adbf70e1e7b6014b1ae094328c1ee">clearMOL2Charge</a> (<a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom)</td></tr>
-<tr class="memdesc:a794adbf70e1e7b6014b1ae094328c1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>.  <a href="namespaceCDPL_1_1Chem.html#a794adbf70e1e7b6014b1ae094328c1ee">More...</a><br /></td></tr>
+<tr class="memdesc:a794adbf70e1e7b6014b1ae094328c1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>.  <a href="namespaceCDPL_1_1Chem.html#a794adbf70e1e7b6014b1ae094328c1ee">More...</a><br /></td></tr>
 <tr class="separator:a794adbf70e1e7b6014b1ae094328c1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f58ab441d3b3036ef748b138b9fe450"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> <a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#a1f58ab441d3b3036ef748b138b9fe450">hasMOL2Charge</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom)</td></tr>
-<tr class="memdesc:a1f58ab441d3b3036ef748b138b9fe450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> is set.  <a href="namespaceCDPL_1_1Chem.html#a1f58ab441d3b3036ef748b138b9fe450">More...</a><br /></td></tr>
+<tr class="memdesc:a1f58ab441d3b3036ef748b138b9fe450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> is set.  <a href="namespaceCDPL_1_1Chem.html#a1f58ab441d3b3036ef748b138b9fe450">More...</a><br /></td></tr>
 <tr class="separator:a1f58ab441d3b3036ef748b138b9fe450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9aecaffec093e7e0f5747e20ca5a47b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Chem_2APIPrefix_8hpp.html#addd1f8801b15c51c9417a3eff3212ade">CDPL_CHEM_API</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceCDPL_1_1Chem.html#ae9aecaffec093e7e0f5747e20ca5a47b">getMOL2SubstructureID</a> (const <a class="el" href="classCDPL_1_1Chem_1_1Atom.html">Atom</a> &amp;atom)</td></tr>
 <tr class="memdesc:ae9aecaffec093e7e0f5747e20ca5a47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a80486612aada4b0bbd84bf700c7fb8ee" title="Specifies the Sybyl MOL2 numeric substructure identifier associated with the atom.">Chem::AtomProperty::MOL2_SUBSTRUCTURE_ID</a> property of the atom <em>atom</em>.  <a href="namespaceCDPL_1_1Chem.html#ae9aecaffec093e7e0f5747e20ca5a47b">More...</a><br /></td></tr>
@@ -3543,7 +3543,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generic wrapper class used to store a user-defined <a class="el" href="classCDPL_1_1Chem_1_1Atom.html" title="Abstract base class representing a chemical atom and its bonded neighborhood.">Chem::Atom</a> 3D coordinates function. </p>
+<p>Generic wrapper class used to store a user-defined atom 3D coordinates retrieval function. </p>
 
 </div>
 </div>
@@ -9974,7 +9974,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>. </p>
+<p>Returns the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom</td><td>The atom for which to return the property value. </td></tr>
@@ -10011,7 +10011,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> to <em>charge</em>. </p>
+<p>Sets the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> to <em>charge</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom</td><td>The atom for which to set the property value. </td></tr>
@@ -10038,7 +10038,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clears the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>. </p>
+<p>Clears the value of the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom</td><td>The atom for which to clear the property value. </td></tr>
@@ -10064,7 +10064,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> is set. </p>
+<p>Tells whether the <a class="el" href="namespaceCDPL_1_1Chem_1_1AtomProperty.html#a690efc57e8193e8f8dfda4916e2a21ea" title="Specifies the Sybyl MOL2 atomic partial charge.">Chem::AtomProperty::MOL2_CHARGE</a> property of the atom <em>atom</em> is set. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">atom</td><td>The atom for which to query the property value. </td></tr>
